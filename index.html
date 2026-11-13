@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Kaiser">
+<meta name="theme-color" content="#0b0d12">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>KAISER · Solana Meme Desk</title>
+<style>
+:root{
+  --bg:#0b0d12;--panel:#12151d;--panel2:#181c26;--line:#232838;--text:#e7e9ee;--dim:#8a91a3;
+  --gold:#f2b84b;--cyan:#4fd1c5;--green:#3ddc84;--red:#ff5c6c;--amber:#ffb347;--violet:#a78bfa;
+  --mono:ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--text);font:15px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+body{padding-bottom:calc(68px + env(safe-area-inset-bottom))}
+header{position:sticky;top:0;z-index:20;background:rgba(11,13,18,.92);backdrop-filter:blur(10px);
+  padding:calc(env(safe-area-inset-top) + 10px) 14px 10px;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px}
+.logo{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--gold),#b7791f);
+  display:grid;place-items:center;font-weight:900;color:#1a1204;font-size:16px}
+.brand h1{font-size:17px;letter-spacing:.14em;margin:0;font-weight:800}
+.brand small{color:var(--dim);font-size:11px;letter-spacing:.04em}
+.pills{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.pill{font:600 11px var(--mono);padding:3px 8px;border-radius:99px;background:var(--panel2);color:var(--dim);border:1px solid var(--line)}
+.pill.on{color:var(--green);border-color:#1f4d33}.pill.off{color:var(--red);border-color:#4d1f26}.pill.gold{color:var(--gold);border-color:#4d3a1a}
+main{padding:12px 12px 0}
+.view{display:none}.view.active{display:block}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px;margin-bottom:10px}
+.row{display:flex;align-items:center;gap:8px}.between{justify-content:space-between}.wrap{flex-wrap:wrap}
+.muted{color:var(--dim)}.mono{font-family:var(--mono)}.small{font-size:12px}.tiny{font-size:11px}
+.up{color:var(--green)}.down{color:var(--red)}.warn{color:var(--amber)}
+.btn{appearance:none;border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:10px;
+  padding:9px 12px;font-weight:600;font-size:14px}
+.btn:active{transform:scale(.98)}
+.btn.gold{background:var(--gold);color:#1a1204;border-color:var(--gold)}
+.btn.green{background:#173d2a;border-color:#22593c;color:var(--green)}
+.btn.red{background:#3d1720;border-color:#59222c;color:var(--red)}
+.btn.sm{padding:6px 9px;font-size:12px;border-radius:8px}
+.btn[disabled]{opacity:.45}
+.tok{display:grid;grid-template-columns:40px 1fr auto;gap:10px;align-items:center}
+.tok img,.tok .ph{width:40px;height:40px;border-radius:10px;background:var(--panel2);object-fit:cover}
+.sym{font-weight:800}.nm{color:var(--dim);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:160px}
+.score{font:800 18px var(--mono);text-align:right}
+.badge{display:inline-block;font:700 10px var(--mono);padding:2px 6px;border-radius:6px;letter-spacing:.04em}
+.b-BUY{background:#173d2a;color:var(--green)}.b-WATCH{background:#3d3317;color:var(--amber)}
+.b-SKIP{background:var(--panel2);color:var(--dim)}.b-VETO{background:#3d1720;color:var(--red)}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px}
+.m{background:var(--panel2);border-radius:8px;padding:5px 6px}.m b{display:block;font:700 12px var(--mono)}.m span{font-size:10px;color:var(--dim)}
+.chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.chip{font-size:11px;padding:2px 7px;border-radius:99px;background:var(--panel2);color:var(--dim)}
+.chip.v{background:#3d1720;color:#ffb3bb}.chip.g{background:#16332a;color:#9ff0c5}
+nav{position:fixed;bottom:0;left:0;right:0;z-index:30;display:grid;grid-template-columns:repeat(5,1fr);
+  background:rgba(18,21,29,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom)}
+nav button{background:none;border:0;color:var(--dim);padding:9px 0 8px;font-size:11px;font-weight:600;position:relative}
+nav button i{display:block;font-style:normal;font-size:19px;line-height:1.2}
+nav button.active{color:var(--gold)}
+nav .dot{position:absolute;top:5px;right:calc(50% - 18px);background:var(--red);color:#fff;font-size:9px;border-radius:99px;padding:0 5px;min-width:15px}
+.log{font:12px/1.45 var(--mono);max-height:190px;overflow:auto}
+.log div{padding:1px 0;border-bottom:1px dashed #1b1f2b}
+.ag{font-weight:800}
+.ag-KAISER{color:var(--gold)}.ag-SCOUT{color:var(--cyan)}.ag-SENTINEL{color:var(--red)}.ag-ORACLE{color:var(--violet)}
+.ag-GROK{color:#e5e5e5}.ag-CHARON{color:#7dd3fc}.ag-QUARTER{color:var(--green)}.ag-SCRIBE{color:var(--dim)}
+.sheet{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.55);display:none;align-items:flex-end}
+.sheet.open{display:flex}
+.sheet .inner{background:var(--bg);width:100%;max-height:92vh;overflow:auto;border-radius:18px 18px 0 0;
+  border-top:1px solid var(--line);padding:14px 12px calc(20px + env(safe-area-inset-bottom))}
+.grab{width:40px;height:4px;border-radius:9px;background:var(--line);margin:0 auto 10px}
+iframe.chart{width:100%;height:330px;border:0;border-radius:12px;background:#000}
+.kv{display:grid;grid-template-columns:1fr auto;gap:4px 10px;font-size:13px}
+.kv span:nth-child(odd){color:var(--dim)}
+.set{display:grid;grid-template-columns:1fr 110px;gap:8px;align-items:center;margin:6px 0}
+.set label{font-size:13px}.set small{display:block;color:var(--dim);font-size:11px}
+input,select{background:var(--panel2);border:1px solid var(--line);color:var(--text);border-radius:8px;padding:8px;font:14px var(--mono);width:100%}
+input[type=checkbox]{width:22px;height:22px;justify-self:end;accent-color:var(--gold)}
+h2{font-size:13px;letter-spacing:.12em;color:var(--dim);margin:14px 2px 8px;font-weight:700;text-transform:uppercase}
+.toast{position:fixed;left:12px;right:12px;bottom:calc(80px + env(safe-area-inset-bottom));z-index:60;background:var(--panel2);
+  border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:13px;display:none}
+.toast.show{display:block}
+.bar{height:6px;border-radius:9px;background:var(--panel2);overflow:hidden}.bar i{display:block;height:100%;background:var(--gold)}
+.empty{text-align:center;color:var(--dim);padding:28px 10px;font-size:14px}
+.stat{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.stat .m b{font-size:15px}
+table{width:100%;border-collapse:collapse;font:12px var(--mono)}
+td,th{padding:6px 4px;border-bottom:1px solid var(--line);text-align:left}
+th{color:var(--dim);font-weight:600}
+a{color:var(--cyan)}
+.seg{display:flex;background:var(--panel2);border-radius:10px;padding:3px;gap:3px}
+.seg button{flex:1;border:0;background:none;color:var(--dim);padding:6px;border-radius:8px;font-weight:700;font-size:12px}
+.seg button.on{background:var(--panel);color:var(--gold)}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <div class="logo">K</div>
+    <div style="flex:1"><h1>KAISER</h1><small>Solana Meme Desk · paper trading</small></div>
+    <button class="btn sm" id="btnScan">⟳ Scan</button>
+  </div>
+  <div class="pills">
+    <span class="pill" id="pAuto">AUTO OFF</span>
+    <span class="pill" id="pBack">BACKEND —</span>
+    <span class="pill gold" id="pSol">SOL —</span>
+    <span class="pill" id="pEq">EQ —</span>
+    <span class="pill" id="pScan">—</span>
+  </div>
+</header>
+
+<main>
+  <!-- RADAR -->
+  <section class="view active" id="v-radar">
+    <div class="card">
+      <div class="row between"><b class="small">SALA OPERATIVA</b><span class="tiny muted" id="lastScan">mai</span></div>
+      <div class="log" id="log"></div>
+    </div>
+    <div class="seg" id="radarFilter" style="margin-bottom:10px">
+      <button data-f="all" class="on">Tutti</button><button data-f="BUY">Buy</button>
+      <button data-f="WATCH">Watch</button><button data-f="VETO">Veto</button>
+    </div>
+    <div id="radarList"><div class="empty">Premi ⟳ Scan per avviare il desk.</div></div>
+  </section>
+
+  <!-- TICKET -->
+  <section class="view" id="v-tickets">
+    <h2>Ticket in attesa di approvazione</h2>
+    <div id="ticketList"></div>
+    <div class="card small muted">Con “Approvazione manuale” attiva, Kaiser non apre nulla da solo: crea un ticket valido 3 minuti. Approvi tu, poi il Quartermaster esegue il fill (paper) con quotazione Jupiter reale.</div>
+  </section>
+
+  <!-- POSIZIONI -->
+  <section class="view" id="v-pos">
+    <div class="card">
+      <div class="stat">
+        <div class="m"><span>Cassa</span><b id="sCash">—</b></div>
+        <div class="m"><span>Equity</span><b id="sEq">—</b></div>
+        <div class="m"><span>P&L oggi</span><b id="sDay">—</b></div>
+      </div>
+    </div>
+    <div id="posList"></div>
+  </section>
+
+  <!-- JOURNAL -->
+  <section class="view" id="v-journal">
+    <div class="card">
+      <div class="stat">
+        <div class="m"><span>Trade</span><b id="jN">0</b></div>
+        <div class="m"><span>Win rate</span><b id="jWR">—</b></div>
+        <div class="m"><span>P&L netto</span><b id="jPnl">—</b></div>
+        <div class="m"><span>Media win</span><b id="jAW">—</b></div>
+        <div class="m"><span>Media loss</span><b id="jAL">—</b></div>
+        <div class="m"><span>Dopo tasse</span><b id="jTax">—</b></div>
+      </div>
+      <div class="row" style="margin-top:10px;gap:6px"><button class="btn sm" id="btnCsv">Esporta CSV</button></div>
+    </div>
+    <div class="card" style="overflow:auto"><table><thead><tr><th>Token</th><th>Esito</th><th>P&L</th><th>Motivo</th></tr></thead><tbody id="jRows"></tbody></table></div>
+    <h2>Uscite per motivo</h2>
+    <div class="card" id="jReasons"></div>
+  </section>
+
+  <!-- SETUP -->
+  <section class="view" id="v-set">
+    <h2>Autopilota (Kaiser)</h2>
+    <div class="card" id="setAuto"></div>
+    <h2>Capitale e rischio (Quartermaster)</h2>
+    <div class="card" id="setRisk"></div>
+    <h2>Uscite (Charon)</h2>
+    <div class="card" id="setExit"></div>
+    <h2>Filtri (Scout · Oracle · Sentinel)</h2>
+    <div class="card" id="setFilt"></div>
+    <h2>Backend Vercel (GMGN · Grok · Telegram)</h2>
+    <div class="card" id="setBack"></div>
+    <div class="card">
+      <div class="row wrap" style="gap:6px">
+        <button class="btn sm" id="btnTestBack">Test backend</button>
+        <button class="btn sm" id="btnTestTg">Test Telegram</button>
+        <button class="btn sm red" id="btnReset">Reset paper account</button>
+      </div>
+      <p class="tiny muted" style="margin:10px 0 0">Kaiser fa solo paper trading: non chiede né conserva chiavi private e non firma transazioni. Su iPhone la scansione gira solo con l’app aperta in primo piano.</p>
+    </div>
+  </section>
+</main>
+
+<nav id="nav">
+  <button data-v="radar" class="active"><i>◎</i>Radar</button>
+  <button data-v="tickets"><i>✎</i>Ticket<span class="dot" id="dotT" style="display:none">0</span></button>
+  <button data-v="pos"><i>⚔</i>Posizioni<span class="dot" id="dotP" style="display:none">0</span></button>
+  <button data-v="journal"><i>☰</i>Journal</button>
+  <button data-v="set"><i>⚙</i>Setup</button>
+</nav>
+
+<div class="sheet" id="sheet"><div class="inner" id="sheetInner"></div></div>
+<div class="toast" id="toast"></div>
+
+<!-- ===================== ENGINE (logica pura, testabile) ===================== -->
+<script id="engine">
+const SOL_MINT = 'So11111111111111111111111111111111111111112';
+const MINT_RE = /^[1-9A-HJ-NP-Za-km-z]{32,44}$/;
+const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
+const num = (v, d = 0) => { const n = Number(v); return Number.isFinite(n) ? n : d; };
+
+const DEFAULTS = {
+  // Kaiser
+  autopilot: false, approve: true, scanSec: 30, minScore: 68, useGrok: false, tg: false,
+  // Quartermaster
+  capitalSOL: 5, sizePct: 5, maxPos: 3, slippageBps: 300, feePct: 1.0, prioritySOL: 0.0005,
+  dailyLossPct: 15, cooldownMin: 10, retradeH: 2, taxPct: 26,
+  // Charon
+  sl: 25, tp1: 40, tp1Sell: 50, trail: 20, beAfterTp1: true, timeStopMin: 45, timeStopMinPnl: 5,
+  rugLiqDrop: 45, sellPressure: true,
+  // Filtri
+  minLiq: 15000, minMcap: 15000, maxMcap: 20000000, minAgeMin: 5, maxAgeH: 72, minTxH1: 40,
+  srcDexProfiles: true, srcDexBoosts: true, srcGmgnTrending: true, srcGmgnTrenches: false, gmgnInterval: '1h',
+  // Backend
+  backend: '', appToken: '',
+};
+
+// ---- GMGN: normalizza un item (trending/trenches) ----
+function gmgnNorm(it) {
+  if (!it || typeof it !== 'object') return null;
+  const addr = it.address || it.token_address || it.mint;
+  if (!MINT_RE.test(addr || '')) return null;
+  const rate = (v) => { if (v == null || v === '') return null; let n = Number(v); if (!Number.isFinite(n)) return null; return n > 1 ? n / 100 : n; };
+  const bool = (v) => (v === true || v === 1 || v === '1') ? true : (v === false || v === 0 || v === '0') ? false : null;
+  return {
+    address: addr,
+    smart: num(it.smart_degen_count), kol: num(it.renowned_count),
+    rug: it.rug_ratio == null ? null : num(it.rug_ratio, null),
+    top10: rate(it.top_10_holder_rate),
+    honeypot: bool(it.is_honeypot),
+    wash: bool(it.is_wash_trading),
+    renMint: bool(it.renounced_mint), renFreeze: bool(it.renounced_freeze_account),
+    sniper: num(it.sniper_count), bundler: rate(it.bundler_rate ?? it.bundler_trader_amount_rate),
+    rat: rate(it.rat_trader_amount_rate), insider: rate(it.suspected_insider_hold_rate),
+    devHold: rate(it.dev_team_hold_rate ?? it.creator_token_balance_rate),
+    holders: num(it.holder_count),
+  };
+}
+// Trova l'array di token dentro qualunque forma di risposta GMGN
+function gmgnList(data) {
+  if (Array.isArray(data)) return data;
+  if (!data || typeof data !== 'object') return [];
+  for (const k of ['rank', 'list', 'tokens', 'items', 'data', 'new_creation', 'pump', 'completed']) {
+    const v = data[k];
+    if (Array.isArray(v)) return v;
+    if (v && typeof v === 'object') { const r = gmgnList(v); if (r.length) return r; }
+  }
+  for (const v of Object.values(data)) if (Array.isArray(v) && v.length && typeof v[0] === 'object') return v;
+  return [];
+}
+
+// ---- ORACLE: punteggio di momentum/qualità dal pair DexScreener (+ GMGN se c'è) ----
+function analyze(pair, g, S, now = Date.now()) {
+  const liq = num(pair.liquidity && pair.liquidity.usd);
+  const mc = num(pair.marketCap || pair.fdv);
+  const ageMin = pair.pairCreatedAt ? (now - pair.pairCreatedAt) / 60000 : null;
+  const t5 = (pair.txns && pair.txns.m5) || { buys: 0, sells: 0 };
+  const t1 = (pair.txns && pair.txns.h1) || { buys: 0, sells: 0 };
+  const v1 = num(pair.volume && pair.volume.h1);
+  const pc = pair.priceChange || {};
+  const c5 = num(pc.m5), c1 = num(pc.h1), c6 = num(pc.h6);
+  const vetoes = [], notes = [], plus = [];
+  let s = 50;
+
+  if (liq < S.minLiq) vetoes.push(`Liquidità $${Math.round(liq)} sotto minimo`);
+  else if (liq >= 150000) { s += 8; plus.push('liquidità solida'); }
+  else if (liq >= 40000) s += 5;
+
+  if (ageMin != null) {
+    if (ageMin < S.minAgeMin) vetoes.push(`Troppo nuovo (${ageMin.toFixed(0)} min)`);
+    else if (ageMin > S.maxAgeH * 60) { s -= 10; notes.push('oltre età massima'); }
+    else if (ageMin < 240) s += 4;
+  }
+  if (mc && mc < S.minMcap) { s -= 8; notes.push('mcap minuscola'); }
+  if (mc > S.maxMcap) { s -= 8; notes.push('mcap alta: poco upside'); }
+
+  const turn = liq ? v1 / liq : 0;
+  if (turn > 3) { s += 8; plus.push(`turnover ${turn.toFixed(1)}x/h`); }
+  else if (turn > 1) s += 5;
+  else if (turn < 0.2) { s -= 8; notes.push('volume fermo'); }
+
+  const tx1 = num(t1.buys) + num(t1.sells);
+  if (tx1 < S.minTxH1) { s -= 10; notes.push(`solo ${tx1} tx/h`); }
+  else if (tx1 > 400) s += 5;
+
+  const br1 = (num(t1.buys) + 1) / (num(t1.sells) + 1);
+  const br5 = (num(t5.buys) + 1) / (num(t5.sells) + 1);
+  s += clamp((br1 - 1) * 10, -10, 10) + clamp((br5 - 1) * 6, -8, 8);
+  if (br5 > 1.5 && num(t5.buys) >= 10) plus.push('pressione in acquisto');
+  if (br5 < 0.6 && num(t5.sells) >= 10) notes.push('vendite dominanti 5m');
+
+  if (c5 > 0 && c1 > 0) s += 5;
+  if (c1 < -30) { s -= 10; notes.push(`-${Math.abs(c1).toFixed(0)}% in 1h`); }
+  if (c1 > 300 || c6 > 800) { s -= 12; notes.push('troppo esteso: rischio top'); }
+
+  const info = pair.info || {};
+  const soc = (info.socials || []).length + (info.websites || []).length;
+  if (soc === 0) { s -= 8; notes.push('nessun social'); } else s += 3;
+
+  if (g) {
+    if (g.honeypot === true) vetoes.push('Honeypot (GMGN)');
+    if (g.rug != null && g.rug > 0.3) vetoes.push(`Rug ratio ${g.rug.toFixed(2)} (GMGN)`);
+    if (g.renMint === false) vetoes.push('Mint non rinunciato (GMGN)');
+    if (g.renFreeze === false) vetoes.push('Freeze non rinunciato (GMGN)');
+    if (g.smart) { s += Math.min(g.smart * 2, 12); plus.push(`${g.smart} smart money`); }
+    if (g.kol) { s += Math.min(g.kol * 2, 6); plus.push(`${g.kol} KOL`); }
+    if (g.top10 != null && g.top10 > 0.5) { s -= 10; notes.push(`top10 ${(g.top10 * 100).toFixed(0)}%`); }
+    if (g.wash === true) { s -= 10; notes.push('wash trading'); }
+    if (g.bundler != null && g.bundler > 0.3) { s -= 8; notes.push('bundler alti'); }
+    if (g.insider != null && g.insider > 0.2) { s -= 8; notes.push('insider alti'); }
+    if (g.rat != null && g.rat > 0.3) { s -= 6; notes.push('rat trader'); }
+  }
+  return {
+    base: clamp(Math.round(s), 0, 100), vetoes, notes, plus,
+    m: { liq, mc, ageMin, v1, tx1, br1, br5, c5, c1, c6, turn, price: num(pair.priceUsd), priceNative: num(pair.priceNative) },
+  };
+}
+
+// ---- SENTINEL: rapporto RugCheck -> veti e penalità ----
+function sentinel(rep) {
+  const out = { vetoes: [], notes: [], penalty: 0, ok: false };
+  if (!rep || typeof rep !== 'object') return out;
+  out.ok = true;
+  if (rep.rugged === true) out.vetoes.push('Segnalato come RUGGED');
+  const tk = rep.token || {};
+  if (rep.mintAuthority || tk.mintAuthority) out.vetoes.push('Mint authority attiva');
+  if (rep.freezeAuthority || tk.freezeAuthority) out.vetoes.push('Freeze authority attiva');
+  for (const r of rep.risks || []) {
+    const name = String(r.name || '');
+    const lvl = String(r.level || '').toLowerCase();
+    if (/freeze authority|mint authority|honeypot|rugged/i.test(name)) { if (!out.vetoes.some(v => v.toLowerCase().includes(name.toLowerCase().slice(0, 8)))) out.vetoes.push(name); continue; }
+    if (lvl === 'danger') { out.penalty += 12; out.notes.push(name); }
+    else if (lvl === 'warn') { out.penalty += 5; out.notes.push(name); }
+  }
+  const sn = num(rep.score_normalised, null);
+  if (sn != null && sn >= 80) out.vetoes.push(`Rischio RugCheck ${sn}/100`);
+  else if (sn != null && sn >= 50) out.penalty += 8;
+  if (rep.graphInsidersDetected > 0) { out.penalty += Math.min(15, 3 * num(rep.graphInsidersDetected)); out.notes.push(`${rep.graphInsidersDetected} reti insider`); }
+  out.penalty = Math.min(out.penalty, 40);
+  return out;
+}
+
+// ---- GROK: sentiment X -> aggiustamento punteggio ----
+function grokAdj(gr) {
+  if (!gr || !gr.ok) return 0;
+  return clamp(Math.round(gr.sentiment * 8 + (gr.organic - 5) * 0.8 - (gr.redFlags || []).length * 3), -12, 12);
+}
+
+// ---- KAISER: decisione finale ----
+function decide(a, sec, gr, S) {
+  const vetoes = [...a.vetoes, ...(sec ? sec.vetoes : [])];
+  const score = clamp(a.base - (sec ? sec.penalty : 0) + grokAdj(gr), 0, 100);
+  let verdict;
+  if (vetoes.length) verdict = 'VETO';
+  else if (score >= S.minScore && sec && sec.ok) verdict = 'BUY';
+  else if (score >= S.minScore - 12) verdict = 'WATCH';
+  else verdict = 'SKIP';
+  const why = (!sec || !sec.ok) && score >= S.minScore ? 'sicurezza non ancora verificata' : '';
+  return { score, verdict, vetoes, why };
+}
+
+// ---- QUARTERMASTER: matematica dei fill (paper) ----
+function estImpact(sizeUsd, liqUsd) {
+  if (!liqUsd) return 0.2;
+  return clamp(sizeUsd / (liqUsd / 2), 0, 0.5); // AMM a prodotto costante, metà pool lato quote
+}
+function entryPrice(priceNative, impact, feePct) { return priceNative * (1 + impact) * (1 + feePct / 100); }
+function exitSol(tokens, priceNative, impact, feePct, prioritySOL) {
+  return Math.max(0, tokens * priceNative * (1 - impact) * (1 - feePct / 100) - prioritySOL);
+}
+
+// ---- CHARON: regole d'uscita, restituisce {frac, reason} oppure null ----
+function charon(p, m, S, now = Date.now()) {
+  if (!m || !m.priceNative) return null;
+  const pnl = (m.priceNative / p.entry - 1) * 100;
+  const fromPeak = p.peak ? (m.priceNative / p.peak - 1) * 100 : 0;
+  const ageMin = (now - p.openedAt) / 60000;
+  if (p.entryLiq && m.liq && m.liq < p.entryLiq * (1 - S.rugLiqDrop / 100))
+    return { frac: 1, reason: 'RUG-EXIT liquidità' };
+  if (pnl <= -S.sl) return { frac: 1, reason: 'Stop loss' };
+  if (p.tp1Done && S.beAfterTp1 && pnl <= 0) return { frac: 1, reason: 'Break-even' };
+  if (!p.tp1Done && pnl >= S.tp1) return { frac: S.tp1Sell / 100, reason: 'TP1', tp1: true };
+  if (p.tp1Done && fromPeak <= -S.trail) return { frac: 1, reason: 'Trailing stop' };
+  if (!p.tp1Done && ageMin >= S.timeStopMin && pnl < S.timeStopMinPnl) return { frac: 1, reason: 'Time stop' };
+  if (S.sellPressure && !p.spDone && pnl > 10 && m.br5 < 0.5 && m.tx5 >= 20) return { frac: 0.5, reason: 'Pressione vendite', sp: true };
+  return null;
+}
+
+if (typeof module !== 'undefined') module.exports = { DEFAULTS, gmgnNorm, gmgnList, analyze, sentinel, grokAdj, decide, estImpact, entryPrice, exitSol, charon, clamp };
+</script>
+
+<!-- ===================== APP ===================== -->
+<script>
+(() => {
+'use strict';
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const safeUrl = (u) => { try { const x = new URL(u); return /^https?:$/.test(x.protocol) ? x.href : ''; } catch { return ''; } };
+const fmtUsd = (n) => { n = Number(n) || 0; const a = Math.abs(n); return (n < 0 ? '-$' : '$') + (a >= 1e9 ? (a / 1e9).toFixed(2) + 'B' : a >= 1e6 ? (a / 1e6).toFixed(2) + 'M' : a >= 1e3 ? (a / 1e3).toFixed(1) + 'K' : a.toFixed(a < 1 ? 4 : 0)); };
+const fmtPct = (n, d = 0) => (n > 0 ? '+' : '') + (Number(n) || 0).toFixed(d) + '%';
+const fmtSol = (n, d = 3) => (Number(n) || 0).toFixed(d) + ' ◎';
+const cls = (n) => (n > 0 ? 'up' : n < 0 ? 'down' : '');
+const ago = (ms) => { const m = Math.round(ms / 60000); return m < 60 ? m + 'm' : m < 1440 ? (m / 60).toFixed(1) + 'h' : (m / 1440).toFixed(1) + 'g'; };
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+// ---------- STATO ----------
+const KEY = 'kaiser.v1';
+const store = { get() { try { return JSON.parse(localStorage.getItem(KEY) || 'null'); } catch { return null; } }, set(v) { try { localStorage.setItem(KEY, JSON.stringify(v)); } catch {} } };
+const saved = store.get() || {};
+const st = {
+  S: { ...DEFAULTS, ...(saved.S || {}) },
+  cash: saved.cash ?? (saved.S?.capitalSOL ?? DEFAULTS.capitalSOL),
+  positions: saved.positions || [],
+  journal: saved.journal || [],
+  tickets: saved.tickets || [],
+  day: saved.day || null,
+  cooldownUntil: saved.cooldownUntil || 0,
+  halted: saved.halted || null,
+  seq: saved.seq || 0,
+};
+const rt = { cands: new Map(), sec: new Map(), grok: new Map(), gmgn: new Map(), solUsd: 0, backendOk: false, health: null, scanning: false, lastScan: 0, filter: 'all', logs: [] };
+const save = () => store.set({ S: st.S, cash: st.cash, positions: st.positions, journal: st.journal.slice(-500), tickets: st.tickets, day: st.day, cooldownUntil: st.cooldownUntil, halted: st.halted, seq: st.seq });
+
+// ---------- LOG / NOTIFICHE ----------
+function log(agent, msg) {
+  const t = new Date().toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  rt.logs.unshift(`<div><span class="muted">${t}</span> <span class="ag ag-${agent}">${agent}</span> ${msg}</div>`);
+  rt.logs.length = Math.min(rt.logs.length, 80);
+  $('#log').innerHTML = rt.logs.join('');
+}
+let toastT;
+function toast(msg) { const el = $('#toast'); el.innerHTML = msg; el.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(() => el.classList.remove('show'), 3500); try { navigator.vibrate && navigator.vibrate(40); } catch {} }
+async function tg(text) { if (!st.S.tg || !rt.backendOk) return; try { await api('/api/telegram', { text }); } catch {} }
+
+// ---------- RETE ----------
+async function fetchJSON(url, { timeout = 12000, ...opt } = {}) {
+  const c = new AbortController(); const t = setTimeout(() => c.abort(), timeout);
+  try { const r = await fetch(url, { ...opt, signal: c.signal }); if (!r.ok) throw new Error('HTTP ' + r.status); return await r.json(); }
+  finally { clearTimeout(t); }
+}
+const base = () => (st.S.backend || '').replace(/\/$/, '');
+async function api(path, body) {
+  const headers = { 'Content-Type': 'application/json' };
+  if (st.S.appToken) headers['x-app-token'] = st.S.appToken;
+  return fetchJSON(base() + path, body ? { method: 'POST', headers, body: JSON.stringify(body), timeout: 60000 } : { headers });
+}
+// API pubbliche: prima diretta, se il browser la blocca passa dal proxy Vercel
+async function pub(url) {
+  try { return await fetchJSON(url); }
+  catch (e) {
+    if (!rt.backendOk) throw e;
+    const headers = st.S.appToken ? { 'x-app-token': st.S.appToken } : {};
+    return fetchJSON(base() + '/api/proxy?u=' + encodeURIComponent(url), { headers });
+  }
+}
+
+// ---------- FONTI DATI ----------
+async function solPrice() {
+  try {
+    const d = await pub('https://lite-api.jup.ag/price/v3?ids=' + SOL_MINT);
+    const o = d[SOL_MINT] || (d.data && d.data[SOL_MINT]);
+    const p = Number(o && (o.usdPrice ?? o.price));
+    if (p > 0) rt.solUsd = p;
+  } catch {
+    try { const d = await pub('https://api.dexscreener.com/tokens/v1/solana/' + SOL_MINT); const p = d.find((x) => x.quoteToken?.symbol === 'USDC'); if (p) rt.solUsd = Number(p.priceUsd); } catch {}
+  }
+}
+async function dexPairs(mints) {
+  const out = new Map();
+  for (let i = 0; i < mints.length; i += 30) {
+    const chunk = mints.slice(i, i + 30);
+    try {
+      const arr = await pub('https://api.dexscreener.com/tokens/v1/solana/' + chunk.join(','));
+      for (const p of arr || []) {
+        const a = p.baseToken && p.baseToken.address;
+        if (!chunk.includes(a)) continue;
+        if (!/^(SOL|WSOL)$/.test(p.quoteToken?.symbol || '')) continue; // solo coppie in SOL: fill coerenti
+        const cur = out.get(a);
+        if (!cur || num(p.liquidity?.usd) > num(cur.liquidity?.usd)) out.set(a, p);
+      }
+    } catch (e) { log('SCOUT', `<span class="warn">DexScreener errore: ${esc(e.message)}</span>`); }
+  }
+  return out;
+}
+async function discover() {
+  const S = st.S, found = new Map(); // mint -> Set(fonti)
+  const add = (m, src) => { if (!MINT_RE.test(m || '')) return; if (!found.has(m)) found.set(m, new Set()); found.get(m).add(src); };
+  const jobs = [];
+  if (S.srcDexProfiles) jobs.push(pub('https://api.dexscreener.com/token-profiles/latest/v1').then((a) => (a || []).forEach((x) => x.chainId === 'solana' && add(x.tokenAddress, 'profili'))).catch(() => log('SCOUT', '<span class="warn">profili DexScreener non raggiungibili</span>')));
+  if (S.srcDexBoosts) {
+    jobs.push(pub('https://api.dexscreener.com/token-boosts/latest/v1').then((a) => (a || []).forEach((x) => x.chainId === 'solana' && add(x.tokenAddress, 'boost'))).catch(() => {}));
+    jobs.push(pub('https://api.dexscreener.com/token-boosts/top/v1').then((a) => (a || []).forEach((x) => x.chainId === 'solana' && add(x.tokenAddress, 'top boost'))).catch(() => {}));
+  }
+  if (rt.backendOk && S.srcGmgnTrending) jobs.push(api('/api/gmgn', { cmd: 'trending', interval: S.gmgnInterval, limit: 50, filters: ['not_honeypot'] }).then((r) => {
+    if (!r.ok) return log('SCOUT', `<span class="warn">GMGN trending: ${esc(r.error)}</span>`);
+    for (const it of gmgnList(r.data)) { const g = gmgnNorm(it); if (g) { rt.gmgn.set(g.address, g); add(g.address, 'GMGN'); } }
+    if (r.notice) log('SENTINEL', '<span class="warn">GMGN ha neutralizzato metadati sospetti in alcuni token</span>');
+  }).catch((e) => log('SCOUT', `<span class="warn">GMGN: ${esc(e.message)}</span>`)));
+  if (rt.backendOk && S.srcGmgnTrenches) jobs.push(api('/api/gmgn', { cmd: 'trenches', limit: 40 }).then((r) => {
+    if (!r.ok) return log('SCOUT', `<span class="warn">GMGN trenches: ${esc(r.error)}</span>`);
+    for (const it of gmgnList(r.data)) { const g = gmgnNorm(it); if (g) { rt.gmgn.set(g.address, g); add(g.address, 'trenches'); } }
+  }).catch(() => {}));
+  await Promise.all(jobs);
+  return found;
+}
+async function rugcheck(mint) {
+  const c = rt.sec.get(mint);
+  if (c && Date.now() - c.t < 5 * 60000) return c.v;
+  try {
+    const rep = await pub(`https://api.rugcheck.xyz/v1/tokens/${mint}/report`);
+    const v = { ...sentinel(rep), raw: rep };
+    rt.sec.set(mint, { t: Date.now(), v });
+    return v;
+  } catch (e) {
+    // ripiego: sicurezza GMGN se il backend c'è
+    if (rt.backendOk) {
+      try {
+        const r = await api('/api/gmgn', { cmd: 'security', address: mint });
+        if (r.ok) {
+          const d = r.data && (r.data.data || r.data);
+          const g = gmgnNorm({ address: mint, ...d });
+          const v = { ok: true, vetoes: [], notes: ['fonte: GMGN security'], penalty: 0 };
+          if (g.honeypot) v.vetoes.push('Honeypot (GMGN)');
+          if (g.renMint === false) v.vetoes.push('Mint non rinunciato');
+          if (g.renFreeze === false) v.vetoes.push('Freeze non rinunciato');
+          if (g.rug != null && g.rug > 0.3) v.vetoes.push('Rug ratio alto');
+          if (g.top10 != null && g.top10 > 0.5) v.penalty += 10;
+          rt.sec.set(mint, { t: Date.now(), v });
+          return v;
+        }
+      } catch {}
+    }
+    return null;
+  }
+}
+async function askGrok(c) {
+  const g = rt.grok.get(c.mint);
+  if (g && Date.now() - g.t < 15 * 60000) return g.v;
+  if (!rt.backendOk || !rt.health?.grok) return null;
+  log('GROK', `leggo X per $${esc(c.sym)}…`);
+  try {
+    const v = await api('/api/grok', { address: c.mint, symbol: c.sym, name: c.name });
+    rt.grok.set(c.mint, { t: Date.now(), v });
+    if (v.ok) log('GROK', `$${esc(c.sym)} sentiment ${v.sentiment.toFixed(2)}, hype ${v.hype}/10, organico ${v.organic}/10${v.redFlags.length ? ' · ⚠ ' + esc(v.redFlags.join(', ')) : ''}`);
+    else log('GROK', `<span class="warn">${esc(v.error)}</span>`);
+    return v;
+  } catch (e) { log('GROK', `<span class="warn">${esc(e.message)}</span>`); return null; }
+}
+
+// ---------- PIPELINE DEL DESK ----------
+function buildCand(mint, pair, srcs) {
+  const g = rt.gmgn.get(mint) || null;
+  const a = analyze(pair, g, st.S);
+  const secC = rt.sec.get(mint); const sec = secC ? secC.v : null;
+  const grC = rt.grok.get(mint); const gr = grC ? grC.v : null;
+  const d = decide(a, sec, gr, st.S);
+  return { mint, pair, a, g, sec, gr, ...d, srcs: [...(srcs || [])], sym: pair.baseToken?.symbol || '?', name: pair.baseToken?.name || '', img: safeUrl(pair.info?.imageUrl || ''), t: Date.now() };
+}
+
+async function scan() {
+  if (rt.scanning) return;
+  rt.scanning = true; $('#btnScan').disabled = true; $('#pScan').textContent = 'SCAN…';
+  try {
+    rollDay();
+    await solPrice();
+    const found = await discover();
+    for (const p of st.positions) if (!found.has(p.mint)) found.set(p.mint, new Set(['posizione']));
+    const mints = [...found.keys()].slice(0, 90);
+    log('SCOUT', `${mints.length} token raccolti (${countSrc(found)})`);
+    const pairs = await dexPairs(mints);
+    const cands = [];
+    for (const m of mints) { const p = pairs.get(m); if (p) cands.push(buildCand(m, p, found.get(m))); }
+    // Sentinel controlla solo i migliori non già vetati
+    const top = cands.filter((c) => !c.a.vetoes.length && c.a.base >= st.S.minScore - 15).sort((x, y) => y.a.base - x.a.base).slice(0, 8);
+    let vetoN = 0;
+    for (const c of top) {
+      const sec = await rugcheck(c.mint);
+      if (sec) {
+        Object.assign(c, { sec }, decide(c.a, sec, c.gr, st.S));
+        if (sec.vetoes.length) { vetoN++; log('SENTINEL', `VETO <b>$${esc(c.sym)}</b>: ${esc(sec.vetoes.join(' · '))}`); }
+      }
+      await sleep(250);
+    }
+    if (st.S.useGrok) {
+      for (const c of cands.filter((c) => c.verdict === 'BUY').slice(0, 2)) {
+        const gr = await askGrok(c);
+        if (gr) Object.assign(c, { gr }, decide(c.a, c.sec, gr, st.S));
+      }
+    }
+    rt.cands = new Map(cands.map((c) => [c.mint, c]));
+    const nb = cands.filter((c) => c.verdict === 'BUY').length, nw = cands.filter((c) => c.verdict === 'WATCH').length;
+    log('ORACLE', `${cands.length} analizzati · ${nb} BUY · ${nw} WATCH · ${cands.filter((c) => c.verdict === 'VETO').length} veto`);
+    rt.lastScan = Date.now();
+    await manage(pairs);
+    await kaiser();
+  } catch (e) { log('KAISER', `<span class="warn">errore scan: ${esc(e.message)}</span>`); }
+  finally { rt.scanning = false; $('#btnScan').disabled = false; render(); save(); }
+}
+const countSrc = (f) => { const c = {}; for (const s of f.values()) for (const x of s) c[x] = (c[x] || 0) + 1; return Object.entries(c).map(([k, v]) => `${k} ${v}`).join(', '); };
+
+// ---------- KAISER: autopilota + costituzione ----------
+function equity() { return st.cash + st.positions.reduce((a, p) => a + posValue(p), 0); }
+function rollDay() {
+  const today = new Date().toISOString().slice(0, 10);
+  if (!st.day || st.day.date !== today) { st.day = { date: today, startEq: equity() }; st.halted = null; }
+}
+function gates(c) {
+  const S = st.S;
+  if (st.halted) return 'circuit breaker attivo';
+  if (st.positions.length >= S.maxPos) return 'max posizioni';
+  if (st.positions.some((p) => p.mint === c.mint)) return 'già in posizione';
+  if (st.tickets.some((t) => t.mint === c.mint)) return 'ticket già aperto';
+  if (Date.now() < st.cooldownUntil) return 'cooldown dopo perdita';
+  const last = [...st.journal].reverse().find((j) => j.mint === c.mint);
+  if (last && Date.now() - last.closedAt < S.retradeH * 3600000) return 'ritrade troppo presto';
+  if (st.cash < sizeSol() * 0.5) return 'cassa insufficiente';
+  return '';
+}
+const sizeSol = () => Math.min(st.cash, equity() * st.S.sizePct / 100);
+async function kaiser() {
+  // circuit breaker
+  if (st.day && !st.halted && equity() < st.day.startEq * (1 - st.S.dailyLossPct / 100)) {
+    st.halted = Date.now();
+    log('KAISER', `<b class="down">CIRCUIT BREAKER</b>: perdita giornaliera oltre ${st.S.dailyLossPct}%. Nuovi ingressi bloccati fino a domani.`);
+    tg(`🛑 <b>KAISER</b> circuit breaker: perdita giornaliera oltre ${st.S.dailyLossPct}%`);
+  }
+  // scadenza ticket
+  const now = Date.now();
+  st.tickets = st.tickets.filter((t) => { if (t.exp < now) { log('KAISER', `ticket ${t.id} $${esc(t.sym)} scaduto`); return false; } return true; });
+  if (!st.S.autopilot) return;
+  const buys = [...rt.cands.values()].filter((c) => c.verdict === 'BUY').sort((a, b) => b.score - a.score);
+  for (const c of buys) {
+    const why = gates(c);
+    if (why) continue;
+    if (st.S.approve) {
+      const t = { id: 'T-' + String(++st.seq).padStart(4, '0'), mint: c.mint, sym: c.sym, score: c.score, exp: now + 180000, at: now };
+      st.tickets.push(t);
+      log('KAISER', `ticket <b>${t.id}</b> $${esc(c.sym)} score ${c.score} → serve la tua approvazione`);
+      toast(`✎ Nuovo ticket ${t.id}: <b>$${esc(c.sym)}</b> (score ${c.score})`);
+      tg(`✎ <b>${t.id}</b> $${esc(c.sym)} score ${c.score}\nApprova dall'app entro 3 min\nhttps://dexscreener.com/solana/${c.pair.pairAddress}`);
+    } else {
+      await buy(c, 'autopilota');
+    }
+    if (st.positions.length + st.tickets.length >= st.S.maxPos) break;
+  }
+}
+
+// ---------- QUARTERMASTER: fill paper con quotazione Jupiter reale ----------
+async function jupQuote(inMint, outMint, amount) {
+  const u = `https://lite-api.jup.ag/swap/v1/quote?inputMint=${inMint}&outputMint=${outMint}&amount=${amount}&slippageBps=${st.S.slippageBps}&restrictIntermediateTokens=true`;
+  const q = await pub(u);
+  if (!q || !q.outAmount) throw new Error(q?.error || 'nessuna rotta');
+  return q;
+}
+async function buy(c, why) {
+  const S = st.S;
+  const g = gates(c); if (g) { toast('Bloccato: ' + g); return; }
+  const fresh = (await dexPairs([c.mint])).get(c.mint) || c.pair;
+  const sizeS = sizeSol();
+  if (sizeS <= 0.001) return toast('Cassa insufficiente');
+  const priceN = num(fresh.priceNative);
+  const liq = num(fresh.liquidity?.usd);
+  let impact, rawOut = null, src = 'stima';
+  try {
+    const q = await jupQuote(SOL_MINT, c.mint, Math.floor(sizeS * 1e9));
+    impact = Math.max(0, num(q.priceImpactPct)); rawOut = q.outAmount; src = 'Jupiter';
+  } catch { impact = estImpact(sizeS * (rt.solUsd || 150), liq); }
+  if (impact > S.slippageBps / 10000) { log('QUARTER', `<span class="warn">$${esc(c.sym)}: impatto ${(impact * 100).toFixed(1)}% oltre lo slippage, ordine annullato</span>`); return; }
+  const entry = entryPrice(priceN, impact, S.feePct);
+  const cost = sizeS + S.prioritySOL;
+  const p = {
+    id: 'P-' + String(++st.seq).padStart(4, '0'), mint: c.mint, sym: c.sym, name: c.name, img: c.img, pairAddress: fresh.pairAddress,
+    openedAt: Date.now(), sizeSOL: sizeS, cost, entry, tokens: sizeS / entry, remaining: 1, rawLeft: rawOut,
+    peak: entry, tp1Done: false, spDone: false, entryLiq: liq, realized: 0, score: c.score, why, last: null, fills: [`BUY ${sizeS.toFixed(3)}◎ impatto ${(impact * 100).toFixed(2)}% (${src})`],
+  };
+  st.cash -= cost;
+  st.positions.push(p);
+  log('QUARTER', `<b class="up">BUY</b> $${esc(c.sym)} ${fmtSol(sizeS)} · impatto ${(impact * 100).toFixed(2)}% (${src}) · score ${c.score}`);
+  tg(`🟢 <b>BUY paper</b> $${esc(c.sym)} ${sizeS.toFixed(3)} SOL · score ${c.score}`);
+  save(); render();
+}
+function posValue(p) {
+  const pr = p.last ? p.last.priceNative : p.entry;
+  return p.tokens * p.remaining * pr;
+}
+async function sell(p, frac, reason) {
+  const S = st.S;
+  frac = Math.min(1, Math.max(0, frac));
+  const m = p.last || { priceNative: p.entry, liq: p.entryLiq };
+  const tokSell = p.tokens * p.remaining * frac;
+  let sol, src = 'stima';
+  if (p.rawLeft) {
+    try {
+      const raw = BigInt(p.rawLeft);
+      const amt = frac >= 0.999 ? raw : (raw * BigInt(Math.round(frac * 10000))) / 10000n;
+      const q = await jupQuote(p.mint, SOL_MINT, amt.toString());
+      sol = Math.max(0, num(q.outAmount) / 1e9 * (1 - S.feePct / 100) - S.prioritySOL);
+      p.rawLeft = (raw - amt).toString(); src = 'Jupiter';
+    } catch { sol = null; }
+  }
+  if (sol == null) sol = exitSol(tokSell, m.priceNative, estImpact(tokSell * m.priceNative * (rt.solUsd || 150), m.liq), S.feePct, S.prioritySOL);
+  p.remaining *= (1 - frac);
+  p.realized += sol;
+  st.cash += sol;
+  p.fills.push(`SELL ${(frac * 100).toFixed(0)}% → ${sol.toFixed(4)}◎ (${reason}, ${src})`);
+  const pctNow = (m.priceNative / p.entry - 1) * 100;
+  log('CHARON', `<b>${esc(reason)}</b> $${esc(p.sym)} vendo ${(frac * 100).toFixed(0)}% a ${fmtPct(pctNow, 1)} → ${fmtSol(sol, 4)}`);
+  if (p.remaining < 0.002) {
+    st.positions = st.positions.filter((x) => x !== p);
+    const pnl = p.realized - p.cost;
+    const j = { id: p.id, mint: p.mint, sym: p.sym, openedAt: p.openedAt, closedAt: Date.now(), cost: p.cost, back: p.realized, pnl, pct: pnl / p.cost * 100, reason, score: p.score, solUsd: rt.solUsd };
+    st.journal.push(j);
+    if (pnl < 0) st.cooldownUntil = Date.now() + S.cooldownMin * 60000;
+    log('SCRIBE', `chiuso ${p.id} $${esc(p.sym)} ${pnl >= 0 ? '<span class="up">' : '<span class="down">'}${fmtSol(pnl, 4)} (${fmtPct(j.pct, 1)})</span>`);
+    tg(`${pnl >= 0 ? '✅' : '🔻'} <b>CLOSE</b> $${esc(p.sym)} ${pnl.toFixed(4)} SOL (${fmtPct(j.pct, 1)}) · ${esc(reason)}`);
+  } else tg(`⛵ <b>${esc(reason)}</b> $${esc(p.sym)} venduto ${(frac * 100).toFixed(0)}%`);
+  save(); render();
+}
+
+// ---------- CHARON: gestione posizioni ----------
+async function manage(pairsIn) {
+  if (!st.positions.length) return;
+  const need = st.positions.map((p) => p.mint).filter((m) => !pairsIn || !pairsIn.has(m));
+  const pairs = new Map(pairsIn || []);
+  if (need.length) for (const [k, v] of await dexPairs(need)) pairs.set(k, v);
+  for (const p of [...st.positions]) {
+    const pr = pairs.get(p.mint);
+    if (!pr) continue;
+    const t5 = pr.txns?.m5 || { buys: 0, sells: 0 };
+    p.last = { priceNative: num(pr.priceNative), priceUsd: num(pr.priceUsd), liq: num(pr.liquidity?.usd), br5: (num(t5.buys) + 1) / (num(t5.sells) + 1), tx5: num(t5.buys) + num(t5.sells), t: Date.now() };
+    if (p.last.priceNative > p.peak) p.peak = p.last.priceNative;
+    const act = charon(p, p.last, st.S);
+    if (act) {
+      if (act.tp1) p.tp1Done = true;
+      if (act.sp) p.spDone = true;
+      await sell(p, act.frac, act.reason);
+    }
+  }
+}
+
+// ---------- RENDER ----------
+function render() {
+  const S = st.S, eq = equity();
+  $('#pAuto').textContent = S.autopilot ? (S.approve ? 'AUTO · APPROVA' : 'AUTO ON') : 'AUTO OFF';
+  $('#pAuto').className = 'pill ' + (st.halted ? 'off' : S.autopilot ? 'on' : '');
+  if (st.halted) $('#pAuto').textContent = 'HALT';
+  $('#pBack').textContent = rt.backendOk ? 'BACKEND ✓' + (rt.health?.grok ? ' GROK' : '') : 'SOLO BROWSER';
+  $('#pBack').className = 'pill ' + (rt.backendOk ? 'on' : '');
+  $('#pSol').textContent = rt.solUsd ? 'SOL $' + rt.solUsd.toFixed(2) : 'SOL —';
+  $('#pEq').textContent = 'EQ ' + eq.toFixed(3) + '◎';
+  $('#pScan').textContent = loopOn ? `ogni ${S.scanSec}s` : 'pausa';
+  $('#lastScan').textContent = rt.lastScan ? 'ultimo scan ' + new Date(rt.lastScan).toLocaleTimeString('it-IT') : 'mai';
+  renderRadar(); renderTickets(); renderPos(); renderJournal();
+  const dt = $('#dotT'); dt.style.display = st.tickets.length ? '' : 'none'; dt.textContent = st.tickets.length;
+  const dp = $('#dotP'); dp.style.display = st.positions.length ? '' : 'none'; dp.textContent = st.positions.length;
+}
+function candCard(c) {
+  const m = c.a.m;
+  const chips = [
+    ...c.vetoes.map((v) => `<span class="chip v">⛔ ${esc(v)}</span>`),
+    ...c.a.plus.map((v) => `<span class="chip g">${esc(v)}</span>`),
+    ...c.a.notes.slice(0, 4).map((v) => `<span class="chip">${esc(v)}</span>`),
+    ...(c.sec && c.sec.ok && !c.sec.vetoes.length ? ['<span class="chip g">✓ Sentinel</span>'] : []),
+    ...(c.gr && c.gr.ok ? [`<span class="chip">𝕏 ${c.gr.sentiment > 0.2 ? '🟢' : c.gr.sentiment < -0.2 ? '🔴' : '⚪'} hype ${c.gr.hype}</span>`] : []),
+    ...(c.why ? [`<span class="chip">${esc(c.why)}</span>`] : []),
+  ].join('');
+  return `<div class="card" data-mint="${c.mint}">
+    <div class="tok">${c.img ? `<img src="${esc(c.img)}" loading="lazy" alt="">` : '<div class="ph"></div>'}
+      <div><div class="row"><span class="sym">$${esc(c.sym)}</span><span class="badge b-${c.verdict}">${c.verdict}</span></div>
+      <div class="nm">${esc(c.name)} · ${esc(c.srcs.join(', '))}</div></div>
+      <div class="score ${c.verdict === 'VETO' ? 'down' : c.score >= st.S.minScore ? 'up' : ''}">${c.verdict === 'VETO' ? '✕' : c.score}</div></div>
+    <div class="metrics">
+      <div class="m"><b>${fmtUsd(m.mc)}</b><span>mcap</span></div>
+      <div class="m"><b>${fmtUsd(m.liq)}</b><span>liquidità</span></div>
+      <div class="m"><b class="${cls(m.c1)}">${fmtPct(m.c1)}</b><span>1h</span></div>
+      <div class="m"><b>${m.ageMin != null ? ago(m.ageMin * 60000) : '—'}</b><span>età</span></div>
+    </div>
+    <div class="chips">${chips}</div></div>`;
+}
+function renderRadar() {
+  let list = [...rt.cands.values()].filter((c) => !st.positions.some((p) => p.mint === c.mint));
+  if (rt.filter !== 'all') list = list.filter((c) => c.verdict === rt.filter);
+  const order = { BUY: 0, WATCH: 1, SKIP: 2, VETO: 3 };
+  list.sort((a, b) => order[a.verdict] - order[b.verdict] || b.score - a.score);
+  $('#radarList').innerHTML = list.length ? list.slice(0, 60).map(candCard).join('') : `<div class="empty">${rt.lastScan ? 'Nessun token in questo filtro.' : 'Premi ⟳ Scan per avviare il desk.'}</div>`;
+}
+function renderTickets() {
+  $('#ticketList').innerHTML = st.tickets.length ? st.tickets.map((t) => {
+    const left = Math.max(0, Math.round((t.exp - Date.now()) / 1000));
+    return `<div class="card"><div class="row between"><div><b>${t.id}</b> · <span class="sym">$${esc(t.sym)}</span> <span class="muted small">score ${t.score}</span></div><span class="mono small muted">${left}s</span></div>
+      <div class="row" style="margin-top:8px;gap:6px"><button class="btn green sm" data-approve="${t.id}">Approva</button><button class="btn sm" data-detail="${t.mint}">Dettaglio</button><button class="btn red sm" data-reject="${t.id}">Rifiuta</button></div></div>`;
+  }).join('') : '<div class="empty">Nessun ticket. Attiva l’autopilota in Setup.</div>';
+}
+function renderPos() {
+  const eq = equity(), dayPnl = st.day ? eq - st.day.startEq : 0;
+  $('#sCash').textContent = fmtSol(st.cash); $('#sEq').textContent = fmtSol(eq);
+  $('#sDay').innerHTML = `<span class="${cls(dayPnl)}">${fmtSol(dayPnl)}</span>`;
+  $('#posList').innerHTML = st.positions.length ? st.positions.map((p) => {
+    const pr = p.last ? p.last.priceNative : p.entry;
+    const pnl = (pr / p.entry - 1) * 100, val = posValue(p);
+    const S = st.S;
+    const tgt = p.tp1Done ? `trailing −${S.trail}% dal picco` : `TP1 ${fmtPct(S.tp1)} · SL −${S.sl}%`;
+    return `<div class="card"><div class="tok">${p.img ? `<img src="${esc(p.img)}" alt="">` : '<div class="ph"></div>'}
+      <div><div class="row"><span class="sym">$${esc(p.sym)}</span><span class="muted tiny">${p.id} · ${ago(Date.now() - p.openedAt)}</span></div>
+      <div class="nm">${fmtSol(val, 4)} · resta ${(p.remaining * 100).toFixed(0)}% · ${tgt}</div></div>
+      <div class="score ${cls(pnl)}">${fmtPct(pnl, 1)}</div></div>
+      <div class="bar" style="margin-top:8px"><i style="width:${clamp((pnl + S.sl) / (S.tp1 + S.sl) * 100, 0, 100)}%;background:${pnl >= 0 ? 'var(--green)' : 'var(--red)'}"></i></div>
+      <div class="row" style="margin-top:8px;gap:6px"><button class="btn sm" data-sellp="${p.id}" data-f="0.5">Vendi 50%</button><button class="btn red sm" data-sellp="${p.id}" data-f="1">Chiudi</button><button class="btn sm" data-detail="${p.mint}">Grafico</button></div>
+      <div class="tiny muted mono" style="margin-top:6px">${p.fills.map(esc).join('<br>')}</div></div>`;
+  }).join('') : '<div class="empty">Nessuna posizione aperta.</div>';
+}
+function renderJournal() {
+  const J = st.journal, S = st.S;
+  const wins = J.filter((j) => j.pnl > 0), losses = J.filter((j) => j.pnl <= 0);
+  const tot = J.reduce((a, j) => a + j.pnl, 0);
+  $('#jN').textContent = J.length;
+  $('#jWR').textContent = J.length ? (wins.length / J.length * 100).toFixed(0) + '%' : '—';
+  $('#jPnl').innerHTML = `<span class="${cls(tot)}">${fmtSol(tot)}</span>`;
+  $('#jAW').textContent = wins.length ? fmtPct(wins.reduce((a, j) => a + j.pct, 0) / wins.length, 1) : '—';
+  $('#jAL').textContent = losses.length ? fmtPct(losses.reduce((a, j) => a + j.pct, 0) / losses.length, 1) : '—';
+  const afterTax = tot > 0 ? tot * (1 - S.taxPct / 100) : tot;
+  $('#jTax').innerHTML = `<span class="${cls(afterTax)}">${fmtSol(afterTax)}</span>`;
+  $('#jRows').innerHTML = [...J].reverse().slice(0, 100).map((j) => `<tr><td>$${esc(j.sym)}<br><span class="muted">${new Date(j.closedAt).toLocaleString('it-IT', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' })}</span></td><td class="${cls(j.pct)}">${fmtPct(j.pct, 1)}</td><td class="${cls(j.pnl)}">${j.pnl.toFixed(4)}</td><td>${esc(j.reason)}</td></tr>`).join('') || '<tr><td colspan="4" class="muted">Nessun trade chiuso.</td></tr>';
+  const by = {}; for (const j of J) { by[j.reason] = by[j.reason] || { n: 0, pnl: 0 }; by[j.reason].n++; by[j.reason].pnl += j.pnl; }
+  $('#jReasons').innerHTML = Object.keys(by).length ? `<div class="kv">${Object.entries(by).map(([k, v]) => `<span>${esc(k)} (${v.n})</span><span class="mono ${cls(v.pnl)}">${v.pnl.toFixed(4)}◎</span>`).join('')}</div>` : '<span class="muted small">Ancora niente.</span>';
+}
+
+// ---------- DETTAGLIO TOKEN ----------
+async function openDetail(mint) {
+  let c = rt.cands.get(mint);
+  if (!c) { const pr = (await dexPairs([mint])).get(mint); if (!pr) return toast('Dati non disponibili'); c = buildCand(mint, pr, ['manuale']); }
+  const draw = () => {
+    const m = c.a.m, sec = c.sec, gr = c.gr, g = c.g, pr = c.pair, held = st.positions.some((p) => p.mint === mint);
+    const links = [...(pr.info?.websites || []).map((w) => [w.label || 'Web', w.url]), ...(pr.info?.socials || []).map((s) => [s.type, s.url])]
+      .map(([l, u]) => safeUrl(u) ? `<a href="${esc(safeUrl(u))}" target="_blank" rel="noopener">${esc(l)}</a>` : '').filter(Boolean).join(' · ');
+    $('#sheetInner').innerHTML = `<div class="grab"></div>
+      <div class="tok">${c.img ? `<img src="${esc(c.img)}" alt="">` : '<div class="ph"></div>'}
+        <div><div class="row"><span class="sym" style="font-size:18px">$${esc(c.sym)}</span><span class="badge b-${c.verdict}">${c.verdict}</span></div><div class="nm">${esc(c.name)}</div></div>
+        <div class="score">${c.score}</div></div>
+      <div class="mono tiny muted" style="margin:8px 0;word-break:break-all">${mint}</div>
+      <iframe class="chart" src="https://dexscreener.com/solana/${encodeURIComponent(pr.pairAddress)}?embed=1&theme=dark&info=0&trades=0" loading="lazy"></iframe>
+      <h2>Oracle</h2><div class="card kv">
+        <span>Prezzo</span><span class="mono">$${m.price.toPrecision(4)}</span>
+        <span>Market cap / Liquidità</span><span class="mono">${fmtUsd(m.mc)} / ${fmtUsd(m.liq)}</span>
+        <span>Volume 1h · turnover</span><span class="mono">${fmtUsd(m.v1)} · ${m.turn.toFixed(2)}x</span>
+        <span>Tx 1h · buy/sell 1h · 5m</span><span class="mono">${m.tx1} · ${m.br1.toFixed(2)} · ${m.br5.toFixed(2)}</span>
+        <span>Var. 5m / 1h / 6h</span><span class="mono"><span class="${cls(m.c5)}">${fmtPct(m.c5)}</span> / <span class="${cls(m.c1)}">${fmtPct(m.c1)}</span> / <span class="${cls(m.c6)}">${fmtPct(m.c6)}</span></span>
+        <span>Età coppia</span><span class="mono">${m.ageMin != null ? ago(m.ageMin * 60000) : '—'}</span>
+        <span>Punteggio base</span><span class="mono">${c.a.base}</span>
+      </div>
+      <h2>Sentinel (sicurezza)</h2><div class="card small">${sec ? (sec.ok ? `${sec.vetoes.length ? sec.vetoes.map((v) => `<div class="down">⛔ ${esc(v)}</div>`).join('') : '<div class="up">✓ Nessun veto</div>'}${sec.notes.map((n) => `<div class="warn">• ${esc(n)}</div>`).join('')}<div class="muted tiny">penalità −${sec.penalty}</div>` : 'rapporto non valido') : '<span class="muted">Non ancora controllato.</span>'}
+        <div class="row" style="margin-top:8px;gap:6px"><button class="btn sm" id="dSec">Controlla ora</button>${rt.backendOk ? '<button class="btn sm" id="dGmgn">GMGN security</button>' : ''}</div><div id="dGmgnOut" class="tiny mono muted" style="margin-top:6px"></div></div>
+      ${g ? `<h2>GMGN</h2><div class="card kv"><span>Smart money · KOL</span><span class="mono">${g.smart} · ${g.kol}</span><span>Rug ratio</span><span class="mono">${g.rug ?? '—'}</span><span>Top 10 holder</span><span class="mono">${g.top10 != null ? (g.top10 * 100).toFixed(1) + '%' : '—'}</span><span>Sniper · bundler</span><span class="mono">${g.sniper} · ${g.bundler != null ? (g.bundler * 100).toFixed(0) + '%' : '—'}</span></div>` : ''}
+      <h2>Grok (𝕏)</h2><div class="card small">${gr ? (gr.ok ? `<div>Sentiment <b class="${cls(gr.sentiment)}">${gr.sentiment.toFixed(2)}</b> · hype ${gr.hype}/10 · organico ${gr.organic}/10 · ~${gr.mentions} menzioni</div><div style="margin-top:4px">${esc(gr.summary)}</div>${gr.redFlags.length ? `<div class="warn" style="margin-top:4px">⚠ ${esc(gr.redFlags.join(' · '))}</div>` : ''}${gr.kols.length ? `<div class="muted tiny">KOL: ${esc(gr.kols.join(', '))}</div>` : ''}` : `<span class="warn">${esc(gr.error)}</span>`) : '<span class="muted">Non interrogato.</span>'}
+        <div style="margin-top:8px"><button class="btn sm" id="dGrok" ${rt.backendOk && rt.health?.grok ? '' : 'disabled'}>Chiedi a Grok</button>${rt.health?.grok ? '' : ' <span class="tiny muted">serve XAI_API_KEY su Vercel</span>'}</div></div>
+      ${links ? `<div class="small" style="margin:8px 2px">${links}</div>` : ''}
+      <div class="row" style="gap:6px;margin-top:10px">
+        <button class="btn gold" id="dBuy" style="flex:1" ${held ? 'disabled' : ''}>${held ? 'Già in posizione' : `Paper BUY ${sizeSol().toFixed(3)}◎`}</button>
+        <a class="btn" href="https://gmgn.ai/sol/token/${mint}" target="_blank" rel="noopener">GMGN ↗</a>
+        <button class="btn" id="dClose">Chiudi</button>
+      </div>`;
+    $('#dClose').onclick = closeSheet;
+    $('#dSec').onclick = async () => { rt.sec.delete(mint); const s = await rugcheck(mint); if (!s) toast('RugCheck non raggiungibile'); c.sec = s; Object.assign(c, decide(c.a, s, c.gr, st.S)); draw(); };
+    if ($('#dGmgn')) $('#dGmgn').onclick = async () => { $('#dGmgnOut').textContent = '…'; const r = await api('/api/gmgn', { cmd: 'security', address: mint }).catch((e) => ({ ok: false, error: e.message })); $('#dGmgnOut').textContent = r.ok ? JSON.stringify(r.data).slice(0, 1200) : r.error; };
+    $('#dGrok').onclick = async () => { $('#dGrok').disabled = true; $('#dGrok').textContent = 'Grok sta leggendo X…'; rt.grok.delete(mint); c.gr = await askGrok(c); Object.assign(c, decide(c.a, c.sec, c.gr, st.S)); draw(); };
+    $('#dBuy').onclick = async () => {
+      if (!c.sec) { c.sec = await rugcheck(mint); Object.assign(c, decide(c.a, c.sec, c.gr, st.S)); }
+      if (c.vetoes.length) { toast('⛔ Sentinel ha posto il veto: ' + esc(c.vetoes[0])); draw(); return; }
+      if (!c.sec || !c.sec.ok) { if (!confirm('Sicurezza non verificata. Comprare comunque (paper)?')) return; }
+      await buy(c, 'manuale'); closeSheet(); go('pos');
+    };
+  };
+  draw();
+  $('#sheet').classList.add('open');
+}
+function closeSheet() { $('#sheet').classList.remove('open'); $('#sheetInner').innerHTML = ''; }
+
+// ---------- SETUP ----------
+const FIELDS = {
+  setAuto: [
+    ['autopilot', 'Autopilota', 'Kaiser apre posizioni sui BUY', 'bool'],
+    ['approve', 'Approvazione manuale', 'crea un ticket invece di comprare', 'bool'],
+    ['scanSec', 'Intervallo scan (s)', 'min 15', 'num'],
+    ['minScore', 'Score minimo BUY', '0–100', 'num'],
+    ['useGrok', 'Grok automatico sui BUY', 'costa crediti xAI', 'bool'],
+    ['tg', 'Notifiche Telegram', 'via backend', 'bool'],
+  ],
+  setRisk: [
+    ['capitalSOL', 'Capitale paper (SOL)', 'usato al reset', 'num'],
+    ['sizePct', 'Size per trade (% equity)', '', 'num'],
+    ['maxPos', 'Max posizioni', '', 'num'],
+    ['slippageBps', 'Slippage max (bps)', '300 = 3%', 'num'],
+    ['feePct', 'Commissioni per lato (%)', 'bot/DEX', 'num'],
+    ['prioritySOL', 'Priority fee (SOL)', 'per transazione', 'num'],
+    ['dailyLossPct', 'Stop giornaliero (%)', 'circuit breaker', 'num'],
+    ['cooldownMin', 'Cooldown dopo perdita (min)', '', 'num'],
+    ['retradeH', 'No ritrade stesso token (h)', '', 'num'],
+    ['taxPct', 'Tassa sulle plusvalenze (%)', 'solo nel Journal', 'num'],
+  ],
+  setExit: [
+    ['sl', 'Stop loss (%)', '', 'num'],
+    ['tp1', 'TP1 (%)', '', 'num'],
+    ['tp1Sell', 'Vendi a TP1 (%)', 'della posizione', 'num'],
+    ['trail', 'Trailing dal picco (%)', 'dopo TP1', 'num'],
+    ['beAfterTp1', 'Break-even dopo TP1', '', 'bool'],
+    ['timeStopMin', 'Time stop (min)', 'se non decolla', 'num'],
+    ['timeStopMinPnl', 'Profitto minimo al time stop (%)', '', 'num'],
+    ['rugLiqDrop', 'Rug-exit: calo liquidità (%)', 'uscita d’emergenza', 'num'],
+    ['sellPressure', 'Esci al 50% su pressione vendite', '', 'bool'],
+  ],
+  setFilt: [
+    ['minLiq', 'Liquidità minima ($)', 'sotto = veto', 'num'],
+    ['minMcap', 'Market cap minima ($)', '', 'num'],
+    ['maxMcap', 'Market cap massima ($)', '', 'num'],
+    ['minAgeMin', 'Età minima (min)', 'evita i primi minuti', 'num'],
+    ['maxAgeH', 'Età massima (h)', '', 'num'],
+    ['minTxH1', 'Transazioni minime 1h', '', 'num'],
+    ['srcDexProfiles', 'Fonte: profili DexScreener', '', 'bool'],
+    ['srcDexBoosts', 'Fonte: boost DexScreener', '', 'bool'],
+    ['srcGmgnTrending', 'Fonte: GMGN trending', 'serve backend', 'bool'],
+    ['srcGmgnTrenches', 'Fonte: GMGN trenches', 'token nuovissimi', 'bool'],
+    ['gmgnInterval', 'Finestra GMGN', '1m 5m 1h 6h 24h', 'sel:1m,5m,1h,6h,24h'],
+  ],
+  setBack: [
+    ['backend', 'URL backend', 'vuoto = stesso sito', 'text'],
+    ['appToken', 'Token app', 'uguale ad APP_TOKEN', 'pass'],
+  ],
+};
+function renderSettings() {
+  for (const [box, list] of Object.entries(FIELDS)) {
+    $('#' + box).innerHTML = list.map(([k, l, h, t]) => {
+      const v = st.S[k];
+      let inp;
+      if (t === 'bool') inp = `<input type="checkbox" data-k="${k}" ${v ? 'checked' : ''}>`;
+      else if (t.startsWith('sel:')) inp = `<select data-k="${k}">${t.slice(4).split(',').map((o) => `<option ${o === v ? 'selected' : ''}>${o}</option>`).join('')}</select>`;
+      else inp = `<input data-k="${k}" type="${t === 'num' ? 'number' : t === 'pass' ? 'password' : 'text'}" inputmode="${t === 'num' ? 'decimal' : 'text'}" value="${esc(v)}" autocomplete="off" autocapitalize="off">`;
+      return `<div class="set"><label>${l}${h ? `<small>${h}</small>` : ''}</label>${inp}</div>`;
+    }).join('');
+  }
+  document.querySelectorAll('[data-k]').forEach((el) => el.onchange = () => {
+    const k = el.dataset.k;
+    st.S[k] = el.type === 'checkbox' ? el.checked : typeof DEFAULTS[k] === 'number' ? num(el.value, DEFAULTS[k]) : el.value.trim();
+    if (k === 'scanSec') st.S.scanSec = Math.max(15, st.S.scanSec);
+    if (k === 'backend' || k === 'appToken') checkBackend();
+    if (k === 'autopilot' || k === 'scanSec') restartLoop();
+    if (k === 'autopilot') log('KAISER', st.S.autopilot ? 'autopilota <b>attivo</b>' + (st.S.approve ? ' (con approvazione)' : '') : 'autopilota spento');
+    save(); render();
+  });
+}
+
+// ---------- BACKEND ----------
+async function checkBackend() {
+  try {
+    const h = await api('/api/health');
+    rt.backendOk = !!h.ok; rt.health = h;
+    log('KAISER', `backend online · GMGN ${h.gmgn ? 'chiave tua' : 'chiave demo'} · Grok ${h.grok ? '✓' : '✗'} · Telegram ${h.telegram ? '✓' : '✗'}`);
+  } catch (e) {
+    rt.backendOk = false; rt.health = null;
+    log('KAISER', 'backend non trovato: modalità solo browser (DexScreener + RugCheck + Jupiter)');
+  }
+  render();
+}
+
+// ---------- LOOP ----------
+let loopOn = false, scanTimer = null, posTimer = null;
+function restartLoop() {
+  clearInterval(scanTimer); clearInterval(posTimer);
+  loopOn = true;
+  scanTimer = setInterval(() => { if (!document.hidden) scan(); }, Math.max(15, st.S.scanSec) * 1000);
+  posTimer = setInterval(async () => { if (!document.hidden && !rt.scanning && st.positions.length) { await manage(); render(); save(); } }, 10000);
+}
+setInterval(() => { if (st.tickets.length && $('#v-tickets').classList.contains('active')) renderTickets(); }, 1000);
+
+// ---------- EVENTI ----------
+function go(v) {
+  document.querySelectorAll('.view').forEach((x) => x.classList.toggle('active', x.id === 'v-' + v));
+  document.querySelectorAll('nav button').forEach((b) => b.classList.toggle('active', b.dataset.v === v));
+  window.scrollTo(0, 0);
+}
+$('#nav').onclick = (e) => { const b = e.target.closest('button'); if (b) go(b.dataset.v); };
+$('#radarFilter').onclick = (e) => { const b = e.target.closest('button'); if (!b) return; rt.filter = b.dataset.f; document.querySelectorAll('#radarFilter button').forEach((x) => x.classList.toggle('on', x === b)); renderRadar(); };
+$('#btnScan').onclick = () => { scan(); if (!loopOn) restartLoop(); };
+$('#sheet').onclick = (e) => { if (e.target.id === 'sheet') closeSheet(); };
+document.body.addEventListener('click', async (e) => {
+  const card = e.target.closest('#radarList .card[data-mint]'); if (card) return openDetail(card.dataset.mint);
+  const d = e.target.closest('[data-detail]'); if (d) return openDetail(d.dataset.detail);
+  const ap = e.target.closest('[data-approve]');
+  if (ap) {
+    const t = st.tickets.find((x) => x.id === ap.dataset.approve); if (!t) return;
+    st.tickets = st.tickets.filter((x) => x !== t);
+    let c = rt.cands.get(t.mint);
+    if (!c) { const pr = (await dexPairs([t.mint])).get(t.mint); if (pr) c = buildCand(t.mint, pr, ['ticket']); }
+    if (c) { log('KAISER', `${t.id} approvato da te`); await buy(c, 'ticket ' + t.id); }
+    render(); return;
+  }
+  const rj = e.target.closest('[data-reject]');
+  if (rj) { st.tickets = st.tickets.filter((x) => x.id !== rj.dataset.reject); log('KAISER', `${rj.dataset.reject} rifiutato`); save(); render(); return; }
+  const sp = e.target.closest('[data-sellp]');
+  if (sp) { const p = st.positions.find((x) => x.id === sp.dataset.sellp); if (p) { sp.disabled = true; await sell(p, Number(sp.dataset.f), 'Manuale'); } }
+});
+$('#btnCsv').onclick = () => {
+  const rows = [['id', 'token', 'mint', 'apertura', 'chiusura', 'costo_sol', 'rientro_sol', 'pnl_sol', 'pnl_pct', 'motivo', 'score', 'sol_usd']]
+    .concat(st.journal.map((j) => [j.id, j.sym, j.mint, new Date(j.openedAt).toISOString(), new Date(j.closedAt).toISOString(), j.cost.toFixed(6), j.back.toFixed(6), j.pnl.toFixed(6), j.pct.toFixed(2), j.reason, j.score, (j.solUsd || 0).toFixed(2)]));
+  const blob = new Blob([rows.map((r) => r.map((x) => `"${String(x).replace(/"/g, '""')}"`).join(',')).join('\n')], { type: 'text/csv' });
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'kaiser-journal.csv'; a.click();
+};
+$('#btnTestBack').onclick = checkBackend;
+$('#btnTestTg').onclick = async () => { if (!rt.backendOk) return toast('Backend non collegato'); const r = await api('/api/telegram', { text: '⚔ KAISER: test notifiche ok' }).catch((e) => ({ ok: false, error: e.message })); toast(r.ok ? 'Messaggio Telegram inviato' : 'Errore: ' + esc(r.error)); };
+$('#btnReset').onclick = () => {
+  if (!confirm('Azzero cassa, posizioni, ticket e journal?')) return;
+  Object.assign(st, { cash: st.S.capitalSOL, positions: [], journal: [], tickets: [], day: null, cooldownUntil: 0, halted: null });
+  rollDay(); save(); render(); log('SCRIBE', `account paper azzerato a ${st.S.capitalSOL} SOL`);
+};
+document.addEventListener('visibilitychange', () => { if (!document.hidden && loopOn && Date.now() - rt.lastScan > st.S.scanSec * 1000) scan(); });
+
+// ---------- AVVIO ----------
+renderSettings(); rollDay(); render();
+log('KAISER', 'desk pronto. Ruoli: SCOUT · ORACLE · SENTINEL · GROK · QUARTER · CHARON · SCRIBE');
+checkBackend().then(() => solPrice()).then(render);
+})();
+</script>
+</body>
+</html>
