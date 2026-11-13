@@ -286,10 +286,15 @@ async function scan() {
     await tg(`🛑 <b>KAISER</b> circuit breaker: stop ingressi fino a domani`);
   }
   if (!S.autopilot) return;
+  // pochi ingressi per scan: più BUY nello stesso istante sono scommesse correlate (stesso regime di mercato)
+  let entered = 0;
   for (const c of buys) {
+    if (entered >= S.maxEntriesPerScan) { log('KAISER', `limite ${S.maxEntriesPerScan} ingresso/i per scan: $${c.sym} rimandato`); continue; }
     const why = gates(c);
     if (why) continue;
+    const before = st.positions.length;
     await buy(c);
+    if (st.positions.length > before) entered++;
     if (st.positions.length >= S.maxPos) break;
   }
 }
