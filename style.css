@@ -1,0 +1,215 @@
+/* KAISER · design system preso da PinscherTrade
+   Token iOS (scuro/chiaro/automatico), angoli concentrici, barra a capsula, Vetro (Liquid Glass) fermo o animato.
+   I nomi delle classi sono quelli di Kaiser: cambia l'aspetto, non la struttura. */
+:root {
+  color-scheme: dark;
+  --bg: #000000;
+  --surface: #0a0a0a;
+  --surface-2: #111111;
+  --surface-hover: #1c1c1e;
+  --border: #1c1c1e;
+  --field: #000000;
+  --text: #ffffff;
+  --text-secondary: #8e8e93;
+  --accent: #30d158;          /* verde: guadagno, BUY */
+  --danger: #ff453a;          /* rosso: perdita, VETO */
+  --warning: #ff9f0a;         /* ambra: WATCH, attenzione */
+  --ui: #0a84ff;              /* colore dell'interfaccia: selezioni, navigazione */
+  --ui-soft: rgba(10, 132, 255, 0.15);
+  --on-ui: #ffffff;
+  --brand: #f2b84b;           /* oro Kaiser: solo logo e ruolo KAISER */
+  --violet: #bf5af2;
+  --cyan: #64d2ff;
+  --shade: rgba(0, 0, 0, 0.4);
+  --overlay: rgba(0, 0, 0, 0.6);
+  --chart-bg: #000000;
+  --font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
+  --mono: 'SF Mono', ui-monospace, Menlo, monospace;
+  --touch-min: 44px;
+  --r-card: 20px; --r-card-sm: 18px; --r-item: 14px; --r-ctl: 12px; --r-ctl-sm: 10px; --r-pill: 999px; --nav-inset: 16px;
+  --nav-safe-bottom: env(safe-area-inset-bottom, 0px);
+  /* nomi storici di Kaiser, ora collegati ai token */
+  --panel: var(--surface); --panel2: var(--surface-2); --line: var(--border); --dim: var(--text-secondary);
+  --green: var(--accent); --red: var(--danger); --amber: var(--warning); --gold: var(--ui);
+  --ok-bg: rgba(48, 209, 88, 0.15); --bad-bg: rgba(255, 69, 58, 0.15); --warn-bg: rgba(255, 159, 10, 0.15);
+}
+html[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f2f2f7;
+  --surface: #ffffff;
+  --surface-2: #f7f7f9;
+  --surface-hover: #e5e5ea;
+  --border: #d8d8de;
+  --field: #f2f2f7;
+  --text: #000000;
+  --text-secondary: #6e6e73;
+  --accent: #248a3d;
+  --danger: #d70015;
+  --warning: #b35c00;
+  --ui: #0066cc;
+  --ui-soft: rgba(0, 102, 204, 0.12);
+  --brand: #b7791f;
+  --violet: #8944ab;
+  --cyan: #0a6e94;
+  --shade: rgba(0, 0, 0, 0.03);
+  --overlay: rgba(255, 255, 255, 0.75);
+  --chart-bg: #ffffff;
+  --ok-bg: rgba(36, 138, 61, 0.12); --bad-bg: rgba(215, 0, 21, 0.1); --warn-bg: rgba(179, 92, 0, 0.12);
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { margin: 0; width: 100%; height: 100%; background: var(--bg); color: var(--text); font: 15px/1.4 var(--font); overflow: hidden; overscroll-behavior: none; }
+input, select { -webkit-user-select: text; user-select: text; }
+a { color: var(--ui); }
+
+/* Struttura: colonna a tutta altezza (intestazione, contenuto che scorre, barra). Come Pinscher in app installata,
+   la barra sta nel flusso e non è "fixed": iOS non la ritaglia. */
+#app { width: 100vw; height: 100vh; height: 100dvh; display: flex; flex-direction: column; overflow: hidden; background: var(--bg); position: relative; isolation: isolate; }
+html.pwa-mode, html.pwa-mode body, html.pwa-mode #app { height: 100vh; height: 100lvh; }
+main { flex: 1 1 auto; min-height: 0; overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; padding: 4px 16px 14px; }
+.view { display: none; }
+.view.active { display: block; animation: fadeIn 0.2s ease-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+
+/* ---- intestazione ---- */
+header { flex: 0 0 auto; padding: calc(env(safe-area-inset-top, 0px) + 12px) 16px 6px; }
+.brand { display: flex; align-items: center; gap: 12px; min-height: 44px; }
+.logo { width: 40px; height: 40px; border-radius: var(--r-ctl); background: linear-gradient(135deg, var(--brand), #8a5a12);
+  display: grid; place-items: center; font-weight: 900; color: #1a1204; font-size: 20px; flex-shrink: 0; }
+.brand h1 { font-size: 20px; letter-spacing: 0.08em; margin: 0; font-weight: 800; }
+.brand small { display: block; color: var(--text-secondary); font-size: 11px; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pills { display: flex; gap: 6px; margin-top: 10px; overflow-x: auto; scrollbar-width: none; }
+.pills::-webkit-scrollbar { display: none; }
+.pill { font: 600 11px var(--mono); padding: 5px 10px; border-radius: var(--r-pill); background: var(--surface); color: var(--text-secondary); border: 1px solid var(--border); white-space: nowrap; flex-shrink: 0; }
+.pill.on { color: var(--accent); border-color: var(--accent); background: var(--ok-bg); }
+.pill.off { color: var(--danger); border-color: var(--danger); background: var(--bad-bg); }
+.pill.gold { color: var(--ui); border-color: var(--ui); background: var(--ui-soft); }
+
+/* ---- schede, testi, tasti ---- */
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-card); padding: 14px; margin-bottom: 10px; }
+.row { display: flex; align-items: center; gap: 8px; } .between { justify-content: space-between; } .wrap { flex-wrap: wrap; }
+.muted { color: var(--text-secondary); } .mono { font-family: var(--mono); } .small { font-size: 12px; } .tiny { font-size: 11px; }
+.up { color: var(--accent); } .down { color: var(--danger); } .warn { color: var(--warning); }
+h2 { font-size: 10px; letter-spacing: 0.6px; color: var(--text-secondary); margin: 16px 6px 6px; font-weight: 700; text-transform: uppercase; }
+.btn { appearance: none; border: 1px solid var(--border); background: var(--surface); color: var(--text); border-radius: var(--r-pill);
+  padding: 0 16px; min-height: 40px; font: 600 14px var(--font); cursor: pointer; transition: transform 0.15s, background 0.15s; }
+.btn:active { transform: scale(0.96); background: var(--surface-hover); }
+.btn.gold { background: var(--ui); color: var(--on-ui); border-color: var(--ui); }
+.btn.green { background: var(--ok-bg); border-color: var(--accent); color: var(--accent); }
+.btn.red { background: var(--bad-bg); border-color: var(--danger); color: var(--danger); }
+.btn.sm { min-height: 34px; padding: 0 12px; font-size: 12px; }
+.btn[disabled] { opacity: 0.45; }
+.btn-icon { width: 40px; height: 40px; padding: 0; border-radius: var(--r-ctl); display: grid; place-items: center; flex-shrink: 0; }
+.btn-icon svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+.tok { display: grid; grid-template-columns: 40px 1fr auto; gap: 10px; align-items: center; }
+.tok img, .tok .ph { width: 40px; height: 40px; border-radius: var(--r-ctl); background: var(--surface-2); object-fit: cover; }
+.sym { font-weight: 800; } .nm { color: var(--text-secondary); font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 160px; }
+.score { font: 800 18px var(--mono); text-align: right; }
+.badge { display: inline-block; font: 700 10px var(--mono); padding: 3px 8px; border-radius: var(--r-pill); letter-spacing: 0.04em; }
+.b-BUY { background: var(--ok-bg); color: var(--accent); } .b-WATCH { background: var(--warn-bg); color: var(--warning); }
+.b-SKIP { background: var(--surface-hover); color: var(--text-secondary); } .b-VETO { background: var(--bad-bg); color: var(--danger); }
+.metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 10px; }
+.m { background: var(--field); border: 1px solid var(--border); border-radius: var(--r-ctl-sm); padding: 6px 8px; }
+.m b { display: block; font: 700 12px var(--mono); } .m span { font-size: 10px; color: var(--text-secondary); }
+.chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+.chip { font-size: 11px; padding: 3px 8px; border-radius: var(--r-pill); background: var(--surface-hover); color: var(--text-secondary); }
+.chip.v { background: var(--bad-bg); color: var(--danger); } .chip.g { background: var(--ok-bg); color: var(--accent); }
+.stat { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; } .stat .m b { font-size: 15px; }
+.bar { height: 6px; border-radius: 9px; background: var(--surface-hover); overflow: hidden; } .bar i { display: block; height: 100%; background: var(--ui); }
+.empty { text-align: center; color: var(--text-secondary); padding: 28px 10px; font-size: 14px; }
+table { width: 100%; border-collapse: collapse; font: 12px var(--mono); }
+td, th { padding: 7px 4px; border-bottom: 1px solid var(--border); text-align: left; } th { color: var(--text-secondary); font-weight: 600; }
+
+/* ---- sala operativa ---- */
+.log { font: 12px/1.45 var(--mono); max-height: 190px; overflow: auto; }
+.log div { padding: 2px 0; border-bottom: 1px dashed var(--border); }
+.ag { font-weight: 800; }
+.ag-KAISER { color: var(--brand); } .ag-SCOUT { color: var(--cyan); } .ag-SENTINEL { color: var(--danger); } .ag-ORACLE { color: var(--violet); }
+.ag-GROK { color: var(--text); } .ag-CHARON { color: var(--ui); } .ag-QUARTER { color: var(--accent); } .ag-SCRIBE { color: var(--text-secondary); }
+
+/* ---- selettori a capsula (come le schede di pagina di Pinscher) ---- */
+.seg, .theme-toggle { display: flex; background: var(--field); border: 1px solid var(--border); border-radius: var(--r-pill); padding: 3px; gap: 2px; }
+.seg button, .theme-toggle button { flex: 1; border: 0; background: transparent; color: var(--text-secondary); padding: 0 12px; min-height: 30px; border-radius: var(--r-pill); font: 700 12px var(--font); cursor: pointer; white-space: nowrap; }
+.seg button.on, .theme-toggle button.active { background: var(--surface-hover); color: var(--text); }
+
+/* ---- impostazioni: righe in gruppi, come in Pinscher ---- */
+.set { display: grid; grid-template-columns: 1fr 120px; gap: 10px; align-items: center; margin: 0; padding: 8px 0; border-top: 1px solid var(--border); min-height: var(--touch-min); }
+.card > .set:first-child { border-top: 0; }
+.set label { font-size: 14px; font-weight: 600; } .set small { display: block; color: var(--text-secondary); font-size: 11px; font-weight: 500; }
+.set .theme-toggle { justify-self: end; }
+.set.wide { grid-template-columns: 1fr auto; }
+input, select { background: var(--field); border: 1px solid var(--border); color: var(--text); border-radius: var(--r-ctl); padding: 0 10px; min-height: 38px; font: 14px var(--mono); width: 100%; }
+input[type=checkbox] { width: 26px; height: 26px; min-height: 0; justify-self: end; accent-color: var(--ui); }
+
+/* ---- finestra di dettaglio e avvisi ---- */
+.sheet { position: fixed; inset: 0; z-index: 50; background: var(--overlay); display: none; align-items: flex-end; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.sheet.open { display: flex; }
+.sheet .inner { background: var(--bg); width: 100%; max-height: 92vh; overflow: auto; border-radius: 28px 28px 0 0; border-top: 1px solid var(--border); padding: 14px 16px calc(20px + env(safe-area-inset-bottom)); }
+.grab { width: 40px; height: 4px; border-radius: 9px; background: var(--surface-hover); margin: 0 auto 12px; }
+iframe.chart { width: 100%; height: 330px; border: 0; border-radius: var(--r-card-sm); background: var(--chart-bg); }
+.kv { display: grid; grid-template-columns: 1fr auto; gap: 4px 10px; font-size: 13px; } .kv span:nth-child(odd) { color: var(--text-secondary); }
+.toast { position: fixed; left: 16px; right: 16px; bottom: calc(96px + env(safe-area-inset-bottom)); z-index: 60; background: var(--surface-hover); border: 1px solid var(--border);
+  border-radius: var(--r-card-sm); padding: 12px 14px; font-size: 13px; display: none; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35); }
+.toast.show { display: block; }
+
+/* ---- barra in basso a capsula, staccata dallo schermo ---- */
+nav { flex: 0 0 auto; display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; margin: 4px var(--nav-inset) calc(var(--nav-safe-bottom) * 0.4 + var(--nav-inset));
+  padding: 6px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-pill); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35); }
+nav button { background: none; border: 0; border-radius: var(--r-pill); color: var(--text-secondary); padding: 6px 0 5px; font: 600 10px var(--font); position: relative;
+  display: flex; flex-direction: column; align-items: center; gap: 2px; cursor: pointer; transition: color 0.2s; }
+nav button svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+nav button.active { background: var(--surface-hover); color: var(--text); }
+nav button.active svg { color: var(--ui); }
+nav .dot { position: absolute; top: 2px; right: calc(50% - 22px); background: var(--danger); color: #fff; font: 700 9px var(--font); border-radius: var(--r-pill); padding: 1px 5px; min-width: 16px; text-align: center; }
+
+/* ---- Vetro (Impostazioni → Aspetto): Liquid Glass fermo o con luci animate ---- */
+html.glass { --glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.04) 55%, rgba(255, 255, 255, 0.08));
+  --glass-border: rgba(255, 255, 255, 0.18); --glass-light: inset 0 1px 0 rgba(255, 255, 255, 0.28), inset 0 -1px 0 rgba(255, 255, 255, 0.06); }
+html.glass[data-theme="light"] { --glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.55) 55%, rgba(255, 255, 255, 0.7));
+  --glass-border: rgba(255, 255, 255, 0.9); --glass-light: inset 0 1px 0 rgba(255, 255, 255, 1), 0 1px 2px rgba(0, 0, 0, 0.06); }
+html.glass nav, html.glass .btn-icon, html.glass .seg, html.glass .theme-toggle { background: var(--glass-bg); border-color: var(--glass-border);
+  -webkit-backdrop-filter: blur(22px) saturate(180%); backdrop-filter: blur(22px) saturate(180%); }
+html.glass nav { box-shadow: var(--glass-light), 0 10px 30px rgba(0, 0, 0, 0.4); }
+html.glass .btn-icon, html.glass .seg, html.glass .theme-toggle { box-shadow: var(--glass-light); }
+html.glass nav button.active, html.glass .seg button.on, html.glass .theme-toggle button.active { background: rgba(255, 255, 255, 0.14); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22); }
+html.glass[data-theme="light"] nav button.active, html.glass[data-theme="light"] .seg button.on, html.glass[data-theme="light"] .theme-toggle button.active { background: rgba(0, 0, 0, 0.06); }
+html.glass { --surface: rgba(255, 255, 255, 0.06); --surface-2: rgba(255, 255, 255, 0.04); --surface-hover: rgba(255, 255, 255, 0.13); --border: rgba(255, 255, 255, 0.11);
+  --field: rgba(255, 255, 255, 0.05); --chart-bg: transparent;
+  --wall: radial-gradient(60% 45% at 0% 0%, rgba(10, 132, 255, 0.28), transparent 70%),
+          radial-gradient(55% 40% at 100% 45%, rgba(48, 209, 88, 0.16), transparent 70%),
+          radial-gradient(65% 45% at 20% 100%, rgba(191, 90, 242, 0.20), transparent 70%), #000; }
+html.glass[data-theme="light"] { --surface: rgba(255, 255, 255, 0.66); --surface-2: rgba(255, 255, 255, 0.5); --surface-hover: rgba(255, 255, 255, 0.9); --border: rgba(255, 255, 255, 0.9);
+  --field: rgba(255, 255, 255, 0.5);
+  --wall: radial-gradient(60% 45% at 0% 0%, rgba(10, 132, 255, 0.22), transparent 70%),
+          radial-gradient(55% 40% at 100% 45%, rgba(48, 209, 88, 0.16), transparent 70%),
+          radial-gradient(65% 45% at 20% 100%, rgba(191, 90, 242, 0.18), transparent 70%), #eef0f6; }
+html.glass body, html.glass #app, html.glass .sheet .inner { background: var(--wall); }
+html.glass .card { -webkit-backdrop-filter: blur(18px) saturate(170%); backdrop-filter: blur(18px) saturate(170%); box-shadow: var(--glass-light); }
+html.glass[data-theme="light"] .card { box-shadow: var(--glass-light), 0 2px 10px rgba(30, 40, 80, 0.07); }
+html.glass input, html.glass select { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06); }
+html.glass[data-theme="light"] input, html.glass[data-theme="light"] select { box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05); }
+html.glass .view.active { animation-name: pt-page-in; }
+@keyframes pt-page-in { from { transform: translateY(5px); } to { transform: none; } }
+/* Sfondo dinamico: tre luci tenui che si spostano piano (solo transform e opacità), ferme se iOS chiede meno movimento */
+.wall-anim { display: none; }
+html.glass-anim #app { background: transparent; }
+html.glass-anim .wall-anim { display: block; position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; background: #000; }
+html.glass-anim[data-theme="light"] .wall-anim { background: #eef0f6; }
+.wall-anim i { position: absolute; left: 50%; top: 50%; width: 130vw; height: 95vh; margin: -47.5vh 0 0 -65vw; border-radius: 50%;
+  background: radial-gradient(closest-side, var(--c), transparent 70%); will-change: transform, opacity;
+  animation: pt-wall-a 67s ease-in-out infinite alternate, pt-wall-fade 43s ease-in-out infinite alternate; }
+.wall-anim i:nth-child(1) { --c: rgba(10, 132, 255, 0.34); animation-delay: -10s, -5s; }
+.wall-anim i:nth-child(2) { --c: rgba(48, 209, 88, 0.2); animation-name: pt-wall-b, pt-wall-fade; animation-duration: 79s, 53s; animation-delay: -40s, -30s; }
+.wall-anim i:nth-child(3) { --c: rgba(191, 90, 242, 0.26); animation-name: pt-wall-c, pt-wall-fade; animation-duration: 89s, 61s; animation-delay: -25s, -12s; }
+html.glass-anim[data-theme="light"] .wall-anim i:nth-child(1) { --c: rgba(10, 132, 255, 0.26); }
+html.glass-anim[data-theme="light"] .wall-anim i:nth-child(2) { --c: rgba(48, 209, 88, 0.2); }
+html.glass-anim[data-theme="light"] .wall-anim i:nth-child(3) { --c: rgba(191, 90, 242, 0.22); }
+html.glass-anim .sheet .inner { background: transparent; }
+@keyframes pt-wall-a { 0% { transform: translate3d(-28vw, -30vh, 0); } 50% { transform: translate3d(-6vw, -18vh, 0) scale(1.1); } 100% { transform: translate3d(-20vw, -6vh, 0) scale(0.95); } }
+@keyframes pt-wall-b { 0% { transform: translate3d(28vw, -2vh, 0); } 50% { transform: translate3d(14vw, -20vh, 0) scale(1.1); } 100% { transform: translate3d(24vw, 14vh, 0) scale(0.95); } }
+@keyframes pt-wall-c { 0% { transform: translate3d(-18vw, 30vh, 0); } 50% { transform: translate3d(8vw, 22vh, 0) scale(1.1); } 100% { transform: translate3d(-4vw, 34vh, 0) scale(0.95); } }
+@keyframes pt-wall-fade { 0% { opacity: 0.75; } 50% { opacity: 1; } 100% { opacity: 0.85; } }
+@media (prefers-reduced-motion: reduce) { .wall-anim i { animation: none; } .view.active { animation: none; } }
+
+@media (max-height: 620px) { .set { min-height: 38px; padding: 4px 0; } header { padding-top: calc(env(safe-area-inset-top, 0px) + 6px); } }
