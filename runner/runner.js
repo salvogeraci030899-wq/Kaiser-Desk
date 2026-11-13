@@ -221,7 +221,7 @@ async function sell(p, frac, reason) {
     st.positions = st.positions.filter((x) => x !== p);
     const pnl = p.realized - p.cost;
     const j = { id: p.id, mint: p.mint, sym: p.sym, openedAt: p.openedAt, closedAt: Date.now(), cost: p.cost, back: p.realized, pnl, pct: pnl / p.cost * 100,
-      reason, score: p.score, solUsd: rt.solUsd, peakPct: (p.peak / p.entry - 1) * 100, entryInfo: p.entryInfo };
+      reason, score: p.score, solUsd: rt.solUsd, peakPct: (p.peak / p.entry - 1) * 100, trigPct: (m.priceNative / p.entry - 1) * 100, entryInfo: p.entryInfo };
     st.journal.push(j);
     if (pnl < 0) st.cooldownUntil = Date.now() + S.cooldownMin * 60000;
     log('SCRIBE', `chiuso ${p.id} $${p.sym} ${pnl.toFixed(4)} SOL (${j.pct.toFixed(1)}%)`);
@@ -334,7 +334,7 @@ ${st.positions.length ? st.positions.map((p) => `- **$${p.sym}** ${p.id} · ${p.
 ${Object.keys(by).length ? '| Motivo | Trade | P&L SOL |\n|---|---|---|\n' + Object.entries(by).map(([k, v]) => `| ${k} | ${v.n} | ${f(v.pnl)} |`).join('\n') : '_ancora nessuna_'}
 
 ## Ultimi 25 trade
-${st.journal.length ? '| Token | Score | Esito | P&L SOL | Picco | Motivo | Durata |\n|---|---|---|---|---|---|---|\n' + [...st.journal].reverse().slice(0, 25).map((j) => `| $${j.sym} | ${j.score} | ${f(j.pct, 1)}% | ${f(j.pnl)} | ${f(j.peakPct || 0, 0)}% | ${j.reason} | ${Math.round((j.closedAt - j.openedAt) / 60000)}m |`).join('\n') : '_ancora nessuno_'}
+${st.journal.length ? '| Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |\n|---|---|---|---|---|---|---|---|\n' + [...st.journal].reverse().slice(0, 25).map((j) => `| $${j.sym} | ${j.score} | ${f(j.pct, 1)}% | ${f(j.pnl)} | ${f(j.peakPct || 0, 0)}% | ${j.trigPct == null ? 'n/d' : f(j.trigPct, 0) + '%'} | ${j.reason} | ${Math.round((j.closedAt - j.openedAt) / 60000)}m |`).join('\n') : '_ancora nessuno_'}
 
 ## Ultimi eventi
 \`\`\`
@@ -345,8 +345,8 @@ Regole attive: config.json su questo branch. Solo paper trading.
 `;
 }
 function csv() {
-  const rows = [['id', 'token', 'mint', 'apertura', 'chiusura', 'costo_sol', 'rientro_sol', 'pnl_sol', 'pnl_pct', 'picco_pct', 'motivo', 'score', 'sol_usd']]
-    .concat(st.journal.map((j) => [j.id, j.sym, j.mint, new Date(j.openedAt).toISOString(), new Date(j.closedAt).toISOString(), j.cost.toFixed(6), j.back.toFixed(6), j.pnl.toFixed(6), j.pct.toFixed(2), (j.peakPct || 0).toFixed(1), j.reason, j.score, (j.solUsd || 0).toFixed(2)]));
+  const rows = [['id', 'token', 'mint', 'apertura', 'chiusura', 'costo_sol', 'rientro_sol', 'pnl_sol', 'pnl_pct', 'picco_pct', 'prezzo_scatto_pct', 'motivo', 'score', 'sol_usd']]
+    .concat(st.journal.map((j) => [j.id, j.sym, j.mint, new Date(j.openedAt).toISOString(), new Date(j.closedAt).toISOString(), j.cost.toFixed(6), j.back.toFixed(6), j.pnl.toFixed(6), j.pct.toFixed(2), (j.peakPct || 0).toFixed(1), j.trigPct == null ? '' : j.trigPct.toFixed(1), j.reason, j.score, (j.solUsd || 0).toFixed(2)]));
   return rows.map((r) => r.map((x) => `"${String(x).replace(/"/g, '""')}"`).join(',')).join('\n') + '\n';
 }
 
