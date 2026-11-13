@@ -440,9 +440,12 @@ async function kaiser() {
   st.tickets = st.tickets.filter((t) => { if (t.exp < now) { log('KAISER', `ticket ${t.id} $${esc(t.sym)} scaduto`); return false; } return true; });
   if (!st.S.autopilot) return;
   const buys = [...rt.cands.values()].filter((c) => c.verdict === 'BUY').sort((a, b) => b.score - a.score);
+  let entered = 0;
   for (const c of buys) {
+    if (entered >= st.S.maxEntriesPerScan) break; // BUY simultanei = scommesse correlate
     const why = gates(c);
     if (why) continue;
+    entered++;
     if (st.S.approve) {
       const t = { id: 'T-' + String(++st.seq).padStart(4, '0'), mint: c.mint, sym: c.sym, score: c.score, exp: now + 180000, at: now };
       st.tickets.push(t);
@@ -700,6 +703,7 @@ const FIELDS = {
     ['capitalSOL', 'Capitale paper (SOL)', 'usato al reset', 'num'],
     ['sizePct', 'Size per trade (% equity)', '', 'num'],
     ['maxPos', 'Max posizioni', '', 'num'],
+    ['maxEntriesPerScan', 'Ingressi per scan', 'evita BUY correlati', 'num'],
     ['slippageBps', 'Slippage max (bps)', '300 = 3%', 'num'],
     ['feePct', 'Commissioni per lato (%)', 'bot/DEX', 'num'],
     ['prioritySOL', 'Priority fee (SOL)', 'per transazione', 'num'],
