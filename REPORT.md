@@ -1,37 +1,53 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-13 19:45 UTC · in esecuzione da 0.1 giorni · 3 run
+Aggiornato: 2026-11-13 23:56 UTC · in esecuzione da 0.2 giorni · 4 run
 
 | | |
 |---|---|
-| Equity | **4.8091 SOL** (-3.8% dal capitale iniziale di 5 SOL) |
-| Cassa | 4.0491 SOL |
-| Trade chiusi | 3 |
+| Equity | **4.2068 SOL** (-15.9% dal capitale iniziale di 5 SOL) |
+| Cassa | 4.2068 SOL |
+| Trade chiusi | 6 |
 | Win rate | 0% |
-| P&L realizzato | -0.2354 SOL (~$-18.82) |
-| Media vincite / perdite | +0.0% / -31.3% |
+| P&L realizzato | -0.7932 SOL (~$-61.91) |
+| Media vincite / perdite | +0.0% / -54.6% |
 | Profit factor | 0.00 |
-| Circuit breaker | no |
+| Circuit breaker | ATTIVO oggi |
 
 ## Posizioni aperte
-- **$LUCIA** P-0004 · 0.238 SOL · +12.3% · resta 100% · [grafico](https://dexscreener.com/solana/E4iYodejrwvcSytT95KphLxneLSRMTYMokRbWQCuYzev)
-- **$C@T** P-0005 · 0.238 SOL · +16.8% · resta 100% · [grafico](https://dexscreener.com/solana/6dcvyM9WxckzRdXDRFanzg5a88tyVWoAx3ipwjk1Nrcq)
-- **$WANTED** P-0006 · 0.238 SOL · -9.8% · resta 100% · [grafico](https://dexscreener.com/solana/AdjVvfSvLELAfuBxvDLH5KhuwmXHXFPbQY7hvi9GHcwf)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| Stop loss | 3 | -0.2354 |
+| Stop loss | 4 | -0.3217 |
+| RUG-EXIT liquidità | 2 | -0.4714 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $WANTED | 86 | -36.2% | -0.0863 | +0% | -37% | Stop loss | 248m |
+| $C@T | 88 | -98.9% | -0.2357 | +17% | -99% | RUG-EXIT liquidità | 249m |
+| $LUCIA | 88 | -98.7% | -0.2357 | +21% | -99% | RUG-EXIT liquidità | 250m |
 | $SIRIUS | 93 | -29.9% | -0.0748 | +0% | n/d | Stop loss | 21m |
 | $JENSEN | 83 | -32.7% | -0.0819 | +3% | n/d | Stop loss | 3m |
 | $cashduck | 81 | -31.4% | -0.0787 | +21% | n/d | Stop loss | 2m |
 
 ## Ultimi eventi
 ```
+23:56:22 SCRIBE   fine run · trade 6 · win 0% · P&L -0.7932 SOL · equity 4.2068 SOL
+23:56:07 ORACLE   90 raccolti, 69 analizzati, 8 BUY, 45 veto
+23:55:04 ORACLE   90 raccolti, 69 analizzati, 5 BUY, 44 veto
+23:54:02 ORACLE   90 raccolti, 70 analizzati, 6 BUY, 44 veto
+23:52:59 ORACLE   90 raccolti, 70 analizzati, 6 BUY, 45 veto
+23:51:57 KAISER   CIRCUIT BREAKER: perdita giornaliera oltre 15%
+23:51:57 SCRIBE   chiuso P-0006 $WANTED -0.0863 SOL (-36.2%)
+23:51:57 CHARON   Stop loss $WANTED vendo 100% a -37.0% -> 0.1522 SOL
+23:51:57 SCRIBE   chiuso P-0005 $C@T -0.2357 SOL (-98.9%)
+23:51:57 CHARON   RUG-EXIT liquidità $C@T vendo 100% a -98.5% -> 0.0025 SOL
+23:51:56 SCRIBE   chiuso P-0004 $LUCIA -0.2357 SOL (-98.7%)
+23:51:56 CHARON   RUG-EXIT liquidità $LUCIA vendo 100% a -98.5% -> 0.0030 SOL
+23:51:56 ORACLE   90 raccolti, 71 analizzati, 5 BUY, 47 veto
+23:51:52 KAISER   run #4 · 3 posizioni · equity 4.8091 SOL · GMGN demo · Grok off
 19:45:57 SCRIBE   fine run · trade 3 · win 0% · P&L -0.2354 SOL · equity 4.8091 SOL
 19:45:57 ORACLE   90 raccolti, 67 analizzati, 5 BUY, 46 veto
 19:44:53 ORACLE   90 raccolti, 67 analizzati, 4 BUY, 45 veto
@@ -58,20 +74,6 @@ Aggiornato: 2026-11-13 19:45 UTC · in esecuzione da 0.1 giorni · 3 run
 18:55:50 ORACLE   88 raccolti, 67 analizzati, 3 BUY, 49 veto
 18:54:47 SCRIBE   chiuso P-0001 $SIRIUS -0.0748 SOL (-29.9%)
 18:54:47 CHARON   Stop loss $SIRIUS vendo 100% a -46.6% -> 0.1757 SOL
-18:54:47 ORACLE   88 raccolti, 67 analizzati, 3 BUY, 48 veto
-18:54:44 KAISER   run #2 · 1 posizioni · equity 4.8164 SOL · GMGN demo · Grok off
-18:37:57 SCRIBE   fine run · trade 2 · win 0% · P&L -0.1606 SOL · equity 4.8164 SOL
-18:37:42 ORACLE   87 raccolti, 64 analizzati, 7 BUY, 43 veto
-18:36:39 SCRIBE   chiuso P-0002 $JENSEN -0.0819 SOL (-32.7%)
-18:36:39 CHARON   Stop loss $JENSEN vendo 100% a -43.0% -> 0.1686 SOL
-18:36:39 ORACLE   88 raccolti, 65 analizzati, 6 BUY, 44 veto
-18:35:37 SCRIBE   chiuso P-0003 $cashduck -0.0787 SOL (-31.4%)
-18:35:37 CHARON   Stop loss $cashduck vendo 100% a -29.5% -> 0.1717 SOL
-18:35:36 ORACLE   88 raccolti, 64 analizzati, 5 BUY, 43 veto
-18:34:34 ORACLE   88 raccolti, 64 analizzati, 5 BUY, 43 veto
-18:33:31 QUARTER  BUY $cashduck 0.250 SOL score 81 impatto 2.27% (Jupiter)
-18:33:31 QUARTER  BUY $JENSEN 0.250 SOL score 83 impatto 2.63% (Jupiter)
-18:33:31 QUARTER  BUY $SIRIUS 0.250 SOL score 93 impatto 2.41% (Jupiter)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
