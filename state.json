@@ -1,66 +1,8 @@
 {
  "startedAt": 1794594807914,
- "runs": 1,
- "cash": 4.58887834447,
- "positions": [
-  {
-   "id": "P-0001",
-   "mint": "HBFXQ147s9VN62DmUvfWAkRApTPzaR8saHcCVCgrpump",
-   "sym": "SIRIUS",
-   "name": "first bitcoin cat",
-   "pairAddress": "3pPt2n33W9Q7D4rMX5ujEAGFYhBycrwsxdwekPoeiL3b",
-   "openedAt": 1794594811888,
-   "sizeSOL": 0.25,
-   "cost": 0.2505,
-   "entry": 0.000002358189293505404,
-   "tokens": 106013.54212255782,
-   "remaining": 1,
-   "rawLeft": "132432300081",
-   "peak": 0.000002358189293505404,
-   "tp1Done": false,
-   "spDone": false,
-   "entryLiq": 31406.91,
-   "realized": 0,
-   "score": 93,
-   "why": "runner",
-   "entryInfo": {
-    "srcs": [
-     "profili"
-    ],
-    "notes": [],
-    "plus": [
-     "turnover 7.6x/h",
-     "pressione in acquisto"
-    ],
-    "m": {
-     "liq": 28387.48,
-     "mc": 149920,
-     "ageMin": 56.063433333333336,
-     "v1": 215348.93,
-     "tx1": 6420,
-     "br1": 5.371031746031746,
-     "br5": 3.819672131147541,
-     "c5": 5.93,
-     "c1": 282,
-     "c6": 282,
-     "turn": 7.586053076919825,
-     "price": 0.0001516,
-     "priceNative": 0.000001896
-    },
-    "grok": null
-   },
-   "last": {
-    "priceNative": 0.000002146,
-    "liq": 30328.2,
-    "br5": 4.825581395348837,
-    "tx5": 499,
-    "t": 1794595062117
-   },
-   "fills": [
-    "BUY 0.250 impatto 2.41% (Jupiter)"
-   ]
-  }
- ],
+ "runs": 2,
+ "cash": 4.764585454670001,
+ "positions": [],
  "journal": [
   {
    "id": "P-0003",
@@ -145,6 +87,47 @@
      "turn": 7.601712814184074,
      "price": 0.000109,
      "priceNative": 0.000001363
+    },
+    "grok": null
+   }
+  },
+  {
+   "id": "P-0001",
+   "mint": "HBFXQ147s9VN62DmUvfWAkRApTPzaR8saHcCVCgrpump",
+   "sym": "SIRIUS",
+   "openedAt": 1794594811888,
+   "closedAt": 1794596087940,
+   "cost": 0.2505,
+   "back": 0.1757071102,
+   "pnl": -0.07479288980000001,
+   "pct": -29.857441037924154,
+   "reason": "Stop loss",
+   "score": 93,
+   "solUsd": 80.09804711770573,
+   "peakPct": 0,
+   "entryInfo": {
+    "srcs": [
+     "profili"
+    ],
+    "notes": [],
+    "plus": [
+     "turnover 7.6x/h",
+     "pressione in acquisto"
+    ],
+    "m": {
+     "liq": 28387.48,
+     "mc": 149920,
+     "ageMin": 56.063433333333336,
+     "v1": 215348.93,
+     "tx1": 6420,
+     "br1": 5.371031746031746,
+     "br5": 3.819672131147541,
+     "c5": 5.93,
+     "c1": 282,
+     "c6": 282,
+     "turn": 7.586053076919825,
+     "price": 0.0001516,
+     "priceNative": 0.000001896
     },
     "grok": null
    }
@@ -353,16 +336,151 @@
    "sym": "Sakura",
    "score": 68,
    "priceNative": 0.000005161
+  },
+  {
+   "t": 1794596087928,
+   "mint": "HBFXQ147s9VN62DmUvfWAkRApTPzaR8saHcCVCgrpump",
+   "sym": "SIRIUS",
+   "score": 93,
+   "priceNative": 0.000001259
+  },
+  {
+   "t": 1794596087928,
+   "mint": "BeLVQE2tK7fVvg6EpVgUzUWhSi95XpL7mqJM3nANpump",
+   "sym": "WANTED",
+   "score": 74,
+   "priceNative": 0.000005517
+  },
+  {
+   "t": 1794596087928,
+   "mint": "9J41toneswGA3hZJyfYiWkC9jMm8doMDP3QEBYM1pump",
+   "sym": "Nigghao",
+   "score": 71,
+   "priceNative": 0.000001396
+  },
+  {
+   "t": 1794596150633,
+   "mint": "HBFXQ147s9VN62DmUvfWAkRApTPzaR8saHcCVCgrpump",
+   "sym": "SIRIUS",
+   "score": 87,
+   "priceNative": 0.000001419
+  },
+  {
+   "t": 1794596150633,
+   "mint": "BeLVQE2tK7fVvg6EpVgUzUWhSi95XpL7mqJM3nANpump",
+   "sym": "WANTED",
+   "score": 74,
+   "priceNative": 0.000005482
+  },
+  {
+   "t": 1794596150633,
+   "mint": "9J41toneswGA3hZJyfYiWkC9jMm8doMDP3QEBYM1pump",
+   "sym": "Nigghao",
+   "score": 71,
+   "priceNative": 0.000001438
+  },
+  {
+   "t": 1794596213049,
+   "mint": "HBFXQ147s9VN62DmUvfWAkRApTPzaR8saHcCVCgrpump",
+   "sym": "SIRIUS",
+   "score": 88,
+   "priceNative": 0.000001413
+  },
+  {
+   "t": 1794596213049,
+   "mint": "BeLVQE2tK7fVvg6EpVgUzUWhSi95XpL7mqJM3nANpump",
+   "sym": "WANTED",
+   "score": 74,
+   "priceNative": 0.000005786
+  },
+  {
+   "t": 1794596213049,
+   "mint": "FTu55MyigXns96jz4nTCDDiTCjYJjyrHSceCgG9Upump",
+   "sym": "FOOD",
+   "score": 73,
+   "priceNative": 0.00001587
+  },
+  {
+   "t": 1794596213049,
+   "mint": "9J41toneswGA3hZJyfYiWkC9jMm8doMDP3QEBYM1pump",
+   "sym": "Nigghao",
+   "score": 72,
+   "priceNative": 0.000001434
+  },
+  {
+   "t": 1794596275416,
+   "mint": "HBFXQ147s9VN62DmUvfWAkRApTPzaR8saHcCVCgrpump",
+   "sym": "SIRIUS",
+   "score": 93,
+   "priceNative": 0.000001207
+  },
+  {
+   "t": 1794596275416,
+   "mint": "BeLVQE2tK7fVvg6EpVgUzUWhSi95XpL7mqJM3nANpump",
+   "sym": "WANTED",
+   "score": 74,
+   "priceNative": 0.000005695
+  },
+  {
+   "t": 1794596275416,
+   "mint": "9J41toneswGA3hZJyfYiWkC9jMm8doMDP3QEBYM1pump",
+   "sym": "Nigghao",
+   "score": 70,
+   "priceNative": 0.000001486
+  },
+  {
+   "t": 1794596275416,
+   "mint": "FTu55MyigXns96jz4nTCDDiTCjYJjyrHSceCgG9Upump",
+   "sym": "FOOD",
+   "score": 68,
+   "priceNative": 0.00001526
+  },
+  {
+   "t": 1794596338165,
+   "mint": "HBFXQ147s9VN62DmUvfWAkRApTPzaR8saHcCVCgrpump",
+   "sym": "SIRIUS",
+   "score": 88,
+   "priceNative": 0.000001123
+  },
+  {
+   "t": 1794596338165,
+   "mint": "4hdUC8v8KqmNgCBe1jkUoGHLqHtWZfBzaH9BSC3Lpump",
+   "sym": "ALETH",
+   "score": 76,
+   "priceNative": 6.548e-7
+  },
+  {
+   "t": 1794596338165,
+   "mint": "9J41toneswGA3hZJyfYiWkC9jMm8doMDP3QEBYM1pump",
+   "sym": "Nigghao",
+   "score": 71,
+   "priceNative": 0.000001483
+  },
+  {
+   "t": 1794596338165,
+   "mint": "FTu55MyigXns96jz4nTCDDiTCjYJjyrHSceCgG9Upump",
+   "sym": "FOOD",
+   "score": 69,
+   "priceNative": 0.00001492
   }
  ],
  "day": {
   "date": "2026-11-13",
   "startEq": 5
  },
- "cooldownUntil": 1794595599570,
+ "cooldownUntil": 1794596687940,
  "halted": null,
  "seq": 3,
  "events": [
+  "18:59:14 SCRIBE   fine run · trade 3 · win 0% · P&L -0.2354 SOL · equity 4.7646 SOL",
+  "18:58:58 ORACLE   89 raccolti, 70 analizzati, 4 BUY, 50 veto",
+  "18:57:55 ORACLE   89 raccolti, 69 analizzati, 4 BUY, 50 veto",
+  "18:56:53 ORACLE   89 raccolti, 70 analizzati, 4 BUY, 50 veto",
+  "18:55:50 ORACLE   88 raccolti, 67 analizzati, 3 BUY, 49 veto",
+  "18:54:47 SCRIBE   chiuso P-0001 $SIRIUS -0.0748 SOL (-29.9%)",
+  "18:54:47 CHARON   Stop loss $SIRIUS vendo 100% a -46.6% -> 0.1757 SOL",
+  "18:54:47 ORACLE   88 raccolti, 67 analizzati, 3 BUY, 48 veto",
+  "18:54:44 KAISER   run #2 · 1 posizioni · equity 4.8164 SOL · GMGN demo · Grok off",
   "18:37:57 SCRIBE   fine run · trade 2 · win 0% · P&L -0.1606 SOL · equity 4.8164 SOL",
   "18:37:42 ORACLE   87 raccolti, 64 analizzati, 7 BUY, 43 veto",
   "18:36:39 SCRIBE   chiuso P-0002 $JENSEN -0.0819 SOL (-32.7%)",

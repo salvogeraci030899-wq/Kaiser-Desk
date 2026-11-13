@@ -1,34 +1,44 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-13 18:37 UTC · in esecuzione da 0.0 giorni · 1 run
+Aggiornato: 2026-11-13 18:59 UTC · in esecuzione da 0.0 giorni · 2 run
 
 | | |
 |---|---|
-| Equity | **4.8164 SOL** (-3.7% dal capitale iniziale di 5 SOL) |
-| Cassa | 4.5889 SOL |
-| Trade chiusi | 2 |
+| Equity | **4.7646 SOL** (-4.7% dal capitale iniziale di 5 SOL) |
+| Cassa | 4.7646 SOL |
+| Trade chiusi | 3 |
 | Win rate | 0% |
-| P&L realizzato | -0.1606 SOL (~$-12.84) |
-| Media vincite / perdite | +0.0% / -32.1% |
+| P&L realizzato | -0.2354 SOL (~$-18.85) |
+| Media vincite / perdite | +0.0% / -31.3% |
 | Profit factor | 0.00 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$SIRIUS** P-0001 · 0.250 SOL · -9.0% · resta 100% · [grafico](https://dexscreener.com/solana/3pPt2n33W9Q7D4rMX5ujEAGFYhBycrwsxdwekPoeiL3b)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| Stop loss | 2 | -0.1606 |
+| Stop loss | 3 | -0.2354 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Motivo | Durata |
 |---|---|---|---|---|---|---|
+| $SIRIUS | 93 | -29.9% | -0.0748 | +0% | Stop loss | 21m |
 | $JENSEN | 83 | -32.7% | -0.0819 | +3% | Stop loss | 3m |
 | $cashduck | 81 | -31.4% | -0.0787 | +21% | Stop loss | 2m |
 
 ## Ultimi eventi
 ```
+18:59:14 SCRIBE   fine run · trade 3 · win 0% · P&L -0.2354 SOL · equity 4.7646 SOL
+18:58:58 ORACLE   89 raccolti, 70 analizzati, 4 BUY, 50 veto
+18:57:55 ORACLE   89 raccolti, 69 analizzati, 4 BUY, 50 veto
+18:56:53 ORACLE   89 raccolti, 70 analizzati, 4 BUY, 50 veto
+18:55:50 ORACLE   88 raccolti, 67 analizzati, 3 BUY, 49 veto
+18:54:47 SCRIBE   chiuso P-0001 $SIRIUS -0.0748 SOL (-29.9%)
+18:54:47 CHARON   Stop loss $SIRIUS vendo 100% a -46.6% -> 0.1757 SOL
+18:54:47 ORACLE   88 raccolti, 67 analizzati, 3 BUY, 48 veto
+18:54:44 KAISER   run #2 · 1 posizioni · equity 4.8164 SOL · GMGN demo · Grok off
 18:37:57 SCRIBE   fine run · trade 2 · win 0% · P&L -0.1606 SOL · equity 4.8164 SOL
 18:37:42 ORACLE   87 raccolti, 64 analizzati, 7 BUY, 43 veto
 18:36:39 SCRIBE   chiuso P-0002 $JENSEN -0.0819 SOL (-32.7%)
