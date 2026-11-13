@@ -107,3 +107,4 @@ module.exports = async (req, res) => {
 };
 
 module.exports.buildArgs = buildArgs; // per i test
+module.exports.run = run; // usato dal runner GitHub Actions

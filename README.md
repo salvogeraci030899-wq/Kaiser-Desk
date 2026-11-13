@@ -47,3 +47,16 @@ Senza backend l'app funziona lo stesso in “solo browser” (DexScreener + RugC
 - GMGN gira tramite `gmgn-cli` sul backend, solo con comandi di lettura in whitelist. Swap e ordini non sono raggiungibili.
 - Testo e metadati dei token sono trattati come dati: vengono sempre "escapati" e i link non http vengono scartati.
 - Le memecoin sono estremamente rischiose. Usa il paper trading per misurare il sistema prima di pensare a capitale reale.
+
+## Runner 24/7 su GitHub Actions (paper trading in avanti)
+
+Il workflow `.github/workflows/runner.yml` esegue lo stesso desk senza interfaccia: parte ogni 5 minuti, ogni run dura circa 4,5 minuti, fa uno scan completo ogni 60 secondi e Charon controlla le posizioni ogni 30 secondi. In pratica gira di continuo, anche con l'iPhone in tasca.
+
+- **Risultati:** branch `data` → `REPORT.md` (equity, win rate, profit factor, uscite per motivo, ultimi trade) e `journal.csv`.
+- **Regole:** modifica `config.json` sul branch `data` (stesse chiavi di `DEFAULTS` in `engine.js`). Il cambio vale dal run successivo.
+- **Reset:** cancella `state.json` sul branch `data`.
+- **Secrets opzionali** (Settings → Secrets and variables → Actions): `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`, `GMGN_API_KEY`, `XAI_API_KEY`, `XAI_MODEL`. Con Telegram ricevi ogni acquisto e chiusura, più un riepilogo serale dopo le 21.
+- **Avvio manuale:** Actions → KAISER runner → Run workflow.
+
+Lo stato del runner è separato da quello della PWA: sono due conti paper distinti.
+Il motore (`engine.js`) è condiviso, quindi una modifica alle regole vale per entrambi.

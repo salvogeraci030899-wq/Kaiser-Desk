@@ -32,16 +32,14 @@ function extractJSON(text) {
   return JSON.parse(m[0]);
 }
 
-module.exports = async (req, res) => {
-  if (!guard(req, res)) return;
-  if (!process.env.XAI_API_KEY) return res.status(200).json({ ok: false, error: 'XAI_API_KEY non impostata su Vercel' });
+async function analyzeToken(b) {
+  if (!process.env.XAI_API_KEY) throw new Error('XAI_API_KEY non impostata');
+  if (!MINT_RE.test(b.address || '')) throw new Error('Indirizzo token non valido');
+  const sym = String(b.symbol || '').replace(/[^\w$.-]/g, '').slice(0, 20);
+  const name = String(b.name || '').replace(/[^\w $.-]/g, '').slice(0, 40);
+  const ctrl = new AbortController();
+  const to = setTimeout(() => ctrl.abort(), 55000);
   try {
-    const b = await readBody(req);
-    if (!MINT_RE.test(b.address || '')) throw new Error('Indirizzo token non valido');
-    const sym = String(b.symbol || '').replace(/[^\w$.-]/g, '').slice(0, 20);
-    const name = String(b.name || '').replace(/[^\w $.-]/g, '').slice(0, 40);
-    const ctrl = new AbortController();
-    const to = setTimeout(() => ctrl.abort(), 55000);
     const r = await fetch('https://api.x.ai/v1/responses', {
       method: 'POST',
       signal: ctrl.signal,
@@ -56,12 +54,11 @@ module.exports = async (req, res) => {
         ],
       }),
     });
-    clearTimeout(to);
     const d = await r.json();
     if (!r.ok) throw new Error((d.error && (d.error.message || d.error)) || `xAI HTTP ${r.status}`);
     const j = extractJSON(extractText(d));
     const num = (v, lo, hi, def) => { const n = Number(v); return Number.isFinite(n) ? Math.min(hi, Math.max(lo, n)) : def; };
-    res.status(200).json({
+    return {
       ok: true,
       sentiment: num(j.sentiment, -1, 1, 0),
       hype: num(j.hype, 0, 10, 0),
@@ -70,7 +67,15 @@ module.exports = async (req, res) => {
       kols: Array.isArray(j.kol_mentions) ? j.kol_mentions.slice(0, 8).map(String) : [],
       redFlags: Array.isArray(j.red_flags) ? j.red_flags.slice(0, 6).map(String) : [],
       summary: String(j.summary_it || '').slice(0, 400),
-    });
+    };
+  } finally { clearTimeout(to); }
+}
+
+module.exports = async (req, res) => {
+  if (!guard(req, res)) return;
+  if (!process.env.XAI_API_KEY) return res.status(200).json({ ok: false, error: 'XAI_API_KEY non impostata su Vercel' });
+  try {
+    res.status(200).json(await analyzeToken(await readBody(req)));
   } catch (e) {
     res.status(200).json({ ok: false, error: String(e.name === 'AbortError' ? 'Timeout Grok' : (e.message || e)) });
   }
@@ -78,3 +83,4 @@ module.exports = async (req, res) => {
 
 module.exports.extractText = extractText;
 module.exports.extractJSON = extractJSON;
+module.exports.analyzeToken = analyzeToken;

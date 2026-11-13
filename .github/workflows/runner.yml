@@ -1,0 +1,51 @@
+name: KAISER runner
+
+# Ogni 5 minuti un run di ~4,5 minuti: scan completo ogni 60 s, Charon ogni 30 s.
+# Lo stato vive sul branch "data" (REPORT.md, journal.csv, state.json, config.json).
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: kaiser-runner
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  desk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: data
+          path: state
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install --no-audit --no-fund --loglevel=error
+      - name: Desk
+        env:
+          GMGN_API_KEY: ${{ secrets.GMGN_API_KEY }}
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+          XAI_MODEL: ${{ secrets.XAI_MODEL }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          STATE_DIR: state
+          LOOP_MIN: '4.5'
+        run: node runner/runner.js
+      - name: Salva stato
+        if: always()
+        working-directory: state
+        run: |
+          git config user.name "kaiser-runner"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && exit 0
+          git commit -q -m "run ${GITHUB_RUN_NUMBER}"
+          for i in 1 2 3; do git push -q && exit 0; git pull -q --rebase; done
+          exit 1
