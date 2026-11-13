@@ -1,0 +1,381 @@
+{
+ "startedAt": 1794594807914,
+ "runs": 1,
+ "cash": 4.58887834447,
+ "positions": [
+  {
+   "id": "P-0001",
+   "mint": "HBFXQ147s9VN62DmUvfWAkRApTPzaR8saHcCVCgrpump",
+   "sym": "SIRIUS",
+   "name": "first bitcoin cat",
+   "pairAddress": "3pPt2n33W9Q7D4rMX5ujEAGFYhBycrwsxdwekPoeiL3b",
+   "openedAt": 1794594811888,
+   "sizeSOL": 0.25,
+   "cost": 0.2505,
+   "entry": 0.000002358189293505404,
+   "tokens": 106013.54212255782,
+   "remaining": 1,
+   "rawLeft": "132432300081",
+   "peak": 0.000002358189293505404,
+   "tp1Done": false,
+   "spDone": false,
+   "entryLiq": 31406.91,
+   "realized": 0,
+   "score": 93,
+   "why": "runner",
+   "entryInfo": {
+    "srcs": [
+     "profili"
+    ],
+    "notes": [],
+    "plus": [
+     "turnover 7.6x/h",
+     "pressione in acquisto"
+    ],
+    "m": {
+     "liq": 28387.48,
+     "mc": 149920,
+     "ageMin": 56.063433333333336,
+     "v1": 215348.93,
+     "tx1": 6420,
+     "br1": 5.371031746031746,
+     "br5": 3.819672131147541,
+     "c5": 5.93,
+     "c1": 282,
+     "c6": 282,
+     "turn": 7.586053076919825,
+     "price": 0.0001516,
+     "priceNative": 0.000001896
+    },
+    "grok": null
+   },
+   "last": {
+    "priceNative": 0.000002146,
+    "liq": 30328.2,
+    "br5": 4.825581395348837,
+    "tx5": 499,
+    "t": 1794595062117
+   },
+   "fills": [
+    "BUY 0.250 impatto 2.41% (Jupiter)"
+   ]
+  }
+ ],
+ "journal": [
+  {
+   "id": "P-0003",
+   "mint": "FgGY3F2H38NzqcFHfHdrWXabMPN8yHaWEQ67dGoWpump",
+   "sym": "cashduck",
+   "openedAt": 1794594811974,
+   "closedAt": 1794594937008,
+   "cost": 0.25045,
+   "back": 0.1717434373,
+   "pnl": -0.07870656270000001,
+   "pct": -31.426058175284492,
+   "reason": "Stop loss",
+   "score": 81,
+   "solUsd": 79.95700526278394,
+   "peakPct": 21.327013420603347,
+   "entryInfo": {
+    "srcs": [
+     "profili"
+    ],
+    "notes": [
+     "troppo esteso: rischio top"
+    ],
+    "plus": [
+     "turnover 7.5x/h",
+     "pressione in acquisto"
+    ],
+    "m": {
+     "liq": 37472.09,
+     "mc": 256042,
+     "ageMin": 37.996766666666666,
+     "v1": 281161.74,
+     "tx1": 14631,
+     "br1": 3.4088580897860803,
+     "br5": 4,
+     "c5": 442,
+     "c1": 544,
+     "c6": 544,
+     "turn": 7.503230804580156,
+     "price": 0.0002587,
+     "priceNative": 0.000003236
+    },
+    "grok": null
+   }
+  },
+  {
+   "id": "P-0002",
+   "mint": "DzFftAYHszHZThtyC7CSRgN5eDvgyK9DUPm3z2o5pump",
+   "sym": "JENSEN",
+   "openedAt": 1794594811929,
+   "closedAt": 1794594999570,
+   "cost": 0.250475,
+   "back": 0.16855990717,
+   "pnl": -0.08191509283000001,
+   "pct": -32.703899722527204,
+   "reason": "Stop loss",
+   "score": 83,
+   "solUsd": 79.94941971435117,
+   "peakPct": 3.411621346215976,
+   "entryInfo": {
+    "srcs": [
+     "GMGN"
+    ],
+    "notes": [
+     "nessun social"
+    ],
+    "plus": [
+     "turnover 7.6x/h",
+     "pressione in acquisto",
+     "4 smart money"
+    ],
+    "m": {
+     "liq": 23839.13,
+     "mc": 108864,
+     "ageMin": 18.01343333333333,
+     "v1": 181218.22,
+     "tx1": 8623,
+     "br1": 1.5955461931989166,
+     "br5": 1.8776167471819645,
+     "c5": 33.66,
+     "c1": 229,
+     "c6": 229,
+     "turn": 7.601712814184074,
+     "price": 0.000109,
+     "priceNative": 0.000001363
+    },
+    "grok": null
+   }
+  }
+ ],
+ "signals": [
+  {
+   "t": 1794594811843,
+   "mint": "HBFXQ147s9VN62DmUvfWAkRApTPzaR8saHcCVCgrpump",
+   "sym": "SIRIUS",
+   "score": 93,
+   "priceNative": 0.000001896
+  },
+  {
+   "t": 1794594811843,
+   "mint": "DzFftAYHszHZThtyC7CSRgN5eDvgyK9DUPm3z2o5pump",
+   "sym": "JENSEN",
+   "score": 83,
+   "priceNative": 0.000001363
+  },
+  {
+   "t": 1794594811843,
+   "mint": "FgGY3F2H38NzqcFHfHdrWXabMPN8yHaWEQ67dGoWpump",
+   "sym": "cashduck",
+   "score": 81,
+   "priceNative": 0.000003236
+  },
+  {
+   "t": 1794594811843,
+   "mint": "BeLVQE2tK7fVvg6EpVgUzUWhSi95XpL7mqJM3nANpump",
+   "sym": "WANTED",
+   "score": 79,
+   "priceNative": 0.000008352
+  },
+  {
+   "t": 1794594811843,
+   "mint": "9J41toneswGA3hZJyfYiWkC9jMm8doMDP3QEBYM1pump",
+   "sym": "Nigghao",
+   "score": 70,
+   "priceNative": 0.000001326
+  },
+  {
+   "t": 1794594811843,
+   "mint": "FTu55MyigXns96jz4nTCDDiTCjYJjyrHSceCgG9Upump",
+   "sym": "FOOD",
+   "score": 68,
+   "priceNative": 0.00001296
+  },
+  {
+   "t": 1794594874444,
+   "mint": "HBFXQ147s9VN62DmUvfWAkRApTPzaR8saHcCVCgrpump",
+   "sym": "SIRIUS",
+   "score": 88,
+   "priceNative": 0.000001908
+  },
+  {
+   "t": 1794594874444,
+   "mint": "DzFftAYHszHZThtyC7CSRgN5eDvgyK9DUPm3z2o5pump",
+   "sym": "JENSEN",
+   "score": 84,
+   "priceNative": 0.000001455
+  },
+  {
+   "t": 1794594874444,
+   "mint": "FgGY3F2H38NzqcFHfHdrWXabMPN8yHaWEQ67dGoWpump",
+   "sym": "cashduck",
+   "score": 81,
+   "priceNative": 0.00000347
+  },
+  {
+   "t": 1794594874444,
+   "mint": "BeLVQE2tK7fVvg6EpVgUzUWhSi95XpL7mqJM3nANpump",
+   "sym": "WANTED",
+   "score": 79,
+   "priceNative": 0.00000799
+  },
+  {
+   "t": 1794594874444,
+   "mint": "FTu55MyigXns96jz4nTCDDiTCjYJjyrHSceCgG9Upump",
+   "sym": "FOOD",
+   "score": 68,
+   "priceNative": 0.00001307
+  },
+  {
+   "t": 1794594936981,
+   "mint": "HBFXQ147s9VN62DmUvfWAkRApTPzaR8saHcCVCgrpump",
+   "sym": "SIRIUS",
+   "score": 88,
+   "priceNative": 0.000001974
+  },
+  {
+   "t": 1794594936981,
+   "mint": "DzFftAYHszHZThtyC7CSRgN5eDvgyK9DUPm3z2o5pump",
+   "sym": "JENSEN",
+   "score": 85,
+   "priceNative": 0.00000141
+  },
+  {
+   "t": 1794594936981,
+   "mint": "FgGY3F2H38NzqcFHfHdrWXabMPN8yHaWEQ67dGoWpump",
+   "sym": "cashduck",
+   "score": 76,
+   "priceNative": 0.000002272
+  },
+  {
+   "t": 1794594936981,
+   "mint": "BeLVQE2tK7fVvg6EpVgUzUWhSi95XpL7mqJM3nANpump",
+   "sym": "WANTED",
+   "score": 74,
+   "priceNative": 0.000007807
+  },
+  {
+   "t": 1794594936981,
+   "mint": "FTu55MyigXns96jz4nTCDDiTCjYJjyrHSceCgG9Upump",
+   "sym": "FOOD",
+   "score": 69,
+   "priceNative": 0.00001279
+  },
+  {
+   "t": 1794594999544,
+   "mint": "FgGY3F2H38NzqcFHfHdrWXabMPN8yHaWEQ67dGoWpump",
+   "sym": "cashduck",
+   "score": 81,
+   "priceNative": 0.000002626
+  },
+  {
+   "t": 1794594999544,
+   "mint": "DzFftAYHszHZThtyC7CSRgN5eDvgyK9DUPm3z2o5pump",
+   "sym": "JENSEN",
+   "score": 80,
+   "priceNative": 8.058e-7
+  },
+  {
+   "t": 1794594999544,
+   "mint": "HBFXQ147s9VN62DmUvfWAkRApTPzaR8saHcCVCgrpump",
+   "sym": "SIRIUS",
+   "score": 76,
+   "priceNative": 0.000002087
+  },
+  {
+   "t": 1794594999544,
+   "mint": "BeLVQE2tK7fVvg6EpVgUzUWhSi95XpL7mqJM3nANpump",
+   "sym": "WANTED",
+   "score": 74,
+   "priceNative": 0.000007976
+  },
+  {
+   "t": 1794594999544,
+   "mint": "9J41toneswGA3hZJyfYiWkC9jMm8doMDP3QEBYM1pump",
+   "sym": "Nigghao",
+   "score": 72,
+   "priceNative": 0.000001346
+  },
+  {
+   "t": 1794594999544,
+   "mint": "FTu55MyigXns96jz4nTCDDiTCjYJjyrHSceCgG9Upump",
+   "sym": "FOOD",
+   "score": 71,
+   "priceNative": 0.00001291
+  },
+  {
+   "t": 1794595062117,
+   "mint": "HBFXQ147s9VN62DmUvfWAkRApTPzaR8saHcCVCgrpump",
+   "sym": "SIRIUS",
+   "score": 93,
+   "priceNative": 0.000002146
+  },
+  {
+   "t": 1794595062117,
+   "mint": "DzFftAYHszHZThtyC7CSRgN5eDvgyK9DUPm3z2o5pump",
+   "sym": "JENSEN",
+   "score": 79,
+   "priceNative": 0.000001
+  },
+  {
+   "t": 1794595062117,
+   "mint": "FgGY3F2H38NzqcFHfHdrWXabMPN8yHaWEQ67dGoWpump",
+   "sym": "cashduck",
+   "score": 76,
+   "priceNative": 0.000002847
+  },
+  {
+   "t": 1794595062117,
+   "mint": "BeLVQE2tK7fVvg6EpVgUzUWhSi95XpL7mqJM3nANpump",
+   "sym": "WANTED",
+   "score": 74,
+   "priceNative": 0.00000746
+  },
+  {
+   "t": 1794595062117,
+   "mint": "9J41toneswGA3hZJyfYiWkC9jMm8doMDP3QEBYM1pump",
+   "sym": "Nigghao",
+   "score": 72,
+   "priceNative": 0.00000135
+  },
+  {
+   "t": 1794595062117,
+   "mint": "FTu55MyigXns96jz4nTCDDiTCjYJjyrHSceCgG9Upump",
+   "sym": "FOOD",
+   "score": 71,
+   "priceNative": 0.00001268
+  },
+  {
+   "t": 1794595062117,
+   "mint": "9sFGCTjEsBk78uC2bCdxtwuUM1aartbBhe8WQXwRpump",
+   "sym": "Sakura",
+   "score": 68,
+   "priceNative": 0.000005161
+  }
+ ],
+ "day": {
+  "date": "2026-11-13",
+  "startEq": 5
+ },
+ "cooldownUntil": 1794595599570,
+ "halted": null,
+ "seq": 3,
+ "events": [
+  "18:37:57 SCRIBE   fine run · trade 2 · win 0% · P&L -0.1606 SOL · equity 4.8164 SOL",
+  "18:37:42 ORACLE   87 raccolti, 64 analizzati, 7 BUY, 43 veto",
+  "18:36:39 SCRIBE   chiuso P-0002 $JENSEN -0.0819 SOL (-32.7%)",
+  "18:36:39 CHARON   Stop loss $JENSEN vendo 100% a -43.0% -> 0.1686 SOL",
+  "18:36:39 ORACLE   88 raccolti, 65 analizzati, 6 BUY, 44 veto",
+  "18:35:37 SCRIBE   chiuso P-0003 $cashduck -0.0787 SOL (-31.4%)",
+  "18:35:37 CHARON   Stop loss $cashduck vendo 100% a -29.5% -> 0.1717 SOL",
+  "18:35:36 ORACLE   88 raccolti, 64 analizzati, 5 BUY, 43 veto",
+  "18:34:34 ORACLE   88 raccolti, 64 analizzati, 5 BUY, 43 veto",
+  "18:33:31 QUARTER  BUY $cashduck 0.250 SOL score 81 impatto 2.27% (Jupiter)",
+  "18:33:31 QUARTER  BUY $JENSEN 0.250 SOL score 83 impatto 2.63% (Jupiter)",
+  "18:33:31 QUARTER  BUY $SIRIUS 0.250 SOL score 93 impatto 2.41% (Jupiter)",
+  "18:33:31 ORACLE   88 raccolti, 64 analizzati, 6 BUY, 43 veto",
+  "18:33:27 KAISER   run #1 · 0 posizioni · equity 5.0000 SOL · GMGN demo · Grok off"
+ ]
+}
