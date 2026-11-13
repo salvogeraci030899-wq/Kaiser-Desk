@@ -26,6 +26,9 @@ Desk di trading AI per memecoin Solana, ispirato a PumpGrok (ruoli separati con 
 ## Aspetto (preso da PinscherTrade)
 In **Setup → Aspetto**: tema Auto/Chiaro/Scuro (segue iOS), **Vetro** (No, Fermo, Animato con luci sullo sfondo) e barra di stato di iOS integrata o separata. Le preferenze restano sul dispositivo. Il design sta in `style.css`, la logica in `theme.js`.
 
+## Blocco app
+In **Setup → Blocco app**: codice di 6 cifre (solo l'impronta PBKDF2 resta sul dispositivo, mai il codice), Face ID / Touch ID tramite passkey di sistema, blocco subito/1 min/5 min dopo l'uscita, attesa crescente dopo 5 errori. Protegge dallo sguardo di chi prende il telefono, non cifra i dati; il desk continua a lavorare anche con l'app bloccata. «Codice dimenticato» cancella i dati di Kaiser su quel dispositivo (il runner su GitHub non viene toccato).
+
 ## Installazione da iPhone
 
 1. **GitHub:** crea un repository (privato va bene) e carica tutti i file di questa cartella rispettando la struttura (`api/` compresa).

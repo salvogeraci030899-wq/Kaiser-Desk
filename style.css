@@ -213,3 +213,41 @@ html.glass-anim .sheet .inner { background: transparent; }
 @media (prefers-reduced-motion: reduce) { .wall-anim i { animation: none; } .view.active { animation: none; } }
 
 @media (max-height: 620px) { .set { min-height: 38px; padding: 4px 0; } header { padding-top: calc(env(safe-area-inset-top, 0px) + 6px); } }
+
+/* ---- schede token: striscia del verdetto, anello del punteggio, barra di pressione ---- */
+.tcard { position: relative; overflow: hidden; }
+.tcard::before { content: ''; position: absolute; left: 0; top: 14px; bottom: 14px; width: 3px; border-radius: 0 3px 3px 0; background: var(--border); }
+.tcard.v-BUY::before { background: var(--accent); } .tcard.v-WATCH::before { background: var(--warning); } .tcard.v-VETO::before { background: var(--danger); }
+.ring { --p: 0; --c: var(--text-secondary); width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; flex-shrink: 0;
+  background: conic-gradient(var(--c) calc(var(--p) * 1%), var(--surface-hover) 0); }
+.ring span { width: 36px; height: 36px; border-radius: 50%; background: var(--bg); display: grid; place-items: center; font: 800 14px var(--mono); color: var(--c); }
+html.glass .ring span { background: rgba(0, 0, 0, 0.55); } html.glass[data-theme="light"] .ring span { background: rgba(255, 255, 255, 0.85); }
+.ring.big { width: 56px; height: 56px; } .ring.big span { width: 45px; height: 45px; font-size: 17px; }
+.press { height: 5px; border-radius: var(--r-pill); background: var(--bad-bg); overflow: hidden; margin-top: 10px; }
+.press i { display: block; height: 100%; background: var(--accent); border-radius: var(--r-pill); }
+.press-l { display: flex; justify-content: space-between; font-size: 10px; color: var(--text-secondary); margin-top: 3px; }
+iframe.chart { height: 380px; }
+
+/* ---- blocco app (codice e Face ID), preso da Pinscher ---- */
+html.app-locked #app { visibility: hidden; }
+.lock-screen { display: none; position: fixed; inset: 0; z-index: 10000; background: var(--bg); color: var(--text); flex-direction: column; align-items: center; justify-content: center; gap: 40px;
+  padding: calc(env(safe-area-inset-top, 0px) + 28px) 24px calc(env(safe-area-inset-bottom, 0px) + 16px); overflow: hidden; isolation: isolate; }
+html.app-locked .lock-screen, .lock-screen.active { display: flex; }
+html.glass .lock-screen { background: var(--wall); } html.glass-anim .lock-screen { background: transparent; }
+.lock-top { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.lock-logo { width: 96px; height: 96px; border-radius: 24px; font-size: 48px; box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35); }
+.lock-title { font-size: 26px; font-weight: 800; letter-spacing: 0.1em; margin-top: 6px; }
+.lock-msg { font-size: 15px; color: var(--text-secondary); min-height: 20px; text-align: center; } .lock-msg.error { color: var(--danger); }
+.lock-dots { display: flex; gap: 16px; height: 16px; margin-top: 10px; }
+.lock-dots span { width: 13px; height: 13px; border-radius: 50%; border: 1.5px solid var(--text); } .lock-dots span.on { background: var(--text); }
+.lock-dots.shake { animation: lockShake 0.35s; }
+@keyframes lockShake { 20%, 60% { transform: translateX(-10px); } 40%, 80% { transform: translateX(10px); } }
+.lock-pad { display: grid; grid-template-columns: repeat(3, 76px); gap: 16px 26px; }
+.lock-key { width: 76px; height: 76px; border-radius: 50%; border: none; background: var(--surface-hover); color: var(--text); font: 400 32px var(--font); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.lock-key:active { background: var(--text-secondary); } .lock-key.lock-aux { background: transparent; }
+.lock-foot { position: absolute; left: 0; right: 0; bottom: calc(env(safe-area-inset-bottom, 0px) + 14px); text-align: center; min-height: 22px; }
+.lock-link { background: none; border: none; color: var(--ui); font: 14px var(--font); cursor: pointer; padding: 6px; }
+@media (max-height: 700px) {
+  .lock-screen { padding-top: calc(env(safe-area-inset-top, 0px) + 14px); gap: 26px; } .lock-logo { width: 72px; height: 72px; font-size: 36px; border-radius: 18px; }
+  .lock-title { font-size: 22px; margin-top: 2px; } .lock-pad { grid-template-columns: repeat(3, 66px); gap: 10px 24px; } .lock-key { width: 66px; height: 66px; font-size: 28px; }
+}

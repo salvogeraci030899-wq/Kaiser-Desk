@@ -23,13 +23,36 @@
   if (g === 'on' || g === 'anim') root.classList.add('glass');
   if (g === 'anim') root.classList.add('glass-anim');
   if (light) document.getElementById('metaThemeColor').setAttribute('content', '#f2f2f7');
+  try { var l = JSON.parse(localStorage.getItem('kz_lock') || 'null'); if (l && l.hash) root.classList.add('app-locked'); } catch (e) {}
   document.getElementById('metaStatusBar').setAttribute('content', light ? 'default' : (bar === 'separate' ? 'black' : 'black-translucent'));
 })();
 </script>
 <link rel="stylesheet" href="style.css">
 <script src="theme.js"></script>
+<script src="lock.js"></script>
 </head>
 <body>
+<div id="lockScreen" class="lock-screen"><div class="wall-anim" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="lock-top">
+    <div class="logo lock-logo">K</div>
+    <div class="lock-title">KAISER</div>
+    <div class="lock-msg" id="lockMsg">Inserisci il codice</div>
+    <div class="lock-dots" id="lockDots"></div>
+  </div>
+  <div class="lock-pad">
+    <button type="button" class="lock-key" data-k="1">1</button><button type="button" class="lock-key" data-k="2">2</button><button type="button" class="lock-key" data-k="3">3</button>
+    <button type="button" class="lock-key" data-k="4">4</button><button type="button" class="lock-key" data-k="5">5</button><button type="button" class="lock-key" data-k="6">6</button>
+    <button type="button" class="lock-key" data-k="7">7</button><button type="button" class="lock-key" data-k="8">8</button><button type="button" class="lock-key" data-k="9">9</button>
+    <button type="button" class="lock-key lock-aux" id="lockFace" data-lock="faceid" aria-label="Face ID"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H5a2 2 0 0 0-2 2v2M17 3h2a2 2 0 0 1 2 2v2M7 21H5a2 2 0 0 1-2-2v-2M17 21h2a2 2 0 0 0 2-2v-2"/><path d="M9 9v1.5M15 9v1.5M12 9v4.5h-1M9 16c1.7 1.3 4.3 1.3 6 0"/></svg></button>
+    <button type="button" class="lock-key" data-k="0">0</button>
+    <button type="button" class="lock-key lock-aux" data-k="del" aria-label="Cancella"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 5H9l-6 7 6 7h12a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1z"/><line x1="17" y1="9" x2="12" y2="14"/><line x1="12" y1="9" x2="17" y2="14"/></svg></button>
+  </div>
+  <div class="lock-foot">
+    <button type="button" class="lock-link" id="lockForgot" data-lock="forgot">Hai dimenticato il codice?</button>
+    <button type="button" class="lock-link" id="lockCancel" data-lock="cancel" style="display:none">Annulla</button>
+  </div>
+</div>
+
 <div id="app">
 <div class="wall-anim" aria-hidden="true"><i></i><i></i><i></i></div>
 <header>
@@ -109,6 +132,8 @@
       <div class="set wide"><label>Barra di stato<small>Si applica alla prossima apertura</small></label>
         <div class="theme-toggle"><button data-pref="bar" data-val="integrated">Integrata</button><button data-pref="bar" data-val="separate">Separata</button></div></div>
     </div>
+    <h2>Blocco app</h2>
+    <div class="card" id="lockSettingsBody"></div>
     <h2>Autopilota (Kaiser)</h2>
     <div class="card" id="setAuto"></div>
     <h2>Capitale e rischio (Quartermaster)</h2>
@@ -513,27 +538,38 @@ function render() {
   const dt = $('#dotT'); dt.style.display = st.tickets.length ? '' : 'none'; dt.textContent = st.tickets.length;
   const dp = $('#dotP'); dp.style.display = st.positions.length ? '' : 'none'; dp.textContent = st.positions.length;
 }
+// anello del punteggio (colore secondo il verdetto) e barra di pressione acquisti/vendite 5m
+function ring(c, big) {
+  const v = c.verdict === 'VETO' ? 0 : c.score;
+  const col = c.verdict === 'VETO' ? 'var(--danger)' : c.score >= st.S.minScore ? 'var(--accent)' : c.verdict === 'WATCH' ? 'var(--warning)' : 'var(--text-secondary)';
+  return `<div class="ring${big ? ' big' : ''}" style="--p:${v};--c:${col}"><span>${c.verdict === 'VETO' ? '✕' : c.score}</span></div>`;
+}
+function pressure(m) {
+  const share = clamp(m.br5 / (1 + m.br5) * 100, 0, 100);
+  return `<div class="press" title="Acquisti vs vendite negli ultimi 5 minuti"><i style="width:${share.toFixed(0)}%"></i></div><div class="press-l"><span>vendite</span><span>${share.toFixed(0)}% acquisti 5m</span></div>`;
+}
 function candCard(c) {
   const m = c.a.m;
   const chips = [
-    ...c.vetoes.map((v) => `<span class="chip v">⛔ ${esc(v)}</span>`),
+    ...c.vetoes.map((v) => `<span class="chip v">✕ ${esc(v)}</span>`),
     ...c.a.plus.map((v) => `<span class="chip g">${esc(v)}</span>`),
     ...c.a.notes.slice(0, 4).map((v) => `<span class="chip">${esc(v)}</span>`),
     ...(c.sec && c.sec.ok && !c.sec.vetoes.length ? ['<span class="chip g">✓ Sentinel</span>'] : []),
-    ...(c.gr && c.gr.ok ? [`<span class="chip">𝕏 ${c.gr.sentiment > 0.2 ? '🟢' : c.gr.sentiment < -0.2 ? '🔴' : '⚪'} hype ${c.gr.hype}</span>`] : []),
+    ...(c.gr && c.gr.ok ? [`<span class="chip ${c.gr.sentiment > 0.2 ? 'g' : c.gr.sentiment < -0.2 ? 'v' : ''}">𝕏 hype ${c.gr.hype}</span>`] : []),
     ...(c.why ? [`<span class="chip">${esc(c.why)}</span>`] : []),
   ].join('');
-  return `<div class="card" data-mint="${c.mint}">
+  return `<div class="card tcard v-${c.verdict}" data-mint="${c.mint}">
     <div class="tok">${c.img ? `<img src="${esc(c.img)}" loading="lazy" alt="">` : '<div class="ph"></div>'}
       <div><div class="row"><span class="sym">$${esc(c.sym)}</span><span class="badge b-${c.verdict}">${c.verdict}</span></div>
-      <div class="nm">${esc(c.name)} · ${esc(c.srcs.join(', '))}</div></div>
-      <div class="score ${c.verdict === 'VETO' ? 'down' : c.score >= st.S.minScore ? 'up' : ''}">${c.verdict === 'VETO' ? '✕' : c.score}</div></div>
+      <div class="nm">${esc(c.name)} · ${m.ageMin != null ? ago(m.ageMin * 60000) : '—'} · ${esc(c.srcs.join(', '))}</div></div>
+      ${ring(c)}</div>
     <div class="metrics">
       <div class="m"><b>${fmtUsd(m.mc)}</b><span>mcap</span></div>
       <div class="m"><b>${fmtUsd(m.liq)}</b><span>liquidità</span></div>
+      <div class="m"><b class="${cls(m.c5)}">${fmtPct(m.c5)}</b><span>5m</span></div>
       <div class="m"><b class="${cls(m.c1)}">${fmtPct(m.c1)}</b><span>1h</span></div>
-      <div class="m"><b>${m.ageMin != null ? ago(m.ageMin * 60000) : '—'}</b><span>età</span></div>
     </div>
+    ${pressure(m)}
     <div class="chips">${chips}</div></div>`;
 }
 function renderRadar() {
@@ -595,7 +631,7 @@ async function openDetail(mint) {
     $('#sheetInner').innerHTML = `<div class="grab"></div>
       <div class="tok">${c.img ? `<img src="${esc(c.img)}" alt="">` : '<div class="ph"></div>'}
         <div><div class="row"><span class="sym" style="font-size:18px">$${esc(c.sym)}</span><span class="badge b-${c.verdict}">${c.verdict}</span></div><div class="nm">${esc(c.name)}</div></div>
-        <div class="score">${c.score}</div></div>
+        ${ring(c, true)}</div>
       <div class="mono tiny muted" style="margin:8px 0;word-break:break-all">${mint}</div>
       <iframe class="chart" src="https://dexscreener.com/solana/${encodeURIComponent(pr.pairAddress)}?embed=1&theme=${document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark'}&info=0&trades=0" loading="lazy"></iframe>
       <h2>Oracle</h2><div class="card kv">
@@ -607,7 +643,7 @@ async function openDetail(mint) {
         <span>Età coppia</span><span class="mono">${m.ageMin != null ? ago(m.ageMin * 60000) : '—'}</span>
         <span>Punteggio base</span><span class="mono">${c.a.base}</span>
       </div>
-      <h2>Sentinel (sicurezza)</h2><div class="card small">${sec ? (sec.ok ? `${sec.vetoes.length ? sec.vetoes.map((v) => `<div class="down">⛔ ${esc(v)}</div>`).join('') : '<div class="up">✓ Nessun veto</div>'}${sec.notes.map((n) => `<div class="warn">• ${esc(n)}</div>`).join('')}<div class="muted tiny">penalità −${sec.penalty}</div>` : 'rapporto non valido') : '<span class="muted">Non ancora controllato.</span>'}
+      <h2>Sentinel (sicurezza)</h2><div class="card small">${sec ? (sec.ok ? `${sec.vetoes.length ? sec.vetoes.map((v) => `<div class="down">✕ ${esc(v)}</div>`).join('') : '<div class="up">✓ Nessun veto</div>'}${sec.notes.map((n) => `<div class="warn">• ${esc(n)}</div>`).join('')}<div class="muted tiny">penalità −${sec.penalty}</div>` : 'rapporto non valido') : '<span class="muted">Non ancora controllato.</span>'}
         <div class="row" style="margin-top:8px;gap:6px"><button class="btn sm" id="dSec">Controlla ora</button>${rt.backendOk ? '<button class="btn sm" id="dGmgn">GMGN security</button>' : ''}</div><div id="dGmgnOut" class="tiny mono muted" style="margin-top:6px"></div></div>
       ${g ? `<h2>GMGN</h2><div class="card kv"><span>Smart money · KOL</span><span class="mono">${g.smart} · ${g.kol}</span><span>Rug ratio</span><span class="mono">${g.rug ?? '—'}</span><span>Top 10 holder</span><span class="mono">${g.top10 != null ? (g.top10 * 100).toFixed(1) + '%' : '—'}</span><span>Sniper · bundler</span><span class="mono">${g.sniper} · ${g.bundler != null ? (g.bundler * 100).toFixed(0) + '%' : '—'}</span></div>` : ''}
       <h2>Grok (𝕏)</h2><div class="card small">${gr ? (gr.ok ? `<div>Sentiment <b class="${cls(gr.sentiment)}">${gr.sentiment.toFixed(2)}</b> · hype ${gr.hype}/10 · organico ${gr.organic}/10 · ~${gr.mentions} menzioni</div><div style="margin-top:4px">${esc(gr.summary)}</div>${gr.redFlags.length ? `<div class="warn" style="margin-top:4px">⚠ ${esc(gr.redFlags.join(' · '))}</div>` : ''}${gr.kols.length ? `<div class="muted tiny">KOL: ${esc(gr.kols.join(', '))}</div>` : ''}` : `<span class="warn">${esc(gr.error)}</span>`) : '<span class="muted">Non interrogato.</span>'}
@@ -632,6 +668,7 @@ async function openDetail(mint) {
   draw();
   $('#sheet').classList.add('open');
 }
+window.KZ = { toast };
 function closeSheet() { $('#sheet').classList.remove('open'); $('#sheetInner').innerHTML = ''; }
 
 // ---------- SETUP ----------
