@@ -23,6 +23,9 @@ Desk di trading AI per memecoin Solana, ispirato a PumpGrok (ruoli separati con 
 - Cooldown dopo ogni perdita e niente ritrade sullo stesso token per N ore.
 - In modalità approvazione, ogni ingresso è un ticket da approvare entro 3 minuti.
 
+## Aspetto (preso da PinscherTrade)
+In **Setup → Aspetto**: tema Auto/Chiaro/Scuro (segue iOS), **Vetro** (No, Fermo, Animato con luci sullo sfondo) e barra di stato di iOS integrata o separata. Le preferenze restano sul dispositivo. Il design sta in `style.css`, la logica in `theme.js`.
+
 ## Installazione da iPhone
 
 1. **GitHub:** crea un repository (privato va bene) e carica tutti i file di questa cartella rispettando la struttura (`api/` compresa).
