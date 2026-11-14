@@ -15,7 +15,7 @@ const DEFAULTS = {
   rugLiqDrop: 45, sellPressure: true,
   // Filtri
   minLiq: 15000, minMcap: 15000, maxMcap: 20000000, minAgeMin: 5, maxAgeH: 72, minTxH1: 40,
-  srcDexProfiles: true, srcDexBoosts: true, srcGecko: true, srcJupiter: true, srcYoung: true, minDipPct: 0, srcGmgnTrending: true, srcGmgnTrenches: false, gmgnInterval: '1h',
+  srcDexProfiles: true, srcDexBoosts: true, srcGecko: true, srcJupiter: true, srcYoung: true, srcLab: true, minDipPct: 0, srcGmgnTrending: true, srcGmgnTrenches: false, gmgnInterval: '1h',
   // Backend
   backend: '', appToken: '',
   // Trading reale: spento finché non lo accendi. Usa le stesse regole del paper (size, stop, TP, trailing),
