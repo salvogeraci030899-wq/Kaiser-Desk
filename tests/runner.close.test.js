@@ -58,3 +58,10 @@ test('ANALISI: il runner salva la discesa massima e l\'eta\' all\'ingresso di og
   assert.match(src, /p\.trough = p\.last\.priceNative/); assert.match(src, /maePct: p\.trough/); assert.match(src, /age: p\.entryInfo/); assert.match(src, /maePct: j\.maePct == null \? null : j\.maePct, age: j\.age == null \? null : j\.age/);
   const pub = R.publicSummary(); assert.ok(Array.isArray(pub.journal));
 });
+test('TOKEN GIOVANI: runner collegato al flusso, workflow con Node 22 e chiave RPC dai segreti, filtro sul calo', () => {
+  const src = fs.readFileSync(path.join(__dirname, '..', 'runner', 'runner.js'), 'utf8'), yml = fs.readFileSync(path.join(__dirname, '..', '.github', 'workflows', 'runner.yml'), 'utf8'), E = require('../engine.js');
+  assert.match(src, /require\('\.\/young\.js'\)/); assert.match(src, /rpcUrl: process\.env\.RPC_URL/); assert.match(src, /Y\.youngBatch/); assert.match(src, /Y\.youngApply/); assert.match(src, /rt\.feed\.stop\(\)/); assert.match(src, /attende il calo/);
+  assert.match(yml, /node-version: 22/); assert.match(yml, /RPC_URL: \$\{\{ secrets\.RPC_URL \}\}/); assert.ok(!/RPC_URL.*(echo|console)/.test(src), 'la chiave non si stampa');
+  assert.equal(E.DEFAULTS.srcYoung, true); assert.equal(E.DEFAULTS.minDipPct, 0);
+  const pub = R.publicSummary(); assert.ok(Array.isArray(pub.young)); assert.ok('youngInfo' in pub);
+});

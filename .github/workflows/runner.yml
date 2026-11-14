@@ -27,7 +27,7 @@ jobs:
           path: state
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
       - run: npm install --no-audit --no-fund --loglevel=error
       - name: Desk
         timeout-minutes: 58
@@ -39,6 +39,7 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           EXEC_TOKEN: ${{ secrets.EXEC_TOKEN }}
           EXEC_URL: ${{ secrets.EXEC_URL }}
+          RPC_URL: ${{ secrets.RPC_URL }}
           STATE_DIR: state
           LOOP_MIN: '50'
           CHECKPOINT: '1'
