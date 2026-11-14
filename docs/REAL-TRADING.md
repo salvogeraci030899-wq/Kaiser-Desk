@@ -165,3 +165,16 @@ Il Laboratorio non apre ordini, ne reali ne paper. Registra cosa succede ai toke
 - Dove vederlo: Journal, scheda Lab. I primi risultati arrivano circa 20 minuti dopo il riavvio del runner con il codice nuovo. Si disattiva con il parametro srcLab.
 
 Limiti: gli scambi dei primissimi secondi possono mancare se la sottoscrizione parte dopo la creazione; il punteggio bot e una euristica, non una prova; PumpPortal puo limitare o cadere; non e verificato dal vivo.
+
+### Laboratorio, versione 2
+
+Il Laboratorio ora misura anche (sempre solo osservazione):
+
+- **Ingresso alla soglia di market cap.** Per le soglie 7.5K, 10K, 12K e 15K (in dollari, al cambio SOL/USD del momento) simula l'ingresso alla prima volta che la market cap la supera, e mostra: gare target/stop 12/10, 20/15 e 30/20, picco mediano, secondi fino al picco, calo mediano prima del picco e rendimento dopo 1, 2 e 5 minuti.
+- **Reazione agli acquisti.** Dopo ogni acquisto, deriva del prezzo a +10, +30 e +60 secondi e quante volte scende, per taglia (sotto 10 $, 10-50 $, oltre 50 $) e per eta' del token (primi 5 minuti, dopo).
+- **Vendite grosse.** Quante Coin hanno vendite sopra 100 $, quando arriva la prima, che cosa fa il prezzo nei 60 secondi dopo, rotazione del volume (volume diviso market cap), quota di Coin che si spengono dopo il picco (meno di un terzo degli scambi nei 60 secondi dopo il picco rispetto ai 60 prima) e quante arrivano a 15K e 30K.
+- **Realismo del paper.** A ogni vendita con quotazione Jupiter disponibile confronta quanto si incasserebbe davvero con la stima del paper al prezzo di DexScreener. Una differenza mediana negativa significa che il paper e' troppo ottimista.
+
+Nel Journal la colonna dell'esito mostra ora "picco X · uscita Y": il picco e' il massimo raggiunto, l'uscita e' il prezzo dell'ultima vendita. L'esito comprende anche le vendite parziali, le fee, l'impatto e la priority.
+
+Limiti: le misure sono significative solo con alcune centinaia di Coin; la market cap in dollari dipende dal cambio SOL/USD noto al runner; il Laboratorio non e' mai stato provato dal vivo.

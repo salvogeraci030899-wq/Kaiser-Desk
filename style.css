@@ -2,7 +2,7 @@
    Token iOS (scuro/chiaro/automatico), angoli concentrici, barra a capsula, Vetro (Liquid Glass) fermo o animato.
    I nomi delle classi sono quelli di Kaiser: cambia l'aspetto, non la struttura. */
 :root {
-  --kz-css: 45;
+  --kz-css: 46;
   color-scheme: dark;
   --bg: #000000;
   --surface: #0a0a0a;
@@ -314,7 +314,7 @@ main { overflow: hidden; display: flex; flex-direction: column; padding-bottom: 
 .vfix, .vfoot { flex: 0 0 auto; }
 .vscroll { flex: 1 1 0; min-height: 0; overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; touch-action: pan-y; padding-bottom: 14px; }
 .vfoot { padding: 6px 0 8px; }
-#jReasons { max-height: 120px; overflow-y: auto; } .vfoot .card { margin-bottom: 0; }
+#jReasons { max-height: 120px; overflow-y: auto; } #jReasons.lab { max-height: 56vh; } .vfoot .card { margin-bottom: 0; }
 .vfoot .card[hidden] { display: none; }
 
 header { height: calc(env(safe-area-inset-top, 0px) + 12px + 44px + 8px + 28px + 8px); padding-bottom: 0; overflow: hidden; }
@@ -445,3 +445,8 @@ nav { height: 62px; margin-top: 4px; }
 .tok .sym { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .tok .badge { flex-shrink: 0; }
 .tok .ring, .tok .score { flex-shrink: 0; }
+
+/* Laboratorio: tabelle compatte */
+.ltab { width: 100%; border-collapse: collapse; font-size: 11px; margin: 4px 0 8px; table-layout: fixed; }
+.ltab th { font-weight: 500; color: var(--text-secondary); text-align: left; padding: 2px 4px 2px 0; }
+.ltab td { padding: 3px 4px 3px 0; border-top: 1px solid var(--border); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }

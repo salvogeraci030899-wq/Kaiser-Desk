@@ -6,7 +6,11 @@
 
 const PORTAL_URL = 'wss://pumpportal.fun/api/data';
 const BIN_MS = 5000, ENTRY_MS = 60000, ENTRY_BIN = ENTRY_MS / BIN_MS, WATCH_MS = 21 * 60000, MAX_TR = 2500;
-const RACES = [[10, 10], [15, 10], [30, 25], [50, 30]];                  // [target %, stop %]
+const RACES = [[12, 10], [20, 15], [30, 20], [30, 25], [50, 30]];       // [target %, stop %]
+const THR = [[7500, '7.5'], [10000, '10'], [12000, '12'], [15000, '15']], THR_RACES = RACES.slice(0, 3);   // ingresso simulato alla prima volta che la market cap (USD) supera la soglia
+const HOR = [12, 24, 60];                                                 // uscita a tempo: dopo 1, 2 e 5 minuti (intervalli da 5 s)
+const RX_H = [2, 6, 12], RX_K = [10, 30, 60];                             // reazione del prezzo dopo un acquisto: dopo 10, 30 e 60 secondi
+const sizeOf = (usd) => (usd < 10 ? 's' : usd < 50 ? 'm' : 'l');         // taglia dell'acquisto: sotto 10 $, 10-50 $, oltre 50 $
 const MINT_RE = /^[1-9A-HJ-NP-Za-km-z]{32,44}$/;
 const num = (v) => { const n = Number(v); return Number.isFinite(n) ? n : 0; };
 const clamp = (x, a, b) => Math.min(b, Math.max(a, x));
@@ -39,29 +43,84 @@ function race(path, entryIdx, tp, sl) {
   for (let i = entryIdx + 1; i < path.length; i++) { const r = path[i] / e; if (r <= 1 - sl / 100) return 'sl'; if (r >= 1 + tp / 100) return 'tp'; }
   return 'none';
 }
-// Riassunto di un token osservato fino in fondo (o fin dove si è arrivati)
-function summarize(t, now) {
+const racesOf = (p, i, list) => { const r = {}; for (const [tp, sl] of list) r[tp + '/' + sl] = race(p, i, tp, sl); return r; };
+const medOf = (xs, d) => (xs.length ? +median(xs).toFixed(d) : null);
+// Misure sul percorso completo del token: soglie di market cap, reazione agli acquisti per taglia, vendite grosse, rotazione del volume e "calma" dopo il picco
+function flowStats(t, p, usd) {
+  const o = {}; if (!p.length) return o;
+  const maxMc = Math.max(...p); o.hi = Math.round(maxMc * usd);
+  o.th = {};
+  for (const [thr, key] of THR) {
+    let i = -1; for (let j = 1; j < p.length; j++) if (p[j - 1] * usd < thr && p[j] * usd >= thr) { i = j; break; }
+    if (i < 0 || p.length - i <= 12) continue;                                   // mai superata, o meno di 60 secondi di storia dopo
+    const e = p[i], rest = p.slice(i); let pk = 0; for (let j = 1; j < rest.length; j++) if (rest[j] > rest[pk]) pk = j;
+    o.th[key] = { e: i * 5, pk: +(rest[pk] / e).toFixed(3), ts: pk * 5, dip: +(Math.min(...rest.slice(0, pk + 1)) / e).toFixed(3), r: racesOf(p, i, THR_RACES), x: HOR.map((h) => (i + h < p.length ? +(p[i + h] / e).toFixed(3) : null)) };
+  }
+  // dopo ogni acquisto: deriva del prezzo a +10, +30 e +60 s rispetto al prezzo subito dopo l'acquisto (somma dei logaritmi, conteggi e quante volte è sceso)
+  const rx = {};
+  for (const [dt, side, sol] of t.tr) {
+    if (side !== 1) continue; const b = Math.floor(dt / BIN_MS); if (b >= p.length || !(p[b] > 0)) continue;
+    const key = sizeOf(sol * usd) + (dt < 300000 ? 0 : 1), a = rx[key] || (rx[key] = new Array(9).fill(0));
+    RX_H.forEach((k, h) => { if (b + k < p.length) { const r = p[b + k] / p[b]; if (r > 0) { a[h * 3]++; a[h * 3 + 1] += Math.log(r); a[h * 3 + 2] += r < 1 ? 1 : 0; } } });
+  }
+  for (const k of Object.keys(rx)) rx[k] = rx[k].map((v, i) => (i % 3 === 1 ? Math.round(v * 1000) : v));
+  o.rx = rx;
+  // vendite grosse (almeno 100 $): quante, da quanti portafogli, quando la prima e che cosa fa il prezzo nei 60 secondi dopo
+  const big = 100 / usd, ws = new Set(); let ln = 0, first = null;
+  for (const [dt, side, sol, w] of t.tr) if (side === 0 && sol >= big) { ln++; ws.add(w); if (first == null) first = dt; }
+  o.ls = ln; o.lsW = ws.size;
+  if (first != null) { const b = Math.floor(first / BIN_MS); o.lsT = Math.round(first / 1000); if (b >= 1 && b + 12 < p.length && p[b - 1] > 0) o.afterLS = +(p[b + 12] / p[b - 1]).toFixed(3); }
+  // scambi nei 60 secondi prima e dopo il picco assoluto: se dopo il picco il flusso si spegne, la Coin e' "bloccata"
+  let pi = 0; for (let j = 1; j < p.length; j++) if (p[j] > p[pi]) pi = j;
+  if (pi >= 12 && p.length > pi + 12) { const t0 = pi * BIN_MS; let a = 0, c = 0; for (const x of t.tr) { if (x[0] >= t0 - 60000 && x[0] < t0) a++; else if (x[0] >= t0 && x[0] < t0 + 60000) c++; } o.q = [a, c]; }
+  let tot = 0; for (const x of t.tr) tot += x[2]; if (maxMc > 0) o.turn = +(tot / maxMc).toFixed(2);   // volume scambiato diviso market cap massima (entrambi in SOL)
+  return o;
+}
+// Riassunto di un token osservato fino in fondo (o fin dove si è arrivati). solUsd serve per le soglie in dollari
+function summarize(t, now, solUsd) {
+  const usd = solUsd > 0 ? solUsd : 150;
   const p = t.path.slice(), bins = Math.min(252, Math.floor((now - t.createdAt) / BIN_MS)); while (p.length && p.length <= bins) p.push(p[p.length - 1]);
   const f60 = features(t, ENTRY_MS), ok = p.length > ENTRY_BIN && p[ENTRY_BIN] > 0 && f60.n >= 5;
   const out = { m: t.mint, s: t.sym, at: t.createdAt, n60: f60.n, b: botScore(f60), f: { top3: +f60.top3Share.toFixed(3), bundle: +f60.bundleShare.toFixed(3), cyc: +f60.cyclerShare.toFixed(3), uniq: f60.uniq, devSold: f60.devSold }, ok };
-  if (!ok) return out;
-  const e = p[ENTRY_BIN], rest = p.slice(ENTRY_BIN); out.peak = +(Math.max(...rest) / e).toFixed(3); out.min = +(Math.min(...rest) / e).toFixed(3); out.end = +(rest[rest.length - 1] / e).toFixed(3);
-  out.races = {}; for (const [tp, sl] of RACES) out.races[tp + '/' + sl] = race(p, ENTRY_BIN, tp, sl);
-  // arrivo di un acquirente grosso e nuovo (>= 1 SOL, dopo il primo minuto): che cosa fa il prezzo nei 60 secondi dopo
-  if (t.big.length) { const b = t.big[0], i0 = Math.floor(b.dt / BIN_MS), i1 = Math.min(p.length - 1, i0 + 12); if (p[i0] > 0 && i1 > i0) out.afterBig = +(p[i1] / p[i0]).toFixed(3); out.bigSol = +b.sol.toFixed(2); }
-  return out;
+  if (ok) {
+    const e = p[ENTRY_BIN], rest = p.slice(ENTRY_BIN); out.peak = +(Math.max(...rest) / e).toFixed(3); out.min = +(Math.min(...rest) / e).toFixed(3); out.end = +(rest[rest.length - 1] / e).toFixed(3);
+    out.races = racesOf(p, ENTRY_BIN, RACES); out.x = HOR.map((h) => (ENTRY_BIN + h < p.length ? +(p[ENTRY_BIN + h] / e).toFixed(3) : null));
+    // arrivo di un acquirente grosso e nuovo (>= 1 SOL, dopo il primo minuto): che cosa fa il prezzo nei 60 secondi dopo
+    if (t.big.length) { const b = t.big[0], i0 = Math.floor(b.dt / BIN_MS), i1 = Math.min(p.length - 1, i0 + 12); if (p[i0] > 0 && i1 > i0) out.afterBig = +(p[i1] / p[i0]).toFixed(3); out.bigSol = +b.sol.toFixed(2); }
+  }
+  return Object.assign(out, flowStats(t, p, usd));
 }
-// Confronto tra gruppi di token per punteggio bot
+const pctRaces = (g, get, list) => {
+  const r = {};
+  for (const [tp, sl] of list) { const k = tp + '/' + sl, c = { tp: 0, sl: 0, none: 0 }; for (const d of g) { const v = get(d) && get(d)[k]; if (v) c[v]++; } const tot = c.tp + c.sl + c.none || 1; r[k] = { tp: Math.round(100 * c.tp / tot), sl: Math.round(100 * c.sl / tot), none: Math.round(100 * c.none / tot) }; }
+  return r;
+};
+// Confronto tra gruppi di token: per punteggio bot, per soglia di market cap, reazione agli acquisti, vendite grosse
 function labSummary(done, now) {
   const ok = done.filter((d) => d.ok && d.b != null), cut = [[0, 35, 'bot basso'], [35, 65, 'bot medio'], [65, 101, 'bot alto']];
+  const xs = (g, get) => [0, 1, 2].map((i) => medOf(g.map((d) => { const a = get(d); return a ? a[i] : null; }).filter((v) => v != null), 2));
   const cohorts = cut.map(([lo, hi, label]) => {
-    const g = ok.filter((d) => d.b >= lo && d.b < hi), r = {};
-    for (const [tp, sl] of RACES) { const k = tp + '/' + sl, c = { tp: 0, sl: 0, none: 0 }; for (const d of g) if (d.races && d.races[k]) c[d.races[k]]++; const tot = c.tp + c.sl + c.none || 1; r[k] = { tp: Math.round(100 * c.tp / tot), sl: Math.round(100 * c.sl / tot), none: Math.round(100 * c.none / tot) }; }
-    const big = g.filter((d) => d.afterBig != null).map((d) => d.afterBig);
-    return { label, n: g.length, peak: g.length ? +median(g.map((d) => d.peak)).toFixed(2) : null, end: g.length ? +median(g.map((d) => d.end)).toFixed(2) : null, races: r, afterBig: big.length ? { n: big.length, med: +median(big).toFixed(2) } : null };
+    const g = ok.filter((d) => d.b >= lo && d.b < hi), big = g.filter((d) => d.afterBig != null).map((d) => d.afterBig);
+    return { label, n: g.length, peak: g.length ? +median(g.map((d) => d.peak)).toFixed(2) : null, end: g.length ? +median(g.map((d) => d.end)).toFixed(2) : null, races: pctRaces(g, (d) => d.races, RACES), x: xs(g, (d) => d.x), afterBig: big.length ? { n: big.length, med: +median(big).toFixed(2) } : null };
   });
-  return { observed: done.length, valid: ok.length, cohorts };
+  const th = THR.map(([, key]) => {
+    const g = done.filter((d) => d.th && d.th[key]);
+    return { key, n: g.length, races: pctRaces(g, (d) => d.th[key].r, THR_RACES), peak: medOf(g.map((d) => d.th[key].pk), 2), ts: medOf(g.map((d) => d.th[key].ts), 0), dip: medOf(g.map((d) => d.th[key].dip), 2), x: xs(g, (d) => d.th[key].x) };
+  });
+  const rx = [];
+  for (const s of ['s', 'm', 'l']) for (const a of [0, 1]) {
+    const key = s + a, h = {}; let any = 0;
+    RX_K.forEach((k, i) => { let n = 0, l = 0, dn = 0; for (const d of done) { const v = d.rx && d.rx[key]; if (v) { n += v[i * 3]; l += v[i * 3 + 1]; dn += v[i * 3 + 2]; } } h[k] = n ? { n, drift: +((Math.exp(l / 1000 / n) - 1) * 100).toFixed(1), down: Math.round(100 * dn / n) } : null; any += n; });
+    if (any) rx.push({ size: s, age: a, h });
+  }
+  const withLs = done.filter((d) => d.ls != null), aft = withLs.filter((d) => d.afterLS != null).map((d) => d.afterLS), qs = done.filter((d) => d.q && d.q[0] >= 5), hi = done.filter((d) => d.hi != null);
+  const flow = { n: withLs.length, lsShare: withLs.length ? Math.round(100 * withLs.filter((d) => d.ls > 0).length / withLs.length) : null, afterLS: aft.length ? { n: aft.length, med: +median(aft).toFixed(2) } : null,
+    lsT: medOf(withLs.filter((d) => d.lsT != null).map((d) => d.lsT), 0), turn: medOf(done.filter((d) => d.turn != null).map((d) => d.turn), 1),
+    quiet: qs.length ? { n: qs.length, share: Math.round(100 * qs.filter((d) => d.q[1] <= 0.3 * d.q[0]).length / qs.length) } : null,
+    hi15: hi.length ? Math.round(100 * hi.filter((d) => d.hi >= 15000).length / hi.length) : null, hi30: hi.length ? Math.round(100 * hi.filter((d) => d.hi >= 30000).length / hi.length) : null };
+  return { observed: done.length, valid: ok.length, cohorts, th, rx, flow };
 }
+
 
 // ---------- registro in memoria ----------
 class TradeBook {
@@ -101,7 +160,7 @@ class TradeBook {
 class TradeFeed {
   constructor(o) {
     this.o = o || {}; this.WS = this.o.WebSocketImpl || globalThis.WebSocket; this.now = this.o.now || Date.now; this.schedule = this.o.schedule || ((fn, ms) => setTimeout(fn, ms));
-    this.log = this.o.log || (() => {}); this.onCreate = this.o.onCreate || (() => {}); this.onDone = this.o.onDone || (() => {}); this.url = this.o.url || PORTAL_URL;
+    this.solUsd = this.o.solUsd || (() => 0); this.log = this.o.log || (() => {}); this.onCreate = this.o.onCreate || (() => {}); this.onDone = this.o.onDone || (() => {}); this.url = this.o.url || PORTAL_URL;
     this.book = new TradeBook({ max: this.o.max }); this.state = 'off'; this.backoff = 2000; this.retrying = false; this.stopped = false; this.ws = null; this.unsub = [];
   }
   start() { if (!this.WS) { this.log('WebSocket non disponibile (serve Node 22): Laboratorio spento'); return false; } this.stopped = false; this.connect(); return true; }
@@ -131,7 +190,7 @@ class TradeFeed {
     }
     this.book.trade(m, now);
   }
-  finish(t, now) { this.book.drop(t.mint); this.unsub.push(t.mint); this.onDone(summarize(t, now)); }
+  finish(t, now) { this.book.drop(t.mint); this.unsub.push(t.mint); this.onDone(summarize(t, now, this.solUsd())); }
   // da chiamare ogni pochi secondi: chiude i token osservati abbastanza a lungo e annulla le iscrizioni
   tick() {
     const now = this.now(); for (const t of this.book.expired(now)) this.finish(t, now);
