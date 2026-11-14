@@ -61,3 +61,11 @@ test('nessuna emoji nell\'app, nel runner e nei messaggi del Worker (restano fre
   const EMO = /[\u{1F300}-\u{1FAFF}\u{2600}-\u{26FF}\u{270E}\u{2705}\u{274C}\u{21A9}\u{23F3}\u{FE0F}\u{200D}]/u;
   for (const f of ['index.html', 'lock.js', 'theme.js', 'style.css', 'runner/runner.js', 'worker/src/exec.js', 'worker/src/tg.js', 'worker/src/index.js', 'worker/src/params.js']) assert.ok(!EMO.test(read(f)), f + ' contiene emoji');
 });
+
+test('profili pronti: ogni valore e\' ammesso dal Worker (intervalli e tipi)', async () => {
+  const { validate, SCHEMA } = await import('../worker/src/params.js');
+  const a = html.indexOf('const PRESETS = ['), b = html.indexOf('\n];', a); assert.ok(a > 0 && b > a, 'PRESETS non trovato');
+  const presets = new Function('return ' + html.slice(a + 'const PRESETS = '.length, b + 3))();
+  assert.ok(presets.some((p) => p.id === 'young'), 'manca il profilo dei giovani');
+  for (const p of presets) { const { clean, errors } = validate(p.vals); assert.deepEqual(errors, [], p.id + ': ' + JSON.stringify(errors)); assert.deepEqual(Object.keys(clean).sort(), Object.keys(p.vals).sort(), p.id + ': chiavi non ammesse'); for (const k of Object.keys(p.vals)) assert.ok(SCHEMA[k], k); }
+});
