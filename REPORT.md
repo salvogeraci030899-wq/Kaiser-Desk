@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-14 16:08 UTC · in esecuzione da 0.1 giorni · 83 run
+Aggiornato: 2026-11-14 16:13 UTC · in esecuzione da 0.1 giorni · 83 run
 
 | | |
 |---|---|
-| Equity | **1.0312 SOL** (-20.7% dal capitale iniziale di 1.3 SOL) |
+| Equity | **1.0373 SOL** (-20.2% dal capitale iniziale di 1.3 SOL) |
 | Cassa | 0.9791 SOL |
 | Trade chiusi | 13 |
 | Win rate | 38% |
-| P&L realizzato | -0.2935 SOL (~$-21.48) |
+| P&L realizzato | -0.2935 SOL (~$-21.29) |
 | Media vincite / perdite | +42.4% / -62.5% |
 | Profit factor | 0.41 |
 | Circuit breaker | ATTIVO oggi |
 
 ## Posizioni aperte
-- **$MOONVALE** P-0114 · 0.094 SOL · +85.1% · resta 30% · [grafico](https://dexscreener.com/solana/3ECm2QMjjyTik9Txr3fmaF7WdKC2Apx2FCRgMqCvkAAm)
+- **$MOONVALE** P-0114 · 0.094 SOL · +106.9% · resta 30% · [grafico](https://dexscreener.com/solana/3ECm2QMjjyTik9Txr3fmaF7WdKC2Apx2FCRgMqCvkAAm)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -44,6 +44,19 @@ Aggiornato: 2026-11-14 16:08 UTC · in esecuzione da 0.1 giorni · 83 run
 
 ## Ultimi eventi
 ```
+16:13:14 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 235 veto
+16:12:51 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 249 veto
+16:12:28 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 253 veto
+16:12:05 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 244 veto
+16:11:41 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 249 veto
+16:11:19 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 251 veto
+16:10:56 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 247 veto
+16:10:32 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 259 veto
+16:10:10 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 261 veto
+16:09:45 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 257 veto
+16:09:22 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 260 veto
+16:08:59 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 255 veto
+16:08:36 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 247 veto
 16:08:13 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 253 veto
 16:07:50 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 254 veto
 16:07:27 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 242 veto
@@ -71,19 +84,6 @@ Aggiornato: 2026-11-14 16:08 UTC · in esecuzione da 0.1 giorni · 83 run
 16:01:14 KAISER   limite 1 ingresso/i per scan: $YoungBull rimandato
 16:01:14 QUARTER  BUY $poorcat 0.098 SOL score 66 impatto 0.22% (Jupiter)
 16:01:14 ORACLE   360 raccolti, 262 analizzati, 4 BUY, 251 veto
-16:00:51 ORACLE   360 raccolti, 266 analizzati, 3 BUY, 251 veto
-16:00:38 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 246 veto
-16:00:13 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 254 veto
-15:59:49 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 251 veto
-15:59:27 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 242 veto
-15:59:13 SCRIBE   chiuso P-0116 $YoungBull 0.0533 SOL (57.9%)
-15:59:13 CHARON   Trailing stop $YoungBull vendo 100% a 134.9% -> 0.0608 SOL
-15:59:03 ORACLE   360 raccolti, 262 analizzati, 3 BUY, 249 veto
-15:58:40 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 242 veto
-15:58:17 KAISER   limite 1 ingresso/i per scan: $YoungBull rimandato
-15:58:17 QUARTER  BUY $GR00T2 0.096 SOL score 69 impatto 1.40% (Jupiter)
-15:58:16 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 234 veto
-15:57:53 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 248 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
