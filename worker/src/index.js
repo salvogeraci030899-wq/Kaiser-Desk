@@ -12,7 +12,7 @@ import { safeEqual, corsHeaders, dispatchRequest } from './lib.js';
 import { Executor } from './exec.js';
 
 const json = (obj, status, extra) => new Response(JSON.stringify(obj), { status: status || 200, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...extra } });
-const ROUTES = { '/health': 'GET', '/state': 'GET', '/order': 'POST', '/sell': 'POST', '/kill': 'POST', '/resume': 'POST', '/tick': 'POST' };
+const ROUTES = { '/health': 'GET', '/state': 'GET', '/order': 'POST', '/ticket': 'POST', '/approve': 'POST', '/reject': 'POST', '/sell': 'POST', '/kill': 'POST', '/resume': 'POST', '/tick': 'POST' };
 
 // Il Durable Object tiene tutto lo stato reale e serializza le operazioni: un ordine e un giro di Charon non si pestano mai i piedi.
 export class Ledger {
@@ -26,6 +26,9 @@ export class Ledger {
       if (path === '/health') return json(await this.ex.health());
       if (path === '/state') return json(await this.ex.state());
       if (path === '/order') return json(await this.ex.buy(body));
+      if (path === '/ticket') return json(await this.ex.ticket(body));
+      if (path === '/approve') return json(await this.ex.approve(String(body.id || '')));
+      if (path === '/reject') return json(await this.ex.reject(String(body.id || '')));
       if (path === '/sell') return json(await this.ex.sell(String(body.id || ''), body.frac, 'Manuale'));
       if (path === '/kill') return json(await this.ex.kill());
       if (path === '/resume') return json(await this.ex.resume());

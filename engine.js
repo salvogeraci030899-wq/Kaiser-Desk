@@ -204,7 +204,8 @@ function realGate(S, ex) {
   if (!ex.wallet) return ex.walletError ? 'wallet: ' + ex.walletError : 'wallet non configurato nell’esecutore';
   if (ex.balanceSOL == null) return 'saldo del wallet non leggibile';
   if (num(ex.balanceSOL) <= 0) return 'wallet reale senza fondi';
-  if (ex.ordersEnabled !== true) return 'ordini non ancora abilitati nell’esecutore';
+  if (ex.mode !== 'dryrun' && ex.mode !== 'live') return 'ordini disattivati nell’esecutore (ORDERS_MODE=off)';
+  if (ex.jupiterConfigured !== true) return 'JUPITER_PROGRAM_ID non configurato nell’esecutore';
   return '';
 }
 
