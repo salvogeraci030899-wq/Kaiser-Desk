@@ -56,3 +56,8 @@ test('ogni $(\'#id\') usato dallo script esiste nella pagina (niente errori dopo
   const used = [...new Set([...html.matchAll(/\$\('#([A-Za-z0-9_-]+)'\)/g)].map((m) => m[1]))];
   assert.deepEqual(used.filter((i) => !ids.has(i)), []);
 });
+
+test('nessuna emoji nell\'app, nel runner e nei messaggi del Worker (restano frecce e segni di testo)', () => {
+  const EMO = /[\u{1F300}-\u{1FAFF}\u{2600}-\u{26FF}\u{270E}\u{2705}\u{274C}\u{21A9}\u{23F3}\u{FE0F}\u{200D}]/u;
+  for (const f of ['index.html', 'lock.js', 'theme.js', 'style.css', 'runner/runner.js', 'worker/src/exec.js', 'worker/src/tg.js', 'worker/src/index.js', 'worker/src/params.js']) assert.ok(!EMO.test(read(f)), f + ' contiene emoji');
+});

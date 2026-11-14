@@ -23,7 +23,7 @@ const HELP = `KAISER · comandi
 /riattiva — riabilita gli ingressi`;
 
 const fmt = (n, d = 4) => (Number.isFinite(Number(n)) ? Number(n).toFixed(d) : '—');
-const dryText = (label, q) => `🧪 ${label}: prova riuscita (dry-run). NESSUN ordine inviato.\nImpatto di prezzo ${q.impactPct}% · la simulazione sposta ${q.simDropSol} SOL · ${q.instructions} istruzioni\nProgrammi: ${q.programs.join(', ')}\nSe i numeri sono quelli attesi puoi passare a ORDERS_MODE=live con importi minimi.`;
+const dryText = (label, q) => `${label}: prova riuscita (dry-run). NESSUN ordine inviato.\nImpatto di prezzo ${q.impactPct}% · la simulazione sposta ${q.simDropSol} SOL · ${q.instructions} istruzioni\nProgrammi: ${q.programs.join(', ')}\nSe i numeri sono quelli attesi puoi passare a ORDERS_MODE=live con importi minimi.`;
 
 async function reply(ex, chat, text, markup) {
   const t = ex.env.TELEGRAM_BOT_TOKEN; if (!t) return;
@@ -45,7 +45,7 @@ export async function handleUpdate(ex, update) {
     if (kind === 'ap' && /^T-\d+$/.test(id)) {
       const r = await ex.approve(id);
       await answer(ex, cb.id, r.ok ? (r.dryRun ? 'Prova riuscita: nessun ordine inviato' : r.pending ? 'Inviato, in attesa di conferma' : 'Eseguito') : (r.error || 'Errore').slice(0, 150));
-      if (!r.ok) await reply(ex, chat, `❌ ${id}: ${r.error}${r.reasons ? '\n' + r.reasons.join('\n') : ''}`); else if (r.dryRun) await reply(ex, chat, dryText(id, r.report));
+      if (!r.ok) await reply(ex, chat, `${id}: ${r.error}${r.reasons ? '\n' + r.reasons.join('\n') : ''}`); else if (r.dryRun) await reply(ex, chat, dryText(id, r.report));
     }
     else if (kind === 'rj' && /^T-\d+$/.test(id)) { await ex.reject(id); await answer(ex, cb.id, 'Scartato'); }
     else if (kind === 'pa' && /^C-\d+$/.test(id)) { const r = await ex.applyProposal(id); await answer(ex, cb.id, r.ok ? (r.emergency ? 'EMERGENZA eseguita' : r.close ? 'Chiusura avviata' : r.reset ? 'Reset approvato' : 'Parametri applicati') : (r.error || 'Errore').slice(0, 150)); }
@@ -75,18 +75,18 @@ export async function handleUpdate(ex, update) {
     case '/approva': case '/rifiuta': {
       const id = (args[0] || '').toUpperCase(); if (!/^T-\d+$/.test(id)) { await reply(ex, chat, `Uso: ${cmd} T-0001`); break; }
       if (cmd === '/rifiuta') { await ex.reject(id); await reply(ex, chat, `${id} scartato.`); break; }
-      const r = await ex.approve(id); await reply(ex, chat, !r.ok ? `❌ ${id}: ${r.error}${r.reasons ? '\n' + r.reasons.join('\n') : ''}` : r.dryRun ? dryText(id, r.report) : `✅ ${id} ${r.pending ? 'inviato, in attesa di conferma' : 'eseguito'}.`);
+      const r = await ex.approve(id); await reply(ex, chat, !r.ok ? `${id}: ${r.error}${r.reasons ? '\n' + r.reasons.join('\n') : ''}` : r.dryRun ? dryText(id, r.report) : `${id} ${r.pending ? 'inviato, in attesa di conferma' : 'eseguito'}.`);
       break; }
     case '/prova': {                                              // collaudo con dati veri, senza inviare nulla
       const mint = args[0] || '', size = args[1] ? num(args[1].replace(',', '.'), NaN) : 0.01;
       if (!mint || !(size > 0)) { await reply(ex, chat, 'Uso: /prova MINT [SOL]\nEsempio: /prova EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v 0.01 (USDC)\nCostruisce, controlla e simula un acquisto con Jupiter e l\'RPC veri. NON invia nessun ordine.'); break; }
       const r = await ex.buy({ ref: 'prova-' + ex.now().toString(36), mint, sym: 'PROVA', sizeSol: size, dryRun: true });
-      await reply(ex, chat, r.ok && r.dryRun ? dryText('Prova', r.report) : `❌ Prova rifiutata: ${r.error}${r.reasons ? '\n• ' + r.reasons.join('\n• ') : ''}${r.programs ? '\n\nProgrammi trovati nella transazione:\n' + r.programs.join('\n') + '\nVerifica che quello di Jupiter coincida con JUPITER_PROGRAM_ID.' : ''}`);
+      await reply(ex, chat, r.ok && r.dryRun ? dryText('Prova', r.report) : `Prova rifiutata: ${r.error}${r.reasons ? '\n• ' + r.reasons.join('\n• ') : ''}${r.programs ? '\n\nProgrammi trovati nella transazione:\n' + r.programs.join('\n') + '\nVerifica che quello di Jupiter coincida con JUPITER_PROGRAM_ID.' : ''}`);
       break; }
     case '/vendi': {
       const id = (args[0] || '').toUpperCase(); if (!/^R-\d+$/.test(id)) { await reply(ex, chat, 'Uso: /vendi R-0001 [percentuale]'); break; }
       const pct = args[1] ? num(args[1].replace('%', ''), NaN) : 100; if (!(pct > 0 && pct <= 100)) { await reply(ex, chat, 'La percentuale deve essere tra 1 e 100.'); break; }
-      const r = await ex.sell(id, pct / 100, 'Manuale (Telegram)'); if (!r.ok) await reply(ex, chat, `❌ ${id}: ${r.error}`);
+      const r = await ex.sell(id, pct / 100, 'Manuale (Telegram)'); if (!r.ok) await reply(ex, chat, `${id}: ${r.error}`);
       break; }
     case '/parametri': {
       const v = await ex.paramsView(), ov = { ...v.runner, ...v.worker }, keys = Object.keys(ov);
@@ -95,9 +95,9 @@ export async function handleUpdate(ex, update) {
       await reply(ex, chat, `Parametri cambiati dall'app (sopra config.json e sotto i tetti di Cloudflare):\n${lines.length ? lines.join('\n') : '— nessuno —'}\n\nRichieste in attesa: ${v.proposals.length ? v.proposals.map((p) => p.id).join(', ') : 'nessuna'}\n/reset_parametri per tornare ai valori di base.`);
       break; }
     case '/reset_parametri': await ex.resetParams(); break;
-    case '/emergenza': { await reply(ex, chat, '🚨 Emergenza in corso…'); const r = await ex.emergency(); if (!r.ok) await reply(ex, chat, `❌ ${r.error || 'errore'}`); break; }
-    case '/kill': { await ex.kill(); await reply(ex, chat, '🛑 Kill switch attivo: nuovi ingressi fermi. Le uscite restano attive. /riattiva per ripartire.'); break; }
-    case '/riattiva': { await ex.resume(); await reply(ex, chat, '▶️ Ingressi riattivati.'); break; }
+    case '/emergenza': { await reply(ex, chat, 'Emergenza in corso…'); const r = await ex.emergency(); if (!r.ok) await reply(ex, chat, `${r.error || 'errore'}`); break; }
+    case '/kill': { await ex.kill(); await reply(ex, chat, 'Kill switch attivo: nuovi ingressi fermi. Le uscite restano attive. /riattiva per ripartire.'); break; }
+    case '/riattiva': { await ex.resume(); await reply(ex, chat, '▶Ingressi riattivati.'); break; }
     default: await reply(ex, chat, 'Comando non riconosciuto.\n\n' + HELP);
   }
   return { ok: true };
