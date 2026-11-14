@@ -10,7 +10,7 @@ L'app che installi sul telefono è un **pannello di sola lettura su GitHub Pages
 |---|---|---|
 | **App (PWA)** | GitHub Pages | Pannello: radar, posizioni, journal, stato. Sola lettura, nessun segreto |
 | **Runner paper** | GitHub Actions (`runner/`) | Scansiona, decide e simula 24/7; pubblica `public.json` e `REPORT.md` sul ramo `data` |
-| **Orologio** | Cloudflare Worker (Cron) | Ogni 5 minuti avvia il runner; ogni minuto controlla le posizioni reali |
+| **Orologio** | Cloudflare Worker (Cron) | Tiene sempre in vita il runner (run lunghi di ~50 minuti, il successivo parte poco prima della fine); con posizioni reali aperte le controlla ogni 10 secondi |
 | **Esecutore reale** | Cloudflare Worker (`worker/`) | Ordini veri via Jupiter con limiti lato server, kill switch, Telegram. Spento di default |
 | **Telegram** | Bot dedicato | Notifiche e **comandi** (approva, rifiuta, vendi, kill switch) |
 
@@ -43,7 +43,7 @@ L'app che installi sul telefono è un **pannello di sola lettura su GitHub Pages
 Indirizzo diverso = memoria diversa: tema, blocco e preferenze si impostano di nuovo su ogni indirizzo.
 
 ## Cosa mostra l'app
-- **Paper:** il conto del runner 24/7 (equity, posizioni, journal), aggiornato ogni 30 secondi dai dati pubblicati sul ramo `data`.
+- **Paper:** il conto del runner 24/7 (equity, posizioni, journal), aggiornato ogni 5 secondi (dal Worker; ripiego: file sul ramo `data`).
 - **Reale:** posizioni, ticket, journal e saldo dell'esecutore (vista pubblica di sola lettura).
 - **Radar:** scansione di consultazione con le stesse regole e gli stessi filtri del runner. Non apre posizioni.
 - **Sistema:** stato di runner, orologio ed esecutore; configurazione in sola lettura; tema, Vetro, barra di stato, blocco.

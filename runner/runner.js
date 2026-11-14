@@ -1,5 +1,6 @@
 // KAISER runner: lo stesso desk della PWA, senza interfaccia, per GitHub Actions.
-// Ogni esecuzione dura LOOP_MIN minuti: scan completo ogni SCAN_SEC secondi, Charon ogni TICK_SEC.
+// Ogni esecuzione dura LOOP_MIN minuti (il workflow ne usa ~50, così il runner non si ferma ogni 5 minuti): scan completo ogni scanSec secondi
+// (parametro modificabile dall'app, predefinito 30), Charon sulle posizioni aperte ogni TICK_SEC (10). Ogni 5 minuti lo stato va sul branch data.
 // Lo stato (cassa, posizioni, journal) vive in STATE_DIR, che il workflow salva sul branch "data".
 // SOLO PAPER TRADING: nessuna chiave privata, nessuna transazione firmata.
 'use strict';
@@ -9,8 +10,9 @@ const E = require('../engine.js');
 
 const STATE_DIR = process.env.STATE_DIR || path.join(__dirname, '..', 'state');
 const LOOP_MIN = Number(process.env.LOOP_MIN || 4.5);
-const TICK_SEC = Number(process.env.TICK_SEC || 30);
-const SCAN_SEC = Number(process.env.SCAN_SEC || 60);
+const TICK_SEC = Number(process.env.TICK_SEC || 10);
+const SCAN_SEC = Number(process.env.SCAN_SEC || 30);
+const CHECKPOINT_MS = Number(process.env.CHECKPOINT_MIN || 5) * 60000;
 const SOL_MINT = 'So11111111111111111111111111111111111111112';
 const num = (v, d = 0) => { const n = Number(v); return Number.isFinite(n) ? n : d; };
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -62,7 +64,7 @@ const execUrl = () => String(process.env.EXEC_URL || S.executor || '').replace(/
 let lastPush = 0;
 async function pushLive(force) {
   const tok = process.env.EXEC_TOKEN, url = execUrl(); if (!tok || !url) return;
-  const now = Date.now(); if (now - lastPush < (force ? 1500 : 10000)) return;
+  const now = Date.now(); if (now - lastPush < (force ? 1500 : 5000)) return;
   lastPush = now;
   try { await fetchJSON(url + '/paper', { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-app-token': tok }, body: JSON.stringify({ data: publicSummary() }), timeout: 6000 }); } catch { /* ripiego: public.json su GitHub */ }
 }
@@ -476,17 +478,35 @@ function csv() {
   return rows.map((r) => r.map((x) => `"${String(x).replace(/"/g, '""')}"`).join(',')).join('\n') + '\n';
 }
 
+// ---------------- salvataggio a metà run ----------------
+// I run sono lunghi (~50 min): ogni 5 minuti lo stato (posizioni, journal) va sul branch data, così un'interruzione non perde nulla.
+// Parte in secondo piano e solo con CHECKPOINT=1 (lo imposta il workflow); non blocca il controllo delle posizioni.
+let cpBusy = false;
+function checkpoint() {
+  if (process.env.CHECKPOINT !== '1' || cpBusy) return;
+  cpBusy = true;
+  const { execFile } = require('node:child_process'), o = { cwd: STATE_DIR, timeout: 45000 };
+  const git = (args) => new Promise((res, rej) => execFile('git', args, o, (e) => (e ? rej(e) : res())));
+  (async () => {
+    await git(['add', '-A']);
+    try { await git(['diff', '--cached', '--quiet']); return; } catch { /* ci sono modifiche */ }
+    await git(['-c', 'user.name=kaiser-runner', '-c', 'user.email=41898282+github-actions[bot]@users.noreply.github.com', 'commit', '-q', '-m', 'checkpoint']);
+    for (let i = 0; i < 3; i++) { try { await git(['push', '-q']); return; } catch { await git(['pull', '-q', '--rebase']).catch(() => {}); } }
+  })().catch((e) => log('KAISER', 'checkpoint non riuscito: ' + String(e.message).split('\n')[0])).finally(() => { cpBusy = false; });
+}
+
 // ---------------- loop ----------------
 async function main() {
   const end = Date.now() + LOOP_MIN * 60000;
   log('KAISER', `run #${st.runs} · ${st.positions.length} posizioni · equity ${equity().toFixed(4)} SOL · GMGN ${gmgnRun ? (process.env.GMGN_API_KEY ? 'chiave' : 'demo') : 'off'} · Grok ${S.useGrok ? 'on' : 'off'}`);
-  let lastScan = 0;
+  let lastScan = 0, lastCp = Date.now();
   while (Date.now() < end) {
     try {
-      if (Date.now() - lastScan >= SCAN_SEC * 1000) { lastScan = Date.now(); await scan(); }
+      if (Date.now() - lastScan >= Math.max(15, num(S.scanSec, SCAN_SEC)) * 1000) { lastScan = Date.now(); await scan(); }
       else await manage();
     } catch (e) { log('KAISER', 'errore: ' + (e.stack || e.message).split('\n')[0]); }
     save();
+    if (Date.now() - lastCp >= CHECKPOINT_MS) { lastCp = Date.now(); checkpoint(); }
     const left = end - Date.now();
     if (left <= 0) break;
     await sleep(Math.min(TICK_SEC * 1000, left));

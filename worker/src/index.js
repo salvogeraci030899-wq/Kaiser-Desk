@@ -8,7 +8,7 @@
 // Cron: ogni 5 minuti avvia il runner paper su GitHub; ogni minuto Charon controlla le posizioni reali.
 // Segreti (dashboard Cloudflare → Variables and Secrets): EXEC_TOKEN, WALLET_SECRET_KEY, GH_TOKEN, facoltativi RPC_URL, TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID.
 // Variabili: ORDERS_MODE (off|dryrun|live), JUPITER_PROGRAM_ID, MAX_CAPITAL_SOL, MAX_ORDER_SOL, MAX_DAILY_LOSS_SOL, MAX_POSITIONS...
-import { safeEqual, corsHeaders, dispatchRequest } from './lib.js';
+import { safeEqual, corsHeaders, dispatchRequest, runsRequest } from './lib.js';
 import { Executor } from './exec.js';
 import { handleUpdate, webhookSecret } from './tg.js';
 
@@ -16,9 +16,25 @@ const json = (obj, status, extra) => new Response(JSON.stringify(obj), { status:
 const ROUTES = { '/health': 'GET', '/state': 'GET', '/runner': 'POST', '/paper': 'POST', '/order': 'POST', '/ticket': 'POST', '/approve': 'POST', '/reject': 'POST', '/sell': 'POST', '/kill': 'POST', '/resume': 'POST', '/tick': 'POST' };
 
 // Il Durable Object tiene tutto lo stato reale e serializza le operazioni: un ordine e un giro di Charon non si pestano mai i piedi.
+const ALARM_MS = 10000;                       // con posizioni reali aperte Charon controlla ogni 10 secondi (il cron di Cloudflare scende solo a 1 minuto)
+const ARM_PATHS = new Set(['/order', '/approve', '/tick', '/sell']);
 export class Ledger {
   constructor(state, env) {
+    this.state = state;
     this.ex = new Executor({ env, store: { get: async (k, d) => { const v = await state.storage.get(k); return v === undefined ? d : v; }, put: (k, v) => state.storage.put(k, v) } });
+  }
+  // Se ci sono posizioni reali (o ordini in attesa) un allarme del Durable Object fa ripartire Charon ogni 10 secondi; senza posizioni non c'è allarme.
+  async arm() {
+    try {
+      const s = this.state && this.state.storage; if (!s || typeof s.setAlarm !== 'function') return;
+      const [pos, pend] = await Promise.all([s.get('positions'), s.get('pending')]);
+      if (!((pos && pos.length) || (pend && pend.length))) return;
+      if ((await s.getAlarm()) == null) await s.setAlarm(Date.now() + ALARM_MS);
+    } catch { /* non critico: resta il cron di un minuto */ }
+  }
+  async alarm() {
+    try { await this.ex.tick(); } catch { /* si riprova al prossimo allarme */ }
+    await this.arm();
   }
   async fetch(req) {
     const path = new URL(req.url).pathname;
@@ -42,6 +58,7 @@ export class Ledger {
       if (path === '/resume') return json(await this.ex.resume());
       if (path === '/tick') return json(await this.ex.tick());
     } catch (e) { return json({ ok: false, error: e.message }, 500); }
+    finally { if (ARM_PATHS.has(path)) await this.arm(); }
     return json({ ok: false, error: 'non trovato' }, 404);
   }
 }
@@ -50,11 +67,24 @@ const stub = (env) => env.LEDGER.get(env.LEDGER.idFromName('main'));
 
 // Orologio: avvia il runner paper su GitHub. Esito in KV (una scrittura ogni 5 minuti).
 async function readClock(env) { try { return JSON.parse((await env.STATE.get('clock')) || 'null'); } catch { return null; } }
+const HANDOVER_MIN = 44;                       // da questa durata in poi il run in corso è "in uscita": si accoda il successivo
+async function runnerBusy(env) {
+  try {
+    const get = async (s) => { const q = runsRequest(env, s), r = await fetch(q.url, q.init); if (!r.ok) throw new Error('HTTP ' + r.status); return (await r.json()).workflow_runs || []; };
+    if ((await get('queued')).length) return 'un run è già in coda';
+    const run = (await get('in_progress'))[0];
+    if (run && Date.now() - Date.parse(run.run_started_at || run.created_at) < HANDOVER_MIN * 60000) return 'run in corso';
+  } catch { /* se non si riesce a sapere, si avvia come prima */ }
+  return null;
+}
 export async function runClock(env) {
   const rec = { at: new Date().toISOString(), ok: false, status: null, error: null };
   try {
     if (!env.GH_TOKEN) throw new Error('GH_TOKEN non impostato');
     const { url, init } = dispatchRequest(env);
+    // Con i run lunghi non si accoda un altro run finché quello in corso non sta per finire (poco prima parte il successivo, senza buco)
+    const wait = await runnerBusy(env);
+    if (wait) { rec.ok = true; rec.status = 200; rec.note = wait; try { await env.STATE.put('clock', JSON.stringify(rec)); } catch { /* non critico */ } return rec; }
     const r = await fetch(url, init);
     rec.status = r.status; rec.ok = r.status === 204;
     if (!rec.ok) rec.error = r.status === 401 || r.status === 403 ? 'token GitHub rifiutato o senza permesso Actions' : r.status === 404 ? 'repository o workflow non trovato (o token senza accesso)' : 'GitHub HTTP ' + r.status;

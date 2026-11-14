@@ -1,6 +1,7 @@
 name: KAISER runner
 
-# Ogni 5 minuti un run di ~4,5 minuti: scan completo ogni 60 s, Charon ogni 30 s.
+# Run lunghi (~50 minuti): il runner non si ferma ogni 5 minuti per riavviarsi. Scan completo ogni scanSec (30 s), controllo delle posizioni ogni 10 s,
+# stato sul branch data ogni 5 minuti. Il Worker (Cloudflare) avvia il run successivo poco prima della fine, così non c'è buco.
 # Lo stato vive sul branch "data" (REPORT.md, journal.csv, state.json, config.json).
 on:
   schedule:
@@ -17,7 +18,7 @@ permissions:
 jobs:
   desk:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 62
     steps:
       - uses: actions/checkout@v4
       - uses: actions/checkout@v4
@@ -29,6 +30,7 @@ jobs:
           node-version: 20
       - run: npm install --no-audit --no-fund --loglevel=error
       - name: Desk
+        timeout-minutes: 58
         env:
           GMGN_API_KEY: ${{ secrets.GMGN_API_KEY }}
           XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
@@ -38,7 +40,8 @@ jobs:
           EXEC_TOKEN: ${{ secrets.EXEC_TOKEN }}
           EXEC_URL: ${{ secrets.EXEC_URL }}
           STATE_DIR: state
-          LOOP_MIN: '4.5'
+          LOOP_MIN: '50'
+          CHECKPOINT: '1'
         run: node runner/runner.js
       - name: Salva stato
         if: always()

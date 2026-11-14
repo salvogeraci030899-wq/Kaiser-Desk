@@ -89,6 +89,12 @@ export function dispatchRequest(env) {
   };
 }
 
+// Elenco dei run del workflow in un certo stato (serve all'orologio per non accodare run inutili)
+export function runsRequest(env, status) {
+  const { url, init } = dispatchRequest(env);
+  return { url: url.replace(/\/dispatches$/, '/runs') + '?status=' + encodeURIComponent(status) + '&per_page=1', init: { method: 'GET', headers: init.headers } };
+}
+
 export function corsHeaders(origin, env) {
   const allowed = String(env.ALLOWED_ORIGINS || '').split(',').map((s) => s.trim()).filter(Boolean);
   const h = { 'Access-Control-Allow-Methods': 'GET,POST,OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type,x-app-token', 'Vary': 'Origin' };

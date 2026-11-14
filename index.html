@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.14.1">
+<meta name="kz-build" content="2.15.0">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=2">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
@@ -30,7 +30,7 @@
   document.getElementById('metaStatusBar').setAttribute('content', light ? 'default' : (bar === 'separate' ? 'black' : 'black-translucent'));
 })();
 </script>
-<link rel="stylesheet" href="style.css?v=27">
+<link rel="stylesheet" href="style.css?v=28">
 <script src="version.js"></script>
 <script src="theme.js"></script>
 <script src="lock.js"></script>
@@ -476,6 +476,8 @@ async function loadParams() {
   catch (e) { rt.par = null; rt.parErr = e.message === 'HTTP 403' ? 'vista pubblica disattivata' : e.message; }
 }
 async function loadAll() { await Promise.all([loadRunner(), loadExec(), loadParams()]); await loadPrices(); render(); }
+// Dati "caldi" (paper dal runner, reale dal Worker, prezzi delle posizioni): ogni 5 secondi; non ridisegna radar e impostazioni, che hanno i loro tempi
+async function loadFast() { await Promise.all([loadRunner(), loadExec()]); await loadPrices(); render(true); }
 
 // ---------- PAPER / REALE ----------
 function applyMode() {
@@ -497,7 +499,7 @@ function realNoteHtml() {
 }
 
 // ---------- RENDER ----------
-function render() {
+function render(fast) {
   const real = st.mode === 'real', run = rt.run, e = rt.exec;
   $('#pMode').textContent = real ? 'REALE' : 'PAPER'; $('#pMode').className = 'pill ' + (real ? 'real' : 'gold');
   $('#brandSub').textContent = real ? 'Solana Meme Desk · REALE' : 'Solana Meme Desk · 24/7';
@@ -507,7 +509,7 @@ function render() {
   pr.className = 'pill ' + (run ? (age < 15 * 60000 ? 'on' : 'off') : '');
   $('#pSol').textContent = rt.solUsd ? 'SOL $' + rt.solUsd.toFixed(2) : (run && run.solUsd ? 'SOL $' + Number(run.solUsd).toFixed(2) : 'SOL —'); $('#pSol').className = 'pill gold';
   $('#pEq').textContent = 'EQ ' + (real ? (e && e.balanceSOL != null ? Number(e.balanceSOL).toFixed(3) + '◎' : '—') : (run ? Number(run.equity).toFixed(3) + '◎' : '—'));
-  applyMode(); renderRadar(); renderPos(); renderJournal(); renderSystem(); renderParams();
+  applyMode(); if (!fast) renderRadar(); renderPos(); renderJournal(); renderSystem(); if (!fast) renderParams();
   const np = real ? ((e && e.positions) || []).length : ((run && run.positions) || []).length;
   const dp = $('#dotP'); dp.style.display = np ? '' : 'none'; dp.textContent = np;
 }
@@ -816,7 +818,7 @@ document.addEventListener('touchmove', (e) => { if (e.touches.length > 1 || (e.s
 document.addEventListener('contextmenu', (e) => e.preventDefault());
 document.addEventListener('selectstart', (e) => e.preventDefault());
 document.addEventListener('dragstart', (e) => e.preventDefault());
-document.addEventListener('visibilitychange', () => { if (!document.hidden) { loadAll(); if (Date.now() - rt.lastScan > 90000) scan(); } });
+document.addEventListener('visibilitychange', () => { if (!document.hidden) { loadAll(); if (Date.now() - rt.lastScan > 30000) scan(); } });
 
 // ---------- AVVIO ----------
 showTab(['gen', 'paper', 'real'].includes(prefGet('kz_settab', 'gen')) ? prefGet('kz_settab', 'gen') : 'gen');
@@ -824,8 +826,9 @@ render();
 log('KAISER', 'pannello pronto: paper dal runner 24/7, reale dall’esecutore, comandi da Telegram');
 loadAll();
 scan();                                                                             // il radar parte da solo all'avvio
-setInterval(() => { if (!document.hidden) loadAll(); }, 15000);
-setInterval(() => { if (!document.hidden && Date.now() - rt.lastScan > ($('#v-radar').classList.contains('active') ? 90000 : 300000)) scan(); }, 15000);
+setInterval(() => { if (!document.hidden && !rt.fastBusy) { rt.fastBusy = true; loadFast().catch(() => {}).finally(() => { rt.fastBusy = false; }); } }, 5000);
+setInterval(() => { if (!document.hidden) loadParams().then(() => render()).catch(() => {}); }, 30000);
+setInterval(() => { if (!document.hidden && Date.now() - rt.lastScan > ($('#v-radar').classList.contains('active') ? 30000 : 120000)) scan(); }, 5000);
 setInterval(() => { if (!document.hidden && $('#v-pos').classList.contains('active') && st.mode === 'real' && rt.exec && rt.exec.tickets && rt.exec.tickets.length) $('#realNote').innerHTML = realNoteHtml() + ticketsHtml(); }, 1000);
 })();
 </script>

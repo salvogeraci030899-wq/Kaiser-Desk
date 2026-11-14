@@ -41,7 +41,7 @@ Variabili da impostare **dalla dashboard** (mai nel repository: un deploy non de
   - `realApprove: false` → **autonomia**: invia l'ordine da solo, con un `ref` stabile (nessun doppione) e gli stessi limiti del server.
   Servono i segreti GitHub `EXEC_TOKEN` (la stessa password di `EXEC_TOKEN` del Worker) e, se l'URL non è quello predefinito, `EXEC_URL`.
   Le impostazioni dell'app sono per dispositivo: il runner usa solo `config.json`.
-- Le uscite (Charon) le gestisce sempre il Worker, ogni minuto, con i parametri dell'ordine.
+- Le uscite (Charon) le gestisce sempre il Worker con i parametri dell'ordine: **ogni 10 secondi** finché ci sono posizioni reali aperte (allarme del Durable Object), con il cron di un minuto come rete di sicurezza.
 
 ## Cosa controlla l'esecutore prima di firmare
 - La transazione la costruisce Jupiter, **non la firmiamo alla cieca**: ogni istruzione deve essere di un programma ammesso (System, Token, Associated Token, ComputeBudget, Memo, Jupiter); niente `Transfer`/`Approve`/`SetAuthority` di token; i trasferimenti di SOL solo dal nostro wallet e sotto la size dell'ordine; chiusura account solo verso il nostro wallet; una sola firma, la nostra.
@@ -51,7 +51,7 @@ Variabili da impostare **dalla dashboard** (mai nel repository: un deploy non de
 - Le uscite sono quelle di Charon (le stesse del paper, stesso codice `engine.js`) con i parametri dell'ordine, limitati lato server (stop tra 5% e 60%).
 
 ## Limiti del piano gratuito (da tenere d'occhio)
-- Charon controlla ogni minuto: su una memecoin il prezzo può muoversi molto tra un controllo e l'altro, e l'uscita può avvenire peggio dello stop. Lo slippage di uscita è alto (15%) per garantire la vendita.
+- Charon controlla ogni 10 secondi: su una memecoin il prezzo può muoversi molto tra un controllo e l'altro, e l'uscita può avvenire peggio dello stop. Lo slippage di uscita è alto (15%) per garantire la vendita.
 - Un giro di Charon vende al massimo 2 posizioni (limite di richieste esterne per invocazione), le altre al giro dopo.
 - Il tempo di calcolo per invocazione sul piano gratuito è limitato: se compaiono errori di limite, l'alternativa è il piano a pagamento di Cloudflare (circa 5 $ al mese).
 
@@ -66,7 +66,7 @@ Variabili da impostare **dalla dashboard** (mai nel repository: un deploy non de
 |---|---|---|
 | Decisione | runner su GitHub Actions (già c'è) | scan, punteggio, verdetto BUY: chiede l'ingresso all'esecutore |
 | **Esecutore** | **Cloudflare Worker** | tiene la chiave come *secret* del Worker, firma gli swap Jupiter, applica i limiti **lato server** |
-| Charon reale | Cron Trigger del Worker, ogni minuto | controlla le posizioni reali aperte e vende (stop, TP1, trailing, rug-exit) anche con app chiusa |
+| Charon reale | Allarme del Durable Object ogni 10 s (cron ogni minuto come rete di sicurezza) | controlla le posizioni reali aperte e vende (stop, TP1, trailing, rug-exit) anche con app chiusa |
 | Stato reale | KV o D1 di Cloudflare | posizioni e journal reali |
 | App | PWA | mostra, approva i ticket, accende/spegne, kill switch |
 
@@ -109,3 +109,10 @@ Le memecoin sono estremamente rischiose e il reale può perdere tutto il capital
 - Il Worker legge l'approvazione in quest'ordine: impostazione cambiata dall'app, valore riferito dal runner, configurazione nel riepilogo che il runner spinge (servono entrambi i segreti: `EXEC_TOKEN` su GitHub). Senza informazioni vale il predefinito (attiva).
 - Variabile facoltativa del Worker `APP_CLOSE`: `direct` = sempre diretta, `confirm` = sempre con Telegram.
 - Nota: la chiusura diretta non ha una seconda conferma fuori dall'app; il popup e' l'unica. Chi conosce l'indirizzo del Worker potrebbe chiedere una chiusura.
+
+## Velocita
+
+- **Runner paper:** run lunghi di ~50 minuti, senza fermarsi ogni 5 minuti; controllo delle posizioni ogni 10 secondi, scan completo ogni `scanSec` (30, modificabile dall'app), stato sul ramo `data` ogni 5 minuti. L'orologio del Worker non accoda un altro run mentre uno è in corso; lo accoda quando sta per finire, così non c'è buco.
+- **Reale:** Charon ogni 10 secondi con posizioni aperte (nessun allarme senza posizioni, così non si consuma nulla).
+- **App:** paper, reale e prezzi delle posizioni ogni 5 secondi; radar ogni 30 secondi (120 se non lo stai guardando); parametri ogni 30 secondi.
+- Limiti: il piano gratuito ha un tetto di richieste giornaliere; ogni app aperta ne usa poche decine al minuto. Il prezzo di DexScreener ha comunque qualche secondo di ritardo.

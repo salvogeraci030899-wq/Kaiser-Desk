@@ -263,3 +263,17 @@ test('PANNELLO: chiusura paper per profitto/perdita dall\'elenco del runner', as
     if (action === 'close_loss') await ex.reportRunner(null, null, ['P-0001', 'P-0002']);
   }
 });
+test('VELOCITA: con posizioni reali il Durable Object imposta un allarme ogni 10 s e lo rinnova; senza posizioni nessun allarme', async () => {
+  const w = world(), dur = new Map(); let alarm = null;
+  const storage = { get: async (k) => dur.get(k), put: async (k, v) => { dur.set(k, v); }, getAlarm: async () => alarm, setAlarm: async (t) => { alarm = t; } };
+  const kv = new Map(), STATE = { get: async (k) => kv.get(k) ?? null, put: async (k, v) => { kv.set(k, v); } };
+  const ledger = new W.Ledger({ storage }, { ...w.env, STATE }), realFetch = globalThis.fetch; globalThis.fetch = w.fetch;
+  try {
+    await ledger.fetch(new Request('https://l/tick', { method: 'POST', body: '{}' })); assert.equal(alarm, null, 'senza posizioni niente allarme');
+    const t = await ledger.fetch(new Request('https://l/ticket', { method: 'POST', body: JSON.stringify({ mint: MINT, sym: 'ALM', score: 80, sizeSol: 0.05 }) })).then((r) => r.json());
+    await ledger.fetch(new Request('https://l/approve', { method: 'POST', body: JSON.stringify({ id: t.ticket.id }) }));
+    assert.ok((dur.get('positions') || []).length === 1); assert.ok(alarm > Date.now() && alarm <= Date.now() + 10500, 'allarme entro 10 s');
+    alarm = null; w.price = 0.0095; await ledger.alarm(); assert.ok(alarm > Date.now(), 'dopo l\'allarme se ne imposta un altro finche\' ci sono posizioni');
+    w.price = 0.0003; await ledger.alarm(); assert.equal((dur.get('positions') || []).length, 0, 'l\'allarme esegue Charon: stop venduto'); alarm = null; await ledger.alarm(); assert.equal(alarm, null, 'senza posizioni si ferma');
+  } finally { globalThis.fetch = realFetch; }
+});
