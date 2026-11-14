@@ -1,127 +1,8 @@
 {
  "startedAt": 1794594807914,
- "runs": 13,
- "cash": 3.7042493338590448,
+ "runs": 14,
+ "cash": 4.079178765869044,
  "positions": [
-  {
-   "id": "P-0007",
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "name": "Jensen Huang",
-   "pairAddress": "51KN4und5bwRyfRfTP1eFw4uPL8t4vTPHZ6okmLhr5iE",
-   "openedAt": 1794625854115,
-   "sizeSOL": 0.21034079351733348,
-   "cost": 0.21084079351733348,
-   "entry": 0.000018083875385173877,
-   "tokens": 11631.40029651952,
-   "remaining": 1,
-   "rawLeft": "11961181799",
-   "peak": 0.00001882,
-   "tp1Done": false,
-   "spDone": false,
-   "entryLiq": 87306.32,
-   "realized": 0,
-   "score": 85,
-   "why": "runner",
-   "entryInfo": {
-    "srcs": [
-     "profili",
-     "boost",
-     "top boost",
-     "GMGN"
-    ],
-    "notes": [
-     "troppo esteso: rischio top"
-    ],
-    "plus": [
-     "pressione in acquisto",
-     "4 smart money"
-    ],
-    "m": {
-     "liq": 87306.32,
-     "mc": 1328562,
-     "ageMin": 137.1372,
-     "v1": 181696.64,
-     "tx1": 13543,
-     "br1": 2.7448161459773295,
-     "br5": 2.1453287197231834,
-     "c5": 7.03,
-     "c1": -2.62,
-     "c6": 1401,
-     "turn": 2.0811396013484478,
-     "price": 0.001335,
-     "priceNative": 0.00001758
-    },
-    "grok": null
-   },
-   "last": {
-    "priceNative": 0.00001362,
-    "liq": 76183.01,
-    "br5": 1.5844155844155845,
-    "tx5": 595,
-    "t": 1794628489223
-   },
-   "fills": [
-    "BUY 0.210 impatto 1.85% (Jupiter)"
-   ]
-  },
-  {
-   "id": "P-0008",
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "name": "A MIHAO CAT",
-   "pairAddress": "DxbQyPTjckQTSUWyUqJB11HpupPyLGJZ5x4z7ufHp3Gh",
-   "openedAt": 1794625917284,
-   "sizeSOL": 0.20983665229736315,
-   "cost": 0.21033665229736315,
-   "entry": 0.00005500543732698457,
-   "tokens": 3814.8347235196234,
-   "remaining": 1,
-   "rawLeft": "4012140153",
-   "peak": 0.00005500543732698457,
-   "tp1Done": false,
-   "spDone": false,
-   "entryLiq": 151843.39,
-   "realized": 0,
-   "score": 77,
-   "why": "runner",
-   "entryInfo": {
-    "srcs": [
-     "top boost"
-    ],
-    "notes": [],
-    "plus": [
-     "liquidità solida",
-     "pressione in acquisto"
-    ],
-    "m": {
-     "liq": 151843.39,
-     "mc": 4063381,
-     "ageMin": 511.95326666666665,
-     "v1": 102233.96,
-     "tx1": 16252,
-     "br1": 1.631800518134715,
-     "br5": 1.7138728323699421,
-     "c5": -3.4,
-     "c1": -14.26,
-     "c6": -9.4,
-     "turn": 0.673285547694898,
-     "price": 0.004088,
-     "priceNative": 0.00005381
-    },
-    "grok": null
-   },
-   "last": {
-    "priceNative": 0.00005066,
-    "liq": 146078.73,
-    "br5": 1.653763440860215,
-    "tx5": 1232,
-    "t": 1794628489223
-   },
-   "fills": [
-    "BUY 0.210 impatto 1.21% (Jupiter)"
-   ]
-  },
   {
    "id": "P-0010",
    "mint": "4B1mCGeSjTadzH7okALwdFm8taxoHbZBFCTA1nZRpump",
@@ -170,11 +51,11 @@
     "grok": null
    },
    "last": {
-    "priceNative": 0.000005421,
-    "liq": 46329.13,
-    "br5": 1.11864406779661,
+    "priceNative": 0.000005576,
+    "liq": 46942.13,
+    "br5": 1.0491803278688525,
     "tx5": 123,
-    "t": 1794628489223
+    "t": 1794628789527
    },
    "fills": [
     "BUY 0.214 impatto 0.57% (Jupiter)"
@@ -479,6 +360,97 @@
      "turn": 23.047316942799814,
      "price": 0.00006629,
      "priceNative": 8.702e-7
+    },
+    "grok": null
+   }
+  },
+  {
+   "id": "P-0007",
+   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
+   "sym": "JENSEN",
+   "openedAt": 1794625854115,
+   "closedAt": 1794628569964,
+   "cost": 0.21084079351733348,
+   "back": 0.16956759847,
+   "pnl": -0.04127319504733348,
+   "pct": -19.575526329035732,
+   "mode": "paper",
+   "reason": "Time stop",
+   "score": 85,
+   "solUsd": 75.17535334073344,
+   "peakPct": 4.0706131796818035,
+   "trigPct": -19.76277379186062,
+   "entryInfo": {
+    "srcs": [
+     "profili",
+     "boost",
+     "top boost",
+     "GMGN"
+    ],
+    "notes": [
+     "troppo esteso: rischio top"
+    ],
+    "plus": [
+     "pressione in acquisto",
+     "4 smart money"
+    ],
+    "m": {
+     "liq": 87306.32,
+     "mc": 1328562,
+     "ageMin": 137.1372,
+     "v1": 181696.64,
+     "tx1": 13543,
+     "br1": 2.7448161459773295,
+     "br5": 2.1453287197231834,
+     "c5": 7.03,
+     "c1": -2.62,
+     "c6": 1401,
+     "turn": 2.0811396013484478,
+     "price": 0.001335,
+     "priceNative": 0.00001758
+    },
+    "grok": null
+   }
+  },
+  {
+   "id": "P-0008",
+   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
+   "sym": "AMC",
+   "openedAt": 1794625917284,
+   "closedAt": 1794628632241,
+   "cost": 0.21033665229736315,
+   "back": 0.20536183353999998,
+   "pnl": -0.004974818757363164,
+   "pct": -2.365169694880387,
+   "mode": "paper",
+   "reason": "Time stop",
+   "score": 77,
+   "solUsd": 75.24959213687995,
+   "peakPct": 0,
+   "trigPct": -5.391171257045491,
+   "entryInfo": {
+    "srcs": [
+     "top boost"
+    ],
+    "notes": [],
+    "plus": [
+     "liquidità solida",
+     "pressione in acquisto"
+    ],
+    "m": {
+     "liq": 151843.39,
+     "mc": 4063381,
+     "ageMin": 511.95326666666665,
+     "v1": 102233.96,
+     "tx1": 16252,
+     "br1": 1.631800518134715,
+     "br5": 1.7138728323699421,
+     "c5": -3.4,
+     "c1": -14.26,
+     "c6": -9.4,
+     "turn": 0.673285547694898,
+     "price": 0.004088,
+     "priceNative": 0.00005381
     },
     "grok": null
    }
@@ -2675,16 +2647,174 @@
    "sym": "HARAMBE",
    "score": 70,
    "priceNative": 0.000003748
+  },
+  {
+   "t": 1794628539839,
+   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
+   "sym": "JENSEN",
+   "score": 81,
+   "priceNative": 0.00001407
+  },
+  {
+   "t": 1794628539839,
+   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
+   "sym": "AMC",
+   "score": 73,
+   "priceNative": 0.00005028
+  },
+  {
+   "t": 1794628539839,
+   "mint": "EjoWiu2PLuEs6roeM1H9YxApa3LQ3guo9E27Lcu5pump",
+   "sym": "HARAMBE",
+   "score": 69,
+   "priceNative": 0.000003825
+  },
+  {
+   "t": 1794628602123,
+   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
+   "sym": "JENSEN",
+   "score": 81,
+   "priceNative": 0.00001451
+  },
+  {
+   "t": 1794628602123,
+   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
+   "sym": "AMC",
+   "score": 73,
+   "priceNative": 0.0000517
+  },
+  {
+   "t": 1794628602123,
+   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
+   "sym": "WISHMAS",
+   "score": 70,
+   "priceNative": 0.000002957
+  },
+  {
+   "t": 1794628602123,
+   "mint": "AUH2LBseFhiYBxr1xsdyBhr7m4HSGMk9oWRB7f2qpump",
+   "sym": "COCORO",
+   "score": 68,
+   "priceNative": 0.000001197
+  },
+  {
+   "t": 1794628664759,
+   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
+   "sym": "JENSEN",
+   "score": 79,
+   "priceNative": 0.00001481
+  },
+  {
+   "t": 1794628664759,
+   "mint": "EjoWiu2PLuEs6roeM1H9YxApa3LQ3guo9E27Lcu5pump",
+   "sym": "HARAMBE",
+   "score": 77,
+   "priceNative": 0.000002981
+  },
+  {
+   "t": 1794628664759,
+   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
+   "sym": "AMC",
+   "score": 73,
+   "priceNative": 0.00005204
+  },
+  {
+   "t": 1794628664759,
+   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
+   "sym": "WISHMAS",
+   "score": 69,
+   "priceNative": 0.000002709
+  },
+  {
+   "t": 1794628726943,
+   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
+   "sym": "JENSEN",
+   "score": 79,
+   "priceNative": 0.00001482
+  },
+  {
+   "t": 1794628726943,
+   "mint": "EjoWiu2PLuEs6roeM1H9YxApa3LQ3guo9E27Lcu5pump",
+   "sym": "HARAMBE",
+   "score": 77,
+   "priceNative": 0.000003029
+  },
+  {
+   "t": 1794628726943,
+   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
+   "sym": "AMC",
+   "score": 73,
+   "priceNative": 0.00005253
+  },
+  {
+   "t": 1794628726943,
+   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
+   "sym": "WISHMAS",
+   "score": 69,
+   "priceNative": 0.000002771
+  },
+  {
+   "t": 1794628726943,
+   "mint": "FTu55MyigXns96jz4nTCDDiTCjYJjyrHSceCgG9Upump",
+   "sym": "FOOD",
+   "score": 68,
+   "priceNative": 0.00001319
+  },
+  {
+   "t": 1794628789527,
+   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
+   "sym": "JENSEN",
+   "score": 80,
+   "priceNative": 0.00001438
+  },
+  {
+   "t": 1794628789527,
+   "mint": "EjoWiu2PLuEs6roeM1H9YxApa3LQ3guo9E27Lcu5pump",
+   "sym": "HARAMBE",
+   "score": 77,
+   "priceNative": 0.00000293
+  },
+  {
+   "t": 1794628789527,
+   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
+   "sym": "AMC",
+   "score": 72,
+   "priceNative": 0.00005307
+  },
+  {
+   "t": 1794628789527,
+   "mint": "FTu55MyigXns96jz4nTCDDiTCjYJjyrHSceCgG9Upump",
+   "sym": "FOOD",
+   "score": 69,
+   "priceNative": 0.00001293
+  },
+  {
+   "t": 1794628789527,
+   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
+   "sym": "WISHMAS",
+   "score": 69,
+   "priceNative": 0.000002508
   }
  ],
  "day": {
   "date": "2026-11-14",
   "startEq": 4.206815870346669
  },
- "cooldownUntil": 1794614517087,
+ "cooldownUntil": 1794629232241,
  "halted": null,
  "seq": 10,
  "events": [
+  "04:00:06 SCRIBE   fine run · trade 9 · win 11% · P&L -0.7064 SOL · equity 4.2733 SOL",
+  "03:59:49 ORACLE   90 raccolti, 64 analizzati, 5 BUY, 41 veto",
+  "03:58:46 ORACLE   90 raccolti, 62 analizzati, 5 BUY, 37 veto",
+  "03:57:44 ORACLE   90 raccolti, 64 analizzati, 4 BUY, 39 veto",
+  "03:57:12 SCRIBE   chiuso P-0008 $AMC -0.0050 SOL (-2.4%)",
+  "03:57:12 CHARON   Time stop $AMC vendo 100% a -5.4% -> 0.2054 SOL",
+  "03:56:42 ORACLE   90 raccolti, 62 analizzati, 4 BUY, 38 veto",
+  "03:56:09 SCRIBE   chiuso P-0007 $JENSEN -0.0413 SOL (-19.6%)",
+  "03:56:09 CHARON   Time stop $JENSEN vendo 100% a -19.8% -> 0.1696 SOL",
+  "03:55:39 ORACLE   90 raccolti, 63 analizzati, 3 BUY, 39 veto",
+  "03:55:36 KAISER   run #14 · 3 posizioni · equity 4.2447 SOL · GMGN demo · Grok off",
   "03:55:03 SCRIBE   fine run · trade 7 · win 14% · P&L -0.6601 SOL · equity 4.2447 SOL",
   "03:54:49 ORACLE   64 raccolti, 47 analizzati, 3 BUY, 29 veto",
   "03:53:46 ORACLE   90 raccolti, 64 analizzati, 4 BUY, 40 veto",
