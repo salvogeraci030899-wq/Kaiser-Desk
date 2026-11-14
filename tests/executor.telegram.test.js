@@ -225,3 +225,41 @@ test('CHIUSURA dall\'app: l\'indicazione approvalOff dell\'app (impostazioni mos
   const r3 = await ex3.propose({ close: { mode: 'paper', id: 'P-0005', approvalOff: true } }); assert.equal(r3.direct, true); assert.deepEqual((await ex3.paramsView()).closePaper, ['P-0005']);
   await ex3.store.put('lastClose', 0); const r4 = await ex3.propose({ close: { mode: 'paper', id: 'P-0005', approvalOff: 'si' } }); assert.ok(!r4.direct, 'solo true esatto vale');
 });
+test('PANNELLO: ogni azione passa da Telegram (con approvazione attiva), le chiusure reali sono a gruppi, profitto/perdita si decidono sul prezzo', async () => {
+  const w = world(), ex = w.ex(), mints = [MINT, L.b58encode(crypto.randomBytes(32)), L.b58encode(crypto.randomBytes(32))];
+  for (const m of mints) { const t = await ex.ticket({ mint: m, sym: 'Q' + m.slice(0, 2), score: 80, sizeSol: 0.05 }); await T.handleUpdate(ex, cbq('ap:' + t.ticket.id)); }
+  assert.equal((await ex.state()).positions.length, 3);
+  assert.match((await ex.propose({ panel: { action: 'boom' } })).error, /non valida/);
+  w.price = 0.0125;                                                                                      // tutte in profitto (ingresso ~0.01)
+  const rl = await ex.propose({ panel: { action: 'close_loss' } }); assert.equal(rl.ok, true);
+  assert.equal(w.tg.at(-1).reply_markup.inline_keyboard[0][0].callback_data, 'pa:' + rl.proposal.id);
+  assert.match((await ex.propose({ panel: { action: 'close_loss' } })).error, /già richiesta/);
+  await T.handleUpdate(ex, cbq('pa:' + rl.proposal.id)); assert.equal((await ex.state()).positions.length, 3, 'in perdita non ce n\'è nessuna: non si vende nulla');
+  await ex.store.put('lastPanel', 0);
+  const rp = await ex.propose({ panel: { action: 'close_profit' } }); await T.handleUpdate(ex, cbq('pa:' + rp.proposal.id));
+  let s = await ex.state(); assert.equal(s.positions.length, 1, '2 vendite per giro: ne resta 1'); assert.ok(s.journal.every((j) => j.reason === 'Chiusura (pannello)'));
+  await ex.tick(); s = await ex.state(); assert.equal(s.positions.length, 0); assert.match(w.tg.at(-1).text, /Chiusura reale completata/);
+});
+test('PANNELLO: stop, disattiva, attiva: cambiano i parametri giusti; Attiva Reale chiede sempre Telegram', async () => {
+  const w = world(), ex = w.ex(), run = async (action, extra = {}) => { await ex.store.put('lastPanel', 0); const r = await ex.propose({ panel: { action, ...extra } }); if (!r.direct) await T.handleUpdate(ex, cbq('pa:' + r.proposal.id)); return r; };
+  await run('real_stop'); assert.equal((await ex.state()).killed, true);
+  await run('paper_stop'); assert.equal((await ex.paramsView()).runner.paperStop, true);
+  await run('paper_on'); let v = (await ex.paramsView()).runner; assert.equal(v.paperStop, false); assert.equal(v.paperEnabled, true); assert.equal(v.autopilot, true);
+  await run('paper_off'); assert.equal((await ex.paramsView()).runner.paperEnabled, false); assert.equal((await ex.paramsView()).runner.realEnabled, undefined, 'il reale non si tocca');
+  await run('real_on'); v = (await ex.paramsView()).runner; assert.equal(v.realEnabled, true); assert.equal((await ex.state()).killed, false);
+  await run('real_off'); assert.equal((await ex.paramsView()).runner.realEnabled, false);
+  await run('off_all'); v = (await ex.paramsView()).runner; assert.deepEqual([v.autopilot, v.realEnabled, v.paperEnabled, v.paperStop, (await ex.state()).killed], [false, false, false, true, true]);
+  // con l'approvazione disattivata (indicazione dell'app) le azioni sono dirette, ma Attiva Reale chiede comunque Telegram
+  await ex.store.put('lastPanel', 0); const d = await ex.propose({ panel: { action: 'real_stop', approvalOff: true } }); assert.equal(d.direct, true);
+  await ex.store.put('lastPanel', 0); const c = await ex.propose({ panel: { action: 'real_on', approvalOff: true } }); assert.ok(!c.direct, 'Attiva Reale non e\' mai diretta'); assert.equal((await ex.state()).killed, true);
+  await ex.store.put('lastPanel', 0); const w2 = world({ APP_CLOSE: 'confirm' }), ex2 = w2.ex(); assert.ok(!(await ex2.propose({ panel: { action: 'paper_stop', approvalOff: true } })).direct, 'APP_CLOSE=confirm ignora l\'indicazione');
+});
+test('PANNELLO: chiusura paper per profitto/perdita dall\'elenco del runner', async () => {
+  const w = world(), ex = w.ex();
+  await ex.paperPut({ v: 1, positions: [{ id: 'P-0001', sym: 'A', entry: 1, last: { priceNative: 1.2 } }, { id: 'P-0002', sym: 'B', entry: 1, last: { priceNative: 0.8 } }, { id: 'P-0003', sym: 'C', entry: 1, last: null }], journal: [] });
+  for (const [action, expected] of [['close_profit', ['P-0001']], ['close_loss', ['P-0001', 'P-0002']], ['close_all', ['P-0001', 'P-0002', 'P-0003']]]) {
+    await ex.store.put('lastPanel', 0); const r = await ex.propose({ panel: { action } }); await T.handleUpdate(ex, cbq('pa:' + r.proposal.id));
+    assert.deepEqual((await ex.paramsView()).closePaper.sort(), expected, action);
+    if (action === 'close_loss') await ex.reportRunner(null, null, ['P-0001', 'P-0002']);
+  }
+});

@@ -2,7 +2,7 @@
    Token iOS (scuro/chiaro/automatico), angoli concentrici, barra a capsula, Vetro (Liquid Glass) fermo o animato.
    I nomi delle classi sono quelli di Kaiser: cambia l'aspetto, non la struttura. */
 :root {
-  --kz-css: 25;
+  --kz-css: 26;
   color-scheme: dark;
   --bg: #000000;
   --surface: #0a0a0a;
@@ -417,3 +417,14 @@ nav { height: 62px; margin-top: 4px; }
 .dlg.danger .dlg-ico { color: var(--danger); }
 .dlg-ico svg { width: 40px; height: 40px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .dlg-ico svg circle { fill: currentColor; }
+
+/* pannello di emergenza */
+.panel-box { max-height: calc(100% - 16px); overflow-y: auto; text-align: left; padding: 18px 16px 14px; border-color: var(--danger); }
+.panel-box h3 { color: var(--danger); text-align: center; margin: 0 0 4px; }
+.panel-state { text-align: center; margin-bottom: 4px; }
+.panel-sec { font: 700 10px var(--font); letter-spacing: 0.6px; text-transform: uppercase; color: var(--text-secondary); margin: 12px 4px 6px; }
+.panel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.panel-grid .btn { min-height: 42px; padding: 0 8px; }
+.panel-grid .wide2 { grid-column: 1 / -1; }
+.panel-total { width: 100%; margin-top: 14px; min-height: 46px; border-width: 2px; }
+.panel-close { width: 100%; margin-top: 8px; min-height: 42px; }

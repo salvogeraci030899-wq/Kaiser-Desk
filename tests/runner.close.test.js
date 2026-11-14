@@ -31,3 +31,9 @@ test('chiusura dall\'app: vende a mercato la posizione indicata, la mette nel jo
     await R.pullParams(); assert.equal(st.journal.length, 1, 'una seconda lettura con la stessa direttiva non chiude altro');
   } finally { w.restore(); delete process.env.EXEC_TOKEN; }
 });
+test('paper in stop o spento: il runner non apre nuove posizioni (pannello di emergenza)', async () => {
+  const src = fs.readFileSync(path.join(__dirname, '..', 'runner', 'runner.js'), 'utf8');
+  assert.match(src, /if \(S\.paperStop \|\| S\.paperEnabled === false\) return;/);
+  assert.ok(src.indexOf('await realEntries(buys)') < src.indexOf('S.paperStop || S.paperEnabled === false'), 'il reale non dipende dal paper');
+  const E = require('../engine.js'); assert.equal(E.DEFAULTS.paperEnabled, true); assert.equal(E.DEFAULTS.paperStop, false);
+});

@@ -48,7 +48,7 @@ export async function handleUpdate(ex, update) {
       if (!r.ok) await reply(ex, chat, `${id}: ${r.error}${r.reasons ? '\n' + r.reasons.join('\n') : ''}`); else if (r.dryRun) await reply(ex, chat, dryText(id, r.report));
     }
     else if (kind === 'rj' && /^T-\d+$/.test(id)) { await ex.reject(id); await answer(ex, cb.id, 'Scartato'); }
-    else if (kind === 'pa' && /^C-\d+$/.test(id)) { const r = await ex.applyProposal(id); await answer(ex, cb.id, r.ok ? (r.emergency ? 'EMERGENZA eseguita' : r.close ? 'Chiusura avviata' : r.reset ? 'Reset approvato' : 'Parametri applicati') : (r.error || 'Errore').slice(0, 150)); }
+    else if (kind === 'pa' && /^C-\d+$/.test(id)) { const r = await ex.applyProposal(id); await answer(ex, cb.id, r.ok ? (r.emergency ? 'EMERGENZA eseguita' : r.close ? 'Chiusura avviata' : r.panel ? 'Eseguito' : r.reset ? 'Reset approvato' : 'Parametri applicati') : (r.error || 'Errore').slice(0, 150)); }
     else if (kind === 'pr' && /^C-\d+$/.test(id)) { await ex.rejectProposal(id); await answer(ex, cb.id, 'Richiesta rifiutata'); await reply(ex, chat, `${id} rifiutata.`); }
     else await answer(ex, cb.id, 'Comando non valido');
     return { ok: true };

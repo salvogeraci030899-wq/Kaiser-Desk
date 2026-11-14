@@ -20,7 +20,7 @@ test('l\'app non ha campi in cui inserire token, chiavi o indirizzi: solo numeri
 test('l\'app scrive in un solo punto: la richiesta di modifica dei parametri, senza segreti', () => {
   const posts = [...html.matchAll(/method:\s*'(POST|PUT|DELETE|PATCH)'/g)]; assert.equal(posts.length, 1, 'più di una scrittura');
   assert.match(html, /fetch\(`\$\{EXEC\}\/propose`, \{ method: 'POST', headers: \{ 'Content-Type': 'application\/json' \}, body: JSON\.stringify\(body\) \}\)/);
-  assert.equal([...html.matchAll(/postPropose\(/g)].length, 6, 'postPropose: definizione + parametri + reset + emergenza + chiusura + scorciatoia approvazione');
+  assert.equal([...html.matchAll(/postPropose\(/g)].length, 7, 'postPropose: definizione + parametri + reset + emergenza + chiusura + scorciatoia approvazione + pannello');
   assert.ok(!/<input[^>]*data-reset[^>]*type="(text|password)"/.test(html));
   assert.ok(!/Authorization|x-app-token|x-pt|Bearer/i.test(html), 'intestazioni di autenticazione nell\'app');
 });

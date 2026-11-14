@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.13.0">
+<meta name="kz-build" content="2.14.0">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=2">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
@@ -30,7 +30,7 @@
   document.getElementById('metaStatusBar').setAttribute('content', light ? 'default' : (bar === 'separate' ? 'black' : 'black-translucent'));
 })();
 </script>
-<link rel="stylesheet" href="style.css?v=25">
+<link rel="stylesheet" href="style.css?v=26">
 <script src="version.js"></script>
 <script src="theme.js"></script>
 <script src="lock.js"></script>
@@ -95,7 +95,7 @@
     <!-- il fantasmino è il tasto di aggiornamento di radar e dati; l'anello gira mentre aggiorna -->
     <button class="logo" id="btnLogo" aria-label="Aggiorna radar e dati"><svg viewBox="0 0 512 512"><use href="#ghost"/></svg></button>
     <div class="titles"><h1>KAISER <span class="ver" id="ver"></span></h1><small id="brandSub">Solana Meme Desk · 24/7</small></div>
-    <button class="btn btn-icon sos" id="btnSos" aria-label="Emergenza immediata"><svg viewBox="0 0 24 24"><polygon points="7.9 2 16.1 2 22 7.9 22 16.1 16.1 22 7.9 22 2 16.1 2 7.9"/><line x1="12" y1="7.5" x2="12" y2="13"/><circle cx="12" cy="16.3" r="0.6"/></svg></button>
+    <button class="btn btn-icon sos" id="btnSos" aria-label="Pannello di emergenza"><svg viewBox="0 0 24 24"><polygon points="7.9 2 16.1 2 22 7.9 22 16.1 16.1 22 7.9 22 2 16.1 2 7.9"/><line x1="12" y1="7.5" x2="12" y2="13"/><circle cx="12" cy="16.3" r="0.6"/></svg></button>
   </div>
   <div class="pills">
     <span class="pill gold" id="pMode" role="button" tabindex="0">PAPER</span>
@@ -203,6 +203,30 @@
 <div class="dlg" id="dlg" role="dialog" aria-modal="true" aria-labelledby="dlgTitle"><div class="dlg-box">
   <div class="dlg-ico" id="dlgIco"></div><h3 id="dlgTitle"></h3><div class="dlg-body" id="dlgBody"></div>
   <div class="dlg-btns"><button type="button" class="btn" id="dlgNo"></button><button type="button" class="btn" id="dlgYes"></button></div></div></div>
+<div class="dlg" id="panel" role="dialog" aria-modal="true" aria-labelledby="panelTitle"><div class="dlg-box panel-box">
+  <h3 id="panelTitle">Pannello di emergenza</h3><div class="panel-state tiny muted" id="panelState"></div>
+  <div class="panel-sec">Posizioni</div>
+  <div class="panel-grid">
+    <button type="button" class="btn sm red wide2" data-pa="close_all">Chiudi tutte le posizioni</button>
+    <button type="button" class="btn sm" data-pa="close_profit">Chiudi in profitto</button>
+    <button type="button" class="btn sm" data-pa="close_loss">Chiudi in perdita</button>
+  </div>
+  <div class="panel-sec">Stop ingressi</div>
+  <div class="panel-grid">
+    <button type="button" class="btn sm red" data-pa="real_stop">Reale Stop</button>
+    <button type="button" class="btn sm red" data-pa="paper_stop">Paper Stop</button>
+  </div>
+  <div class="panel-sec">Interruttori</div>
+  <div class="panel-grid">
+    <button type="button" class="btn sm red wide2" data-pa="off_all">Disattiva tutto</button>
+    <button type="button" class="btn sm" data-pa="real_off">Disattiva Reale</button>
+    <button type="button" class="btn sm" data-pa="paper_off">Disattiva Paper</button>
+    <button type="button" class="btn sm green" data-pa="real_on">Attiva Reale</button>
+    <button type="button" class="btn sm green" data-pa="paper_on">Attiva Paper</button>
+  </div>
+  <button type="button" class="btn red panel-total" data-pa="emergency">Emergenza totale: chiudi il reale e spegni tutto</button>
+  <button type="button" class="btn panel-close" id="panelClose">Chiudi il pannello</button>
+</div></div>
 <div class="sheet" id="sheet"><div class="inner" id="sheetInner"></div></div>
 <div class="toast" id="toast"></div>
 
@@ -694,15 +718,55 @@ $('#v-set').addEventListener('click', (e) => {
 async function refreshAll() { if (rt.refreshing) return; rt.refreshing = true; $('#btnLogo').classList.add('busy'); try { await Promise.allSettled([scan(), loadAll()]); } finally { rt.refreshing = false; $('#btnLogo').classList.remove('busy'); } }
 $('#btnLogo').onclick = refreshAll;
 $('#opsBar').onclick = openLog;
-// Emergenza: dall'app (senza segreti) è una richiesta con un grosso tasto su Telegram; /emergenza dalla tua chat agisce subito.
-$('#btnSos').onclick = async () => {
-  if (!(await askDialog({ icon: 'alert', danger: true, title: 'Emergenza immediata', ok: 'Invia richiesta', cancel: 'Annulla',
+// ---------- PANNELLO DI EMERGENZA ----------
+// Ogni azione ha la sua conferma. Dall'app (senza segreti) l'azione parte subito solo se nelle impostazioni l'approvazione manuale è spenta
+// (Attiva Reale chiede sempre Telegram); altrimenti arriva su Telegram il tasto di conferma.
+const PANEL = {
+  close_all:    { title: 'Chiudere tutte le posizioni?',      body: 'Vendita a mercato di <b>tutte</b> le posizioni aperte, paper e reale.', icon: 'lock', danger: true },
+  close_profit: { title: 'Chiudere le posizioni in profitto?', body: 'Vendita a mercato delle posizioni oggi in <b>profitto</b>, paper e reale.', icon: 'lock', danger: true },
+  close_loss:   { title: 'Chiudere le posizioni in perdita?',  body: 'Vendita a mercato delle posizioni oggi in <b>perdita</b>, paper e reale.', icon: 'lock', danger: true },
+  real_stop:    { title: 'Reale Stop', body: 'Kill switch: <b>nessun nuovo ingresso reale</b>. Le posizioni aperte restano gestite e le uscite continuano.', icon: 'alert', danger: true },
+  paper_stop:   { title: 'Paper Stop', body: 'Il paper <b>non apre nuove posizioni</b>. Quelle aperte restano gestite.', icon: 'alert', danger: true },
+  off_all:      { title: 'Disattivare tutto?', body: 'Reale e paper <b>non aprono nuove posizioni</b>, autopilota spento. Le posizioni aperte restano gestite.', icon: 'alert', danger: true },
+  real_off:     { title: 'Disattivare il Reale?', body: 'Il runner <b>non invia più ordini reali</b>. Le posizioni aperte restano gestite.', icon: 'alert', danger: true },
+  paper_off:    { title: 'Disattivare il Paper?', body: 'Il paper <b>non apre nuove posizioni</b>. Quelle aperte restano gestite.', icon: 'alert', danger: true },
+  real_on:      { title: 'Attivare il Reale?', body: 'Riabilita gli ingressi reali, spegne il kill switch e riaccende l’autopilota. <b>Sono soldi veri.</b> Servono comunque ORDERS_MODE e i limiti del Worker.', icon: 'alert', danger: true, confirm: true },
+  paper_on:     { title: 'Attivare il Paper?', body: 'Riabilita i nuovi ingressi paper e riaccende l’autopilota.', icon: 'alert', danger: false },
+};
+function panelState() {
+  const g = (k) => { try { return baseVal(k); } catch (e) { return undefined; } }, killed = rt.exec && rt.exec.killed;
+  const auto = g('autopilot') !== false, real = g('realEnabled') === true && auto && !killed;
+  const paper = auto && g('paperEnabled') !== false && !g('paperStop');
+  return 'Reale: <b>' + (g('realEnabled') === undefined ? 'n/d' : real ? 'acceso' : killed ? 'in stop' : 'spento') + '</b> · Paper: <b>' + (paper ? 'acceso' : g('paperStop') ? 'in stop' : 'spento') + '</b>';
+}
+function openPanel() { $('#panelState').innerHTML = panelState(); $('#panel').classList.add('open'); $('#panel .panel-box').scrollTop = 0; }
+function closePanel() { $('#panel').classList.remove('open'); }
+async function emergencyTotal() {
+  if (!(await askDialog({ icon: 'alert', danger: true, title: 'Emergenza totale', ok: 'Invia richiesta', cancel: 'Annulla',
     body: '<p>Su Telegram ti arriva il tasto <b>CONFERMA EMERGENZA</b>. Se confermi:</p><ul><li>nuovi ingressi fermi</li><li>autopilota e reale spenti</li><li>vendita subito di tutte le posizioni reali</li></ul><p class="tiny muted">L’app non ha chiavi: non vende da sola. Puoi anche scrivere <span class="mono">/emergenza</span> su Telegram.</p>' }))) return;
   try {
     const d = await postPropose({ emergency: true });
     toast(d.ok ? 'Richiesta inviata: tocca <b>CONFERMA EMERGENZA</b> su Telegram (o scrivi /emergenza)' : 'Non inviata: ' + esc(d.error || 'errore') + ' · scrivi /emergenza su Telegram');
   } catch (e) { toast('Errore di rete: ' + esc(e.message) + ' · scrivi /emergenza su Telegram'); }
-};
+}
+async function panelAction(a) {
+  if (a === 'emergency') return emergencyTotal();
+  const def = PANEL[a]; if (!def) return;
+  const off = approvalOffInApp() && !def.confirm;
+  const how = def.confirm ? 'Per sicurezza serve sempre il tasto di conferma su Telegram.' : off ? 'Approvazione manuale <b>disattivata</b>: parte subito, senza Telegram.' : 'Su Telegram ti arriva il tasto di conferma: parte quando lo tocchi.';
+  if (!(await askDialog({ icon: def.icon, danger: def.danger, title: def.title, ok: 'Conferma', cancel: 'Annulla', body: '<p>' + def.body + '</p><p class="tiny muted">' + how + '</p>' }))) return;
+  try {
+    const d = await postPropose({ panel: { action: a, approvalOff: approvalOffInApp() } });
+    toast(d.ok ? (d.direct ? 'Eseguito' + (d.real != null ? ' · reale ' + d.real + ' · paper ' + d.paper : '') : 'Richiesta inviata: conferma su Telegram') : 'Non inviata: ' + esc(d.error || 'errore'));
+    if (d.ok) loadAll();
+  } catch (e) { toast('Errore di rete: ' + esc(e.message)); }
+}
+$('#btnSos').onclick = openPanel;
+$('#panelClose').onclick = closePanel;
+$('#panel').addEventListener('click', (e) => {
+  if (e.target.id === 'panel') return closePanel();
+  const b = e.target.closest('[data-pa]'); if (b) { closePanel(); panelAction(b.dataset.pa); }
+});
 $('#pMode').onclick = () => setMode(st.mode === 'real' ? 'paper' : 'real');
 document.querySelectorAll('.modeSeg').forEach((g) => g.addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) setMode(b.dataset.mode); }));
 $('#sheet').onclick = (e) => { if (e.target.id === 'sheet') closeSheet(); };
