@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.18.2">
+<meta name="kz-build" content="2.19.0">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=2">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
@@ -30,7 +30,7 @@
   document.getElementById('metaStatusBar').setAttribute('content', light ? 'default' : (bar === 'separate' ? 'black' : 'black-translucent'));
 })();
 </script>
-<link rel="stylesheet" href="style.css?v=36">
+<link rel="stylesheet" href="style.css?v=37">
 <script src="version.js"></script>
 <script src="theme.js"></script>
 <script src="lock.js"></script>
@@ -150,7 +150,7 @@
     <div class="vscroll jfix">
     <div class="card jcard"><div class="jrow jhead"><span>Token</span><span>Esito</span><span>P&amp;L</span><span>Motivo</span></div><div class="jbody" id="jRows"></div></div>
     </div>
-    <div class="vfoot"><h2 style="margin:6px 6px 4px">Uscite per motivo</h2><div class="card" id="jReasons"></div></div>
+    <div class="vfoot"><div class="seg jseg" id="jTabs"><button data-jt="mot" class="on">Motivi di uscita</button><button data-jt="age">Per età</button><button data-jt="dip">Discese</button></div><div class="card" id="jReasons"></div></div>
   </section>
 
   <!-- SISTEMA -->
@@ -581,8 +581,22 @@ function renderJournal() {
   $('#jSmpL').textContent = nT < 30 ? 'Pochi trade' : nT < 100 ? 'Campione scarso' : pfN >= 1.3 && ex > 0 ? 'Esito positivo' : pfN >= 1 && ex > 0 ? 'Esito incerto' : 'Esito negativo';
   $('#jSmp').innerHTML = `<span class="${nT >= 100 ? (pfN >= 1.3 && ex > 0 ? 'up' : pfN >= 1 && ex > 0 ? 'warn' : 'down') : 'warn'}">${nT}/100</span>`;
   $('#jRows').innerHTML = [...J].reverse().slice(0, 100).map((j) => `<div class="jrow"><span>$${esc(j.sym)}<br><span class="muted">${new Date(j.closedAt).toLocaleString('it-IT', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' })}</span></span><span class="${cls(j.pct)}">${fmtPct(j.pct, 1)}${j.trigPct != null && Math.abs(j.trigPct - j.pct) >= 1 ? `<br><span class="muted tiny" title="Prezzo al momento dello scatto dell'uscita: la differenza con l'esito sono costi (fee, impatto, priority) e variazione del prezzo prima della vendita">da ${fmtPct(j.trigPct, 1)}</span>` : ''}</span><span class="${cls(j.pnl)}">${Number(j.pnl).toFixed(4)}</span><span class="jr">${esc(j.reason)}</span></div>`).join('') || `<div class="empty" style="padding:18px 6px">${!real && !run ? 'Dati del runner non disponibili.' : 'Nessun trade chiuso.'}</div>`;
-  const by = {}; for (const j of J) { by[j.reason] = by[j.reason] || { n: 0, pnl: 0 }; by[j.reason].n++; by[j.reason].pnl += j.pnl; }
-  $('#jReasons').innerHTML = Object.keys(by).length ? `<div class="kv">${Object.entries(by).map(([k, v]) => `<span>${esc(k)} (${v.n})</span><span class="mono ${cls(v.pnl)}">${v.pnl.toFixed(4)}◎</span>`).join('')}</div>` : '<span class="muted small">Ancora niente.</span>';
+  // Riquadro in basso: motivi di uscita, risultati per età del token all'ingresso, discese prima dei profitti
+  const tab = rt.jtab || 'mot', kvRow = (k, v, c) => `<span>${k}</span><span class="mono ${c || ''}">${v}</span>`, none = '<span class="muted small">Dati non ancora disponibili: servono trade chiusi con la versione più recente del runner.</span>';
+  document.querySelectorAll('#jTabs button').forEach((x) => x.classList.toggle('on', x.dataset.jt === tab));
+  let body;
+  if (tab === 'age') {
+    const B = [['< 15 min', (x) => x < 15], ['15-60 min', (x) => x < 60], ['1-6 ore', (x) => x < 360], ['6-24 ore', (x) => x < 1440], ['oltre 24 ore', () => true]], G = B.map(() => ({ n: 0, w: 0, pnl: 0 })), A = J.filter((j) => j.age != null);
+    for (const j of A) { const i = B.findIndex(([, f]) => f(j.age)); G[i].n++; G[i].w += j.pnl > 0 ? 1 : 0; G[i].pnl += j.pnl; }
+    body = A.length ? `<div class="kv">${B.map(([l], i) => G[i].n ? kvRow(`${l} (${G[i].n}) · ${Math.round(G[i].w / G[i].n * 100)}% vinti`, G[i].pnl.toFixed(4) + '◎', cls(G[i].pnl)) : '').join('')}</div>` : none;
+  } else if (tab === 'dip') {
+    const W = J.filter((j) => j.pnl > 0 && j.maePct != null), L = J.filter((j) => j.pnl <= 0 && j.maePct != null), avg = (xs) => (xs.length ? xs.reduce((s, j) => s + j.maePct, 0) / xs.length : 0), cnt = (xs, t) => xs.filter((j) => j.maePct <= t).length;
+    body = W.length + L.length ? `<div class="kv">${kvRow(`In profitto (${W.length}): calo medio prima`, W.length ? fmtPct(avg(W), 1) : '—')}${kvRow('   scesi oltre −10%', W.length ? cnt(W, -10) + '/' + W.length : '—')}${kvRow('   scesi oltre −25%', W.length ? cnt(W, -25) + '/' + W.length : '—')}${kvRow(`In perdita (${L.length}): calo medio`, L.length ? fmtPct(avg(L), 1) : '—', 'down')}</div>` : none;
+  } else {
+    const by = {}; for (const j of J) { by[j.reason] = by[j.reason] || { n: 0, pnl: 0 }; by[j.reason].n++; by[j.reason].pnl += j.pnl; }
+    body = Object.keys(by).length ? `<div class="kv">${Object.entries(by).map(([k, v]) => kvRow(`${esc(k)} (${v.n})`, v.pnl.toFixed(4) + '◎', cls(v.pnl))).join('')}</div>` : '<span class="muted small">Ancora nessuna uscita.</span>';
+  }
+  $('#jReasons').innerHTML = body;
 }
 function renderSystem() {
   const run = rt.run, e = rt.exec, clock = e && e.clock;
@@ -786,6 +800,7 @@ $('#panel').addEventListener('click', (e) => {
   const b = e.target.closest('[data-pa]'); if (b) { closePanel(); panelAction(b.dataset.pa); }
 });
 $('#pMode').onclick = () => setMode(st.mode === 'real' ? 'paper' : 'real');
+$('#jTabs').addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) { rt.jtab = b.dataset.jt; renderJournal(); } });
 document.querySelectorAll('.modeSeg').forEach((g) => g.addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) setMode(b.dataset.mode); }));
 $('#sheet').onclick = (e) => { if (e.target.id === 'sheet') closeSheet(); };
 // Spiega al popup di chiusura cosa vede il Worker: con l'approvazione manuale spenta la chiusura è diretta, altrimenti serve Telegram
