@@ -333,17 +333,20 @@ async function realEntries(buys) {
   if (!S.realEnabled || !buys.length) return;
   const url = execUrl(), tok = process.env.EXEC_TOKEN;
   if (!url || !tok) { if (!rt.realWarned) { rt.realWarned = true; log('KAISER', 'reale acceso in config.json ma manca il segreto EXEC_TOKEN: nessun ordine reale'); } return; }
-  const size = +(num(S.realCapitalSOL) * S.sizePct / 100).toFixed(4);
+  const size = +(num(S.realCapitalSOL) * S.realSizePct / 100).toFixed(4);
   if (!(size > 0)) { if (!rt.realWarned) { rt.realWarned = true; log('KAISER', 'reale acceso ma realCapitalSOL è 0: nessun ordine reale'); } return; }
   st.realTried = st.realTried || {};
-  const params = { sl: S.sl, tp1: S.tp1, tp1Sell: S.tp1Sell, trail: S.trail, beAfterTp1: S.beAfterTp1, timeStopMin: S.timeStopMin, timeStopMinPnl: S.timeStopMinPnl, rugLiqDrop: S.rugLiqDrop, sellPressure: S.sellPressure };
+  // Il reale ha le sue regole (realSl, realTp1…), indipendenti dal paper; la selezione dei token (filtri) è in comune.
+  const params = { sl: S.realSl, tp1: S.realTp1, tp1Sell: S.realTp1Sell, trail: S.realTrail, beAfterTp1: S.realBeAfterTp1, timeStopMin: S.realTimeStopMin, timeStopMinPnl: S.realTimeStopMinPnl, rugLiqDrop: S.realRugLiqDrop, sellPressure: S.realSellPressure };
+  buys = buys.filter((c) => c.score >= S.realMinScore);
+  if (!buys.length) return;
   const approve = S.realApprove !== false, cool = (approve ? 30 : Math.max(10, S.retradeH * 60)) * 60000, bucket = Math.floor(Date.now() / (Math.max(1, S.retradeH) * 3600000));
   let n = 0;
   for (const c of buys) {
-    if (n >= S.maxEntriesPerScan) break;
+    if (n >= S.realMaxEntriesPerScan) break;
     if (Date.now() - num(st.realTried[c.mint]) < cool) continue;       // niente tentativi ripetuti sullo stesso token
     st.realTried[c.mint] = Date.now();
-    const body = { mint: c.mint, sym: c.sym, sizeSol: size, slippageBps: S.slippageBps, entryLiq: c.a.m.liq, score: c.score, params };
+    const body = { mint: c.mint, sym: c.sym, sizeSol: size, slippageBps: S.realSlippageBps, entryLiq: c.a.m.liq, score: c.score, params };
     if (!approve) body.ref = `rn-${c.mint.slice(0, 12)}-${bucket}`;
     try {
       const r = await fetchJSON(url + (approve ? '/ticket' : '/order'), { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-app-token': tok }, body: JSON.stringify(body), timeout: 60000 });

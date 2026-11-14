@@ -89,7 +89,8 @@ export async function handleUpdate(ex, update) {
       break; }
     case '/parametri': {
       const v = await ex.paramsView(), ov = { ...v.runner, ...v.worker }, keys = Object.keys(ov);
-      const lines = keys.map((k) => `• ${v.schema[k].label}: ${typeof ov[k] === 'boolean' ? (ov[k] ? 'sì' : 'no') : ov[k]}`);
+      const pg = (k) => ((v.groups.find((g) => g.id === v.schema[k].group) || {}).page === 'real' ? 'Reale' : 'Paper');
+      const lines = keys.map((k) => `• ${pg(k)} · ${v.schema[k].label}: ${typeof ov[k] === 'boolean' ? (ov[k] ? 'sì' : 'no') : ov[k]}`);
       await reply(ex, chat, `Parametri cambiati dall'app (sopra config.json e sotto i tetti di Cloudflare):\n${lines.length ? lines.join('\n') : '— nessuno —'}\n\nRichieste in attesa: ${v.proposals.length ? v.proposals.map((p) => p.id).join(', ') : 'nessuna'}\n/reset_parametri per tornare ai valori di base.`);
       break; }
     case '/reset_parametri': await ex.resetParams(); break;

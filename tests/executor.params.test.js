@@ -25,6 +25,22 @@ test('schema: solo numeri, interruttori e scelte; nessun nome da segreto; ogni c
   }
   for (const bad of ['backend', 'appToken', 'executor', 'executorToken', 'WALLET_SECRET_KEY', 'ORDERS_MODE', 'JUPITER_PROGRAM_ID', 'mint']) assert.ok(!(bad in P.SCHEMA), bad);
 });
+test('due pagine, Paper e Reale: ogni gruppo ha la sua pagina; il reale ha parametri propri; il runner conosce ogni chiave', async () => {
+  const E = (await import('../engine.js')).default;
+  const page = (k) => P.GROUPS.find((g) => g.id === P.SCHEMA[k].group).page;
+  for (const g of P.GROUPS) assert.ok(['paper', 'real'].includes(g.page), g.id);
+  for (const pg of ['paper', 'real']) assert.ok(Object.keys(P.SCHEMA).filter((k) => page(k) === pg).length >= 10, 'pagina vuota: ' + pg);
+  for (const k of Object.keys(P.SCHEMA)) {
+    if (/^real[A-Z]/.test(k) || P.SCHEMA[k].group === 'lim') assert.equal(page(k), 'real', k + ' deve stare nella pagina Reale');
+    else assert.equal(page(k), 'paper', k + ' deve stare nella pagina Paper');
+    if (P.SCHEMA[k].scope === 'runner') {                                                                   // il runner accetta solo chiavi note e dello stesso tipo
+      assert.ok(k in E.DEFAULTS, 'manca in engine DEFAULTS: ' + k);
+      assert.equal(typeof E.DEFAULTS[k], { num: 'number', bool: 'boolean', enum: 'string' }[P.SCHEMA[k].t], 'tipo di ' + k);
+      if (P.SCHEMA[k].t === 'num') assert.ok(E.DEFAULTS[k] >= P.SCHEMA[k].min && E.DEFAULTS[k] <= P.SCHEMA[k].max, 'default fuori intervallo: ' + k);
+    }
+  }
+  for (const k of ['sl', 'tp1', 'tp1Sell', 'trail', 'timeStopMin', 'rugLiqDrop', 'sizePct']) assert.equal(E.DEFAULTS['real' + k[0].toUpperCase() + k.slice(1)], E.DEFAULTS[k], 'il reale parte con le stesse regole del paper: ' + k);
+});
 test('validate: rifiuta chiavi ignote, tipi sbagliati, fuori intervallo, prototipi; arrotonda', () => {
   const v = (c) => P.validate(c);
   assert.deepEqual(v({ sl: 30, beAfterTp1: false, gmgnInterval: '5m' }).clean, { sl: 30, beAfterTp1: false, gmgnInterval: '5m' });
@@ -36,6 +52,14 @@ test('validate: rifiuta chiavi ignote, tipi sbagliati, fuori intervallo, prototi
   assert.equal(v({ prioritySOL: 0.00049999 }).clean.prioritySOL, 0.0005); assert.equal(v({ sizePct: 5.04 }).clean.sizePct, 5);
   assert.match(v({}).errors[0].msg, /nessuna/); assert.match(v(null).errors[0].msg, /non valida/); assert.match(v([1]).errors[0].msg, /non valida/);
   assert.match(v(Object.fromEntries(Array.from({ length: 41 }, (_, i) => ['k' + i, 1]))).errors[0].msg, /troppe/);
+});
+test('su Telegram ogni voce dice se è del Paper o del Reale (stesse etichette, conti diversi)', async () => {
+  const w = world(), ex = w.ex();
+  await ex.propose({ changes: { sl: 30, realSl: 15, maxOrderSOL: 0.04 } });
+  const t = w.tg.at(-1).text;
+  assert.match(t, /• Paper · Stop loss \(%\): 25 → 30/); assert.match(t, /• Reale · Stop loss \(%\): 25 → 15/); assert.match(t, /• Reale · Size max per ordine \(SOL\): 0\.1 → 0\.04/);
+  await T.handleUpdate(ex, cbq('pa:C-0001')); await T.handleUpdate(ex, msg('/parametri'));
+  assert.match(w.tg.at(-1).text, /• Paper · Stop loss \(%\): 30/); assert.match(w.tg.at(-1).text, /• Reale · Stop loss \(%\): 15/);
 });
 test('richiesta → messaggio con differenza e tasti → applicata solo dal tocco su Telegram', async () => {
   const w = world(), ex = w.ex();

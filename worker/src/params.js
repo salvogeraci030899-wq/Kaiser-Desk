@@ -6,13 +6,15 @@ import E from '../../engine.js';
 const n = (label, group, min, max, o = {}) => ({ t: 'num', label, group, min, max, ...o });
 const b = (label, group, o = {}) => ({ t: 'bool', label, group, ...o });
 
+// Due pagine nelle impostazioni dell'app: Paper e Reale. I filtri di selezione dei token sono in comune (stessi candidati), ma stanno nella pagina Paper.
 export const GROUPS = [
-  { id: 'auto', title: 'Autopilota del runner' },
-  { id: 'risk', title: 'Capitale e rischio' },
-  { id: 'exit', title: 'Uscite (Charon)' },
-  { id: 'filt', title: 'Filtri (Scout · Oracle · Sentinel)' },
-  { id: 'real', title: 'Reale: ordini dal runner' },
-  { id: 'lim', title: 'Reale: limiti dell\'esecutore' },
+  { id: 'auto', page: 'paper', title: 'Autopilota del runner' },
+  { id: 'risk', page: 'paper', title: 'Capitale e rischio (paper)' },
+  { id: 'exit', page: 'paper', title: 'Uscite (Charon, paper)' },
+  { id: 'filt', page: 'paper', title: 'Filtri di selezione (valgono anche per il reale)' },
+  { id: 'real', page: 'real', title: 'Ordini reali dal runner' },
+  { id: 'rexit', page: 'real', title: 'Uscite (Charon, reale)' },
+  { id: 'lim', page: 'real', title: 'Limiti dell\'esecutore (tetti in Cloudflare)' },
 ];
 
 export const SCHEMA = {
@@ -22,7 +24,7 @@ export const SCHEMA = {
   minScore: n('Score minimo BUY', 'auto', 40, 100, { scope: 'runner', step: 1 }),
   useGrok: b('Grok sui BUY', 'auto', { scope: 'runner', hint: 'costa crediti xAI' }),
 
-  sizePct: n('Size per trade (%)', 'risk', 0.5, 50, { scope: 'runner', step: 0.5, hint: 'paper: % dell\'equity · reale: % del capitale reale' }),
+  sizePct: n('Size per trade (% dell\'equity)', 'risk', 0.5, 50, { scope: 'runner', step: 0.5 }),
   maxPos: n('Posizioni max (paper)', 'risk', 1, 10, { scope: 'runner', step: 1 }),
   maxEntriesPerScan: n('Ingressi per scan', 'risk', 1, 5, { scope: 'runner', step: 1, hint: 'più BUY insieme sono scommesse correlate' }),
   slippageBps: n('Slippage max (bps)', 'risk', 50, 1500, { scope: 'runner', step: 10, hint: '300 = 3%' }),
@@ -58,6 +60,20 @@ export const SCHEMA = {
   realEnabled: b('Reale acceso (ordini dal runner)', 'real', { scope: 'runner', hint: 'serve anche ORDERS_MODE nel Worker' }),
   realCapitalSOL: n('Capitale reale (SOL)', 'real', 0, 5, { scope: 'runner', step: 0.01, dec: 4, hint: 'base per la size degli ordini' }),
   realApprove: b('Approvazione manuale in reale', 'real', { scope: 'runner', hint: 'ogni ingresso è un ticket su Telegram' }),
+  realSizePct: n('Size per trade (% del capitale reale)', 'real', 0.5, 100, { scope: 'runner', step: 0.5 }),
+  realMinScore: n('Score minimo per entrare in reale', 'real', 40, 100, { scope: 'runner', step: 1, hint: 'puoi essere più selettivo che nel paper' }),
+  realMaxEntriesPerScan: n('Ingressi per scan (reale)', 'real', 1, 5, { scope: 'runner', step: 1 }),
+  realSlippageBps: n('Slippage max degli ordini (bps)', 'real', 50, 1500, { scope: 'runner', step: 10, hint: '300 = 3%' }),
+
+  realSl: n('Stop loss (%)', 'rexit', 5, 60, { scope: 'runner', step: 1 }),
+  realTp1: n('Take profit 1 (%)', 'rexit', 5, 1000, { scope: 'runner', step: 1 }),
+  realTp1Sell: n('Quota venduta al TP1 (%)', 'rexit', 10, 100, { scope: 'runner', step: 5 }),
+  realTrail: n('Trailing dal picco dopo TP1 (%)', 'rexit', 5, 60, { scope: 'runner', step: 1 }),
+  realBeAfterTp1: b('Break-even dopo TP1', 'rexit', { scope: 'runner' }),
+  realTimeStopMin: n('Time stop (min)', 'rexit', 5, 720, { scope: 'runner', step: 1 }),
+  realTimeStopMinPnl: n('Time stop: guadagno minimo (%)', 'rexit', -50, 100, { scope: 'runner', step: 1 }),
+  realRugLiqDrop: n('Uscita se la liquidità cala (%)', 'rexit', 10, 90, { scope: 'runner', step: 1 }),
+  realSellPressure: b('Esci sulla pressione di vendita', 'rexit', { scope: 'runner' }),
 
   maxCapitalSOL: n('Capitale in uso max (SOL)', 'lim', 0, 5, { scope: 'worker', step: 0.01, dec: 4, ceiling: true }),
   maxOrderSOL: n('Size max per ordine (SOL)', 'lim', 0, 1, { scope: 'worker', step: 0.005, dec: 4, ceiling: true }),
@@ -94,8 +110,11 @@ export function validate(changes) {
 }
 
 const show = (s, v) => (s.t === 'bool' ? (v ? 'sì' : 'no') : v);
+// A quale pagina (Paper o Reale) appartiene un parametro. Nei messaggi di Telegram ogni voce porta il prefisso, così non si approva il conto sbagliato.
+export const pageOfKey = (k) => (GROUPS.find((g) => g.id === SCHEMA[k].group) || {}).page;
+export const tagged = (k) => `${pageOfKey(k) === 'real' ? 'Reale' : 'Paper'} · ${SCHEMA[k].label}`;
 // Testo leggibile della differenza, per il messaggio di Telegram
 export function diffText(current, changes) {
-  return Object.entries(changes).map(([k, v]) => { const s = SCHEMA[k]; return `• ${s.label}: ${show(s, current[k])} → ${show(s, v)}`; }).join('\n');
+  return Object.entries(changes).map(([k, v]) => { const s = SCHEMA[k]; return `• ${tagged(k)}: ${show(s, current[k])} → ${show(s, v)}`; }).join('\n');
 }
 export const defaults = () => Object.fromEntries(Object.keys(SCHEMA).filter((k) => SCHEMA[k].scope === 'runner' && k in E.DEFAULTS).map((k) => [k, E.DEFAULTS[k]]));

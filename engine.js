@@ -20,7 +20,11 @@ const DEFAULTS = {
   backend: '', appToken: '',
   // Trading reale: spento finché non lo accendi. Usa le stesse regole del paper (size, stop, TP, trailing),
   // con un tetto di capitale in SOL e un esecutore (server che firma gli swap).
-  realEnabled: false, realCapitalSOL: 0, realApprove: true, executor: 'https://kaiser-executor.salvogeraci030899.workers.dev', executorToken: '',
+  realEnabled: false, realCapitalSOL: 0, realApprove: true,
+  // Regole del REALE, indipendenti da quelle del paper (all'inizio uguali): size, selezione, slippage e uscite degli ordini reali
+  realSizePct: 5, realMinScore: 68, realMaxEntriesPerScan: 1, realSlippageBps: 300,
+  realSl: 25, realTp1: 40, realTp1Sell: 50, realTrail: 20, realBeAfterTp1: true, realTimeStopMin: 45, realTimeStopMinPnl: 5, realRugLiqDrop: 45, realSellPressure: true,
+  executor: 'https://kaiser-executor.salvogeraci030899.workers.dev', executorToken: '',
 };
 
 // ---- GMGN: normalizza un item (trending/trenches) ----
