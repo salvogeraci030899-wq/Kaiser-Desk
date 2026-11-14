@@ -1,22 +1,22 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-14 03:45 UTC · in esecuzione da 0.4 giorni · 11 run
+Aggiornato: 2026-11-14 03:50 UTC · in esecuzione da 0.4 giorni · 12 run
 
 | | |
 |---|---|
-| Equity | **4.2495 SOL** (-15.0% dal capitale iniziale di 5 SOL) |
+| Equity | **4.2628 SOL** (-14.7% dal capitale iniziale di 5 SOL) |
 | Cassa | 3.7042 SOL |
 | Trade chiusi | 7 |
 | Win rate | 14% |
-| P&L realizzato | -0.6601 SOL (~$-49.60) |
+| P&L realizzato | -0.6601 SOL (~$-49.67) |
 | Media vincite / perdite | +63.7% / -54.6% |
 | Profit factor | 0.17 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$JENSEN** P-0007 · 0.210 SOL · -15.3% · resta 100% · [grafico](https://dexscreener.com/solana/51KN4und5bwRyfRfTP1eFw4uPL8t4vTPHZ6okmLhr5iE)
-- **$AMC** P-0008 · 0.210 SOL · -9.0% · resta 100% · [grafico](https://dexscreener.com/solana/DxbQyPTjckQTSUWyUqJB11HpupPyLGJZ5x4z7ufHp3Gh)
-- **$WOHAIHAO** P-0010 · 0.214 SOL · -17.6% · resta 100% · [grafico](https://dexscreener.com/solana/9Xvu6Bt8nVKcEeJKx15cU6f5t8szWxyL1X13y6gLHQe8)
+- **$JENSEN** P-0007 · 0.210 SOL · -15.8% · resta 100% · [grafico](https://dexscreener.com/solana/51KN4und5bwRyfRfTP1eFw4uPL8t4vTPHZ6okmLhr5iE)
+- **$AMC** P-0008 · 0.210 SOL · -5.7% · resta 100% · [grafico](https://dexscreener.com/solana/DxbQyPTjckQTSUWyUqJB11HpupPyLGJZ5x4z7ufHp3Gh)
+- **$WOHAIHAO** P-0010 · 0.214 SOL · -14.2% · resta 100% · [grafico](https://dexscreener.com/solana/9Xvu6Bt8nVKcEeJKx15cU6f5t8szWxyL1X13y6gLHQe8)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -38,6 +38,13 @@ Aggiornato: 2026-11-14 03:45 UTC · in esecuzione da 0.4 giorni · 11 run
 
 ## Ultimi eventi
 ```
+03:50:04 SCRIBE   fine run · trade 7 · win 14% · P&L -0.6601 SOL · equity 4.2628 SOL
+03:49:48 ORACLE   90 raccolti, 62 analizzati, 5 BUY, 38 veto
+03:48:45 ORACLE   90 raccolti, 64 analizzati, 6 BUY, 40 veto
+03:47:42 ORACLE   90 raccolti, 65 analizzati, 4 BUY, 41 veto
+03:46:40 ORACLE   90 raccolti, 64 analizzati, 4 BUY, 41 veto
+03:45:37 ORACLE   90 raccolti, 64 analizzati, 4 BUY, 41 veto
+03:45:34 KAISER   run #12 · 3 posizioni · equity 4.2495 SOL · GMGN demo · Grok off
 03:45:20 SCRIBE   fine run · trade 7 · win 14% · P&L -0.6601 SOL · equity 4.2495 SOL
 03:45:04 ORACLE   90 raccolti, 64 analizzati, 4 BUY, 41 veto
 03:44:02 ORACLE   90 raccolti, 65 analizzati, 4 BUY, 43 veto
@@ -71,13 +78,6 @@ Aggiornato: 2026-11-14 03:45 UTC · in esecuzione da 0.4 giorni · 11 run
 03:25:49 KAISER   run #8 · 3 posizioni · equity 4.2448 SOL · GMGN demo · Grok off
 03:25:23 SCRIBE   fine run · trade 6 · win 0% · P&L -0.7932 SOL · equity 4.2448 SOL
 03:25:07 ORACLE   90 raccolti, 68 analizzati, 5 BUY, 46 veto
-03:24:05 ORACLE   90 raccolti, 67 analizzati, 5 BUY, 45 veto
-03:23:02 ORACLE   90 raccolti, 68 analizzati, 4 BUY, 46 veto
-03:21:59 ORACLE   90 raccolti, 68 analizzati, 3 BUY, 45 veto
-03:20:57 ORACLE   90 raccolti, 67 analizzati, 3 BUY, 43 veto
-03:20:53 KAISER   run #7 · 3 posizioni · equity 4.2483 SOL · GMGN demo · Grok off
-03:20:19 SCRIBE   fine run · trade 6 · win 0% · P&L -0.7932 SOL · equity 4.2483 SOL
-03:20:04 ORACLE   90 raccolti, 67 analizzati, 5 BUY, 43 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
