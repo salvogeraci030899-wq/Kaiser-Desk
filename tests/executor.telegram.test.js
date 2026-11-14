@@ -97,6 +97,26 @@ test('vista pubblica: niente chiavi né comandi; wallet abbreviato; PUBLIC_VIEW=
     assert.equal((await (await W.default.fetch(new Request('https://x.example/state', { headers: { 'x-app-token': 'segreto' } }), env)).json()).killed, true);
   } finally { globalThis.fetch = realFetch; }
 });
+test('/prova: collaudo con dati veri senza inviare nulla; rifiuti spiegati; solo dalla tua chat', async () => {
+  const w = world(), ex = w.ex();
+  await T.handleUpdate(ex, msg('/prova ' + MINT + ' 0.01'));
+  assert.match(w.tg.at(-1).text, /prova riuscita \(dry-run\)\. NESSUN ordine inviato/); assert.match(w.tg.at(-1).text, /simulazione sposta 0\.010005 SOL/);
+  assert.equal(w.sent.length, 0); assert.equal((await ex.state()).positions.length, 0); assert.equal((await ex.state()).lastDry.ok, true);
+  await T.handleUpdate(ex, msg('/prova')); assert.match(w.tg.at(-1).text, /Uso: \/prova/); await T.handleUpdate(ex, msg('/prova ' + MINT + ' abc')); assert.match(w.tg.at(-1).text, /Uso: \/prova/);
+  await T.handleUpdate(ex, msg('/prova ' + MINT + ' 0,5')); assert.match(w.tg.at(-1).text, /massimo per ordine/);
+  await T.handleUpdate(ex, msg('/prova corto 0.01')); assert.match(w.tg.at(-1).text, /mint non valido/);
+  const n = w.tg.length; await T.handleUpdate(ex, msg('/prova ' + MINT + ' 0.01', '999')); assert.equal(w.tg.length, n);
+  const off = world({ ORDERS_MODE: 'off' }); await T.handleUpdate(off.ex(), msg('/prova ' + MINT)); assert.match(off.tg.at(-1).text, /disattivati/);
+  const nojup = world({ JUPITER_PROGRAM_ID: '' }); await T.handleUpdate(nojup.ex(), msg('/prova ' + MINT + ' 0.01'));
+  assert.match(nojup.tg.at(-1).text, /JUPITER_PROGRAM_ID/); assert.match(nojup.tg.at(-1).text, new RegExp(nojup.JUP)); assert.equal(nojup.sent.length, 0);   // elenca i programmi trovati da verificare
+});
+test('in dry-run un ticket approvato NON si presenta come ordine eseguito', async () => {
+  const w = world({ ORDERS_MODE: 'dryrun' }), ex = w.ex(), t = await ex.ticket({ mint: MINT, sym: 'AAA', score: 80, sizeSol: 0.05 });
+  await T.handleUpdate(ex, cbq('ap:' + t.ticket.id));
+  assert.equal(w.answers.at(-1), 'Prova riuscita: nessun ordine inviato'); assert.match(w.tg.at(-1).text, /NESSUN ordine inviato/); assert.equal(w.sent.length, 0); assert.equal((await ex.state()).positions.length, 0);
+  const t2 = await ex.ticket({ mint: L.b58encode(crypto.randomBytes(32)), sizeSol: 0.05 }); await T.handleUpdate(ex, msg('/approva ' + t2.ticket.id));
+  assert.match(w.tg.at(-1).text, /NESSUN ordine inviato/); assert.ok(!/eseguito\./.test(w.tg.at(-1).text));
+});
 test('webhook: si registra da solo, ma non sopra quello di un altro servizio', async () => {
   const w = world(), kv = new Map(); const STATE = { get: async (k) => kv.get(k) ?? null, put: async (k, v) => { kv.set(k, v); }, delete: async (k) => { kv.delete(k); } };
   const realFetch = globalThis.fetch; globalThis.fetch = w.fetch;

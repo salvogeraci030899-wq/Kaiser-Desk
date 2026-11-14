@@ -56,7 +56,7 @@ Usa un bot **dedicato a Kaiser** (non lo stesso di altri servizi: il webhook di 
 2. Segreti `TELEGRAM_BOT_TOKEN` e `TELEGRAM_CHAT_ID`:
    - in **GitHub** (Settings → Secrets and variables → Actions) → notifiche del runner paper e riepilogo serale;
    - in **Cloudflare** (Worker `kaiser-executor` → Settings → Variables and Secrets) → notifiche del reale e **comandi**. Il Worker registra da solo il webhook entro un minuto, senza toccare quello di altri bot.
-3. Scrivi `/aiuto` al bot. Comandi: `/stato`, `/posizioni`, `/wallet`, `/approva T-0001`, `/rifiuta T-0001`, `/vendi R-0001 [%]`, `/kill`, `/riattiva`. Rispondono solo alla tua chat. Sotto ogni ticket ci sono i tasti Approva e Rifiuta.
+3. Scrivi `/aiuto` al bot. Comandi: `/stato`, `/posizioni`, `/wallet`, `/prova MINT [SOL]` (collaudo con Jupiter e RPC veri, senza inviare nulla), `/parametri`, `/reset_parametri`, `/approva T-0001`, `/rifiuta T-0001`, `/vendi R-0001 [%]`, `/kill`, `/riattiva`. Rispondono solo alla tua chat. Sotto ogni ticket ci sono i tasti Approva e Rifiuta.
 
 ## Parametri: si cambiano dall'app, si applicano da Telegram
 In **Sistema → Parametri** cambi i parametri di paper e reale (autopilota, size, stop, TP, trailing, filtri, limiti del reale…). Non ci sono campi per chiavi, token o indirizzi: solo numeri, interruttori e scelte.

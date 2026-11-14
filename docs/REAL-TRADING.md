@@ -21,7 +21,7 @@ Variabili da impostare **dalla dashboard** (mai nel repository: un deploy non de
 | `MAX_POSITIONS` | `2` | posizioni aperte contemporaneamente (default 3) |
 | `ALLOWED_PROGRAMS` | vuoto | altri programmi ammessi, separati da virgola, solo se il dry-run li segnala e li hai verificati |
 
-1. **dryrun**: `ORDERS_MODE=dryrun`, poi prova un ordine dall'app (BUY REALE): non viene inviato niente. Il rapporto (e `GET /state` → `lastDry`) mostra programmi, istruzioni, impatto e SOL spostati dalla simulazione.
+1. **dryrun**: `ORDERS_MODE=dryrun` (con `JUPITER_PROGRAM_ID` e `MAX_CAPITAL_SOL` > 0), poi su Telegram: `/prova EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v 0.01` (compra USDC per 0,01 SOL in prova). Non viene inviato niente: la risposta mostra impatto, SOL spostati dalla simulazione, istruzioni e programmi (l'esito resta anche in Sistema → Stato → «Ultima prova»).
    Se un programma non è ammesso il rifiuto lo elenca: verificalo prima di autorizzarlo.
 2. **live** con importi minimi: `ORDERS_MODE=live`, capitale e size piccoli. Controlla su Solscan il primo ordine.
 3. Alza i limiti solo dopo diversi ordini corretti.
@@ -82,7 +82,7 @@ Perché il Cron di Cloudflare per le uscite: il cron di GitHub Actions può rita
 1. **Fatto:** separazione paper/reale, cancello, impostazioni, test.
 2. **Fatto:** esecutore in sola lettura (`/health`, kill switch).
 3. **Fatto (inerte):** ordini veri, controllo delle transazioni, simulazione, limiti, Charon ogni minuto, Telegram dal Worker.
-4. **Fatto:** integrazione nell'app (BUY REALE con prova in dry-run, ticket, posizioni reali, vendita manuale, kill switch) e autonomia dal runner (`realApprove` spento), sempre dentro i limiti del Worker.
+4. **Fatto:** pannello di sola lettura + comandi da Telegram (`/prova`, `/approva`, `/vendi`, `/kill`…), parametri dall'app con approvazione su Telegram, e autonomia dal runner (`realApprove` spento), sempre dentro i limiti del Worker.
 5. Da fare dopo i primi ordini veri: confronto paper/reale, filtri sul regime di mercato, alert di saldo basso.
 
 ## Cosa serve da te (fase 2)
