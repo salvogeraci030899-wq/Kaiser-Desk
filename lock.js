@@ -115,8 +115,7 @@
     var box = $('lockSettingsBody'); if (!box) return;
     var cfg = load();
     if (!cfg || !cfg.hash) {
-      box.innerHTML = '<p class="small muted" style="margin:0 0 10px">Come lo sblocco del telefono: all’apertura Kaiser chiede un codice di 6 cifre (e, se vuoi, Face ID). Il desk continua a lavorare anche con l’app bloccata.</p>' +
-        '<button type="button" class="btn gold" data-lock="setup" style="width:100%">Imposta il codice</button>';
+      box.innerHTML = '<button type="button" class="btn gold" data-lock="setup" style="width:100%">Imposta il codice</button>';
       return;
     }
     var fa = await faceIdAvailable(), after = cfg.after || '1m';
