@@ -1,20 +1,22 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-13 23:56 UTC · in esecuzione da 0.2 giorni · 4 run
+Aggiornato: 2026-11-14 03:15 UTC · in esecuzione da 0.4 giorni · 5 run
 
 | | |
 |---|---|
-| Equity | **4.2068 SOL** (-15.9% dal capitale iniziale di 5 SOL) |
-| Cassa | 4.2068 SOL |
+| Equity | **4.2222 SOL** (-15.6% dal capitale iniziale di 5 SOL) |
+| Cassa | 3.6905 SOL |
 | Trade chiusi | 6 |
 | Win rate | 0% |
-| P&L realizzato | -0.7932 SOL (~$-61.91) |
+| P&L realizzato | -0.7932 SOL (~$-60.28) |
 | Media vincite / perdite | +0.0% / -54.6% |
 | Profit factor | 0.00 |
-| Circuit breaker | ATTIVO oggi |
+| Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$JENSEN** P-0007 · 0.210 SOL · -7.8% · resta 100% · [grafico](https://dexscreener.com/solana/51KN4und5bwRyfRfTP1eFw4uPL8t4vTPHZ6okmLhr5iE)
+- **$AMC** P-0008 · 0.210 SOL · -12.5% · resta 100% · [grafico](https://dexscreener.com/solana/DxbQyPTjckQTSUWyUqJB11HpupPyLGJZ5x4z7ufHp3Gh)
+- **$HARAMBE** P-0009 · 0.208 SOL · +47.9% · resta 50% · [grafico](https://dexscreener.com/solana/EA7HbV3UsEqicPYcKZEs5YhRfrxsjiLiLz8RXUtcjwoy)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -34,6 +36,23 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+03:15:20 SCRIBE   fine run · trade 6 · win 0% · P&L -0.7932 SOL · equity 4.2222 SOL
+03:15:06 CHARON   TP1 $HARAMBE vendo 50% a 47.9% -> 0.1138 SOL
+03:15:06 ORACLE   90 raccolti, 71 analizzati, 5 BUY, 48 veto
+03:14:04 ORACLE   90 raccolti, 69 analizzati, 6 BUY, 46 veto
+03:13:00 QUARTER  BUY $HARAMBE 0.208 SOL score 75 impatto 0.01% (Jupiter)
+03:13:00 ORACLE   90 raccolti, 70 analizzati, 5 BUY, 47 veto
+03:11:57 KAISER   limite 1 ingresso/i per scan: $COCORO rimandato
+03:11:57 KAISER   limite 1 ingresso/i per scan: $HARAMBE rimandato
+03:11:57 QUARTER  BUY $AMC 0.210 SOL score 77 impatto 1.21% (Jupiter)
+03:11:57 ORACLE   90 raccolti, 70 analizzati, 4 BUY, 47 veto
+03:10:54 KAISER   limite 1 ingresso/i per scan: $COCORO rimandato
+03:10:54 KAISER   limite 1 ingresso/i per scan: $AMC rimandato
+03:10:54 KAISER   limite 1 ingresso/i per scan: $HARAMBE rimandato
+03:10:54 KAISER   limite 1 ingresso/i per scan: $WOHAIHAO rimandato
+03:10:54 QUARTER  BUY $JENSEN 0.210 SOL score 85 impatto 1.85% (Jupiter)
+03:10:54 ORACLE   90 raccolti, 68 analizzati, 5 BUY, 45 veto
+03:10:50 KAISER   run #5 · 0 posizioni · equity 4.2068 SOL · GMGN demo · Grok off
 23:56:22 SCRIBE   fine run · trade 6 · win 0% · P&L -0.7932 SOL · equity 4.2068 SOL
 23:56:07 ORACLE   90 raccolti, 69 analizzati, 8 BUY, 45 veto
 23:55:04 ORACLE   90 raccolti, 69 analizzati, 5 BUY, 44 veto
@@ -57,23 +76,6 @@ _nessuna_
 19:42:38 KAISER   limite 1 ingresso/i per scan: $AMC rimandato
 19:42:38 KAISER   limite 1 ingresso/i per scan: $POOR rimandato
 19:42:38 KAISER   limite 1 ingresso/i per scan: $WANTED rimandato
-19:42:38 QUARTER  BUY $C@T 0.238 SOL score 88 impatto 1.11% (Jupiter)
-19:42:38 ORACLE   90 raccolti, 67 analizzati, 6 BUY, 45 veto
-19:41:31 KAISER   limite 1 ingresso/i per scan: $FOOD rimandato
-19:41:31 KAISER   limite 1 ingresso/i per scan: $C@T rimandato
-19:41:31 KAISER   limite 1 ingresso/i per scan: $AMC rimandato
-19:41:31 KAISER   limite 1 ingresso/i per scan: $POOR rimandato
-19:41:31 KAISER   limite 1 ingresso/i per scan: $WANTED rimandato
-19:41:31 QUARTER  BUY $LUCIA 0.238 SOL score 88 impatto 2.41% (Jupiter)
-19:41:30 ORACLE   90 raccolti, 67 analizzati, 6 BUY, 45 veto
-19:41:25 KAISER   run #3 · 0 posizioni · equity 4.7646 SOL · GMGN demo · Grok off
-18:59:14 SCRIBE   fine run · trade 3 · win 0% · P&L -0.2354 SOL · equity 4.7646 SOL
-18:58:58 ORACLE   89 raccolti, 70 analizzati, 4 BUY, 50 veto
-18:57:55 ORACLE   89 raccolti, 69 analizzati, 4 BUY, 50 veto
-18:56:53 ORACLE   89 raccolti, 70 analizzati, 4 BUY, 50 veto
-18:55:50 ORACLE   88 raccolti, 67 analizzati, 3 BUY, 49 veto
-18:54:47 SCRIBE   chiuso P-0001 $SIRIUS -0.0748 SOL (-29.9%)
-18:54:47 CHARON   Stop loss $SIRIUS vendo 100% a -46.6% -> 0.1757 SOL
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
