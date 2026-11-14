@@ -28,6 +28,7 @@ const SHIELD = { shieldOn: false, shieldSl: 25, shieldTp1: 40, shieldTp1Sell: 50
 const TOKEN_PROGRAM = 'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA', TOKEN_2022 = 'TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb';
 // Mai adottati dallo Scudo: stabili e token "blu chip" (uno stop sul prezzo in SOL venderebbe i tuoi USDC se SOL sale)
 const SHIELD_SKIP = new Set(['EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v', 'Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB', 'So11111111111111111111111111111111111111112', 'mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So', 'J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn', 'bSo13r4TkiE4KumL71LsHTPpL2euBYLFx6h9HP3piy1', 'JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN', 'DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263']);
+const EXIT_SLIP = { realExitSlip: 2, realExitSlipMax: 10 };     // slippage delle uscite in %: parte dal 2% (come a mano su pump.fun) e sale fino al 10% se la vendita fallisce
 const MAX_SELLS_PER_TICK = 2;
 const MAX_ATTEMPTS_PER_RUN = 5;        // tentativi di vendita totali per invocazione (il piano gratuito concede 50 richieste esterne: ~9 per tentativo)          // limite di richieste esterne per invocazione (piano gratuito)
 
@@ -47,6 +48,17 @@ export class Executor {
     this.chain = Promise.resolve(); this._wallet = null;
   }
   run(fn) { const w = async () => { await this.refreshOv(); this._attempts = 0; return fn(); }; const p = this.chain.then(w, w); this.chain = p.catch(() => {}); return p; }   // un'operazione alla volta
+  exitSlipCfg() {
+    const ov = this.ov || {}, out = {};
+    for (const [k, d] of Object.entries(EXIT_SLIP)) out[k] = typeof ov[k] === 'number' && Number.isFinite(ov[k]) ? ov[k] : d;
+    return out;
+  }
+  // Slippage dei tentativi di vendita in bps: il valore scelto nell'app, ma mai oltre i tetti del Worker (EXIT_SLIPPAGE_BPS e EXIT_RETRY_SLIPPAGE_BPS)
+  exitSteps() {
+    const c = this.exitSlipCfg(), ceilBase = this.limits().exitSlippageBps, ceilTop = Math.max(ceilBase, num(this.env.EXIT_RETRY_SLIPPAGE_BPS, 4000));
+    const base = Math.max(10, Math.min(ceilBase, Math.round(c.realExitSlip * 100))), top = Math.max(base, Math.min(ceilTop, Math.round(c.realExitSlipMax * 100)));
+    return [base, Math.min(top, Math.round(base * 2.5)), top];
+  }
   // ---- SCUDO: protegge i token comprati a mano con il wallet dell'esecutore ----
   shieldCfg() {
     const ov = this.ov || {}, out = {};
@@ -266,8 +278,7 @@ export class Executor {
   // e tolleranza di slippage crescente (prima EXIT_SLIPPAGE_BPS, poi x1,6, poi fino a EXIT_RETRY_SLIPPAGE_BPS), entro il budget di richieste dell'invocazione.
   // Se non basta, un nuovo giro parte dopo 2 secondi (fastRetry) senza aspettare il prossimo controllo.
   async _sell(p, frac, reason) {
-    const lim = this.limits(), top = Math.max(lim.exitSlippageBps, num(this.env.EXIT_RETRY_SLIPPAGE_BPS, 4000));
-    const steps = [lim.exitSlippageBps, Math.min(top, Math.round(lim.exitSlippageBps * 1.6)), top]; let last = null; const ctx = { startRaw: null };   // ctx: saldo iniziale, per non vendere due volte la stessa quota
+    const steps = this.exitSteps(), top = steps[2]; let last = null; const ctx = { startRaw: null };   // ctx: saldo iniziale, per non vendere due volte la stessa quota
     for (let i = 0; i < steps.length; i++) {
       if (i > 0 && (this._attempts || 0) >= MAX_ATTEMPTS_PER_RUN) break;
       this._attempts = (this._attempts || 0) + 1;
@@ -383,7 +394,7 @@ export class Executor {
 
   // ---- stato e comandi ----
   // ---- parametri modificabili dall'app: richiesta → messaggio su Telegram → applicata solo se la approvi tu ----
-  async current() { await this.refreshOv(); return { ...paramDefaults(), ...(await this.store.get('runnerCfg', {})), ...this.limits(), ...this.shieldCfg(), ...this.ov }; }   // meglio stima possibile dei valori attuali
+  async current() { await this.refreshOv(); return { ...paramDefaults(), ...(await this.store.get('runnerCfg', {})), ...this.limits(), ...this.shieldCfg(), ...this.exitSlipCfg(), ...this.ov }; }   // meglio stima possibile dei valori attuali
   // Reset del conto PAPER (il reale non si tocca mai): stessa approvazione su Telegram. Il runner lo esegue e lo ricorda, così non si ripete.
   async _proposeReset(r) {
     const cap = r && r.capitalSOL;
@@ -581,7 +592,7 @@ export class Executor {
   async paramsView() {
     await this.refreshOv();
     const now = this.now(), ov = this.ov || {}, split = (scope) => Object.fromEntries(Object.entries(ov).filter(([k]) => SCHEMA[k] && SCHEMA[k].scope === scope));
-    return { ok: true, schema: SCHEMA, groups: GROUPS, runner: split('runner'), worker: split('worker'), runnerCfg: await this.store.get('runnerCfg', {}), ceilings: this.ceilings(), limits: { ...this.limits(), ...this.shieldCfg() },
+    return { ok: true, schema: SCHEMA, groups: GROUPS, runner: split('runner'), worker: split('worker'), runnerCfg: await this.store.get('runnerCfg', {}), ceilings: this.ceilings(), limits: { ...this.limits(), ...this.shieldCfg(), ...this.exitSlipCfg() },
       resetPaper: ((r) => (r && now - r.at < 3600000 ? r : null))(await this.store.get('paperReset', null)),
       closeDirect: await this._closeDirect(), approval: await this.approval(),
       closePaper: (await this.store.get('paperCloses', [])).filter((x) => now - x.at < 3600000).map((x) => x.id),

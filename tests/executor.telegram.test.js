@@ -326,15 +326,15 @@ test('VENDITA FALLITA: riprova subito da sola con slippage crescente e quotazion
   const w = world(), ex = w.ex(), t0 = await ex.ticket({ mint: MINT, sym: 'RTY', score: 80, sizeSol: 0.05 }); await T.handleUpdate(ex, cbq('ap:' + t0.ticket.id));
   const pos = (await ex.state()).positions[0]; w.slips = []; w.failSends = 2;                                   // i primi due invii falliscono
   const r = await ex.sell(pos.id, 1, 'Manuale'); assert.equal(r.ok, true, 'riesce al terzo tentativo'); assert.equal((await ex.state()).positions.length, 0);
-  assert.deepEqual(w.slips, [1500, 2400, 4000], 'ogni tentativo con una quotazione nuova e piu\' slippage');
-  assert.match(w.tg.map((x) => x.text).join('\n'), /Vendita riuscita al tentativo 3 \(slippage 40%\)/); assert.ok(!w.tg.some((x) => /USCITA REALE FALLITA/.test(x.text)), 'nessun allarme se alla fine riesce');
+  assert.deepEqual(w.slips, [200, 500, 1000], 'ogni tentativo con una quotazione nuova e piu\' slippage');
+  assert.match(w.tg.map((x) => x.text).join('\n'), /Vendita riuscita al tentativo 3 \(slippage 10%\)/); assert.ok(!w.tg.some((x) => /USCITA REALE FALLITA/.test(x.text)), 'nessun allarme se alla fine riesce');
 });
 test('VENDITA FALLITA: se tutti i tentativi falliscono avvisa, resta la posizione e il giro dopo parte in fretta; poi riesce', async () => {
   const w = world(), ex = w.ex(), t0 = await ex.ticket({ mint: MINT, sym: 'RT2', score: 80, sizeSol: 0.05 }); await T.handleUpdate(ex, cbq('ap:' + t0.ticket.id));
   const pos = (await ex.state()).positions[0]; w.failSends = 99; const before = w.now;
   const r = await ex.sell(pos.id, 1, 'Manuale'); assert.equal(r.ok, false); assert.equal((await ex.state()).positions.length, 1, 'la posizione resta');
   assert.equal(ex.fastRetry, true, 'segnala che serve un nuovo giro rapido'); assert.ok(w.now - before >= 2000 && w.now - before < 6000, 'pausa di un secondo tra i tentativi');
-  assert.match(w.tg.at(-1).text, /USCITA REALE FALLITA \(1\)/); assert.match(w.tg.at(-1).text, /Ho già riprovato subito con slippage fino a 40%/);
+  assert.match(w.tg.at(-1).text, /USCITA REALE FALLITA \(1\)/); assert.match(w.tg.at(-1).text, /Ho già riprovato subito con slippage fino a 10%/);
   w.failSends = 0; w.price = 0.0003; await ex.tick(); assert.equal((await ex.state()).positions.length, 0, 'al giro successivo la vendita riesce');
 });
 test('VENDITA FALLITA: il numero di tentativi per invocazione e\' limitato (budget delle richieste esterne)', async () => {
@@ -357,4 +357,14 @@ test('VENDITA FALLITA: se un invio e\' partito davvero (errore RPC dopo l\'invio
   const r = await ex.sell(pos.id, 0.5, 'Parziale'); assert.equal(r.ok, true);
   assert.equal(w.tokens.get(MINT), start - start / 2n, 'venduta una sola volta la meta\', non il 75%'); assert.equal((await ex.state()).positions.length, 1, 'la posizione resta aperta con meta\' dei token');
   assert.equal(w.sent.length - sent0, 1, 'una sola transazione di vendita');
+});
+
+test('SLIPPAGE DELLE USCITE: parte dal 2% (come a mano su pump.fun), si regola dall\'app e non supera mai i tetti del Worker', async () => {
+  const w = world(), ex = w.ex(); await ex.refreshOv();
+  assert.deepEqual(ex.exitSteps(), [200, 500, 1000], 'di base 2% -> 5% -> 10%');
+  const v = await ex.paramsView(); assert.equal(v.limits.realExitSlip, 2); assert.equal(v.limits.realExitSlipMax, 10); assert.equal(v.schema.realExitSlip.scope, 'worker'); assert.equal(v.groups.find((g) => g.id === v.schema.realExitSlip.group).page, 'real');
+  const r = await ex.propose({ changes: { realExitSlip: 3, realExitSlipMax: 6 } }); assert.equal(r.ok, true); assert.match(w.tg.at(-1).text, /Reale · Slippage delle uscite: iniziale/); await T.handleUpdate(ex, cbq('pa:' + r.proposal.id)); await ex.refreshOv();
+  assert.deepEqual(ex.exitSteps(), [300, 600, 600], '3% -> min(7,5%, 6%) -> 6%');
+  assert.equal((await ex.propose({ changes: { realExitSlip: 0.1 } })).ok, false, 'fuori intervallo');
+  const w2 = world({ EXIT_SLIPPAGE_BPS: '150', EXIT_RETRY_SLIPPAGE_BPS: '400' }), ex2 = w2.ex(); await ex2.refreshOv(); assert.deepEqual(ex2.exitSteps(), [150, 375, 400], 'i tetti del Worker vincono sull\'app');
 });

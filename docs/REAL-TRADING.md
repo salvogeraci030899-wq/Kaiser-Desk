@@ -146,8 +146,10 @@ Compri a mano (pump.fun, Phantom) con **lo stesso wallet dell'esecutore**; lo Sc
 
 ## Vendite che falliscono: riprova immediata
 
-- Se una vendita reale fallisce (RPC, blockhash scaduto, slippage superato, ...), il Worker **riprova subito, nella stessa invocazione**, fino a 3 volte, con una quotazione Jupiter nuova e tolleranza di slippage crescente: `EXIT_SLIPPAGE_BPS` (1500), poi ×1,6 (2400), poi fino a `EXIT_RETRY_SLIPPAGE_BPS` (4000 = 40%, variabile facoltativa del Worker). Un secondo di pausa tra i tentativi.
-- Se anche l'ultimo fallisce, ti avvisa su Telegram («USCITA REALE FALLITA…») e il giro successivo parte dopo **2 secondi** (non 10), con lo stesso schema.
+- Se una vendita reale fallisce (RPC, blockhash scaduto, slippage superato, ...), il Worker **riprova subito, nella stessa invocazione**, fino a 3 volte, con una quotazione Jupiter nuova e tolleranza di slippage crescente. Un secondo di pausa tra i tentativi.
+- **Slippage delle uscite** (Sistema → Reale → Uscite): iniziale **2%** (come a mano su pump.fun), poi 2,5 volte il precedente, fino a un massimo di **10%**: 2% → 5% → 10%. Si cambiano dall'app («Slippage delle uscite: iniziale» e «massimo dopo i tentativi», con approvazione su Telegram). I tetti del Worker `EXIT_SLIPPAGE_BPS` (1500) e `EXIT_RETRY_SLIPPAGE_BPS` (4000) restano comunque un limite massimo.
+- Con uno slippage iniziale basso il primo tentativo fallisce più spesso su Coin che si muovono in fretta: i tentativi successivi (a pochi secondi) servono a questo. Se non vuoi mai uscire con una perdita di prezzo oltre il 2%, metti anche il massimo a 2%: ma in un crollo la posizione potrebbe restare bloccata.
+- Se anche l'ultimo tentativo fallisce, ti avvisa su Telegram («USCITA REALE FALLITA…») e il giro successivo parte dopo **2 secondi** (non 10), con lo stesso schema.
 - Se un tentativo parte davvero ma l'RPC risponde un errore, quello dopo non vende di nuovo la stessa quota (si calcola dal saldo di partenza).
 - Vale per stop, TP, trailing, emergenza, `/vendi` e Scudo. Limite: massimo 5 tentativi per invocazione (budget delle richieste esterne del piano gratuito).
-- Uno slippage così alto costa: in una vendita di emergenza accetti di uscire peggio pur di uscire. Se non lo vuoi, abbassa `EXIT_RETRY_SLIPPAGE_BPS` nel Worker.
+- Gli **acquisti** del tool usano `realSlippageBps` (Paper → Reale, 300 = 3%): mettilo a 200 per avere il 2% anche in ingresso.
