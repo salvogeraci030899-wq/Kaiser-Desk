@@ -116,3 +116,9 @@ Le memecoin sono estremamente rischiose e il reale può perdere tutto il capital
 - **Reale:** Charon ogni 10 secondi con posizioni aperte (nessun allarme senza posizioni, così non si consuma nulla).
 - **App:** paper, reale e prezzi delle posizioni ogni 5 secondi; radar ogni 30 secondi (120 se non lo stai guardando); parametri ogni 30 secondi.
 - Limiti: il piano gratuito ha un tetto di richieste giornaliere; ogni app aperta ne usa poche decine al minuto. Il prezzo di DexScreener ha comunque qualche secondo di ritardo.
+
+## Quante Coin vede il radar
+
+- **Fonti:** profili e boost di DexScreener, GeckoTerminal (in tendenza, nuovi, più scambiati), Jupiter (in tendenza, organic score, nuovi) e, nel runner, GMGN. Ognuna si spegne da Sistema → Paper → Filtri.
+- **Memoria di 30 minuti:** le fonti ruotano; una Coin vista negli ultimi 30 minuti resta nell'elenco e viene riletta con dati freschi a ogni scansione (fino a 240).
+- **Limiti di richieste:** GeckoTerminal e Jupiter si interrogano al massimo una volta al minuto ciascuno; dopo un 429 si aspettano 3 minuti usando l'ultimo elenco. GMGN al massimo ogni 75 secondi. Gli IP condivisi di GitHub vengono limitati spesso: per questo la cache.

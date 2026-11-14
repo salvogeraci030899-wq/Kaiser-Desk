@@ -15,7 +15,7 @@ const DEFAULTS = {
   rugLiqDrop: 45, sellPressure: true,
   // Filtri
   minLiq: 15000, minMcap: 15000, maxMcap: 20000000, minAgeMin: 5, maxAgeH: 72, minTxH1: 40,
-  srcDexProfiles: true, srcDexBoosts: true, srcGecko: true, srcGmgnTrending: true, srcGmgnTrenches: false, gmgnInterval: '1h',
+  srcDexProfiles: true, srcDexBoosts: true, srcGecko: true, srcJupiter: true, srcGmgnTrending: true, srcGmgnTrenches: false, gmgnInterval: '1h',
   // Backend
   backend: '', appToken: '',
   // Trading reale: spento finché non lo accendi. Usa le stesse regole del paper (size, stop, TP, trailing),
@@ -65,6 +65,35 @@ function geckoMints(j) {
     if (/^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(m)) out.push(m);
   }
   return out;
+}
+// Jupiter (lite-api, gratis): token in tendenza, con più "organic score" e appena comparsi. Elenchi di oggetti con il mint in id o address.
+const JUPITER_SOURCES = [
+  ['https://lite-api.jup.ag/tokens/v2/toptrending/1h', 'jup trend'],
+  ['https://lite-api.jup.ag/tokens/v2/toporganicscore/1h', 'jup organic'],
+  ['https://lite-api.jup.ag/tokens/v2/recent', 'jup nuovi'],
+];
+function jupMints(j) {
+  const out = [];
+  for (const t of (Array.isArray(j) ? j : [])) { const m = t && (t.id || t.address || t.mint); if (typeof m === 'string' && /^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(m)) out.push(m); }
+  return out;
+}
+// Le fonti gratuite hanno limiti di richieste (HTTP 429, soprattutto dagli IP condivisi di GitHub): ogni fonte si interroga al massimo ogni minMs,
+// dopo un 429 si aspetta 3 minuti e nel frattempo si riusa l'ultimo elenco. Così il numero di Coin non crolla quando una fonte rifiuta.
+async function cachedList(cache, key, minMs, load, now) {
+  now = now || Date.now();
+  const c = cache[key] || (cache[key] = { next: 0, list: [], err: '' });
+  if (now < c.next) return c.list;
+  c.next = now + minMs; c.err = '';
+  try { c.list = (await load()) || []; } catch (e) { c.err = String((e && e.message) || e); if (/429|rate/i.test(c.err)) c.next = now + 180000; }
+  return c.list;
+}
+// Memoria delle Coin viste negli ultimi ttlMs: le fonti ruotano, ma un token visto 10 minuti fa va ancora analizzato (con dati freschi). Restituisce i mint, i più recenti prima.
+function mergeSeen(seen, found, now, ttlMs, cap) {
+  for (const [m, srcs] of found) { const x = seen.get(m) || { srcs: new Set(), t: 0 }; srcs.forEach((s) => x.srcs.add(s)); x.t = now; seen.set(m, x); }
+  for (const [m, x] of [...seen]) if (now - x.t > ttlMs) seen.delete(m);
+  const keep = [...seen.entries()].sort((a, b) => b[1].t - a[1].t).slice(0, cap).map(([m]) => m), set = new Set(keep);
+  for (const m of [...seen.keys()]) if (!set.has(m)) seen.delete(m);
+  return keep;
 }
 function gmgnList(data) {
   if (Array.isArray(data)) return data;
@@ -230,4 +259,4 @@ function realGate(S, ex) {
   return '';
 }
 
-if (typeof module !== 'undefined') module.exports = { realGate, DEFAULTS, GECKO_SOURCES, geckoMints, gmgnNorm, gmgnList, analyze, sentinel, grokAdj, decide, estImpact, entryPrice, exitSol, charon, clamp };
+if (typeof module !== 'undefined') module.exports = { realGate, DEFAULTS, GECKO_SOURCES, geckoMints, JUPITER_SOURCES, jupMints, cachedList, mergeSeen, gmgnNorm, gmgnList, analyze, sentinel, grokAdj, decide, estImpact, entryPrice, exitSol, charon, clamp };

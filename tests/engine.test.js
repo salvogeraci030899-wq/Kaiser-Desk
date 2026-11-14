@@ -96,3 +96,24 @@ test('GeckoTerminal: dai pool si ricavano i mint dei token base; voci non valide
   assert.deepEqual(E.geckoMints(j), [A, B]); assert.deepEqual(E.geckoMints(null), []); assert.deepEqual(E.geckoMints({ data: 'x' }), []);
   assert.equal(E.DEFAULTS.srcGecko, true); assert.ok(E.GECKO_SOURCES.length >= 3 && E.GECKO_SOURCES.every(([u]) => u.startsWith('https://api.geckoterminal.com/api/v2/networks/solana/')));
 });
+
+test('memoria delle Coin: i token visti di recente restano, quelli vecchi escono, tetto sul numero', () => {
+  const E = require('../engine.js'), seen = new Map(), T = 1_700_000_000_000, mk = (...ms) => new Map(ms.map(([m, s]) => [m, new Set([s])]));
+  assert.deepEqual(E.mergeSeen(seen, mk(['A', 'x'], ['B', 'x']), T, 1800000, 10).sort(), ['A', 'B']);
+  const r2 = E.mergeSeen(seen, mk(['C', 'y'], ['A', 'z']), T + 600000, 1800000, 10); assert.deepEqual(r2.sort(), ['A', 'B', 'C']); assert.deepEqual([...seen.get('A').srcs].sort(), ['x', 'z'], 'le fonti si sommano');
+  const r3 = E.mergeSeen(seen, mk(['D', 'y']), T + 2000000, 1800000, 10); assert.deepEqual(r3.sort(), ['A', 'C', 'D'], 'solo B (visto oltre 30 minuti fa) esce; A e C erano stati rivisti dopo');
+  const big = new Map(Array.from({ length: 300 }, (_, i) => ['M' + i, new Set(['s'])])); assert.equal(E.mergeSeen(new Map(), big, T, 1800000, 240).length, 240);
+});
+test('fonti con limite di richieste: una chiamata al minuto, dopo un 429 si riusa l\'ultimo elenco e si aspetta', async () => {
+  const E = require('../engine.js'), cache = {}, T = 1_700_000_000_000; let calls = 0, mode = 'ok';
+  const load = async () => { calls++; if (mode === 'limit') throw new Error('HTTP 429'); return ['A', 'B']; };
+  assert.deepEqual(await E.cachedList(cache, 'u', 60000, load, T), ['A', 'B']); assert.equal(calls, 1);
+  assert.deepEqual(await E.cachedList(cache, 'u', 60000, load, T + 20000), ['A', 'B']); assert.equal(calls, 1, 'entro un minuto non richiama');
+  mode = 'limit'; assert.deepEqual(await E.cachedList(cache, 'u', 60000, load, T + 61000), ['A', 'B'], 'dopo il 429 resta l\'ultimo elenco'); assert.equal(calls, 2); assert.match(cache.u.err, /429/);
+  mode = 'ok'; await E.cachedList(cache, 'u', 60000, load, T + 120000); assert.equal(calls, 2, 'dopo un 429 pausa di 3 minuti'); await E.cachedList(cache, 'u', 60000, load, T + 61000 + 181000); assert.equal(calls, 3);
+});
+test('Jupiter: mint da id, address o mint; voci non valide ignorate', () => {
+  const E = require('../engine.js'), A = '9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump', B = 'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v';
+  assert.deepEqual(E.jupMints([{ id: A }, { address: B }, { id: 'xx' }, null, {}, { mint: 5 }]), [A, B]); assert.deepEqual(E.jupMints({ x: 1 }), []);
+  assert.equal(E.DEFAULTS.srcJupiter, true); assert.ok(E.JUPITER_SOURCES.every(([u]) => u.startsWith('https://lite-api.jup.ag/tokens/v2/')));
+});
