@@ -71,6 +71,8 @@ export const SCHEMA = {
   realMaxEntriesPerScan: n('Ingressi per scan (reale)', 'real', 1, 5, { scope: 'runner', step: 1 }),
   realSlippageBps: n('Slippage max degli ordini (bps)', 'real', 50, 1500, { scope: 'runner', step: 10, hint: '300 = 3%' }),
 
+  realExitSlip: n('Slippage delle uscite: iniziale (%)', 'rexit', 0.5, 50, { scope: 'worker', step: 0.5, hint: 'tolleranza del primo tentativo di vendita (come su pump.fun); non supera EXIT_SLIPPAGE_BPS del Worker' }),
+  realExitSlipMax: n('Slippage delle uscite: massimo dopo i tentativi (%)', 'rexit', 1, 50, { scope: 'worker', step: 0.5, hint: 'se la vendita fallisce, i tentativi successivi salgono fino a questo valore (2,5 volte il precedente); non supera EXIT_RETRY_SLIPPAGE_BPS' }),
   realSl: n('Stop loss (%)', 'rexit', 5, 60, { scope: 'runner', step: 1 }),
   realTp1: n('Take profit 1 (%)', 'rexit', 5, 1000, { scope: 'runner', step: 1 }),
   realTp1Sell: n('Quota venduta al TP1 (%)', 'rexit', 10, 100, { scope: 'runner', step: 5 }),
