@@ -50,3 +50,9 @@ test('percorsi relativi: la pagina funziona da una sottocartella (GitHub Pages)'
   for (const m of html.matchAll(/(?:href|src)="([^"#]+)"/g)) { const u = m[1]; if (/^(https?:|data:)/.test(u) || u.startsWith('#')) continue; assert.ok(!u.startsWith('/'), 'percorso assoluto: ' + u); }
   const man = read('manifest.json'); assert.ok(!/"src":\s*"\//.test(man));
 });
+
+test('ogni $(\'#id\') usato dallo script esiste nella pagina (niente errori dopo aver tolto una sezione)', () => {
+  const ids = new Set([...html.matchAll(/id="([^"]+)"/g)].map((m) => m[1]));
+  const used = [...new Set([...html.matchAll(/\$\('#([A-Za-z0-9_-]+)'\)/g)].map((m) => m[1]))];
+  assert.deepEqual(used.filter((i) => !ids.has(i)), []);
+});

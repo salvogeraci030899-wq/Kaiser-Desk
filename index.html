@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.9.0">
+<meta name="kz-build" content="2.9.1">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=2">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
@@ -31,7 +31,7 @@
   document.getElementById('metaStatusBar').setAttribute('content', light ? 'default' : (bar === 'separate' ? 'black' : 'black-translucent'));
 })();
 </script>
-<link rel="stylesheet" href="style.css?v=15">
+<link rel="stylesheet" href="style.css?v=16">
 <script src="version.js"></script>
 <script src="theme.js"></script>
 <script src="lock.js"></script>
@@ -166,33 +166,10 @@
           <div class="theme-toggle"><button data-pref="glass" data-val="off">No</button><button data-pref="glass" data-val="on">Fermo</button><button data-pref="glass" data-val="anim">Animato</button></div></div>
         <div class="set wide"><label>Barra di stato<small>Si applica alla prossima apertura</small></label>
           <div class="theme-toggle"><button data-pref="bar" data-val="integrated">Integrata</button><button data-pref="bar" data-val="separate">Separata</button></div></div>
-        <div class="set wide"><label>Diagnostica<small id="diagTxt" class="glass-diag">—</small></label></div>
+        <div class="set lockrow" id="lockSettingsBody"></div>
       </div>
-      <h2>Blocco app</h2>
-      <div class="card" id="lockSettingsBody"></div>
       <h2>Stato del sistema</h2>
       <div class="card small" id="sysStatus"></div>
-      <h2 style="margin-top:22px">Comandi Telegram</h2>
-      <div class="card small">
-        <div class="kv" style="grid-template-columns:auto 1fr;gap:6px 12px">
-          <span class="mono">/stato</span><span>modo, kill switch, posizioni, P&amp;L</span>
-          <span class="mono">/posizioni</span><span>posizioni reali aperte</span>
-          <span class="mono">/wallet</span><span>indirizzo completo e saldo</span>
-          <span class="mono">/prova MINT 0.01</span><span>collaudo senza inviare nulla (dry-run)</span>
-          <span class="mono">/approva T-0001</span><span>esegue un ticket</span>
-          <span class="mono">/rifiuta T-0001</span><span>scarta un ticket</span>
-          <span class="mono">/vendi R-0001 50</span><span>vende (100 se omesso)</span>
-          <span class="mono">/parametri</span><span>parametri cambiati dall'app, richieste in attesa</span>
-          <span class="mono">/reset_parametri</span><span>annulla le modifiche fatte dall'app</span>
-          <span class="mono">/kill · /riattiva</span><span>ferma o riabilita i nuovi ingressi</span>
-        </div>
-        <p class="tiny muted" style="margin:10px 0 0">I comandi funzionano solo dalla tua chat. Usa un bot dedicato a Kaiser, diverso da quello di altri servizi.</p>
-      </div>
-      <div class="card small">
-        <b>Come si cambia qualcosa</b>
-        <p class="tiny muted" style="margin:6px 0 0">Le impostazioni di <b>paper</b> e <b>reale</b> sono nelle schede qui sopra: premi <b>Inserisci su Paper</b> o <b>Inserisci su Reale</b> e approva su Telegram. Questa pagina non contiene né accetta token, chiavi o indirizzi: quelli, il modo del reale (<span class="mono">ORDERS_MODE</span>) e i <b>tetti</b> dei limiti stanno nelle impostazioni di Cloudflare; i segreti di Telegram in GitHub e Cloudflare. Le regole di base del runner restano in <span class="mono">config.json</span> sul ramo <span class="mono">data</span> (<a id="cfgLink" target="_blank" rel="noopener">modifica</a>): le modifiche approvate dall'app vanno sopra quel file.</p>
-      </div>
-      <p class="tiny muted" style="text-align:center;margin:14px 0 4px">KAISER <span id="ver2"></span> · solo paper o reale con limiti nel Worker · le memecoin possono azzerare il capitale</p>
     </div>
 
     <!-- PAPER -->
@@ -385,12 +362,6 @@ function fitPos() {
   const row = Math.max(100, Math.floor((h - 20) / 3)); if (el.style.getPropertyValue('--pos-h') !== row + 'px') el.style.setProperty('--pos-h', row + 'px');
 }
 try { const ro = new ResizeObserver(() => { fitRadar(); fitPos(); }); ro.observe($('#radarList')); ro.observe($('#posList').parentElement); } catch (e) { window.addEventListener('resize', () => { fitRadar(); fitPos(); }); }
-// Diagnostica del layout (utile se la barra in basso è fuori posto): misure della finestra e dell'app
-function diag() {
-  const a = $('#app').getBoundingClientRect(), n = document.querySelector('nav').getBoundingClientRect(), el = $('#diagTxt'); if (!el) return;
-  el.textContent = `finestra ${innerWidth}×${innerHeight} · app ${Math.round(a.top)}→${Math.round(a.bottom)} · barra ${Math.round(n.top)}→${Math.round(n.bottom)} · pagina ${(document.querySelector('meta[name=kz-build]') || {}).content} · script ${window.KZ_VERSION} · css ${getComputedStyle(document.documentElement).getPropertyValue('--kz-css').trim() || '?'} · ${window.KZTheme ? window.KZTheme.layout() : '—'}`;
-}
-['resize', 'orientationchange', 'pageshow'].forEach((ev) => window.addEventListener(ev, diag)); setInterval(diag, 3000); diag();
 
 // ---------- DETTAGLIO TOKEN (solo lettura) ----------
 async function openDetail(mint) {
@@ -567,8 +538,7 @@ function renderJournal() {
 }
 function renderSystem() {
   const run = rt.run, e = rt.exec, clock = e && e.clock;
-  const BUILD = (document.querySelector('meta[name=kz-build]') || {}).content || window.KZ_VERSION || ''; $('#ver').textContent = 'v' + BUILD; $('#ver2').textContent = 'v' + BUILD;
-  $('#cfgLink').href = `https://github.com/${REPO}/edit/data/config.json`;
+  const BUILD = (document.querySelector('meta[name=kz-build]') || {}).content || window.KZ_VERSION || ''; $('#ver').textContent = 'v' + BUILD;
   const row = (k, v) => `<span>${k}</span><span class="mono" style="text-align:right">${v}</span>`;
   const dash = '<span class="muted">—</span>', fresh = !!run && Date.now() - run.updatedAt < 15 * 60000;
   // Righe sempre presenti (con un trattino se manca il dato): il riquadro non cambia altezza quando arrivano i dati.
