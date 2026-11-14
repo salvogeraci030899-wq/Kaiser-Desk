@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-14 16:32 UTC · in esecuzione da 0.2 giorni · 84 run
+Aggiornato: 2026-11-14 16:37 UTC · in esecuzione da 0.2 giorni · 84 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-14 16:32 UTC · in esecuzione da 0.2 giorni · 84 run
 | Cassa | 1.0203 SOL |
 | Trade chiusi | 14 |
 | Win rate | 43% |
-| P&L realizzato | -0.2797 SOL (~$-20.31) |
+| P&L realizzato | -0.2797 SOL (~$-20.33) |
 | Media vincite / perdite | +37.8% / -62.5% |
 | Profit factor | 0.44 |
 | Circuit breaker | ATTIVO oggi |
@@ -45,6 +45,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+16:37:43 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 255 veto
+16:37:21 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 258 veto
+16:36:59 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 241 veto
+16:36:36 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 255 veto
+16:36:14 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 251 veto
+16:35:51 ORACLE   360 raccolti, 243 analizzati, 2 BUY, 237 veto
+16:35:28 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 246 veto
+16:35:05 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 247 veto
+16:34:42 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 237 veto
+16:34:19 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 244 veto
+16:33:56 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 235 veto
+16:33:33 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 233 veto
+16:33:10 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 245 veto
 16:32:47 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 243 veto
 16:32:23 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 233 veto
 16:32:00 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 251 veto
@@ -72,19 +85,6 @@ _nessuna_
 16:25:13 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 251 veto
 16:24:48 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 235 veto
 16:24:26 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 252 veto
-16:24:03 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 251 veto
-16:23:41 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 247 veto
-16:23:17 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 246 veto
-16:22:54 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 250 veto
-16:22:31 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 250 veto
-16:22:07 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 255 veto
-16:21:44 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 256 veto
-16:21:21 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 247 veto
-16:21:17 SCRIBE   chiuso P-0114 $MOONVALE 0.0138 SOL (14.6%)
-16:21:17 CHARON   Chiusura manuale (app) $MOONVALE vendo 100% a 101.7% -> 0.0412 SOL
-16:21:17 KAISER   chiusura manuale dall'app: P-0114 MOONVALE
-16:20:56 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 244 veto
-16:20:33 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 250 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
