@@ -305,9 +305,22 @@ export class Executor {
   // CHIUSURA di una posizione dall'app (paper o reale). L'app non ha segreti: per il REALE la richiesta passa dal tasto su Telegram
   // (a meno che nel Worker APP_CLOSE=direct: allora basta il popup dell'app). Funziona con o senza approvazione manuale degli ingressi:
   // le uscite non passano mai dai ticket. Paper: direttiva per il runner (paperCloses), che vende a mercato e avvisa.
-  // La chiusura chiesta dall'app passa SEMPRE da Telegram (tasto "Chiudi ora"), anche con l'approvazione manuale degli ingressi disattivata.
-  // Solo chi imposta nel Worker APP_CLOSE=direct la rende immediata dal popup dell'app.
-  async _closeDirect() { return String(this.env.APP_CLOSE || '').toLowerCase() === 'direct'; }
+  // Approvazione manuale: prima l'impostazione cambiata dall'app, poi quella riferita dal runner, poi la configurazione nel riepilogo paper
+  // che il runner spinge al Worker; se non si sa nulla vale il valore di base (attiva). Restituisce { on, src }.
+  async approval() {
+    await this.refreshOv();
+    if (typeof (this.ov || {}).realApprove === 'boolean') return { on: this.ov.realApprove, src: 'impostazioni dell\'app' };
+    const cfg = await this.store.get('runnerCfg', {}); if (typeof cfg.realApprove === 'boolean') return { on: cfg.realApprove, src: 'runner' };
+    const snap = await this.store.get('paper', null), c = snap && snap.data && snap.data.config; if (c && typeof c.realApprove === 'boolean') return { on: c.realApprove, src: 'riepilogo del runner' };
+    return { on: true, src: 'valore di base' };
+  }
+  // Chiusura manuale dall'app: se l'approvazione manuale è disattivata dalle impostazioni è DIRETTA (paper e reale, senza Telegram);
+  // se è attiva serve il tasto "Chiudi ora" su Telegram. APP_CLOSE=direct la rende sempre diretta, APP_CLOSE=confirm sempre con Telegram.
+  async _closeDirect() {
+    const m = String(this.env.APP_CLOSE || '').toLowerCase();
+    if (m === 'direct') return true; if (m === 'confirm') return false;
+    return !(await this.approval()).on;
+  }
   async _proposeClose(c) {
     const mode = c && c.mode, id = String((c && c.id) || '').toUpperCase();
     if ((mode !== 'paper' && mode !== 'real') || !/^[PR]-\d{1,6}$/.test(id) || (mode === 'real') !== id.startsWith('R-')) return { ok: false, error: 'posizione non valida' };
@@ -420,7 +433,7 @@ export class Executor {
     const now = this.now(), ov = this.ov || {}, split = (scope) => Object.fromEntries(Object.entries(ov).filter(([k]) => SCHEMA[k] && SCHEMA[k].scope === scope));
     return { ok: true, schema: SCHEMA, groups: GROUPS, runner: split('runner'), worker: split('worker'), runnerCfg: await this.store.get('runnerCfg', {}), ceilings: this.ceilings(), limits: this.limits(),
       resetPaper: ((r) => (r && now - r.at < 3600000 ? r : null))(await this.store.get('paperReset', null)),
-      closeDirect: await this._closeDirect(),
+      closeDirect: await this._closeDirect(), approval: await this.approval(),
       closePaper: (await this.store.get('paperCloses', [])).filter((x) => now - x.at < 3600000).map((x) => x.id),
       proposals: (await this.store.get('proposals', [])).filter((p) => p.exp > now).map((p) => ({ id: p.id, changes: p.changes, reset: p.reset || null, emergency: !!p.emergency, close: p.close || null, exp: p.exp })) };
   }
