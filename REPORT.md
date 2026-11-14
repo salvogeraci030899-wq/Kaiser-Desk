@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-14 15:28 UTC · in esecuzione da 0.1 giorni · 82 run
+Aggiornato: 2026-11-14 15:33 UTC · in esecuzione da 0.1 giorni · 82 run
 
 | | |
 |---|---|
-| Equity | **1.1375 SOL** (-12.5% dal capitale iniziale di 1.3 SOL) |
+| Equity | **1.1418 SOL** (-12.2% dal capitale iniziale di 1.3 SOL) |
 | Cassa | 1.0948 SOL |
 | Trade chiusi | 10 |
 | Win rate | 40% |
-| P&L realizzato | -0.1779 SOL (~$-13.11) |
+| P&L realizzato | -0.1779 SOL (~$-13.06) |
 | Media vincite / perdite | +38.5% / -54.7% |
 | Profit factor | 0.46 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$MOONVALE** P-0114 · 0.094 SOL · +52.1% · resta 30% · [grafico](https://dexscreener.com/solana/3ECm2QMjjyTik9Txr3fmaF7WdKC2Apx2FCRgMqCvkAAm)
+- **$MOONVALE** P-0114 · 0.094 SOL · +67.2% · resta 30% · [grafico](https://dexscreener.com/solana/3ECm2QMjjyTik9Txr3fmaF7WdKC2Apx2FCRgMqCvkAAm)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -41,6 +41,23 @@ Aggiornato: 2026-11-14 15:28 UTC · in esecuzione da 0.1 giorni · 82 run
 
 ## Ultimi eventi
 ```
+15:32:58 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 246 veto
+15:32:55 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)
+15:32:35 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 245 veto
+15:32:12 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 236 veto
+15:32:09 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
+15:32:09 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
+15:32:09 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
+15:31:48 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 244 veto
+15:31:25 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 238 veto
+15:31:02 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 238 veto
+15:30:38 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 246 veto
+15:30:15 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 237 veto
+15:29:53 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 240 veto
+15:29:29 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 249 veto
+15:29:06 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 248 veto
+15:28:43 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 240 veto
+15:28:20 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 252 veto
 15:27:57 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 251 veto
 15:27:35 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 249 veto
 15:27:12 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 248 veto
@@ -64,23 +81,6 @@ Aggiornato: 2026-11-14 15:28 UTC · in esecuzione da 0.1 giorni · 82 run
 15:20:37 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 259 veto
 15:20:13 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 262 veto
 15:19:51 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 262 veto
-15:19:28 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 256 veto
-15:19:05 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 262 veto
-15:18:42 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 264 veto
-15:18:19 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 262 veto
-15:18:16 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
-15:18:06 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 262 veto
-15:17:41 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 270 veto
-15:17:18 SCRIBE   chiuso P-0115 $kibble -0.0492 SOL (-51.3%)
-15:17:18 CHARON   RUG-EXIT liquidità $kibble vendo 100% a -50.0% -> 0.0467 SOL
-15:17:18 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 260 veto
-15:16:54 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 255 veto
-15:16:31 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 256 veto
-15:16:08 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 257 veto
-15:15:43 QUARTER  BUY $kibble 0.095 SOL score 68 impatto 0.00% (Jupiter)
-15:15:43 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 259 veto
-15:15:20 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 256 veto
-15:14:56 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 254 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
