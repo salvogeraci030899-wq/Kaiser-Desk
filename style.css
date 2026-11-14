@@ -2,7 +2,7 @@
    Token iOS (scuro/chiaro/automatico), angoli concentrici, barra a capsula, Vetro (Liquid Glass) fermo o animato.
    I nomi delle classi sono quelli di Kaiser: cambia l'aspetto, non la struttura. */
 :root {
-  --kz-css: 13;
+  --kz-css: 14;
   color-scheme: dark;
   --bg: #000000;
   --surface: #0a0a0a;
@@ -374,5 +374,9 @@ nav { height: 62px; margin-top: 4px; }
 
 /* Journal: la scheda dei trade chiusi resta ferma, scorre solo la lista al suo interno (intestazione fissa) */
 .vscroll.jfix { overflow: hidden; display: flex; flex-direction: column; padding-bottom: 0; }
-.jcard { flex: 1 1 0; min-height: 0; overflow-y: auto; margin-bottom: 0; padding: 0 14px 6px; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
-.jcard th { position: sticky; top: 0; background: var(--surface); padding-top: 12px; z-index: 1; }
+.jcard { flex: 1 1 0; min-height: 0; margin-bottom: 0; padding: 0 14px; display: flex; flex-direction: column; overflow: hidden; }
+.jrow { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.8fr) minmax(0, 0.85fr) minmax(0, 1.3fr); gap: 6px; align-items: center; padding: 7px 0; border-bottom: 1px solid var(--border); font: 12px var(--mono); }
+.jrow > span { min-width: 0; overflow-wrap: anywhere; }
+.jhead { flex: 0 0 auto; padding: 12px 0 8px; color: var(--text-secondary); font-weight: 600; }
+.jbody { flex: 1 1 0; min-height: 0; overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+.jbody .jrow:last-child { border-bottom: 0; }
