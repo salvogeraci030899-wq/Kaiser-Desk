@@ -53,3 +53,8 @@ test('GMGN: senza la chiave a pagamento il runner non lo interroga mai', () => {
   assert.match(src, /const gmgnOn = \(\) => !!\(gmgnRun && process\.env\.GMGN_API_KEY\)/); assert.match(src, /if \(!gmgnOn\(\)\) return;/); assert.match(src, /if \(gmgnOn\(\)\) \{/);
   assert.ok(!/if \(!gmgnRun\) return;/.test(src) && !/if \(gmgnRun\) \{/.test(src), 'nessun uso di GMGN senza controllo della chiave');
 });
+test('ANALISI: il runner salva la discesa massima e l\'eta\' all\'ingresso di ogni trade e li passa all\'app', () => {
+  const src = fs.readFileSync(path.join(__dirname, '..', 'runner', 'runner.js'), 'utf8');
+  assert.match(src, /p\.trough = p\.last\.priceNative/); assert.match(src, /maePct: p\.trough/); assert.match(src, /age: p\.entryInfo/); assert.match(src, /maePct: j\.maePct == null \? null : j\.maePct, age: j\.age == null \? null : j\.age/);
+  const pub = R.publicSummary(); assert.ok(Array.isArray(pub.journal));
+});

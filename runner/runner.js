@@ -80,7 +80,7 @@ function publicSummary() {
     stats: { n: s.n, wr: s.wr, pnl: s.pnl, aw: s.aw, al: s.al, pf: Number.isFinite(s.pf) ? s.pf : null },
     positions: st.positions.map((p) => ({ id: p.id, mint: p.mint, sym: p.sym, pairAddress: p.pairAddress, openedAt: p.openedAt, sizeSOL: p.sizeSOL, cost: p.cost, entry: p.entry, tokens: p.tokens,
       remaining: p.remaining, tp1Done: p.tp1Done, peak: p.peak, score: p.score, last: p.last ? { priceNative: p.last.priceNative, liq: p.last.liq, t: p.last.t } : null })),
-    journal: st.journal.slice(-100).map((j) => ({ id: j.id, mint: j.mint, sym: j.sym, openedAt: j.openedAt, closedAt: j.closedAt, cost: j.cost, back: j.back, pnl: j.pnl, pct: j.pct, reason: j.reason, score: j.score, peakPct: j.peakPct, trigPct: j.trigPct })),
+    journal: st.journal.slice(-100).map((j) => ({ id: j.id, mint: j.mint, sym: j.sym, openedAt: j.openedAt, closedAt: j.closedAt, cost: j.cost, back: j.back, pnl: j.pnl, pct: j.pct, reason: j.reason, score: j.score, peakPct: j.peakPct, trigPct: j.trigPct, maePct: j.maePct == null ? null : j.maePct, age: j.age == null ? null : j.age })),
     events: st.events.slice(0, 40), config: cfg,
   };
 }
@@ -270,7 +270,8 @@ async function sell(p, frac, reason) {
     st.positions = st.positions.filter((x) => x !== p);
     const pnl = p.realized - p.cost;
     const j = { id: p.id, mint: p.mint, sym: p.sym, openedAt: p.openedAt, closedAt: Date.now(), cost: p.cost, back: p.realized, pnl, pct: pnl / p.cost * 100,
-      mode: 'paper', reason, score: p.score, solUsd: rt.solUsd, peakPct: (p.peak / p.entry - 1) * 100, trigPct: (m.priceNative / p.entry - 1) * 100, entryInfo: p.entryInfo };
+      mode: 'paper', reason, score: p.score, solUsd: rt.solUsd, peakPct: (p.peak / p.entry - 1) * 100, trigPct: (m.priceNative / p.entry - 1) * 100, entryInfo: p.entryInfo,
+      maePct: p.trough && p.entry > 0 ? (p.trough / p.entry - 1) * 100 : null, age: p.entryInfo && p.entryInfo.m && Number.isFinite(Number(p.entryInfo.m.ageMin)) ? Math.round(Number(p.entryInfo.m.ageMin)) : null };
     st.journal.push(j);
     pushLive(true).catch(() => {});
     if (pnl < 0) st.cooldownUntil = Date.now() + S.cooldownMin * 60000;
@@ -289,6 +290,7 @@ async function manage(pairsIn) {
     const t5 = (pr.txns && pr.txns.m5) || { buys: 0, sells: 0 };
     p.last = { priceNative: num(pr.priceNative), liq: num(pr.liquidity && pr.liquidity.usd), br5: (num(t5.buys) + 1) / (num(t5.sells) + 1), tx5: num(t5.buys) + num(t5.sells), t: Date.now() };
     if (p.last.priceNative > p.peak) p.peak = p.last.priceNative;
+    if (p.last.priceNative > 0 && p.last.priceNative < (p.trough || p.entry)) p.trough = p.last.priceNative;   // discesa massima dall'ingresso (serve all'analisi del Journal)
     const act = E.charon(p, p.last, S);
     if (act) { if (act.tp1) p.tp1Done = true; if (act.sp) p.spDone = true; await sell(p, act.frac, act.reason); }
   }
