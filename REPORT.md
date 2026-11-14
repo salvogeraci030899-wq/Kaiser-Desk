@@ -1,30 +1,48 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-14 13:22 UTC · in esecuzione da 0.0 giorni · 80 run
+Aggiornato: 2026-11-14 13:27 UTC · in esecuzione da 0.0 giorni · 80 run
 
 | | |
 |---|---|
-| Equity | **1.3192 SOL** (+1.5% dal capitale iniziale di 1.3 SOL) |
-| Cassa | 1.0894 SOL |
-| Trade chiusi | 0 |
+| Equity | **1.2042 SOL** (-7.4% dal capitale iniziale di 1.3 SOL) |
+| Cassa | 1.0913 SOL |
+| Trade chiusi | 1 |
 | Win rate | 0% |
-| P&L realizzato | +0.0000 SOL (~$0.00) |
-| Media vincite / perdite | +0.0% / +0.0% |
+| P&L realizzato | -0.1031 SOL (~$-7.76) |
+| Media vincite / perdite | +0.0% / -98.2% |
 | Profit factor | 0.00 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$OpenAI** P-0105 · 0.104 SOL · +14.5% · resta 100% · [grafico](https://dexscreener.com/solana/4ghGUNYKAgcYTyAPJHf3PRmkLQ8u57SYZBtgVqgV6rCx)
-- **$ZAPZEKE** P-0106 · 0.105 SOL · +5.8% · resta 100% · [grafico](https://dexscreener.com/solana/2J7svWqX7yYKdXvPJF5PQnjGxN5cghEFLX5SrNTyCxCo)
+- **$ZAPZEKE** P-0106 · 0.105 SOL · +7.9% · resta 100% · [grafico](https://dexscreener.com/solana/2J7svWqX7yYKdXvPJF5PQnjGxN5cghEFLX5SrNTyCxCo)
 
 ## Uscite per motivo
-_ancora nessuna_
+| Motivo | Trade | P&L SOL |
+|---|---|---|
+| RUG-EXIT liquidità | 1 | -0.1031 |
 
 ## Ultimi 25 trade
-_ancora nessuno_
+| Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
+|---|---|---|---|---|---|---|---|
+| $OpenAI | 63 | -98.2% | -0.1031 | +17% | -97% | RUG-EXIT liquidità | 24m |
 
 ## Ultimi eventi
 ```
+13:27:04 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 253 veto
+13:26:39 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 250 veto
+13:26:16 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 246 veto
+13:25:51 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 249 veto
+13:25:27 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 249 veto
+13:25:18 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
+13:25:03 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 247 veto
+13:24:39 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 248 veto
+13:24:24 SCRIBE   chiuso P-0105 $OpenAI -0.1031 SOL (-98.2%)
+13:24:24 CHARON   RUG-EXIT liquidità $OpenAI vendo 100% a -97.4% -> 0.0019 SOL
+13:24:14 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 243 veto
+13:23:50 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 241 veto
+13:23:25 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 245 veto
+13:23:02 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 241 veto
+13:22:38 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 243 veto
 13:22:13 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 253 veto
 13:21:49 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 253 veto
 13:21:25 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 243 veto
@@ -50,21 +68,6 @@ _ancora nessuno_
 13:14:06 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 243 veto
 13:13:42 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 256 veto
 13:13:18 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 257 veto
-13:13:05 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 252 veto
-13:12:38 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 267 veto
-13:12:14 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 265 veto
-13:11:50 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 260 veto
-13:11:25 ORACLE   351 raccolti, 267 analizzati, 1 BUY, 260 veto
-13:11:02 ORACLE   346 raccolti, 262 analizzati, 1 BUY, 255 veto
-13:10:38 ORACLE   342 raccolti, 254 analizzati, 1 BUY, 246 veto
-13:10:14 ORACLE   323 raccolti, 239 analizzati, 1 BUY, 231 veto
-13:09:51 QUARTER  $Grizzler impatto 2.4% oltre slippage: annullato
-13:09:51 ORACLE   307 raccolti, 233 analizzati, 2 BUY, 224 veto
-13:09:27 ORACLE   305 raccolti, 216 analizzati, 1 BUY, 208 veto
-13:09:02 ORACLE   276 raccolti, 197 analizzati, 2 BUY, 190 veto
-13:08:49 ORACLE   267 raccolti, 189 analizzati, 1 BUY, 182 veto
-13:08:23 ORACLE   263 raccolti, 183 analizzati, 1 BUY, 178 veto
-13:07:59 ORACLE   231 raccolti, 166 analizzati, 1 BUY, 162 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
