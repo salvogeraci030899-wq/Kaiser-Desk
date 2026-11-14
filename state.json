@@ -1,7 +1,7 @@
 {
  "startedAt": 1794657376197,
  "runs": 78,
- "cash": 1.0899576635197332,
+ "cash": 0.9865759236107773,
  "positions": [
   {
    "id": "P-0102",
@@ -55,16 +55,16 @@
     "grok": null
    },
    "last": {
-    "priceNative": 0.00004787,
-    "liq": 144076.38,
-    "br5": 1.699588477366255,
-    "tx5": 1310,
-    "t": 1794658054516
+    "priceNative": 0.00004615,
+    "liq": 141337.58,
+    "br5": 1.7223880597014924,
+    "tx5": 910,
+    "t": 1794658360046
    },
    "fills": [
     "BUY 0.104 impatto 0.31% (Jupiter)"
    ],
-   "trough": 0.00004723
+   "trough": 0.00004615
   },
   {
    "id": "P-0103",
@@ -117,16 +117,76 @@
     "grok": null
    },
    "last": {
-    "priceNative": 0.00001009,
-    "liq": 67239.55,
-    "br5": 1.386266094420601,
-    "tx5": 554,
-    "t": 1794658054516
+    "priceNative": 0.000008638,
+    "liq": 62067.1,
+    "br5": 1.7461139896373057,
+    "tx5": 528,
+    "t": 1794658360046
    },
    "fills": [
     "BUY 0.104 impatto 0.69% (Jupiter)"
    ],
-   "trough": 0.00001005
+   "trough": 0.000007945
+  },
+  {
+   "id": "P-0104",
+   "mint": "2vcwEzJGC9TskVDsbLreBaGTakPQLXYREZLuCgfJpump",
+   "sym": "GTA$",
+   "name": "GTA Dollars",
+   "pairAddress": "DysGo2Qeie4hm7gEAJyCqq9dcCmo9QKkNywHeQUsKGvJ",
+   "openedAt": 1794658221084,
+   "sizeSOL": 0.10238173990895592,
+   "cost": 0.10338173990895592,
+   "entry": 3.4009048277536297e-7,
+   "tokens": 301042.64921927045,
+   "remaining": 1,
+   "rawLeft": "280676309475",
+   "peak": 3.702e-7,
+   "tp1Done": false,
+   "spDone": false,
+   "entryLiq": 11899.56,
+   "realized": 0,
+   "score": 65,
+   "why": "runner",
+   "entryInfo": {
+    "srcs": [
+     "jup organic",
+     "jup trend"
+    ],
+    "notes": [
+     "oltre età massima"
+    ],
+    "plus": [
+     "turnover 4.2x/h",
+     "pressione in acquisto"
+    ],
+    "m": {
+     "liq": 11899.56,
+     "mc": 25177,
+     "ageMin": 204422.61183333333,
+     "v1": 50177.22,
+     "tx1": 1088,
+     "br1": 1.3093220338983051,
+     "br5": 1.96,
+     "c5": -24.72,
+     "c1": -6.58,
+     "c6": 28.43,
+     "turn": 4.216729021913416,
+     "price": 0.00002518,
+     "priceNative": 3.319e-7
+    },
+    "grok": null
+   },
+   "last": {
+    "priceNative": 3.702e-7,
+    "liq": 12556.82,
+    "br5": 2.0714285714285716,
+    "tx5": 41,
+    "t": 1794658360046
+   },
+   "fills": [
+    "BUY 0.102 impatto 1.45% (Jupiter)"
+   ]
   }
  ],
  "journal": [],
@@ -340,6 +400,48 @@
    "sym": "JENSEN",
    "score": 63,
    "priceNative": 0.0000104
+  },
+  {
+   "t": 1794658221014,
+   "mint": "2vcwEzJGC9TskVDsbLreBaGTakPQLXYREZLuCgfJpump",
+   "sym": "GTA$",
+   "score": 65,
+   "priceNative": 3.319e-7
+  },
+  {
+   "t": 1794658244685,
+   "mint": "2vcwEzJGC9TskVDsbLreBaGTakPQLXYREZLuCgfJpump",
+   "sym": "GTA$",
+   "score": 66,
+   "priceNative": 3.585e-7
+  },
+  {
+   "t": 1794658267320,
+   "mint": "2vcwEzJGC9TskVDsbLreBaGTakPQLXYREZLuCgfJpump",
+   "sym": "GTA$",
+   "score": 66,
+   "priceNative": 3.585e-7
+  },
+  {
+   "t": 1794658314865,
+   "mint": "2vcwEzJGC9TskVDsbLreBaGTakPQLXYREZLuCgfJpump",
+   "sym": "GTA$",
+   "score": 63,
+   "priceNative": 3.665e-7
+  },
+  {
+   "t": 1794658337182,
+   "mint": "2vcwEzJGC9TskVDsbLreBaGTakPQLXYREZLuCgfJpump",
+   "sym": "GTA$",
+   "score": 63,
+   "priceNative": 3.665e-7
+  },
+  {
+   "t": 1794658360046,
+   "mint": "2vcwEzJGC9TskVDsbLreBaGTakPQLXYREZLuCgfJpump",
+   "sym": "GTA$",
+   "score": 66,
+   "priceNative": 3.702e-7
   }
  ],
  "day": {
@@ -348,8 +450,23 @@
  },
  "cooldownUntil": 0,
  "halted": null,
- "seq": 103,
+ "seq": 104,
  "events": [
+  "12:12:40 ORACLE   240 raccolti, 177 analizzati, 1 BUY, 96 veto",
+  "12:12:17 ORACLE   240 raccolti, 171 analizzati, 1 BUY, 88 veto",
+  "12:11:54 ORACLE   240 raccolti, 171 analizzati, 1 BUY, 89 veto",
+  "12:11:30 ORACLE   240 raccolti, 182 analizzati, 0 BUY, 95 veto",
+  "12:11:07 ORACLE   240 raccolti, 179 analizzati, 1 BUY, 93 veto",
+  "12:10:44 ORACLE   240 raccolti, 179 analizzati, 1 BUY, 93 veto",
+  "12:10:21 QUARTER  BUY $GTA$ 0.102 SOL score 65 impatto 1.45% (Jupiter)",
+  "12:10:21 ORACLE   240 raccolti, 182 analizzati, 1 BUY, 103 veto",
+  "12:09:57 ORACLE   240 raccolti, 176 analizzati, 0 BUY, 98 veto",
+  "12:09:35 ORACLE   240 raccolti, 176 analizzati, 0 BUY, 97 veto",
+  "12:09:12 ORACLE   240 raccolti, 175 analizzati, 0 BUY, 93 veto",
+  "12:08:49 ORACLE   240 raccolti, 169 analizzati, 0 BUY, 88 veto",
+  "12:08:36 ORACLE   240 raccolti, 169 analizzati, 0 BUY, 88 veto",
+  "12:08:11 ORACLE   240 raccolti, 173 analizzati, 0 BUY, 90 veto",
+  "12:07:59 ORACLE   240 raccolti, 173 analizzati, 0 BUY, 90 veto",
   "12:07:34 ORACLE   240 raccolti, 162 analizzati, 0 BUY, 79 veto",
   "12:07:22 ORACLE   240 raccolti, 162 analizzati, 1 BUY, 79 veto",
   "12:06:57 ORACLE   240 raccolti, 172 analizzati, 1 BUY, 89 veto",
@@ -634,25 +751,10 @@
   "11:14:23 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_BANNED message=IP is temporarily banned due to repeated rate limit violations. Rate limit resets at 2026-11-14 11:14:35 GMT+00:00 (~12s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes.\n",
   "11:14:22 SCOUT    gecko: HTTP 429",
   "11:14:02 ORACLE   105 raccolti, 75 analizzati, 2 BUY, 46 veto",
-  "11:14:00 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 11:14:30 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
-  "11:13:59 SCOUT    gecko: HTTP 429",
-  "11:13:59 SCOUT    gecko: HTTP 429",
-  "11:13:39 ORACLE   118 raccolti, 93 analizzati, 2 BUY, 55 veto",
-  "11:13:37 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_BANNED message=IP is temporarily banned due to repeated rate limit violations. Rate limit resets at 2026-11-14 11:13:54 GMT+00:00 (~17s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes.\n",
-  "11:13:37 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_BANNED message=IP is temporarily banned due to repeated rate limit violations. Rate limit resets at 2026-11-14 11:13:49 GMT+00:00 (~12s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes.\n",
-  "11:13:36 SCOUT    gecko: HTTP 429",
-  "11:13:16 ORACLE   127 raccolti, 94 analizzati, 2 BUY, 72 veto",
-  "11:13:14 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 11:13:44 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
-  "11:13:13 SCOUT    gecko: HTTP 429",
-  "11:13:13 SCOUT    gecko: HTTP 429",
-  "11:13:13 SCOUT    gecko: HTTP 429",
-  "11:12:53 ORACLE   108 raccolti, 80 analizzati, 2 BUY, 54 veto",
-  "11:12:51 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_BANNED message=IP is temporarily banned due to repeated rate limit violations. Rate limit resets at 2026-11-14 11:13:08 GMT+00:00 (~17s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes.\n",
-  "11:12:51 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_BANNED message=IP is temporarily banned due to repeated rate limit violations. Rate limit resets at 2026-11-14 11:13:03 GMT+00:00 (~12s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes.\n",
-  "11:12:51 SCOUT    gecko: HTTP 429"
+  "11:14:00 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 11:14:30 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n"
  ],
  "capital": 1.3,
  "resetId": "C-0053",
  "realTried": {},
- "lastEntryAt": 1794657788688
+ "lastEntryAt": 1794658221084
 }

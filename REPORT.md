@@ -1,11 +1,11 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-14 12:07 UTC · in esecuzione da 0.0 giorni · 78 run
+Aggiornato: 2026-11-14 12:12 UTC · in esecuzione da 0.0 giorni · 78 run
 
 | | |
 |---|---|
-| Equity | **1.2830 SOL** (-1.3% dal capitale iniziale di 1.3 SOL) |
-| Cassa | 1.0900 SOL |
+| Equity | **1.2736 SOL** (-2.0% dal capitale iniziale di 1.3 SOL) |
+| Cassa | 0.9866 SOL |
 | Trade chiusi | 0 |
 | Win rate | 0% |
 | P&L realizzato | +0.0000 SOL (~$0.00) |
@@ -14,8 +14,9 @@ Aggiornato: 2026-11-14 12:07 UTC · in esecuzione da 0.0 giorni · 78 run
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$AMC** P-0102 · 0.104 SOL · -8.1% · resta 100% · [grafico](https://dexscreener.com/solana/DxbQyPTjckQTSUWyUqJB11HpupPyLGJZ5x4z7ufHp3Gh)
-- **$JENSEN** P-0103 · 0.104 SOL · -6.3% · resta 100% · [grafico](https://dexscreener.com/solana/51KN4und5bwRyfRfTP1eFw4uPL8t4vTPHZ6okmLhr5iE)
+- **$AMC** P-0102 · 0.104 SOL · -11.4% · resta 100% · [grafico](https://dexscreener.com/solana/DxbQyPTjckQTSUWyUqJB11HpupPyLGJZ5x4z7ufHp3Gh)
+- **$JENSEN** P-0103 · 0.104 SOL · -19.8% · resta 100% · [grafico](https://dexscreener.com/solana/51KN4und5bwRyfRfTP1eFw4uPL8t4vTPHZ6okmLhr5iE)
+- **$GTA$** P-0104 · 0.102 SOL · +8.9% · resta 100% · [grafico](https://dexscreener.com/solana/DysGo2Qeie4hm7gEAJyCqq9dcCmo9QKkNywHeQUsKGvJ)
 
 ## Uscite per motivo
 _ancora nessuna_
@@ -25,6 +26,21 @@ _ancora nessuno_
 
 ## Ultimi eventi
 ```
+12:12:40 ORACLE   240 raccolti, 177 analizzati, 1 BUY, 96 veto
+12:12:17 ORACLE   240 raccolti, 171 analizzati, 1 BUY, 88 veto
+12:11:54 ORACLE   240 raccolti, 171 analizzati, 1 BUY, 89 veto
+12:11:30 ORACLE   240 raccolti, 182 analizzati, 0 BUY, 95 veto
+12:11:07 ORACLE   240 raccolti, 179 analizzati, 1 BUY, 93 veto
+12:10:44 ORACLE   240 raccolti, 179 analizzati, 1 BUY, 93 veto
+12:10:21 QUARTER  BUY $GTA$ 0.102 SOL score 65 impatto 1.45% (Jupiter)
+12:10:21 ORACLE   240 raccolti, 182 analizzati, 1 BUY, 103 veto
+12:09:57 ORACLE   240 raccolti, 176 analizzati, 0 BUY, 98 veto
+12:09:35 ORACLE   240 raccolti, 176 analizzati, 0 BUY, 97 veto
+12:09:12 ORACLE   240 raccolti, 175 analizzati, 0 BUY, 93 veto
+12:08:49 ORACLE   240 raccolti, 169 analizzati, 0 BUY, 88 veto
+12:08:36 ORACLE   240 raccolti, 169 analizzati, 0 BUY, 88 veto
+12:08:11 ORACLE   240 raccolti, 173 analizzati, 0 BUY, 90 veto
+12:07:59 ORACLE   240 raccolti, 173 analizzati, 0 BUY, 90 veto
 12:07:34 ORACLE   240 raccolti, 162 analizzati, 0 BUY, 79 veto
 12:07:22 ORACLE   240 raccolti, 162 analizzati, 1 BUY, 79 veto
 12:06:57 ORACLE   240 raccolti, 172 analizzati, 1 BUY, 89 veto
@@ -50,21 +66,6 @@ _ancora nessuno_
 12:00:29 ORACLE   240 raccolti, 168 analizzati, 1 BUY, 84 veto
 12:00:06 QUARTER  BUY $AMC 0.104 SOL score 64 impatto 0.31% (Jupiter)
 12:00:06 ORACLE   240 raccolti, 178 analizzati, 1 BUY, 93 veto
-11:59:43 ORACLE   240 raccolti, 173 analizzati, 0 BUY, 88 veto
-11:59:21 ORACLE   240 raccolti, 173 analizzati, 0 BUY, 88 veto
-11:59:18 KAISER   parametri dall'app: cooldownMin 10→1, tp1Sell 50→70
-11:58:57 ORACLE   240 raccolti, 177 analizzati, 0 BUY, 89 veto
-11:58:34 QUARTER  $SWAMIS impatto 2.8% oltre slippage: annullato
-11:58:34 ORACLE   240 raccolti, 173 analizzati, 1 BUY, 84 veto
-11:58:11 QUARTER  $SWAMIS impatto 2.8% oltre slippage: annullato
-11:58:11 ORACLE   240 raccolti, 173 analizzati, 1 BUY, 85 veto
-11:57:48 ORACLE   240 raccolti, 178 analizzati, 1 BUY, 89 veto
-11:57:25 ORACLE   240 raccolti, 172 analizzati, 2 BUY, 84 veto
-11:57:03 ORACLE   240 raccolti, 172 analizzati, 2 BUY, 84 veto
-11:56:41 ORACLE   240 raccolti, 170 analizzati, 1 BUY, 82 veto
-11:56:18 ORACLE   240 raccolti, 167 analizzati, 1 BUY, 79 veto
-11:56:16 KAISER   reset del paper (C-0053): conto azzerato, capitale 1.3 SOL
-11:55:55 QUARTER  BUY $SWAMIS 0.105 SOL score 78 impatto 1.40% (Jupiter)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
