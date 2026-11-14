@@ -23,6 +23,11 @@ const PANEL = {
   real_on:      { label: 'Attiva Reale',    text: 'riabilita gli ingressi reali, spegne il kill switch e riaccende l\'autopilota. SOLDI VERI', confirm: true },
   paper_on:     { label: 'Attiva Paper',    text: 'riabilita i nuovi ingressi paper e riaccende l\'autopilota' },
 };
+// Scudo: valori di base (si cambiano dall'app, Reale > Scudo, con approvazione su Telegram)
+const SHIELD = { shieldOn: false, shieldSl: 25, shieldTp1: 40, shieldTp1Sell: 50, shieldTrail: 20, shieldBe: true, shieldTimeStop: 360, shieldTimeStopPnl: 0, shieldRugDrop: 45, shieldSellPressure: false, shieldMinSol: 0.02 };
+const TOKEN_PROGRAM = 'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA', TOKEN_2022 = 'TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb';
+// Mai adottati dallo Scudo: stabili e token "blu chip" (uno stop sul prezzo in SOL venderebbe i tuoi USDC se SOL sale)
+const SHIELD_SKIP = new Set(['EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v', 'Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB', 'So11111111111111111111111111111111111111112', 'mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So', 'J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn', 'bSo13r4TkiE4KumL71LsHTPpL2euBYLFx6h9HP3piy1', 'JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN', 'DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263']);
 const MAX_SELLS_PER_TICK = 2;          // limite di richieste esterne per invocazione (piano gratuito)
 
 export function clampParams(p = {}) {
@@ -41,6 +46,60 @@ export class Executor {
     this.chain = Promise.resolve(); this._wallet = null;
   }
   run(fn) { const w = async () => { await this.refreshOv(); return fn(); }; const p = this.chain.then(w, w); this.chain = p.catch(() => {}); return p; }   // un'operazione alla volta
+  // ---- SCUDO: protegge i token comprati a mano con il wallet dell'esecutore ----
+  shieldCfg() {
+    const ov = this.ov || {}, out = {};
+    for (const [k, d] of Object.entries(SHIELD)) out[k] = typeof ov[k] === typeof d && (typeof d !== 'number' || Number.isFinite(ov[k])) ? ov[k] : d;
+    return out;
+  }
+  async walletTokens() {
+    const w = await this.wallet(), by = new Map();
+    for (const programId of [TOKEN_PROGRAM, TOKEN_2022]) {
+      const r = await this.rpc('getTokenAccountsByOwner', [w, { programId }, { encoding: 'jsonParsed', commitment: 'confirmed' }]);
+      for (const a of (r && r.value) || []) {
+        const i = a.account && a.account.data && a.account.data.parsed && a.account.data.parsed.info; if (!i || !i.mint || !i.tokenAmount) continue;
+        const cur = by.get(i.mint) || { mint: i.mint, raw: 0n, decimals: i.tokenAmount.decimals }; cur.raw += BigInt(i.tokenAmount.amount || '0'); by.set(i.mint, cur);
+      }
+    }
+    return [...by.values()].filter((t) => t.raw > 0n);
+  }
+  async _shieldScan() {
+    const cfg = this.shieldCfg(), base = await this.store.get('shieldBase', null), now = this.now();
+    if (!cfg.shieldOn) { if (base) { await this.store.put('shieldBase', null); await this.store.put('shieldInfo', null); } return; }
+    if (!this.env.WALLET_SECRET_KEY) return;
+    let tokens; try { tokens = await this.walletTokens(); } catch (e) { await this.store.put('shieldInfo', { at: now, err: String(e.message).slice(0, 120) }); return; }
+    if (!base) {                                         // all'accensione: fotografia dei token già presenti, che lo Scudo non tocca mai
+      await this.store.put('shieldBase', { at: now, mints: tokens.map((t) => t.mint) });
+      await this.store.put('shieldInfo', { at: now, ignored: tokens.length });
+      await this.notify(`Scudo acceso: ignoro i ${tokens.length} token già presenti nel wallet. Proteggo solo quelli che compri da ora (stop −${cfg.shieldSl}%, TP1 +${cfg.shieldTp1}%).${this.mode() === 'live' ? '' : '\nATTENZIONE: ORDERS_MODE non è live, quindi per ora ti avviso soltanto.'}`);
+      return;
+    }
+    const positions = await this.store.get('positions', []), pending = await this.store.get('pending', []), done = await this.store.get('shieldDone', {});
+    const known = new Set([...base.mints, ...positions.map((p) => p.mint), ...pending.map((p) => p.mint), ...SHIELD_SKIP]);
+    const fresh = tokens.filter((t) => !known.has(t.mint) && !(done[t.mint] && now - done[t.mint] < 180000));
+    await this.store.put('shieldInfo', { at: now, ignored: base.mints.length, fresh: fresh.length });
+    if (!fresh.length) return;
+    const px = await this.prices(fresh.map((t) => t.mint)), noted = await this.store.get('shieldNoted', {}), wait = await this.store.get('shieldWait', {}); let changed = false;
+    for (const t of fresh.slice(0, 5)) {
+      const m = px.get(t.mint);
+      if (!m || !(m.priceNative > 0)) { wait[t.mint] = wait[t.mint] || now; changed = true; if (now - wait[t.mint] > 120000 && !noted[t.mint + ':np']) { noted[t.mint + ':np'] = now; await this.notify(`Scudo: nel wallet è comparso ${t.mint.slice(0, 6)}… ma non riesco a leggerne il prezzo (non ancora su DexScreener): nessuna protezione per ora.`); } continue; }
+      if (m.mcap > 20_000_000) continue;                   // non un memecoin giovane: non si protegge
+      const value = Number(t.raw) / 10 ** t.decimals * m.priceNative; if (value < cfg.shieldMinSol) continue;
+      const sym = (m.sym || t.mint.slice(0, 6)).slice(0, 20), entry = m.priceNative, lv = (pct) => (entry * (1 + pct / 100)).toPrecision(4);
+      if (this.mode() !== 'live') {                        // prova: nessuna posizione registrata, solo un avviso (una volta per token)
+        if (!noted[t.mint]) { noted[t.mint] = now; changed = true; await this.notify(`Scudo (prova): rilevato ${sym}, ${value.toFixed(4)} SOL a ${entry.toPrecision(4)}. Con ORDERS_MODE=live lo proteggerei: stop a ${lv(-cfg.shieldSl)} (−${cfg.shieldSl}%), TP1 a ${lv(cfg.shieldTp1)} (+${cfg.shieldTp1}%).`); }
+        continue;
+      }
+      const seq = (await this.store.get('seq', 0)) + 1; await this.store.put('seq', seq);
+      const params = clampParams({ sl: cfg.shieldSl, tp1: cfg.shieldTp1, tp1Sell: cfg.shieldTp1Sell, trail: cfg.shieldTrail, beAfterTp1: cfg.shieldBe, timeStopMin: cfg.shieldTimeStop, timeStopMinPnl: cfg.shieldTimeStopPnl, rugLiqDrop: cfg.shieldRugDrop, sellPressure: cfg.shieldSellPressure });
+      const pos = { id: 'R-' + String(seq).padStart(4, '0'), source: 'scudo', mint: t.mint, sym, openedAt: now, costSol: value, tokensRaw: String(t.raw), decimals: t.decimals, entry, peak: entry,
+        tp1Done: false, spDone: false, entryLiq: m.liq, params, realized: 0, sigs: [], fails: 0, persistedAt: now };
+      const ps = await this.store.get('positions', []); ps.push(pos); await this.store.put('positions', ps); delete wait[t.mint]; changed = true;
+      await this.notify(`SCUDO: protetto ${sym} (${pos.id}) · ${value.toFixed(4)} SOL a ${entry.toPrecision(4)}\nStop −${params.sl}% (${lv(-params.sl)}) · TP1 +${params.tp1}% (${lv(params.tp1)}) vendendo ${params.tp1Sell}%, poi trailing −${params.trail}%\nL'ingresso è il prezzo di quando l'ho visto (circa 10 secondi dopo il tuo acquisto).`);
+    }
+    if (changed) { await this.store.put('shieldNoted', Object.fromEntries(Object.entries(noted).slice(-60))); await this.store.put('shieldWait', wait); }
+  }
+  shieldSet(on) { return this.run(async () => { await this._setOv({ shieldOn: !!on }); await this.notify(`Scudo ${on ? 'acceso' : 'spento'} dalla chat. ${on ? 'Da ora proteggo i token che compri a mano.' : 'Le posizioni già adottate restano gestite fino alla chiusura.'}`); return { ok: true, on: !!on }; }); }
   mode() { return ['off', 'dryrun', 'live'].includes(this.env.ORDERS_MODE) ? this.env.ORDERS_MODE : 'off'; }
   // Tetti dalla dashboard di Cloudflare (variabili d'ambiente): l'app può solo restare sotto questi valori, mai sopra.
   ceilings() { const e = this.env; return { maxCapitalSOL: num(e.MAX_CAPITAL_SOL), maxOrderSOL: num(e.MAX_ORDER_SOL, 0.05), maxDailyLossSOL: num(e.MAX_DAILY_LOSS_SOL, 0.1), maxSlippageBps: num(e.MAX_SLIPPAGE_BPS, 300), maxPositions: num(e.MAX_POSITIONS, 3), maxImpactPct: num(e.MAX_IMPACT_PCT, 5) }; }
@@ -234,8 +293,9 @@ export class Executor {
   async closePosition(p, reason, sig) {
     const ps = await this.store.get('positions', []); await this.store.put('positions', ps.filter((x) => x.id !== p.id));
     const pnl = num(p.realized) - num(p.costSol), j = await this.store.get('journal', []);
-    j.push({ mode: 'real', id: p.id, mint: p.mint, sym: p.sym, openedAt: p.openedAt, closedAt: this.now(), cost: p.costSol, back: num(p.realized), pnl, pct: pnl / p.costSol * 100, reason, score: 0, sigs: p.sigs });
+    j.push({ mode: 'real', id: p.id, mint: p.mint, sym: p.sym, openedAt: p.openedAt, closedAt: this.now(), cost: p.costSol, back: num(p.realized), pnl, pct: pnl / p.costSol * 100, reason, score: 0, sigs: p.sigs, source: p.source });
     await this.store.put('journal', j.slice(-300));
+    if (p.source === 'scudo') { const dn = await this.store.get('shieldDone', {}); dn[p.mint] = this.now(); await this.store.put('shieldDone', Object.fromEntries(Object.entries(dn).slice(-60))); }
     await this.notify(`CHIUSA ${p.id} $${p.sym} ${pnl >= 0 ? '+' : ''}${pnl.toFixed(4)} SOL (${(pnl / p.costSol * 100).toFixed(1)}%) · ${reason}${sig ? '\nhttps://solscan.io/tx/' + sig : ''}`);
     return { ok: true, closed: true, pnl, signature: sig };
   }
@@ -244,6 +304,7 @@ export class Executor {
   // ---- giro di Charon (ogni minuto) ----
   tick() { return this.run(() => this._tick()); }
   async _tick() {
+    await this._shieldScan().catch(() => {});          // Scudo: adotta i token nuovi comprati a mano (se acceso)
     const em = await this.store.get('emergency', null);
     const positions = await this.store.get('positions', []), pending = await this.store.get('pending', []);
     if (!positions.length && !pending.length) { if (em) { await this.store.put('emergency', null); await this.notify('Emergenza completata: nessuna posizione reale aperta. Ingressi fermi (kill switch), autopilota e reale spenti.\nPer ripartire: /riattiva e /reset_parametri (poi riaccendi quello che serve nelle impostazioni).'); } return { ok: true, idle: true }; }
@@ -280,7 +341,7 @@ export class Executor {
         const a = pr.baseToken && pr.baseToken.address; if (!mints.includes(a) || !/^(SOL|WSOL)$/.test((pr.quoteToken && pr.quoteToken.symbol) || '')) continue;
         const liq = num(pr.liquidity && pr.liquidity.usd), cur = map.get(a); if (cur && cur.liq >= liq) continue;
         const t5 = (pr.txns && pr.txns.m5) || { buys: 0, sells: 0 };
-        map.set(a, { priceNative: num(pr.priceNative), liq, br5: (num(t5.buys) + 1) / (num(t5.sells) + 1), tx5: num(t5.buys) + num(t5.sells) });
+        map.set(a, { sym: pr.baseToken && pr.baseToken.symbol, mcap: num(pr.marketCap || pr.fdv), priceNative: num(pr.priceNative), liq, br5: (num(t5.buys) + 1) / (num(t5.sells) + 1), tx5: num(t5.buys) + num(t5.sells) });
       }
     } catch { /* si riprova al prossimo giro */ }
     return map;
@@ -301,7 +362,7 @@ export class Executor {
 
   // ---- stato e comandi ----
   // ---- parametri modificabili dall'app: richiesta → messaggio su Telegram → applicata solo se la approvi tu ----
-  async current() { await this.refreshOv(); return { ...paramDefaults(), ...(await this.store.get('runnerCfg', {})), ...this.limits(), ...this.ov }; }   // meglio stima possibile dei valori attuali
+  async current() { await this.refreshOv(); return { ...paramDefaults(), ...(await this.store.get('runnerCfg', {})), ...this.limits(), ...this.shieldCfg(), ...this.ov }; }   // meglio stima possibile dei valori attuali
   // Reset del conto PAPER (il reale non si tocca mai): stessa approvazione su Telegram. Il runner lo esegue e lo ricorda, così non si ripete.
   async _proposeReset(r) {
     const cap = r && r.capitalSOL;
@@ -499,7 +560,7 @@ export class Executor {
   async paramsView() {
     await this.refreshOv();
     const now = this.now(), ov = this.ov || {}, split = (scope) => Object.fromEntries(Object.entries(ov).filter(([k]) => SCHEMA[k] && SCHEMA[k].scope === scope));
-    return { ok: true, schema: SCHEMA, groups: GROUPS, runner: split('runner'), worker: split('worker'), runnerCfg: await this.store.get('runnerCfg', {}), ceilings: this.ceilings(), limits: this.limits(),
+    return { ok: true, schema: SCHEMA, groups: GROUPS, runner: split('runner'), worker: split('worker'), runnerCfg: await this.store.get('runnerCfg', {}), ceilings: this.ceilings(), limits: { ...this.limits(), ...this.shieldCfg() },
       resetPaper: ((r) => (r && now - r.at < 3600000 ? r : null))(await this.store.get('paperReset', null)),
       closeDirect: await this._closeDirect(), approval: await this.approval(),
       closePaper: (await this.store.get('paperCloses', [])).filter((x) => now - x.at < 3600000).map((x) => x.id),
@@ -518,7 +579,8 @@ export class Executor {
     const [s, h] = await Promise.all([this.state(), this.health()]);
     return { ok: true, at: this.now(), mode: s.mode, killed: s.killed, jupiterConfigured: h.jupiterConfigured, limits: s.limits, dayPnl: s.dayPnl,
       positions: s.positions, pending: s.pending, tickets: s.tickets, journal: s.journal, lastDry: s.lastDry,
-      wallet: h.wallet ? h.wallet.slice(0, 4) + '…' + h.wallet.slice(-4) : null, balanceSOL: h.balanceSOL, walletError: h.walletError || null, rpcError: h.rpcError || null };
+      wallet: h.wallet ? h.wallet.slice(0, 4) + '…' + h.wallet.slice(-4) : null, balanceSOL: h.balanceSOL, walletError: h.walletError || null, rpcError: h.rpcError || null,
+      shield: { on: this.shieldCfg().shieldOn, info: await this.store.get('shieldInfo', null) } };
   }
   async health() {
     await this.refreshOv();

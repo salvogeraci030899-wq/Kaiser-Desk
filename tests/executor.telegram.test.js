@@ -36,6 +36,7 @@ function world(env = {}) {
     if (m === 'simulateTransaction') return r({ value: { err: null, accounts: [{ lamports: w.lamports - (last.buy ? Number(last.amt) + 5000 : 5000) }], unitsConsumed: 1 } });
     if (m === 'sendTransaction') { w.sent.push(1); if (last.buy) { w.lamports -= Number(last.amt) + 5000; w.tokens.set(last.mint, (w.tokens.get(last.mint) || 0n) + last.out); } else { w.tokens.set(last.mint, w.tokens.get(last.mint) - last.amt); w.lamports += Number(last.out) - 5000; } return r('sig' + w.sent.length + 'x'.repeat(20)); }
     if (m === 'getSignatureStatuses') return r({ value: [{ confirmationStatus: 'confirmed', err: null }] });
+    if (m === 'getTokenAccountsByOwner' && body.params[1].programId) return r({ value: body.params[1].programId.startsWith('Tokenkeg') ? [...w.tokens].filter(([, v]) => v > 0n).map(([mint, raw]) => ({ account: { data: { parsed: { info: { mint, tokenAmount: { amount: String(raw), decimals: 6 } } } } } })) : [] });   // elenco di tutti i token del wallet (Scudo)
     if (m === 'getTokenAccountsByOwner') { const raw = w.tokens.get(body.params[1].mint) || 0n; return r({ value: raw > 0n ? [{ account: { data: { parsed: { info: { tokenAmount: { amount: String(raw), decimals: 6 } } } } } }] : [] }); }
     throw new Error('URL inatteso: ' + url);
   };
@@ -276,4 +277,45 @@ test('VELOCITA: con posizioni reali il Durable Object imposta un allarme ogni 10
     alarm = null; w.price = 0.0095; await ledger.alarm(); assert.ok(alarm > Date.now(), 'dopo l\'allarme se ne imposta un altro finche\' ci sono posizioni');
     w.price = 0.0003; await ledger.alarm(); assert.equal((dur.get('positions') || []).length, 0, 'l\'allarme esegue Charon: stop venduto'); alarm = null; await ledger.alarm(); assert.equal(alarm, null, 'senza posizioni si ferma');
   } finally { globalThis.fetch = realFetch; }
+});
+
+test('SCUDO: fotografia all\'accensione, adotta solo i token comprati dopo, applica lo stop e vende', async () => {
+  const w = world(), ex = w.ex(), OLD = MINT, NEW = '9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump', USDC = 'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v';
+  w.tokens.set(OLD, 5_000_000n); w.price = 0.02;                                           // un token che avevi gia': 0,1 SOL
+  await ex.tick(); assert.equal((await ex.state()).positions.length, 0, 'spento: non fa nulla');
+  await T.handleUpdate(ex, msg('/scudo on')); await ex.tick();
+  assert.match(w.tg.map((x) => x.text).join('\n'), /Scudo acceso: ignoro i 1 token/); assert.equal((await ex.state()).positions.length, 0, 'il token gia\' presente non viene adottato');
+  w.tokens.set(USDC, 50_000_000n); await ex.tick(); assert.equal((await ex.state()).positions.length, 0, 'gli stabili non si adottano mai');
+  w.tokens.set(NEW, 5_000_000n);                                                           // compri a mano: 5 token a 0,02 = 0,1 SOL
+  await ex.tick(); const s = await ex.state(); assert.equal(s.positions.length, 1); const p = s.positions[0];
+  assert.equal(p.source, 'scudo'); assert.equal(p.mint, NEW); assert.equal(p.params.sl, 25); assert.equal(p.params.tp1, 40); assert.ok(Math.abs(p.costSol - 0.1) < 1e-9); assert.equal(p.entry, 0.02);
+  assert.match(w.tg.at(-1).text, /SCUDO: protetto/); assert.match(w.tg.at(-1).text, /Stop −25%/);
+  await ex.tick(); assert.equal((await ex.state()).positions.length, 1, 'non lo adotta due volte');
+  w.price = 0.014;                                                                          // -30%: oltre lo stop del 25%
+  await ex.tick(); const s2 = await ex.state(); assert.equal(s2.positions.length, 0, 'stop eseguito'); assert.equal(s2.journal.at(-1).source, 'scudo'); assert.match(s2.journal.at(-1).reason, /[Ss]top/);
+  assert.ok(w.sent.length >= 1, 'ha venduto davvero (transazione inviata)'); assert.ok((w.tokens.get(NEW) || 0n) === 0n); assert.equal(w.tokens.get(OLD), 5_000_000n, 'il token di prima non si e\' toccato');
+  await ex.tick(); assert.equal((await ex.state()).positions.length, 0, 'il token venduto non si riadotta subito');
+});
+test('SCUDO: in prova (dryrun) avvisa soltanto, senza registrare posizioni; spento dimentica la fotografia', async () => {
+  const w = world({ ORDERS_MODE: 'dryrun' }), ex = w.ex(), NEW = '9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump';
+  await ex.shieldSet(true); await ex.tick(); w.tokens.set(NEW, 5_000_000n); w.price = 0.02; await ex.tick();
+  assert.equal((await ex.state()).positions.length, 0); const n = w.tg.filter((x) => /Scudo \(prova\)/.test(x.text)).length; assert.equal(n, 1); await ex.tick(); assert.equal(w.tg.filter((x) => /Scudo \(prova\)/.test(x.text)).length, 1, 'un solo avviso per token');
+  assert.match(w.tg.find((x) => /ATTENZIONE: ORDERS_MODE non è live/.test(x.text)).text, /live/); assert.equal(w.sent.length, 0, 'nessuna transazione');
+  await ex.shieldSet(false); await ex.tick(); assert.equal(await w.store.get('shieldBase', null), null); await ex.shieldSet(true); await ex.tick(); assert.deepEqual((await w.store.get('shieldBase', null)).mints, [NEW], 'riaccendendo, il token presente diventa "gia\' tuo"');
+});
+test('SCUDO: parametri dall\'app (Reale > Scudo), polvere ignorata, comando /scudo e allarme ogni 10 s', async () => {
+  const w = world(), ex = w.ex(), NEW = '9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump';
+  const v = await ex.paramsView(); assert.equal(v.limits.shieldOn, false); assert.equal(v.limits.shieldSl, 25); assert.equal(v.schema.shieldSl.scope, 'worker'); assert.equal(v.groups.find((g) => g.id === 'shield').page, 'real');
+  const bad = await ex.propose({ changes: { shieldSl: 2 } }); assert.equal(bad.ok, false);                    // fuori intervallo
+  const r = await ex.propose({ changes: { shieldOn: true, shieldSl: 20, shieldTp1: 60, shieldMinSol: 0.5 } }); assert.equal(r.ok, true); assert.match(w.tg.at(-1).text, /Reale · Scudo: stop loss/);
+  await T.handleUpdate(ex, cbq('pa:' + r.proposal.id)); await ex.tick(); w.tokens.set(NEW, 5_000_000n); w.price = 0.02; await ex.tick();
+  assert.equal((await ex.state()).positions.length, 0, 'valore 0,1 SOL sotto il minimo di 0,5: ignorato (polvere)');
+  await T.handleUpdate(ex, msg('/scudo')); assert.match(w.tg.at(-1).text, /Scudo: ACCESO/); assert.match(w.tg.at(-1).text, /Stop −20% · TP1 \+60%/);
+  await T.handleUpdate(ex, msg('/scudo off', '999')); assert.equal(ex.shieldCfg().shieldOn, true, 'chat sconosciuta: niente'); await T.handleUpdate(ex, msg('/scudo off')); await ex.refreshOv(); assert.equal(ex.shieldCfg().shieldOn, false);
+  // allarme: con lo Scudo acceso il Durable Object controlla il wallet ogni 10 secondi anche senza posizioni
+  const dur = new Map(); let alarm = null; const storage = { get: async (k) => dur.get(k), put: async (k, x) => { dur.set(k, x); }, getAlarm: async () => alarm, setAlarm: async (tm) => { alarm = tm; } };
+  const kv = new Map(), STATE = { get: async (k) => kv.get(k) ?? null, put: async (k, x) => { kv.set(k, x); } }, ledger = new W.Ledger({ storage }, { ...w.env, STATE }), realFetch = globalThis.fetch; globalThis.fetch = w.fetch;
+  try { await ledger.fetch(new Request('https://l/tick', { method: 'POST', body: '{}' })); assert.equal(alarm, null, 'Scudo spento e nessuna posizione: nessun allarme');
+    dur.set('params', { shieldOn: true }); await ledger.fetch(new Request('https://l/tick', { method: 'POST', body: '{}' })); assert.ok(alarm > Date.now() - 1000, 'Scudo acceso: allarme impostato'); }
+  finally { globalThis.fetch = realFetch; }
 });

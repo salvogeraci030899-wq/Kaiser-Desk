@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.23.0">
+<meta name="kz-build" content="2.24.0">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=2">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
@@ -30,7 +30,7 @@
   document.getElementById('metaStatusBar').setAttribute('content', light ? 'default' : (bar === 'separate' ? 'black' : 'black-translucent'));
 })();
 </script>
-<link rel="stylesheet" href="style.css?v=42">
+<link rel="stylesheet" href="style.css?v=43">
 <script src="version.js"></script>
 <script src="theme.js"></script>
 <script src="lock.js"></script>
@@ -538,7 +538,7 @@ function posCard(p, o) {
   const tgt = p.tp1Done ? `trailing −${o.trail}% dal picco` : `TP1 +${o.tp1}% · SL −${o.sl}%`;
   const img = rt.imgs.get(p.mint) || (rt.cands.get(p.mint) || {}).img || '';
   return `<div class="card poscard${o.real ? ' real-note' : ''}"><div class="tok">${img ? `<img src="${esc(img)}" loading="lazy" alt="">` : '<div class="ph"></div>'}
-    <div><div class="row"><span class="sym">$${esc(p.sym)}</span><span class="muted tiny">${esc(p.id)} · ${ago(Date.now() - p.openedAt)}${o.real ? ' · REALE · /vendi ' + esc(p.id) : ''}</span></div>
+    <div><div class="row"><span class="sym">$${esc(p.sym)}</span><span class="muted tiny">${esc(p.id)} · ${ago(Date.now() - p.openedAt)}${o.real ? ' · ' + (p.source === 'scudo' ? 'SCUDO' : 'REALE') + ' · /vendi ' + esc(p.id) : ''}</span></div>
     <div class="nm">${fmtSol(o.value, 4)} · costo ${fmtSol(o.cost, 4)} · ${tgt}${p.fails ? ` · <span class="down">uscita fallita ×${esc(p.fails)}</span>` : ''}</div></div><div class="score ${cls(pnl)}">${fmtPct(pnl, 1)}</div></div>
     <div class="bar" style="margin-top:8px"><i style="width:${clamp((pnl + o.sl) / (o.tp1 + o.sl) * 100, 0, 100)}%;background:${pnl >= 0 ? 'var(--green)' : 'var(--red)'}"></i></div>
     <div class="row" style="margin-top:8px;gap:6px"><button class="btn sm" data-detail="${esc(p.mint)}">Dettaglio</button><a class="btn sm" href="https://dexscreener.com/solana/${encodeURIComponent(p.pairAddress || p.mint)}" target="_blank" rel="noopener">Grafico ↗</a><a class="btn sm pump" href="https://pump.fun/coin/${encodeURIComponent(p.mint)}" target="_blank" rel="noopener" aria-label="Apri su pump.fun">pump.fun ↗</a><button class="btn sm red closebtn" data-close="${esc(p.id)}" data-cmode="${o.real ? 'real' : 'paper'}" data-sym="${esc(p.sym)}" data-pnl="${pnl.toFixed(1)}">Chiudi</button></div>
@@ -617,6 +617,7 @@ function renderSystem() {
     ${row('Limiti ◎', e ? `${e.limits.maxCapitalSOL} · ${e.limits.maxOrderSOL} · ${e.limits.maxDailyLossSOL} · ${e.limits.maxPositions}p` : dash)}
     ${row('Wallet', e ? `${esc(e.wallet || '—')} · ${e.balanceSOL != null ? Number(e.balanceSOL).toFixed(4) + '◎' : '—'}` : dash)}
     ${row('Token giovani', run && run.youngInfo ? `${run.youngInfo.tracked} seguiti · ${run.youngInfo.rpc === 'on' ? 'RPC' : run.youngInfo.portal === 'on' ? 'PumpPortal' : 'non collegato'}` : dash)}
+    ${row('Scudo', e ? (e.shield && e.shield.on ? (e.shield.info && e.shield.info.err ? '<span class="down">errore RPC</span>' : `<span class="up">acceso</span>${e.shield.info && e.shield.info.ignored != null ? ' · ' + e.shield.info.ignored + ' ignorati' : ''}`) : 'spento') : dash)}
     ${row('Prova dry-run', e && e.lastDry ? (e.lastDry.ok ? `<span class="up">riuscita</span> · ${esc(e.lastDry.impactPct)}%` : '<span class="down">rifiutata</span>') : dash)}</div>
     <div class="tiny sysnote">${esc(
       (e && e.lastDry && !e.lastDry.ok ? 'Prova rifiutata: ' + (e.lastDry.reasons || []).join(' · ') : '') ||
