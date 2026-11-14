@@ -18,7 +18,7 @@ L'app che installi sul telefono è un **pannello di sola lettura su GitHub Pages
 
 | Ruolo | Cosa fa | Fonti |
 |---|---|---|
-| **SCOUT** | Raccoglie i token candidati | DexScreener (profili, boost), GMGN trending/trenches |
+| **SCOUT** | Raccoglie i token candidati | DexScreener (profili, boost), GeckoTerminal, Jupiter; GMGN solo con la chiave a pagamento (facoltativa) |
 | **ORACLE** | Punteggio 0–100 su liquidità, età, turnover, pressione buy/sell, momentum, social, smart money/KOL | DexScreener + GMGN |
 | **SENTINEL** | Sicurezza, con potere di **veto**: mint/freeze authority, rugged, honeypot, rug ratio, insider | RugCheck (riserva: GMGN security) |
 | **GROK** | Sentiment su X: organico o bot/shill, red flag, KOL che ne parlano (±12 punti) | xAI Responses API + `x_search` |

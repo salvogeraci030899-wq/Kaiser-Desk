@@ -48,3 +48,8 @@ test('ingressi: pausa tra due ingressi e GMGN interrogato con giudizio (niente r
   assert.equal(E.DEFAULTS.entryGapSec, 60); assert.match(src, /pausa tra ingressi/); assert.match(src, /st\.lastEntryAt = Date\.now\(\)/);
   assert.match(src, /GMGN_MIN_SEC \|\| 75/); assert.match(src, /\/429\|RATE_LIMIT\/i\.test/); assert.match(src, /Date\.now\(\) < g\.next/);
 });
+test('GMGN: senza la chiave a pagamento il runner non lo interroga mai', () => {
+  const src = fs.readFileSync(path.join(__dirname, '..', 'runner', 'runner.js'), 'utf8');
+  assert.match(src, /const gmgnOn = \(\) => !!\(gmgnRun && process\.env\.GMGN_API_KEY\)/); assert.match(src, /if \(!gmgnOn\(\)\) return;/); assert.match(src, /if \(gmgnOn\(\)\) \{/);
+  assert.ok(!/if \(!gmgnRun\) return;/.test(src) && !/if \(gmgnRun\) \{/.test(src), 'nessun uso di GMGN senza controllo della chiave');
+});
