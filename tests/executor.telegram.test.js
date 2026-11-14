@@ -29,11 +29,13 @@ function world(env = {}) {
     url = String(url); const body = init.body ? JSON.parse(init.body) : null;
     if (url.includes('api.telegram.org')) { const m = url.split('/').pop(); if (m === 'sendMessage') w.tg.push(body); else if (m === 'answerCallbackQuery') w.answers.push(body.text); else if (m === 'getWebhookInfo') return ok({ ok: true, result: { url: w.webhook } }); else if (m === 'setWebhook') { w.setWh = body; w.webhook = body.url; return ok({ ok: true }); } return ok({ ok: true }); }
     if (url.includes('dexscreener')) return ok(Array.from(w.tokens.keys()).map((a) => ({ baseToken: { address: a }, quoteToken: { symbol: 'SOL' }, priceNative: String(w.price), liquidity: { usd: 100000 }, txns: { m5: { buys: 10, sells: 10 } } })));
-    if (url.includes('/swap/v1/quote')) { const u = new URL(url), amt = BigInt(u.searchParams.get('amount')), buy = u.searchParams.get('inputMint') === 'So11111111111111111111111111111111111111112'; last = { buy, mint: buy ? u.searchParams.get('outputMint') : u.searchParams.get('inputMint'), amt, out: buy ? 5_000_000n * amt / 50_000_000n : BigInt(Math.round(Number(amt) / 1e6 * w.price * 1e9)) }; return ok({ outAmount: String(last.out), priceImpactPct: '0.01' }); }
+    if (url.includes('/swap/v1/quote')) { const u = new URL(url); (w.slips = w.slips || []).push(Number(u.searchParams.get('slippageBps'))); const u2 = u, amt = BigInt(u.searchParams.get('amount')), buy = u.searchParams.get('inputMint') === 'So11111111111111111111111111111111111111112'; last = { buy, mint: buy ? u.searchParams.get('outputMint') : u.searchParams.get('inputMint'), amt, out: buy ? 5_000_000n * amt / 50_000_000n : BigInt(Math.round(Number(amt) / 1e6 * w.price * 1e9)) }; return ok({ outAmount: String(last.out), priceImpactPct: '0.01' }); }
     if (url.includes('/swap/v1/swap')) return ok({ swapTransaction: S.b64enc(buildTx([w.pub, '11111111111111111111111111111111', S.PROGRAMS.computeBudget, w.JUP], [...(last.buy ? [{ prog: 1, accs: [0, 3], data: [...u32(2), ...u64(last.amt)] }] : []), { prog: 3, accs: [0], data: [1] }])) });
     const m = body.method, r = (result) => ok({ jsonrpc: '2.0', id: 1, result });
     if (m === 'getBalance') return r({ value: w.lamports });
     if (m === 'simulateTransaction') return r({ value: { err: null, accounts: [{ lamports: w.lamports - (last.buy ? Number(last.amt) + 5000 : 5000) }], unitsConsumed: 1 } });
+    if (m === 'sendTransaction' && w.failAfterSend > 0) { w.failAfterSend--; w.sent.push(1); w.tokens.set(last.mint, w.tokens.get(last.mint) - last.amt); w.lamports += Number(last.out) - 5000; return ok({ jsonrpc: '2.0', id: 1, error: { message: 'timeout dopo l\'invio' } }); }   // l'invio ha effetto ma l'RPC risponde un errore
+    if (m === 'sendTransaction' && w.failSends > 0) { w.failSends--; return ok({ jsonrpc: '2.0', id: 1, error: { message: 'Blockhash not found' } }); }
     if (m === 'sendTransaction') { w.sent.push(1); if (last.buy) { w.lamports -= Number(last.amt) + 5000; w.tokens.set(last.mint, (w.tokens.get(last.mint) || 0n) + last.out); } else { w.tokens.set(last.mint, w.tokens.get(last.mint) - last.amt); w.lamports += Number(last.out) - 5000; } return r('sig' + w.sent.length + 'x'.repeat(20)); }
     if (m === 'getSignatureStatuses') return r({ value: [{ confirmationStatus: 'confirmed', err: null }] });
     if (m === 'getTokenAccountsByOwner' && body.params[1].programId) return r({ value: body.params[1].programId.startsWith('Tokenkeg') ? [...w.tokens].filter(([, v]) => v > 0n).map(([mint, raw]) => ({ account: { data: { parsed: { info: { mint, tokenAmount: { amount: String(raw), decimals: 6 } } } } } })) : [] });   // elenco di tutti i token del wallet (Scudo)
@@ -318,4 +320,41 @@ test('SCUDO: parametri dall\'app (Reale > Scudo), polvere ignorata, comando /scu
   try { await ledger.fetch(new Request('https://l/tick', { method: 'POST', body: '{}' })); assert.equal(alarm, null, 'Scudo spento e nessuna posizione: nessun allarme');
     dur.set('params', { shieldOn: true }); await ledger.fetch(new Request('https://l/tick', { method: 'POST', body: '{}' })); assert.ok(alarm > Date.now() - 1000, 'Scudo acceso: allarme impostato'); }
   finally { globalThis.fetch = realFetch; }
+});
+
+test('VENDITA FALLITA: riprova subito da sola con slippage crescente e quotazione nuova; se riesce lo dice', async () => {
+  const w = world(), ex = w.ex(), t0 = await ex.ticket({ mint: MINT, sym: 'RTY', score: 80, sizeSol: 0.05 }); await T.handleUpdate(ex, cbq('ap:' + t0.ticket.id));
+  const pos = (await ex.state()).positions[0]; w.slips = []; w.failSends = 2;                                   // i primi due invii falliscono
+  const r = await ex.sell(pos.id, 1, 'Manuale'); assert.equal(r.ok, true, 'riesce al terzo tentativo'); assert.equal((await ex.state()).positions.length, 0);
+  assert.deepEqual(w.slips, [1500, 2400, 4000], 'ogni tentativo con una quotazione nuova e piu\' slippage');
+  assert.match(w.tg.map((x) => x.text).join('\n'), /Vendita riuscita al tentativo 3 \(slippage 40%\)/); assert.ok(!w.tg.some((x) => /USCITA REALE FALLITA/.test(x.text)), 'nessun allarme se alla fine riesce');
+});
+test('VENDITA FALLITA: se tutti i tentativi falliscono avvisa, resta la posizione e il giro dopo parte in fretta; poi riesce', async () => {
+  const w = world(), ex = w.ex(), t0 = await ex.ticket({ mint: MINT, sym: 'RT2', score: 80, sizeSol: 0.05 }); await T.handleUpdate(ex, cbq('ap:' + t0.ticket.id));
+  const pos = (await ex.state()).positions[0]; w.failSends = 99; const before = w.now;
+  const r = await ex.sell(pos.id, 1, 'Manuale'); assert.equal(r.ok, false); assert.equal((await ex.state()).positions.length, 1, 'la posizione resta');
+  assert.equal(ex.fastRetry, true, 'segnala che serve un nuovo giro rapido'); assert.ok(w.now - before >= 2000 && w.now - before < 6000, 'pausa di un secondo tra i tentativi');
+  assert.match(w.tg.at(-1).text, /USCITA REALE FALLITA \(1\)/); assert.match(w.tg.at(-1).text, /Ho già riprovato subito con slippage fino a 40%/);
+  w.failSends = 0; w.price = 0.0003; await ex.tick(); assert.equal((await ex.state()).positions.length, 0, 'al giro successivo la vendita riesce');
+});
+test('VENDITA FALLITA: il numero di tentativi per invocazione e\' limitato (budget delle richieste esterne)', async () => {
+  const w = world(), ex = w.ex(), M2 = '9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump';
+  for (const m of [MINT, M2]) { const tk = await ex.ticket({ mint: m, sym: 'B' + m.slice(0, 2), score: 80, sizeSol: 0.05 }); await T.handleUpdate(ex, cbq('ap:' + tk.ticket.id)); }
+  w.failSends = 999; w.slips = []; w.price = 0.0003; await ex.tick();                                              // stop su entrambe, ma ogni invio fallisce
+  assert.ok(w.slips.length <= 5 + 2, 'al massimo ' + (5 + 2) + ' quotazioni: ' + w.slips.length); assert.equal((await ex.state()).positions.length, 2);
+});
+test('VENDITA FALLITA: l\'allarme del Durable Object si anticipa a 2 secondi dopo un fallimento', async () => {
+  const w = world(), dur = new Map(); let alarm = Date.now() + 9000; const calls = [];
+  const storage = { get: async (k) => dur.get(k), put: async (k, v) => { dur.set(k, v); }, getAlarm: async () => alarm, setAlarm: async (tm) => { alarm = tm; calls.push(tm); } };
+  const kv = new Map(), STATE = { get: async (k) => kv.get(k) ?? null, put: async (k, v) => { kv.set(k, v); } }, ledger = new W.Ledger({ storage }, { ...w.env, STATE });
+  dur.set('positions', [{ id: 'R-1', mint: MINT }]); await ledger.arm(); assert.equal(calls.length, 0, 'senza fallimenti non tocca un allarme già impostato');
+  ledger.ex.fastRetry = true; await ledger.arm(); assert.ok(calls.length === 1 && calls[0] <= Date.now() + 2100, 'anticipato a ~2 s'); assert.equal(ledger.ex.fastRetry, false);
+});
+
+test('VENDITA FALLITA: se un invio e\' partito davvero (errore RPC dopo l\'invio) il tentativo successivo non vende due volte la stessa quota', async () => {
+  const w = world(), ex = w.ex(), t0 = await ex.ticket({ mint: MINT, sym: 'DBL', score: 80, sizeSol: 0.05 }); await T.handleUpdate(ex, cbq('ap:' + t0.ticket.id));
+  const pos = (await ex.state()).positions[0], start = w.tokens.get(MINT), sent0 = w.sent.length; assert.ok(start > 0n); w.failAfterSend = 1;
+  const r = await ex.sell(pos.id, 0.5, 'Parziale'); assert.equal(r.ok, true);
+  assert.equal(w.tokens.get(MINT), start - start / 2n, 'venduta una sola volta la meta\', non il 75%'); assert.equal((await ex.state()).positions.length, 1, 'la posizione resta aperta con meta\' dei token');
+  assert.equal(w.sent.length - sent0, 1, 'una sola transazione di vendita');
 });

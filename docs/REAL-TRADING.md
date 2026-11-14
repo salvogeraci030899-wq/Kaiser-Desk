@@ -143,3 +143,11 @@ Compri a mano (pump.fun, Phantom) con **lo stesso wallet dell'esecutore**; lo Sc
 - **Prova prima di rischiare:** con `ORDERS_MODE=dryrun` (o off) lo Scudo **non vende e non registra posizioni**: ti avvisa soltanto («Scudo (prova): rilevato $XYZ… lo proteggerei: stop a…, TP1 a…»). Con `live` le uscite sono vere.
 - **Limiti:** l'ingresso registrato è il prezzo al momento in cui lo Scudo si accorge dell'acquisto (circa 10 secondi dopo il tuo), non il tuo prezzo esatto. Su Coin sottili il prezzo si muove in pochi secondi: lo stop può scattare peggio del previsto. Le Coin ancora sulla curva di pump.fun si vendono solo se Jupiter le instrada. Se il nodo RPC risponde errori (per esempio 403), l'app mostra «Scudo: errore RPC»: serve `RPC_URL` nel Worker.
 - **Sicurezza:** funziona con kill switch, pannello di emergenza e limiti come le altre posizioni reali. Se spegni lo Scudo, le posizioni già adottate restano gestite fino alla chiusura.
+
+## Vendite che falliscono: riprova immediata
+
+- Se una vendita reale fallisce (RPC, blockhash scaduto, slippage superato, ...), il Worker **riprova subito, nella stessa invocazione**, fino a 3 volte, con una quotazione Jupiter nuova e tolleranza di slippage crescente: `EXIT_SLIPPAGE_BPS` (1500), poi ×1,6 (2400), poi fino a `EXIT_RETRY_SLIPPAGE_BPS` (4000 = 40%, variabile facoltativa del Worker). Un secondo di pausa tra i tentativi.
+- Se anche l'ultimo fallisce, ti avvisa su Telegram («USCITA REALE FALLITA…») e il giro successivo parte dopo **2 secondi** (non 10), con lo stesso schema.
+- Se un tentativo parte davvero ma l'RPC risponde un errore, quello dopo non vende di nuovo la stessa quota (si calcola dal saldo di partenza).
+- Vale per stop, TP, trailing, emergenza, `/vendi` e Scudo. Limite: massimo 5 tentativi per invocazione (budget delle richieste esterne del piano gratuito).
+- Uno slippage così alto costa: in una vendita di emergenza accetti di uscire peggio pur di uscire. Se non lo vuoi, abbassa `EXIT_RETRY_SLIPPAGE_BPS` nel Worker.

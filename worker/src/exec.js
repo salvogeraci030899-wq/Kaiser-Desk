@@ -28,7 +28,8 @@ const SHIELD = { shieldOn: false, shieldSl: 25, shieldTp1: 40, shieldTp1Sell: 50
 const TOKEN_PROGRAM = 'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA', TOKEN_2022 = 'TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb';
 // Mai adottati dallo Scudo: stabili e token "blu chip" (uno stop sul prezzo in SOL venderebbe i tuoi USDC se SOL sale)
 const SHIELD_SKIP = new Set(['EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v', 'Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB', 'So11111111111111111111111111111111111111112', 'mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So', 'J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn', 'bSo13r4TkiE4KumL71LsHTPpL2euBYLFx6h9HP3piy1', 'JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN', 'DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263']);
-const MAX_SELLS_PER_TICK = 2;          // limite di richieste esterne per invocazione (piano gratuito)
+const MAX_SELLS_PER_TICK = 2;
+const MAX_ATTEMPTS_PER_RUN = 5;        // tentativi di vendita totali per invocazione (il piano gratuito concede 50 richieste esterne: ~9 per tentativo)          // limite di richieste esterne per invocazione (piano gratuito)
 
 export function clampParams(p = {}) {
   const n = (v, lo, hi, d) => Math.min(hi, Math.max(lo, num(v, d)));
@@ -45,7 +46,7 @@ export class Executor {
     this.sleep = sleep || ((ms) => new Promise((r) => setTimeout(r, ms)));
     this.chain = Promise.resolve(); this._wallet = null;
   }
-  run(fn) { const w = async () => { await this.refreshOv(); return fn(); }; const p = this.chain.then(w, w); this.chain = p.catch(() => {}); return p; }   // un'operazione alla volta
+  run(fn) { const w = async () => { await this.refreshOv(); this._attempts = 0; return fn(); }; const p = this.chain.then(w, w); this.chain = p.catch(() => {}); return p; }   // un'operazione alla volta
   // ---- SCUDO: protegge i token comprati a mano con il wallet dell'esecutore ----
   shieldCfg() {
     const ov = this.ov || {}, out = {};
@@ -261,15 +262,40 @@ export class Executor {
 
   // ---- uscita ----
   sell(id, frac, reason) { return this.run(async () => { const ps = await this.store.get('positions', []); const p = ps.find((x) => x.id === id); if (!p) return { ok: false, error: 'posizione non trovata' }; return this._sell(p, num(frac, 1), reason || 'Manuale'); }); }
+  // Vendita con riprova IMMEDIATA: se un tentativo fallisce (RPC, blockhash scaduto, slippage superato...) se ne fa subito un altro con una quotazione nuova
+  // e tolleranza di slippage crescente (prima EXIT_SLIPPAGE_BPS, poi x1,6, poi fino a EXIT_RETRY_SLIPPAGE_BPS), entro il budget di richieste dell'invocazione.
+  // Se non basta, un nuovo giro parte dopo 2 secondi (fastRetry) senza aspettare il prossimo controllo.
   async _sell(p, frac, reason) {
-    const lim = this.limits();
-    try {
+    const lim = this.limits(), top = Math.max(lim.exitSlippageBps, num(this.env.EXIT_RETRY_SLIPPAGE_BPS, 4000));
+    const steps = [lim.exitSlippageBps, Math.min(top, Math.round(lim.exitSlippageBps * 1.6)), top]; let last = null; const ctx = { startRaw: null };   // ctx: saldo iniziale, per non vendere due volte la stessa quota
+    for (let i = 0; i < steps.length; i++) {
+      if (i > 0 && (this._attempts || 0) >= MAX_ATTEMPTS_PER_RUN) break;
+      this._attempts = (this._attempts || 0) + 1;
+      try {
+        const r = await this._sellOnce(p, frac, reason, steps[i], ctx);
+        if (i > 0 && r && r.ok) await this.notify(`Vendita riuscita al tentativo ${i + 1} (slippage ${steps[i] / 100}%): ${p.id} $${p.sym}`);
+        return r;
+      } catch (err) { last = err; if (i < steps.length - 1) await this.sleep(1000); }
+    }
+    p.fails = num(p.fails) + 1; this.fastRetry = true;
+    const ps = await this.store.get('positions', []); await this.store.put('positions', ps.map((x) => (x.id === p.id ? p : x)));
+    if (p.fails === 1 || p.fails % 5 === 0) await this.notify(`USCITA REALE FALLITA (${p.fails}) ${p.id} $${p.sym}: ${last && last.message}\nHo già riprovato subito con slippage fino a ${top / 100}%. Riprovo di nuovo tra pochi secondi. Se persiste, vendi a mano dal wallet.`);
+    return { ok: false, error: last && last.message };
+  }
+  async _sellOnce(p, frac, reason, slippageBps, ctx) {
+    {
       let tb = await this.tokenBalance(p.mint);
       if (tb.raw === 0n) return this.closePosition(p, 'chiusa fuori dall’esecutore', null);
-      const amount = frac >= 0.999 ? tb.raw : (tb.raw * BigInt(Math.round(frac * 10000))) / 10000n;
+      if (!ctx.startRaw) ctx.startRaw = tb.raw;
+      // quota da vendere: la frazione del saldo di PARTENZA meno quanto è già stato venduto in un tentativo precedente (un invio può partire anche se l'RPC risponde un errore)
+      const amount = frac >= 0.999 ? tb.raw : (ctx.startRaw * BigInt(Math.round(frac * 10000))) / 10000n - (ctx.startRaw - tb.raw);
+      if (amount <= 0n && ctx.startRaw !== tb.raw) {      // la vendita parziale è già avvenuta al tentativo precedente
+        p.tokensRaw = tb.raw.toString(); const ps0 = await this.store.get('positions', []); await this.store.put('positions', ps0.map((x) => (x.id === p.id ? p : x)));
+        return { ok: true, partial: true, already: true };
+      }
       if (amount === 0n) return this.closePosition(p, reason, null);
       const pre = await this.lamports();
-      const q = await this.quote(p.mint, SOL, amount.toString(), lim.exitSlippageBps);
+      const q = await this.quote(p.mint, SOL, amount.toString(), slippageBps);
       const prep = await this.prepare(await this.swapTx(q), { maxOutLamports: RESERVE, maxTransferLamports: RESERVE, preLamports: pre });
       if (!prep.ok) throw new Error('transazione di uscita non ammessa: ' + prep.reasons.join('; '));
       const signed = await signTx(prep.bytes, this.env.WALLET_SECRET_KEY);
@@ -283,11 +309,6 @@ export class Executor {
       const ps = await this.store.get('positions', []); await this.store.put('positions', ps.map((x) => (x.id === p.id ? p : x)));
       await this.notify(`${reason}: venduta una parte di ${p.id} $${p.sym}\nhttps://solscan.io/tx/${sent.sig}`);
       return { ok: true, partial: true, signature: sent.sig };
-    } catch (e) {
-      p.fails = num(p.fails) + 1;
-      const ps = await this.store.get('positions', []); await this.store.put('positions', ps.map((x) => (x.id === p.id ? p : x)));
-      if (p.fails === 1 || p.fails % 5 === 0) await this.notify(`USCITA REALE FALLITA (${p.fails}) ${p.id} $${p.sym}: ${e.message}\nRiprovo al prossimo giro. Se persiste, vendi a mano dal wallet.`);
-      return { ok: false, error: e.message };
     }
   }
   async closePosition(p, reason, sig) {
