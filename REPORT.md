@@ -1,10 +1,10 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-14 11:31 UTC · in esecuzione da 0.0 giorni · 78 run
+Aggiornato: 2026-11-14 11:36 UTC · in esecuzione da 0.0 giorni · 78 run
 
 | | |
 |---|---|
-| Equity | **1.3105 SOL** (+0.8% dal capitale iniziale di 1.3 SOL) |
+| Equity | **1.3030 SOL** (+0.2% dal capitale iniziale di 1.3 SOL) |
 | Cassa | 1.1690 SOL |
 | Trade chiusi | 0 |
 | Win rate | 0% |
@@ -14,7 +14,7 @@ Aggiornato: 2026-11-14 11:31 UTC · in esecuzione da 0.0 giorni · 78 run
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$JENSEN** P-0100 · 0.130 SOL · +8.8% · resta 100% · [grafico](https://dexscreener.com/solana/51KN4und5bwRyfRfTP1eFw4uPL8t4vTPHZ6okmLhr5iE)
+- **$JENSEN** P-0100 · 0.130 SOL · +3.1% · resta 100% · [grafico](https://dexscreener.com/solana/51KN4und5bwRyfRfTP1eFw4uPL8t4vTPHZ6okmLhr5iE)
 
 ## Uscite per motivo
 _ancora nessuna_
@@ -24,6 +24,20 @@ _ancora nessuno_
 
 ## Ultimi eventi
 ```
+11:36:37 ORACLE   240 raccolti, 163 analizzati, 0 BUY, 75 veto
+11:36:15 ORACLE   240 raccolti, 178 analizzati, 0 BUY, 92 veto
+11:35:52 ORACLE   240 raccolti, 169 analizzati, 0 BUY, 83 veto
+11:35:30 ORACLE   240 raccolti, 168 analizzati, 0 BUY, 84 veto
+11:35:06 ORACLE   240 raccolti, 180 analizzati, 0 BUY, 87 veto
+11:34:44 ORACLE   240 raccolti, 171 analizzati, 0 BUY, 77 veto
+11:34:20 ORACLE   240 raccolti, 171 analizzati, 0 BUY, 77 veto
+11:33:57 ORACLE   240 raccolti, 175 analizzati, 0 BUY, 87 veto
+11:33:34 ORACLE   240 raccolti, 166 analizzati, 0 BUY, 79 veto
+11:33:12 ORACLE   240 raccolti, 166 analizzati, 0 BUY, 79 veto
+11:32:49 ORACLE   240 raccolti, 172 analizzati, 0 BUY, 80 veto
+11:32:27 ORACLE   240 raccolti, 172 analizzati, 0 BUY, 80 veto
+11:32:04 ORACLE   240 raccolti, 167 analizzati, 0 BUY, 75 veto
+11:31:41 ORACLE   240 raccolti, 168 analizzati, 0 BUY, 76 veto
 11:31:18 ORACLE   240 raccolti, 159 analizzati, 0 BUY, 68 veto
 11:30:56 ORACLE   240 raccolti, 159 analizzati, 0 BUY, 68 veto
 11:30:33 ORACLE   240 raccolti, 170 analizzati, 0 BUY, 81 veto
@@ -53,25 +67,6 @@ _ancora nessuno_
 
 11:25:25 SCOUT    gecko: HTTP 429
 11:25:25 SCOUT    gecko: HTTP 429
-11:25:25 SCOUT    gecko: HTTP 429
-11:25:25 SCOUT    gecko: HTTP 429
-11:25:05 ORACLE   130 raccolti, 99 analizzati, 1 BUY, 63 veto
-11:25:03 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_BANNED message=IP is temporarily banned due to repeated rate limit violations. Rate limit resets at 2026-11-14 11:25:20 GMT+00:00 (~17s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes.
-
-11:25:03 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_BANNED message=IP is temporarily banned due to repeated rate limit violations. Rate limit resets at 2026-11-14 11:25:15 GMT+00:00 (~12s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes.
-
-11:24:42 ORACLE   143 raccolti, 111 analizzati, 1 BUY, 72 veto
-11:24:40 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 11:25:10 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制
-
-11:24:19 ORACLE   63 raccolti, 44 analizzati, 1 BUY, 25 veto
-11:24:17 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_BANNED message=IP is temporarily banned due to repeated rate limit violations. Rate limit resets at 2026-11-14 11:24:29 GMT+00:00 (~12s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes.
-
-11:24:17 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_BANNED message=IP is temporarily banned due to repeated rate limit violations. Rate limit resets at 2026-11-14 11:24:34 GMT+00:00 (~17s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes.
-
-11:24:16 SCOUT    gecko: HTTP 429
-11:24:16 SCOUT    gecko: HTTP 429
-11:24:16 SCOUT    gecko: HTTP 429
-11:24:16 SCOUT    gecko: HTTP 429
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
