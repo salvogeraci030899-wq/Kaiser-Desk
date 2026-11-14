@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-14 15:18 UTC · in esecuzione da 0.1 giorni · 82 run
+Aggiornato: 2026-11-14 15:23 UTC · in esecuzione da 0.1 giorni · 82 run
 
 | | |
 |---|---|
-| Equity | **1.1398 SOL** (-12.3% dal capitale iniziale di 1.3 SOL) |
+| Equity | **1.1379 SOL** (-12.5% dal capitale iniziale di 1.3 SOL) |
 | Cassa | 1.0948 SOL |
 | Trade chiusi | 10 |
 | Win rate | 40% |
-| P&L realizzato | -0.1779 SOL (~$-13.17) |
+| P&L realizzato | -0.1779 SOL (~$-13.08) |
 | Media vincite / perdite | +38.5% / -54.7% |
 | Profit factor | 0.46 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$MOONVALE** P-0114 · 0.094 SOL · +60.4% · resta 30% · [grafico](https://dexscreener.com/solana/3ECm2QMjjyTik9Txr3fmaF7WdKC2Apx2FCRgMqCvkAAm)
+- **$MOONVALE** P-0114 · 0.094 SOL · +53.5% · resta 30% · [grafico](https://dexscreener.com/solana/3ECm2QMjjyTik9Txr3fmaF7WdKC2Apx2FCRgMqCvkAAm)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -41,6 +41,20 @@ Aggiornato: 2026-11-14 15:18 UTC · in esecuzione da 0.1 giorni · 82 run
 
 ## Ultimi eventi
 ```
+15:22:57 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 257 veto
+15:22:34 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 262 veto
+15:22:09 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 260 veto
+15:21:46 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 254 veto
+15:21:23 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 260 veto
+15:21:00 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 266 veto
+15:20:37 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 259 veto
+15:20:13 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 262 veto
+15:19:51 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 262 veto
+15:19:28 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 256 veto
+15:19:05 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 262 veto
+15:18:42 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 264 veto
+15:18:19 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 262 veto
+15:18:16 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
 15:18:06 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 262 veto
 15:17:41 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 270 veto
 15:17:18 SCRIBE   chiuso P-0115 $kibble -0.0492 SOL (-51.3%)
@@ -67,20 +81,6 @@ Aggiornato: 2026-11-14 15:18 UTC · in esecuzione da 0.1 giorni · 82 run
 15:10:49 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 245 veto
 15:10:26 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 242 veto
 15:10:02 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 247 veto
-15:09:39 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 242 veto
-15:09:16 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 240 veto
-15:08:52 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 245 veto
-15:08:29 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 248 veto
-15:08:06 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 244 veto
-15:07:44 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 249 veto
-15:07:21 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 255 veto
-15:06:58 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 249 veto
-15:06:35 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 261 veto
-15:06:12 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 259 veto
-15:05:49 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 254 veto
-15:05:26 ORACLE   360 raccolti, 271 analizzati, 3 BUY, 266 veto
-15:05:03 ORACLE   360 raccolti, 270 analizzati, 3 BUY, 265 veto
-15:04:41 KAISER   limite 1 ingresso/i per scan: $BOOSTY rimandato
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
