@@ -162,3 +162,37 @@ test('webhook: si registra da solo, ma non sopra quello di un altro servizio', a
     globalThis.fetch = w.fetch; await W.ensureWebhook({ ...w.env, TELEGRAM_BOT_TOKEN: '' }); await W.ensureWebhook({ ...w.env, STATE, EXEC_TOKEN: '' });   // senza segreti: niente
   } finally { globalThis.fetch = realFetch; }
 });
+test('CHIUSURA dall\'app (reale): richiesta con tasto su Telegram, vende tutto solo dopo la conferma; funziona con o senza approvazione manuale', async () => {
+  for (const approve of [true, false]) {
+    const w = world(), ex = w.ex(), t = await ex.ticket({ mint: MINT, sym: 'CLO', score: 80, sizeSol: 0.05 }); await T.handleUpdate(ex, cbq('ap:' + t.ticket.id));
+    const pos = (await ex.state()).positions[0]; assert.ok(pos);
+    if (!approve) await ex.paramsView();                                                                    // con o senza approvazione manuale degli ingressi le uscite sono le stesse
+    assert.match((await ex.propose({ close: { mode: 'real', id: 'R-9999' } })).error, /non trovata/);
+    assert.match((await ex.propose({ close: { mode: 'paper', id: pos.id } })).error, /non valida/);       // modo e id devono combaciare
+    assert.match((await ex.propose({ close: { mode: 'real', id: '../x' } })).error, /non valida/);
+    const r = await ex.propose({ close: { mode: 'real', id: pos.id } }); assert.equal(r.ok, true);
+    const m = w.tg.at(-1); assert.match(m.text, /Chiusura posizione REALE/); assert.equal(m.reply_markup.inline_keyboard[0][0].callback_data, 'pa:' + r.proposal.id);
+    assert.equal((await ex.state()).positions.length, 1, 'la richiesta dall\'app non vende da sola');
+    assert.match((await ex.propose({ close: { mode: 'real', id: pos.id } })).error, /già richiesta/);
+    assert.equal((await ex.paramsView()).proposals[0].close.id, pos.id);
+    await T.handleUpdate(ex, cbq('pa:' + r.proposal.id, '999')); assert.equal((await ex.state()).positions.length, 1);   // chat sconosciuta
+    await T.handleUpdate(ex, cbq('pa:' + r.proposal.id));
+    const s = await ex.state(); assert.equal(s.positions.length, 0); assert.equal(s.journal.at(-1).reason, 'Chiusura manuale (app)'); assert.equal(w.answers.at(-1), 'Chiusura avviata');
+  }
+});
+test('CHIUSURA dall\'app (reale): APP_CLOSE=direct vende subito, senza passare da Telegram', async () => {
+  const w = world({ APP_CLOSE: 'direct' }), ex = w.ex(), t = await ex.ticket({ mint: MINT, sym: 'DIR', score: 80, sizeSol: 0.05 }); await T.handleUpdate(ex, cbq('ap:' + t.ticket.id));
+  const pos = (await ex.state()).positions[0], r = await ex.propose({ close: { mode: 'real', id: pos.id } });
+  assert.equal(r.ok, true); assert.equal(r.direct, true); assert.equal((await ex.state()).positions.length, 0);
+});
+test('CHIUSURA dall\'app (paper): dopo la conferma il Worker passa la direttiva al runner, che la toglie quando conferma', async () => {
+  const w = world(), ex = w.ex();
+  await ex.paperPut({ v: 1, positions: [{ id: 'P-0003', sym: 'PAP' }], journal: [] });
+  assert.match((await ex.propose({ close: { mode: 'paper', id: 'P-0099' } })).error, /non trovata/);
+  assert.match((await ex.propose({ close: { mode: 'real', id: 'P-0003' } })).error, /non valida/);
+  const r = await ex.propose({ close: { mode: 'paper', id: 'P-0003' } }); assert.equal(r.ok, true); assert.match(w.tg.at(-1).text, /Chiusura posizione paper/);
+  assert.deepEqual((await ex.paramsView()).closePaper, [], 'finché non confermi non succede nulla');
+  await T.handleUpdate(ex, cbq('pa:' + r.proposal.id));
+  assert.deepEqual((await ex.paramsView()).closePaper, ['P-0003']); assert.equal((await ex.paramsView()).proposals.length, 0);
+  await ex.reportRunner(null, null, ['P-0003']); assert.deepEqual((await ex.paramsView()).closePaper, []);
+});

@@ -288,6 +288,10 @@ async function ackReset(id) {
   const tok = process.env.EXEC_TOKEN, url = execUrl(); if (!tok || !url) return;
   try { await fetchJSON(url + '/runner', { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-app-token': tok }, body: JSON.stringify({ resetAck: id }), timeout: 6000 }); } catch { /* la direttiva scade da sola dopo un'ora */ }
 }
+async function ackClose(ids) {
+  const url = execUrl(), tok = process.env.EXEC_TOKEN; if (!url || !tok) return;
+  try { await fetchJSON(url + '/runner', { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-app-token': tok }, body: JSON.stringify({ closeAck: ids }), timeout: 6000 }); } catch { /* si riprova al prossimo giro */ }
+}
 async function resetPaper(rp) {
   const cap = Number(Number(rp.capitalSOL).toFixed(2));
   Object.assign(st, { cash: cap, positions: [], journal: [], signals: [], day: null, halted: null, cooldownUntil: 0, startedAt: Date.now(), capital: cap, resetId: rp.id, realTried: {} });
@@ -315,6 +319,17 @@ async function pullParams() {
   const rp = d.resetPaper;
   if (rp && /^C-\d+$/.test(String(rp.id)) && typeof rp.capitalSOL === 'number' && rp.capitalSOL >= 0.1 && rp.capitalSOL <= 1000 && Date.now() - num(rp.at) < 3600000) {
     if (rp.id !== st.resetId) await resetPaper(rp); else await ackReset(rp.id);   // già eseguito: si riprova solo ad avvisare il Worker
+  }
+  // chiusure di posizioni paper chieste dall'app e approvate (su Telegram): vendita a mercato di tutto, poi si avvisa il Worker
+  if (Array.isArray(d.closePaper) && d.closePaper.length) {
+    const done = [];
+    for (const id of d.closePaper.slice(0, 10)) {
+      if (!/^P-\d{1,6}$/.test(String(id))) continue;
+      const p = st.positions.find((x) => x.id === id);
+      if (p) { log('KAISER', `chiusura manuale dall'app: ${id} ${p.sym}`); try { await sell(p, 1, 'Chiusura manuale (app)'); } catch (e) { log('KAISER', `chiusura ${id} fallita: ${e.message}`); continue; } }
+      done.push(id);
+    }
+    if (done.length) { save(); await pushLive(true); await ackClose(done); }
   }
   // riferisce al Worker i valori in uso (serve a mostrare «prima → dopo» corretti nei messaggi di Telegram)
   if (process.env.EXEC_TOKEN && (changed.length || !rt.cfgSent)) {
