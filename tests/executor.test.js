@@ -76,3 +76,32 @@ test('worker: autenticazione, health, kill/resume, ordini non attivi', async () 
     assert.equal((await call('/boh')).status, 404);
   } finally { globalThis.fetch = realFetch; }
 });
+
+test('orologio: richiesta di dispatch corretta e validata', async () => {
+  const L2 = await import('../worker/src/lib.js');
+  const { url, init } = L2.dispatchRequest({ GH_REPO: 'salvogeraci030899-wq/Kaiser-Desk', GH_WORKFLOW: 'runner.yml', GH_REF: 'main', GH_TOKEN: 't0k' });
+  assert.equal(url, 'https://api.github.com/repos/salvogeraci030899-wq/Kaiser-Desk/actions/workflows/runner.yml/dispatches');
+  assert.equal(init.method, 'POST'); assert.equal(init.headers.Authorization, 'Bearer t0k'); assert.deepEqual(JSON.parse(init.body), { ref: 'main' });
+  assert.throws(() => L2.dispatchRequest({ GH_REPO: '../evil', GH_WORKFLOW: 'runner.yml' }), /non validi/);
+  assert.throws(() => L2.dispatchRequest({ GH_REPO: 'a/b', GH_WORKFLOW: 'x; rm.yml' }), /non validi/);
+  for (const bad of ['..', './x', 'a/..', 'a/b/c', 'a', '/b', 'a/']) assert.throws(() => L2.dispatchRequest({ GH_REPO: bad, GH_WORKFLOW: 'runner.yml' }), /non validi/, bad);
+  assert.throws(() => L2.dispatchRequest({ GH_REPO: 'a/b', GH_WORKFLOW: '../x.yml' }), /non validi/);
+});
+test('orologio: esiti 204, 401, 404 e token mancante, salvati in KV senza il token', async () => {
+  const { runClock } = await import('../worker/src/index.js');
+  const mem = new Map(); const STATE = { put: async (k, v) => { mem.set(k, v); }, get: async (k) => mem.get(k) ?? null };
+  const base = { STATE, GH_REPO: 'a/b', GH_WORKFLOW: 'runner.yml', GH_REF: 'main', GH_TOKEN: 'SEGRETO-GH' };
+  const realFetch = globalThis.fetch; const seen = [];
+  try {
+    for (const [status, ok, re] of [[204, true, null], [401, false, /rifiutato/], [404, false, /non trovato/], [500, false, /HTTP 500/]]) {
+      globalThis.fetch = async (u, i) => { seen.push([u, i.method]); return new Response(null, { status }); };
+      const r = await runClock(base);
+      assert.equal(r.ok, ok); assert.equal(r.status, status); if (re) assert.match(r.error, re);
+    }
+    assert.ok(seen.every(([, m]) => m === 'POST'));
+    const noTok = await runClock({ ...base, GH_TOKEN: '' }); assert.equal(noTok.ok, false); assert.match(noTok.error, /GH_TOKEN/);
+    assert.ok(!mem.get('clock').includes('SEGRETO-GH'));
+    globalThis.fetch = async () => { throw new Error('rete giu'); };
+    assert.match((await runClock(base)).error, /rete giu/);
+  } finally { globalThis.fetch = realFetch; }
+});

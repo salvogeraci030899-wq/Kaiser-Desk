@@ -8,11 +8,19 @@ workers_dev = true
 # keep_vars: un nuovo deploy non cancella le variabili impostate a mano nella dashboard.
 keep_vars = true
 
+# Orologio: ogni 5 minuti avvia il runner paper su GitHub Actions (il cron di GitHub può ritardare di ore, questo no).
+# Gratis. Richiede il segreto GH_TOKEN (token fine-grained, solo questo repository, permesso Actions: Read and write).
+[triggers]
+crons = ["*/5 * * * *"]
+
 [[kv_namespaces]]
 binding = "STATE"
 id = "b8fbce8205e448249df3e6988c342191"
 
 [vars]
+GH_REPO = "salvogeraci030899-wq/Kaiser-Desk"
+GH_WORKFLOW = "runner.yml"
+GH_REF = "main"
 # Siti da cui l'app può chiamare l'esecutore (CORS). Il token resta comunque obbligatorio.
 ALLOWED_ORIGINS = "https://kaiser-desk.vercel.app,https://salvogeraci030899-wq.github.io"
 # Limiti applicati QUI, lato server: l'app non può aggirarli (usati dalla fase 3, già visibili in /health).
