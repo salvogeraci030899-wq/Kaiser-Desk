@@ -37,7 +37,7 @@ test('gara target/stop: vince il primo livello raggiunto, a parita\' lo stop; in
   px.forEach((p, i) => b.trade(buy(m, 'X' + i, 0.2, p), T + 65000 + i * 5000));
   const t = b.toks.get(m), s = Lab.summarize(t, T + 22 * 60000);
   assert.equal(s.ok, true); assert.ok(Math.abs(s.peak - 1.2) < 1e-9); assert.ok(Math.abs(s.min - 20 / 30) < 1e-3);
-  assert.equal(s.races['10/10'], 'tp', '+10% prima di -10%'); assert.equal(s.races['15/10'], 'tp'); assert.equal(s.races['30/25'], 'sl', 'il +30% non arriva, lo stop si'); assert.equal(Lab.race([100, 100, 130, 70], 0, 30, 30), 'tp'); assert.equal(Lab.race([100, 100, 100], 0, 30, 30), 'none'); assert.equal(Lab.race([100, 70, 130], 0, 30, 30), 'sl');
+  assert.equal(s.races['12/10'], 'tp', '+12% prima di -10%'); assert.equal(s.races['30/20'], 'sl', 'il +30% non arriva, lo stop si'); assert.equal(s.races['30/25'], 'sl'); assert.equal(s.x.length, 3); assert.equal(Lab.race([100, 100, 130, 70], 0, 30, 30), 'tp'); assert.equal(Lab.race([100, 100, 100], 0, 30, 30), 'none'); assert.equal(Lab.race([100, 70, 130], 0, 30, 30), 'sl');
   const dead = make(b, 5); b.trade(buy(dead, 'W', 0.1, 30), T + 1000); assert.equal(Lab.summarize(b.toks.get(dead), T + 1200000).ok, false, 'meno di 5 scambi in 60 s: non e\' un ingresso valido');
 });
 test('acquirente grosso e nuovo: si registra la reazione del prezzo nei 60 secondi dopo', () => {
@@ -48,10 +48,44 @@ test('acquirente grosso e nuovo: si registra la reazione del prezzo nei 60 secon
   const s = Lab.summarize(b.toks.get(m), T + 22 * 60000); assert.equal(s.bigSol, 3); assert.ok(s.afterBig > 1.3 && s.afterBig < 1.5, 'afterBig ' + s.afterBig);
 });
 test('riassunto per gruppi: percentuali target/stop per punteggio bot', () => {
-  const mk = (b, races, extra = {}) => ({ ok: true, b, peak: 1.2, end: 0.9, races, ...extra }), tp = { '10/10': 'tp', '15/10': 'tp', '30/25': 'none', '50/30': 'none' }, sl = { '10/10': 'sl', '15/10': 'sl', '30/25': 'sl', '50/30': 'sl' };
+  const mk = (b, races, extra = {}) => ({ ok: true, b, peak: 1.2, end: 0.9, races, ...extra }), tp = { '12/10': 'tp', '20/15': 'tp', '30/20': 'none', '30/25': 'none', '50/30': 'none' }, sl = { '12/10': 'sl', '20/15': 'sl', '30/20': 'sl', '30/25': 'sl', '50/30': 'sl' };
   const done = [mk(10, tp), mk(20, tp), mk(30, sl), mk(50, sl), mk(80, sl), mk(90, sl, { afterBig: 1.4 }), { ok: false, b: null }];
   const s = Lab.labSummary(done, T); assert.equal(s.observed, 7); assert.equal(s.valid, 6); assert.deepEqual(s.cohorts.map((c) => c.n), [3, 1, 2]);
-  assert.deepEqual(s.cohorts[0].races['10/10'], { tp: 67, sl: 33, none: 0 }); assert.deepEqual(s.cohorts[2].races['10/10'], { tp: 0, sl: 100, none: 0 }); assert.equal(s.cohorts[2].afterBig.med, 1.4);
+  assert.deepEqual(s.cohorts[0].races['12/10'], { tp: 67, sl: 33, none: 0 }); assert.deepEqual(s.cohorts[2].races['12/10'], { tp: 0, sl: 100, none: 0 }); assert.equal(s.cohorts[2].afterBig.med, 1.4);
+});
+
+// ---------- v2: soglie di market cap, reazione agli acquisti, vendite grosse ----------
+const at = (bin) => T + bin * 5000 + 1000;                                          // un istante dentro l'intervallo numero "bin"
+test('ingresso alla prima volta che la market cap supera la soglia (in dollari): gara, picco, tempo al picco, uscita a tempo', () => {
+  const b = new Lab.TradeBook({}), m = make(b, 7), usd = 100;                        // a 100 $/SOL: 7.5K = 75 SOL
+  for (let i = 0; i < 15; i++) b.trade(buy(m, 'W' + i, 0.3, 30 + i * 3), at(i));      // sale piano fino a 72 SOL (7.2K): soglia non ancora superata
+  [[15, 76], [16, 80], [17, 85], [18, 91.2], [19, 85], [20, 70]].forEach(([bin, mc], i) => b.trade(buy(m, 'X' + i, 0.3, mc), at(bin)));
+  const s = Lab.summarize(b.toks.get(m), T + 22 * 60000, usd);
+  assert.ok(s.th['7.5'], 'soglia 7.5K superata'); assert.equal(s.th['10'], undefined, '10K mai superata'); assert.equal(s.th['15'], undefined);
+  const h = s.th['7.5']; assert.equal(h.e, 75, 'ingresso a 75 secondi dalla nascita'); assert.ok(Math.abs(h.pk - 91.2 / 76) < 1e-3); assert.equal(h.ts, 15, 'picco 15 secondi dopo');
+  assert.equal(h.r['12/10'], 'tp'); assert.ok(h.x[0] > 0.9 && h.x[0] < 0.93, 'dopo 1 minuto il prezzo e\' a 70: ' + h.x[0]); assert.ok(s.hi >= 9000);
+  const late = make(b, 8); [[0, 30], [1, 80]].forEach(([bin, mc], i) => b.trade(buy(late, 'Q' + i, 0.3, mc), at(bin)));
+  const sl = Lab.summarize(b.toks.get(late), T + 22 * 60000, usd); assert.ok(sl.th['7.5'], 'superata subito, ma resta storia sufficiente perche il token e\' osservato a lungo');
+  const fresh = Lab.summarize(b.toks.get(late), T + 30000, usd); assert.equal(fresh.th['7.5'], undefined, 'meno di 60 secondi di storia dopo la soglia: non si valuta');
+  const g = Lab.labSummary([s, sl], T); assert.equal(g.th[0].key, '7.5'); assert.equal(g.th[0].n, 2); assert.equal(g.th[1].n, 0);
+});
+test('reazione agli acquisti per taglia: deriva del prezzo a +10, +30 e +60 secondi', () => {
+  const b = new Lab.TradeBook({}), m = make(b, 9, 'DEV9', 0), usd = 100;
+  b.trade(buy(m, 'PICCOLO', 0.05, 30), at(10));                                       // acquisto da 5 $
+  b.trade(sell(m, 'ALTRO', 0.01, 33), at(11));                                        // il prezzo sale del 10%
+  const s = Lab.summarize(b.toks.get(m), T + 22 * 60000, usd); assert.ok(s.rx.s0, JSON.stringify(s.rx));
+  const g = Lab.labSummary([s], T), r = g.rx.find((x) => x.size === 's' && x.age === 0);
+  assert.ok(r.h[10].drift > 9.5 && r.h[10].drift < 10.5, JSON.stringify(r.h[10])); assert.equal(r.h[10].down, 0); assert.equal(r.h[10].n, 1);
+  assert.equal(Lab.labSummary([], T).rx.length, 0, 'senza dati nessuna riga');
+});
+test('vendite grosse: la prima, quanti portafogli, e che cosa fa il prezzo nei 60 secondi dopo; calma dopo il picco', () => {
+  const b = new Lab.TradeBook({}), m = make(b, 10, 'DEV10', 0), usd = 100;
+  for (let i = 0; i < 14; i++) b.trade(buy(m, 'W' + i, 0.2, 40), at(i));              // 40 SOL (4K) fino all'intervallo 13
+  b.trade(sell(m, 'BALENA', 1.5, 38), at(14)); b.trade(sell(m, 'BALENA', 1.2, 36), at(15)); b.trade(sell(m, 'PICCOLO', 0.1, 30), at(16));
+  const s = Lab.summarize(b.toks.get(m), T + 22 * 60000, usd);
+  assert.equal(s.ls, 2); assert.equal(s.lsW, 1); assert.equal(s.lsT, 71); assert.ok(Math.abs(s.afterLS - 30 / 40) < 1e-3, 'afterLS ' + s.afterLS);
+  const g = Lab.labSummary([s], T); assert.equal(g.flow.lsShare, 100); assert.equal(g.flow.afterLS.med, 0.75); assert.equal(g.flow.lsT, 71);
+  assert.ok(Array.isArray(s.q) === false || s.q.length === 2); assert.ok(s.turn > 0);
 });
 
 // ---------- collegamento ----------
@@ -94,4 +128,11 @@ test('integrazione nel runner: una sola connessione PumpPortal, riassunto con la
   const fs = require('node:fs'), path = require('node:path'), src = fs.readFileSync(path.join(__dirname, '..', 'runner', 'runner.js'), 'utf8'), E = require('../engine.js');
   assert.match(src, /require\('\.\/trades\.js'\)/); assert.match(src, /new Lab\.TradeFeed/); assert.match(src, /portal: !rt\.trades/); assert.match(src, /rt\.trades\.tick\(\)/); assert.match(src, /rt\.trades\.stop\(\)/); assert.match(src, /Lab\.labSummary/);
   assert.equal(E.DEFAULTS.srcLab, true);
+});
+
+test('taratura del paper e Lab v2: il runner registra la differenza tra quotazione reale e stima, e la scheda Lab mostra le nuove sezioni', () => {
+  const fs = require('node:fs'), src = fs.readFileSync(require.resolve('../runner/runner.js'), 'utf8'), html = fs.readFileSync(require.resolve('../index.html'), 'utf8');
+  assert.match(src, /st\.cal\.push\(/); assert.match(src, /cal: calSummary\(st\.cal\)/); assert.match(src, /solUsd: \(\) => rt\.solUsd/);
+  for (const k of ['Ingresso alla prima volta che la market cap supera la soglia', 'Dopo un acquisto: come si muove il prezzo', 'Vendite grosse, rotazione e calma', 'Realismo del paper']) assert.ok(html.includes(k), k);
+  assert.ok(html.includes("picco '") || html.includes("'picco '"), 'etichetta del Journal con picco e uscita separati');
 });

@@ -85,6 +85,7 @@ function publicSummary() {
     journal: st.journal.slice(-100).map((j) => ({ id: j.id, mint: j.mint, sym: j.sym, openedAt: j.openedAt, closedAt: j.closedAt, cost: j.cost, back: j.back, pnl: j.pnl, pct: j.pct, reason: j.reason, score: j.score, peakPct: j.peakPct, trigPct: j.trigPct, maePct: j.maePct == null ? null : j.maePct, age: j.age == null ? null : j.age })),
     events: st.events.slice(0, 40), config: cfg,
     young: Y.youngSummary(rt.young, Date.now(), 80, (m) => (rt.trades ? rt.trades.botNow(m) : null)),
+    cal: calSummary(st.cal),
     lab: rt.trades || (st.lab && st.lab.done.length) ? { info: rt.trades ? rt.trades.status() : null, ...Lab.labSummary((st.lab && st.lab.done) || [], Date.now()) } : null, youngInfo: rt.feed ? { ...rt.feed.status(), tracked: [...rt.young.values()].filter((y) => y.tracked).length } : null,
   };
 }
@@ -254,6 +255,12 @@ async function buy(c) {
   log('QUARTER', `BUY $${c.sym} ${sizeS.toFixed(3)} SOL score ${c.score} impatto ${(impact * 100).toFixed(2)}% (${src})`);
   await tg(`<b>BUY paper</b> $${esc(c.sym)} ${sizeS.toFixed(3)} SOL · score ${c.score}\nhttps://dexscreener.com/solana/${fresh.pairAddress}`);
 }
+function calSummary(c) {
+  if (!Array.isArray(c) || !c.length) return null;
+  const g = c.map((x) => x.g).filter((v) => Number.isFinite(v)).sort((a, b) => a - b); if (!g.length) return null;
+  const m = g.length >> 1;
+  return { n: g.length, med: g.length % 2 ? g[m] : +((g[m - 1] + g[m]) / 2).toFixed(1), lo: g[Math.floor(g.length * 0.1)], hi: g[Math.min(g.length - 1, Math.floor(g.length * 0.9))] };
+}
 async function sell(p, frac, reason) {
   const m = p.last || { priceNative: p.entry, liq: p.entryLiq };
   const tokSell = p.tokens * p.remaining * frac;
@@ -266,6 +273,9 @@ async function sell(p, frac, reason) {
         const q = await jupQuote(p.mint, SOL_MINT, amt.toString());
         sol = Math.max(0, num(q.outAmount) / 1e9 * (1 - S.feePct / 100) - S.prioritySOL);
         p.rawLeft = (raw - amt).toString(); src = 'Jupiter';
+        // taratura del paper: quanto vale la quotazione reale di Jupiter rispetto alla stima che il paper farebbe al prezzo di DexScreener
+        const est0 = E.exitSol(tokSell, m.priceNative, E.estImpact(tokSell * m.priceNative * (rt.solUsd || 150), m.liq), S.feePct, S.prioritySOL);
+        if (est0 > 0 && Number.isFinite(sol)) { st.cal = st.cal || []; st.cal.push({ t: Date.now(), g: +((sol / est0 - 1) * 100).toFixed(1) }); st.cal = st.cal.slice(-100); }
       }
     } catch {}
   }
@@ -533,7 +543,7 @@ function checkpoint() {
 function startYoung() {
   const onToken = (t) => { if (S.srcYoung !== false) Y.addYoung(rt.young, t, Date.now(), 800); };
   if (S.srcLab !== false) {                                     // Laboratorio: una sola connessione a PumpPortal per nuovi token e scambi (osservazione, nessun ordine)
-    rt.trades = new Lab.TradeFeed({ log: (m) => log('SCOUT', m), onCreate: onToken, onDone: (s) => { st.lab = st.lab || { done: [] }; st.lab.done.push(s); st.lab.done = st.lab.done.slice(-600); } });
+    rt.trades = new Lab.TradeFeed({ log: (m) => log('SCOUT', m), solUsd: () => rt.solUsd, onCreate: onToken, onDone: (s) => { st.lab = st.lab || { done: [] }; st.lab.done.push(s); st.lab.done = st.lab.done.slice(-400); } });
     rt.trades.start();
   }
   if (S.srcYoung === false) return;
