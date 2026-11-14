@@ -65,7 +65,10 @@ a { color: var(--ui); }
 /* Struttura: colonna a tutta altezza (intestazione, contenuto che scorre, barra). Come Pinscher in app installata,
    la barra sta nel flusso e non è "fixed": iOS non la ritaglia. */
 #app { width: 100vw; height: 100vh; height: 100dvh; display: flex; flex-direction: column; overflow: hidden; background: var(--bg); position: relative; isolation: isolate; }
-html.pwa-mode, html.pwa-mode body, html.pwa-mode #app { height: 100vh; height: 100lvh; }
+/* App installata: l'altezza di #app è quella misurata dal browser (--app-h = innerHeight, aggiornata da theme.js), non 100lvh:
+   su iOS lvh può superare l'area visibile e la barra in basso finiva tagliata. Niente "fixed": iOS può ritagliare i livelli separati. */
+html.pwa-mode, html.pwa-mode body { height: 100%; }
+html.pwa-mode #app { height: var(--app-h, 100%); }
 main { flex: 1 1 auto; min-height: 0; overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; padding: 4px 16px 14px; }
 .view { display: none; }
 .view.active { display: block; animation: fadeIn 0.2s ease-out; }

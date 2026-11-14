@@ -56,6 +56,11 @@
     var onChange = function () { if (get(KEY, THEMES, 'auto') === 'auto') apply(); };
     if (media.addEventListener) media.addEventListener('change', onChange); else if (media.addListener) media.addListener(onChange);
   }
-  document.addEventListener('DOMContentLoaded', function () { applyGlass(); apply(); syncWalls(); });
+  // altezza reale dell'area visibile in app installata (vedi style.css, html.pwa-mode #app)
+  function fitHeight() { if (root.classList.contains('pwa-mode')) root.style.setProperty('--app-h', window.innerHeight + 'px'); }
+  ['resize', 'orientationchange', 'pageshow'].forEach(function (ev) { window.addEventListener(ev, fitHeight); });
+  document.addEventListener('visibilitychange', fitHeight);
+  fitHeight();
+  document.addEventListener('DOMContentLoaded', function () { fitHeight(); applyGlass(); apply(); syncWalls(); });
   window.KZTheme = { apply: apply, resolved: resolved };
 })();
