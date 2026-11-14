@@ -19,7 +19,7 @@
   var root = document.documentElement;
   try { if (navigator.standalone === true || window.matchMedia('(display-mode: standalone)').matches) root.classList.add('pwa-mode'); } catch (e) {}
   var pref = 'auto', bar = 'integrated', g = 'off';
-  try { var lay = localStorage.getItem('kz_layout'); if (lay === 'lvh' || lay === 'inner' || lay === 'screen') root.classList.add('layout-' + lay); else if (lay !== 'fixed' && root.classList.contains('pwa-mode')) root.classList.add('layout-screen'); } catch (e) {}
+  try { var lay = localStorage.getItem('kz_layout2'); if (lay === 'lvh' || lay === 'inner' || lay === 'screen') root.classList.add('layout-' + lay); } catch (e) {}
   try { pref = localStorage.getItem('kz_theme') || 'auto'; bar = localStorage.getItem('kz_statusbar') || 'integrated'; g = localStorage.getItem('kz_glass') || 'off'; } catch (e) {}
   var light = pref === 'light' || (pref === 'auto' && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches);
   root.setAttribute('data-theme', light ? 'light' : 'dark');
@@ -30,7 +30,7 @@
   document.getElementById('metaStatusBar').setAttribute('content', light ? 'default' : (bar === 'separate' ? 'black' : 'black-translucent'));
 })();
 </script>
-<link rel="stylesheet" href="style.css?v=7">
+<link rel="stylesheet" href="style.css?v=8">
 <script src="version.js"></script>
 <script src="theme.js"></script>
 <script src="lock.js"></script>
@@ -150,8 +150,8 @@
           <div class="theme-toggle"><button data-pref="glass" data-val="off">No</button><button data-pref="glass" data-val="on">Fermo</button><button data-pref="glass" data-val="anim">Animato</button></div></div>
         <div class="set wide"><label>Barra di stato<small>Si applica alla prossima apertura</small></label>
           <div class="theme-toggle"><button data-pref="bar" data-val="integrated">Integrata</button><button data-pref="bar" data-val="separate">Separata</button></div></div>
-        <div class="set wide"><label>Layout schermo<small>Solo se la barra in basso è fuori posto</small></label>
-          <div class="theme-toggle"><button data-layout="screen">Schermo</button><button data-layout="fixed">Fisso</button><button data-layout="lvh">Lungo</button><button data-layout="inner">Misurato</button></div></div>
+        <div class="set wide"><label>Layout schermo<small>Fisso segue la finestra reale (consigliato)</small></label>
+          <div class="theme-toggle"><button data-layout="fixed">Fisso</button><button data-layout="screen">Schermo</button><button data-layout="lvh">Lungo</button><button data-layout="inner">Misurato</button></div></div>
         <div class="set wide"><label>Diagnostica<small id="diagTxt" class="glass-diag">—</small></label></div>
       </div>
       <h2>Blocco app</h2>
