@@ -77,6 +77,18 @@ export function limitsFrom(env) {
   };
 }
 
+// Richiesta che avvia il workflow del runner (workflow_dispatch). Nessun dato dell'utente, solo repository, file e ramo.
+export function dispatchRequest(env) {
+  const repo = String(env.GH_REPO || ''), wf = String(env.GH_WORKFLOW || ''), ref = String(env.GH_REF || 'main');
+  const seg = (x) => /^[\w.-]+$/.test(x) && !/^\.+$/.test(x);   // niente '.' o '..' (percorsi relativi)
+  const parts = repo.split('/');
+  if (parts.length !== 2 || !parts.every(seg) || !/^[\w.-]+\.ya?ml$/.test(wf) || /^\.+/.test(wf)) throw new Error('GH_REPO o GH_WORKFLOW non validi');
+  return {
+    url: `https://api.github.com/repos/${repo}/actions/workflows/${wf}/dispatches`,
+    init: { method: 'POST', headers: { Authorization: 'Bearer ' + env.GH_TOKEN, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28', 'User-Agent': 'kaiser-executor-clock', 'Content-Type': 'application/json' }, body: JSON.stringify({ ref }) },
+  };
+}
+
 export function corsHeaders(origin, env) {
   const allowed = String(env.ALLOWED_ORIGINS || '').split(',').map((s) => s.trim()).filter(Boolean);
   const h = { 'Access-Control-Allow-Methods': 'GET,POST,OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type,x-app-token', 'Vary': 'Origin' };

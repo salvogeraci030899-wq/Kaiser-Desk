@@ -141,6 +141,7 @@
     <div class="card" id="lockSettingsBody"></div>
     <h2>Trading reale</h2>
     <div class="card" id="setReal"></div>
+    <div class="card small" id="clockInfo"></div>
     <h2>Autopilota (Kaiser)</h2>
     <div class="card" id="setAuto"></div>
     <h2>Capitale e rischio (Quartermaster)</h2>
@@ -469,7 +470,15 @@ async function checkExecutor() {
       if (r && r.ok) rt.exec = r; else rt.execErr = (r && r.error) || 'risposta non valida';
     } catch (e) { rt.execErr = e.message === 'HTTP 401' ? 'token errato' : e.message === 'HTTP 503' ? 'esecutore non configurato (manca EXEC_TOKEN)' : e.message; }
   }
+  renderClock();
   render();
+}
+function renderClock() {
+  const c = rt.exec && rt.exec.clock, el = $('#clockInfo'); if (!el) return;
+  if (!rt.exec) { el.innerHTML = `<b>Orologio del runner</b><div class="muted tiny" style="margin-top:4px">${st.S.executor ? 'esecutore non raggiungibile' + (rt.execErr ? ' (' + esc(rt.execErr) + ')' : '') : 'esecutore non configurato'}</div>`; return; }
+  const when = c && c.at ? ago(Date.now() - Date.parse(c.at)) + ' fa' : 'mai';
+  el.innerHTML = `<b>Orologio del runner</b> <span class="${c && c.ok ? 'up' : 'down'}">${c ? (c.ok ? 'attivo' : 'errore') : 'non ancora partito'}</span>
+    <div class="muted tiny" style="margin-top:4px">Ogni 5 minuti il Worker avvia il runner paper su GitHub, anche a telefono spento. Ultimo avvio: ${esc(when)}${c && c.error ? ' · ' + esc(c.error) : ''}</div>`;
 }
 
 // REALE: oggi solo il cancello. Gli ordini veri partono dall'esecutore (vedi docs/REAL-TRADING.md); finché non c'è, non parte nulla.
