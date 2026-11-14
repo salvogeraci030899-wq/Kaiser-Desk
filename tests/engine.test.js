@@ -71,14 +71,18 @@ test('reale: spento di default e bloccato senza capitale', () => {
   assert.match(E.realGate(E.DEFAULTS, null), /spento/);
 });
 test('reale: cancello fallisce chiuso, una condizione alla volta', () => {
-  const ok = { ok: true, balanceSOL: 1 };
+  const ok = { ok: true, wallet: 'WaLLet1111111111111111111111111111111111111', balanceSOL: 1, ordersEnabled: true };
   const on = { ...E.DEFAULTS, realEnabled: true, realCapitalSOL: 0.5, executor: 'https://x.example' };
   assert.equal(E.realGate(on, ok), '');
   assert.match(E.realGate({ ...on, realCapitalSOL: 0 }, ok), /capitale/);
   assert.match(E.realGate({ ...on, executor: '' }, ok), /configurato/);
   assert.match(E.realGate(on, null), /raggiungibile/);
   assert.match(E.realGate(on, { ok: false }), /raggiungibile/);
-  assert.match(E.realGate(on, { ok: true, killed: true }), /kill switch/);
-  assert.match(E.realGate(on, { ok: true, balanceSOL: 0 }), /fondi/);
+  assert.match(E.realGate(on, { ...ok, killed: true }), /kill switch/);
+  assert.match(E.realGate(on, { ...ok, balanceSOL: 0 }), /fondi/);
+  assert.match(E.realGate(on, { ...ok, balanceSOL: null }), /saldo/);
+  assert.match(E.realGate(on, { ...ok, wallet: null }), /wallet/);
+  assert.match(E.realGate(on, { ...ok, wallet: null, walletError: 'chiave incoerente' }), /incoerente/);
+  assert.match(E.realGate(on, { ...ok, ordersEnabled: false }), /non ancora abilitati/);
   assert.match(E.realGate({ ...on, realEnabled: false }, ok), /spento/);
 });

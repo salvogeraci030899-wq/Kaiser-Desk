@@ -1,7 +1,13 @@
 # Trading reale in Kaiser
 
-**Stato: fase 1.** L'app distingue paper e reale e ha il cancello di sicurezza. Gli ordini veri **non partono ancora**:
-manca l'esecutore (fase 2-4). Il reale è spento di default e fallisce sempre chiuso.
+**Stato: fase 2.** L'app distingue paper e reale, ha il cancello di sicurezza e c'è l'esecutore (`worker/`) in **sola lettura**:
+`/health` (indirizzo del wallet, saldo, limiti), kill switch (`/kill`, `/resume`). Gli ordini veri **non partono ancora**
+(fase 3). Il reale è spento di default e fallisce sempre chiuso.
+
+Esecutore: `https://kaiser-executor.salvogeraci030899.workers.dev` (pubblicato dal workflow «Pubblica esecutore»).
+Segreti, solo nella dashboard Cloudflare → Worker → Settings → Variables and Secrets: `EXEC_TOKEN` (stessa password di
+Setup → Token esecutore), `WALLET_SECRET_KEY` (chiave del wallet dedicato: base58 o JSON), facoltativo `RPC_URL`
+(un RPC gratuito dedicato, p.es. Helius, evita i limiti dell'RPC pubblico).
 
 ## Regole che non cambiano
 - Paper e reale sono due conti separati, mai mescolati (posizioni, journal, equity). Ogni voce ha `mode: paper|real`.
@@ -28,7 +34,7 @@ Perché il Cron di Cloudflare per le uscite: il cron di GitHub Actions può rita
 
 ## Fasi
 1. **Fatto:** separazione paper/reale, cancello, impostazioni, test.
-2. Esecutore in sola lettura: `/health` con indirizzo wallet e saldo (nessun ordine).
+2. **Fatto:** esecutore in sola lettura: `/health` con indirizzo wallet e saldo (nessun ordine).
 3. Ordini reali con approvazione manuale di ogni ingresso (ticket) e uscite di Charon dall'esecutore.
 4. Autonomia: ingressi automatici dal runner, solo se lo accendi tu (`realApprove` spento).
 

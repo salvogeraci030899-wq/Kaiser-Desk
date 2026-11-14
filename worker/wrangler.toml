@@ -1,0 +1,22 @@
+# Esecutore di KAISER su Cloudflare Workers (piano gratuito). Pubblicato dal workflow "Pubblica esecutore".
+# Fase 2: SOLA LETTURA (indirizzo del wallet, saldo, limiti, kill switch). Nessun ordine.
+name = "kaiser-executor"
+main = "src/index.js"
+compatibility_date = "2026-01-01"
+workers_dev = true
+# I segreti (WALLET_SECRET_KEY, EXEC_TOKEN, facoltativo RPC_URL) si impostano nella dashboard di Cloudflare, mai qui.
+# keep_vars: un nuovo deploy non cancella le variabili impostate a mano nella dashboard.
+keep_vars = true
+
+[[kv_namespaces]]
+binding = "STATE"
+id = "b8fbce8205e448249df3e6988c342191"
+
+[vars]
+# Siti da cui l'app può chiamare l'esecutore (CORS). Il token resta comunque obbligatorio.
+ALLOWED_ORIGINS = "https://kaiser-desk.vercel.app,https://salvogeraci030899-wq.github.io"
+# Limiti applicati QUI, lato server: l'app non può aggirarli (usati dalla fase 3, già visibili in /health).
+MAX_CAPITAL_SOL = "0"
+MAX_ORDER_SOL = "0.05"
+MAX_DAILY_LOSS_SOL = "0.1"
+MAX_SLIPPAGE_BPS = "300"
