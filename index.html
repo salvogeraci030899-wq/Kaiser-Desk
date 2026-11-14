@@ -34,6 +34,20 @@
 <script src="version.js"></script>
 <script src="theme.js"></script>
 <script src="lock.js"></script>
+<script>
+// Aggiornamento automatico: iOS tiene in memoria la pagina dell'app installata. All'avvio si legge la versione pubblicata (senza cache):
+// se è diversa da quella in esecuzione si riscaricano i file e si ricarica la pagina (una sola volta per versione).
+(function () {
+  try {
+    fetch('version.js?_=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.text(); }).then(function (t) {
+      var m = t.match(/KZ_VERSION\s*=\s*'([^']+)'/); if (!m || m[1] === window.KZ_VERSION) return;
+      var k = 'kz_reloaded'; try { if (sessionStorage.getItem(k) === m[1]) return; sessionStorage.setItem(k, m[1]); } catch (e) {}
+      var files = ['version.js', 'theme.js', 'lock.js', 'engine.js', 'style.css', 'manifest.json'];
+      Promise.all(files.map(function (f) { return fetch(f, { cache: 'reload' }).catch(function () {}); })).then(function () { location.replace(location.pathname + '?v=' + m[1]); });
+    }).catch(function () {});
+  } catch (e) {}
+})();
+</script>
 </head>
 <body>
 <!-- Fantasmino di Kaiser (stesso disegno di icon.svg) -->
