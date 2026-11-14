@@ -9,7 +9,7 @@ const DEFAULTS = {
   autopilot: false, approve: true, scanSec: 30, minScore: 68, useGrok: false, tg: false,
   // Quartermaster
   capitalSOL: 5, sizePct: 5, maxPos: 3, slippageBps: 300, feePct: 1.0, prioritySOL: 0.0005,
-  dailyLossPct: 15, cooldownMin: 10, retradeH: 2, taxPct: 26, maxEntriesPerScan: 1,
+  dailyLossPct: 15, cooldownMin: 10, retradeH: 2, entryGapSec: 60, taxPct: 26, maxEntriesPerScan: 1,
   // Charon
   sl: 25, tp1: 40, tp1Sell: 50, trail: 20, beAfterTp1: true, timeStopMin: 45, timeStopMinPnl: 5,
   rugLiqDrop: 45, sellPressure: true,

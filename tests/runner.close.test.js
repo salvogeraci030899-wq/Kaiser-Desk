@@ -43,3 +43,8 @@ test('VELOCITA: runner con controllo delle posizioni ogni 10 s, scan ogni scanSe
   assert.match(yml, /LOOP_MIN: '50'/); assert.match(yml, /CHECKPOINT: '1'/); assert.match(yml, /timeout-minutes: 62/);
   assert.equal(R.checkpointForTest === undefined, true);                                   // il salvataggio parte solo con CHECKPOINT=1 e non e' esposto
 });
+test('ingressi: pausa tra due ingressi e GMGN interrogato con giudizio (niente raffica di 429)', () => {
+  const src = fs.readFileSync(path.join(__dirname, '..', 'runner', 'runner.js'), 'utf8'), E = require('../engine.js');
+  assert.equal(E.DEFAULTS.entryGapSec, 60); assert.match(src, /pausa tra ingressi/); assert.match(src, /st\.lastEntryAt = Date\.now\(\)/);
+  assert.match(src, /GMGN_MIN_SEC \|\| 75/); assert.match(src, /\/429\|RATE_LIMIT\/i\.test/); assert.match(src, /Date\.now\(\) < g\.next/);
+});

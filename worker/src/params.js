@@ -33,6 +33,7 @@ export const SCHEMA = {
   feePct: n('Commissioni per lato (%)', 'risk', 0, 5, { scope: 'runner', step: 0.1 }),
   prioritySOL: n('Priority fee (SOL)', 'risk', 0, 0.01, { scope: 'runner', step: 0.0001 }),
   dailyLossPct: n('Stop giornaliero (%)', 'risk', 1, 50, { scope: 'runner', step: 1, hint: 'circuit breaker del paper' }),
+  entryGapSec: n('Pausa tra due ingressi (s)', 'risk', 0, 900, { scope: 'runner', step: 5, hint: 'evita di entrare in tanti token insieme: sono scommesse correlate' }),
   cooldownMin: n('Cooldown dopo perdita (min)', 'risk', 0, 240, { scope: 'runner', step: 1 }),
   retradeH: n('Ritrade sullo stesso token dopo (ore)', 'risk', 0, 48, { scope: 'runner', step: 0.5 }),
   taxPct: n('Tasse sulle vincite (%)', 'risk', 0, 60, { scope: 'runner', step: 1 }),
