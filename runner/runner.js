@@ -221,7 +221,7 @@ async function buy(c) {
   st.positions.push(p);
   pushLive(true).catch(() => {});
   log('QUARTER', `BUY $${c.sym} ${sizeS.toFixed(3)} SOL score ${c.score} impatto ${(impact * 100).toFixed(2)}% (${src})`);
-  await tg(`🟢 <b>BUY paper</b> $${esc(c.sym)} ${sizeS.toFixed(3)} SOL · score ${c.score}\nhttps://dexscreener.com/solana/${fresh.pairAddress}`);
+  await tg(`<b>BUY paper</b> $${esc(c.sym)} ${sizeS.toFixed(3)} SOL · score ${c.score}\nhttps://dexscreener.com/solana/${fresh.pairAddress}`);
 }
 async function sell(p, frac, reason) {
   const m = p.last || { priceNative: p.entry, liq: p.entryLiq };
@@ -253,7 +253,7 @@ async function sell(p, frac, reason) {
     pushLive(true).catch(() => {});
     if (pnl < 0) st.cooldownUntil = Date.now() + S.cooldownMin * 60000;
     log('SCRIBE', `chiuso ${p.id} $${p.sym} ${pnl.toFixed(4)} SOL (${j.pct.toFixed(1)}%)`);
-    await tg(`${pnl >= 0 ? '✅' : '🔻'} <b>CLOSE</b> $${esc(p.sym)} ${pnl.toFixed(4)} SOL (${j.pct.toFixed(1)}%) · ${esc(reason)}\nEquity ${equity().toFixed(3)} SOL`);
+    await tg(`<b>CLOSE</b> $${esc(p.sym)} ${pnl.toFixed(4)} SOL (${j.pct.toFixed(1)}%) · ${esc(reason)}\nEquity ${equity().toFixed(3)} SOL`);
   }
 }
 async function manage(pairsIn) {
@@ -297,7 +297,7 @@ async function resetPaper(rp) {
   Object.assign(st, { cash: cap, positions: [], journal: [], signals: [], day: null, halted: null, cooldownUntil: 0, startedAt: Date.now(), capital: cap, resetId: rp.id, realTried: {} });
   S.capitalSOL = cap; BASE_S.capitalSOL = cap;
   log('KAISER', `reset del paper (${rp.id}): conto azzerato, capitale ${cap} SOL`);
-  await tg(`♻️ <b>KAISER</b> paper azzerato (${esc(rp.id)}): riparto con ${cap} SOL`);
+  await tg(`<b>KAISER</b> paper azzerato (${esc(rp.id)}): riparto con ${cap} SOL`);
   save(); await pushLive(true); await ackReset(rp.id);
 }
 async function pullParams() {
@@ -407,7 +407,7 @@ async function scan() {
   if (st.day && !st.halted && equity() < st.day.startEq * (1 - S.dailyLossPct / 100)) {
     st.halted = Date.now();
     log('KAISER', `CIRCUIT BREAKER: perdita giornaliera oltre ${S.dailyLossPct}%`);
-    await tg(`🛑 <b>KAISER</b> circuit breaker: stop ingressi fino a domani`);
+    await tg(`<b>KAISER</b> circuit breaker: stop ingressi fino a domani`);
   }
   if (!S.autopilot) return;
   await realEntries(buys);   // conto REALE (separato dal paper): solo se acceso in config.json e con l'esecutore collegato
@@ -499,7 +499,7 @@ async function main() {
     st.lastDaily = dkey;
     const today = st.journal.filter((j) => new Date(j.closedAt + 3600000).toISOString().slice(0, 10) === dkey);
     const pd = today.reduce((a, j) => a + j.pnl, 0);
-    await tg(`📊 <b>KAISER</b> riepilogo ${dkey}\nOggi: ${today.length} trade, ${pd >= 0 ? '+' : ''}${pd.toFixed(4)} SOL\nTotale: ${s.n} trade, win ${s.wr.toFixed(0)}%, P&L ${s.pnl.toFixed(4)} SOL\nEquity ${equity().toFixed(4)} SOL`);
+    await tg(`<b>KAISER</b> riepilogo ${dkey}\nOggi: ${today.length} trade, ${pd >= 0 ? '+' : ''}${pd.toFixed(4)} SOL\nTotale: ${s.n} trade, win ${s.wr.toFixed(0)}%, P&L ${s.pnl.toFixed(4)} SOL\nEquity ${equity().toFixed(4)} SOL`);
   }
   save();
   await pushLive(true);

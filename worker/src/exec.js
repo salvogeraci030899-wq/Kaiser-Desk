@@ -139,7 +139,7 @@ export class Executor {
     refs[ref] = { signature: sent.sig, at: ctx.at }; await this.store.put('refs', Object.fromEntries(Object.entries(refs).slice(-200)));
     if (sent.status === 'pending') {
       pending.push({ ...ctx, kind: 'buy', costSol: size }); await this.store.put('pending', pending);
-      await this.notify(`⏳ Acquisto reale inviato, non ancora confermato: $${ctx.sym || mint.slice(0, 6)} ${size} SOL\nhttps://solscan.io/tx/${sent.sig}`);
+      await this.notify(`Acquisto reale inviato, non ancora confermato: $${ctx.sym || mint.slice(0, 6)} ${size} SOL\nhttps://solscan.io/tx/${sent.sig}`);
       return { ok: true, pending: true, signature: sent.sig };
     }
     const pos = await this.openPosition(ctx);
@@ -156,7 +156,7 @@ export class Executor {
     const pos = { id: 'R-' + String(seq).padStart(4, '0'), mint: ctx.mint, sym: ctx.sym, openedAt: ctx.at, costSol, tokensRaw: String(raw), decimals: tb.decimals, entry, peak: entry,
       tp1Done: false, spDone: false, entryLiq: ctx.entryLiq, params: ctx.params, realized: 0, sigs: [ctx.sig], fails: 0, persistedAt: this.now() };
     const positions = await this.store.get('positions', []); positions.push(pos); await this.store.put('positions', positions);
-    await this.notify(`🟢 ACQUISTO REALE $${pos.sym || pos.mint.slice(0, 6)} ${costSol.toFixed(4)} SOL\n${pos.id} · stop −${pos.params.sl}% · TP1 +${pos.params.tp1}%\nhttps://solscan.io/tx/${ctx.sig}`);
+    await this.notify(`ACQUISTO REALE $${pos.sym || pos.mint.slice(0, 6)} ${costSol.toFixed(4)} SOL\n${pos.id} · stop −${pos.params.sl}% · TP1 +${pos.params.tp1}%\nhttps://solscan.io/tx/${ctx.sig}`);
     return pos;
   }
 
@@ -172,8 +172,8 @@ export class Executor {
     const seq = (await this.store.get('tseq', 0)) + 1; await this.store.put('tseq', seq);
     const t = { id: 'T-' + String(seq).padStart(4, '0'), mint, sym: String(req.sym || '').slice(0, 20), score: num(req.score), sizeSol: size, slippageBps: num(req.slippageBps, this.limits().maxSlippageBps), params: clampParams(req.params), entryLiq: num(req.entryLiq), at: now, exp: now + 10 * 60000 };
     tickets.push(t); await this.store.put('tickets', tickets.slice(-10));
-    await this.notify(`✎ Ticket ${t.id}: $${t.sym || mint.slice(0, 6)} score ${t.score} · ${size} SOL\nStop −${t.params.sl}% · TP1 +${t.params.tp1}% · trailing −${t.params.trail}%\nApprova o rifiuta qui sotto entro 10 minuti.`,
-      { inline_keyboard: [[{ text: '✅ Approva', callback_data: 'ap:' + t.id }, { text: '❌ Rifiuta', callback_data: 'rj:' + t.id }]] });
+    await this.notify(`Ticket ${t.id}: $${t.sym || mint.slice(0, 6)} score ${t.score} · ${size} SOL\nStop −${t.params.sl}% · TP1 +${t.params.tp1}% · trailing −${t.params.trail}%\nApprova o rifiuta qui sotto entro 10 minuti.`,
+      { inline_keyboard: [[{ text: 'Approva', callback_data: 'ap:' + t.id }, { text: 'Rifiuta', callback_data: 'rj:' + t.id }]] });
     return { ok: true, ticket: t };
   }
   approve(id) {
@@ -202,19 +202,19 @@ export class Executor {
       if (!prep.ok) throw new Error('transazione di uscita non ammessa: ' + prep.reasons.join('; '));
       const signed = await signTx(prep.bytes, this.env.WALLET_SECRET_KEY);
       const sent = await this.sendAndConfirm(signed.tx);
-      if (sent.status === 'pending') { await this.notify(`⏳ Vendita reale inviata, non ancora confermata: ${p.id} $${p.sym}\nhttps://solscan.io/tx/${sent.sig}`); return { ok: true, pending: true, signature: sent.sig }; }
+      if (sent.status === 'pending') { await this.notify(`Vendita reale inviata, non ancora confermata: ${p.id} $${p.sym}\nhttps://solscan.io/tx/${sent.sig}`); return { ok: true, pending: true, signature: sent.sig }; }
       const post = await this.lamports();
       p.realized = num(p.realized) + (post - pre) / 1e9; p.sigs = [...(p.sigs || []), sent.sig].slice(-10); p.fails = 0;
       const left = await this.tokenBalance(p.mint).catch(() => ({ raw: 1n }));
       if (frac >= 0.999 || left.raw === 0n) return this.closePosition(p, reason, sent.sig);
       p.tokensRaw = left.raw.toString();
       const ps = await this.store.get('positions', []); await this.store.put('positions', ps.map((x) => (x.id === p.id ? p : x)));
-      await this.notify(`🟡 ${reason}: venduta una parte di ${p.id} $${p.sym}\nhttps://solscan.io/tx/${sent.sig}`);
+      await this.notify(`${reason}: venduta una parte di ${p.id} $${p.sym}\nhttps://solscan.io/tx/${sent.sig}`);
       return { ok: true, partial: true, signature: sent.sig };
     } catch (e) {
       p.fails = num(p.fails) + 1;
       const ps = await this.store.get('positions', []); await this.store.put('positions', ps.map((x) => (x.id === p.id ? p : x)));
-      if (p.fails === 1 || p.fails % 5 === 0) await this.notify(`⚠️ USCITA REALE FALLITA (${p.fails}) ${p.id} $${p.sym}: ${e.message}\nRiprovo al prossimo giro. Se persiste, vendi a mano dal wallet.`);
+      if (p.fails === 1 || p.fails % 5 === 0) await this.notify(`USCITA REALE FALLITA (${p.fails}) ${p.id} $${p.sym}: ${e.message}\nRiprovo al prossimo giro. Se persiste, vendi a mano dal wallet.`);
       return { ok: false, error: e.message };
     }
   }
@@ -223,7 +223,7 @@ export class Executor {
     const pnl = num(p.realized) - num(p.costSol), j = await this.store.get('journal', []);
     j.push({ mode: 'real', id: p.id, mint: p.mint, sym: p.sym, openedAt: p.openedAt, closedAt: this.now(), cost: p.costSol, back: num(p.realized), pnl, pct: pnl / p.costSol * 100, reason, score: 0, sigs: p.sigs });
     await this.store.put('journal', j.slice(-300));
-    await this.notify(`${pnl >= 0 ? '✅' : '🔻'} CHIUSA ${p.id} $${p.sym} ${pnl >= 0 ? '+' : ''}${pnl.toFixed(4)} SOL (${(pnl / p.costSol * 100).toFixed(1)}%) · ${reason}${sig ? '\nhttps://solscan.io/tx/' + sig : ''}`);
+    await this.notify(`CHIUSA ${p.id} $${p.sym} ${pnl >= 0 ? '+' : ''}${pnl.toFixed(4)} SOL (${(pnl / p.costSol * 100).toFixed(1)}%) · ${reason}${sig ? '\nhttps://solscan.io/tx/' + sig : ''}`);
     return { ok: true, closed: true, pnl, signature: sig };
   }
   dayPnl(journal) { const d = today(this.now()); return journal.filter((j) => today(j.closedAt) === d).reduce((a, j) => a + num(j.pnl), 0); }
@@ -233,14 +233,14 @@ export class Executor {
   async _tick() {
     const em = await this.store.get('emergency', null);
     const positions = await this.store.get('positions', []), pending = await this.store.get('pending', []);
-    if (!positions.length && !pending.length) { if (em) { await this.store.put('emergency', null); await this.notify('🚨 Emergenza completata: nessuna posizione reale aperta. Ingressi fermi (kill switch), autopilota e reale spenti.\nPer ripartire: /riattiva e /reset_parametri (poi riaccendi quello che serve nelle impostazioni).'); } return { ok: true, idle: true }; }
+    if (!positions.length && !pending.length) { if (em) { await this.store.put('emergency', null); await this.notify('Emergenza completata: nessuna posizione reale aperta. Ingressi fermi (kill switch), autopilota e reale spenti.\nPer ripartire: /riattiva e /reset_parametri (poi riaccendi quello che serve nelle impostazioni).'); } return { ok: true, idle: true }; }
     if (pending.length && this.env.WALLET_SECRET_KEY) await this.reconcile(pending);
-    const open = await this.store.get('positions', []); if (!open.length) { if (em) { await this.store.put('emergency', null); await this.notify('🚨 Emergenza completata: nessuna posizione reale aperta.'); } return { ok: true, positions: 0 }; }
+    const open = await this.store.get('positions', []); if (!open.length) { if (em) { await this.store.put('emergency', null); await this.notify('Emergenza completata: nessuna posizione reale aperta.'); } return { ok: true, positions: 0 }; }
     if (em) {                                                    // EMERGENZA: si vende tutto adesso (al massimo 2 posizioni per giro), senza aspettare Charon
       let sold = 0;
       for (const p of open) { if (sold >= MAX_SELLS_PER_TICK) break; sold++; await this._sell(p, 1, 'EMERGENZA'); }
       const left = (await this.store.get('positions', [])).length;
-      if (!left) { await this.store.put('emergency', null); await this.notify('🚨 Emergenza completata: tutte le posizioni reali sono state vendute.\nIngressi fermi (kill switch), autopilota e reale spenti. Per ripartire: /riattiva e /reset_parametri.'); }
+      if (!left) { await this.store.put('emergency', null); await this.notify('Emergenza completata: tutte le posizioni reali sono state vendute.\nIngressi fermi (kill switch), autopilota e reale spenti. Per ripartire: /riattiva e /reset_parametri.'); }
       return { ok: true, emergency: true, sold, left };
     }
     const prices = await this.prices(open.map((p) => p.mint)), out = { ok: true, sold: 0, checked: 0 }; let dirty = false;
@@ -276,9 +276,9 @@ export class Executor {
     for (const p of pending) {
       try {
         const st = await this.rpc('getSignatureStatuses', [[p.sig], { searchTransactionHistory: true }]), s = st && st.value && st.value[0];
-        if (s && s.err) { await this.notify(`❌ Acquisto reale non riuscito: $${p.sym || p.mint.slice(0, 6)} (${JSON.stringify(s.err)})`); continue; }
+        if (s && s.err) { await this.notify(`Acquisto reale non riuscito: $${p.sym || p.mint.slice(0, 6)} (${JSON.stringify(s.err)})`); continue; }
         if (s && (s.confirmationStatus === 'confirmed' || s.confirmationStatus === 'finalized')) { await this.openPosition(p); continue; }
-        if (this.now() - p.at > 180000) { await this.notify(`❌ Acquisto reale scaduto senza conferma: $${p.sym || p.mint.slice(0, 6)}. Controlla il wallet.`); continue; }
+        if (this.now() - p.at > 180000) { await this.notify(`Acquisto reale scaduto senza conferma: $${p.sym || p.mint.slice(0, 6)}. Controlla il wallet.`); continue; }
       } catch { /* si riprova */ }
       keep.push(p);
     }
@@ -299,12 +299,19 @@ export class Executor {
     const seq = (await this.store.get('cseq', 0)) + 1; await this.store.put('cseq', seq); await this.store.put('lastProposal', now);
     const p = { id: 'C-' + String(seq).padStart(4, '0'), changes: {}, reset: { capitalSOL: Number(cap.toFixed(2)) }, at: now, exp: now + 10 * 60000 };
     props.push(p); await this.store.put('proposals', props);
-    await this.notify(`⚠️ Reset del conto PAPER ${p.id}\nCancella posizioni aperte, journal e statistiche del paper e riparte con ${p.reset.capitalSOL} SOL.\nIl conto reale non viene toccato.\n\nValido per 10 minuti. Se non l'hai chiesto tu, rifiuta.`, { inline_keyboard: [[{ text: '⚠️ Azzera il paper', callback_data: 'pa:' + p.id }, { text: '❌ Rifiuta', callback_data: 'pr:' + p.id }]] });
+    await this.notify(`Reset del conto PAPER ${p.id}\nCancella posizioni aperte, journal e statistiche del paper e riparte con ${p.reset.capitalSOL} SOL.\nIl conto reale non viene toccato.\n\nValido per 10 minuti. Se non l'hai chiesto tu, rifiuta.`, { inline_keyboard: [[{ text: 'Azzera il paper', callback_data: 'pa:' + p.id }, { text: 'Rifiuta', callback_data: 'pr:' + p.id }]] });
     return { ok: true, proposal: p };
   }
   // CHIUSURA di una posizione dall'app (paper o reale). L'app non ha segreti: per il REALE la richiesta passa dal tasto su Telegram
   // (a meno che nel Worker APP_CLOSE=direct: allora basta il popup dell'app). Funziona con o senza approvazione manuale degli ingressi:
   // le uscite non passano mai dai ticket. Paper: direttiva per il runner (paperCloses), che vende a mercato e avvisa.
+  // Chiusura diretta (senza Telegram) quando l'approvazione manuale è disattivata dalle impostazioni (realApprove = false).
+  // Con APP_CLOSE=direct è sempre diretta, con APP_CLOSE=confirm passa sempre da Telegram.
+  async _closeDirect() {
+    const m = String(this.env.APP_CLOSE || '').toLowerCase();
+    if (m === 'direct') return true; if (m === 'confirm') return false;
+    return (await this.current()).realApprove === false;
+  }
   async _proposeClose(c) {
     const mode = c && c.mode, id = String((c && c.id) || '').toUpperCase();
     if ((mode !== 'paper' && mode !== 'real') || !/^[PR]-\d{1,6}$/.test(id) || (mode === 'real') !== id.startsWith('R-')) return { ok: false, error: 'posizione non valida' };
@@ -318,9 +325,9 @@ export class Executor {
     await this.store.put('lastClose', now);
     const seq = (await this.store.get('cseq', 0)) + 1; await this.store.put('cseq', seq);
     const p = { id: 'C-' + String(seq).padStart(4, '0'), changes: {}, close: { mode, id, sym: String(sym || '').slice(0, 20) }, at: now, exp: now + 10 * 60000 };
-    if (String(this.env.APP_CLOSE || '').toLowerCase() === 'direct') { const r = await this._applyClose(p.close); return { ...r, proposal: p, direct: true }; }
+    if (await this._closeDirect()) { const r = await this._applyClose(p.close); return { ...r, proposal: p, direct: true }; }
     props.push(p); await this.store.put('proposals', props);
-    await this.notify(`🔒 Chiusura posizione ${mode === 'real' ? 'REALE' : 'paper'} ${p.id}\n${p.close.sym} (${id}): vendita di tutta la posizione a mercato.${mode === 'real' ? '\nSono soldi veri.' : ''}\n\nValida per 10 minuti. Se non l'hai chiesta tu, rifiuta.`, { inline_keyboard: [[{ text: '🔒 Chiudi ora', callback_data: 'pa:' + p.id }, { text: '❌ Annulla', callback_data: 'pr:' + p.id }]] });
+    await this.notify(`Chiusura posizione ${mode === 'real' ? 'REALE' : 'paper'} ${p.id}\n${p.close.sym} (${id}): vendita di tutta la posizione a mercato.${mode === 'real' ? '\nSono soldi veri.' : ''}\n\nValida per 10 minuti. Se non l'hai chiesta tu, rifiuta.`, { inline_keyboard: [[{ text: 'Chiudi ora', callback_data: 'pa:' + p.id }, { text: 'Annulla', callback_data: 'pr:' + p.id }]] });
     return { ok: true, proposal: p };
   }
   async _applyClose(c) {
@@ -332,7 +339,7 @@ export class Executor {
     }
     const cl = (await this.store.get('paperCloses', [])).filter((x) => x.id !== c.id); cl.push({ id: c.id, at: this.now() });
     await this.store.put('paperCloses', cl.slice(-20));
-    await this.notify(`🔒 Chiusura paper approvata (${c.id}): il runner vende a mercato entro un minuto.`);
+    await this.notify(`Chiusura paper approvata (${c.id}): il runner vende a mercato entro un minuto.`);
     return { ok: true, close: true };
   }
   // EMERGENZA IMMEDIATA: ferma i nuovi ingressi, spegne autopilota e reale del runner, vende subito le posizioni reali (2 per giro, il resto al giro dopo).
@@ -342,7 +349,7 @@ export class Executor {
     await this.store.put('killed', true);
     const ov = { ...(await this.store.get('params', {})), autopilot: false, realEnabled: false }; await this.store.put('params', ov); this.ov = ov;
     await this.store.put('emergency', { at: this.now() });
-    await this.notify('🚨 EMERGENZA attivata: nuovi ingressi fermi, autopilota e reale del runner spenti. Vendo le posizioni reali aperte…');
+    await this.notify('EMERGENZA attivata: nuovi ingressi fermi, autopilota e reale del runner spenti. Vendo le posizioni reali aperte…');
     const r = await this._tick();
     return { ok: true, emergency: true, ...r };
   }
@@ -353,7 +360,7 @@ export class Executor {
     const seq = (await this.store.get('cseq', 0)) + 1; await this.store.put('cseq', seq);
     const p = { id: 'C-' + String(seq).padStart(4, '0'), changes: {}, emergency: true, at: now, exp: now + 10 * 60000 };
     props.push(p); await this.store.put('proposals', props.slice(-6));
-    await this.notify(`🚨 EMERGENZA IMMEDIATA richiesta dall'app (${p.id})\nSe confermi: nuovi ingressi fermi, autopilota e reale spenti, vendita subito di tutte le posizioni reali.\n\nSe non l'hai chiesta tu, premi Annulla.`, { inline_keyboard: [[{ text: '🚨 CONFERMA EMERGENZA', callback_data: 'pa:' + p.id }], [{ text: 'Annulla', callback_data: 'pr:' + p.id }]] });
+    await this.notify(`EMERGENZA IMMEDIATA richiesta dall'app (${p.id})\nSe confermi: nuovi ingressi fermi, autopilota e reale spenti, vendita subito di tutte le posizioni reali.\n\nSe non l'hai chiesta tu, premi Annulla.`, { inline_keyboard: [[{ text: 'CONFERMA EMERGENZA', callback_data: 'pa:' + p.id }], [{ text: 'Annulla', callback_data: 'pr:' + p.id }]] });
     return { ok: true, proposal: p };
   }
   propose(req) { return this.run(async () => {
@@ -372,7 +379,7 @@ export class Executor {
     const seq = (await this.store.get('cseq', 0)) + 1; await this.store.put('cseq', seq); await this.store.put('lastProposal', now);
     const p = { id: 'C-' + String(seq).padStart(4, '0'), changes: diff, at: now, exp: now + 10 * 60000 };
     props.push(p); await this.store.put('proposals', props);
-    await this.notify(`⚙️ Modifica parametri ${p.id}\n${diffText(cur, diff)}\n\nValida per 10 minuti. Se non l'hai chiesta tu, rifiuta.`, { inline_keyboard: [[{ text: '✅ Applica', callback_data: 'pa:' + p.id }, { text: '❌ Rifiuta', callback_data: 'pr:' + p.id }]] });
+    await this.notify(`Modifica parametri ${p.id}\n${diffText(cur, diff)}\n\nValida per 10 minuti. Se non l'hai chiesta tu, rifiuta.`, { inline_keyboard: [[{ text: 'Applica', callback_data: 'pa:' + p.id }, { text: 'Rifiuta', callback_data: 'pr:' + p.id }]] });
     return { ok: true, proposal: p };
   }); }
   applyProposal(id) { return this.run(async () => {
@@ -384,16 +391,16 @@ export class Executor {
     if (p.close) return this._applyClose(p.close);
     if (p.reset) {
       await this.store.put('paperReset', { id: p.id, capitalSOL: p.reset.capitalSOL, at: now });
-      await this.notify(`⚠️ Reset del paper approvato (${p.id}): il runner azzera il conto e riparte con ${p.reset.capitalSOL} SOL entro un minuto.`);
+      await this.notify(`Reset del paper approvato (${p.id}): il runner azzera il conto e riparte con ${p.reset.capitalSOL} SOL entro un minuto.`);
       return { ok: true, reset: true };
     }
     const cur = await this.current(), ov = { ...(await this.store.get('params', {})), ...p.changes };
     await this.store.put('params', ov); this.ov = ov;
-    await this.notify(`✅ Parametri applicati (${p.id})\n${diffText(cur, p.changes)}\nIl runner li usa entro un minuto.`);
+    await this.notify(`Parametri applicati (${p.id})\n${diffText(cur, p.changes)}\nIl runner li usa entro un minuto.`);
     return { ok: true, applied: p.changes };
   }); }
   rejectProposal(id) { return this.run(async () => { const ps = await this.store.get('proposals', []); await this.store.put('proposals', ps.filter((x) => x.id !== id)); return { ok: true }; }); }
-  resetParams() { return this.run(async () => { await this.store.put('params', {}); this.ov = {}; await this.store.put('proposals', []); await this.notify('↩️ Parametri riportati ai valori di config.json e ai tetti di Cloudflare.'); return { ok: true }; }); }
+  resetParams() { return this.run(async () => { await this.store.put('params', {}); this.ov = {}; await this.store.put('proposals', []); await this.notify('Parametri riportati ai valori di config.json e ai tetti di Cloudflare.'); return { ok: true }; }); }
   // il runner riferisce i parametri che sta davvero usando (con il suo token): servono a mostrare «prima → dopo» corretti
   async reportRunner(cfg, resetAck, closeAck) {
     if (cfg) {
@@ -417,6 +424,7 @@ export class Executor {
     const now = this.now(), ov = this.ov || {}, split = (scope) => Object.fromEntries(Object.entries(ov).filter(([k]) => SCHEMA[k] && SCHEMA[k].scope === scope));
     return { ok: true, schema: SCHEMA, groups: GROUPS, runner: split('runner'), worker: split('worker'), runnerCfg: await this.store.get('runnerCfg', {}), ceilings: this.ceilings(), limits: this.limits(),
       resetPaper: ((r) => (r && now - r.at < 3600000 ? r : null))(await this.store.get('paperReset', null)),
+      closeDirect: await this._closeDirect(),
       closePaper: (await this.store.get('paperCloses', [])).filter((x) => now - x.at < 3600000).map((x) => x.id),
       proposals: (await this.store.get('proposals', [])).filter((p) => p.exp > now).map((p) => ({ id: p.id, changes: p.changes, reset: p.reset || null, emergency: !!p.emergency, close: p.close || null, exp: p.exp })) };
   }

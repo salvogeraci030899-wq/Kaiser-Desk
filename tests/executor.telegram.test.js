@@ -135,7 +135,7 @@ test('EMERGENZA: /emergenza vende subito le posizioni reali, ferma ingressi, aut
 test('EMERGENZA senza posizioni: si completa subito e non si ripete; dall\'app è una richiesta con tasto CONFERMA', async () => {
   const w = world(), ex = w.ex();
   const r = await ex.propose({ emergency: true }); assert.equal(r.ok, true);
-  const m = w.tg.at(-1); assert.match(m.text, /EMERGENZA IMMEDIATA richiesta dall'app/); assert.equal(m.reply_markup.inline_keyboard[0][0].text, '🚨 CONFERMA EMERGENZA'); assert.equal(m.reply_markup.inline_keyboard[0][0].callback_data, 'pa:' + r.proposal.id);
+  const m = w.tg.at(-1); assert.match(m.text, /EMERGENZA IMMEDIATA richiesta dall'app/); assert.equal(m.reply_markup.inline_keyboard[0][0].text, 'CONFERMA EMERGENZA'); assert.equal(m.reply_markup.inline_keyboard[0][0].callback_data, 'pa:' + r.proposal.id);
   assert.equal((await ex.state()).killed, false, 'una richiesta dall\'app non agisce da sola');
   assert.match((await ex.propose({ emergency: true })).error, /già inviata/);                              // niente raffiche
   const pv = await ex.paramsView(); assert.equal(pv.proposals[0].emergency, true);
@@ -195,4 +195,18 @@ test('CHIUSURA dall\'app (paper): dopo la conferma il Worker passa la direttiva 
   await T.handleUpdate(ex, cbq('pa:' + r.proposal.id));
   assert.deepEqual((await ex.paramsView()).closePaper, ['P-0003']); assert.equal((await ex.paramsView()).proposals.length, 0);
   await ex.reportRunner(null, null, ['P-0003']); assert.deepEqual((await ex.paramsView()).closePaper, []);
+});
+test('CHIUSURA dall\'app: con l\'approvazione manuale disattivata dalle impostazioni è diretta (reale e paper), con APP_CLOSE=confirm passa sempre da Telegram', async () => {
+  const w = world(), ex = w.ex();
+  assert.equal((await ex.paramsView()).closeDirect, false, 'di base l\'approvazione è attiva: serve Telegram');
+  const off = await ex.propose({ changes: { realApprove: false } }); assert.equal(off.ok, true); await T.handleUpdate(ex, cbq('pa:' + off.proposal.id));   // approvazione spenta dalle impostazioni
+  assert.equal((await ex.paramsView()).closeDirect, true);
+  const t = await ex.ticket({ mint: MINT, sym: 'DIR2', score: 80, sizeSol: 0.05 }); await T.handleUpdate(ex, cbq('ap:' + t.ticket.id));
+  const pos = (await ex.state()).positions[0], n = w.tg.length;
+  const r = await ex.propose({ close: { mode: 'real', id: pos.id } }); assert.equal(r.direct, true); assert.equal((await ex.state()).positions.length, 0, 'reale: venduta subito');
+  assert.ok(!w.tg.slice(n).some((m) => m.reply_markup), 'nessun tasto di conferma su Telegram');
+  await ex.store.put('lastClose', 0); await ex.paperPut({ v: 1, positions: [{ id: 'P-0007', sym: 'PAP' }], journal: [] });   // salta la pausa tra due richieste
+  const p = await ex.propose({ close: { mode: 'paper', id: 'P-0007' } }); assert.equal(p.direct, true); assert.deepEqual((await ex.paramsView()).closePaper, ['P-0007'], 'paper: direttiva subito pronta per il runner');
+  const w2 = world({ APP_CLOSE: 'confirm' }), ex2 = w2.ex(), o2 = await ex2.propose({ changes: { realApprove: false } }); await T.handleUpdate(ex2, cbq('pa:' + o2.proposal.id));
+  assert.equal((await ex2.paramsView()).closeDirect, false, 'APP_CLOSE=confirm forza la conferma su Telegram');
 });
