@@ -1,7 +1,7 @@
 {
  "startedAt": 1794594807914,
- "runs": 19,
- "cash": 3.3902575438483495,
+ "runs": 20,
+ "cash": 2.8625636637520375,
  "positions": [
   {
    "id": "P-0011",
@@ -53,11 +53,11 @@
     "grok": null
    },
    "last": {
-    "priceNative": 0.00001372,
-    "liq": 97218.11,
-    "br5": 1.6875,
+    "priceNative": 0.00001299,
+    "liq": 94519.7,
+    "br5": 1.3888888888888888,
     "tx5": 41,
-    "t": 1794630293011
+    "t": 1794630592083
    },
    "fills": [
     "BUY 0.424 impatto 0.84% (Jupiter)"
@@ -113,14 +113,134 @@
     "grok": null
    },
    "last": {
-    "priceNative": 0.000001305,
-    "liq": 23243.19,
-    "br5": 1.1428571428571428,
-    "tx5": 43,
-    "t": 1794630293011
+    "priceNative": 0.000001284,
+    "liq": 23066.96,
+    "br5": 2.1666666666666665,
+    "tx5": 36,
+    "t": 1794630592083
    },
    "fills": [
     "BUY 0.423 impatto 0.57% (Jupiter)"
+   ]
+  },
+  {
+   "id": "P-0013",
+   "mint": "A5bpyAGdSPKwX3YDyF563DmbVSfM3EcYgBPjPna8pump",
+   "sym": "UP",
+   "name": "UP Syndrome",
+   "pairAddress": "AMb1VtZB1ooixnssf8NbX8EtCysT8bSb7vuQ1SjvTF3u",
+   "openedAt": 1794630466028,
+   "sizeSOL": 0.42012247195547914,
+   "cost": 0.4208224719554791,
+   "entry": 3.95617e-7,
+   "tokens": 1061942.4138888852,
+   "remaining": 0.25,
+   "rawLeft": "157438358242",
+   "peak": 7.511e-7,
+   "tp1Done": true,
+   "spDone": false,
+   "entryLiq": 11579.91,
+   "realized": 0.32598415505,
+   "score": 73,
+   "why": "runner",
+   "entryInfo": {
+    "srcs": [
+     "profili",
+     "GMGN"
+    ],
+    "notes": [],
+    "plus": [
+     "turnover 4.6x/h",
+     "24 smart money",
+     "1 KOL"
+    ],
+    "m": {
+     "liq": 15572.15,
+     "mc": 50890,
+     "ageMin": 10.672683333333334,
+     "v1": 71028.89,
+     "tx1": 3302,
+     "br1": 0.7744360902255639,
+     "br5": 1.2538699690402477,
+     "c5": 252,
+     "c1": 71.31,
+     "c6": 71.31,
+     "turn": 4.561277023403962,
+     "price": 0.00005088,
+     "priceNative": 6.743e-7
+    },
+    "grok": null
+   },
+   "last": {
+    "priceNative": 6.644e-7,
+    "liq": 15577.45,
+    "br5": 1.2094594594594594,
+    "tx5": 979,
+    "t": 1794630592083
+   },
+   "fills": [
+    "BUY 0.420 impatto 0.00% (Jupiter)",
+    "SELL 75% -> 0.3260 (TP1, Jupiter)"
+   ]
+  },
+  {
+   "id": "P-0014",
+   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
+   "sym": "WISHMAS",
+   "name": "Wishmas ",
+   "pairAddress": "FcsUythNUWbfT7RP2yuFp1kiWjft15du9WtgLUrrqx3p",
+   "openedAt": 1794630529179,
+   "sizeSOL": 0.43215556319083315,
+   "cost": 0.4328555631908331,
+   "entry": 0.00000250477965594427,
+   "tokens": 172532.36713467157,
+   "remaining": 1,
+   "rawLeft": "164575882840",
+   "peak": 0.000002646,
+   "tp1Done": false,
+   "spDone": false,
+   "entryLiq": 33794.52,
+   "realized": 0,
+   "score": 73,
+   "why": "runner",
+   "entryInfo": {
+    "srcs": [
+     "GMGN"
+    ],
+    "notes": [
+     "bot 54%"
+    ],
+    "plus": [
+     "pressione in acquisto",
+     "86 smart money",
+     "7 KOL"
+    ],
+    "m": {
+     "liq": 35134.81,
+     "mc": 192084,
+     "ageMin": 405.35861666666665,
+     "v1": 55333.15,
+     "tx1": 1145,
+     "br1": 1.4666666666666666,
+     "br5": 1.9545454545454546,
+     "c5": 15.75,
+     "c1": 20.78,
+     "c6": 86.47,
+     "turn": 1.5748811506309557,
+     "price": 0.0002012,
+     "priceNative": 0.000002666
+    },
+    "grok": null
+   },
+   "last": {
+    "priceNative": 0.000002646,
+    "liq": 35004.52,
+    "br5": 1.9444444444444444,
+    "tx5": 104,
+    "t": 1794630592083
+   },
+   "fills": [
+    "BUY 0.432 impatto 0.24% (Jupiter)"
    ]
   }
  ],
@@ -3516,6 +3636,104 @@
    "sym": "JENSEN",
    "score": 78,
    "priceNative": 0.00001433
+  },
+  {
+   "t": 1794630403257,
+   "mint": "EjoWiu2PLuEs6roeM1H9YxApa3LQ3guo9E27Lcu5pump",
+   "sym": "HARAMBE",
+   "score": 78,
+   "priceNative": 0.000001597
+  },
+  {
+   "t": 1794630403257,
+   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
+   "sym": "JENSEN",
+   "score": 77,
+   "priceNative": 0.00001356
+  },
+  {
+   "t": 1794630403257,
+   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
+   "sym": "WISHMAS",
+   "score": 76,
+   "priceNative": 0.000002416
+  },
+  {
+   "t": 1794630465966,
+   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
+   "sym": "JENSEN",
+   "score": 78,
+   "priceNative": 0.0000141
+  },
+  {
+   "t": 1794630465966,
+   "mint": "EjoWiu2PLuEs6roeM1H9YxApa3LQ3guo9E27Lcu5pump",
+   "sym": "HARAMBE",
+   "score": 78,
+   "priceNative": 0.000001494
+  },
+  {
+   "t": 1794630465966,
+   "mint": "A5bpyAGdSPKwX3YDyF563DmbVSfM3EcYgBPjPna8pump",
+   "sym": "UP",
+   "score": 73,
+   "priceNative": 6.743e-7
+  },
+  {
+   "t": 1794630529119,
+   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
+   "sym": "JENSEN",
+   "score": 77,
+   "priceNative": 0.00001579
+  },
+  {
+   "t": 1794630529119,
+   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
+   "sym": "AMC",
+   "score": 77,
+   "priceNative": 0.00005517
+  },
+  {
+   "t": 1794630529119,
+   "mint": "A5bpyAGdSPKwX3YDyF563DmbVSfM3EcYgBPjPna8pump",
+   "sym": "UP",
+   "score": 74,
+   "priceNative": 7.511e-7
+  },
+  {
+   "t": 1794630529119,
+   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
+   "sym": "WISHMAS",
+   "score": 73,
+   "priceNative": 0.000002666
+  },
+  {
+   "t": 1794630592065,
+   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
+   "sym": "JENSEN",
+   "score": 77,
+   "priceNative": 0.00001541
+  },
+  {
+   "t": 1794630592065,
+   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
+   "sym": "AMC",
+   "score": 77,
+   "priceNative": 0.0000556
+  },
+  {
+   "t": 1794630592065,
+   "mint": "A5bpyAGdSPKwX3YDyF563DmbVSfM3EcYgBPjPna8pump",
+   "sym": "UP",
+   "score": 74,
+   "priceNative": 6.644e-7
+  },
+  {
+   "t": 1794630592065,
+   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
+   "sym": "WISHMAS",
+   "score": 74,
+   "priceNative": 0.000002646
   }
  ],
  "day": {
@@ -3524,8 +3742,25 @@
  },
  "cooldownUntil": 1794629768047,
  "halted": null,
- "seq": 12,
+ "seq": 14,
  "events": [
+  "04:30:05 SCRIBE   fine run · trade 10 · win 10% · P&L -0.7619 SOL · equity 4.3314 SOL",
+  "04:29:52 ORACLE   90 raccolti, 67 analizzati, 4 BUY, 34 veto",
+  "04:29:50 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 04:30:20 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
+  "04:28:49 QUARTER  BUY $WISHMAS 0.432 SOL score 73 impatto 0.24% (Jupiter)",
+  "04:28:49 ORACLE   90 raccolti, 67 analizzati, 4 BUY, 35 veto",
+  "04:28:47 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 04:29:17 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
+  "04:28:16 CHARON   TP1 $UP vendo 75% a 83.4% -> 0.3260 SOL",
+  "04:27:46 QUARTER  BUY $UP 0.420 SOL score 73 impatto 0.00% (Jupiter)",
+  "04:27:45 ORACLE   90 raccolti, 67 analizzati, 3 BUY, 35 veto",
+  "04:27:44 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 04:28:14 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
+  "04:26:43 QUARTER  $WISHMAS impatto 2.1% oltre slippage: annullato",
+  "04:26:43 ORACLE   90 raccolti, 66 analizzati, 3 BUY, 34 veto",
+  "04:26:40 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 04:27:10 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
+  "04:25:39 ORACLE   90 raccolti, 56 analizzati, 0 BUY, 31 veto",
+  "04:25:36 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 04:26:06 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
+  "04:25:35 KAISER   parametri dall'app: scanSec 30→15, minScore 68→72, sizePct 5→10, maxPos 3→5, slippageBps 300→200, prioritySOL 0.0005→0.0007, cooldownMin 10→0, sl 25→35, tp1 40→35, tp1Sell 50→75, timeStopMin 45→15, timeStopMinPnl 5→2, minLiq 15000→5000, minMcap 15000→6500, minAgeMin 5→0, srcGmgnTrenches false→true",
+  "04:25:35 KAISER   run #20 · 2 posizioni · equity 4.2559 SOL · GMGN demo · Grok off",
   "04:25:04 SCRIBE   fine run · trade 10 · win 10% · P&L -0.7619 SOL · equity 4.2559 SOL",
   "04:24:52 ORACLE   90 raccolti, 62 analizzati, 2 BUY, 37 veto",
   "04:24:50 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 04:25:20 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
