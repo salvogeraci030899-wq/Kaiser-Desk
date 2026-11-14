@@ -8,6 +8,7 @@ const fs = require('fs');
 const path = require('path');
 const E = require('../engine.js');
 const Y = require('./young.js');
+const Lab = require('./trades.js');
 
 const STATE_DIR = process.env.STATE_DIR || path.join(__dirname, '..', 'state');
 const LOOP_MIN = Number(process.env.LOOP_MIN || 4.5);
@@ -46,7 +47,7 @@ const st = Object.assign({
 }, readJSON(F.state, {}));
 st.runs++;
 if (st.capital > 0) S.capitalSOL = st.capital;   // capitale scelto con un reset dall'app: resta valido ai run successivi
-const rt = { solUsd: 0, sec: new Map(), grok: new Map(), gmgn: new Map(), cands: new Map(), gmgnCache: {}, gcache: {}, seen: new Map(), young: new Map(), youngQ: new Set(), feed: null };
+const rt = { solUsd: 0, sec: new Map(), grok: new Map(), gmgn: new Map(), cands: new Map(), gmgnCache: {}, gcache: {}, seen: new Map(), young: new Map(), youngQ: new Set(), feed: null, trades: null };
 
 function log(agent, msg) {
   const line = `${new Date().toISOString().slice(11, 19)} ${agent.padEnd(8)} ${msg}`;
@@ -83,7 +84,8 @@ function publicSummary() {
       remaining: p.remaining, tp1Done: p.tp1Done, peak: p.peak, score: p.score, last: p.last ? { priceNative: p.last.priceNative, liq: p.last.liq, t: p.last.t } : null })),
     journal: st.journal.slice(-100).map((j) => ({ id: j.id, mint: j.mint, sym: j.sym, openedAt: j.openedAt, closedAt: j.closedAt, cost: j.cost, back: j.back, pnl: j.pnl, pct: j.pct, reason: j.reason, score: j.score, peakPct: j.peakPct, trigPct: j.trigPct, maePct: j.maePct == null ? null : j.maePct, age: j.age == null ? null : j.age })),
     events: st.events.slice(0, 40), config: cfg,
-    young: Y.youngSummary(rt.young, Date.now(), 80), youngInfo: rt.feed ? { ...rt.feed.status(), tracked: [...rt.young.values()].filter((y) => y.tracked).length } : null,
+    young: Y.youngSummary(rt.young, Date.now(), 80, (m) => (rt.trades ? rt.trades.botNow(m) : null)),
+    lab: rt.trades || (st.lab && st.lab.done.length) ? { info: rt.trades ? rt.trades.status() : null, ...Lab.labSummary((st.lab && st.lab.done) || [], Date.now()) } : null, youngInfo: rt.feed ? { ...rt.feed.status(), tracked: [...rt.young.values()].filter((y) => y.tracked).length } : null,
   };
 }
 
@@ -529,9 +531,14 @@ function checkpoint() {
 
 // ---------------- loop ----------------
 function startYoung() {
+  const onToken = (t) => { if (S.srcYoung !== false) Y.addYoung(rt.young, t, Date.now(), 800); };
+  if (S.srcLab !== false) {                                     // Laboratorio: una sola connessione a PumpPortal per nuovi token e scambi (osservazione, nessun ordine)
+    rt.trades = new Lab.TradeFeed({ log: (m) => log('SCOUT', m), onCreate: onToken, onDone: (s) => { st.lab = st.lab || { done: [] }; st.lab.done.push(s); st.lab.done = st.lab.done.slice(-600); } });
+    rt.trades.start();
+  }
   if (S.srcYoung === false) return;
-  rt.feed = new Y.YoungFeed({ rpcUrl: process.env.RPC_URL || '', log: (m) => log('SCOUT', m), onToken: (t) => Y.addYoung(rt.young, t, Date.now(), 800) });
-  rt.feed.start();
+  const rpc = process.env.RPC_URL || '';
+  if (rpc || !rt.trades) { rt.feed = new Y.YoungFeed({ rpcUrl: rpc, portal: !rt.trades, log: (m) => log('SCOUT', m), onToken: (t) => Y.addYoung(rt.young, t, Date.now(), 800) }); rt.feed.start(); }   // RPC come fonte principale; PumpPortal (Laboratorio) come riserva
 }
 async function main() {
   startYoung();
@@ -543,6 +550,7 @@ async function main() {
       if (Date.now() - lastScan >= Math.max(15, num(S.scanSec, SCAN_SEC)) * 1000) { lastScan = Date.now(); await scan(); }
       else await manage();
     } catch (e) { log('KAISER', 'errore: ' + (e.stack || e.message).split('\n')[0]); }
+    if (rt.trades) rt.trades.tick();
     save();
     if (Date.now() - lastCp >= CHECKPOINT_MS) { lastCp = Date.now(); checkpoint(); }
     const left = end - Date.now();
@@ -561,6 +569,7 @@ async function main() {
     await tg(`<b>KAISER</b> riepilogo ${dkey}\nOggi: ${today.length} trade, ${pd >= 0 ? '+' : ''}${pd.toFixed(4)} SOL\nTotale: ${s.n} trade, win ${s.wr.toFixed(0)}%, P&L ${s.pnl.toFixed(4)} SOL\nEquity ${equity().toFixed(4)} SOL`);
   }
   if (rt.feed) rt.feed.stop();
+  if (rt.trades) rt.trades.stop();
   save();
   await pushLive(true);
 }

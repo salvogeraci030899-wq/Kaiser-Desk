@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.24.2">
+<meta name="kz-build" content="2.25.0">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=2">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
@@ -150,7 +150,7 @@
     <div class="vscroll jfix">
     <div class="card jcard"><div class="jrow jhead"><span>Token</span><span>Esito</span><span>P&amp;L</span><span>Motivo</span></div><div class="jbody" id="jRows"></div></div>
     </div>
-    <div class="vfoot"><div class="seg jseg" id="jTabs"><button data-jt="mot" class="on">Motivi di uscita</button><button data-jt="age">Per età</button><button data-jt="dip">Discese</button></div><div class="card" id="jReasons"></div></div>
+    <div class="vfoot"><div class="seg jseg" id="jTabs"><button data-jt="mot" class="on">Motivi di uscita</button><button data-jt="age">Per età</button><button data-jt="dip">Discese</button><button data-jt="lab">Lab</button></div><div class="card" id="jReasons"></div></div>
   </section>
 
   <!-- SISTEMA -->
@@ -346,7 +346,7 @@ async function scan() {
       await sleep(250);
     }
     const ym = new Map(((rt.run && rt.run.young) || []).map((y) => [y.m, y]));
-    for (const c of cands) { const y = ym.get(c.mint); if (y) c.a.notes.unshift(`giovane ${Math.round(y.a)}m · ${Math.round(y.d)}% dal picco`); }
+    for (const c of cands) { const y = ym.get(c.mint); if (y) c.a.notes.unshift(`giovane ${Math.round(y.a)}m · ${Math.round(y.d)}% dal picco${y.b != null ? ' · bot ' + y.b : ''}`); }
     rt.cands = new Map(cands.map((c) => [c.mint, c]));
     log('ORACLE', `${cands.length} analizzati · ${cands.filter((c) => c.verdict === 'BUY').length} BUY · ${cands.filter((c) => c.verdict === 'WATCH').length} WATCH · ${cands.filter((c) => c.verdict === 'VETO').length} veto`);
     rt.lastScan = Date.now();
@@ -593,6 +593,12 @@ function renderJournal() {
     const B = [['< 15 min', (x) => x < 15], ['15-60 min', (x) => x < 60], ['1-6 ore', (x) => x < 360], ['6-24 ore', (x) => x < 1440], ['oltre 24 ore', () => true]], G = B.map(() => ({ n: 0, w: 0, pnl: 0 })), A = J.filter((j) => j.age != null);
     for (const j of A) { const i = B.findIndex(([, f]) => f(j.age)); G[i].n++; G[i].w += j.pnl > 0 ? 1 : 0; G[i].pnl += j.pnl; }
     body = A.length ? `<div class="kv">${B.map(([l], i) => G[i].n ? kvRow(`${l} (${G[i].n}) · ${Math.round(G[i].w / G[i].n * 100)}% vinti`, G[i].pnl.toFixed(4) + '◎', cls(G[i].pnl)) : '').join('')}</div>` : none;
+  } else if (tab === 'lab') {
+    const L = run && run.lab, none2 = '<span class="muted small">Il Laboratorio osserva le Coin nuove di pump.fun: i primi risultati arrivano dopo circa 20 minuti dall\'avvio del runner con il codice nuovo.</span>';
+    if (!L) body = none2; else {
+      const c = L.cohorts || [], pct = (k) => c.map((g) => (g.n ? g.races[k].tp + '/' + g.races[k].sl : '—')).join(' · '), info = L.info;
+      body = `<div class="kv">${kvRow('Coin osservate · valide', L.observed + ' · ' + L.valid)}${info ? kvRow('Ora', info.state === 'on' ? `collegato · ${info.active} Coin · ${info.trades} scambi` : 'non collegato') : ''}${kvRow('Coin per gruppo (bot basso · medio · alto)', c.map((g) => g.n).join(' · '))}${[['10/10', '+10% prima di −10%'], ['15/10', '+15% prima di −10%'], ['30/25', '+30% prima di −25%'], ['50/30', '+50% prima di −30%']].map(([k, l]) => kvRow(l, pct(k))).join('')}${kvRow('Picco mediano (x l\'ingresso)', c.map((g) => (g.n ? g.peak + 'x' : '—')).join(' · '))}${kvRow('Dopo un acquirente grosso (x)', c.map((g) => (g.afterBig ? g.afterBig.med + 'x' : '—')).join(' · '))}</div><div class="tiny muted" style="margin-top:6px">Le coppie sono «prima il target / prima lo stop» in %. Ingresso simulato 60 secondi dopo la nascita; gruppi per punteggio bot calcolato solo con i primi 60 secondi.</div>`;
+    }
   } else if (tab === 'dip') {
     const W = J.filter((j) => j.pnl > 0 && j.maePct != null), L = J.filter((j) => j.pnl <= 0 && j.maePct != null), avg = (xs) => (xs.length ? xs.reduce((s, j) => s + j.maePct, 0) / xs.length : 0), cnt = (xs, t) => xs.filter((j) => j.maePct <= t).length;
     body = W.length + L.length ? `<div class="kv">${kvRow(`In profitto (${W.length}): calo medio prima`, W.length ? fmtPct(avg(W), 1) : '—')}${kvRow('   scesi oltre −10%', W.length ? cnt(W, -10) + '/' + W.length : '—')}${kvRow('   scesi oltre −25%', W.length ? cnt(W, -25) + '/' + W.length : '—')}${kvRow(`In perdita (${L.length}): calo medio`, L.length ? fmtPct(avg(L), 1) : '—', 'down')}</div>` : none;

@@ -54,12 +54,13 @@ class YoungFeed {
     this.o = o || {}; this.WS = this.o.WebSocketImpl || globalThis.WebSocket; this.now = this.o.now || Date.now;
     this.schedule = this.o.schedule || ((fn, ms) => setTimeout(fn, ms)); this.log = this.o.log || (() => {}); this.onToken = this.o.onToken || (() => {});
     this.rpcUrl = toWs(this.o.rpcUrl); this.portalUrl = this.o.portalUrl || PORTAL_URL; this.mention = this.o.mention || MINT_AUTH;
+    this.portalOn = this.o.portal !== false;   // false: la riserva PumpPortal la fornisce il Laboratorio (una sola connessione)
     this.s = { rpc: sock(), portal: sock() }; this.n = { rpc: 0, portal: 0 }; this.seen = new Map(); this.startedAt = 0; this.stopped = false; this.warned = {};
   }
   start() {
     if (!this.WS) { this.log('WebSocket non disponibile (serve Node 22): token giovani spenti'); return false; }
     this.startedAt = this.now(); this.stopped = false;
-    if (this.rpcUrl) this.connect('rpc'); else this.connect('portal');
+    if (this.rpcUrl) this.connect('rpc'); else if (this.portalOn) this.connect('portal'); else return false;
     const mk = this.o.setInterval || setInterval; this.timer = mk(() => this.tick(), 15000); if (this.timer && this.timer.unref) this.timer.unref();
     return true;
   }
@@ -92,7 +93,7 @@ class YoungFeed {
     this.n[kind]++; this.onToken({ ...t, src: kind, at: s.lastMsg });
   }
   rpcOk() { const s = this.s.rpc; return s.state === 'on' && s.lastMsg > 0 && this.now() - s.lastMsg < 90000; }
-  wantPortal() { return !this.rpcUrl || !this.rpcOk(); }
+  wantPortal() { return this.portalOn && (!this.rpcUrl || !this.rpcOk()); }
   // Ogni 15 s: se l'RPC non dà eventi da 90 s si attiva PumpPortal; se l'RPC è sano e PumpPortal è aperto lo si chiude; un RPC muto da 3 minuti si ricollega.
   tick() {
     if (this.stopped) return; const now = this.now(), rpc = this.s.rpc, portal = this.s.portal;
@@ -145,9 +146,9 @@ function youngApply(map, pairs, now, o) {
 }
 const youngDip = (y) => (y && y.peak > 0 && y.last > 0 ? (y.last / y.peak - 1) * 100 : 0);
 const youngAge = (y, now) => (now - y.createdAt) / 60000;
-function youngSummary(map, now, n) {
+function youngSummary(map, now, n, botOf) {
   return [...map.values()].filter((y) => y.tracked).sort((a, b) => b.createdAt - a.createdAt).slice(0, n || 80)
-    .map((y) => ({ m: y.mint, s: y.sym, a: Math.round(youngAge(y, now) * 10) / 10, d: Math.round(youngDip(y) * 10) / 10 }));
+    .map((y) => ({ m: y.mint, s: y.sym, a: Math.round(youngAge(y, now) * 10) / 10, d: Math.round(youngDip(y) * 10) / 10, b: botOf ? botOf(y.mint) : null }));
 }
 
 module.exports = { PUMP_PROGRAM, MINT_AUTH, PORTAL_URL, CREATE_DISC, b58, parseCreateEvent, parseRpcLog, parsePortal, YoungFeed, addYoung, pruneYoung, youngBatch, youngApply, youngDip, youngAge, youngSummary, TTL_MS };

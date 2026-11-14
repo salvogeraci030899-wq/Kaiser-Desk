@@ -153,3 +153,15 @@ Compri a mano (pump.fun, Phantom) con **lo stesso wallet dell'esecutore**; lo Sc
 - Se un tentativo parte davvero ma l'RPC risponde un errore, quello dopo non vende di nuovo la stessa quota (si calcola dal saldo di partenza).
 - Vale per stop, TP, trailing, emergenza, `/vendi` e Scudo. Limite: massimo 5 tentativi per invocazione (budget delle richieste esterne del piano gratuito).
 - Gli **acquisti** del tool usano `realSlippageBps` (Paper → Reale, 300 = 3%): mettilo a 200 per avere il 2% anche in ingresso.
+
+## Laboratorio: osservare i token pump.fun (solo osservazione)
+
+Il Laboratorio non apre ordini, ne reali ne paper. Registra cosa succede ai token appena creati, per verificare l'ipotesi del bot unico.
+
+- Una sola connessione PumpPortal segue fino a 300 token per volta, ciascuno per 21 minuti.
+- Per ogni token misura concentrazione dei portafogli (primi 3), acquisti in blocco nei primi secondi, portafogli che comprano e vendono in ciclo, vendite del dev, rapporto portafogli unici/scambi.
+- Da queste misure nasce un punteggio bot (0-100), usando solo il primo minuto di vita. I token sono divisi in tre gruppi: basso (<35), medio, alto (>=65).
+- Ingresso simulato 60 secondi dopo la nascita. Per ogni gruppo mostra, in %, quante volte il prezzo tocca prima il target o prima lo stop (10/10, 15/10, 30/25, 50/30), il picco mediano e cosa succede dopo l'arrivo di un acquirente grosso (>=1 SOL).
+- Dove vederlo: Journal, scheda Lab. I primi risultati arrivano circa 20 minuti dopo il riavvio del runner con il codice nuovo. Si disattiva con il parametro srcLab.
+
+Limiti: gli scambi dei primissimi secondi possono mancare se la sottoscrizione parte dopo la creazione; il punteggio bot e una euristica, non una prova; PumpPortal puo limitare o cadere; non e verificato dal vivo.
