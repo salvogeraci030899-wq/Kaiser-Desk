@@ -42,7 +42,7 @@ const st = Object.assign({
 }, readJSON(F.state, {}));
 st.runs++;
 if (st.capital > 0) S.capitalSOL = st.capital;   // capitale scelto con un reset dall'app: resta valido ai run successivi
-const rt = { solUsd: 0, sec: new Map(), grok: new Map(), gmgn: new Map(), cands: new Map(), gmgnCache: {} };
+const rt = { solUsd: 0, sec: new Map(), grok: new Map(), gmgn: new Map(), cands: new Map(), gmgnCache: {}, gcache: {}, seen: new Map() };
 
 function log(agent, msg) {
   const line = `${new Date().toISOString().slice(11, 19)} ${agent.padEnd(8)} ${msg}`;
@@ -137,7 +137,10 @@ async function discover() {
     jobs.push(fetchJSON('https://api.dexscreener.com/token-boosts/latest/v1').then((a) => (a || []).forEach((x) => x.chainId === 'solana' && add(x.tokenAddress, 'boost'))).catch(() => {}));
     jobs.push(fetchJSON('https://api.dexscreener.com/token-boosts/top/v1').then((a) => (a || []).forEach((x) => x.chainId === 'solana' && add(x.tokenAddress, 'top boost'))).catch(() => {}));
   }
-  if (S.srcGecko !== false) for (const [u, src] of E.GECKO_SOURCES) jobs.push(fetchJSON(u).then((j) => E.geckoMints(j).forEach((m) => add(m, src))).catch((e) => log('SCOUT', 'gecko: ' + e.message)));
+  // Fonti con limite di richieste: al massimo una volta al minuto ciascuna, con l'ultimo elenco riusato nel frattempo (vedi cachedList in engine.js)
+  const cached = (u, src, parse) => jobs.push(E.cachedList(rt.gcache, u, 60000, () => fetchJSON(u).then(parse)).then((list) => { list.forEach((m) => add(m, src)); const c = rt.gcache[u]; if (c && c.err && !c.warned) { c.warned = true; log('SCOUT', `${src}: ${c.err.slice(0, 80)} (riuso l'ultimo elenco)`); } else if (c && !c.err) c.warned = false; }));
+  if (S.srcGecko !== false) for (const [u, src] of E.GECKO_SOURCES) cached(u, src, E.geckoMints);
+  if (S.srcJupiter !== false) for (const [u, src] of E.JUPITER_SOURCES) cached(u, src, E.jupMints);
   // GMGN ha limiti di richieste per IP: con scansioni ogni ~30 s si finiva bannati (HTTP 429). Si interroga al massimo una volta ogni GMGN_MIN_SEC
   // (con pausa lunga dopo un 429) e tra una chiamata e l'altra si riusano gli ultimi risultati.
   const gm = async (args, src) => {
@@ -393,13 +396,13 @@ async function scan() {
   await solPrice();
   const found = await discover();
   for (const p of st.positions) if (!found.has(p.mint)) found.set(p.mint, new Set(['posizione']));
-  const mints = [...found.keys()].slice(0, 160);
+  const mints = E.mergeSeen(rt.seen, found, Date.now(), 30 * 60000, 240);   // anche le Coin viste negli ultimi 30 minuti, con dati freschi
   const pairs = await dexPairs(mints);
   const cands = [];
   for (const m of mints) {
     const pair = pairs.get(m); if (!pair) continue;
     const a = E.analyze(pair, rt.gmgn.get(m) || null, S);
-    const c = { mint: m, pair, a, sym: (pair.baseToken && pair.baseToken.symbol) || '?', name: (pair.baseToken && pair.baseToken.name) || '', srcs: [...found.get(m)] };
+    const c = { mint: m, pair, a, sym: (pair.baseToken && pair.baseToken.symbol) || '?', name: (pair.baseToken && pair.baseToken.name) || '', srcs: [...rt.seen.get(m).srcs] };
     a.base = Math.max(0, a.base - botPenalty(c));
     Object.assign(c, E.decide(a, null, null, S));
     cands.push(c);

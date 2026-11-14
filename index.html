@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.17.0">
+<meta name="kz-build" content="2.18.0">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=2">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
@@ -30,7 +30,7 @@
   document.getElementById('metaStatusBar').setAttribute('content', light ? 'default' : (bar === 'separate' ? 'black' : 'black-translucent'));
 })();
 </script>
-<link rel="stylesheet" href="style.css?v=33">
+<link rel="stylesheet" href="style.css?v=34">
 <script src="version.js"></script>
 <script src="theme.js"></script>
 <script src="lock.js"></script>
@@ -255,7 +255,7 @@ const prefGet = (k, d) => { try { return localStorage.getItem(k) || d; } catch {
 const prefSet = (k, v) => { try { localStorage.setItem(k, v); } catch { /* memoria non disponibile */ } };
 
 const st = { mode: prefGet('kz_mode', 'paper') === 'real' ? 'real' : 'paper' };
-const rt = { imgs: new Map(), cands: new Map(), sec: new Map(), run: null, runErr: '', exec: null, execErr: '', par: null, parErr: '', draft: {}, prices: new Map(), solUsd: 0, scanning: false, lastScan: 0, filter: 'all', logs: [] };
+const rt = { gcache: {}, seen: new Map(), imgs: new Map(), cands: new Map(), sec: new Map(), run: null, runErr: '', exec: null, execErr: '', par: null, parErr: '', draft: {}, prices: new Map(), solUsd: 0, scanning: false, lastScan: 0, filter: 'all', logs: [] };
 const S = () => ({ ...DEFAULTS, ...((rt.run && rt.run.config) || {}) });   // stesse regole e filtri del runner
 
 // ---------- LOG / AVVISI ----------
@@ -312,7 +312,10 @@ async function discover() {
     jobs.push(fetchJSON('https://api.dexscreener.com/token-boosts/latest/v1').then((a) => (a || []).forEach((x) => x.chainId === 'solana' && add(x.tokenAddress, 'boost'))).catch(() => {}));
     jobs.push(fetchJSON('https://api.dexscreener.com/token-boosts/top/v1').then((a) => (a || []).forEach((x) => x.chainId === 'solana' && add(x.tokenAddress, 'top boost'))).catch(() => {}));
   }
-  if (s.srcGecko !== false) for (const [u, src] of GECKO_SOURCES) jobs.push(fetchJSON(u).then((j) => geckoMints(j).forEach((m) => add(m, src))).catch(() => log('SCOUT', '<span class="warn">GeckoTerminal non raggiungibile</span>')));
+  // Fonti con limite di richieste: al massimo una volta al minuto ciascuna, ultimo elenco riusato nel frattempo
+  const cached = (u, src, parse) => jobs.push(cachedList(rt.gcache, u, 60000, () => fetchJSON(u).then(parse)).then((list) => list.forEach((m) => add(m, src))));
+  if (s.srcGecko !== false) for (const [u, src] of GECKO_SOURCES) cached(u, src, geckoMints);
+  if (s.srcJupiter !== false) for (const [u, src] of JUPITER_SOURCES) cached(u, src, jupMints);
   await Promise.all(jobs); return found;
 }
 async function rugcheck(mint) {
@@ -330,10 +333,10 @@ async function scan() {
   rt.scanning = true; $('#btnLogo').classList.add('busy');
   try {
     await solPrice();
-    const found = await discover(), mints = [...found.keys()].slice(0, 160);
+    const found = await discover(), mints = mergeSeen(rt.seen, found, Date.now(), 30 * 60000, 240);   // anche le Coin viste negli ultimi 30 minuti, con dati freschi
     log('SCOUT', `${mints.length} token raccolti`);
     const pairs = await dexPairs(mints), cands = [];
-    for (const m of mints) { const p = pairs.get(m); if (p) cands.push(buildCand(m, p, found.get(m))); }
+    for (const m of mints) { const p = pairs.get(m); if (p) cands.push(buildCand(m, p, rt.seen.get(m).srcs)); }
     const top = cands.filter((c) => !c.a.vetoes.length && c.a.base >= S().minScore - 15).sort((x, y) => y.a.base - x.a.base).slice(0, 8);
     for (const c of top) {
       const sec = await rugcheck(c.mint);
@@ -375,7 +378,7 @@ function renderRadar() {
   let list = [...rt.cands.values()]; if (rt.filter !== 'all') list = list.filter((c) => c.verdict === rt.filter);
   const order = { BUY: 0, WATCH: 1, SKIP: 2, VETO: 3 }; list.sort((a, b) => order[a.verdict] - order[b.verdict] || b.score - a.score);
   const el = $('#radarList'), top = el.scrollTop;
-  el.innerHTML = list.length ? list.slice(0, 120).map(candCard).join('') : `<div class="empty">${rt.lastScan ? 'Nessun token in questo filtro.' : 'Scansione del radar in corso...'}</div>`;
+  el.innerHTML = list.length ? list.slice(0, 240).map(candCard).join('') : `<div class="empty">${rt.lastScan ? 'Nessun token in questo filtro.' : 'Scansione del radar in corso...'}</div>`;
   el.scrollTop = top; fitRadar();
   $('#lastScan').textContent = rt.lastScan ? new Date(rt.lastScan).toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' }) : 'mai';
 }
