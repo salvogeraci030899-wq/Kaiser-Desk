@@ -207,7 +207,7 @@ const st = {
   seq: saved.seq || 0,
   mode: saved.mode === 'real' && saved.S && saved.S.realEnabled ? 'real' : 'paper',   // quale conto stai guardando
 };
-const rt = { cands: new Map(), sec: new Map(), grok: new Map(), gmgn: new Map(), solUsd: 0, backendOk: false, health: null, exec: null, scanning: false, lastScan: 0, filter: 'all', logs: [] };
+const rt = { cands: new Map(), sec: new Map(), grok: new Map(), gmgn: new Map(), solUsd: 0, backendOk: false, health: null, exec: null, execErr: '', scanning: false, lastScan: 0, filter: 'all', logs: [] };
 const save = () => store.set({ S: st.S, cash: st.cash, positions: st.positions, journal: st.journal.slice(-500), tickets: st.tickets, day: st.day, cooldownUntil: st.cooldownUntil, halted: st.halted, seq: st.seq, mode: st.mode });
 
 // ---------- LOG / NOTIFICHE ----------
@@ -458,13 +458,16 @@ function realNoteHtml() {
   if (st.mode !== 'real') return '';
   const why = realGate(st.S, rt.exec), ex = rt.exec;
   return `<div class="card real-note"><b class="warn small">REALE · soldi veri</b>
-    <div class="small" style="margin-top:4px">${why ? `<span class="down">Non operativo:</span> ${esc(why)}.` : `<span class="up">Esecutore collegato</span>${ex && ex.wallet ? ' · wallet ' + esc(String(ex.wallet).slice(0, 4) + '…' + String(ex.wallet).slice(-4)) : ''}`}</div>
+    <div class="small" style="margin-top:4px">${why ? `<span class="down">Non operativo:</span> ${esc(why)}${!rt.exec && rt.execErr ? ' (' + esc(rt.execErr) + ')' : ''}.` : `<span class="up">Esecutore collegato</span>${ex && ex.wallet ? ' · wallet ' + esc(String(ex.wallet).slice(0, 4) + '…' + String(ex.wallet).slice(-4)) : ''}`}</div>
     <div class="tiny muted" style="margin-top:6px">Usa le stesse regole del paper (size, stop, TP, trailing) con tetto di capitale ${num(st.S.realCapitalSOL)}◎${st.S.realApprove ? ' e approvazione manuale di ogni ingresso' : ''}. Il conto paper non viene toccato.</div></div>`;
 }
 async function checkExecutor() {
-  rt.exec = null;
+  rt.exec = null; rt.execErr = '';
   if (st.S.executor) {
-    try { const r = await fetchJSON(st.S.executor.replace(/\/+$/, '') + '/health', { headers: st.S.executorToken ? { 'x-app-token': st.S.executorToken } : {} }); rt.exec = r && r.ok ? r : null; } catch { rt.exec = null; }
+    try {
+      const r = await fetchJSON(st.S.executor.replace(/\/+$/, '') + '/health', { headers: st.S.executorToken ? { 'x-app-token': st.S.executorToken } : {} });
+      if (r && r.ok) rt.exec = r; else rt.execErr = (r && r.error) || 'risposta non valida';
+    } catch (e) { rt.execErr = e.message === 'HTTP 401' ? 'token errato' : e.message === 'HTTP 503' ? 'esecutore non configurato (manca EXEC_TOKEN)' : e.message; }
   }
   render();
 }

@@ -20,7 +20,7 @@ const DEFAULTS = {
   backend: '', appToken: '',
   // Trading reale: spento finché non lo accendi. Usa le stesse regole del paper (size, stop, TP, trailing),
   // con un tetto di capitale in SOL e un esecutore (server che firma gli swap).
-  realEnabled: false, realCapitalSOL: 0, realApprove: true, executor: '', executorToken: '',
+  realEnabled: false, realCapitalSOL: 0, realApprove: true, executor: 'https://kaiser-executor.salvogeraci030899.workers.dev', executorToken: '',
 };
 
 // ---- GMGN: normalizza un item (trending/trenches) ----
@@ -201,7 +201,10 @@ function realGate(S, ex) {
   if (!S.executor) return 'esecutore non configurato';
   if (!ex || ex.ok !== true) return 'esecutore non raggiungibile';
   if (ex.killed === true) return 'esecutore fermato (kill switch)';
-  if (ex.balanceSOL != null && num(ex.balanceSOL) <= 0) return 'wallet reale senza fondi';
+  if (!ex.wallet) return ex.walletError ? 'wallet: ' + ex.walletError : 'wallet non configurato nell’esecutore';
+  if (ex.balanceSOL == null) return 'saldo del wallet non leggibile';
+  if (num(ex.balanceSOL) <= 0) return 'wallet reale senza fondi';
+  if (ex.ordersEnabled !== true) return 'ordini non ancora abilitati nell’esecutore';
   return '';
 }
 
