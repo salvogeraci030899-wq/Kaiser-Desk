@@ -305,13 +305,9 @@ export class Executor {
   // CHIUSURA di una posizione dall'app (paper o reale). L'app non ha segreti: per il REALE la richiesta passa dal tasto su Telegram
   // (a meno che nel Worker APP_CLOSE=direct: allora basta il popup dell'app). Funziona con o senza approvazione manuale degli ingressi:
   // le uscite non passano mai dai ticket. Paper: direttiva per il runner (paperCloses), che vende a mercato e avvisa.
-  // Chiusura diretta (senza Telegram) quando l'approvazione manuale è disattivata dalle impostazioni (realApprove = false).
-  // Con APP_CLOSE=direct è sempre diretta, con APP_CLOSE=confirm passa sempre da Telegram.
-  async _closeDirect() {
-    const m = String(this.env.APP_CLOSE || '').toLowerCase();
-    if (m === 'direct') return true; if (m === 'confirm') return false;
-    return (await this.current()).realApprove === false;
-  }
+  // La chiusura chiesta dall'app passa SEMPRE da Telegram (tasto "Chiudi ora"), anche con l'approvazione manuale degli ingressi disattivata.
+  // Solo chi imposta nel Worker APP_CLOSE=direct la rende immediata dal popup dell'app.
+  async _closeDirect() { return String(this.env.APP_CLOSE || '').toLowerCase() === 'direct'; }
   async _proposeClose(c) {
     const mode = c && c.mode, id = String((c && c.id) || '').toUpperCase();
     if ((mode !== 'paper' && mode !== 'real') || !/^[PR]-\d{1,6}$/.test(id) || (mode === 'real') !== id.startsWith('R-')) return { ok: false, error: 'posizione non valida' };
