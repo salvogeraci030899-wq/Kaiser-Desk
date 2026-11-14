@@ -31,6 +31,7 @@ if (!fs.existsSync(F.config)) {
 }
 const S = { ...E.DEFAULTS, ...RUNNER_DEFAULTS, ...readJSON(F.config, {}) };
 S.useGrok = S.useGrok && !!process.env.XAI_API_KEY;
+if (S.realEnabled) console.log('NOTA: il runner fa solo paper trading, realEnabled viene ignorato qui.');
 
 const st = Object.assign({
   startedAt: Date.now(), runs: 0, cash: S.capitalSOL, positions: [], journal: [], signals: [],
@@ -221,7 +222,7 @@ async function sell(p, frac, reason) {
     st.positions = st.positions.filter((x) => x !== p);
     const pnl = p.realized - p.cost;
     const j = { id: p.id, mint: p.mint, sym: p.sym, openedAt: p.openedAt, closedAt: Date.now(), cost: p.cost, back: p.realized, pnl, pct: pnl / p.cost * 100,
-      reason, score: p.score, solUsd: rt.solUsd, peakPct: (p.peak / p.entry - 1) * 100, trigPct: (m.priceNative / p.entry - 1) * 100, entryInfo: p.entryInfo };
+      mode: 'paper', reason, score: p.score, solUsd: rt.solUsd, peakPct: (p.peak / p.entry - 1) * 100, trigPct: (m.priceNative / p.entry - 1) * 100, entryInfo: p.entryInfo };
     st.journal.push(j);
     if (pnl < 0) st.cooldownUntil = Date.now() + S.cooldownMin * 60000;
     log('SCRIBE', `chiuso ${p.id} $${p.sym} ${pnl.toFixed(4)} SOL (${j.pct.toFixed(1)}%)`);
