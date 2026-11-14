@@ -1,86 +1,92 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-14 10:35 UTC · in esecuzione da 0.0 giorni · 76 run
+Aggiornato: 2026-11-14 10:41 UTC · in esecuzione da 0.0 giorni · 77 run
 
 | | |
 |---|---|
-| Equity | **1.2899 SOL** (-0.8% dal capitale iniziale di 1.3 SOL) |
-| Cassa | 0.6467 SOL |
-| Trade chiusi | 0 |
-| Win rate | 0% |
-| P&L realizzato | +0.0000 SOL (~$0.00) |
-| Media vincite / perdite | +0.0% / +0.0% |
-| Profit factor | 0.00 |
+| Equity | **1.2838 SOL** (-1.2% dal capitale iniziale di 1.3 SOL) |
+| Cassa | 0.6499 SOL |
+| Trade chiusi | 4 |
+| Win rate | 50% |
+| P&L realizzato | +0.0029 SOL (~$0.22) |
+| Media vincite / perdite | +5.1% / -4.0% |
+| Profit factor | 1.28 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$JENSEN** P-0082 · 0.130 SOL · +1.2% · resta 100% · [grafico](https://dexscreener.com/solana/51KN4und5bwRyfRfTP1eFw4uPL8t4vTPHZ6okmLhr5iE)
-- **$SCRAP** P-0083 · 0.130 SOL · +3.3% · resta 100% · [grafico](https://dexscreener.com/solana/CrpPRVBofZtzijmzgvi5FEHT7kf7DshWxS92p5Gvkcan)
-- **$SAI** P-0084 · 0.130 SOL · -7.8% · resta 100% · [grafico](https://dexscreener.com/solana/G55PY56Z2qJdpqAbdwePEngygYsD5uL61wFEYTPsyXT5)
-- **$SCRAP** P-0085 · 0.130 SOL · -0.7% · resta 100% · [grafico](https://dexscreener.com/solana/5rtpSJVsv5Y7EK63jt7BHAwqE83FHwoBnfAdc3YvARrE)
-- **$WISHMAS** P-0086 · 0.129 SOL · n/d · resta 100% · [grafico](https://dexscreener.com/solana/FcsUythNUWbfT7RP2yuFp1kiWjft15du9WtgLUrrqx3p)
+- **$JENSEN** P-0082 · 0.130 SOL · -5.6% · resta 100% · [grafico](https://dexscreener.com/solana/51KN4und5bwRyfRfTP1eFw4uPL8t4vTPHZ6okmLhr5iE)
+- **$SCRAP** P-0085 · 0.130 SOL · +1.0% · resta 100% · [grafico](https://dexscreener.com/solana/5rtpSJVsv5Y7EK63jt7BHAwqE83FHwoBnfAdc3YvARrE)
+- **$WISHMAS** P-0086 · 0.129 SOL · -1.2% · resta 100% · [grafico](https://dexscreener.com/solana/FcsUythNUWbfT7RP2yuFp1kiWjft15du9WtgLUrrqx3p)
+- **$inuhao** P-0088 · 0.129 SOL · +2.5% · resta 100% · [grafico](https://dexscreener.com/solana/AQFC3QfATJggPQEuQGS65RuAQq5u2Pin6MYjz1eu4s31)
+- **$CSI** P-0090 · 0.130 SOL · -7.7% · resta 100% · [grafico](https://dexscreener.com/solana/8f95uFDBHsXaErCMCDxboE3AfePWLUkzomhkGSYdTP5M)
 
 ## Uscite per motivo
-_ancora nessuna_
+| Motivo | Trade | P&L SOL |
+|---|---|---|
+| TP1 | 4 | +0.0029 |
 
 ## Ultimi 25 trade
-_ancora nessuno_
+| Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
+|---|---|---|---|---|---|---|---|
+| $CSI | 73 | -2.6% | -0.0034 | +6% | +6% | TP1 | 2m |
+| $SAI | 77 | -5.4% | -0.0071 | +24% | +24% | TP1 | 0m |
+| $SAI | 72 | +9.4% | +0.0123 | +10% | +10% | TP1 | 2m |
+| $SCRAP | 83 | +0.8% | +0.0011 | +8% | +8% | TP1 | 2m |
 
 ## Ultimi eventi
 ```
-10:35:51 SCRIBE   fine run · trade 0 · win 0% · P&L 0.0000 SOL · equity 1.2899 SOL
-10:35:42 QUARTER  BUY $WISHMAS 0.129 SOL score 76 impatto 0.00% (Jupiter)
-10:35:41 ORACLE   82 raccolti, 57 analizzati, 4 BUY, 30 veto
-10:35:40 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 10:36:10 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制
+10:41:09 ORACLE   89 raccolti, 64 analizzati, 3 BUY, 27 veto
+10:41:07 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_BANNED message=IP is temporarily banned due to repeated rate limit violations. Rate limit resets at 2026-11-14 10:41:19 GMT+00:00 (~12s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes.
 
-10:35:18 QUARTER  BUY $SCRAP 0.130 SOL score 76 impatto 1.35% (Jupiter)
-10:35:18 QUARTER  $WISHMAS impatto 2.1% oltre slippage: annullato
-10:35:18 ORACLE   62 raccolti, 44 analizzati, 4 BUY, 23 veto
-10:35:16 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_BANNED message=IP is temporarily banned due to repeated rate limit violations. Rate limit resets at 2026-11-14 10:35:33 GMT+00:00 (~17s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes.
+10:41:07 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_BANNED message=IP is temporarily banned due to repeated rate limit violations. Rate limit resets at 2026-11-14 10:41:24 GMT+00:00 (~17s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes.
 
-10:35:16 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_BANNED message=IP is temporarily banned due to repeated rate limit violations. Rate limit resets at 2026-11-14 10:35:28 GMT+00:00 (~12s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes.
+10:41:07 SCOUT    gecko: HTTP 429
+10:41:07 SCOUT    gecko: HTTP 429
+10:40:46 QUARTER  $WATER impatto 10.3% oltre slippage: annullato
+10:40:46 ORACLE   160 raccolti, 118 analizzati, 4 BUY, 78 veto
+10:40:44 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 10:41:14 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制
 
-10:34:55 QUARTER  $WISHMAS impatto 2.1% oltre slippage: annullato
-10:34:55 ORACLE   90 raccolti, 56 analizzati, 4 BUY, 35 veto
-10:34:53 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 10:35:23 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制
+10:40:23 KAISER   limite 1 ingresso/i per scan: $inuhao rimandato
+10:40:23 QUARTER  BUY $CSI 0.130 SOL score 78 impatto 1.16% (Jupiter)
+10:40:23 SCRIBE   chiuso P-0089 $CSI -0.0034 SOL (-2.6%)
+10:40:23 CHARON   TP1 $CSI vendo 100% a 5.7% -> 0.1281 SOL
+10:40:23 ORACLE   64 raccolti, 46 analizzati, 3 BUY, 24 veto
+10:40:21 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_BANNED message=IP is temporarily banned due to repeated rate limit violations. Rate limit resets at 2026-11-14 10:40:38 GMT+00:00 (~17s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes.
 
-10:34:32 QUARTER  BUY $SAI 0.130 SOL score 72 impatto 1.79% (Jupiter)
-10:34:32 QUARTER  $WISHMAS impatto 2.1% oltre slippage: annullato
-10:34:32 ORACLE   62 raccolti, 44 analizzati, 4 BUY, 23 veto
-10:34:29 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_BANNED message=IP is temporarily banned due to repeated rate limit violations. Rate limit resets at 2026-11-14 10:34:46 GMT+00:00 (~17s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes.
+10:40:21 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_BANNED message=IP is temporarily banned due to repeated rate limit violations. Rate limit resets at 2026-11-14 10:40:33 GMT+00:00 (~12s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes.
 
-10:34:29 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_BANNED message=IP is temporarily banned due to repeated rate limit violations. Rate limit resets at 2026-11-14 10:34:41 GMT+00:00 (~12s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes.
+10:40:21 SCOUT    gecko: HTTP 429
+10:40:21 SCOUT    gecko: HTTP 429
+10:40:21 SCOUT    gecko: HTTP 429
+10:40:21 SCOUT    gecko: HTTP 429
+10:40:00 QUARTER  $WATER impatto 2.2% oltre slippage: annullato
+10:40:00 ORACLE   135 raccolti, 102 analizzati, 4 BUY, 64 veto
+10:39:58 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 10:40:28 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制
 
-10:34:09 KAISER   limite 1 ingresso/i per scan: $SAI rimandato
-10:34:09 KAISER   limite 1 ingresso/i per scan: $WISHMAS rimandato
-10:34:09 KAISER   limite 1 ingresso/i per scan: $JENSEN rimandato
-10:34:08 QUARTER  BUY $SCRAP 0.130 SOL score 83 impatto 1.03% (Jupiter)
-10:34:08 ORACLE   80 raccolti, 57 analizzati, 4 BUY, 31 veto
-10:34:06 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 10:34:36 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制
+10:39:37 ORACLE   64 raccolti, 46 analizzati, 3 BUY, 24 veto
+10:39:36 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_BANNED message=IP is temporarily banned due to repeated rate limit violations. Rate limit resets at 2026-11-14 10:39:53 GMT+00:00 (~17s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes.
 
-10:33:45 KAISER   limite 1 ingresso/i per scan: $SAI rimandato
-10:33:45 KAISER   limite 1 ingresso/i per scan: $WISHMAS rimandato
-10:33:45 KAISER   limite 1 ingresso/i per scan: $SCRAP rimandato
-10:33:45 QUARTER  BUY $JENSEN 0.130 SOL score 83 impatto 0.82% (Jupiter)
-10:33:45 ORACLE   62 raccolti, 44 analizzati, 4 BUY, 23 veto
-10:33:43 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_BANNED message=IP is temporarily banned due to repeated rate limit violations. Rate limit resets at 2026-11-14 10:33:58 GMT+00:00 (~15s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes.
+10:39:36 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_BANNED message=IP is temporarily banned due to repeated rate limit violations. Rate limit resets at 2026-11-14 10:39:48 GMT+00:00 (~12s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes.
 
-10:33:43 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_BANNED message=IP is temporarily banned due to repeated rate limit violations. Rate limit resets at 2026-11-14 10:33:53 GMT+00:00 (~11s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes.
+10:39:35 SCOUT    gecko: HTTP 429
+10:39:35 SCOUT    gecko: HTTP 429
+10:39:35 SCOUT    gecko: HTTP 429
+10:39:35 SCOUT    gecko: HTTP 429
+10:39:15 QUARTER  $WATER impatto 2.2% oltre slippage: annullato
+10:39:15 ORACLE   137 raccolti, 99 analizzati, 4 BUY, 60 veto
+10:39:12 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 10:39:42 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制
 
-10:33:41 KAISER   reset del paper (C-0044): conto azzerato, capitale 1.3 SOL
-10:33:41 KAISER   parametri dall'app: maxPos 3→6
-10:33:21 ORACLE   77 raccolti, 55 analizzati, 4 BUY, 30 veto
-10:33:18 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 10:33:48 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制
+10:38:51 ORACLE   109 raccolti, 80 analizzati, 3 BUY, 42 veto
+10:38:50 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_BANNED message=IP is temporarily banned due to repeated rate limit violations. Rate limit resets at 2026-11-14 10:39:06 GMT+00:00 (~16s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes.
 
-10:32:58 ORACLE   61 raccolti, 44 analizzati, 4 BUY, 23 veto
-10:32:56 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_BANNED message=IP is temporarily banned due to repeated rate limit violations. Rate limit resets at 2026-11-14 10:33:13 GMT+00:00 (~17s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes.
+10:38:50 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_BANNED message=IP is temporarily banned due to repeated rate limit violations. Rate limit resets at 2026-11-14 10:39:01 GMT+00:00 (~11s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes.
 
-10:32:56 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_BANNED message=IP is temporarily banned due to repeated rate limit violations. Rate limit resets at 2026-11-14 10:33:08 GMT+00:00 (~12s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes.
+10:38:49 SCOUT    gecko: HTTP 429
+10:38:29 ORACLE   124 raccolti, 89 analizzati, 3 BUY, 66 veto
+10:38:27 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 10:38:57 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制
 
-10:32:35 ORACLE   82 raccolti, 57 analizzati, 4 BUY, 33 veto
-10:32:33 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 10:33:03 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制
-
-10:32:12 ORACLE   61 raccolti, 44 analizzati, 3 BUY, 23 veto
+10:38:26 SCOUT    gecko: HTTP 429
+10:38:26 SCOUT    gecko: HTTP 429
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
