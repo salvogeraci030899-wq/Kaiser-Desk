@@ -67,6 +67,12 @@ In **Sistema → Parametri** cambi i parametri di paper e reale (autopilota, siz
 
 I **limiti del reale** (capitale, ordine, perdita giornaliera, posizioni, slippage, impatto) si possono solo **abbassare** dall'app: il tetto è il valore impostato nella dashboard di Cloudflare, che l'app non può superare. `ORDERS_MODE` (off/dryrun/live) resta solo nella dashboard. Telegram: `/parametri` mostra le modifiche fatte dall'app, `/reset_parametri` le annulla. Le richieste si possono disattivare con `PROPOSALS=0` sul Worker.
 
+### Conto paper: capitale iniziale e reset
+Il capitale iniziale non si cambia «a caldo» (cassa ed equity devono restare coerenti): in **Sistema → Conto paper** scegli il capitale di ripartenza (0,1–1000 SOL) e premi **Azzera il paper e riparti**. Stessa approvazione su Telegram: se approvi, il runner cancella posizioni aperte, journal e statistiche del paper e riparte con il capitale scelto entro un minuto (ti avvisa con un messaggio). Il capitale resta quello scelto anche ai run successivi. Il conto **reale non viene mai toccato**.
+
+### Dati in diretta
+Il runner spinge il riepilogo del paper al Worker a ogni apertura/chiusura e ogni pochi secondi; l'app lo legge da lì (pillola `RUNNER 12s`). Serve il segreto GitHub **`EXEC_TOKEN`** (la stessa password del Worker). Senza, l'app ripiega sul file `public.json` del ramo `data`, che si aggiorna solo a fine run (ogni 5 minuti) e che GitHub tiene in cache fino a 5 minuti: ritardo fino a 10 minuti, la pillola mostra `· GH`.
+
 ## Altre cose che si cambiano fuori dall'app
 - **Valori di base del runner:** `config.json` sul ramo `data` (stesse chiavi di `DEFAULTS` in `engine.js`). Le modifiche approvate dall'app vanno sopra quel file.
 - **Reset del paper:** cancella `state.json` sul ramo `data`.

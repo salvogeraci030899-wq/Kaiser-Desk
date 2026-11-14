@@ -11,7 +11,7 @@ const html = read('index.html');
 
 test('l\'app non ha campi in cui inserire token, chiavi o indirizzi: solo numeri, interruttori e scelte dei parametri', () => {
   assert.ok(!/<textarea\b/i.test(html), 'c\'è una <textarea>');
-  for (const m of html.matchAll(/<input\b[^>]*>/gi)) { const t = m[0]; assert.match(t, /type="(number|checkbox)"/, 'campo non ammesso: ' + t); assert.match(t, /data-param=/, 'campo senza data-param: ' + t); assert.ok(!/placeholder/i.test(t)); }
+  for (const m of html.matchAll(/<input\b[^>]*>/gi)) { const t = m[0]; assert.match(t, /type="(number|checkbox)"/, 'campo non ammesso: ' + t); assert.match(t, /data-(param|reset)=/, 'campo senza data-param/data-reset: ' + t); assert.ok(!/placeholder/i.test(t)); }
   for (const m of html.matchAll(/<select\b[^>]*>/gi)) assert.match(m[0], /data-param=/, 'select non dei parametri: ' + m[0]);
   assert.ok(!/type="(text|password|url|search|email|tel)"/i.test(html), 'campo di testo');
   for (const bad of ['x-app-token', 'executorToken', 'appToken', 'data-pref="token', 'localStorage.setItem(\'kaiser.v1\'', 'prompt(']) assert.ok(!html.includes(bad), 'trovato: ' + bad);
@@ -19,7 +19,9 @@ test('l\'app non ha campi in cui inserire token, chiavi o indirizzi: solo numeri
 });
 test('l\'app scrive in un solo punto: la richiesta di modifica dei parametri, senza segreti', () => {
   const posts = [...html.matchAll(/method:\s*'(POST|PUT|DELETE|PATCH)'/g)]; assert.equal(posts.length, 1, 'più di una scrittura');
-  assert.match(html, /fetch\(`\$\{EXEC\}\/propose`, \{ method: 'POST', headers: \{ 'Content-Type': 'application\/json' \}, body: JSON\.stringify\(\{ changes: rt\.draft \}\) \}\)/);
+  assert.match(html, /fetch\(`\$\{EXEC\}\/propose`, \{ method: 'POST', headers: \{ 'Content-Type': 'application\/json' \}, body: JSON\.stringify\(body\) \}\)/);
+  assert.equal([...html.matchAll(/postPropose\(/g)].length, 3, 'postPropose: definizione + parametri + reset');
+  assert.ok(!/<input[^>]*data-reset[^>]*type="(text|password)"/.test(html));
   assert.ok(!/Authorization|x-app-token|x-pt|Bearer/i.test(html), 'intestazioni di autenticazione nell\'app');
 });
 test('niente zoom, niente selezione del testo, niente lente di ingrandimento', () => {

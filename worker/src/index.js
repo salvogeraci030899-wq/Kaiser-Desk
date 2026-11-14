@@ -13,7 +13,7 @@ import { Executor } from './exec.js';
 import { handleUpdate, webhookSecret } from './tg.js';
 
 const json = (obj, status, extra) => new Response(JSON.stringify(obj), { status: status || 200, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...extra } });
-const ROUTES = { '/health': 'GET', '/state': 'GET', '/runner': 'POST', '/order': 'POST', '/ticket': 'POST', '/approve': 'POST', '/reject': 'POST', '/sell': 'POST', '/kill': 'POST', '/resume': 'POST', '/tick': 'POST' };
+const ROUTES = { '/health': 'GET', '/state': 'GET', '/runner': 'POST', '/paper': 'POST', '/order': 'POST', '/ticket': 'POST', '/approve': 'POST', '/reject': 'POST', '/sell': 'POST', '/kill': 'POST', '/resume': 'POST', '/tick': 'POST' };
 
 // Il Durable Object tiene tutto lo stato reale e serializza le operazioni: un ordine e un giro di Charon non si pestano mai i piedi.
 export class Ledger {
@@ -29,7 +29,9 @@ export class Ledger {
       if (path === '/tg') return json(await handleUpdate(this.ex, body));
       if (path === '/params') return json(await this.ex.paramsView());
       if (path === '/propose') return json(await this.ex.propose(body));
-      if (path === '/runner') return json(await this.ex.reportRunner(body.config));
+      if (path === '/runner') return json(await this.ex.reportRunner(body.config, body.resetAck));
+      if (path === '/paper' && req.method === 'POST') return json(await this.ex.paperPut(body.data));
+      if (path === '/paper') return json(await this.ex.paperGet());
       if (path === '/state') return json(await this.ex.state());
       if (path === '/order') return json(await this.ex.buy(body));
       if (path === '/ticket') return json(await this.ex.ticket(body));
@@ -94,6 +96,10 @@ export default {
     if (url.pathname === '/params' && req.method === 'GET') {
       if (env.PUBLIC_VIEW === '0') return json({ ok: false, error: 'vista pubblica disattivata' }, 403, cors);
       try { return json(await (await stub(env).fetch('https://ledger/params')).json(), 200, cors); } catch (e) { return json({ ok: false, error: e.message }, 500, cors); }
+    }
+    if (url.pathname === '/paper' && req.method === 'GET') {                                    // paper in diretta (lettura pubblica)
+      if (env.PUBLIC_VIEW === '0') return json({ ok: false, error: 'vista pubblica disattivata' }, 403, cors);
+      try { return json(await (await stub(env).fetch('https://ledger/paper')).json(), 200, cors); } catch (e) { return json({ ok: false, error: e.message }, 500, cors); }
     }
     if (url.pathname === '/propose' && req.method === 'POST') {
       const origin = req.headers.get('Origin') || '', allowed = String(env.ALLOWED_ORIGINS || '').split(',').map((s) => s.trim()).filter(Boolean);
