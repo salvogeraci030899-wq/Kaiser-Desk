@@ -21,6 +21,9 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 // I moduli GMGN/Grok si caricano solo se servono (così i test possono sostituirli)
 let gmgnRun = null, grokAnalyze = null;
 try { gmgnRun = require('../api/gmgn.js').run; } catch {}
+// GMGN è un servizio a pagamento (gmgn.ai) con chiave API. Senza chiave (GMGN_API_KEY) funziona solo in prova, con limiti di richieste per IP che
+// scattano subito (HTTP 429, IP bannato): meglio spegnerlo del tutto. Le altre fonti (DexScreener, GeckoTerminal, Jupiter) non ne hanno bisogno.
+const gmgnOn = () => !!(gmgnRun && process.env.GMGN_API_KEY);
 try { grokAnalyze = require('../api/grok.js').analyzeToken; } catch {}
 
 // ---------------- stato ----------------
@@ -144,7 +147,7 @@ async function discover() {
   // GMGN ha limiti di richieste per IP: con scansioni ogni ~30 s si finiva bannati (HTTP 429). Si interroga al massimo una volta ogni GMGN_MIN_SEC
   // (con pausa lunga dopo un 429) e tra una chiamata e l'altra si riusano gli ultimi risultati.
   const gm = async (args, src) => {
-    if (!gmgnRun) return;
+    if (!gmgnOn()) return;
     const g = rt.gmgnCache[src] || (rt.gmgnCache[src] = { next: 0, list: [] });
     if (Date.now() < g.next) { g.list.forEach((a) => add(a, src)); return; }
     g.next = Date.now() + GMGN_MIN_SEC * 1000;
@@ -172,7 +175,7 @@ async function rugcheck(mint) {
     rt.sec.set(mint, { t: Date.now(), v });
     return v;
   } catch (e) {
-    if (gmgnRun) {
+    if (gmgnOn()) {
       try {
         const { data } = await gmgnRun(['token', 'security', '--chain', 'sol', '--address', mint]);
         const g = E.gmgnNorm({ address: mint, ...((data && (data.data || data)) || {}) });
@@ -515,7 +518,7 @@ function checkpoint() {
 // ---------------- loop ----------------
 async function main() {
   const end = Date.now() + LOOP_MIN * 60000;
-  log('KAISER', `run #${st.runs} · ${st.positions.length} posizioni · equity ${equity().toFixed(4)} SOL · GMGN ${gmgnRun ? (process.env.GMGN_API_KEY ? 'chiave' : 'demo') : 'off'} · Grok ${S.useGrok ? 'on' : 'off'}`);
+  log('KAISER', `run #${st.runs} · ${st.positions.length} posizioni · equity ${equity().toFixed(4)} SOL · GMGN ${gmgnOn() ? 'attiva' : 'spenta (nessuna chiave)'} · Grok ${S.useGrok ? 'on' : 'off'}`);
   let lastScan = 0, lastCp = Date.now();
   while (Date.now() < end) {
     try {

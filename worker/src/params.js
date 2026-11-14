@@ -58,8 +58,8 @@ export const SCHEMA = {
   srcDexBoosts: b('Fonte: boost DexScreener', 'filt', { scope: 'runner' }),
   srcJupiter: b('Fonte: Jupiter', 'filt', { scope: 'runner', hint: 'token in tendenza e appena comparsi' }),
   srcGecko: b('Fonte: GeckoTerminal', 'filt', { scope: 'runner', hint: 'pool in tendenza e appena nati: molte più Coin nel radar' }),
-  srcGmgnTrending: b('Fonte: GMGN trending', 'filt', { scope: 'runner' }),
-  srcGmgnTrenches: b('Fonte: GMGN trenches', 'filt', { scope: 'runner', hint: 'token nuovissimi' }),
+  srcGmgnTrending: b('Fonte: GMGN trending', 'filt', { scope: 'runner', hint: 'serve la chiave GMGN (a pagamento): senza, è ignorata' }),
+  srcGmgnTrenches: b('Fonte: GMGN trenches', 'filt', { scope: 'runner', hint: 'token nuovissimi; serve la chiave GMGN (a pagamento)' }),
   gmgnInterval: { t: 'enum', label: 'Finestra GMGN', group: 'filt', scope: 'runner', values: ['1m', '5m', '1h', '6h', '24h'] },
 
   realEnabled: b('Reale acceso (ordini dal runner)', 'real', { scope: 'runner', hint: 'serve anche ORDERS_MODE nel Worker' }),
