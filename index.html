@@ -458,8 +458,10 @@ function setMode(m) {
 function realNoteHtml() {
   if (st.mode !== 'real') return '';
   const why = realGate(st.S, rt.exec), ex = rt.exec;
+  const short = (w) => esc(String(w).slice(0, 4) + '…' + String(w).slice(-4));
+  const wal = ex ? `<div class="small" style="margin-top:6px">Wallet <b class="mono">${ex.wallet ? short(ex.wallet) : '—'}</b> · saldo <b class="mono">${ex.balanceSOL != null ? Number(ex.balanceSOL).toFixed(4) + ' ◎' : '—'}</b>${ex.walletError ? `<div class="down tiny">${esc(ex.walletError)}</div>` : ''}${ex.rpcError ? `<div class="warn tiny">saldo non letto: ${esc(ex.rpcError)}</div>` : ''}</div>` : '';
   return `<div class="card real-note"><b class="warn small">REALE · soldi veri</b>
-    <div class="small" style="margin-top:4px">${why ? `<span class="down">Non operativo:</span> ${esc(why)}${!rt.exec && rt.execErr ? ' (' + esc(rt.execErr) + ')' : ''}.` : `<span class="up">Esecutore collegato</span>${ex && ex.wallet ? ' · wallet ' + esc(String(ex.wallet).slice(0, 4) + '…' + String(ex.wallet).slice(-4)) : ''}`}</div>
+    <div class="small" style="margin-top:4px">${why ? `<span class="down">Non operativo:</span> ${esc(why)}${!rt.exec && rt.execErr ? ' (' + esc(rt.execErr) + ')' : ''}.` : '<span class="up">Esecutore collegato</span>'}</div>${wal}
     <div class="tiny muted" style="margin-top:6px">Usa le stesse regole del paper (size, stop, TP, trailing) con tetto di capitale ${num(st.S.realCapitalSOL)}◎${st.S.realApprove ? ' e approvazione manuale di ogni ingresso' : ''}. Il conto paper non viene toccato.</div></div>`;
 }
 async function checkExecutor() {
