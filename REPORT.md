@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-14 04:10 UTC · in esecuzione da 0.4 giorni · 16 run
+Aggiornato: 2026-11-14 04:15 UTC · in esecuzione da 0.4 giorni · 17 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-14 04:10 UTC · in esecuzione da 0.4 giorni · 16 run
 | Cassa | 4.2381 SOL |
 | Trade chiusi | 10 |
 | Win rate | 10% |
-| P&L realizzato | -0.7619 SOL (~$-57.32) |
+| P&L realizzato | -0.7619 SOL (~$-57.29) |
 | Media vincite / perdite | +63.7% / -41.7% |
 | Profit factor | 0.15 |
 | Circuit breaker | no |
@@ -40,6 +40,13 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+04:15:03 SCRIBE   fine run · trade 10 · win 10% · P&L -0.7619 SOL · equity 4.2381 SOL
+04:14:49 ORACLE   90 raccolti, 62 analizzati, 4 BUY, 40 veto
+04:13:46 ORACLE   90 raccolti, 63 analizzati, 5 BUY, 41 veto
+04:12:43 ORACLE   90 raccolti, 65 analizzati, 4 BUY, 40 veto
+04:11:40 ORACLE   90 raccolti, 64 analizzati, 4 BUY, 39 veto
+04:10:37 ORACLE   90 raccolti, 64 analizzati, 4 BUY, 40 veto
+04:10:33 KAISER   run #17 · 0 posizioni · equity 4.2381 SOL · GMGN demo · Grok off
 04:10:04 SCRIBE   fine run · trade 10 · win 10% · P&L -0.7619 SOL · equity 4.2381 SOL
 04:09:49 ORACLE   90 raccolti, 65 analizzati, 3 BUY, 41 veto
 04:08:46 ORACLE   90 raccolti, 65 analizzati, 5 BUY, 39 veto
@@ -73,13 +80,6 @@ _nessuna_
 03:52:43 ORACLE   90 raccolti, 64 analizzati, 4 BUY, 40 veto
 03:51:40 ORACLE   90 raccolti, 64 analizzati, 5 BUY, 39 veto
 03:50:37 ORACLE   90 raccolti, 63 analizzati, 5 BUY, 39 veto
-03:50:33 KAISER   run #13 · 3 posizioni · equity 4.2628 SOL · GMGN demo · Grok off
-03:50:04 SCRIBE   fine run · trade 7 · win 14% · P&L -0.6601 SOL · equity 4.2628 SOL
-03:49:48 ORACLE   90 raccolti, 62 analizzati, 5 BUY, 38 veto
-03:48:45 ORACLE   90 raccolti, 64 analizzati, 6 BUY, 40 veto
-03:47:42 ORACLE   90 raccolti, 65 analizzati, 4 BUY, 41 veto
-03:46:40 ORACLE   90 raccolti, 64 analizzati, 4 BUY, 41 veto
-03:45:37 ORACLE   90 raccolti, 64 analizzati, 4 BUY, 41 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
