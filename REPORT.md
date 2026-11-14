@@ -1,10 +1,10 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-14 03:25 UTC · in esecuzione da 0.4 giorni · 7 run
+Aggiornato: 2026-11-14 03:30 UTC · in esecuzione da 0.4 giorni · 8 run
 
 | | |
 |---|---|
-| Equity | **4.2448 SOL** (-15.1% dal capitale iniziale di 5 SOL) |
+| Equity | **4.3064 SOL** (-13.9% dal capitale iniziale di 5 SOL) |
 | Cassa | 3.6905 SOL |
 | Trade chiusi | 6 |
 | Win rate | 0% |
@@ -14,9 +14,9 @@ Aggiornato: 2026-11-14 03:25 UTC · in esecuzione da 0.4 giorni · 7 run
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$JENSEN** P-0007 · 0.210 SOL · -1.6% · resta 100% · [grafico](https://dexscreener.com/solana/51KN4und5bwRyfRfTP1eFw4uPL8t4vTPHZ6okmLhr5iE)
-- **$AMC** P-0008 · 0.210 SOL · -12.2% · resta 100% · [grafico](https://dexscreener.com/solana/DxbQyPTjckQTSUWyUqJB11HpupPyLGJZ5x4z7ufHp3Gh)
-- **$HARAMBE** P-0009 · 0.208 SOL · +56.5% · resta 50% · [grafico](https://dexscreener.com/solana/EA7HbV3UsEqicPYcKZEs5YhRfrxsjiLiLz8RXUtcjwoy)
+- **$JENSEN** P-0007 · 0.210 SOL · -5.9% · resta 100% · [grafico](https://dexscreener.com/solana/51KN4und5bwRyfRfTP1eFw4uPL8t4vTPHZ6okmLhr5iE)
+- **$AMC** P-0008 · 0.210 SOL · -11.2% · resta 100% · [grafico](https://dexscreener.com/solana/DxbQyPTjckQTSUWyUqJB11HpupPyLGJZ5x4z7ufHp3Gh)
+- **$HARAMBE** P-0009 · 0.208 SOL · +122.3% · resta 50% · [grafico](https://dexscreener.com/solana/EA7HbV3UsEqicPYcKZEs5YhRfrxsjiLiLz8RXUtcjwoy)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -36,6 +36,13 @@ Aggiornato: 2026-11-14 03:25 UTC · in esecuzione da 0.4 giorni · 7 run
 
 ## Ultimi eventi
 ```
+03:30:19 SCRIBE   fine run · trade 6 · win 0% · P&L -0.7932 SOL · equity 4.3064 SOL
+03:30:04 ORACLE   90 raccolti, 66 analizzati, 6 BUY, 44 veto
+03:29:01 ORACLE   90 raccolti, 67 analizzati, 4 BUY, 45 veto
+03:27:59 ORACLE   90 raccolti, 67 analizzati, 5 BUY, 45 veto
+03:26:56 ORACLE   90 raccolti, 69 analizzati, 5 BUY, 47 veto
+03:25:53 ORACLE   90 raccolti, 67 analizzati, 4 BUY, 45 veto
+03:25:49 KAISER   run #8 · 3 posizioni · equity 4.2448 SOL · GMGN demo · Grok off
 03:25:23 SCRIBE   fine run · trade 6 · win 0% · P&L -0.7932 SOL · equity 4.2448 SOL
 03:25:07 ORACLE   90 raccolti, 68 analizzati, 5 BUY, 46 veto
 03:24:05 ORACLE   90 raccolti, 67 analizzati, 5 BUY, 45 veto
@@ -69,13 +76,6 @@ Aggiornato: 2026-11-14 03:25 UTC · in esecuzione da 0.4 giorni · 7 run
 03:10:50 KAISER   run #5 · 0 posizioni · equity 4.2068 SOL · GMGN demo · Grok off
 23:56:22 SCRIBE   fine run · trade 6 · win 0% · P&L -0.7932 SOL · equity 4.2068 SOL
 23:56:07 ORACLE   90 raccolti, 69 analizzati, 8 BUY, 45 veto
-23:55:04 ORACLE   90 raccolti, 69 analizzati, 5 BUY, 44 veto
-23:54:02 ORACLE   90 raccolti, 70 analizzati, 6 BUY, 44 veto
-23:52:59 ORACLE   90 raccolti, 70 analizzati, 6 BUY, 45 veto
-23:51:57 KAISER   CIRCUIT BREAKER: perdita giornaliera oltre 15%
-23:51:57 SCRIBE   chiuso P-0006 $WANTED -0.0863 SOL (-36.2%)
-23:51:57 CHARON   Stop loss $WANTED vendo 100% a -37.0% -> 0.1522 SOL
-23:51:57 SCRIBE   chiuso P-0005 $C@T -0.2357 SOL (-98.9%)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
