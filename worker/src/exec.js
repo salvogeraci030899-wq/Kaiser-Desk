@@ -62,9 +62,9 @@ export class Executor {
     if (!d || !d.swapTransaction) throw new Error('Jupiter non ha restituito la transazione');
     return b64dec(d.swapTransaction);
   }
-  async notify(text) {
+  async notify(text, markup) {
     const { TELEGRAM_BOT_TOKEN: t, TELEGRAM_CHAT_ID: c } = this.env; if (!t || !c) return;
-    try { await this.f(`https://api.telegram.org/bot${t}/sendMessage`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ chat_id: c, text, disable_web_page_preview: true }) }); } catch { /* i messaggi non devono mai bloccare un ordine */ }
+    try { await this.f(`https://api.telegram.org/bot${t}/sendMessage`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ chat_id: c, text, disable_web_page_preview: true, ...(markup ? { reply_markup: markup } : {}) }) }); } catch { /* i messaggi non devono mai bloccare un ordine */ }
   }
 
   // ---- controllo e simulazione: una transazione di un servizio esterno non si firma alla cieca ----
@@ -164,7 +164,8 @@ export class Executor {
     const seq = (await this.store.get('tseq', 0)) + 1; await this.store.put('tseq', seq);
     const t = { id: 'T-' + String(seq).padStart(4, '0'), mint, sym: String(req.sym || '').slice(0, 20), score: num(req.score), sizeSol: size, slippageBps: num(req.slippageBps, this.limits().maxSlippageBps), params: clampParams(req.params), entryLiq: num(req.entryLiq), at: now, exp: now + 10 * 60000 };
     tickets.push(t); await this.store.put('tickets', tickets.slice(-10));
-    await this.notify(`✎ Ticket ${t.id}: $${t.sym || mint.slice(0, 6)} score ${t.score} · ${size} SOL\nApprovalo dall'app (Ticket → Reale) entro 10 minuti.`);
+    await this.notify(`✎ Ticket ${t.id}: $${t.sym || mint.slice(0, 6)} score ${t.score} · ${size} SOL\nStop −${t.params.sl}% · TP1 +${t.params.tp1}% · trailing −${t.params.trail}%\nApprova o rifiuta qui sotto entro 10 minuti.`,
+      { inline_keyboard: [[{ text: '✅ Approva', callback_data: 'ap:' + t.id }, { text: '❌ Rifiuta', callback_data: 'rj:' + t.id }]] });
     return { ok: true, ticket: t };
   }
   approve(id) {
@@ -274,6 +275,13 @@ export class Executor {
   async state() {
     const [positions, pending, journal, killed, lastDry, tickets] = await Promise.all([this.store.get('positions', []), this.store.get('pending', []), this.store.get('journal', []), this.store.get('killed', false), this.store.get('lastDry', null), this.store.get('tickets', [])]);
     return { ok: true, mode: this.mode(), killed, positions, pending, tickets: tickets.filter((t) => t.exp > this.now()), journal: journal.slice(-50), dayPnl: this.dayPnl(journal), limits: this.limits(), lastDry };
+  }
+  // Vista pubblica di sola lettura (nessun segreto, nessun comando): indirizzo del wallet abbreviato, mai la chiave. La legge l'app su GitHub Pages.
+  async publicView() {
+    const [s, h] = await Promise.all([this.state(), this.health()]);
+    return { ok: true, at: this.now(), mode: s.mode, killed: s.killed, jupiterConfigured: h.jupiterConfigured, limits: s.limits, dayPnl: s.dayPnl,
+      positions: s.positions, pending: s.pending, tickets: s.tickets, journal: s.journal, lastDry: s.lastDry,
+      wallet: h.wallet ? h.wallet.slice(0, 4) + '…' + h.wallet.slice(-4) : null, balanceSOL: h.balanceSOL, walletError: h.walletError || null, rpcError: h.rpcError || null };
   }
   async health() {
     const lim = this.limits(), out = { ok: true, phase: 3, mode: this.mode(), jupiterConfigured: !!this.env.JUPITER_PROGRAM_ID, limits: lim, wallet: null, balanceSOL: null };

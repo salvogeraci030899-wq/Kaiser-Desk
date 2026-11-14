@@ -1,7 +1,18 @@
 # KAISER · Solana Meme Desk
 
 Desk di trading AI per memecoin Solana, ispirato a PumpGrok (ruoli separati con veto) e alimentato da GMGN Agent Skills, Grok (𝕏), DexScreener, RugCheck e Jupiter.
-**Solo paper trading:** non usa chiavi private e non firma transazioni.
+Lavora **24/7** senza telefono: paper su GitHub Actions, reale (facoltativo, con limiti) su Cloudflare, comandi e notifiche da Telegram.
+L'app che installi sul telefono è un **pannello di sola lettura su GitHub Pages**: non contiene né accetta token, chiavi o indirizzi.
+
+## Come è fatto
+
+| Pezzo | Dove | Cosa fa |
+|---|---|---|
+| **App (PWA)** | GitHub Pages | Pannello: radar, posizioni, journal, stato. Sola lettura, nessun segreto |
+| **Runner paper** | GitHub Actions (`runner/`) | Scansiona, decide e simula 24/7; pubblica `public.json` e `REPORT.md` sul ramo `data` |
+| **Orologio** | Cloudflare Worker (Cron) | Ogni 5 minuti avvia il runner; ogni minuto controlla le posizioni reali |
+| **Esecutore reale** | Cloudflare Worker (`worker/`) | Ordini veri via Jupiter con limiti lato server, kill switch, Telegram. Spento di default |
+| **Telegram** | Bot dedicato | Notifiche e **comandi** (approva, rifiuta, vendi, kill switch) |
 
 ## I ruoli del desk
 
@@ -21,51 +32,50 @@ Desk di trading AI per memecoin Solana, ispirato a PumpGrok (ruoli separati con 
 - Numero massimo di posizioni, size in % dell'equity, slippage massimo.
 - Circuit breaker: oltre la perdita giornaliera impostata, niente nuovi ingressi fino a domani.
 - Cooldown dopo ogni perdita e niente ritrade sullo stesso token per N ore.
-- In modalità approvazione, ogni ingresso è un ticket da approvare entro 3 minuti.
 
-## Aspetto (preso da PinscherTrade)
-In **Setup → Aspetto**: tema Auto/Chiaro/Scuro (segue iOS), **Vetro** (No, Fermo, Animato con luci sullo sfondo) e barra di stato di iOS integrata o separata. Le preferenze restano sul dispositivo. Il design sta in `style.css`, la logica in `theme.js`.
+## Installazione sul telefono (GitHub Pages)
 
-## Blocco app
-In **Setup → Blocco app**: codice di 6 cifre (solo l'impronta PBKDF2 resta sul dispositivo, mai il codice), Face ID / Touch ID tramite passkey di sistema, blocco subito/1 min/5 min dopo l'uscita, attesa crescente dopo 5 errori. Protegge dallo sguardo di chi prende il telefono, non cifra i dati; il desk continua a lavorare anche con l'app bloccata. «Codice dimenticato» cancella i dati di Kaiser su quel dispositivo (il runner su GitHub non viene toccato).
+1. **Attiva Pages (una volta sola):** repository → *Settings → Pages → Build and deployment → Source: Deploy from a branch → Branch `main`, cartella `/ (root)` → Save*.
+2. Dopo circa un minuto l'app è su **https://salvogeraci030899-wq.github.io/Kaiser-Desk/**
+3. Apri l'indirizzo in Safari → Condividi → **Aggiungi alla schermata Home**. Da lì si apre come app a schermo intero.
+4. *(consigliato)* In **Sistema → Blocco app** imposta il codice (e Face ID).
+
+Indirizzo diverso = memoria diversa: tema, blocco e preferenze si impostano di nuovo su ogni indirizzo.
+
+## Cosa mostra l'app
+- **Paper:** il conto del runner 24/7 (equity, posizioni, journal), aggiornato ogni 30 secondi dai dati pubblicati sul ramo `data`.
+- **Reale:** posizioni, ticket, journal e saldo dell'esecutore (vista pubblica di sola lettura).
+- **Radar:** scansione di consultazione con le stesse regole e gli stessi filtri del runner. Non apre posizioni.
+- **Sistema:** stato di runner, orologio ed esecutore; configurazione in sola lettura; tema, Vetro, barra di stato, blocco.
+- Come un'app nativa: niente zoom, niente selezione del testo né lente di ingrandimento, niente scroll involontario.
+
+## Telegram
+Usa un bot **dedicato a Kaiser** (non lo stesso di altri servizi: il webhook di un bot è uno solo).
+
+1. Crea il bot con @BotFather e ricava il `chat id` della tua chat.
+2. Segreti `TELEGRAM_BOT_TOKEN` e `TELEGRAM_CHAT_ID`:
+   - in **GitHub** (Settings → Secrets and variables → Actions) → notifiche del runner paper e riepilogo serale;
+   - in **Cloudflare** (Worker `kaiser-executor` → Settings → Variables and Secrets) → notifiche del reale e **comandi**. Il Worker registra da solo il webhook entro un minuto, senza toccare quello di altri bot.
+3. Scrivi `/aiuto` al bot. Comandi: `/stato`, `/posizioni`, `/wallet`, `/approva T-0001`, `/rifiuta T-0001`, `/vendi R-0001 [%]`, `/kill`, `/riattiva`. Rispondono solo alla tua chat. Sotto ogni ticket ci sono i tasti Approva e Rifiuta.
+
+## Come si cambia qualcosa (niente segreti nell'app)
+- **Regole del runner** (autopilota, rischio, uscite, filtri, reale): `config.json` sul ramo `data` (stesse chiavi di `DEFAULTS` in `engine.js`). Vale dal run successivo.
+- **Reset del paper:** cancella `state.json` sul ramo `data`.
+- **Reale** (modo, limiti, wallet, Jupiter, RPC, Telegram): variabili e segreti del Worker nella dashboard di Cloudflare. Vedi `docs/REAL-TRADING.md`.
+- **Runner:** segreti GitHub opzionali `GMGN_API_KEY`, `XAI_API_KEY`, `XAI_MODEL`, `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`, `EXEC_TOKEN`, `EXEC_URL`.
+- **Avvio manuale del runner:** Actions → KAISER runner → Run workflow.
 
 ## Paper e reale
-Kaiser distingue sempre i due conti: pillola **PAPER / REALE** in alto, barra ambra e riquadro di avviso quando sei sul reale, posizioni e journal separati. Il reale è **spento di default** (Setup → Trading reale) e, finché manca anche una sola condizione (acceso, capitale > 0, esecutore collegato e con fondi), non viene inviato nessun ordine. Gli ordini veri richiedono un esecutore su Cloudflare, non ancora attivo: vedi `docs/REAL-TRADING.md`. Il runner su GitHub fa solo paper.
-
-## Installazione da iPhone
-
-1. **GitHub:** crea un repository (privato va bene) e carica tutti i file di questa cartella rispettando la struttura (`api/` compresa).
-2. **Vercel:** *Add New → Project*, importa il repo e premi Deploy. Non serve nessuna configurazione di build.
-3. **Variabili d'ambiente** (Vercel → Settings → Environment Variables), poi fai Redeploy:
-
-| Variabile | Obbligatoria | A cosa serve |
-|---|---|---|
-| `APP_TOKEN` | consigliata | una password a tua scelta: protegge il backend da estranei |
-| `GMGN_API_KEY` | no | la tua chiave da gmgn.ai/ai. Senza, si usa la chiave demo pubblica (limiti bassi) |
-| `XAI_API_KEY` | no | attiva l'agente Grok (lettura di X, a pagamento) |
-| `XAI_MODEL` | no | modello Grok (predefinito `grok-4.7`) |
-| `TELEGRAM_BOT_TOKEN` + `TELEGRAM_CHAT_ID` | no | notifiche di ticket, acquisti e chiusure (puoi riusare il bot di Kronos) |
-
-4. Apri l'URL Vercel in Safari → Condividi → **Aggiungi alla schermata Home**.
-5. In **Setup**, scrivi il token app (uguale ad `APP_TOKEN`) e premi *Test backend*.
-
-Senza backend l'app funziona lo stesso in “solo browser” (DexScreener + RugCheck + Jupiter), ma senza GMGN, Grok e Telegram.
+Il reale è un conto separato, **spento di default**: parte solo con `ORDERS_MODE`, capitale massimo e programma Jupiter impostati nel Worker. Prima si prova in `dryrun` (costruisce e simula, non invia nulla). Il runner non ha chiavi e non firma. Dettagli e limiti in `docs/REAL-TRADING.md`.
 
 ## Note
-- Su iPhone la scansione gira solo con l'app aperta in primo piano: iOS sospende le pagine in background.
-- GMGN gira tramite `gmgn-cli` sul backend, solo con comandi di lettura in whitelist. Swap e ordini non sono raggiungibili.
+- Il paper gira nel runner, non nell'app: funziona anche con il telefono spento.
+- GMGN gira tramite `gmgn-cli` nel runner, solo con comandi di lettura in whitelist.
 - Testo e metadati dei token sono trattati come dati: vengono sempre "escapati" e i link non http vengono scartati.
-- Le memecoin sono estremamente rischiose. Usa il paper trading per misurare il sistema prima di pensare a capitale reale.
+- Vercel non serve più (restano `vercel.json` e `api/`, usati solo dal runner come moduli).
+- Le memecoin sono estremamente rischiose e possono azzerare il capitale. Misura il sistema in paper prima di usare soldi veri.
 
-## Runner 24/7 su GitHub Actions (paper trading in avanti)
-
-Il workflow `.github/workflows/runner.yml` esegue lo stesso desk senza interfaccia: parte ogni 5 minuti, ogni run dura circa 4,5 minuti, fa uno scan completo ogni 60 secondi e Charon controlla le posizioni ogni 30 secondi. In pratica gira di continuo, anche con l'iPhone in tasca.
-
-- **Risultati:** branch `data` → `REPORT.md` (equity, win rate, profit factor, uscite per motivo, ultimi trade) e `journal.csv`.
-- **Regole:** modifica `config.json` sul branch `data` (stesse chiavi di `DEFAULTS` in `engine.js`). Il cambio vale dal run successivo.
-- **Reset:** cancella `state.json` sul branch `data`.
-- **Secrets opzionali** (Settings → Secrets and variables → Actions): `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`, `GMGN_API_KEY`, `XAI_API_KEY`, `XAI_MODEL`. Con Telegram ricevi ogni acquisto e chiusura, più un riepilogo serale dopo le 21.
-- **Avvio manuale:** Actions → KAISER runner → Run workflow.
-
-Lo stato del runner è separato da quello della PWA: sono due conti paper distinti.
-Il motore (`engine.js`) è condiviso, quindi una modifica alle regole vale per entrambi.
+## Controlli
+```bash
+npm test      # motore, runner, esecutore, Telegram, app (statici)
+```

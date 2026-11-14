@@ -10,6 +10,7 @@
 // Variabili: ORDERS_MODE (off|dryrun|live), JUPITER_PROGRAM_ID, MAX_CAPITAL_SOL, MAX_ORDER_SOL, MAX_DAILY_LOSS_SOL, MAX_POSITIONS...
 import { safeEqual, corsHeaders, dispatchRequest } from './lib.js';
 import { Executor } from './exec.js';
+import { handleUpdate, webhookSecret } from './tg.js';
 
 const json = (obj, status, extra) => new Response(JSON.stringify(obj), { status: status || 200, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...extra } });
 const ROUTES = { '/health': 'GET', '/state': 'GET', '/order': 'POST', '/ticket': 'POST', '/approve': 'POST', '/reject': 'POST', '/sell': 'POST', '/kill': 'POST', '/resume': 'POST', '/tick': 'POST' };
@@ -24,6 +25,8 @@ export class Ledger {
     const body = req.method === 'POST' ? await req.json().catch(() => ({})) : {};
     try {
       if (path === '/health') return json(await this.ex.health());
+      if (path === '/public') return json(await this.ex.publicView());
+      if (path === '/tg') return json(await handleUpdate(this.ex, body));
       if (path === '/state') return json(await this.ex.state());
       if (path === '/order') return json(await this.ex.buy(body));
       if (path === '/ticket') return json(await this.ex.ticket(body));
@@ -55,15 +58,43 @@ export async function runClock(env) {
   return rec;
 }
 
+// Webhook di Telegram: si registra da solo, MA mai sopra il webhook di un altro servizio (per esempio un bot condiviso con Pinscher).
+export async function ensureWebhook(env) {
+  const t = env.TELEGRAM_BOT_TOKEN, base = String(env.PUBLIC_URL || '').replace(/\/+$/, '');
+  if (!t || !base || !env.EXEC_TOKEN || !env.TELEGRAM_CHAT_ID) return;
+  const mark = base + '|' + t.slice(-6), api = (m, b) => fetch(`https://api.telegram.org/bot${t}/${m}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(b || {}) }).then((r) => r.json());
+  try {
+    if ((await env.STATE.get('tgwh')) === mark) return;
+    const info = await api('getWebhookInfo'), cur = info && info.result && info.result.url;
+    if (cur && cur !== base + '/tg') { await env.STATE.put('tgwh_note', 'il bot ha già un webhook altrove: usa un bot dedicato a Kaiser'); await env.STATE.put('tgwh', mark); return; }
+    const r = await api('setWebhook', { url: base + '/tg', secret_token: await webhookSecret(env), allowed_updates: ['message', 'callback_query'] });
+    if (r && r.ok) { await env.STATE.put('tgwh', mark); await env.STATE.delete('tgwh_note'); } else await env.STATE.put('tgwh_note', 'registrazione del webhook non riuscita: ' + ((r && r.description) || 'errore'));
+  } catch { /* si riprova al prossimo giro */ }
+}
+
 export default {
   async scheduled(event, env, ctx) {
-    if (event.cron === '* * * * *') ctx.waitUntil(stub(env).fetch('https://ledger/tick', { method: 'POST', body: '{}' }));
+    if (event.cron === '* * * * *') { ctx.waitUntil(stub(env).fetch('https://ledger/tick', { method: 'POST', body: '{}' })); ctx.waitUntil(ensureWebhook(env)); }
     else ctx.waitUntil(runClock(env));
   },
   async fetch(req, env) {
     const cors = corsHeaders(req.headers.get('Origin'), env);
     if (req.method === 'OPTIONS') return new Response(null, { status: 204, headers: cors });
     const url = new URL(req.url);
+    // Vista pubblica di sola lettura (l'app su GitHub Pages non contiene segreti). Si spegne con PUBLIC_VIEW=0.
+    if (url.pathname === '/public' && req.method === 'GET') {
+      if (env.PUBLIC_VIEW === '0') return json({ ok: false, error: 'vista pubblica disattivata' }, 403, cors);
+      try { const d = await (await stub(env).fetch('https://ledger/public')).json(); d.clock = await readClock(env); d.telegramNote = (await env.STATE.get('tgwh_note')) || null; return json(d, 200, cors); }
+      catch (e) { return json({ ok: false, error: e.message }, 500, cors); }
+    }
+    // Telegram: nessun token dell'app, ma segreto del webhook (derivato da EXEC_TOKEN) obbligatorio; la chat la controlla tg.js
+    if (url.pathname === '/tg' && req.method === 'POST') {
+      if (!env.EXEC_TOKEN) return json({ ok: false }, 503);
+      if (!safeEqual(req.headers.get('X-Telegram-Bot-Api-Secret-Token') || '', await webhookSecret(env))) return json({ ok: false }, 401);
+      const body = await req.text();
+      try { await stub(env).fetch('https://ledger/tg', { method: 'POST', body }); } catch { /* Telegram riceve comunque 200: niente ripetizioni */ }
+      return json({ ok: true });
+    }
     if (!env.EXEC_TOKEN) return json({ ok: false, error: 'EXEC_TOKEN non impostato nell’esecutore' }, 503, cors);
     if (!safeEqual(req.headers.get('x-app-token') || '', env.EXEC_TOKEN)) return json({ ok: false, error: 'token mancante o errato' }, 401, cors);
     if (ROUTES[url.pathname] !== req.method) return json({ ok: false, error: 'non trovato' }, ROUTES[url.pathname] ? 405 : 404, cors);
