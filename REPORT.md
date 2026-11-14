@@ -1,11 +1,11 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-14 12:02 UTC · in esecuzione da 0.0 giorni · 78 run
+Aggiornato: 2026-11-14 12:07 UTC · in esecuzione da 0.0 giorni · 78 run
 
 | | |
 |---|---|
-| Equity | **1.3006 SOL** (+0.0% dal capitale iniziale di 1.3 SOL) |
-| Cassa | 1.1950 SOL |
+| Equity | **1.2830 SOL** (-1.3% dal capitale iniziale di 1.3 SOL) |
+| Cassa | 1.0900 SOL |
 | Trade chiusi | 0 |
 | Win rate | 0% |
 | P&L realizzato | +0.0000 SOL (~$0.00) |
@@ -14,7 +14,8 @@ Aggiornato: 2026-11-14 12:02 UTC · in esecuzione da 0.0 giorni · 78 run
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$AMC** P-0102 · 0.104 SOL · +1.5% · resta 100% · [grafico](https://dexscreener.com/solana/DxbQyPTjckQTSUWyUqJB11HpupPyLGJZ5x4z7ufHp3Gh)
+- **$AMC** P-0102 · 0.104 SOL · -8.1% · resta 100% · [grafico](https://dexscreener.com/solana/DxbQyPTjckQTSUWyUqJB11HpupPyLGJZ5x4z7ufHp3Gh)
+- **$JENSEN** P-0103 · 0.104 SOL · -6.3% · resta 100% · [grafico](https://dexscreener.com/solana/51KN4und5bwRyfRfTP1eFw4uPL8t4vTPHZ6okmLhr5iE)
 
 ## Uscite per motivo
 _ancora nessuna_
@@ -24,6 +25,23 @@ _ancora nessuno_
 
 ## Ultimi eventi
 ```
+12:07:34 ORACLE   240 raccolti, 162 analizzati, 0 BUY, 79 veto
+12:07:22 ORACLE   240 raccolti, 162 analizzati, 1 BUY, 79 veto
+12:06:57 ORACLE   240 raccolti, 172 analizzati, 1 BUY, 89 veto
+12:06:34 ORACLE   240 raccolti, 163 analizzati, 1 BUY, 79 veto
+12:06:11 ORACLE   240 raccolti, 163 analizzati, 1 BUY, 79 veto
+12:06:09 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
+12:05:48 ORACLE   240 raccolti, 173 analizzati, 1 BUY, 93 veto
+12:05:25 ORACLE   240 raccolti, 164 analizzati, 1 BUY, 84 veto
+12:05:03 ORACLE   240 raccolti, 164 analizzati, 1 BUY, 84 veto
+12:04:40 ORACLE   240 raccolti, 171 analizzati, 1 BUY, 94 veto
+12:04:17 ORACLE   240 raccolti, 164 analizzati, 1 BUY, 85 veto
+12:03:55 ORACLE   240 raccolti, 164 analizzati, 1 BUY, 85 veto
+12:03:32 ORACLE   240 raccolti, 170 analizzati, 1 BUY, 86 veto
+12:03:09 KAISER   limite 1 ingresso/i per scan: $AMC rimandato
+12:03:08 QUARTER  BUY $JENSEN 0.104 SOL score 65 impatto 0.69% (Jupiter)
+12:03:08 ORACLE   240 raccolti, 163 analizzati, 2 BUY, 80 veto
+12:02:46 ORACLE   240 raccolti, 163 analizzati, 1 BUY, 80 veto
 12:02:23 ORACLE   240 raccolti, 169 analizzati, 1 BUY, 84 veto
 12:02:00 ORACLE   240 raccolti, 163 analizzati, 1 BUY, 79 veto
 12:01:38 ORACLE   240 raccolti, 163 analizzati, 1 BUY, 79 veto
@@ -47,23 +65,6 @@ _ancora nessuno_
 11:56:18 ORACLE   240 raccolti, 167 analizzati, 1 BUY, 79 veto
 11:56:16 KAISER   reset del paper (C-0053): conto azzerato, capitale 1.3 SOL
 11:55:55 QUARTER  BUY $SWAMIS 0.105 SOL score 78 impatto 1.40% (Jupiter)
-11:55:55 ORACLE   240 raccolti, 167 analizzati, 1 BUY, 79 veto
-11:55:52 KAISER   parametri dall'app: minScore 72→63, sizePct 10→8, maxPos 6→4, cooldownMin 0→10, tp1 10→40, tp1Sell 100→50, minMcap 7000→3000, srcGmgnTrenches true→false, retradeH 0→2, maxMcap 10000→100000, trail 5→20, maxEntriesPerScan 2→1, minTxH1 40→15, entryGapSec 60→120, srcGmgnTrending true→false
-11:55:32 ORACLE   240 raccolti, 172 analizzati, 0 BUY, 84 veto
-11:55:09 ORACLE   240 raccolti, 156 analizzati, 0 BUY, 72 veto
-11:54:46 ORACLE   240 raccolti, 156 analizzati, 0 BUY, 72 veto
-11:54:23 ORACLE   240 raccolti, 173 analizzati, 0 BUY, 88 veto
-11:54:00 ORACLE   240 raccolti, 167 analizzati, 0 BUY, 81 veto
-11:53:38 ORACLE   240 raccolti, 167 analizzati, 0 BUY, 81 veto
-11:53:17 ORACLE   240 raccolti, 173 analizzati, 0 BUY, 86 veto
-11:52:54 ORACLE   240 raccolti, 164 analizzati, 0 BUY, 80 veto
-11:52:32 ORACLE   240 raccolti, 164 analizzati, 0 BUY, 80 veto
-11:52:09 ORACLE   240 raccolti, 166 analizzati, 0 BUY, 78 veto
-11:51:47 ORACLE   240 raccolti, 156 analizzati, 0 BUY, 72 veto
-11:51:24 ORACLE   240 raccolti, 156 analizzati, 0 BUY, 72 veto
-11:51:01 ORACLE   240 raccolti, 171 analizzati, 0 BUY, 86 veto
-11:50:38 ORACLE   240 raccolti, 166 analizzati, 0 BUY, 83 veto
-11:50:16 ORACLE   240 raccolti, 166 analizzati, 0 BUY, 83 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
