@@ -117,6 +117,38 @@ test('in dry-run un ticket approvato NON si presenta come ordine eseguito', asyn
   const t2 = await ex.ticket({ mint: L.b58encode(crypto.randomBytes(32)), sizeSol: 0.05 }); await T.handleUpdate(ex, msg('/approva ' + t2.ticket.id));
   assert.match(w.tg.at(-1).text, /NESSUN ordine inviato/); assert.ok(!/eseguito\./.test(w.tg.at(-1).text));
 });
+test('EMERGENZA: /emergenza vende subito le posizioni reali, ferma ingressi, autopilota e reale; 2 per giro, il resto al giro dopo', async () => {
+  const w = world(), ex = w.ex(), mints = [MINT, L.b58encode(crypto.randomBytes(32)), L.b58encode(crypto.randomBytes(32))];
+  for (const m of mints) { const t = await ex.ticket({ mint: m, sym: 'P' + m.slice(0, 2), score: 80, sizeSol: 0.05 }); await T.handleUpdate(ex, cbq('ap:' + t.ticket.id)); }
+  assert.equal((await ex.state()).positions.length, 3);
+  const n = w.tg.length; await T.handleUpdate(ex, msg('/emergenza', '999')); assert.equal(w.tg.length, n); assert.equal((await ex.state()).positions.length, 3);   // chat sconosciuta: niente
+  w.price = 0.0095;                                                                                      // prezzo vicino all'ingresso: Charon da solo non venderebbe nulla
+  await T.handleUpdate(ex, msg('/emergenza'));
+  let s = await ex.state(); assert.equal(s.killed, true); assert.equal(s.positions.length, 1, 'dopo il primo giro ne restano 1 su 3'); assert.equal(s.journal.length, 2); assert.ok(s.journal.every((j) => j.reason === 'EMERGENZA'));
+  const v = await ex.paramsView(); assert.equal(v.runner.autopilot, false); assert.equal(v.runner.realEnabled, false);
+  assert.match(w.tg.map((x) => x.text).join('\n'), /EMERGENZA attivata/);
+  await ex.tick(); s = await ex.state(); assert.equal(s.positions.length, 0); assert.equal(s.journal.length, 3);
+  assert.match(w.tg.at(-1).text, /Emergenza completata: tutte le posizioni reali sono state vendute/);
+  assert.match((await ex.buy({ ref: 'dopo-emerg-1', mint: MINT, sizeSol: 0.05 })).error, /kill switch/);   // niente nuovi ingressi finché non si riattiva
+  await T.handleUpdate(ex, msg('/riattiva')); await T.handleUpdate(ex, msg('/reset_parametri')); assert.equal((await ex.state()).killed, false); assert.deepEqual((await ex.paramsView()).runner, {});
+});
+test('EMERGENZA senza posizioni: si completa subito e non si ripete; dall\'app è una richiesta con tasto CONFERMA', async () => {
+  const w = world(), ex = w.ex();
+  const r = await ex.propose({ emergency: true }); assert.equal(r.ok, true);
+  const m = w.tg.at(-1); assert.match(m.text, /EMERGENZA IMMEDIATA richiesta dall'app/); assert.equal(m.reply_markup.inline_keyboard[0][0].text, '🚨 CONFERMA EMERGENZA'); assert.equal(m.reply_markup.inline_keyboard[0][0].callback_data, 'pa:' + r.proposal.id);
+  assert.equal((await ex.state()).killed, false, 'una richiesta dall\'app non agisce da sola');
+  assert.match((await ex.propose({ emergency: true })).error, /già inviata/);                              // niente raffiche
+  const pv = await ex.paramsView(); assert.equal(pv.proposals[0].emergency, true);
+  await T.handleUpdate(ex, cbq('pa:' + r.proposal.id, '999')); assert.equal((await ex.state()).killed, false);   // chat sconosciuta
+  await T.handleUpdate(ex, cbq('pa:' + r.proposal.id));
+  assert.equal(w.answers.at(-1), 'EMERGENZA eseguita'); assert.equal((await ex.state()).killed, true); assert.match(w.tg.at(-1).text, /Emergenza completata: nessuna posizione reale aperta/);
+  assert.equal((await ex.paramsView()).runner.autopilot, false);
+  const n = w.tg.length; await ex.tick(); assert.equal(w.tg.length, n, 'la bandiera di emergenza non resta attiva');
+});
+test('EMERGENZA: rifiutarla dal tasto Annulla non cambia nulla', async () => {
+  const w = world(), ex = w.ex(), r = await ex.propose({ emergency: true });
+  await T.handleUpdate(ex, cbq('pr:' + r.proposal.id)); assert.equal((await ex.state()).killed, false); assert.deepEqual((await ex.paramsView()).runner, {}); assert.equal((await ex.paramsView()).proposals.length, 0);
+});
 test('webhook: si registra da solo, ma non sopra quello di un altro servizio', async () => {
   const w = world(), kv = new Map(); const STATE = { get: async (k) => kv.get(k) ?? null, put: async (k, v) => { kv.set(k, v); }, delete: async (k) => { kv.delete(k); } };
   const realFetch = globalThis.fetch; globalThis.fetch = w.fetch;

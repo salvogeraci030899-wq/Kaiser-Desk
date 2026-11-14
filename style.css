@@ -65,10 +65,6 @@ a { color: var(--ui); }
 /* Struttura: colonna a tutta altezza (intestazione, contenuto che scorre, barra). Come Pinscher in app installata,
    la barra sta nel flusso e non è "fixed": iOS non la ritaglia. */
 #app { width: 100vw; height: 100vh; height: 100dvh; display: flex; flex-direction: column; overflow: hidden; background: var(--bg); position: relative; isolation: isolate; }
-/* App installata: l'altezza di #app è quella misurata dal browser (--app-h = innerHeight, aggiornata da theme.js), non 100lvh:
-   su iOS lvh può superare l'area visibile e la barra in basso finiva tagliata. Niente "fixed": iOS può ritagliare i livelli separati. */
-html.pwa-mode, html.pwa-mode body { height: 100%; }
-html.pwa-mode #app { height: var(--app-h, 100%); }
 main { flex: 1 1 auto; min-height: 0; overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; padding: 4px 16px 14px; }
 .view { display: none; }
 .view.active { display: block; animation: fadeIn 0.2s ease-out; }
@@ -297,3 +293,51 @@ a.btn { text-decoration: none; display: inline-flex; align-items: center; justif
 
 .setpage[hidden] { display: none; }
 #parBarPaper .btn.gold, #parBarReal .btn.gold { min-height: 44px; }
+
+/* ================= LAYOUT STABILE =================
+   Nessuna altezza calcolata da script: l'app è ancorata ai quattro bordi della finestra (position: fixed; inset: 0), quindi non può
+   finire più in alto, più in basso o tagliata a metà. Intestazione e barra hanno altezza fissa, il contenuto riempie lo spazio in mezzo.
+   Se su un dispositivo la barra fosse ancora fuori posto: Sistema → Generale → Schermo → Layout (Fisso / Lungo / Misurato). */
+html, body { position: fixed; inset: 0; width: 100%; height: auto; margin: 0; }
+#app { position: fixed; inset: 0; width: auto; height: auto; }
+html.layout-lvh #app { inset: auto; top: 0; left: 0; width: 100%; height: 100lvh; }
+html.layout-inner #app { inset: auto; top: 0; left: 0; width: 100%; height: var(--app-h, 100%); }
+.view.active { animation: none; }
+main { scrollbar-gutter: stable; }
+main:has(#v-radar.active) { overflow: hidden; display: flex; flex-direction: column; }
+
+header { height: calc(env(safe-area-inset-top, 0px) + 12px + 44px + 8px + 28px + 8px); padding-bottom: 0; overflow: hidden; }
+.brand { height: 44px; min-height: 44px; }
+.titles { flex: 1 1 auto; min-width: 0; }
+.brand h1 { height: 24px; line-height: 24px; white-space: nowrap; }
+.brand small { height: 15px; line-height: 15px; }
+.logo { padding: 0; border: 0; cursor: pointer; -webkit-appearance: none; appearance: none; }
+.logo:active { transform: scale(0.94); }
+.logo.spin { animation: kzspin 0.9s linear infinite; }
+@keyframes kzspin { to { transform: rotate(360deg); } }
+.sos { color: var(--danger); border-color: var(--danger); background: var(--bad-bg); }
+.sos svg { stroke-width: 2.2; } .sos svg circle { fill: currentColor; }
+.pills { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin-top: 8px; height: 28px; overflow: hidden; }
+.pill { display: flex; align-items: center; justify-content: center; height: 28px; padding: 0 4px; overflow: hidden; text-overflow: ellipsis; font-variant-numeric: tabular-nums; }
+
+nav { height: 62px; margin-top: 4px; }
+
+/* radar: sala operativa stretta (una riga) + filtro + lista che mostra esattamente due schede */
+#v-radar.active { display: grid; grid-template-rows: 40px 38px minmax(0, 1fr); row-gap: 8px; flex: 1 1 0; min-height: 0; padding-top: 4px; }
+.ops { display: flex; align-items: center; gap: 8px; height: 40px; padding: 0 12px; border-radius: var(--r-pill); border: 1px solid var(--border); background: var(--surface); color: var(--text); font: 12px var(--mono); text-align: left; cursor: pointer; overflow: hidden; }
+.ops .opsmsg { flex: 1 1 auto; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ops .tiny { flex: 0 0 auto; min-width: 38px; text-align: right; font-variant-numeric: tabular-nums; }
+#radarFilter { height: 38px; }
+#radarList { display: grid; grid-auto-rows: var(--row-h, calc((100% - 10px) / 2)); gap: 10px; min-height: 0; overflow-y: auto; overflow-x: hidden; scroll-snap-type: y mandatory; align-content: start; }
+#radarList > .tcard { height: 100%; margin: 0; padding: 12px 14px; scroll-snap-align: start; display: flex; flex-direction: column; justify-content: space-between; gap: 6px; }
+#radarList > .tcard:last-child { scroll-snap-align: end; }
+#radarList > .empty { grid-row: 1 / span 2; align-self: center; }
+#radarList .chips { flex-wrap: nowrap; overflow: hidden; margin-top: 0; }
+#radarList .chip { white-space: nowrap; flex: 0 0 auto; }
+#radarList .metrics { margin-top: 0; }
+#radarList .nm { max-width: none; }
+
+/* sistema: righe di stato sempre presenti, altezza fissa */
+.sysrows > * { min-height: 20px; }
+.sysnote { min-height: 32px; margin-top: 8px; }
+.glass-diag { font: 11px var(--mono); }
