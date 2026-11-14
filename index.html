@@ -9,6 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
+<meta name="kz-build" content="2.6.1">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=2">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
@@ -30,20 +31,22 @@
   document.getElementById('metaStatusBar').setAttribute('content', light ? 'default' : (bar === 'separate' ? 'black' : 'black-translucent'));
 })();
 </script>
-<link rel="stylesheet" href="style.css?v=10">
+<link rel="stylesheet" href="style.css?v=11">
 <script src="version.js"></script>
 <script src="theme.js"></script>
 <script src="lock.js"></script>
 <script>
-// Aggiornamento automatico: iOS tiene in memoria la pagina dell'app installata. All'avvio si legge la versione pubblicata (senza cache):
-// se è diversa da quella in esecuzione si riscaricano i file e si ricarica la pagina (una sola volta per versione).
+// Aggiornamento automatico: iOS tiene in memoria la pagina dell'app installata (anche solo alcuni file). All'avvio si legge la versione
+// pubblicata (senza cache) e si confronta con quella della PAGINA in esecuzione: se diversa, si riscaricano tutti i file e si ricarica (una volta per versione).
 (function () {
   try {
+    var page = (document.querySelector('meta[name=kz-build]') || {}).content;
     fetch('version.js?_=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.text(); }).then(function (t) {
-      var m = t.match(/KZ_VERSION\s*=\s*'([^']+)'/); if (!m || m[1] === window.KZ_VERSION) return;
+      var m = t.match(/KZ_VERSION\s*=\s*'([^']+)'/); if (!m || (m[1] === page && m[1] === window.KZ_VERSION)) return;
       var k = 'kz_reloaded'; try { if (sessionStorage.getItem(k) === m[1]) return; sessionStorage.setItem(k, m[1]); } catch (e) {}
-      var files = ['version.js', 'theme.js', 'lock.js', 'engine.js', 'style.css', 'manifest.json'];
-      Promise.all(files.map(function (f) { return fetch(f, { cache: 'reload' }).catch(function () {}); })).then(function () { location.replace(location.pathname + '?v=' + m[1]); });
+      var files = ['version.js', 'theme.js', 'lock.js', 'engine.js', 'style.css', 'manifest.json', location.pathname];
+      var cssv = (document.querySelector('link[rel=stylesheet]') || {}).getAttribute && document.querySelector('link[rel=stylesheet]').getAttribute('href'); if (cssv) files.push(cssv);
+      Promise.all(files.map(function (f) { return fetch(f, { cache: 'reload' }).catch(function () {}); })).then(function () { location.replace(location.pathname + '?v=' + m[1] + '&t=' + Date.now()); });
     }).catch(function () {});
   } catch (e) {}
 })();
@@ -390,7 +393,7 @@ try { new ResizeObserver(fitRadar).observe($('#radarList')); } catch (e) { windo
 // Diagnostica del layout (utile se la barra in basso è fuori posto): misure della finestra e dell'app
 function diag() {
   const a = $('#app').getBoundingClientRect(), n = document.querySelector('nav').getBoundingClientRect(), el = $('#diagTxt'); if (!el) return;
-  el.textContent = `finestra ${innerWidth}×${innerHeight} · app ${Math.round(a.top)}→${Math.round(a.bottom)} · barra ${Math.round(n.top)}→${Math.round(n.bottom)} · ${window.KZTheme ? window.KZTheme.layout() : '—'}`;
+  el.textContent = `finestra ${innerWidth}×${innerHeight} · app ${Math.round(a.top)}→${Math.round(a.bottom)} · barra ${Math.round(n.top)}→${Math.round(n.bottom)} · pagina ${(document.querySelector('meta[name=kz-build]') || {}).content} · script ${window.KZ_VERSION} · css ${getComputedStyle(document.documentElement).getPropertyValue('--kz-css').trim() || '?'} · ${window.KZTheme ? window.KZTheme.layout() : '—'}`;
 }
 ['resize', 'orientationchange', 'pageshow'].forEach((ev) => window.addEventListener(ev, diag)); setInterval(diag, 3000); diag();
 
@@ -558,7 +561,7 @@ function renderJournal() {
 }
 function renderSystem() {
   const run = rt.run, e = rt.exec, clock = e && e.clock;
-  $('#ver').textContent = 'v' + (window.KZ_VERSION || ''); $('#ver2').textContent = 'v' + (window.KZ_VERSION || '');
+  const BUILD = (document.querySelector('meta[name=kz-build]') || {}).content || window.KZ_VERSION || ''; $('#ver').textContent = 'v' + BUILD; $('#ver2').textContent = 'v' + BUILD;
   $('#cfgLink').href = `https://github.com/${REPO}/edit/data/config.json`;
   const row = (k, v) => `<span>${k}</span><span class="mono" style="text-align:right">${v}</span>`;
   const dash = '<span class="muted">—</span>', fresh = !!run && Date.now() - run.updatedAt < 15 * 60000;
