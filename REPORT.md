@@ -1,20 +1,22 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-14 14:02 UTC · in esecuzione da 0.0 giorni · 81 run
+Aggiornato: 2026-11-14 14:07 UTC · in esecuzione da 0.1 giorni · 81 run
 
 | | |
 |---|---|
-| Equity | **1.2348 SOL** (-5.0% dal capitale iniziale di 1.3 SOL) |
-| Cassa | 1.0947 SOL |
+| Equity | **1.2223 SOL** (-6.0% dal capitale iniziale di 1.3 SOL) |
+| Cassa | 0.8962 SOL |
 | Trade chiusi | 2 |
 | Win rate | 50% |
-| P&L realizzato | -0.0997 SOL (~$-7.47) |
+| P&L realizzato | -0.0997 SOL (~$-7.49) |
 | Media vincite / perdite | +3.4% / -98.2% |
 | Profit factor | 0.03 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$ZAPZEKE** P-0106 · 0.105 SOL · +34.0% · resta 100% · [grafico](https://dexscreener.com/solana/2J7svWqX7yYKdXvPJF5PQnjGxN5cghEFLX5SrNTyCxCo)
+- **$ZAPZEKE** P-0106 · 0.105 SOL · +39.6% · resta 100% · [grafico](https://dexscreener.com/solana/2J7svWqX7yYKdXvPJF5PQnjGxN5cghEFLX5SrNTyCxCo)
+- **$HOT** P-0108 · 0.099 SOL · -16.6% · resta 100% · [grafico](https://dexscreener.com/solana/4pbRQvm6Bmp1PLFckJxo89fpcK19aXbkMoZ1is7MXnp2)
+- **$GTA$** P-0109 · 0.098 SOL · n/d · resta 100% · [grafico](https://dexscreener.com/solana/5SNKhJXNTCWQZP1JzDNfgkpegYCoHJ3coMz8mywCDUpT)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -30,6 +32,23 @@ Aggiornato: 2026-11-14 14:02 UTC · in esecuzione da 0.0 giorni · 81 run
 
 ## Ultimi eventi
 ```
+14:07:29 QUARTER  BUY $GTA$ 0.098 SOL score 64 impatto 1.08% (Jupiter)
+14:07:29 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 248 veto
+14:07:05 QUARTER  $GTA$ impatto 2.2% oltre slippage: annullato
+14:07:05 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 247 veto
+14:06:41 ORACLE   360 raccolti, 261 analizzati, 3 BUY, 249 veto
+14:06:17 ORACLE   360 raccolti, 259 analizzati, 3 BUY, 250 veto
+14:05:53 ORACLE   360 raccolti, 261 analizzati, 3 BUY, 252 veto
+14:05:29 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 248 veto
+14:05:06 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 251 veto
+14:04:42 KAISER   limite 1 ingresso/i per scan: $Dork rimandato
+14:04:42 QUARTER  BUY $HOT 0.099 SOL score 73 impatto 1.11% (Jupiter)
+14:04:42 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 247 veto
+14:04:18 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 243 veto
+14:03:55 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 244 veto
+14:03:31 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 241 veto
+14:03:07 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 240 veto
+14:02:43 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 237 veto
 14:02:19 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 240 veto
 14:01:55 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 233 veto
 14:01:31 ORACLE   355 raccolti, 252 analizzati, 0 BUY, 243 veto
@@ -53,23 +72,6 @@ Aggiornato: 2026-11-14 14:02 UTC · in esecuzione da 0.0 giorni · 81 run
 13:56:35 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 249 veto
 13:56:11 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 253 veto
 13:55:47 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 253 veto
-13:55:23 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 246 veto
-13:54:59 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 254 veto
-13:54:35 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 255 veto
-13:54:11 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 247 veto
-13:53:46 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 252 veto
-13:53:22 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 255 veto
-13:52:59 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 248 veto
-13:52:34 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 249 veto
-13:52:11 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 259 veto
-13:51:47 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 258 veto
-13:51:23 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 256 veto
-13:50:59 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 258 veto
-13:50:35 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 252 veto
-13:50:11 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 255 veto
-13:49:47 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 257 veto
-13:49:23 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 249 veto
-13:48:59 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 257 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
