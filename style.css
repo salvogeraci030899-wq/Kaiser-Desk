@@ -300,7 +300,10 @@ a.btn { text-decoration: none; display: inline-flex; align-items: center; justif
    Se su un dispositivo la barra fosse ancora fuori posto: Sistema → Generale → Schermo → Layout (Fisso / Lungo / Misurato). */
 html, body { position: fixed; inset: 0; width: 100%; height: auto; margin: 0; }
 #app { position: fixed; inset: 0; width: auto; height: auto; }
-html.layout-lvh #app { inset: auto; top: 0; left: 0; width: 100%; height: 100lvh; }
+/* Struttura come in PinscherTrade (che sul telefono funziona): html e body NON sono fixed, tutto prende l'altezza piena dello schermo (lvh)
+   e la barra sta nel flusso. iOS ritaglia i livelli "fixed" dentro un contenitore fixed: era la causa della barra tagliata a metà. */
+html.layout-lvh, html.layout-lvh body { position: static; overflow: hidden; height: 100vh; height: 100lvh; }
+html.layout-lvh #app { position: relative; inset: auto; width: 100%; height: 100vh; height: 100lvh; }
 html.layout-screen #app, html.layout-inner #app { inset: auto; top: 0; left: 0; width: 100%; height: var(--app-h, 100%); }
 .view.active { animation: none; }
 main { scrollbar-gutter: stable; }
@@ -341,3 +344,9 @@ nav { height: 62px; margin-top: 4px; }
 .sysrows > * { min-height: 20px; }
 .sysnote { min-height: 32px; margin-top: 8px; }
 .glass-diag { font: 11px var(--mono); }
+
+/* scheda di dettaglio: si trascina verso il basso per chiuderla */
+.sheet .inner { will-change: transform; }
+.sheet .inner.drag { transition: none; }
+.sheet .inner.snap { transition: transform 0.2s ease-out; }
+.set.stack { grid-template-columns: 1fr; } .set.stack .theme-toggle { justify-self: stretch; }
