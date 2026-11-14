@@ -103,8 +103,9 @@ Le memecoin sono estremamente rischiose e il reale può perdere tutto il capital
 
 ## Chiudere una posizione dall'app
 
-- Ogni posizione aperta (paper e reale) ha il tasto **Chiudi**, con popup di conferma.
-- La richiesta arriva **sempre su Telegram** con il tasto **Chiudi ora**, anche se l'approvazione manuale degli ingressi è disattivata: la vendita parte quando lo tocchi.
-  - Reale: il Worker vende tutto a mercato con i soliti controlli sulla transazione.
-  - Paper: il Worker passa l'ordine al runner, che vende a mercato entro circa un minuto.
-- Variabile facoltativa del Worker `APP_CLOSE=direct`: la chiusura parte subito dal popup, senza Telegram. Scelta meno sicura: chi conosce l'indirizzo del Worker potrebbe chiedere una chiusura.
+- Ogni posizione aperta (paper e reale) ha il tasto **Chiudi**, con popup di conferma. Il popup dice se l'approvazione manuale risulta attiva o disattivata e da dove il Worker lo legge.
+- **Approvazione manuale disattivata** («Approvazione manuale in reale» spenta in Sistema → Reale, oppure `realApprove: false` in config.json): la chiusura parte subito, senza Telegram, in paper e in reale.
+- **Approvazione manuale attiva** (predefinito): arriva su Telegram il tasto **Chiudi ora**.
+- Il Worker legge l'approvazione in quest'ordine: impostazione cambiata dall'app, valore riferito dal runner, configurazione nel riepilogo che il runner spinge (servono entrambi i segreti: `EXEC_TOKEN` su GitHub). Senza informazioni vale il predefinito (attiva).
+- Variabile facoltativa del Worker `APP_CLOSE`: `direct` = sempre diretta, `confirm` = sempre con Telegram.
+- Nota: la chiusura diretta non ha una seconda conferma fuori dall'app; il popup e' l'unica. Chi conosce l'indirizzo del Worker potrebbe chiedere una chiusura.
