@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.8.0">
+<meta name="kz-build" content="2.8.1">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=2">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
@@ -31,7 +31,7 @@
   document.getElementById('metaStatusBar').setAttribute('content', light ? 'default' : (bar === 'separate' ? 'black' : 'black-translucent'));
 })();
 </script>
-<link rel="stylesheet" href="style.css?v=13">
+<link rel="stylesheet" href="style.css?v=14">
 <script src="version.js"></script>
 <script src="theme.js"></script>
 <script src="lock.js"></script>
@@ -146,7 +146,7 @@
     </div></div>
     </div>
     <div class="vscroll jfix">
-    <div class="card jcard"><table><thead><tr><th>Token</th><th>Esito</th><th>P&amp;L</th><th>Motivo</th></tr></thead><tbody id="jRows"></tbody></table></div>
+    <div class="card jcard"><div class="jrow jhead"><span>Token</span><span>Esito</span><span>P&amp;L</span><span>Motivo</span></div><div class="jbody" id="jRows"></div></div>
     </div>
     <div class="vfoot"><h2 style="margin:6px 6px 4px">Uscite per motivo</h2><div class="card" id="jReasons"></div></div>
   </section>
@@ -548,7 +548,7 @@ function renderJournal() {
   const aw = st0 ? st0.aw : (wins.length ? wins.reduce((a, j) => a + j.pct, 0) / wins.length : 0), al = st0 ? st0.al : (losses.length ? losses.reduce((a, j) => a + j.pct, 0) / losses.length : 0);
   $('#jAW').textContent = aw ? fmtPct(aw, 1) : '—'; $('#jAL').textContent = al ? fmtPct(al, 1) : '—';
   const pf = st0 ? st0.pf : (gl ? gw / gl : gw ? Infinity : 0); $('#jPF').textContent = pf == null || pf === Infinity ? (J.length ? '∞' : '—') : Number(pf).toFixed(2);
-  $('#jRows').innerHTML = [...J].reverse().slice(0, 100).map((j) => `<tr><td>$${esc(j.sym)}<br><span class="muted">${new Date(j.closedAt).toLocaleString('it-IT', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' })}</span></td><td class="${cls(j.pct)}">${fmtPct(j.pct, 1)}</td><td class="${cls(j.pnl)}">${Number(j.pnl).toFixed(4)}</td><td>${esc(j.reason)}</td></tr>`).join('') || `<tr><td colspan="4" class="muted">${!real && !run ? 'Dati del runner non disponibili.' : 'Nessun trade chiuso.'}</td></tr>`;
+  $('#jRows').innerHTML = [...J].reverse().slice(0, 100).map((j) => `<div class="jrow"><span>$${esc(j.sym)}<br><span class="muted">${new Date(j.closedAt).toLocaleString('it-IT', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' })}</span></span><span class="${cls(j.pct)}">${fmtPct(j.pct, 1)}</span><span class="${cls(j.pnl)}">${Number(j.pnl).toFixed(4)}</span><span class="jr">${esc(j.reason)}</span></div>`).join('') || `<div class="empty" style="padding:18px 6px">${!real && !run ? 'Dati del runner non disponibili.' : 'Nessun trade chiuso.'}</div>`;
   const by = {}; for (const j of J) { by[j.reason] = by[j.reason] || { n: 0, pnl: 0 }; by[j.reason].n++; by[j.reason].pnl += j.pnl; }
   $('#jReasons').innerHTML = Object.keys(by).length ? `<div class="kv">${Object.entries(by).map(([k, v]) => `<span>${esc(k)} (${v.n})</span><span class="mono ${cls(v.pnl)}">${v.pnl.toFixed(4)}◎</span>`).join('')}</div>` : '<span class="muted small">Ancora niente.</span>';
 }
