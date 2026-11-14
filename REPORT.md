@@ -1,23 +1,23 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-14 06:50 UTC · in esecuzione da 0.1 giorni · 49 run
+Aggiornato: 2026-11-14 06:55 UTC · in esecuzione da 0.1 giorni · 50 run
 
 | | |
 |---|---|
-| Equity | **1.1491 SOL** (-11.6% dal capitale iniziale di 1.3 SOL) |
+| Equity | **1.1620 SOL** (-10.6% dal capitale iniziale di 1.3 SOL) |
 | Cassa | 0.6537 SOL |
 | Trade chiusi | 14 |
 | Win rate | 29% |
-| P&L realizzato | -0.1422 SOL (~$-10.73) |
+| P&L realizzato | -0.1422 SOL (~$-10.75) |
 | Media vincite / perdite | +51.8% / -31.1% |
 | Profit factor | 0.67 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$DEFAULT** P-0028 · 0.131 SOL · +12.6% · resta 100% · [grafico](https://dexscreener.com/solana/AyDYhwU7XhgAG5etCQHf6jgsrbkhcHH9WcwB3WirrE7r)
+- **$DEFAULT** P-0028 · 0.131 SOL · +23.4% · resta 100% · [grafico](https://dexscreener.com/solana/AyDYhwU7XhgAG5etCQHf6jgsrbkhcHH9WcwB3WirrE7r)
 - **$AMC** P-0030 · 0.130 SOL · +1.1% · resta 100% · [grafico](https://dexscreener.com/solana/DxbQyPTjckQTSUWyUqJB11HpupPyLGJZ5x4z7ufHp3Gh)
-- **$Heisto** P-0031 · 0.125 SOL · -19.0% · resta 100% · [grafico](https://dexscreener.com/solana/FsrbfEJEoXDwH7dy9dtAwCh7iifjXCx9BcfnyTVNKmSz)
-- **$WISHMAS** P-0033 · 0.115 SOL · n/d · resta 100% · [grafico](https://dexscreener.com/solana/FcsUythNUWbfT7RP2yuFp1kiWjft15du9WtgLUrrqx3p)
+- **$Heisto** P-0031 · 0.125 SOL · -20.7% · resta 100% · [grafico](https://dexscreener.com/solana/FsrbfEJEoXDwH7dy9dtAwCh7iifjXCx9BcfnyTVNKmSz)
+- **$WISHMAS** P-0033 · 0.115 SOL · +0.6% · resta 100% · [grafico](https://dexscreener.com/solana/FcsUythNUWbfT7RP2yuFp1kiWjft15du9WtgLUrrqx3p)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -47,6 +47,26 @@ Aggiornato: 2026-11-14 06:50 UTC · in esecuzione da 0.1 giorni · 49 run
 
 ## Ultimi eventi
 ```
+06:55:06 SCRIBE   fine run · trade 14 · win 29% · P&L -0.1422 SOL · equity 1.1620 SOL
+06:54:55 ORACLE   90 raccolti, 58 analizzati, 2 BUY, 36 veto
+06:54:53 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 06:55:23 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制
+
+06:53:52 QUARTER  $SAI impatto 2.6% oltre slippage: annullato
+06:53:51 ORACLE   90 raccolti, 68 analizzati, 3 BUY, 40 veto
+06:53:49 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 06:54:19 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制
+
+06:52:48 QUARTER  $SAI impatto 3.0% oltre slippage: annullato
+06:52:48 ORACLE   90 raccolti, 68 analizzati, 3 BUY, 40 veto
+06:52:45 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 06:53:15 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制
+
+06:51:43 ORACLE   90 raccolti, 64 analizzati, 0 BUY, 42 veto
+06:51:42 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 06:52:12 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制
+
+06:50:40 ORACLE   90 raccolti, 55 analizzati, 1 BUY, 33 veto
+06:50:37 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 06:51:07 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制
+
+06:50:36 KAISER   parametri dall'app: scanSec 30→15, minScore 68→72, sizePct 5→10, maxPos 3→6, slippageBps 300→200, prioritySOL 0.0005→0.0007, cooldownMin 10→0, sl 25→30, tp1 40→35, tp1Sell 50→75, timeStopMinPnl 5→2, minLiq 15000→5000, minMcap 15000→6500, minAgeMin 5→0, srcGmgnTrenches false→true, retradeH 2→1
+06:50:36 KAISER   run #50 · 4 posizioni · equity 1.1491 SOL · GMGN demo · Grok off
 06:50:05 SCRIBE   fine run · trade 14 · win 29% · P&L -0.1422 SOL · equity 1.1491 SOL
 06:49:55 KAISER   limite 1 ingresso/i per scan: $AMC rimandato
 06:49:54 QUARTER  BUY $WISHMAS 0.115 SOL score 75 impatto 0.97% (Jupiter)
@@ -79,26 +99,6 @@ Aggiornato: 2026-11-14 06:50 UTC · in esecuzione da 0.1 giorni · 49 run
 06:43:51 ORACLE   90 raccolti, 66 analizzati, 2 BUY, 36 veto
 06:43:49 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 06:44:19 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制
 
-06:42:48 QUARTER  BUY $NiggaTits 0.126 SOL score 74 impatto 0.00% (Jupiter)
-06:42:48 ORACLE   90 raccolti, 63 analizzati, 2 BUY, 38 veto
-06:42:45 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 06:43:15 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制
-
-06:41:44 ORACLE   90 raccolti, 67 analizzati, 1 BUY, 37 veto
-06:41:41 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 06:42:11 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制
-
-06:40:40 ORACLE   90 raccolti, 68 analizzati, 2 BUY, 38 veto
-06:40:37 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 06:41:06 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制
-
-06:40:36 KAISER   parametri dall'app: scanSec 30→15, minScore 68→72, sizePct 5→10, maxPos 3→5, slippageBps 300→200, prioritySOL 0.0005→0.0007, cooldownMin 10→0, sl 25→30, tp1 40→35, tp1Sell 50→75, timeStopMinPnl 5→2, minLiq 15000→5000, minMcap 15000→6500, minAgeMin 5→0, srcGmgnTrenches false→true, retradeH 2→1
-06:40:35 KAISER   run #48 · 4 posizioni · equity 1.2704 SOL · GMGN demo · Grok off
-06:40:04 SCRIBE   fine run · trade 12 · win 33% · P&L -0.0352 SOL · equity 1.2704 SOL
-06:39:51 ORACLE   90 raccolti, 62 analizzati, 1 BUY, 37 veto
-06:39:49 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 06:40:19 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制
-
-06:38:48 ORACLE   90 raccolti, 64 analizzati, 2 BUY, 39 veto
-06:38:46 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 06:39:16 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制
-
-06:37:45 QUARTER  $WISHMAS impatto 2.2% oltre slippage: annullato
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
