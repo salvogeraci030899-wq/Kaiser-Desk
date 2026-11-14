@@ -1,25 +1,25 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-14 15:13 UTC · in esecuzione da 0.1 giorni · 82 run
+Aggiornato: 2026-11-14 15:18 UTC · in esecuzione da 0.1 giorni · 82 run
 
 | | |
 |---|---|
-| Equity | **1.1844 SOL** (-8.9% dal capitale iniziale di 1.3 SOL) |
-| Cassa | 1.1440 SOL |
-| Trade chiusi | 9 |
-| Win rate | 44% |
-| P&L realizzato | -0.1287 SOL (~$-9.53) |
-| Media vincite / perdite | +38.5% / -55.4% |
-| Profit factor | 0.54 |
+| Equity | **1.1398 SOL** (-12.3% dal capitale iniziale di 1.3 SOL) |
+| Cassa | 1.0948 SOL |
+| Trade chiusi | 10 |
+| Win rate | 40% |
+| P&L realizzato | -0.1779 SOL (~$-13.17) |
+| Media vincite / perdite | +38.5% / -54.7% |
+| Profit factor | 0.46 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$MOONVALE** P-0114 · 0.094 SOL · +43.7% · resta 30% · [grafico](https://dexscreener.com/solana/3ECm2QMjjyTik9Txr3fmaF7WdKC2Apx2FCRgMqCvkAAm)
+- **$MOONVALE** P-0114 · 0.094 SOL · +60.4% · resta 30% · [grafico](https://dexscreener.com/solana/3ECm2QMjjyTik9Txr3fmaF7WdKC2Apx2FCRgMqCvkAAm)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| RUG-EXIT liquidità | 2 | -0.2006 |
+| RUG-EXIT liquidità | 3 | -0.2498 |
 | Break-even | 1 | +0.0034 |
 | Stop loss | 1 | -0.0399 |
 | Chiusura manuale (app) | 2 | +0.0923 |
@@ -28,6 +28,7 @@ Aggiornato: 2026-11-14 15:13 UTC · in esecuzione da 0.1 giorni · 82 run
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $kibble | 68 | -51.3% | -0.0492 | +0% | -50% | RUG-EXIT liquidità | 2m |
 | $GETAJOB | 77 | -16.5% | -0.0158 | +42% | +1% | Trailing stop | 1m |
 | $BOOSTY | 65 | -24.8% | -0.0243 | +45% | +9% | Trailing stop | 2m |
 | $CLOCKED | 64 | +60.3% | +0.0561 | +147% | +96% | Trailing stop | 11m |
@@ -40,6 +41,22 @@ Aggiornato: 2026-11-14 15:13 UTC · in esecuzione da 0.1 giorni · 82 run
 
 ## Ultimi eventi
 ```
+15:18:06 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 262 veto
+15:17:41 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 270 veto
+15:17:18 SCRIBE   chiuso P-0115 $kibble -0.0492 SOL (-51.3%)
+15:17:18 CHARON   RUG-EXIT liquidità $kibble vendo 100% a -50.0% -> 0.0467 SOL
+15:17:18 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 260 veto
+15:16:54 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 255 veto
+15:16:31 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 256 veto
+15:16:08 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 257 veto
+15:15:43 QUARTER  BUY $kibble 0.095 SOL score 68 impatto 0.00% (Jupiter)
+15:15:43 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 259 veto
+15:15:20 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 256 veto
+15:14:56 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 254 veto
+15:14:33 ORACLE   360 raccolti, 274 analizzati, 2 BUY, 260 veto
+15:14:10 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 258 veto
+15:13:47 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 249 veto
+15:13:24 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 255 veto
 15:13:01 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 252 veto
 15:12:38 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 252 veto
 15:12:15 CHARON   TP1 $MOONVALE vendo 70% a 44.2% -> 0.0674 SOL
@@ -64,22 +81,6 @@ Aggiornato: 2026-11-14 15:13 UTC · in esecuzione da 0.1 giorni · 82 run
 15:05:26 ORACLE   360 raccolti, 271 analizzati, 3 BUY, 266 veto
 15:05:03 ORACLE   360 raccolti, 270 analizzati, 3 BUY, 265 veto
 15:04:41 KAISER   limite 1 ingresso/i per scan: $BOOSTY rimandato
-15:04:41 KAISER   limite 1 ingresso/i per scan: $kibble rimandato
-15:04:40 QUARTER  BUY $MOONVALE 0.094 SOL score 69 impatto 1.23% (Jupiter)
-15:04:40 ORACLE   360 raccolti, 247 analizzati, 3 BUY, 240 veto
-15:04:18 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 265 veto
-15:03:55 ORACLE   360 raccolti, 270 analizzati, 3 BUY, 260 veto
-15:03:32 ORACLE   360 raccolti, 256 analizzati, 3 BUY, 245 veto
-15:03:08 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 257 veto
-15:02:45 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 257 veto
-15:02:22 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 256 veto
-15:01:59 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 261 veto
-15:01:36 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 254 veto
-15:01:13 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 253 veto
-15:00:50 QUARTER  $REELPLOT impatto 2.8% oltre slippage: annullato
-15:00:50 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 258 veto
-15:00:27 QUARTER  $REELPLOT impatto 2.1% oltre slippage: annullato
-15:00:27 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 259 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
