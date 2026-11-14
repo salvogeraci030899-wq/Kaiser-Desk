@@ -1,69 +1,8 @@
 {
  "startedAt": 1794631727570,
- "runs": 26,
- "cash": 0.7786902255541835,
+ "runs": 27,
+ "cash": 1.0600285112741834,
  "positions": [
-  {
-   "id": "P-0016",
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "name": "Jensen Huang",
-   "pairAddress": "51KN4und5bwRyfRfTP1eFw4uPL8t4vTPHZ6okmLhr5iE",
-   "openedAt": 1794631730879,
-   "sizeSOL": 0.13,
-   "cost": 0.1307,
-   "entry": 0.000014517598102458824,
-   "tokens": 8954.649321638273,
-   "remaining": 1,
-   "rawLeft": "8534458019",
-   "peak": 0.00001593,
-   "tp1Done": false,
-   "spDone": false,
-   "entryLiq": 78487.94,
-   "realized": 0,
-   "score": 83,
-   "why": "runner",
-   "entryInfo": {
-    "srcs": [
-     "boost",
-     "top boost",
-     "GMGN"
-    ],
-    "notes": [
-     "troppo esteso: rischio top"
-    ],
-    "plus": [
-     "pressione in acquisto",
-     "4 smart money"
-    ],
-    "m": {
-     "liq": 80884.73,
-     "mc": 1137818,
-     "ageMin": 235.10408333333334,
-     "v1": 133221.39,
-     "tx1": 9819,
-     "br1": 1.618235137296721,
-     "br5": 1.6779661016949152,
-     "c5": 7.66,
-     "c1": 1.69,
-     "c6": 1185,
-     "turn": 1.6470524164449831,
-     "price": 0.001144,
-     "priceNative": 0.00001514
-    },
-    "grok": null
-   },
-   "last": {
-    "priceNative": 0.00001389,
-    "liq": 77428.24,
-    "br5": 1.5621468926553672,
-    "tx5": 905,
-    "t": 1794632393383
-   },
-   "fills": [
-    "BUY 0.130 impatto 0.73% (Jupiter)"
-   ]
-  },
   {
    "id": "P-0017",
    "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
@@ -110,11 +49,11 @@
     "grok": null
    },
    "last": {
-    "priceNative": 0.00004915,
-    "liq": 144445.22,
-    "br5": 1.6688453159041394,
-    "tx5": 1223,
-    "t": 1794632393383
+    "priceNative": 0.00004853,
+    "liq": 143465.87,
+    "br5": 1.8407960199004976,
+    "tx5": 1140,
+    "t": 1794632681792
    },
    "fills": [
     "BUY 0.130 impatto 1.16% (Jupiter)"
@@ -166,11 +105,11 @@
     "grok": null
    },
    "last": {
-    "priceNative": 5.923e-7,
-    "liq": 16528.49,
-    "br5": 3.3636363636363638,
-    "tx5": 46,
-    "t": 1794632393383
+    "priceNative": 5.868e-7,
+    "liq": 16446.23,
+    "br5": 3.142857142857143,
+    "tx5": 56,
+    "t": 1794632681792
    },
    "fills": [
     "BUY 0.130 impatto 0.11% (Jupiter)"
@@ -187,13 +126,13 @@
    "cost": 0.12943296463726317,
    "entry": 0.0000011196210223719422,
    "tokens": 114979.0527910413,
-   "remaining": 1,
-   "rawLeft": "131112831762",
-   "peak": 0.0000011196210223719422,
-   "tp1Done": false,
+   "remaining": 0.25,
+   "rawLeft": "32778207941",
+   "peak": 0.000001977,
+   "tp1Done": true,
    "spDone": false,
    "entryLiq": 20229.76,
-   "realized": 0,
+   "realized": 0.17959617452,
    "score": 72,
    "why": "runner",
    "entryInfo": {
@@ -226,18 +165,67 @@
     "grok": null
    },
    "last": {
-    "priceNative": 0.000001012,
-    "liq": 19701.22,
-    "br5": 1.5816326530612246,
-    "tx5": 504,
-    "t": 1794632393383
+    "priceNative": 0.000001836,
+    "liq": 26911.25,
+    "br5": 1.0724637681159421,
+    "tx5": 1285,
+    "t": 1794632681792
    },
    "fills": [
-    "BUY 0.129 impatto 1.51% (Jupiter)"
+    "BUY 0.129 impatto 1.51% (Jupiter)",
+    "SELL 75% -> 0.1796 (TP1, Jupiter)"
    ]
   }
  ],
- "journal": [],
+ "journal": [
+  {
+   "id": "P-0016",
+   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
+   "sym": "JENSEN",
+   "openedAt": 1794631730879,
+   "closedAt": 1794632648856,
+   "cost": 0.1307,
+   "back": 0.10174211119999998,
+   "pnl": -0.028957888800000026,
+   "pct": -22.155997551645008,
+   "mode": "paper",
+   "reason": "Time stop",
+   "score": 83,
+   "solUsd": 75.35188252688945,
+   "peakPct": 9.728895148998241,
+   "trigPct": -17.34169856949286,
+   "entryInfo": {
+    "srcs": [
+     "boost",
+     "top boost",
+     "GMGN"
+    ],
+    "notes": [
+     "troppo esteso: rischio top"
+    ],
+    "plus": [
+     "pressione in acquisto",
+     "4 smart money"
+    ],
+    "m": {
+     "liq": 80884.73,
+     "mc": 1137818,
+     "ageMin": 235.10408333333334,
+     "v1": 133221.39,
+     "tx1": 9819,
+     "br1": 1.618235137296721,
+     "br5": 1.6779661016949152,
+     "c5": 7.66,
+     "c1": 1.69,
+     "c6": 1185,
+     "turn": 1.6470524164449831,
+     "price": 0.001144,
+     "priceNative": 0.00001514
+    },
+    "grok": null
+   }
+  }
+ ],
  "signals": [
   {
    "t": 1794631730849,
@@ -462,16 +450,147 @@
    "sym": "UP",
    "score": 73,
    "priceNative": 0.000001012
+  },
+  {
+   "t": 1794632429659,
+   "mint": "A5bpyAGdSPKwX3YDyF563DmbVSfM3EcYgBPjPna8pump",
+   "sym": "UP",
+   "score": 78,
+   "priceNative": 0.000001133
+  },
+  {
+   "t": 1794632429659,
+   "mint": "62MnzU6NVvGrVRLHyqKrwrSnCJsZGHm9bE8aHaB82ray",
+   "sym": "DEFAULT",
+   "score": 76,
+   "priceNative": 5.776e-7
+  },
+  {
+   "t": 1794632429659,
+   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
+   "sym": "JENSEN",
+   "score": 74,
+   "priceNative": 0.00001421
+  },
+  {
+   "t": 1794632492313,
+   "mint": "A5bpyAGdSPKwX3YDyF563DmbVSfM3EcYgBPjPna8pump",
+   "sym": "UP",
+   "score": 77,
+   "priceNative": 0.00000118
+  },
+  {
+   "t": 1794632492313,
+   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
+   "sym": "JENSEN",
+   "score": 75,
+   "priceNative": 0.00001353
+  },
+  {
+   "t": 1794632492313,
+   "mint": "62MnzU6NVvGrVRLHyqKrwrSnCJsZGHm9bE8aHaB82ray",
+   "sym": "DEFAULT",
+   "score": 74,
+   "priceNative": 5.777e-7
+  },
+  {
+   "t": 1794632555905,
+   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
+   "sym": "JENSEN",
+   "score": 75,
+   "priceNative": 0.00001282
+  },
+  {
+   "t": 1794632555905,
+   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
+   "sym": "WISHMAS",
+   "score": 72,
+   "priceNative": 0.00000193
+  },
+  {
+   "t": 1794632618594,
+   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
+   "sym": "JENSEN",
+   "score": 75,
+   "priceNative": 0.00001305
+  },
+  {
+   "t": 1794632618594,
+   "mint": "62MnzU6NVvGrVRLHyqKrwrSnCJsZGHm9bE8aHaB82ray",
+   "sym": "DEFAULT",
+   "score": 75,
+   "priceNative": 5.869e-7
+  },
+  {
+   "t": 1794632618594,
+   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
+   "sym": "WISHMAS",
+   "score": 72,
+   "priceNative": 0.000001878
+  },
+  {
+   "t": 1794632618594,
+   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
+   "sym": "AMC",
+   "score": 72,
+   "priceNative": 0.00004814
+  },
+  {
+   "t": 1794632681792,
+   "mint": "62MnzU6NVvGrVRLHyqKrwrSnCJsZGHm9bE8aHaB82ray",
+   "sym": "DEFAULT",
+   "score": 76,
+   "priceNative": 5.868e-7
+  },
+  {
+   "t": 1794632681792,
+   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
+   "sym": "JENSEN",
+   "score": 74,
+   "priceNative": 0.000012
+  },
+  {
+   "t": 1794632681792,
+   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
+   "sym": "AMC",
+   "score": 72,
+   "priceNative": 0.00004853
+  },
+  {
+   "t": 1794632681792,
+   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
+   "sym": "WISHMAS",
+   "score": 72,
+   "priceNative": 0.000001897
   }
  ],
  "day": {
   "date": "2026-11-14",
   "startEq": 1.3
  },
- "cooldownUntil": 0,
+ "cooldownUntil": 1794632648856,
  "halted": null,
  "seq": 19,
  "events": [
+  "05:04:53 SCRIBE   fine run · trade 1 · win 0% · P&L -0.0290 SOL · equity 1.3520 SOL",
+  "05:04:41 QUARTER  $WISHMAS impatto 2.2% oltre slippage: annullato",
+  "05:04:41 ORACLE   90 raccolti, 59 analizzati, 4 BUY, 33 veto",
+  "05:04:39 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 05:05:09 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
+  "05:04:08 SCRIBE   chiuso P-0016 $JENSEN -0.0290 SOL (-22.2%)",
+  "05:04:08 CHARON   Time stop $JENSEN vendo 100% a -17.3% -> 0.1017 SOL",
+  "05:03:38 QUARTER  $WISHMAS impatto 2.4% oltre slippage: annullato",
+  "05:03:38 ORACLE   90 raccolti, 57 analizzati, 4 BUY, 31 veto",
+  "05:03:36 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 05:04:06 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
+  "05:02:35 QUARTER  $WISHMAS impatto 2.1% oltre slippage: annullato",
+  "05:02:35 ORACLE   90 raccolti, 63 analizzati, 2 BUY, 33 veto",
+  "05:02:33 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 05:03:02 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
+  "05:02:02 CHARON   TP1 $UP vendo 75% a 71.6% -> 0.1796 SOL",
+  "05:01:32 ORACLE   90 raccolti, 65 analizzati, 3 BUY, 32 veto",
+  "05:01:30 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 05:02:00 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
+  "05:00:29 ORACLE   90 raccolti, 64 analizzati, 3 BUY, 31 veto",
+  "05:00:24 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 05:00:54 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
+  "05:00:23 KAISER   parametri dall'app: scanSec 30→15, minScore 68→72, sizePct 5→10, maxPos 3→5, slippageBps 300→200, prioritySOL 0.0005→0.0007, cooldownMin 10→0, sl 25→30, tp1 40→35, tp1Sell 50→75, timeStopMin 45→15, timeStopMinPnl 5→2, minLiq 15000→5000, minMcap 15000→6500, minAgeMin 5→0, srcGmgnTrenches false→true",
+  "05:00:23 KAISER   run #27 · 4 posizioni · equity 1.2612 SOL · GMGN demo · Grok off",
   "05:00:05 SCRIBE   fine run · trade 0 · win 0% · P&L 0.0000 SOL · equity 1.2612 SOL",
   "04:59:53 ORACLE   90 raccolti, 62 analizzati, 3 BUY, 38 veto",
   "04:59:50 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 05:00:20 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
@@ -752,26 +871,7 @@
   "19:42:38 ORACLE   90 raccolti, 67 analizzati, 6 BUY, 45 veto",
   "19:41:31 KAISER   limite 1 ingresso/i per scan: $FOOD rimandato",
   "19:41:31 KAISER   limite 1 ingresso/i per scan: $C@T rimandato",
-  "19:41:31 KAISER   limite 1 ingresso/i per scan: $AMC rimandato",
-  "19:41:31 KAISER   limite 1 ingresso/i per scan: $POOR rimandato",
-  "19:41:31 KAISER   limite 1 ingresso/i per scan: $WANTED rimandato",
-  "19:41:31 QUARTER  BUY $LUCIA 0.238 SOL score 88 impatto 2.41% (Jupiter)",
-  "19:41:30 ORACLE   90 raccolti, 67 analizzati, 6 BUY, 45 veto",
-  "19:41:25 KAISER   run #3 · 0 posizioni · equity 4.7646 SOL · GMGN demo · Grok off",
-  "18:59:14 SCRIBE   fine run · trade 3 · win 0% · P&L -0.2354 SOL · equity 4.7646 SOL",
-  "18:58:58 ORACLE   89 raccolti, 70 analizzati, 4 BUY, 50 veto",
-  "18:57:55 ORACLE   89 raccolti, 69 analizzati, 4 BUY, 50 veto",
-  "18:56:53 ORACLE   89 raccolti, 70 analizzati, 4 BUY, 50 veto",
-  "18:55:50 ORACLE   88 raccolti, 67 analizzati, 3 BUY, 49 veto",
-  "18:54:47 SCRIBE   chiuso P-0001 $SIRIUS -0.0748 SOL (-29.9%)",
-  "18:54:47 CHARON   Stop loss $SIRIUS vendo 100% a -46.6% -> 0.1757 SOL",
-  "18:54:47 ORACLE   88 raccolti, 67 analizzati, 3 BUY, 48 veto",
-  "18:54:44 KAISER   run #2 · 1 posizioni · equity 4.8164 SOL · GMGN demo · Grok off",
-  "18:37:57 SCRIBE   fine run · trade 2 · win 0% · P&L -0.1606 SOL · equity 4.8164 SOL",
-  "18:37:42 ORACLE   87 raccolti, 64 analizzati, 7 BUY, 43 veto",
-  "18:36:39 SCRIBE   chiuso P-0002 $JENSEN -0.0819 SOL (-32.7%)",
-  "18:36:39 CHARON   Stop loss $JENSEN vendo 100% a -43.0% -> 0.1686 SOL",
-  "18:36:39 ORACLE   88 raccolti, 65 analizzati, 6 BUY, 44 veto"
+  "19:41:31 KAISER   limite 1 ingresso/i per scan: $AMC rimandato"
  ],
  "capital": 1.3,
  "resetId": "C-0004",
