@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.16.1">
+<meta name="kz-build" content="2.17.0">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=2">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
@@ -30,7 +30,7 @@
   document.getElementById('metaStatusBar').setAttribute('content', light ? 'default' : (bar === 'separate' ? 'black' : 'black-translucent'));
 })();
 </script>
-<link rel="stylesheet" href="style.css?v=32">
+<link rel="stylesheet" href="style.css?v=33">
 <script src="version.js"></script>
 <script src="theme.js"></script>
 <script src="lock.js"></script>
@@ -142,6 +142,9 @@
       <div class="m"><span>Media win</span><b id="jAW">—</b></div>
       <div class="m"><span>Media loss</span><b id="jAL">—</b></div>
       <div class="m"><span>Profit factor</span><b id="jPF">—</b></div>
+      <div class="m"><span>Attesa / trade</span><b id="jEx">—</b></div>
+      <div class="m"><span>Perdita max</span><b id="jDD">—</b></div>
+      <div class="m"><span id="jSmpL">Campione</span><b id="jSmp">—</b></div>
     </div></div>
     </div>
     <div class="vscroll jfix">
@@ -565,6 +568,15 @@ function renderJournal() {
   const aw = st0 ? st0.aw : (wins.length ? wins.reduce((a, j) => a + j.pct, 0) / wins.length : 0), al = st0 ? st0.al : (losses.length ? losses.reduce((a, j) => a + j.pct, 0) / losses.length : 0);
   $('#jAW').textContent = aw ? fmtPct(aw, 1) : '—'; $('#jAL').textContent = al ? fmtPct(al, 1) : '—';
   const pf = st0 ? st0.pf : (gl ? gw / gl : gw ? Infinity : 0); $('#jPF').textContent = pf == null || pf === Infinity ? (J.length ? '∞' : '—') : Number(pf).toFixed(2);
+  // Attesa per trade (guadagno medio atteso, in %), perdita massima (dal picco, sui trade in elenco) e affidabilità del campione
+  const nT = st0 ? st0.n : J.length, wr = nT ? (st0 ? st0.wr : wins.length / J.length * 100) : 0;
+  const ex = nT ? wr / 100 * aw + (1 - wr / 100) * al : null;
+  let cum = 0, peak = 0, dd = 0; for (const j of J) { cum += j.pnl; peak = Math.max(peak, cum); dd = Math.max(dd, peak - cum); }
+  $('#jEx').innerHTML = ex == null ? '—' : `<span class="${cls(ex)}">${fmtPct(ex, 1)}</span>`;
+  $('#jDD').innerHTML = J.length ? `<span class="${dd > 0 ? 'down' : ''}">${dd > 0 ? '−' : ''}${fmtSol(dd, 3)}</span>` : '—';
+  const pfN = pf == null || pf === Infinity ? (J.length ? 99 : 0) : Number(pf);
+  $('#jSmpL').textContent = nT < 30 ? 'Pochi trade' : nT < 100 ? 'Campione scarso' : pfN >= 1.3 && ex > 0 ? 'Esito positivo' : pfN >= 1 && ex > 0 ? 'Esito incerto' : 'Esito negativo';
+  $('#jSmp').innerHTML = `<span class="${nT >= 100 ? (pfN >= 1.3 && ex > 0 ? 'up' : pfN >= 1 && ex > 0 ? 'warn' : 'down') : 'warn'}">${nT}/100</span>`;
   $('#jRows').innerHTML = [...J].reverse().slice(0, 100).map((j) => `<div class="jrow"><span>$${esc(j.sym)}<br><span class="muted">${new Date(j.closedAt).toLocaleString('it-IT', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' })}</span></span><span class="${cls(j.pct)}">${fmtPct(j.pct, 1)}</span><span class="${cls(j.pnl)}">${Number(j.pnl).toFixed(4)}</span><span class="jr">${esc(j.reason)}</span></div>`).join('') || `<div class="empty" style="padding:18px 6px">${!real && !run ? 'Dati del runner non disponibili.' : 'Nessun trade chiuso.'}</div>`;
   const by = {}; for (const j of J) { by[j.reason] = by[j.reason] || { n: 0, pnl: 0 }; by[j.reason].n++; by[j.reason].pnl += j.pnl; }
   $('#jReasons').innerHTML = Object.keys(by).length ? `<div class="kv">${Object.entries(by).map(([k, v]) => `<span>${esc(k)} (${v.n})</span><span class="mono ${cls(v.pnl)}">${v.pnl.toFixed(4)}◎</span>`).join('')}</div>` : '<span class="muted small">Ancora niente.</span>';
