@@ -1,5 +1,5 @@
 # Esecutore di KAISER su Cloudflare Workers (piano gratuito). Pubblicato dal workflow "Pubblica esecutore".
-# Fase 2: SOLA LETTURA (indirizzo del wallet, saldo, limiti, kill switch). Nessun ordine.
+# Fase 3: ordini reali tramite Jupiter (spenti di default: ORDERS_MODE=off), uscite di Charon ogni minuto, kill switch.
 name = "kaiser-executor"
 main = "src/index.js"
 compatibility_date = "2026-01-01"
@@ -11,11 +11,21 @@ keep_vars = true
 # Orologio: ogni 5 minuti avvia il runner paper su GitHub Actions (il cron di GitHub può ritardare di ore, questo no).
 # Gratis. Richiede il segreto GH_TOKEN (token fine-grained, solo questo repository, permesso Actions: Read and write).
 [triggers]
-crons = ["*/5 * * * *"]
+# */5: avvia il runner paper su GitHub (il cron di GitHub può ritardare di ore).  *: Charon controlla le posizioni reali ogni minuto.
+crons = ["*/5 * * * *", "* * * * *"]
 
 [[kv_namespaces]]
 binding = "STATE"
 id = "b8fbce8205e448249df3e6988c342191"
+
+# Stato reale (posizioni, journal, kill switch) in un Durable Object: un'operazione alla volta, nessuna corsa tra ordini e uscite.
+[[durable_objects.bindings]]
+name = "LEDGER"
+class_name = "Ledger"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["Ledger"]
 
 [vars]
 GH_REPO = "salvogeraci030899-wq/Kaiser-Desk"
@@ -23,8 +33,6 @@ GH_WORKFLOW = "runner.yml"
 GH_REF = "main"
 # Siti da cui l'app può chiamare l'esecutore (CORS). Il token resta comunque obbligatorio.
 ALLOWED_ORIGINS = "https://kaiser-desk.vercel.app,https://salvogeraci030899-wq.github.io"
-# Limiti applicati QUI, lato server: l'app non può aggirarli (usati dalla fase 3, già visibili in /health).
-MAX_CAPITAL_SOL = "0"
-MAX_ORDER_SOL = "0.05"
-MAX_DAILY_LOSS_SOL = "0.1"
-MAX_SLIPPAGE_BPS = "300"
+# NON mettere qui ORDERS_MODE, JUPITER_PROGRAM_ID, MAX_CAPITAL_SOL, MAX_ORDER_SOL, MAX_DAILY_LOSS_SOL, MAX_POSITIONS, RPC_URL, Telegram:
+# si impostano dalla dashboard di Cloudflare (keep_vars le conserva) e un deploy non deve mai riportarle a un valore del repository.
+# Senza di esse l'esecutore è chiuso: ORDERS_MODE=off, capitale massimo 0.
