@@ -1,7 +1,7 @@
 {
  "startedAt": 1794660696112,
  "runs": 82,
- "cash": 1.1871389810042676,
+ "cash": 1.1713184783239263,
  "positions": [],
  "journal": [
   {
@@ -374,6 +374,53 @@
    },
    "maePct": -0.990099009900991,
    "age": 2
+  },
+  {
+   "id": "P-0113",
+   "mint": "fF6re6hDUyeBWFoeJtMs3BNB2cdgQnkwxr7BGwCpump",
+   "sym": "GETAJOB",
+   "openedAt": 1794667989182,
+   "closedAt": 1794668058683,
+   "cost": 0.09597111848034141,
+   "back": 0.08015061579999999,
+   "pnl": -0.015820502680341422,
+   "pct": -16.48464968508424,
+   "mode": "paper",
+   "reason": "Trailing stop",
+   "score": 77,
+   "solUsd": 73.92501101667341,
+   "peakPct": 41.79476982703649,
+   "trigPct": 0.9035752592863266,
+   "entryInfo": {
+    "srcs": [
+     "gecko nuovi"
+    ],
+    "notes": [
+     "nessun social"
+    ],
+    "plus": [
+     "turnover 5.8x/h",
+     "pressione in acquisto"
+    ],
+    "m": {
+     "liq": 20395.48,
+     "mc": 86647,
+     "ageMin": 13.1153,
+     "v1": 118333.22,
+     "tx1": 1047,
+     "br1": 4.37948717948718,
+     "br5": 4.746987951807229,
+     "c5": -50.17,
+     "c1": -13.34,
+     "c6": -13.34,
+     "turn": 5.801933565672394,
+     "price": 0.00008668,
+     "priceNative": 0.000001173
+    },
+    "grok": null
+   },
+   "maePct": null,
+   "age": 13
   }
  ],
  "signals": [
@@ -2532,16 +2579,180 @@
    "sym": "HOT",
    "score": 75,
    "priceNative": 4.853e-7
+  },
+  {
+   "t": 1794667965758,
+   "mint": "5R9MnNEGLpsvq6wNmAkh82peNLqwfSTyu5ny9ezPzhot",
+   "sym": "HOT",
+   "score": 79,
+   "priceNative": 5.228e-7
+  },
+  {
+   "t": 1794667989156,
+   "mint": "5R9MnNEGLpsvq6wNmAkh82peNLqwfSTyu5ny9ezPzhot",
+   "sym": "HOT",
+   "score": 79,
+   "priceNative": 5.228e-7
+  },
+  {
+   "t": 1794667989156,
+   "mint": "fF6re6hDUyeBWFoeJtMs3BNB2cdgQnkwxr7BGwCpump",
+   "sym": "GETAJOB",
+   "score": 77,
+   "priceNative": 0.000001173
+  },
+  {
+   "t": 1794668012517,
+   "mint": "5R9MnNEGLpsvq6wNmAkh82peNLqwfSTyu5ny9ezPzhot",
+   "sym": "HOT",
+   "score": 79,
+   "priceNative": 5.28e-7
+  },
+  {
+   "t": 1794668035513,
+   "mint": "5R9MnNEGLpsvq6wNmAkh82peNLqwfSTyu5ny9ezPzhot",
+   "sym": "HOT",
+   "score": 79,
+   "priceNative": 5.28e-7
+  },
+  {
+   "t": 1794668058669,
+   "mint": "5R9MnNEGLpsvq6wNmAkh82peNLqwfSTyu5ny9ezPzhot",
+   "sym": "HOT",
+   "score": 79,
+   "priceNative": 4.625e-7
+  },
+  {
+   "t": 1794668058669,
+   "mint": "fF6re6hDUyeBWFoeJtMs3BNB2cdgQnkwxr7BGwCpump",
+   "sym": "GETAJOB",
+   "score": 77,
+   "priceNative": 0.000001219
+  },
+  {
+   "t": 1794668082087,
+   "mint": "5R9MnNEGLpsvq6wNmAkh82peNLqwfSTyu5ny9ezPzhot",
+   "sym": "HOT",
+   "score": 79,
+   "priceNative": 4.716e-7
+  },
+  {
+   "t": 1794668082087,
+   "mint": "fF6re6hDUyeBWFoeJtMs3BNB2cdgQnkwxr7BGwCpump",
+   "sym": "GETAJOB",
+   "score": 77,
+   "priceNative": 0.000001212
+  },
+  {
+   "t": 1794668104763,
+   "mint": "5R9MnNEGLpsvq6wNmAkh82peNLqwfSTyu5ny9ezPzhot",
+   "sym": "HOT",
+   "score": 79,
+   "priceNative": 4.716e-7
+  },
+  {
+   "t": 1794668104763,
+   "mint": "fF6re6hDUyeBWFoeJtMs3BNB2cdgQnkwxr7BGwCpump",
+   "sym": "GETAJOB",
+   "score": 77,
+   "priceNative": 0.000001273
+  },
+  {
+   "t": 1794668127780,
+   "mint": "5R9MnNEGLpsvq6wNmAkh82peNLqwfSTyu5ny9ezPzhot",
+   "sym": "HOT",
+   "score": 79,
+   "priceNative": 4.81e-7
+  },
+  {
+   "t": 1794668127780,
+   "mint": "fF6re6hDUyeBWFoeJtMs3BNB2cdgQnkwxr7BGwCpump",
+   "sym": "GETAJOB",
+   "score": 77,
+   "priceNative": 9.837e-7
+  },
+  {
+   "t": 1794668150717,
+   "mint": "5R9MnNEGLpsvq6wNmAkh82peNLqwfSTyu5ny9ezPzhot",
+   "sym": "HOT",
+   "score": 79,
+   "priceNative": 4.81e-7
+  },
+  {
+   "t": 1794668150717,
+   "mint": "fF6re6hDUyeBWFoeJtMs3BNB2cdgQnkwxr7BGwCpump",
+   "sym": "GETAJOB",
+   "score": 77,
+   "priceNative": 0.000001058
+  },
+  {
+   "t": 1794668174285,
+   "mint": "5R9MnNEGLpsvq6wNmAkh82peNLqwfSTyu5ny9ezPzhot",
+   "sym": "HOT",
+   "score": 78,
+   "priceNative": 4.869e-7
+  },
+  {
+   "t": 1794668174285,
+   "mint": "fF6re6hDUyeBWFoeJtMs3BNB2cdgQnkwxr7BGwCpump",
+   "sym": "GETAJOB",
+   "score": 77,
+   "priceNative": 0.000001074
+  },
+  {
+   "t": 1794668197491,
+   "mint": "fF6re6hDUyeBWFoeJtMs3BNB2cdgQnkwxr7BGwCpump",
+   "sym": "GETAJOB",
+   "score": 77,
+   "priceNative": 0.000001057
+  },
+  {
+   "t": 1794668197491,
+   "mint": "5R9MnNEGLpsvq6wNmAkh82peNLqwfSTyu5ny9ezPzhot",
+   "sym": "HOT",
+   "score": 71,
+   "priceNative": 4.807e-7
+  },
+  {
+   "t": 1794668220368,
+   "mint": "5R9MnNEGLpsvq6wNmAkh82peNLqwfSTyu5ny9ezPzhot",
+   "sym": "HOT",
+   "score": 71,
+   "priceNative": 4.807e-7
+  },
+  {
+   "t": 1794668243523,
+   "mint": "5R9MnNEGLpsvq6wNmAkh82peNLqwfSTyu5ny9ezPzhot",
+   "sym": "HOT",
+   "score": 75,
+   "priceNative": 4.935e-7
   }
  ],
  "day": {
   "date": "2026-11-14",
   "startEq": 1.3
  },
- "cooldownUntil": 1794667910625,
+ "cooldownUntil": 1794668118683,
  "halted": null,
- "seq": 112,
+ "seq": 113,
  "events": [
+  "14:57:23 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 244 veto",
+  "14:57:00 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 240 veto",
+  "14:56:37 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 239 veto",
+  "14:56:14 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 236 veto",
+  "14:55:50 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 239 veto",
+  "14:55:27 ORACLE   360 raccolti, 240 analizzati, 2 BUY, 224 veto",
+  "14:55:04 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 234 veto",
+  "14:54:42 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 229 veto",
+  "14:54:18 SCRIBE   chiuso P-0113 $GETAJOB -0.0158 SOL (-16.5%)",
+  "14:54:18 CHARON   Trailing stop $GETAJOB vendo 100% a 0.9% -> 0.0234 SOL",
+  "14:54:18 ORACLE   360 raccolti, 238 analizzati, 2 BUY, 219 veto",
+  "14:53:55 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 226 veto",
+  "14:53:32 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 226 veto",
+  "14:53:19 CHARON   TP1 $GETAJOB vendo 70% a 41.8% -> 0.0567 SOL",
+  "14:53:09 QUARTER  BUY $GETAJOB 0.095 SOL score 77 impatto 1.97% (Jupiter)",
+  "14:53:09 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 223 veto",
+  "14:52:45 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 229 veto",
   "14:52:22 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 227 veto",
   "14:52:00 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 228 veto",
   "14:51:36 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 233 veto",
@@ -2824,27 +3035,10 @@
   "13:19:49 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 257 veto",
   "13:19:35 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 250 veto",
   "13:19:19 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 244 veto",
-  "13:18:54 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 239 veto",
-  "13:18:30 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 248 veto",
-  "13:18:06 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 246 veto",
-  "13:17:42 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 243 veto",
-  "13:17:17 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 250 veto",
-  "13:16:53 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 250 veto",
-  "13:16:29 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 237 veto",
-  "13:16:05 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 253 veto",
-  "13:15:41 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 254 veto",
-  "13:15:18 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 242 veto",
-  "13:15:14 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)",
-  "13:14:54 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 247 veto",
-  "13:14:30 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 251 veto",
-  "13:14:06 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 243 veto",
-  "13:13:42 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 256 veto",
-  "13:13:18 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 257 veto",
-  "13:13:05 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 252 veto",
-  "13:12:38 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 267 veto"
+  "13:18:54 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 239 veto"
  ],
  "capital": 1.3,
  "resetId": "C-0060",
  "realTried": {},
- "lastEntryAt": 1794667736553
+ "lastEntryAt": 1794667989182
 }
