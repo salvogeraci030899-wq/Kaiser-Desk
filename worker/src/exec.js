@@ -334,7 +334,7 @@ export class Executor {
     await this.store.put('lastClose', now);
     const seq = (await this.store.get('cseq', 0)) + 1; await this.store.put('cseq', seq);
     const p = { id: 'C-' + String(seq).padStart(4, '0'), changes: {}, close: { mode, id, sym: String(sym || '').slice(0, 20) }, at: now, exp: now + 10 * 60000 };
-    if (await this._closeDirect()) { const r = await this._applyClose(p.close); return { ...r, proposal: p, direct: true }; }
+    if ((c.approvalOff === true && String(this.env.APP_CLOSE || '').toLowerCase() !== 'confirm') || (await this._closeDirect())) { const r = await this._applyClose(p.close); return { ...r, proposal: p, direct: true }; }
     props.push(p); await this.store.put('proposals', props);
     await this.notify(`Chiusura posizione ${mode === 'real' ? 'REALE' : 'paper'} ${p.id}\n${p.close.sym} (${id}): vendita di tutta la posizione a mercato.${mode === 'real' ? '\nSono soldi veri.' : ''}\n\nValida per 10 minuti. Se non l'hai chiesta tu, rifiuta.`, { inline_keyboard: [[{ text: 'Chiudi ora', callback_data: 'pa:' + p.id }, { text: 'Annulla', callback_data: 'pr:' + p.id }]] });
     return { ok: true, proposal: p };

@@ -214,3 +214,14 @@ test('CHIUSURA dall\'app: con l\'approvazione manuale disattivata è diretta (re
   await ex3.paperPut({ v: 1, positions: [], journal: [], config: { realApprove: false } }); const v3 = await ex3.paramsView(); assert.equal(v3.closeDirect, true); assert.equal(v3.approval.src, 'riepilogo del runner');
   await ex3.reportRunner({ realApprove: true }); assert.equal((await ex3.paramsView()).approval.src, 'runner', 'il valore riferito dal runner viene prima del riepilogo');
 });
+test('CHIUSURA dall\'app: l\'indicazione approvalOff dell\'app (impostazioni mostrate) rende la chiusura diretta; APP_CLOSE=confirm la ignora', async () => {
+  const w = world(), ex = w.ex(), t = await ex.ticket({ mint: MINT, sym: 'HNT', score: 80, sizeSol: 0.05 }); await T.handleUpdate(ex, cbq('ap:' + t.ticket.id));
+  const pos = (await ex.state()).positions[0]; assert.equal((await ex.paramsView()).closeDirect, false, 'il Worker, da solo, vede l\'approvazione attiva');
+  const n = w.tg.length, r = await ex.propose({ close: { mode: 'real', id: pos.id, approvalOff: true } });
+  assert.equal(r.direct, true); assert.equal((await ex.state()).positions.length, 0); assert.ok(!w.tg.slice(n).some((m) => m.reply_markup), 'senza tasto su Telegram');
+  const w2 = world({ APP_CLOSE: 'confirm' }), ex2 = w2.ex(), t2 = await ex2.ticket({ mint: MINT, sym: 'HN2', score: 80, sizeSol: 0.05 }); await T.handleUpdate(ex2, cbq('ap:' + t2.ticket.id));
+  const p2 = (await ex2.state()).positions[0], r2 = await ex2.propose({ close: { mode: 'real', id: p2.id, approvalOff: true } }); assert.ok(!r2.direct); assert.equal((await ex2.state()).positions.length, 1);
+  const w3 = world(), ex3 = w3.ex(); await ex3.paperPut({ v: 1, positions: [{ id: 'P-0005', sym: 'PP' }], journal: [] });
+  const r3 = await ex3.propose({ close: { mode: 'paper', id: 'P-0005', approvalOff: true } }); assert.equal(r3.direct, true); assert.deepEqual((await ex3.paramsView()).closePaper, ['P-0005']);
+  await ex3.store.put('lastClose', 0); const r4 = await ex3.propose({ close: { mode: 'paper', id: 'P-0005', approvalOff: 'si' } }); assert.ok(!r4.direct, 'solo true esatto vale');
+});

@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.11.4">
+<meta name="kz-build" content="2.11.5">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=2">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
@@ -31,7 +31,7 @@
   document.getElementById('metaStatusBar').setAttribute('content', light ? 'default' : (bar === 'separate' ? 'black' : 'black-translucent'));
 })();
 </script>
-<link rel="stylesheet" href="style.css?v=22">
+<link rel="stylesheet" href="style.css?v=23">
 <script src="version.js"></script>
 <script src="theme.js"></script>
 <script src="lock.js"></script>
@@ -708,8 +708,14 @@ $('#pMode').onclick = () => setMode(st.mode === 'real' ? 'paper' : 'real');
 document.querySelectorAll('.modeSeg').forEach((g) => g.addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) setMode(b.dataset.mode); }));
 $('#sheet').onclick = (e) => { if (e.target.id === 'sheet') closeSheet(); };
 // Spiega al popup di chiusura cosa vede il Worker: con l'approvazione manuale spenta la chiusura è diretta, altrimenti serve Telegram
+// Cosa mostrano le impostazioni dell'app per l'approvazione manuale (bozza non inviata compresa): è quello che l'utente vede e a cui si riferisce
+function approvalOffInApp() {
+  const par = rt.par; if (!par || !par.schema || !par.schema.realApprove) return false;
+  try { return ('realApprove' in rt.draft ? rt.draft.realApprove : baseVal('realApprove')) === false; } catch (e) { return false; }
+}
 function closeNote() {
-  const par = rt.par; if (!par) return 'Stato dell’approvazione non disponibile: su Telegram ti arriva il tasto <b>Chiudi ora</b>.';
+  const par = rt.par; if (approvalOffInApp()) return 'Approvazione manuale <b>disattivata</b> nelle impostazioni: la vendita parte subito, senza Telegram.';
+  if (!par) return 'Stato dell’approvazione non disponibile: su Telegram ti arriva il tasto <b>Chiudi ora</b>.';
   if (par.closeDirect) return 'Approvazione manuale <b>disattivata</b>: la vendita parte subito, senza Telegram.';
   const src = par.approval ? ' (' + esc(par.approval.src) + ')' : '';
   const pend = (par.proposals || []).some((q) => q.changes && q.changes.realApprove === false);
@@ -726,7 +732,7 @@ document.body.addEventListener('click', async (e) => {
     if (!(await askDialog({ icon: 'lock', danger: true, title: 'Chiudere la posizione?', ok: 'Chiudi ora', cancel: 'Annulla',
       body: `<p>${real ? '<b>REALE</b> · ' : 'Paper · '}<b>$${esc(sym)}</b> (${esc(id)}) · P&amp;L attuale <b>${Number(pnl) >= 0 ? '+' : ''}${esc(pnl)}%</b></p><p>Vendita a mercato di <b>tutta</b> la posizione${real ? ' (soldi veri)' : ''}.</p><p class="tiny muted">${closeNote()}</p>` }))) return;
     try {
-      const d = await postPropose({ close: { mode, id } });
+      const d = await postPropose({ close: { mode, id, approvalOff: approvalOffInApp() } });
       toast(d.ok ? (d.direct ? `Chiusura di $${esc(sym)} in corso` : `Richiesta inviata: tocca <b>Chiudi ora</b> su Telegram`) : 'Non inviata: ' + esc(d.error || 'errore'));
     } catch (err) { toast('Errore di rete: ' + esc(err.message)); }
     return;
