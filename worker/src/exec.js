@@ -10,6 +10,19 @@ import { SCHEMA, GROUPS, validate, diffText, defaults as paramDefaults } from '.
 export const SOL = 'So11111111111111111111111111111111111111112';
 const MINT_RE = /^[1-9A-HJ-NP-Za-km-z]{32,44}$/;
 const RESERVE = 10_000_000;            // 0,01 SOL: margine per commissioni e rent degli account
+// Pannello di emergenza: azioni dell'app. 'confirm' = anche con l'approvazione disattivata passa sempre dal tasto su Telegram (accende il reale).
+const PANEL = {
+  close_all:    { label: 'Chiudi tutte le posizioni',        text: 'vendita a mercato di TUTTE le posizioni, paper e reale' },
+  close_profit: { label: 'Chiudi le posizioni in profitto',  text: 'vendita a mercato delle posizioni in profitto, paper e reale' },
+  close_loss:   { label: 'Chiudi le posizioni in perdita',   text: 'vendita a mercato delle posizioni in perdita, paper e reale' },
+  real_stop:    { label: 'Reale Stop',     text: 'kill switch: nessun nuovo ingresso reale (le uscite restano attive)' },
+  paper_stop:   { label: 'Paper Stop',     text: 'il paper non apre nuove posizioni (quelle aperte restano gestite)' },
+  off_all:      { label: 'Disattiva tutto', text: 'ingressi fermi e spenti per reale e paper, autopilota spento (le posizioni aperte restano gestite)' },
+  real_off:     { label: 'Disattiva Reale', text: 'il runner non invia più ordini reali (le posizioni aperte restano gestite)' },
+  paper_off:    { label: 'Disattiva Paper', text: 'il paper non apre nuove posizioni (quelle aperte restano gestite)' },
+  real_on:      { label: 'Attiva Reale',    text: 'riabilita gli ingressi reali, spegne il kill switch e riaccende l\'autopilota. SOLDI VERI', confirm: true },
+  paper_on:     { label: 'Attiva Paper',    text: 'riabilita i nuovi ingressi paper e riaccende l\'autopilota' },
+};
 const MAX_SELLS_PER_TICK = 2;          // limite di richieste esterne per invocazione (piano gratuito)
 
 export function clampParams(p = {}) {
@@ -235,7 +248,7 @@ export class Executor {
     const positions = await this.store.get('positions', []), pending = await this.store.get('pending', []);
     if (!positions.length && !pending.length) { if (em) { await this.store.put('emergency', null); await this.notify('Emergenza completata: nessuna posizione reale aperta. Ingressi fermi (kill switch), autopilota e reale spenti.\nPer ripartire: /riattiva e /reset_parametri (poi riaccendi quello che serve nelle impostazioni).'); } return { ok: true, idle: true }; }
     if (pending.length && this.env.WALLET_SECRET_KEY) await this.reconcile(pending);
-    const open = await this.store.get('positions', []); if (!open.length) { if (em) { await this.store.put('emergency', null); await this.notify('Emergenza completata: nessuna posizione reale aperta.'); } return { ok: true, positions: 0 }; }
+    const open = await this.store.get('positions', []); if (!open.length) { if (await this.store.get('closeJob', null)) await this.store.put('closeJob', null); if (em) { await this.store.put('emergency', null); await this.notify('Emergenza completata: nessuna posizione reale aperta.'); } return { ok: true, positions: 0 }; }
     if (em) {                                                    // EMERGENZA: si vende tutto adesso (al massimo 2 posizioni per giro), senza aspettare Charon
       let sold = 0;
       for (const p of open) { if (sold >= MAX_SELLS_PER_TICK) break; sold++; await this._sell(p, 1, 'EMERGENZA'); }
@@ -243,6 +256,7 @@ export class Executor {
       if (!left) { await this.store.put('emergency', null); await this.notify('Emergenza completata: tutte le posizioni reali sono state vendute.\nIngressi fermi (kill switch), autopilota e reale spenti. Per ripartire: /riattiva e /reset_parametri.'); }
       return { ok: true, emergency: true, sold, left };
     }
+    if (await this.store.get('closeJob', null)) { const j = await this._closeJobStep(); if (j && j.job) return { ok: true, closing: true, left: j.left }; }   // chiusura dal pannello in corso
     const prices = await this.prices(open.map((p) => p.mint)), out = { ok: true, sold: 0, checked: 0 }; let dirty = false;
     for (const p of open) {
       const m = prices.get(p.mint); if (!m || !(p.entry > 0)) continue;
@@ -321,6 +335,58 @@ export class Executor {
     if (m === 'direct') return true; if (m === 'confirm') return false;
     return !(await this.approval()).on;
   }
+  // ---- pannello di emergenza ----
+  async _setOv(patch) { const ov = { ...(await this.store.get('params', {})), ...patch }; await this.store.put('params', ov); this.ov = ov; }
+  async _proposePanel(pn) {
+    const a = pn && pn.action, def = PANEL[a]; if (!def) return { ok: false, error: 'azione non valida' };
+    const now = this.now(), props = (await this.store.get('proposals', [])).filter((p) => p.exp > now);
+    if (props.some((p) => p.panel && p.panel.action === a)) return { ok: false, error: 'azione già richiesta: controlla Telegram' };
+    if (props.length >= 6) return { ok: false, error: 'ci sono già troppe richieste in attesa su Telegram' };
+    if (now - (await this.store.get('lastPanel', 0)) < 3000) return { ok: false, error: 'richieste troppo ravvicinate: riprova tra qualche secondo' };
+    await this.store.put('lastPanel', now);
+    const m = String(this.env.APP_CLOSE || '').toLowerCase(), direct = !def.confirm && m !== 'confirm' && (pn.approvalOff === true || m === 'direct' || (await this._closeDirect()));
+    if (direct) { const r = await this._applyPanel(a); return { ...r, proposal: { id: 'direct' }, direct: true }; }
+    const seq = (await this.store.get('cseq', 0)) + 1; await this.store.put('cseq', seq);
+    const p = { id: 'C-' + String(seq).padStart(4, '0'), changes: {}, panel: { action: a }, at: now, exp: now + 10 * 60000 };
+    props.push(p); await this.store.put('proposals', props);
+    await this.notify(`Pannello di emergenza ${p.id}: ${def.label}\n${def.text}.\n\nValida per 10 minuti. Se non l'hai chiesta tu, annulla.`, { inline_keyboard: [[{ text: def.label, callback_data: 'pa:' + p.id }, { text: 'Annulla', callback_data: 'pr:' + p.id }]] });
+    return { ok: true, proposal: p };
+  }
+  async _applyPanel(a) {
+    const def = PANEL[a]; if (!def) return { ok: false, error: 'azione non valida' };
+    if (a === 'close_all' || a === 'close_profit' || a === 'close_loss') return this._panelClose(a.slice(6));
+    if (a === 'real_stop') await this.store.put('killed', true);
+    else if (a === 'paper_stop') await this._setOv({ paperStop: true });
+    else if (a === 'real_off') await this._setOv({ realEnabled: false });
+    else if (a === 'paper_off') await this._setOv({ paperEnabled: false });
+    else if (a === 'off_all') { await this.store.put('killed', true); await this._setOv({ autopilot: false, realEnabled: false, paperEnabled: false, paperStop: true }); }
+    else if (a === 'real_on') { await this.store.put('killed', false); await this._setOv({ realEnabled: true, autopilot: true }); }
+    else if (a === 'paper_on') await this._setOv({ paperEnabled: true, paperStop: false, autopilot: true });
+    await this.notify(`Pannello di emergenza: ${def.label} eseguito.\n${def.text}.${a === 'real_on' && this.mode() === 'off' ? '\nAttenzione: ORDERS_MODE è off nel Worker, nessun ordine reale parte.' : ''}`);
+    return { ok: true, panel: true };
+  }
+  // Chiude le posizioni (tutte, in profitto o in perdita): reale con un lavoro che il Worker porta avanti (2 vendite per giro), paper con l'elenco per il runner
+  async _panelClose(filter) {
+    const gain = (entry, price) => (entry > 0 && price > 0 ? price / entry - 1 : null), pick = (g) => (filter === 'all' ? true : g == null ? false : filter === 'profit' ? g > 0 : g < 0);
+    const open = await this.store.get('positions', []); let ids = [];
+    if (open.length) { const px = filter === 'all' ? new Map() : await this.prices(open.map((p) => p.mint)); ids = open.filter((p) => pick(gain(p.entry, (px.get(p.mint) || {}).priceNative))).map((p) => p.id); }
+    const snap = await this.store.get('paper', null), pap = (snap && snap.data && snap.data.positions) || [];
+    const pids = pap.filter((p) => pick(gain(p.entry, p.last && p.last.priceNative))).map((p) => p.id);
+    if (pids.length) { const have = (await this.store.get('paperCloses', [])).filter((x) => !pids.includes(x.id)), now = this.now(); await this.store.put('paperCloses', [...have, ...pids.map((id) => ({ id, at: now }))].slice(-20)); }
+    const lab = { all: 'tutte le posizioni', profit: 'le posizioni in profitto', loss: 'le posizioni in perdita' }[filter];
+    if (ids.length) await this.store.put('closeJob', { ids, label: lab, at: this.now() });
+    await this.notify(`Pannello di emergenza: chiusura di ${lab}.\nReale: ${ids.length}${ids.length > MAX_SELLS_PER_TICK ? ' (2 per giro, il resto entro pochi minuti)' : ''} · paper: ${pids.length}${pids.length ? ' (il runner vende entro un minuto)' : ''}.`);
+    if (ids.length) await this._closeJobStep();
+    return { ok: true, panel: true, real: ids.length, paper: pids.length };
+  }
+  async _closeJobStep() {
+    const job = await this.store.get('closeJob', null); if (!job) return null;
+    const mine = (await this.store.get('positions', [])).filter((p) => job.ids.includes(p.id));
+    if (mine.length) { let sold = 0; for (const p of mine) { if (sold >= MAX_SELLS_PER_TICK) break; sold++; await this._sell(p, 1, 'Chiusura (pannello)'); } }
+    const left = (await this.store.get('positions', [])).filter((p) => job.ids.includes(p.id)).length;
+    if (!left) { await this.store.put('closeJob', null); await this.notify(`Chiusura reale completata: ${job.label}.`); return { done: true }; }
+    return { job: true, left };
+  }
   async _proposeClose(c) {
     const mode = c && c.mode, id = String((c && c.id) || '').toUpperCase();
     if ((mode !== 'paper' && mode !== 'real') || !/^[PR]-\d{1,6}$/.test(id) || (mode === 'real') !== id.startsWith('R-')) return { ok: false, error: 'posizione non valida' };
@@ -375,6 +441,7 @@ export class Executor {
   propose(req) { return this.run(async () => {
     if (req && req.emergency) return this._proposeEmergency();
     if (req && req.close) return this._proposeClose(req.close);
+    if (req && req.panel) return this._proposePanel(req.panel);
     if (req && req.reset) return this._proposeReset(req.reset);
     const { clean, errors } = validate(req && req.changes);
     if (errors.length) return { ok: false, error: 'modifica non valida', errors };
@@ -398,6 +465,7 @@ export class Executor {
     if (p.exp <= now) return { ok: false, error: 'richiesta scaduta' };
     if (p.emergency) return this._emergency();
     if (p.close) return this._applyClose(p.close);
+    if (p.panel) return this._applyPanel(p.panel.action);
     if (p.reset) {
       await this.store.put('paperReset', { id: p.id, capitalSOL: p.reset.capitalSOL, at: now });
       await this.notify(`Reset del paper approvato (${p.id}): il runner azzera il conto e riparte con ${p.reset.capitalSOL} SOL entro un minuto.`);
@@ -435,7 +503,7 @@ export class Executor {
       resetPaper: ((r) => (r && now - r.at < 3600000 ? r : null))(await this.store.get('paperReset', null)),
       closeDirect: await this._closeDirect(), approval: await this.approval(),
       closePaper: (await this.store.get('paperCloses', [])).filter((x) => now - x.at < 3600000).map((x) => x.id),
-      proposals: (await this.store.get('proposals', [])).filter((p) => p.exp > now).map((p) => ({ id: p.id, changes: p.changes, reset: p.reset || null, emergency: !!p.emergency, close: p.close || null, exp: p.exp })) };
+      proposals: (await this.store.get('proposals', [])).filter((p) => p.exp > now).map((p) => ({ id: p.id, changes: p.changes, reset: p.reset || null, emergency: !!p.emergency, close: p.close || null, panel: p.panel || null, exp: p.exp })) };
   }
 
   async kill() { await this.store.put('killed', true); return { ok: true, killed: true }; }

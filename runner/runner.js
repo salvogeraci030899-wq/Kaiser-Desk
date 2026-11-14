@@ -411,6 +411,7 @@ async function scan() {
   }
   if (!S.autopilot) return;
   await realEntries(buys);   // conto REALE (separato dal paper): solo se acceso in config.json e con l'esecutore collegato
+  if (S.paperStop || S.paperEnabled === false) return;   // pannello di emergenza: il paper non apre nuove posizioni (quelle aperte restano gestite)
   // pochi ingressi per scan: più BUY nello stesso istante sono scommesse correlate (stesso regime di mercato)
   let entered = 0;
   for (const c of buys) {
