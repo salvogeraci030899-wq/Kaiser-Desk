@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-14 20:29 UTC · in esecuzione da 0.3 giorni · 88 run
+Aggiornato: 2026-11-14 20:34 UTC · in esecuzione da 0.3 giorni · 88 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-14 20:29 UTC · in esecuzione da 0.3 giorni · 88 run
 | Cassa | 1.0203 SOL |
 | Trade chiusi | 14 |
 | Win rate | 43% |
-| P&L realizzato | -0.2797 SOL (~$-20.12) |
+| P&L realizzato | -0.2797 SOL (~$-20.00) |
 | Media vincite / perdite | +37.8% / -62.5% |
 | Profit factor | 0.44 |
 | Circuit breaker | ATTIVO oggi |
@@ -45,6 +45,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+20:34:23 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 235 veto
+20:34:00 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 248 veto
+20:33:36 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 251 veto
+20:33:12 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 241 veto
+20:32:49 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 246 veto
+20:32:26 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 239 veto
+20:32:02 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 233 veto
+20:31:38 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 245 veto
+20:31:15 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 241 veto
+20:30:51 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 229 veto
+20:30:27 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 236 veto
+20:30:04 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 244 veto
+20:29:40 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 238 veto
 20:29:16 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 247 veto
 20:28:52 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 246 veto
 20:28:29 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 233 veto
@@ -72,19 +85,6 @@ _nessuna_
 20:19:51 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 247 veto
 20:19:27 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 242 veto
 20:19:04 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 241 veto
-20:18:40 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 247 veto
-20:18:16 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 249 veto
-20:17:53 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 248 veto
-20:17:29 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 254 veto
-20:17:28 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
-20:17:05 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 253 veto
-20:16:42 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 249 veto
-20:16:18 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 256 veto
-20:15:54 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 261 veto
-20:15:31 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 251 veto
-20:15:07 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 256 veto
-20:14:43 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 253 veto
-20:14:20 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 248 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
