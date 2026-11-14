@@ -1,32 +1,34 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-14 03:35 UTC · in esecuzione da 0.4 giorni · 9 run
+Aggiornato: 2026-11-14 03:40 UTC · in esecuzione da 0.4 giorni · 10 run
 
 | | |
 |---|---|
-| Equity | **4.3266 SOL** (-13.5% dal capitale iniziale di 5 SOL) |
-| Cassa | 3.6905 SOL |
-| Trade chiusi | 6 |
-| Win rate | 0% |
-| P&L realizzato | -0.7932 SOL (~$-59.67) |
-| Media vincite / perdite | +0.0% / -54.6% |
-| Profit factor | 0.00 |
+| Equity | **4.2867 SOL** (-14.3% dal capitale iniziale di 5 SOL) |
+| Cassa | 3.7042 SOL |
+| Trade chiusi | 7 |
+| Win rate | 14% |
+| P&L realizzato | -0.6601 SOL (~$-49.57) |
+| Media vincite / perdite | +63.7% / -54.6% |
+| Profit factor | 0.17 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$JENSEN** P-0007 · 0.210 SOL · -7.5% · resta 100% · [grafico](https://dexscreener.com/solana/51KN4und5bwRyfRfTP1eFw4uPL8t4vTPHZ6okmLhr5iE)
-- **$AMC** P-0008 · 0.210 SOL · -11.3% · resta 100% · [grafico](https://dexscreener.com/solana/DxbQyPTjckQTSUWyUqJB11HpupPyLGJZ5x4z7ufHp3Gh)
-- **$HARAMBE** P-0009 · 0.208 SOL · +145.1% · resta 50% · [grafico](https://dexscreener.com/solana/EA7HbV3UsEqicPYcKZEs5YhRfrxsjiLiLz8RXUtcjwoy)
+- **$JENSEN** P-0007 · 0.210 SOL · -16.7% · resta 100% · [grafico](https://dexscreener.com/solana/51KN4und5bwRyfRfTP1eFw4uPL8t4vTPHZ6okmLhr5iE)
+- **$AMC** P-0008 · 0.210 SOL · -8.5% · resta 100% · [grafico](https://dexscreener.com/solana/DxbQyPTjckQTSUWyUqJB11HpupPyLGJZ5x4z7ufHp3Gh)
+- **$WOHAIHAO** P-0010 · 0.214 SOL · +0.5% · resta 100% · [grafico](https://dexscreener.com/solana/9Xvu6Bt8nVKcEeJKx15cU6f5t8szWxyL1X13y6gLHQe8)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 4 | -0.3217 |
 | RUG-EXIT liquidità | 2 | -0.4714 |
+| Trailing stop | 1 | +0.1330 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $HARAMBE | 75 | +63.7% | +0.1330 | +184% | +125% | Trailing stop | 26m |
 | $WANTED | 86 | -36.2% | -0.0863 | +0% | -37% | Stop loss | 248m |
 | $C@T | 88 | -98.9% | -0.2357 | +17% | -99% | RUG-EXIT liquidità | 249m |
 | $LUCIA | 88 | -98.7% | -0.2357 | +21% | -99% | RUG-EXIT liquidità | 250m |
@@ -36,6 +38,16 @@ Aggiornato: 2026-11-14 03:35 UTC · in esecuzione da 0.4 giorni · 9 run
 
 ## Ultimi eventi
 ```
+03:40:19 SCRIBE   fine run · trade 7 · win 14% · P&L -0.6601 SOL · equity 4.2867 SOL
+03:40:14 ORACLE   90 raccolti, 66 analizzati, 5 BUY, 43 veto
+03:39:11 QUARTER  BUY $WOHAIHAO 0.214 SOL score 70 impatto 0.57% (Jupiter)
+03:39:11 SCRIBE   chiuso P-0009 $HARAMBE 0.1330 SOL (63.7%)
+03:39:11 CHARON   Trailing stop $HARAMBE vendo 100% a 125.0% -> 0.2282 SOL
+03:39:11 ORACLE   90 raccolti, 65 analizzati, 5 BUY, 43 veto
+03:38:08 ORACLE   90 raccolti, 66 analizzati, 4 BUY, 44 veto
+03:37:05 ORACLE   90 raccolti, 66 analizzati, 3 BUY, 44 veto
+03:36:02 ORACLE   90 raccolti, 61 analizzati, 4 BUY, 40 veto
+03:35:49 KAISER   run #10 · 3 posizioni · equity 4.3266 SOL · GMGN demo · Grok off
 03:35:20 SCRIBE   fine run · trade 6 · win 0% · P&L -0.7932 SOL · equity 4.3266 SOL
 03:35:08 ORACLE   90 raccolti, 69 analizzati, 4 BUY, 47 veto
 03:34:05 ORACLE   90 raccolti, 68 analizzati, 6 BUY, 46 veto
@@ -66,16 +78,6 @@ Aggiornato: 2026-11-14 03:35 UTC · in esecuzione da 0.4 giorni · 9 run
 03:15:49 KAISER   run #6 · 3 posizioni · equity 4.2222 SOL · GMGN demo · Grok off
 03:15:20 SCRIBE   fine run · trade 6 · win 0% · P&L -0.7932 SOL · equity 4.2222 SOL
 03:15:06 CHARON   TP1 $HARAMBE vendo 50% a 47.9% -> 0.1138 SOL
-03:15:06 ORACLE   90 raccolti, 71 analizzati, 5 BUY, 48 veto
-03:14:04 ORACLE   90 raccolti, 69 analizzati, 6 BUY, 46 veto
-03:13:00 QUARTER  BUY $HARAMBE 0.208 SOL score 75 impatto 0.01% (Jupiter)
-03:13:00 ORACLE   90 raccolti, 70 analizzati, 5 BUY, 47 veto
-03:11:57 KAISER   limite 1 ingresso/i per scan: $COCORO rimandato
-03:11:57 KAISER   limite 1 ingresso/i per scan: $HARAMBE rimandato
-03:11:57 QUARTER  BUY $AMC 0.210 SOL score 77 impatto 1.21% (Jupiter)
-03:11:57 ORACLE   90 raccolti, 70 analizzati, 4 BUY, 47 veto
-03:10:54 KAISER   limite 1 ingresso/i per scan: $COCORO rimandato
-03:10:54 KAISER   limite 1 ingresso/i per scan: $AMC rimandato
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
