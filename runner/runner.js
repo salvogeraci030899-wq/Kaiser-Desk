@@ -12,6 +12,7 @@ const STATE_DIR = process.env.STATE_DIR || path.join(__dirname, '..', 'state');
 const LOOP_MIN = Number(process.env.LOOP_MIN || 4.5);
 const TICK_SEC = Number(process.env.TICK_SEC || 10);
 const SCAN_SEC = Number(process.env.SCAN_SEC || 30);
+const GMGN_MIN_SEC = Number(process.env.GMGN_MIN_SEC || 75);
 const CHECKPOINT_MS = Number(process.env.CHECKPOINT_MIN || 5) * 60000;
 const SOL_MINT = 'So11111111111111111111111111111111111111112';
 const num = (v, d = 0) => { const n = Number(v); return Number.isFinite(n) ? n : d; };
@@ -41,7 +42,7 @@ const st = Object.assign({
 }, readJSON(F.state, {}));
 st.runs++;
 if (st.capital > 0) S.capitalSOL = st.capital;   // capitale scelto con un reset dall'app: resta valido ai run successivi
-const rt = { solUsd: 0, sec: new Map(), grok: new Map(), gmgn: new Map(), cands: new Map() };
+const rt = { solUsd: 0, sec: new Map(), grok: new Map(), gmgn: new Map(), cands: new Map(), gmgnCache: {} };
 
 function log(agent, msg) {
   const line = `${new Date().toISOString().slice(11, 19)} ${agent.padEnd(8)} ${msg}`;
@@ -137,12 +138,23 @@ async function discover() {
     jobs.push(fetchJSON('https://api.dexscreener.com/token-boosts/top/v1').then((a) => (a || []).forEach((x) => x.chainId === 'solana' && add(x.tokenAddress, 'top boost'))).catch(() => {}));
   }
   if (S.srcGecko !== false) for (const [u, src] of E.GECKO_SOURCES) jobs.push(fetchJSON(u).then((j) => E.geckoMints(j).forEach((m) => add(m, src))).catch((e) => log('SCOUT', 'gecko: ' + e.message)));
+  // GMGN ha limiti di richieste per IP: con scansioni ogni ~30 s si finiva bannati (HTTP 429). Si interroga al massimo una volta ogni GMGN_MIN_SEC
+  // (con pausa lunga dopo un 429) e tra una chiamata e l'altra si riusano gli ultimi risultati.
   const gm = async (args, src) => {
     if (!gmgnRun) return;
+    const g = rt.gmgnCache[src] || (rt.gmgnCache[src] = { next: 0, list: [] });
+    if (Date.now() < g.next) { g.list.forEach((a) => add(a, src)); return; }
+    g.next = Date.now() + GMGN_MIN_SEC * 1000;
     try {
-      const { data } = await gmgnRun(args);
-      for (const it of E.gmgnList(data)) { const g = E.gmgnNorm(it); if (g) { rt.gmgn.set(g.address, { ...g, botRate: num(it.bot_degen_rate, null) }); add(g.address, src); } }
-    } catch (e) { log('SCOUT', `GMGN ${src}: ${e.message}`); }
+      const { data } = await gmgnRun(args), list = [];
+      for (const it of E.gmgnList(data)) { const x = E.gmgnNorm(it); if (x) { rt.gmgn.set(x.address, { ...x, botRate: num(it.bot_degen_rate, null) }); add(x.address, src); list.push(x.address); } }
+      g.list = list;
+    } catch (e) {
+      const limited = /429|RATE_LIMIT/i.test(e.message);
+      if (limited) g.next = Date.now() + 180000;
+      g.list.forEach((a) => add(a, src));
+      log('SCOUT', limited ? `GMGN ${src}: limite di richieste, pausa di 3 minuti (uso gli ultimi risultati)` : `GMGN ${src}: ${String(e.message).split('\n')[0].slice(0, 120)}`);
+    }
   };
   if (S.srcGmgnTrending) jobs.push(gm(['market', 'trending', '--chain', 'sol', '--interval', S.gmgnInterval, '--limit', '50', '--filter', 'not_honeypot'], 'GMGN'));
   if (S.srcGmgnTrenches) jobs.push(gm(['market', 'trenches', '--chain', 'sol', '--limit', '40'], 'trenches'));
@@ -194,6 +206,7 @@ function gates(c) {
   if (st.positions.length >= S.maxPos) return 'max posizioni';
   if (st.positions.some((p) => p.mint === c.mint)) return 'già in posizione';
   if (Date.now() < st.cooldownUntil) return 'cooldown';
+  if (Date.now() - num(st.lastEntryAt) < num(S.entryGapSec) * 1000) return 'pausa tra ingressi';
   const last = [...st.journal].reverse().find((j) => j.mint === c.mint);
   if (last && Date.now() - last.closedAt < S.retradeH * 3600000) return 'ritrade troppo presto';
   if (st.cash < sizeSol() * 0.5 || sizeSol() < 0.001) return 'cassa insufficiente';
@@ -221,7 +234,7 @@ async function buy(c) {
     last: null, fills: [`BUY ${sizeS.toFixed(3)} impatto ${(impact * 100).toFixed(2)}% (${src})`],
   };
   st.cash -= p.cost;
-  st.positions.push(p);
+  st.positions.push(p); st.lastEntryAt = Date.now();
   pushLive(true).catch(() => {});
   log('QUARTER', `BUY $${c.sym} ${sizeS.toFixed(3)} SOL score ${c.score} impatto ${(impact * 100).toFixed(2)}% (${src})`);
   await tg(`<b>BUY paper</b> $${esc(c.sym)} ${sizeS.toFixed(3)} SOL · score ${c.score}\nhttps://dexscreener.com/solana/${fresh.pairAddress}`);
