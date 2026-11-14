@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-14 16:53 UTC · in esecuzione da 0.2 giorni · 84 run
+Aggiornato: 2026-11-14 16:58 UTC · in esecuzione da 0.2 giorni · 84 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-14 16:53 UTC · in esecuzione da 0.2 giorni · 84 run
 | Cassa | 1.0203 SOL |
 | Trade chiusi | 14 |
 | Win rate | 43% |
-| P&L realizzato | -0.2797 SOL (~$-20.31) |
+| P&L realizzato | -0.2797 SOL (~$-20.26) |
 | Media vincite / perdite | +37.8% / -62.5% |
 | Profit factor | 0.44 |
 | Circuit breaker | ATTIVO oggi |
@@ -45,6 +45,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+16:58:16 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 257 veto
+16:57:53 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 255 veto
+16:57:30 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 244 veto
+16:57:07 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 254 veto
+16:56:45 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 254 veto
+16:56:23 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 249 veto
+16:56:00 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 255 veto
+16:55:37 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 247 veto
+16:55:14 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 237 veto
+16:54:52 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 250 veto
+16:54:29 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 248 veto
+16:54:06 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 237 veto
+16:53:43 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 236 veto
+16:53:20 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 236 veto
 16:52:57 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 237 veto
 16:52:34 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 238 veto
 16:52:11 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 237 veto
@@ -71,20 +85,6 @@ _nessuna_
 16:44:09 ORACLE   360 raccolti, 268 analizzati, 3 BUY, 252 veto
 16:43:46 ORACLE   360 raccolti, 264 analizzati, 3 BUY, 248 veto
 16:43:23 ORACLE   360 raccolti, 260 analizzati, 3 BUY, 247 veto
-16:43:00 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 256 veto
-16:42:36 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 254 veto
-16:42:13 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 259 veto
-16:41:51 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 253 veto
-16:41:28 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 253 veto
-16:41:05 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 254 veto
-16:40:44 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 233 veto
-16:40:22 ORACLE   360 raccolti, 229 analizzati, 1 BUY, 224 veto
-16:39:59 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 252 veto
-16:39:36 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 244 veto
-16:39:14 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 249 veto
-16:39:11 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
-16:38:51 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 258 veto
-16:38:28 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 252 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
