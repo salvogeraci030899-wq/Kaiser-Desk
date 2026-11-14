@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-14 13:37 UTC · in esecuzione da 0.0 giorni · 80 run
+Aggiornato: 2026-11-14 13:42 UTC · in esecuzione da 0.0 giorni · 80 run
 
 | | |
 |---|---|
-| Equity | **1.2078 SOL** (-7.1% dal capitale iniziale di 1.3 SOL) |
+| Equity | **1.2163 SOL** (-6.4% dal capitale iniziale di 1.3 SOL) |
 | Cassa | 1.0913 SOL |
 | Trade chiusi | 1 |
 | Win rate | 0% |
-| P&L realizzato | -0.1031 SOL (~$-7.77) |
+| P&L realizzato | -0.1031 SOL (~$-7.78) |
 | Media vincite / perdite | +0.0% / -98.2% |
 | Profit factor | 0.00 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$ZAPZEKE** P-0106 · 0.105 SOL · +11.3% · resta 100% · [grafico](https://dexscreener.com/solana/2J7svWqX7yYKdXvPJF5PQnjGxN5cghEFLX5SrNTyCxCo)
+- **$ZAPZEKE** P-0106 · 0.105 SOL · +19.5% · resta 100% · [grafico](https://dexscreener.com/solana/2J7svWqX7yYKdXvPJF5PQnjGxN5cghEFLX5SrNTyCxCo)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -28,6 +28,21 @@ Aggiornato: 2026-11-14 13:37 UTC · in esecuzione da 0.0 giorni · 80 run
 
 ## Ultimi eventi
 ```
+13:42:22 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 245 veto
+13:41:58 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 243 veto
+13:41:35 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 247 veto
+13:41:11 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 241 veto
+13:40:47 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 250 veto
+13:40:34 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 251 veto
+13:40:28 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
+13:40:08 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 246 veto
+13:39:53 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 249 veto
+13:39:28 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 251 veto
+13:39:05 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 245 veto
+13:38:42 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 254 veto
+13:38:19 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 255 veto
+13:37:56 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 251 veto
+13:37:33 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 250 veto
 13:37:09 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 246 veto
 13:36:56 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 250 veto
 13:36:31 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 254 veto
@@ -53,21 +68,6 @@ Aggiornato: 2026-11-14 13:37 UTC · in esecuzione da 0.0 giorni · 80 run
 13:28:40 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 246 veto
 13:28:16 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 250 veto
 13:27:52 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 247 veto
-13:27:28 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 238 veto
-13:27:04 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 253 veto
-13:26:39 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 250 veto
-13:26:16 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 246 veto
-13:25:51 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 249 veto
-13:25:27 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 249 veto
-13:25:18 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
-13:25:03 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 247 veto
-13:24:39 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 248 veto
-13:24:24 SCRIBE   chiuso P-0105 $OpenAI -0.1031 SOL (-98.2%)
-13:24:24 CHARON   RUG-EXIT liquidità $OpenAI vendo 100% a -97.4% -> 0.0019 SOL
-13:24:14 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 243 veto
-13:23:50 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 241 veto
-13:23:25 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 245 veto
-13:23:02 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 241 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
