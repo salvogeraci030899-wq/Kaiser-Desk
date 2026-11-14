@@ -262,6 +262,36 @@ function botPenalty(c) {
   if (g && g.botRate != null && g.botRate > 0.5) { c.a.notes.push(`bot ${(g.botRate * 100).toFixed(0)}%`); return 8; }
   return 0;
 }
+// ---------------- PARAMETRI DALL'APP ----------------
+// Le modifiche chieste dall'app e approvate su Telegram stanno nel Worker. Il runner le legge a ogni scan (lettura pubblica, nessun segreto)
+// e le applica sopra config.json. Se una modifica viene annullata torna al valore di base. Accetta solo chiavi note, dello stesso tipo dei valori predefiniti.
+const BASE_S = { ...S };
+const BLOCKED = new Set(['backend', 'appToken', 'executor', 'executorToken']);
+let appliedKeys = new Set();
+async function pullParams() {
+  const url = String(process.env.EXEC_URL || S.executor || '').replace(/\/+$/, ''); if (!url) return;
+  let d; try { d = await fetchJSON(url + '/params', { timeout: 6000 }); } catch { return; }   // se il Worker non risponde si tengono i valori attuali
+  if (!d || d.ok !== true || !d.runner || typeof d.runner !== 'object') return;
+  const next = {};
+  for (const [k, v] of Object.entries(d.runner)) {
+    if (BLOCKED.has(k) || !Object.prototype.hasOwnProperty.call(E.DEFAULTS, k) || typeof v !== typeof E.DEFAULTS[k] || (typeof v === 'number' && !Number.isFinite(v))) continue;
+    next[k] = v;
+  }
+  const changed = [];
+  for (const k of new Set([...appliedKeys, ...Object.keys(next)])) {
+    let nv = k in next ? next[k] : BASE_S[k]; if (k === 'useGrok') nv = !!nv && !!process.env.XAI_API_KEY;
+    if (S[k] !== nv) { changed.push(`${k} ${S[k]}→${nv}`); S[k] = nv; }
+  }
+  appliedKeys = new Set(Object.keys(next));
+  if (changed.length) log('KAISER', `parametri dall'app: ${changed.join(', ')}`);
+  // riferisce al Worker i valori in uso (serve a mostrare «prima → dopo» corretti nei messaggi di Telegram)
+  if (process.env.EXEC_TOKEN && (changed.length || !rt.cfgSent)) {
+    rt.cfgSent = true;
+    const cfg = Object.fromEntries(Object.entries(S).filter(([k]) => !BLOCKED.has(k)));
+    try { await fetchJSON(url + '/runner', { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-app-token': process.env.EXEC_TOKEN }, body: JSON.stringify({ config: cfg }), timeout: 6000 }); } catch { rt.cfgSent = false; }
+  }
+}
+
 // ---------------- REALE ----------------
 // Il runner NON ha chiavi e non firma nulla: chiede all'esecutore (Cloudflare), che applica i suoi limiti.
 //   realApprove = true  -> propone un ticket (arriva su Telegram e nell'app, lo approvi tu)
@@ -292,6 +322,7 @@ async function realEntries(buys) {
   for (const k of Object.keys(st.realTried)) if (Date.now() - st.realTried[k] > 24 * 3600000) delete st.realTried[k];
 }
 async function scan() {
+  await pullParams();
   rollDay();
   await solPrice();
   const found = await discover();
@@ -424,4 +455,4 @@ async function main() {
 }
 
 if (require.main === module) main().catch((e) => { console.error(e); save(); process.exit(1); });
-module.exports = { main, st, S, stats, report, realEntries, rt, publicSummary };
+module.exports = { main, st, S, stats, report, realEntries, rt, publicSummary, pullParams };

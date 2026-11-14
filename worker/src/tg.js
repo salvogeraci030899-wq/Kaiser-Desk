@@ -15,6 +15,8 @@ const HELP = `KAISER · comandi
 /approva T-0001 — esegue un ticket
 /rifiuta T-0001 — scarta un ticket
 /vendi R-0001 [percentuale] — vende (100 se omessa)
+/parametri — parametri cambiati dall'app e richieste in attesa
+/reset_parametri — annulla tutte le modifiche fatte dall'app
 /kill — ferma i nuovi ingressi (le uscite restano attive)
 /riattiva — riabilita gli ingressi`;
 
@@ -39,6 +41,8 @@ export async function handleUpdate(ex, update) {
     const [kind, id] = String(cb.data || '').split(':');
     if (kind === 'ap' && /^T-\d+$/.test(id)) { const r = await ex.approve(id); await answer(ex, cb.id, r.ok ? (r.pending ? 'Inviato, in attesa di conferma' : 'Eseguito') : (r.error || 'Errore').slice(0, 150)); if (!r.ok) await reply(ex, chat, `❌ ${id}: ${r.error}${r.reasons ? '\n' + r.reasons.join('\n') : ''}`); }
     else if (kind === 'rj' && /^T-\d+$/.test(id)) { await ex.reject(id); await answer(ex, cb.id, 'Scartato'); }
+    else if (kind === 'pa' && /^C-\d+$/.test(id)) { const r = await ex.applyProposal(id); await answer(ex, cb.id, r.ok ? 'Parametri applicati' : (r.error || 'Errore').slice(0, 150)); }
+    else if (kind === 'pr' && /^C-\d+$/.test(id)) { await ex.rejectProposal(id); await answer(ex, cb.id, 'Richiesta rifiutata'); await reply(ex, chat, `${id} rifiutata.`); }
     else await answer(ex, cb.id, 'Comando non valido');
     return { ok: true };
   }
@@ -71,6 +75,12 @@ export async function handleUpdate(ex, update) {
       const pct = args[1] ? num(args[1].replace('%', ''), NaN) : 100; if (!(pct > 0 && pct <= 100)) { await reply(ex, chat, 'La percentuale deve essere tra 1 e 100.'); break; }
       const r = await ex.sell(id, pct / 100, 'Manuale (Telegram)'); if (!r.ok) await reply(ex, chat, `❌ ${id}: ${r.error}`);
       break; }
+    case '/parametri': {
+      const v = await ex.paramsView(), ov = { ...v.runner, ...v.worker }, keys = Object.keys(ov);
+      const lines = keys.map((k) => `• ${v.schema[k].label}: ${typeof ov[k] === 'boolean' ? (ov[k] ? 'sì' : 'no') : ov[k]}`);
+      await reply(ex, chat, `Parametri cambiati dall'app (sopra config.json e sotto i tetti di Cloudflare):\n${lines.length ? lines.join('\n') : '— nessuno —'}\n\nRichieste in attesa: ${v.proposals.length ? v.proposals.map((p) => p.id).join(', ') : 'nessuna'}\n/reset_parametri per tornare ai valori di base.`);
+      break; }
+    case '/reset_parametri': await ex.resetParams(); break;
     case '/kill': { await ex.kill(); await reply(ex, chat, '🛑 Kill switch attivo: nuovi ingressi fermi. Le uscite restano attive. /riattiva per ripartire.'); break; }
     case '/riattiva': { await ex.resume(); await reply(ex, chat, '▶️ Ingressi riattivati.'); break; }
     default: await reply(ex, chat, 'Comando non riconosciuto.\n\n' + HELP);

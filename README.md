@@ -58,10 +58,19 @@ Usa un bot **dedicato a Kaiser** (non lo stesso di altri servizi: il webhook di 
    - in **Cloudflare** (Worker `kaiser-executor` → Settings → Variables and Secrets) → notifiche del reale e **comandi**. Il Worker registra da solo il webhook entro un minuto, senza toccare quello di altri bot.
 3. Scrivi `/aiuto` al bot. Comandi: `/stato`, `/posizioni`, `/wallet`, `/approva T-0001`, `/rifiuta T-0001`, `/vendi R-0001 [%]`, `/kill`, `/riattiva`. Rispondono solo alla tua chat. Sotto ogni ticket ci sono i tasti Approva e Rifiuta.
 
-## Come si cambia qualcosa (niente segreti nell'app)
-- **Regole del runner** (autopilota, rischio, uscite, filtri, reale): `config.json` sul ramo `data` (stesse chiavi di `DEFAULTS` in `engine.js`). Vale dal run successivo.
+## Parametri: si cambiano dall'app, si applicano da Telegram
+In **Sistema → Parametri** cambi i parametri di paper e reale (autopilota, size, stop, TP, trailing, filtri, limiti del reale…). Non ci sono campi per chiavi, token o indirizzi: solo numeri, interruttori e scelte.
+
+1. Scegli i nuovi valori e premi **Invia per approvazione**. La richiesta non contiene segreti.
+2. Il Worker la controlla (solo parametri ammessi, solo valori nei limiti) e ti manda su Telegram la differenza *prima → dopo* con i tasti **Applica / Rifiuta**. Vale 10 minuti.
+3. Applichi: il runner usa i nuovi valori entro un minuto (li legge a ogni scan), il Worker subito. Rifiuti o lasci scadere: non cambia nulla.
+
+I **limiti del reale** (capitale, ordine, perdita giornaliera, posizioni, slippage, impatto) si possono solo **abbassare** dall'app: il tetto è il valore impostato nella dashboard di Cloudflare, che l'app non può superare. `ORDERS_MODE` (off/dryrun/live) resta solo nella dashboard. Telegram: `/parametri` mostra le modifiche fatte dall'app, `/reset_parametri` le annulla. Le richieste si possono disattivare con `PROPOSALS=0` sul Worker.
+
+## Altre cose che si cambiano fuori dall'app
+- **Valori di base del runner:** `config.json` sul ramo `data` (stesse chiavi di `DEFAULTS` in `engine.js`). Le modifiche approvate dall'app vanno sopra quel file.
 - **Reset del paper:** cancella `state.json` sul ramo `data`.
-- **Reale** (modo, limiti, wallet, Jupiter, RPC, Telegram): variabili e segreti del Worker nella dashboard di Cloudflare. Vedi `docs/REAL-TRADING.md`.
+- **Reale** (modo, tetti, wallet, Jupiter, RPC, Telegram): variabili e segreti del Worker nella dashboard di Cloudflare. Vedi `docs/REAL-TRADING.md`.
 - **Runner:** segreti GitHub opzionali `GMGN_API_KEY`, `XAI_API_KEY`, `XAI_MODEL`, `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`, `EXEC_TOKEN`, `EXEC_URL`.
 - **Avvio manuale del runner:** Actions → KAISER runner → Run workflow.
 

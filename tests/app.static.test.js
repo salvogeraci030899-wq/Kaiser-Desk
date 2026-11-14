@@ -9,16 +9,18 @@ const read = (f) => fs.readFileSync(path.join(root, f), 'utf8');
 
 const html = read('index.html');
 
-test('l\'app non ha campi in cui inserire token, chiavi o indirizzi', () => {
-  assert.ok(!/<input\b/i.test(html), 'c\'è un <input>');
+test('l\'app non ha campi in cui inserire token, chiavi o indirizzi: solo numeri, interruttori e scelte dei parametri', () => {
   assert.ok(!/<textarea\b/i.test(html), 'c\'è una <textarea>');
-  assert.ok(!/<select\b/i.test(html), 'c\'è una <select>');
+  for (const m of html.matchAll(/<input\b[^>]*>/gi)) { const t = m[0]; assert.match(t, /type="(number|checkbox)"/, 'campo non ammesso: ' + t); assert.match(t, /data-param=/, 'campo senza data-param: ' + t); assert.ok(!/placeholder/i.test(t)); }
+  for (const m of html.matchAll(/<select\b[^>]*>/gi)) assert.match(m[0], /data-param=/, 'select non dei parametri: ' + m[0]);
+  assert.ok(!/type="(text|password|url|search|email|tel)"/i.test(html), 'campo di testo');
   for (const bad of ['x-app-token', 'executorToken', 'appToken', 'data-pref="token', 'localStorage.setItem(\'kaiser.v1\'', 'prompt(']) assert.ok(!html.includes(bad), 'trovato: ' + bad);
   for (const f of ['lock.js', 'theme.js']) { const s = read(f); assert.ok(!/<input\b/i.test(s) && !/createElement\('input'\)/.test(s), f + ' crea un campo'); }
 });
-test('l\'app non scrive: nessuna chiamata POST verso l\'esterno', () => {
-  assert.ok(!/method:\s*'POST'/.test(html), 'c\'è una POST nell\'app');
-  assert.ok(!/fetch\([^)]*\{[^}]*method:\s*'(POST|PUT|DELETE)'/.test(html));
+test('l\'app scrive in un solo punto: la richiesta di modifica dei parametri, senza segreti', () => {
+  const posts = [...html.matchAll(/method:\s*'(POST|PUT|DELETE|PATCH)'/g)]; assert.equal(posts.length, 1, 'più di una scrittura');
+  assert.match(html, /fetch\(`\$\{EXEC\}\/propose`, \{ method: 'POST', headers: \{ 'Content-Type': 'application\/json' \}, body: JSON\.stringify\(\{ changes: rt\.draft \}\) \}\)/);
+  assert.ok(!/Authorization|x-app-token|x-pt|Bearer/i.test(html), 'intestazioni di autenticazione nell\'app');
 });
 test('niente zoom, niente selezione del testo, niente lente di ingrandimento', () => {
   assert.match(html, /maximum-scale=1/); assert.match(html, /user-scalable=no/);
