@@ -54,11 +54,11 @@
     "grok": null
    },
    "last": {
-    "priceNative": 0.000008452,
-    "liq": 61365.21,
-    "br5": 2.074626865671642,
-    "tx5": 616,
-    "t": 1794656789616
+    "priceNative": 0.000009083,
+    "liq": 63677.63,
+    "br5": 1.7953488372093023,
+    "tx5": 599,
+    "t": 1794657129727
    },
    "fills": [
     "BUY 0.130 impatto 0.80% (Jupiter)"
@@ -196,6 +196,20 @@
  "halted": null,
  "seq": 100,
  "events": [
+  "11:52:09 ORACLE   240 raccolti, 166 analizzati, 0 BUY, 78 veto",
+  "11:51:47 ORACLE   240 raccolti, 156 analizzati, 0 BUY, 72 veto",
+  "11:51:24 ORACLE   240 raccolti, 156 analizzati, 0 BUY, 72 veto",
+  "11:51:01 ORACLE   240 raccolti, 171 analizzati, 0 BUY, 86 veto",
+  "11:50:38 ORACLE   240 raccolti, 166 analizzati, 0 BUY, 83 veto",
+  "11:50:16 ORACLE   240 raccolti, 166 analizzati, 0 BUY, 83 veto",
+  "11:49:54 ORACLE   240 raccolti, 171 analizzati, 0 BUY, 90 veto",
+  "11:49:31 ORACLE   240 raccolti, 163 analizzati, 0 BUY, 79 veto",
+  "11:49:08 ORACLE   240 raccolti, 163 analizzati, 0 BUY, 79 veto",
+  "11:48:45 ORACLE   240 raccolti, 178 analizzati, 0 BUY, 93 veto",
+  "11:48:22 ORACLE   240 raccolti, 173 analizzati, 0 BUY, 89 veto",
+  "11:47:59 ORACLE   240 raccolti, 173 analizzati, 0 BUY, 89 veto",
+  "11:47:36 ORACLE   240 raccolti, 172 analizzati, 0 BUY, 87 veto",
+  "11:47:14 ORACLE   240 raccolti, 172 analizzati, 0 BUY, 87 veto",
   "11:47:01 SCOUT    DexScreener errore: fetch failed",
   "11:47:00 ORACLE   240 raccolti, 0 analizzati, 0 BUY, 0 veto",
   "11:47:00 SCOUT    DexScreener errore: fetch failed",
@@ -481,21 +495,7 @@
   "11:08:16 SCOUT    gecko: HTTP 429",
   "11:08:16 SCOUT    gecko: HTTP 429",
   "11:08:16 SCOUT    gecko: HTTP 429",
-  "11:07:56 ORACLE   160 raccolti, 93 analizzati, 2 BUY, 58 veto",
-  "11:07:53 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 11:08:23 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
-  "11:07:32 ORACLE   64 raccolti, 46 analizzati, 2 BUY, 25 veto",
-  "11:07:31 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_BANNED message=IP is temporarily banned due to repeated rate limit violations. Rate limit resets at 2026-11-14 11:07:42 GMT+00:00 (~12s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes.\n",
-  "11:07:31 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_BANNED message=IP is temporarily banned due to repeated rate limit violations. Rate limit resets at 2026-11-14 11:07:47 GMT+00:00 (~17s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes.\n",
-  "11:07:30 SCOUT    gecko: HTTP 429",
-  "11:07:30 SCOUT    gecko: HTTP 429",
-  "11:07:30 SCOUT    gecko: HTTP 429",
-  "11:07:30 SCOUT    gecko: HTTP 429",
-  "11:07:10 ORACLE   139 raccolti, 101 analizzati, 3 BUY, 62 veto",
-  "11:07:07 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 11:07:37 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
-  "11:06:46 ORACLE   128 raccolti, 101 analizzati, 2 BUY, 62 veto",
-  "11:06:44 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_BANNED message=IP is temporarily banned due to repeated rate limit violations. Rate limit resets at 2026-11-14 11:07:01 GMT+00:00 (~17s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes.\n",
-  "11:06:44 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_BANNED message=IP is temporarily banned due to repeated rate limit violations. Rate limit resets at 2026-11-14 11:06:56 GMT+00:00 (~12s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes.\n",
-  "11:06:24 ORACLE   79 raccolti, 52 analizzati, 3 BUY, 29 veto"
+  "11:07:56 ORACLE   160 raccolti, 93 analizzati, 2 BUY, 58 veto"
  ],
  "capital": 1.3,
  "resetId": "C-0050",
