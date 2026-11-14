@@ -1,10 +1,10 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-14 12:21 UTC · in esecuzione da 0.0 giorni · 79 run
+Aggiornato: 2026-11-14 12:26 UTC · in esecuzione da 0.0 giorni · 79 run
 
 | | |
 |---|---|
-| Equity | **1.2743 SOL** (-2.0% dal capitale iniziale di 1.3 SOL) |
+| Equity | **1.2728 SOL** (-2.1% dal capitale iniziale di 1.3 SOL) |
 | Cassa | 0.9866 SOL |
 | Trade chiusi | 0 |
 | Win rate | 0% |
@@ -14,9 +14,9 @@ Aggiornato: 2026-11-14 12:21 UTC · in esecuzione da 0.0 giorni · 79 run
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$AMC** P-0102 · 0.104 SOL · -2.7% · resta 100% · [grafico](https://dexscreener.com/solana/DxbQyPTjckQTSUWyUqJB11HpupPyLGJZ5x4z7ufHp3Gh)
-- **$JENSEN** P-0103 · 0.104 SOL · -19.8% · resta 100% · [grafico](https://dexscreener.com/solana/51KN4und5bwRyfRfTP1eFw4uPL8t4vTPHZ6okmLhr5iE)
-- **$GTA$** P-0104 · 0.102 SOL · +0.7% · resta 100% · [grafico](https://dexscreener.com/solana/DysGo2Qeie4hm7gEAJyCqq9dcCmo9QKkNywHeQUsKGvJ)
+- **$AMC** P-0102 · 0.104 SOL · +2.5% · resta 100% · [grafico](https://dexscreener.com/solana/DxbQyPTjckQTSUWyUqJB11HpupPyLGJZ5x4z7ufHp3Gh)
+- **$JENSEN** P-0103 · 0.104 SOL · -20.5% · resta 100% · [grafico](https://dexscreener.com/solana/51KN4und5bwRyfRfTP1eFw4uPL8t4vTPHZ6okmLhr5iE)
+- **$GTA$** P-0104 · 0.102 SOL · -5.3% · resta 100% · [grafico](https://dexscreener.com/solana/DysGo2Qeie4hm7gEAJyCqq9dcCmo9QKkNywHeQUsKGvJ)
 
 ## Uscite per motivo
 _ancora nessuna_
@@ -26,6 +26,19 @@ _ancora nessuno_
 
 ## Ultimi eventi
 ```
+12:26:39 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 259 veto
+12:26:16 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 260 veto
+12:25:51 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 267 veto
+12:25:29 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 267 veto
+12:25:06 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 257 veto
+12:24:41 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 267 veto
+12:24:17 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 265 veto
+12:23:53 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 261 veto
+12:23:30 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 265 veto
+12:23:05 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 266 veto
+12:22:41 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 262 veto
+12:22:17 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 266 veto
+12:21:54 ORACLE   352 raccolti, 264 analizzati, 0 BUY, 252 veto
 12:21:31 ORACLE   348 raccolti, 263 analizzati, 0 BUY, 250 veto
 12:21:08 ORACLE   326 raccolti, 246 analizzati, 0 BUY, 232 veto
 12:21:05 KAISER   parametri dall'app: realEnabled false→true
@@ -53,19 +66,6 @@ _ancora nessuno_
 12:14:09 ORACLE   240 raccolti, 168 analizzati, 2 BUY, 85 veto
 12:13:46 ORACLE   240 raccolti, 181 analizzati, 1 BUY, 96 veto
 12:13:23 ORACLE   240 raccolti, 176 analizzati, 1 BUY, 90 veto
-12:13:11 ORACLE   240 raccolti, 176 analizzati, 1 BUY, 90 veto
-12:12:40 ORACLE   240 raccolti, 177 analizzati, 1 BUY, 96 veto
-12:12:17 ORACLE   240 raccolti, 171 analizzati, 1 BUY, 88 veto
-12:11:54 ORACLE   240 raccolti, 171 analizzati, 1 BUY, 89 veto
-12:11:30 ORACLE   240 raccolti, 182 analizzati, 0 BUY, 95 veto
-12:11:07 ORACLE   240 raccolti, 179 analizzati, 1 BUY, 93 veto
-12:10:44 ORACLE   240 raccolti, 179 analizzati, 1 BUY, 93 veto
-12:10:21 QUARTER  BUY $GTA$ 0.102 SOL score 65 impatto 1.45% (Jupiter)
-12:10:21 ORACLE   240 raccolti, 182 analizzati, 1 BUY, 103 veto
-12:09:57 ORACLE   240 raccolti, 176 analizzati, 0 BUY, 98 veto
-12:09:35 ORACLE   240 raccolti, 176 analizzati, 0 BUY, 97 veto
-12:09:12 ORACLE   240 raccolti, 175 analizzati, 0 BUY, 93 veto
-12:08:49 ORACLE   240 raccolti, 169 analizzati, 0 BUY, 88 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
