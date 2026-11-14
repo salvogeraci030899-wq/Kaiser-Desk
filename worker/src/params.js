@@ -21,7 +21,6 @@ export const SCHEMA = {
   autopilot: b('Autopilota', 'auto', { scope: 'runner', hint: 'il runner entra in posizione da solo' }),
   paperEnabled: b('Paper acceso (nuovi ingressi)', 'auto', { scope: 'runner', hint: 'spento = il paper non apre nuove posizioni' }),
   paperStop: b('Paper in stop', 'auto', { scope: 'runner', hint: 'ferma subito i nuovi ingressi paper; le posizioni restano gestite' }),
-  approve: b('Approvazione manuale (paper)', 'auto', { scope: 'runner', hint: 'nel paper crea ticket invece di comprare' }),
   scanSec: n('Intervallo scan (s)', 'auto', 15, 600, { scope: 'runner', step: 1 }),
   minScore: n('Score minimo BUY', 'auto', 40, 100, { scope: 'runner', step: 1 }),
   useGrok: b('Grok sui BUY', 'auto', { scope: 'runner', hint: 'costa crediti xAI' }),
@@ -36,7 +35,6 @@ export const SCHEMA = {
   entryGapSec: n('Pausa tra due ingressi (s)', 'risk', 0, 900, { scope: 'runner', step: 5, hint: 'evita di entrare in tanti token insieme: sono scommesse correlate' }),
   cooldownMin: n('Cooldown dopo perdita (min)', 'risk', 0, 240, { scope: 'runner', step: 1 }),
   retradeH: n('Ritrade sullo stesso token dopo (ore)', 'risk', 0, 48, { scope: 'runner', step: 0.5 }),
-  taxPct: n('Tasse sulle vincite (%)', 'risk', 0, 60, { scope: 'runner', step: 1 }),
 
   sl: n('Stop loss (%)', 'exit', 5, 60, { scope: 'runner', step: 1 }),
   tp1: n('Take profit 1 (%)', 'exit', 5, 1000, { scope: 'runner', step: 1 }),

@@ -117,3 +117,16 @@ test('Jupiter: mint da id, address o mint; voci non valide ignorate', () => {
   assert.deepEqual(E.jupMints([{ id: A }, { address: B }, { id: 'xx' }, null, {}, { mint: 5 }]), [A, B]); assert.deepEqual(E.jupMints({ x: 1 }), []);
   assert.equal(E.DEFAULTS.srcJupiter, true); assert.ok(E.JUPITER_SOURCES.every(([u]) => u.startsWith('https://lite-api.jup.ag/tokens/v2/')));
 });
+test('soglie come filtri veri: mcap minimo/massimo, età massima e scambi minimi scartano il token (non tolgono solo punti)', () => {
+  const E2 = require('../engine.js'), mk = (over, pp = {}) => E2.analyze({ ...goodPair(), ...pp }, null, { ...E2.DEFAULTS, minAgeMin: 0, maxAgeH: 1, minMcap: 7000, maxMcap: 100000, minTxH1: 40, ...over }, now);
+  const young = { pairCreatedAt: now - 20 * 60000, marketCap: 50000 };
+  assert.deepEqual(mk({}, young).vetoes, [], 'dentro tutte le soglie: nessun veto');
+  assert.match(mk({}, { ...young, marketCap: 150000 }).vetoes.join(), /sopra il massimo/); assert.match(mk({}, { ...young, marketCap: 5000 }).vetoes.join(), /sotto il minimo/);
+  assert.match(mk({}, { ...young, pairCreatedAt: now - 3 * 3600000 }).vetoes.join(), /età massima/);
+  assert.match(mk({}, { ...young, txns: { m5: { buys: 2, sells: 1 }, h1: { buys: 10, sells: 5 } } }).vetoes.join(), /scambi\/h/);
+  assert.deepEqual(mk({}, { marketCap: 0, pairCreatedAt: null }).vetoes.filter((v) => /Mcap|età/.test(v)), [], 'dati mancanti: nessun veto inventato');
+  assert.ok(!E2.analyze(young.marketCap ? { ...goodPair(), ...young } : goodPair(), null, { ...E2.DEFAULTS, maxMcap: 20_000_000, minMcap: 15000, minAgeMin: 5, maxAgeH: 72 }, now).vetoes.length, 'valori di fabbrica: il pair solido passa');
+});
+test('impostazioni senza effetto tolte dal modulo: approvazione manuale paper e tassa non esistono piu\'', async () => {
+  const { SCHEMA } = await import('../worker/src/params.js'); assert.ok(!('approve' in SCHEMA) && !('taxPct' in SCHEMA));
+});

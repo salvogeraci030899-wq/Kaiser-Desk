@@ -126,11 +126,12 @@ function analyze(pair, g, S, now = Date.now()) {
 
   if (ageMin != null) {
     if (ageMin < S.minAgeMin) vetoes.push(`Troppo nuovo (${ageMin.toFixed(0)} min)`);
-    else if (ageMin > S.maxAgeH * 60) { s -= 10; notes.push('oltre età massima'); }
+    else if (ageMin > S.maxAgeH * 60) vetoes.push(`Oltre l'età massima (${(ageMin / 60).toFixed(1)} h, massimo ${S.maxAgeH} h)`);
     else if (ageMin < 240) s += 4;
   }
-  if (mc && mc < S.minMcap) { s -= 8; notes.push('mcap minuscola'); }
-  if (mc > S.maxMcap) { s -= 8; notes.push('mcap alta: poco upside'); }
+  // Le soglie di market cap sono filtri veri (prima toglievano solo 8 punti e il token poteva comunque entrare)
+  if (mc && mc < S.minMcap) vetoes.push(`Mcap ${Math.round(mc)} sotto il minimo (${S.minMcap})`);
+  if (mc > S.maxMcap) vetoes.push(`Mcap ${Math.round(mc)} sopra il massimo (${S.maxMcap})`);
 
   const turn = liq ? v1 / liq : 0;
   if (turn > 3) { s += 8; plus.push(`turnover ${turn.toFixed(1)}x/h`); }
@@ -138,7 +139,7 @@ function analyze(pair, g, S, now = Date.now()) {
   else if (turn < 0.2) { s -= 8; notes.push('volume fermo'); }
 
   const tx1 = num(t1.buys) + num(t1.sells);
-  if (tx1 < S.minTxH1) { s -= 10; notes.push(`solo ${tx1} tx/h`); }
+  if (tx1 < S.minTxH1) vetoes.push(`Solo ${tx1} scambi/h (minimo ${S.minTxH1})`);
   else if (tx1 > 400) s += 5;
 
   const br1 = (num(t1.buys) + 1) / (num(t1.sells) + 1);
