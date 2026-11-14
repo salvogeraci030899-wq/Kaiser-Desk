@@ -1,67 +1,8 @@
 {
  "startedAt": 1794594807914,
- "runs": 15,
- "cash": 4.079178765869044,
- "positions": [
-  {
-   "id": "P-0010",
-   "mint": "4B1mCGeSjTadzH7okALwdFm8taxoHbZBFCTA1nZRpump",
-   "sym": "WOHAIHAO",
-   "name": "Wo Hai Hao",
-   "pairAddress": "9Xvu6Bt8nVKcEeJKx15cU6f5t8szWxyL1X13y6gLHQe8",
-   "openedAt": 1794627551840,
-   "sizeSOL": 0.21393393500003796,
-   "cost": 0.21443393500003796,
-   "entry": 0.000006143593880429248,
-   "tokens": 34822.27815896753,
-   "remaining": 1,
-   "rawLeft": "33204498123",
-   "peak": 0.00000626,
-   "tp1Done": false,
-   "spDone": false,
-   "entryLiq": 48977.7,
-   "realized": 0,
-   "score": 70,
-   "why": "runner",
-   "entryInfo": {
-    "srcs": [
-     "profili"
-    ],
-    "notes": [
-     "troppo esteso: rischio top"
-    ],
-    "plus": [
-     "turnover 3.1x/h"
-    ],
-    "m": {
-     "liq": 49390.38,
-     "mc": 443222,
-     "ageMin": 138.04618333333335,
-     "v1": 151319.29,
-     "tx1": 2176,
-     "br1": 1.0982658959537572,
-     "br5": 1.1594202898550725,
-     "c5": 7.06,
-     "c1": 109,
-     "c6": 1351,
-     "turn": 3.063740145348143,
-     "price": 0.0004632,
-     "priceNative": 0.000006149
-    },
-    "grok": null
-   },
-   "last": {
-    "priceNative": 0.000005026,
-    "liq": 44497.47,
-    "br5": 0.8461538461538461,
-    "tx5": 142,
-    "t": 1794629096302
-   },
-   "fills": [
-    "BUY 0.214 impatto 0.57% (Jupiter)"
-   ]
-  }
- ],
+ "runs": 16,
+ "cash": 4.238098370829045,
+ "positions": [],
  "journal": [
   {
    "id": "P-0003",
@@ -451,6 +392,50 @@
      "turn": 0.673285547694898,
      "price": 0.004088,
      "priceNative": 0.00005381
+    },
+    "grok": null
+   }
+  },
+  {
+   "id": "P-0010",
+   "mint": "4B1mCGeSjTadzH7okALwdFm8taxoHbZBFCTA1nZRpump",
+   "sym": "WOHAIHAO",
+   "openedAt": 1794627551840,
+   "closedAt": 1794629168047,
+   "cost": 0.21443393500003796,
+   "back": 0.15891960496,
+   "pnl": -0.055514330040037974,
+   "pct": -25.888780169066127,
+   "mode": "paper",
+   "reason": "Stop loss",
+   "score": 70,
+   "solUsd": 75.18183308586673,
+   "peakPct": 1.8947560961275478,
+   "trigPct": -31.098961253209602,
+   "entryInfo": {
+    "srcs": [
+     "profili"
+    ],
+    "notes": [
+     "troppo esteso: rischio top"
+    ],
+    "plus": [
+     "turnover 3.1x/h"
+    ],
+    "m": {
+     "liq": 49390.38,
+     "mc": 443222,
+     "ageMin": 138.04618333333335,
+     "v1": 151319.29,
+     "tx1": 2176,
+     "br1": 1.0982658959537572,
+     "br5": 1.1594202898550725,
+     "c5": 7.06,
+     "c1": 109,
+     "c6": 1351,
+     "turn": 3.063740145348143,
+     "price": 0.0004632,
+     "priceNative": 0.000006149
     },
     "grok": null
    }
@@ -2920,16 +2905,151 @@
    "sym": "AMC",
    "score": 74,
    "priceNative": 0.00005547
+  },
+  {
+   "t": 1794629137794,
+   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
+   "sym": "JENSEN",
+   "score": 79,
+   "priceNative": 0.00001544
+  },
+  {
+   "t": 1794629137794,
+   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
+   "sym": "AMC",
+   "score": 74,
+   "priceNative": 0.00005375
+  },
+  {
+   "t": 1794629201741,
+   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
+   "sym": "JENSEN",
+   "score": 78,
+   "priceNative": 0.00001526
+  },
+  {
+   "t": 1794629201741,
+   "mint": "EjoWiu2PLuEs6roeM1H9YxApa3LQ3guo9E27Lcu5pump",
+   "sym": "HARAMBE",
+   "score": 75,
+   "priceNative": 0.00000176
+  },
+  {
+   "t": 1794629201741,
+   "mint": "7SL2VnfYsChvog5oQY9Nmtqu1wceaMiQzWoqoLQpump",
+   "sym": "NIO",
+   "score": 72,
+   "priceNative": 0.0000374
+  },
+  {
+   "t": 1794629264181,
+   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
+   "sym": "JENSEN",
+   "score": 77,
+   "priceNative": 0.00001668
+  },
+  {
+   "t": 1794629264181,
+   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
+   "sym": "AMC",
+   "score": 73,
+   "priceNative": 0.000056
+  },
+  {
+   "t": 1794629264181,
+   "mint": "7SL2VnfYsChvog5oQY9Nmtqu1wceaMiQzWoqoLQpump",
+   "sym": "NIO",
+   "score": 71,
+   "priceNative": 0.00003924
+  },
+  {
+   "t": 1794629264181,
+   "mint": "AUH2LBseFhiYBxr1xsdyBhr7m4HSGMk9oWRB7f2qpump",
+   "sym": "COCORO",
+   "score": 70,
+   "priceNative": 9.414e-7
+  },
+  {
+   "t": 1794629264181,
+   "mint": "FTu55MyigXns96jz4nTCDDiTCjYJjyrHSceCgG9Upump",
+   "sym": "FOOD",
+   "score": 70,
+   "priceNative": 0.00001348
+  },
+  {
+   "t": 1794629326578,
+   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
+   "sym": "AMC",
+   "score": 78,
+   "priceNative": 0.00005549
+  },
+  {
+   "t": 1794629326578,
+   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
+   "sym": "JENSEN",
+   "score": 76,
+   "priceNative": 0.00001638
+  },
+  {
+   "t": 1794629326578,
+   "mint": "FTu55MyigXns96jz4nTCDDiTCjYJjyrHSceCgG9Upump",
+   "sym": "FOOD",
+   "score": 70,
+   "priceNative": 0.00001393
+  },
+  {
+   "t": 1794629326578,
+   "mint": "7SL2VnfYsChvog5oQY9Nmtqu1wceaMiQzWoqoLQpump",
+   "sym": "NIO",
+   "score": 70,
+   "priceNative": 0.00003907
+  },
+  {
+   "t": 1794629326578,
+   "mint": "EjoWiu2PLuEs6roeM1H9YxApa3LQ3guo9E27Lcu5pump",
+   "sym": "HARAMBE",
+   "score": 69,
+   "priceNative": 0.000001354
+  },
+  {
+   "t": 1794629389436,
+   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
+   "sym": "AMC",
+   "score": 78,
+   "priceNative": 0.0000547
+  },
+  {
+   "t": 1794629389436,
+   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
+   "sym": "JENSEN",
+   "score": 77,
+   "priceNative": 0.0000164
+  },
+  {
+   "t": 1794629389436,
+   "mint": "EjoWiu2PLuEs6roeM1H9YxApa3LQ3guo9E27Lcu5pump",
+   "sym": "HARAMBE",
+   "score": 70,
+   "priceNative": 0.00000129
   }
  ],
  "day": {
   "date": "2026-11-14",
   "startEq": 4.206815870346669
  },
- "cooldownUntil": 1794629232241,
+ "cooldownUntil": 1794629768047,
  "halted": null,
  "seq": 10,
  "events": [
+  "04:10:04 SCRIBE   fine run · trade 10 · win 10% · P&L -0.7619 SOL · equity 4.2381 SOL",
+  "04:09:49 ORACLE   90 raccolti, 65 analizzati, 3 BUY, 41 veto",
+  "04:08:46 ORACLE   90 raccolti, 65 analizzati, 5 BUY, 39 veto",
+  "04:07:44 ORACLE   90 raccolti, 65 analizzati, 5 BUY, 39 veto",
+  "04:06:41 ORACLE   90 raccolti, 65 analizzati, 3 BUY, 40 veto",
+  "04:06:08 SCRIBE   chiuso P-0010 $WOHAIHAO -0.0555 SOL (-25.9%)",
+  "04:06:08 CHARON   Stop loss $WOHAIHAO vendo 100% a -31.1% -> 0.1589 SOL",
+  "04:05:37 ORACLE   90 raccolti, 64 analizzati, 2 BUY, 41 veto",
+  "04:05:34 KAISER   run #16 · 1 posizioni · equity 4.2542 SOL · GMGN demo · Grok off",
   "04:05:11 SCRIBE   fine run · trade 9 · win 11% · P&L -0.7064 SOL · equity 4.2542 SOL",
   "04:04:56 ORACLE   90 raccolti, 64 analizzati, 2 BUY, 40 veto",
   "04:03:53 ORACLE   90 raccolti, 64 analizzati, 3 BUY, 41 veto",
