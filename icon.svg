@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="38%" r="75%"><stop offset="0" stop-color="#232c55"/><stop offset="1" stop-color="#090c1a"/></radialGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#ead9b8"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd978"/><stop offset="1" stop-color="#d99a2b"/></linearGradient>
+  </defs>
+  <rect width="512" height="512" fill="url(#bg)"/>
+  <circle cx="256" cy="262" r="178" fill="#f2b84b" opacity="0.10"/>
+  <!-- corpo: cupola e due gocce di lunghezza diversa -->
+  <path fill="url(#body)" d="M140 332C140 207 190 134 256 134C322 134 372 207 372 332L372 396C372 424 340 428 330 406C322 390 300 390 296 406C290 432 262 436 252 412C244 392 216 390 208 408C198 432 172 430 160 412C152 402 140 408 140 392Z"/>
+  <!-- occhi assonnati e sorriso -->
+  <path d="M192 246Q214 218 236 246" fill="none" stroke="#1b2142" stroke-width="12" stroke-linecap="round"/>
+  <path d="M276 246Q298 218 320 246" fill="none" stroke="#1b2142" stroke-width="12" stroke-linecap="round"/>
+  <path d="M238 292Q256 310 274 292" fill="none" stroke="#1b2142" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="188" cy="284" r="13" fill="#f2b84b" opacity="0.42"/>
+  <circle cx="324" cy="284" r="13" fill="#f2b84b" opacity="0.42"/>
+  <!-- piccola corona imperiale, un po' storta -->
+  <g transform="rotate(-9 256 130)">
+    <path fill="url(#gold)" d="M206 150L214 96L236 122L256 84L276 122L298 96L306 150Z"/>
+    <rect x="206" y="146" width="100" height="14" rx="7" fill="#c98a22"/>
+    <circle cx="256" cy="84" r="8" fill="#fff1c9"/><circle cx="214" cy="96" r="7" fill="#fff1c9"/><circle cx="298" cy="96" r="7" fill="#fff1c9"/>
+  </g>
+</svg>

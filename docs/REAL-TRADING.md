@@ -26,9 +26,11 @@ Variabili da impostare **dalla dashboard** (mai nel repository: un deploy non de
 2. **live** con importi minimi: `ORDERS_MODE=live`, capitale e size piccoli. Controlla su Solscan il primo ordine.
 3. Alza i limiti solo dopo diversi ordini corretti.
 
-## Reale dall'app e dal runner (24/7)
-- **App** (conto REALE): BUY REALE dal dettaglio di un token (con conferma; in `dryrun` è solo una prova), posizioni reali con vendita manuale, ticket reali da approvare, kill switch e stato dell'esecutore in Setup.
-  La size è la % «Size per trade» del **capitale reale massimo** impostato in Setup.
+## Pannello, Telegram e runner (24/7)
+- **App su GitHub Pages** (conto REALE): **sola lettura**. Mostra posizioni, ticket, journal, saldo, modo, limiti e l'ultima prova in dry-run leggendo la vista pubblica del Worker (`GET /public`, senza segreti: indirizzo abbreviato, mai la chiave). Non contiene né accetta token, chiavi o indirizzi e non può dare comandi.
+  La vista pubblica si spegne con la variabile `PUBLIC_VIEW=0` nel Worker (l'app mostrerà «vista pubblica disattivata»).
+- **Comandi: solo da Telegram**, dalla tua chat (il webhook richiede anche un segreto derivato da `EXEC_TOKEN`): `/stato`, `/posizioni`, `/wallet` (indirizzo completo e saldo, per verificare la chiave), `/approva T-0001`, `/rifiuta T-0001`, `/vendi R-0001 [%]`, `/kill`, `/riattiva`; i ticket hanno i tasti Approva e Rifiuta. Il Worker registra il webhook da solo, ma non sopra quello di un altro servizio: usa un bot dedicato a Kaiser.
+- La size degli ordini del runner è la «Size per trade» (`sizePct`) del **capitale reale** (`realCapitalSOL`) in `config.json`.
 - **Runner** (anche con app chiusa e telefono spento): il runner non ha chiavi e non firma nulla, chiede all'esecutore. Si accende da `config.json` sul branch `data`:
   ```json
   { "realEnabled": true, "realCapitalSOL": 0.05, "realApprove": true }

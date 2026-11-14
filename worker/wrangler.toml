@@ -31,8 +31,10 @@ new_sqlite_classes = ["Ledger"]
 GH_REPO = "salvogeraci030899-wq/Kaiser-Desk"
 GH_WORKFLOW = "runner.yml"
 GH_REF = "main"
-# Siti da cui l'app può chiamare l'esecutore (CORS). Il token resta comunque obbligatorio.
-ALLOWED_ORIGINS = "https://kaiser-desk.vercel.app,https://salvogeraci030899-wq.github.io"
+# Indirizzo pubblico del Worker: serve a registrare il webhook di Telegram.
+PUBLIC_URL = "https://kaiser-executor.salvogeraci030899.workers.dev"
+# Siti da cui l'app può leggere la vista pubblica (CORS). I comandi richiedono comunque token (runner) o Telegram.
+ALLOWED_ORIGINS = "https://salvogeraci030899-wq.github.io,https://kaiser-desk.vercel.app"
 # NON mettere qui ORDERS_MODE, JUPITER_PROGRAM_ID, MAX_CAPITAL_SOL, MAX_ORDER_SOL, MAX_DAILY_LOSS_SOL, MAX_POSITIONS, RPC_URL, Telegram:
 # si impostano dalla dashboard di Cloudflare (keep_vars le conserva) e un deploy non deve mai riportarle a un valore del repository.
 # Senza di esse l'esecutore è chiuso: ORDERS_MODE=off, capitale massimo 0.

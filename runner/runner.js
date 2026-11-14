@@ -52,6 +52,19 @@ function save() {
   fs.writeFileSync(F.state, JSON.stringify(st, null, 1));
   fs.writeFileSync(path.join(STATE_DIR, 'REPORT.md'), report());
   fs.writeFileSync(path.join(STATE_DIR, 'journal.csv'), csv());
+  fs.writeFileSync(path.join(STATE_DIR, 'public.json'), JSON.stringify(publicSummary()));
+}
+// Riepilogo leggero e senza segreti per l'app (GitHub Pages): la legge da raw.githubusercontent.com, sola lettura.
+function publicSummary() {
+  const s = stats(), { backend, appToken, executorToken, ...cfg } = S;   // mai segreti, anche se qualcuno li scrive in config.json
+  return {
+    v: 1, updatedAt: Date.now(), startedAt: st.startedAt, runs: st.runs, capital: S.capitalSOL, cash: st.cash, equity: equity(), halted: !!st.halted, solUsd: rt.solUsd || 0,
+    stats: { n: s.n, wr: s.wr, pnl: s.pnl, aw: s.aw, al: s.al, pf: Number.isFinite(s.pf) ? s.pf : null },
+    positions: st.positions.map((p) => ({ id: p.id, mint: p.mint, sym: p.sym, pairAddress: p.pairAddress, openedAt: p.openedAt, sizeSOL: p.sizeSOL, cost: p.cost, entry: p.entry, tokens: p.tokens,
+      remaining: p.remaining, tp1Done: p.tp1Done, peak: p.peak, score: p.score, last: p.last ? { priceNative: p.last.priceNative, liq: p.last.liq, t: p.last.t } : null })),
+    journal: st.journal.slice(-100).map((j) => ({ id: j.id, mint: j.mint, sym: j.sym, openedAt: j.openedAt, closedAt: j.closedAt, cost: j.cost, back: j.back, pnl: j.pnl, pct: j.pct, reason: j.reason, score: j.score, peakPct: j.peakPct, trigPct: j.trigPct })),
+    events: st.events.slice(0, 40), config: cfg,
+  };
 }
 
 // ---------------- rete ----------------
@@ -411,4 +424,4 @@ async function main() {
 }
 
 if (require.main === module) main().catch((e) => { console.error(e); save(); process.exit(1); });
-module.exports = { main, st, S, stats, report, realEntries, rt };
+module.exports = { main, st, S, stats, report, realEntries, rt, publicSummary };

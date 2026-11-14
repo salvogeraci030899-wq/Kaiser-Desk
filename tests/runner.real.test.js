@@ -19,6 +19,19 @@ function mockFetch(reply) {
 }
 const M1 = '7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdX6uQXCcGdr', M2 = 'DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263';
 
+test('riepilogo pubblico per l\'app: struttura leggera, mai segreti', () => {
+  Object.assign(S, { backend: 'https://x', appToken: 'SEGRETO-APP', executorToken: 'SEGRETO-EXEC' });
+  st.positions = [{ id: 'P-0001', mint: M1, sym: 'AAA', pairAddress: 'pa', openedAt: 1, sizeSOL: 0.25, cost: 0.2505, entry: 0.01, tokens: 25, remaining: 1, tp1Done: false, peak: 0.011, score: 80, last: { priceNative: 0.0105, liq: 5e4, t: 2 }, rawLeft: '123', fills: ['BUY'], entryInfo: { notes: ['x'] } }];
+  st.journal = Array.from({ length: 150 }, (_, i) => ({ id: 'P-' + i, mint: M1, sym: 'A' + i, openedAt: 1, closedAt: 2 + i, cost: 0.25, back: 0.2, pnl: -0.05, pct: -20, reason: 'Stop loss', score: 80, entryInfo: { secret: 'no' } }));
+  st.events = Array.from({ length: 100 }, (_, i) => 'evento ' + i);
+  const p = R.publicSummary(), txt = JSON.stringify(p);
+  assert.equal(p.v, 1); assert.equal(p.positions.length, 1); assert.equal(p.positions[0].last.priceNative, 0.0105);
+  assert.equal(p.journal.length, 100); assert.equal(p.events.length, 40); assert.equal(p.stats.n, 150);
+  for (const s of ['SEGRETO-APP', 'SEGRETO-EXEC', 'rawLeft', 'entryInfo']) assert.ok(!txt.includes(s), 'compare ' + s);
+  assert.ok(!('backend' in p.config) && !('appToken' in p.config) && !('executorToken' in p.config)); assert.ok('sl' in p.config);
+  assert.ok(txt.length < 60000, 'troppo grande: ' + txt.length);
+  st.positions = []; st.journal = []; st.events = [];
+});
 test('reale spento o senza segreto: il runner non chiama nessuno', async () => {
   const m = mockFetch(async () => ({ ok: true }));
   try {
