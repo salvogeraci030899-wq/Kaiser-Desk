@@ -18,6 +18,9 @@ const DEFAULTS = {
   srcDexProfiles: true, srcDexBoosts: true, srcGmgnTrending: true, srcGmgnTrenches: false, gmgnInterval: '1h',
   // Backend
   backend: '', appToken: '',
+  // Trading reale: spento finché non lo accendi. Usa le stesse regole del paper (size, stop, TP, trailing),
+  // con un tetto di capitale in SOL e un esecutore (server che firma gli swap).
+  realEnabled: false, realCapitalSOL: 0, realApprove: true, executor: '', executorToken: '',
 };
 
 // ---- GMGN: normalizza un item (trending/trenches) ----
@@ -191,4 +194,15 @@ function charon(p, m, S, now = Date.now()) {
   return null;
 }
 
-if (typeof module !== 'undefined') module.exports = { DEFAULTS, gmgnNorm, gmgnList, analyze, sentinel, grokAdj, decide, estImpact, entryPrice, exitSol, charon, clamp };
+// ---- REALE: cancello unico, fallisce sempre chiuso. Restituisce '' solo se TUTTE le condizioni sono vere ----
+function realGate(S, ex) {
+  if (!S.realEnabled) return 'trading reale spento';
+  if (!(num(S.realCapitalSOL) > 0)) return 'capitale reale a 0';
+  if (!S.executor) return 'esecutore non configurato';
+  if (!ex || ex.ok !== true) return 'esecutore non raggiungibile';
+  if (ex.killed === true) return 'esecutore fermato (kill switch)';
+  if (ex.balanceSOL != null && num(ex.balanceSOL) <= 0) return 'wallet reale senza fondi';
+  return '';
+}
+
+if (typeof module !== 'undefined') module.exports = { realGate, DEFAULTS, gmgnNorm, gmgnList, analyze, sentinel, grokAdj, decide, estImpact, entryPrice, exitSol, charon, clamp };

@@ -64,3 +64,21 @@ test('quartermaster: ingresso costa più del prezzo, uscita rende meno', () => {
   assert.ok(E.exitSol(10, 1, 0.02, 1, 0.0005) < 10);
 });
 test('DEFAULTS: un solo ingresso per scan', () => assert.equal(E.DEFAULTS.maxEntriesPerScan, 1));
+
+test('reale: spento di default e bloccato senza capitale', () => {
+  assert.equal(E.DEFAULTS.realEnabled, false);
+  assert.equal(E.DEFAULTS.realCapitalSOL, 0);
+  assert.match(E.realGate(E.DEFAULTS, null), /spento/);
+});
+test('reale: cancello fallisce chiuso, una condizione alla volta', () => {
+  const ok = { ok: true, balanceSOL: 1 };
+  const on = { ...E.DEFAULTS, realEnabled: true, realCapitalSOL: 0.5, executor: 'https://x.example' };
+  assert.equal(E.realGate(on, ok), '');
+  assert.match(E.realGate({ ...on, realCapitalSOL: 0 }, ok), /capitale/);
+  assert.match(E.realGate({ ...on, executor: '' }, ok), /configurato/);
+  assert.match(E.realGate(on, null), /raggiungibile/);
+  assert.match(E.realGate(on, { ok: false }), /raggiungibile/);
+  assert.match(E.realGate(on, { ok: true, killed: true }), /kill switch/);
+  assert.match(E.realGate(on, { ok: true, balanceSOL: 0 }), /fondi/);
+  assert.match(E.realGate({ ...on, realEnabled: false }, ok), /spento/);
+});

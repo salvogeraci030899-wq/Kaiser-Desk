@@ -58,10 +58,11 @@
 <header>
   <div class="brand">
     <div class="logo">K</div>
-    <div style="flex:1;min-width:0"><h1>KAISER</h1><small>Solana Meme Desk · paper trading</small></div>
+    <div style="flex:1;min-width:0"><h1>KAISER</h1><small id="brandSub">Solana Meme Desk · paper trading</small></div>
     <button class="btn btn-icon" id="btnScan" aria-label="Scan"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7"/><polyline points="21 3 21 9 15 9"/></svg></button>
   </div>
   <div class="pills">
+    <span class="pill gold" id="pMode" role="button" tabindex="0">PAPER</span>
     <span class="pill" id="pAuto">AUTO OFF</span>
     <span class="pill" id="pBack">BACKEND —</span>
     <span class="pill gold" id="pSol">SOL —</span>
@@ -93,6 +94,8 @@
 
   <!-- POSIZIONI -->
   <section class="view" id="v-pos">
+    <div class="seg modeSeg" style="margin-bottom:10px"><button data-mode="paper">Paper</button><button data-mode="real">Reale</button></div>
+    <div id="realNote"></div>
     <div class="card">
       <div class="stat">
         <div class="m"><span>Cassa</span><b id="sCash">—</b></div>
@@ -105,6 +108,8 @@
 
   <!-- JOURNAL -->
   <section class="view" id="v-journal">
+    <div class="seg modeSeg" style="margin-bottom:10px"><button data-mode="paper">Paper</button><button data-mode="real">Reale</button></div>
+    <div id="realNoteJ"></div>
     <div class="card">
       <div class="stat">
         <div class="m"><span>Trade</span><b id="jN">0</b></div>
@@ -134,6 +139,8 @@
     </div>
     <h2>Blocco app</h2>
     <div class="card" id="lockSettingsBody"></div>
+    <h2>Trading reale</h2>
+    <div class="card" id="setReal"></div>
     <h2>Autopilota (Kaiser)</h2>
     <div class="card" id="setAuto"></div>
     <h2>Capitale e rischio (Quartermaster)</h2>
@@ -198,9 +205,10 @@ const st = {
   cooldownUntil: saved.cooldownUntil || 0,
   halted: saved.halted || null,
   seq: saved.seq || 0,
+  mode: saved.mode === 'real' && saved.S && saved.S.realEnabled ? 'real' : 'paper',   // quale conto stai guardando
 };
-const rt = { cands: new Map(), sec: new Map(), grok: new Map(), gmgn: new Map(), solUsd: 0, backendOk: false, health: null, scanning: false, lastScan: 0, filter: 'all', logs: [] };
-const save = () => store.set({ S: st.S, cash: st.cash, positions: st.positions, journal: st.journal.slice(-500), tickets: st.tickets, day: st.day, cooldownUntil: st.cooldownUntil, halted: st.halted, seq: st.seq });
+const rt = { cands: new Map(), sec: new Map(), grok: new Map(), gmgn: new Map(), solUsd: 0, backendOk: false, health: null, exec: null, scanning: false, lastScan: 0, filter: 'all', logs: [] };
+const save = () => store.set({ S: st.S, cash: st.cash, positions: st.positions, journal: st.journal.slice(-500), tickets: st.tickets, day: st.day, cooldownUntil: st.cooldownUntil, halted: st.halted, seq: st.seq, mode: st.mode });
 
 // ---------- LOG / NOTIFICHE ----------
 function log(agent, msg) {
@@ -436,7 +444,39 @@ async function jupQuote(inMint, outMint, amount) {
   if (!q || !q.outAmount) throw new Error(q?.error || 'nessuna rotta');
   return q;
 }
-async function buy(c, why) {
+// ---------- PAPER / REALE: due conti separati, mai mescolati ----------
+const inMode = (x) => (x.mode || 'paper') === st.mode;
+function applyMode() {
+  document.documentElement.classList.toggle('mode-real', st.mode === 'real');
+  document.querySelectorAll('.modeSeg button').forEach((b) => b.classList.toggle('on', b.dataset.mode === st.mode));
+}
+function setMode(m) {
+  if (m === 'real' && !st.S.realEnabled) return toast('Trading reale spento: accendilo in Setup → Trading reale');
+  st.mode = m; save(); render();
+}
+function realNoteHtml() {
+  if (st.mode !== 'real') return '';
+  const why = realGate(st.S, rt.exec), ex = rt.exec;
+  return `<div class="card real-note"><b class="warn small">REALE · soldi veri</b>
+    <div class="small" style="margin-top:4px">${why ? `<span class="down">Non operativo:</span> ${esc(why)}.` : `<span class="up">Esecutore collegato</span>${ex && ex.wallet ? ' · wallet ' + esc(String(ex.wallet).slice(0, 4) + '…' + String(ex.wallet).slice(-4)) : ''}`}</div>
+    <div class="tiny muted" style="margin-top:6px">Usa le stesse regole del paper (size, stop, TP, trailing) con tetto di capitale ${num(st.S.realCapitalSOL)}◎${st.S.realApprove ? ' e approvazione manuale di ogni ingresso' : ''}. Il conto paper non viene toccato.</div></div>`;
+}
+async function checkExecutor() {
+  rt.exec = null;
+  if (st.S.executor) {
+    try { const r = await fetchJSON(st.S.executor.replace(/\/+$/, '') + '/health', { headers: st.S.executorToken ? { 'x-app-token': st.S.executorToken } : {} }); rt.exec = r && r.ok ? r : null; } catch { rt.exec = null; }
+  }
+  render();
+}
+
+// REALE: oggi solo il cancello. Gli ordini veri partono dall'esecutore (vedi docs/REAL-TRADING.md); finché non c'è, non parte nulla.
+async function realBuy(c, why) {
+  const block = realGate(st.S, rt.exec);
+  if (block) return toast('Reale bloccato: ' + esc(block));
+  toast('Reale: l’esecutore degli ordini non è ancora attivo in questa versione. Nessun ordine inviato.');
+}
+async function buy(c, why, mode = 'paper') {
+  if (mode === 'real') return realBuy(c, why);
   const S = st.S;
   const g = gates(c); if (g) { toast('Bloccato: ' + g); return; }
   const fresh = (await dexPairs([c.mint])).get(c.mint) || c.pair;
@@ -454,7 +494,7 @@ async function buy(c, why) {
   const cost = sizeS + S.prioritySOL;
   const p = {
     id: 'P-' + String(++st.seq).padStart(4, '0'), mint: c.mint, sym: c.sym, name: c.name, img: c.img, pairAddress: fresh.pairAddress,
-    openedAt: Date.now(), sizeSOL: sizeS, cost, entry, tokens: sizeS / entry, remaining: 1, rawLeft: rawOut,
+    mode: 'paper', openedAt: Date.now(), sizeSOL: sizeS, cost, entry, tokens: sizeS / entry, remaining: 1, rawLeft: rawOut,
     peak: entry, tp1Done: false, spDone: false, entryLiq: liq, realized: 0, score: c.score, why, last: null, fills: [`BUY ${sizeS.toFixed(3)}◎ impatto ${(impact * 100).toFixed(2)}% (${src})`],
   };
   st.cash -= cost;
@@ -492,7 +532,7 @@ async function sell(p, frac, reason) {
   if (p.remaining < 0.002) {
     st.positions = st.positions.filter((x) => x !== p);
     const pnl = p.realized - p.cost;
-    const j = { id: p.id, mint: p.mint, sym: p.sym, openedAt: p.openedAt, closedAt: Date.now(), cost: p.cost, back: p.realized, pnl, pct: pnl / p.cost * 100, reason, score: p.score, solUsd: rt.solUsd };
+    const j = { mode: p.mode || 'paper', id: p.id, mint: p.mint, sym: p.sym, openedAt: p.openedAt, closedAt: Date.now(), cost: p.cost, back: p.realized, pnl, pct: pnl / p.cost * 100, reason, score: p.score, solUsd: rt.solUsd };
     st.journal.push(j);
     if (pnl < 0) st.cooldownUntil = Date.now() + S.cooldownMin * 60000;
     log('SCRIBE', `chiuso ${p.id} $${esc(p.sym)} ${pnl >= 0 ? '<span class="up">' : '<span class="down">'}${fmtSol(pnl, 4)} (${fmtPct(j.pct, 1)})</span>`);
@@ -531,12 +571,17 @@ function render() {
   $('#pBack').textContent = rt.backendOk ? 'BACKEND ✓' + (rt.health?.grok ? ' GROK' : '') : 'SOLO BROWSER';
   $('#pBack').className = 'pill ' + (rt.backendOk ? 'on' : '');
   $('#pSol').textContent = rt.solUsd ? 'SOL $' + rt.solUsd.toFixed(2) : 'SOL —';
-  $('#pEq').textContent = 'EQ ' + eq.toFixed(3) + '◎';
+  const real = st.mode === 'real';
+  $('#pMode').textContent = real ? 'REALE' : 'PAPER';
+  $('#pMode').className = 'pill ' + (real ? 'real' : 'gold');
+  $('#pEq').textContent = real ? 'EQ REALE ' + (rt.exec && rt.exec.balanceSOL != null ? Number(rt.exec.balanceSOL).toFixed(3) + '◎' : '—') : 'EQ ' + eq.toFixed(3) + '◎';
+  $('#brandSub').textContent = real ? 'Solana Meme Desk · REALE' : 'Solana Meme Desk · paper trading';
+  applyMode();
   $('#pScan').textContent = loopOn ? `ogni ${S.scanSec}s` : 'pausa';
   $('#lastScan').textContent = rt.lastScan ? 'ultimo scan ' + new Date(rt.lastScan).toLocaleTimeString('it-IT') : 'mai';
   renderRadar(); renderTickets(); renderPos(); renderJournal();
   const dt = $('#dotT'); dt.style.display = st.tickets.length ? '' : 'none'; dt.textContent = st.tickets.length;
-  const dp = $('#dotP'); dp.style.display = st.positions.length ? '' : 'none'; dp.textContent = st.positions.length;
+  const dp = $('#dotP'); const np = st.positions.filter(inMode).length; dp.style.display = np ? '' : 'none'; dp.textContent = np;
 }
 // anello del punteggio (colore secondo il verdetto) e barra di pressione acquisti/vendite 5m
 function ring(c, big) {
@@ -588,9 +633,11 @@ function renderTickets() {
 }
 function renderPos() {
   const eq = equity(), dayPnl = st.day ? eq - st.day.startEq : 0;
-  $('#sCash').textContent = fmtSol(st.cash); $('#sEq').textContent = fmtSol(eq);
-  $('#sDay').innerHTML = `<span class="${cls(dayPnl)}">${fmtSol(dayPnl)}</span>`;
-  $('#posList').innerHTML = st.positions.length ? st.positions.map((p) => {
+  const real = st.mode === 'real', list = st.positions.filter(inMode);
+  $('#realNote').innerHTML = realNoteHtml();
+  if (real) { const b = rt.exec && rt.exec.balanceSOL; $('#sCash').textContent = b != null ? fmtSol(b) : '—'; $('#sEq').textContent = b != null ? fmtSol(b) : '—'; $('#sDay').textContent = '—'; }
+  else { $('#sCash').textContent = fmtSol(st.cash); $('#sEq').textContent = fmtSol(eq); $('#sDay').innerHTML = `<span class="${cls(dayPnl)}">${fmtSol(dayPnl)}</span>`; }
+  $('#posList').innerHTML = list.length ? list.map((p) => {
     const pr = p.last ? p.last.priceNative : p.entry;
     const pnl = (pr / p.entry - 1) * 100, val = posValue(p);
     const S = st.S;
@@ -602,10 +649,11 @@ function renderPos() {
       <div class="bar" style="margin-top:8px"><i style="width:${clamp((pnl + S.sl) / (S.tp1 + S.sl) * 100, 0, 100)}%;background:${pnl >= 0 ? 'var(--green)' : 'var(--red)'}"></i></div>
       <div class="row" style="margin-top:8px;gap:6px"><button class="btn sm" data-sellp="${p.id}" data-f="0.5">Vendi 50%</button><button class="btn red sm" data-sellp="${p.id}" data-f="1">Chiudi</button><button class="btn sm" data-detail="${p.mint}">Grafico</button></div>
       <div class="tiny muted mono" style="margin-top:6px">${p.fills.map(esc).join('<br>')}</div></div>`;
-  }).join('') : '<div class="empty">Nessuna posizione aperta.</div>';
+  }).join('') : `<div class="empty">Nessuna posizione ${real ? 'reale ' : ''}aperta.</div>`;
 }
 function renderJournal() {
-  const J = st.journal, S = st.S;
+  const J = st.journal.filter(inMode), S = st.S;
+  $('#realNoteJ').innerHTML = realNoteHtml();
   const wins = J.filter((j) => j.pnl > 0), losses = J.filter((j) => j.pnl <= 0);
   const tot = J.reduce((a, j) => a + j.pnl, 0);
   $('#jN').textContent = J.length;
@@ -650,7 +698,7 @@ async function openDetail(mint) {
         <div style="margin-top:8px"><button class="btn sm" id="dGrok" ${rt.backendOk && rt.health?.grok ? '' : 'disabled'}>Chiedi a Grok</button>${rt.health?.grok ? '' : ' <span class="tiny muted">serve XAI_API_KEY su Vercel</span>'}</div></div>
       ${links ? `<div class="small" style="margin:8px 2px">${links}</div>` : ''}
       <div class="row" style="gap:6px;margin-top:10px">
-        <button class="btn gold" id="dBuy" style="flex:1" ${held ? 'disabled' : ''}>${held ? 'Già in posizione' : `Paper BUY ${sizeSol().toFixed(3)}◎`}</button>
+        <button class="btn gold" id="dBuy" style="flex:1" ${held ? 'disabled' : ''}>${held ? 'Già in posizione' : st.mode === 'real' ? 'BUY REALE' : `Paper BUY ${sizeSol().toFixed(3)}◎`}</button>
         <a class="btn" href="https://gmgn.ai/sol/token/${mint}" target="_blank" rel="noopener">GMGN ↗</a>
         <button class="btn" id="dClose">Chiudi</button>
       </div>`;
@@ -662,7 +710,8 @@ async function openDetail(mint) {
       if (!c.sec) { c.sec = await rugcheck(mint); Object.assign(c, decide(c.a, c.sec, c.gr, st.S)); }
       if (c.vetoes.length) { toast('⛔ Sentinel ha posto il veto: ' + esc(c.vetoes[0])); draw(); return; }
       if (!c.sec || !c.sec.ok) { if (!confirm('Sicurezza non verificata. Comprare comunque (paper)?')) return; }
-      await buy(c, 'manuale'); closeSheet(); go('pos');
+      await buy(c, 'manuale', st.mode);
+      if (st.mode === 'paper') { closeSheet(); go('pos'); }
     };
   };
   draw();
@@ -718,6 +767,13 @@ const FIELDS = {
     ['srcGmgnTrenches', 'Fonte: GMGN trenches', 'token nuovissimi', 'bool'],
     ['gmgnInterval', 'Finestra GMGN', '1m 5m 1h 6h 24h', 'sel:1m,5m,1h,6h,24h'],
   ],
+  setReal: [
+    ['realEnabled', 'Trading reale', 'spento finché non lo accendi', 'bool'],
+    ['realCapitalSOL', 'Capitale reale max (SOL)', '0 = reale bloccato', 'num'],
+    ['realApprove', 'Approvazione manuale in reale', 'ogni ingresso è un ticket', 'bool'],
+    ['executor', 'URL esecutore', 'server che firma gli swap (Cloudflare)', 'text'],
+    ['executorToken', 'Token esecutore', 'segreto condiviso con l’esecutore', 'pass'],
+  ],
   setBack: [
     ['backend', 'URL backend', 'vuoto = stesso sito', 'text'],
     ['appToken', 'Token app', 'uguale ad APP_TOKEN', 'pass'],
@@ -736,9 +792,12 @@ function renderSettings() {
   }
   document.querySelectorAll('[data-k]').forEach((el) => el.onchange = () => {
     const k = el.dataset.k;
+    if (k === 'realEnabled' && el.checked && !confirm('Attivare il trading reale?\n\nIl reale usa soldi veri e le stesse regole del paper. Parte solo con un capitale reale > 0 e un esecutore collegato; finché manca anche una sola condizione non viene inviato nessun ordine.')) { el.checked = false; return; }
     st.S[k] = el.type === 'checkbox' ? el.checked : typeof DEFAULTS[k] === 'number' ? num(el.value, DEFAULTS[k]) : el.value.trim();
     if (k === 'scanSec') st.S.scanSec = Math.max(15, st.S.scanSec);
     if (k === 'backend' || k === 'appToken') checkBackend();
+    if (k === 'realEnabled' && !st.S.realEnabled && st.mode === 'real') st.mode = 'paper';
+    if (k === 'executor' || k === 'executorToken') checkExecutor();
     if (k === 'autopilot' || k === 'scanSec') restartLoop();
     if (k === 'autopilot') log('KAISER', st.S.autopilot ? 'autopilota <b>attivo</b>' + (st.S.approve ? ' (con approvazione)' : '') : 'autopilota spento');
     save(); render();
@@ -776,6 +835,8 @@ function go(v) {
 }
 $('#nav').onclick = (e) => { const b = e.target.closest('button'); if (b) go(b.dataset.v); };
 $('#radarFilter').onclick = (e) => { const b = e.target.closest('button'); if (!b) return; rt.filter = b.dataset.f; document.querySelectorAll('#radarFilter button').forEach((x) => x.classList.toggle('on', x === b)); renderRadar(); };
+$('#pMode').onclick = () => setMode(st.mode === 'real' ? 'paper' : 'real');
+document.querySelectorAll('.modeSeg').forEach((g) => g.addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) setMode(b.dataset.mode); }));
 $('#btnScan').onclick = () => { scan(); if (!loopOn) restartLoop(); };
 $('#sheet').onclick = (e) => { if (e.target.id === 'sheet') closeSheet(); };
 document.body.addEventListener('click', async (e) => {
@@ -796,8 +857,8 @@ document.body.addEventListener('click', async (e) => {
   if (sp) { const p = st.positions.find((x) => x.id === sp.dataset.sellp); if (p) { sp.disabled = true; await sell(p, Number(sp.dataset.f), 'Manuale'); } }
 });
 $('#btnCsv').onclick = () => {
-  const rows = [['id', 'token', 'mint', 'apertura', 'chiusura', 'costo_sol', 'rientro_sol', 'pnl_sol', 'pnl_pct', 'motivo', 'score', 'sol_usd']]
-    .concat(st.journal.map((j) => [j.id, j.sym, j.mint, new Date(j.openedAt).toISOString(), new Date(j.closedAt).toISOString(), j.cost.toFixed(6), j.back.toFixed(6), j.pnl.toFixed(6), j.pct.toFixed(2), j.reason, j.score, (j.solUsd || 0).toFixed(2)]));
+  const rows = [['modo', 'id', 'token', 'mint', 'apertura', 'chiusura', 'costo_sol', 'rientro_sol', 'pnl_sol', 'pnl_pct', 'motivo', 'score', 'sol_usd']]
+    .concat(st.journal.map((j) => [j.mode || 'paper', j.id, j.sym, j.mint, new Date(j.openedAt).toISOString(), new Date(j.closedAt).toISOString(), j.cost.toFixed(6), j.back.toFixed(6), j.pnl.toFixed(6), j.pct.toFixed(2), j.reason, j.score, (j.solUsd || 0).toFixed(2)]));
   const blob = new Blob([rows.map((r) => r.map((x) => `"${String(x).replace(/"/g, '""')}"`).join(',')).join('\n')], { type: 'text/csv' });
   const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'kaiser-journal.csv'; a.click();
 };
@@ -814,6 +875,7 @@ document.addEventListener('visibilitychange', () => { if (!document.hidden && lo
 renderSettings(); rollDay(); render();
 log('KAISER', 'desk pronto. Ruoli: SCOUT · ORACLE · SENTINEL · GROK · QUARTER · CHARON · SCRIBE');
 checkBackend().then(() => solPrice()).then(render);
+checkExecutor();
 })();
 </script>
 </body>

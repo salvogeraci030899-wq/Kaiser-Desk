@@ -29,6 +29,9 @@ In **Setup → Aspetto**: tema Auto/Chiaro/Scuro (segue iOS), **Vetro** (No, Fer
 ## Blocco app
 In **Setup → Blocco app**: codice di 6 cifre (solo l'impronta PBKDF2 resta sul dispositivo, mai il codice), Face ID / Touch ID tramite passkey di sistema, blocco subito/1 min/5 min dopo l'uscita, attesa crescente dopo 5 errori. Protegge dallo sguardo di chi prende il telefono, non cifra i dati; il desk continua a lavorare anche con l'app bloccata. «Codice dimenticato» cancella i dati di Kaiser su quel dispositivo (il runner su GitHub non viene toccato).
 
+## Paper e reale
+Kaiser distingue sempre i due conti: pillola **PAPER / REALE** in alto, barra ambra e riquadro di avviso quando sei sul reale, posizioni e journal separati. Il reale è **spento di default** (Setup → Trading reale) e, finché manca anche una sola condizione (acceso, capitale > 0, esecutore collegato e con fondi), non viene inviato nessun ordine. Gli ordini veri richiedono un esecutore su Cloudflare, non ancora attivo: vedi `docs/REAL-TRADING.md`. Il runner su GitHub fa solo paper.
+
 ## Installazione da iPhone
 
 1. **GitHub:** crea un repository (privato va bene) e carica tutti i file di questa cartella rispettando la struttura (`api/` compresa).

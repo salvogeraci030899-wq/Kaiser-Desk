@@ -254,3 +254,11 @@ html.glass .lock-screen { background: var(--wall); } html.glass-anim .lock-scree
   .lock-screen { padding-top: calc(env(safe-area-inset-top, 0px) + 14px); gap: 26px; } .lock-logo { width: 72px; height: 72px; font-size: 36px; border-radius: 18px; }
   .lock-title { font-size: 22px; margin-top: 2px; } .lock-pad { grid-template-columns: repeat(3, 66px); gap: 10px 24px; } .lock-key { width: 66px; height: 66px; font-size: 28px; }
 }
+
+/* ---- paper / reale: il conto reale si riconosce a colpo d'occhio (barra ambra in alto, pillola, logo) ---- */
+#pMode { cursor: pointer; }
+.pill.real { color: var(--warning); border-color: var(--warning); background: var(--warn-bg); }
+html.mode-real #app::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--warning); z-index: 5; }
+html.mode-real .logo { box-shadow: 0 0 0 2px var(--warning); }
+html.mode-real .brand small { color: var(--warning); }
+.real-note { border-color: var(--warning); background: var(--warn-bg); }
