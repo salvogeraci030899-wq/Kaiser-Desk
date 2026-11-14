@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.11.0">
+<meta name="kz-build" content="2.11.1">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=2">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
@@ -31,7 +31,7 @@
   document.getElementById('metaStatusBar').setAttribute('content', light ? 'default' : (bar === 'separate' ? 'black' : 'black-translucent'));
 })();
 </script>
-<link rel="stylesheet" href="style.css?v=18">
+<link rel="stylesheet" href="style.css?v=19">
 <script src="version.js"></script>
 <script src="theme.js"></script>
 <script src="lock.js"></script>
@@ -320,14 +320,16 @@ async function scan() {
   finally { rt.scanning = false; $('#btnLogo').classList.remove('busy'); render(); }
 }
 
+// Colore in base al punteggio, lo stesso per l'anello e per la barra: verde (sopra la soglia), arancione (watch), grigio (sotto), rosso (veto)
+function scoreColor(c) { return c.verdict === 'VETO' ? 'var(--danger)' : c.score >= S().minScore ? 'var(--accent)' : c.verdict === 'WATCH' ? 'var(--warning)' : 'var(--text-secondary)'; }
 function ring(c, big) {
   const v = c.verdict === 'VETO' ? 0 : c.score;
-  const col = c.verdict === 'VETO' ? 'var(--danger)' : c.score >= S().minScore ? 'var(--accent)' : c.verdict === 'WATCH' ? 'var(--warning)' : 'var(--text-secondary)';
+  const col = scoreColor(c);
   return `<div class="ring${big ? ' big' : ''}" style="--p:${v};--c:${col}"><span>${c.verdict === 'VETO' ? '✕' : c.score}</span></div>`;
 }
-function pressure(m) {
+function pressure(m, col) {
   const share = clamp(m.br5 / (1 + m.br5) * 100, 0, 100);
-  return `<div class="press" title="Acquisti vs vendite negli ultimi 5 minuti"><i style="width:${share.toFixed(0)}%"></i></div><div class="press-l"><span>vendite</span><span>${share.toFixed(0)}% acquisti 5m</span></div>`;
+  return `<div class="press" title="Acquisti vs vendite negli ultimi 5 minuti"><i style="width:${share.toFixed(0)}%;background:${col}"></i></div><div class="press-l"><span>vendite</span><span>${share.toFixed(0)}% acquisti 5m</span></div>`;
 }
 function candCard(c) {
   const m = c.a.m, chips = [
@@ -340,7 +342,7 @@ function candCard(c) {
       <div class="nm">${esc(c.name)} · ${m.ageMin != null ? ago(m.ageMin * 60000) : '—'} · ${esc(c.srcs.join(', '))}</div></div>${ring(c)}</div>
     <div class="metrics"><div class="m"><b>${fmtUsd(m.mc)}</b><span>mcap</span></div><div class="m"><b>${fmtUsd(m.liq)}</b><span>liquidità</span></div>
       <div class="m"><b class="${cls(m.c5)}">${fmtPct(m.c5)}</b><span>5m</span></div><div class="m"><b class="${cls(m.c1)}">${fmtPct(m.c1)}</b><span>1h</span></div></div>
-    ${pressure(m)}<div class="chips">${chips}</div></div>`;
+    ${pressure(m, scoreColor(c))}<div class="chips">${chips}</div></div>`;
 }
 function renderRadar() {
   let list = [...rt.cands.values()]; if (rt.filter !== 'all') list = list.filter((c) => c.verdict === rt.filter);
