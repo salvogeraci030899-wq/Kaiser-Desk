@@ -29,7 +29,10 @@ export class Ledger {
       const s = this.state && this.state.storage; if (!s || typeof s.setAlarm !== 'function') return;
       const [pos, pend, ov] = await Promise.all([s.get('positions'), s.get('pending'), s.get('params')]);
       if (!((pos && pos.length) || (pend && pend.length) || (ov && ov.shieldOn === true))) return;   // con lo Scudo acceso si controlla il wallet ogni 10 secondi
-      if ((await s.getAlarm()) == null) await s.setAlarm(Date.now() + ALARM_MS);
+      const cur = await s.getAlarm(), fast = !!(this.ex && this.ex.fastRetry);      // dopo una vendita fallita il prossimo giro parte tra 2 secondi, non tra 10
+      if (fast) this.ex.fastRetry = false;
+      if (cur == null) await s.setAlarm(Date.now() + (fast ? 2000 : ALARM_MS));
+      else if (fast && cur > Date.now() + 2500) await s.setAlarm(Date.now() + 2000);
     } catch { /* non critico: resta il cron di un minuto */ }
   }
   async alarm() {
