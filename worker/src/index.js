@@ -29,7 +29,7 @@ export class Ledger {
       if (path === '/tg') return json(await handleUpdate(this.ex, body));
       if (path === '/params') return json(await this.ex.paramsView());
       if (path === '/propose') return json(await this.ex.propose(body));
-      if (path === '/runner') return json(await this.ex.reportRunner(body.config, body.resetAck));
+      if (path === '/runner') return json(await this.ex.reportRunner(body.config, body.resetAck, body.closeAck));
       if (path === '/paper' && req.method === 'POST') return json(await this.ex.paperPut(body.data));
       if (path === '/paper') return json(await this.ex.paperGet());
       if (path === '/state') return json(await this.ex.state());

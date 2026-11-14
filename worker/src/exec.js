@@ -302,6 +302,39 @@ export class Executor {
     await this.notify(`⚠️ Reset del conto PAPER ${p.id}\nCancella posizioni aperte, journal e statistiche del paper e riparte con ${p.reset.capitalSOL} SOL.\nIl conto reale non viene toccato.\n\nValido per 10 minuti. Se non l'hai chiesto tu, rifiuta.`, { inline_keyboard: [[{ text: '⚠️ Azzera il paper', callback_data: 'pa:' + p.id }, { text: '❌ Rifiuta', callback_data: 'pr:' + p.id }]] });
     return { ok: true, proposal: p };
   }
+  // CHIUSURA di una posizione dall'app (paper o reale). L'app non ha segreti: per il REALE la richiesta passa dal tasto su Telegram
+  // (a meno che nel Worker APP_CLOSE=direct: allora basta il popup dell'app). Funziona con o senza approvazione manuale degli ingressi:
+  // le uscite non passano mai dai ticket. Paper: direttiva per il runner (paperCloses), che vende a mercato e avvisa.
+  async _proposeClose(c) {
+    const mode = c && c.mode, id = String((c && c.id) || '').toUpperCase();
+    if ((mode !== 'paper' && mode !== 'real') || !/^[PR]-\d{1,6}$/.test(id) || (mode === 'real') !== id.startsWith('R-')) return { ok: false, error: 'posizione non valida' };
+    let sym = id;
+    if (mode === 'real') { const p = (await this.store.get('positions', [])).find((x) => x.id === id); if (!p) return { ok: false, error: 'posizione reale non trovata' }; sym = p.sym; }
+    else { const snap = await this.store.get('paper', null), p = snap && snap.data && snap.data.positions.find((x) => x.id === id); if (snap && !p) return { ok: false, error: 'posizione paper non trovata (forse già chiusa)' }; if (p) sym = p.sym; }
+    const now = this.now(), props = (await this.store.get('proposals', [])).filter((p) => p.exp > now);
+    if (props.some((p) => p.close && p.close.id === id)) return { ok: false, error: 'chiusura già richiesta: controlla Telegram' };
+    if (props.length >= 6) return { ok: false, error: 'ci sono già troppe richieste in attesa su Telegram' };
+    if (now - (await this.store.get('lastClose', 0)) < 3000) return { ok: false, error: 'richieste troppo ravvicinate: riprova tra qualche secondo' };
+    await this.store.put('lastClose', now);
+    const seq = (await this.store.get('cseq', 0)) + 1; await this.store.put('cseq', seq);
+    const p = { id: 'C-' + String(seq).padStart(4, '0'), changes: {}, close: { mode, id, sym: String(sym || '').slice(0, 20) }, at: now, exp: now + 10 * 60000 };
+    if (String(this.env.APP_CLOSE || '').toLowerCase() === 'direct') { const r = await this._applyClose(p.close); return { ...r, proposal: p, direct: true }; }
+    props.push(p); await this.store.put('proposals', props);
+    await this.notify(`🔒 Chiusura posizione ${mode === 'real' ? 'REALE' : 'paper'} ${p.id}\n${p.close.sym} (${id}): vendita di tutta la posizione a mercato.${mode === 'real' ? '\nSono soldi veri.' : ''}\n\nValida per 10 minuti. Se non l'hai chiesta tu, rifiuta.`, { inline_keyboard: [[{ text: '🔒 Chiudi ora', callback_data: 'pa:' + p.id }, { text: '❌ Annulla', callback_data: 'pr:' + p.id }]] });
+    return { ok: true, proposal: p };
+  }
+  async _applyClose(c) {
+    if (c.mode === 'real') {
+      const p = (await this.store.get('positions', [])).find((x) => x.id === c.id);
+      if (!p) return { ok: false, error: 'posizione reale non trovata (forse già chiusa)' };
+      const r = await this._sell(p, 1, 'Chiusura manuale (app)');
+      return { ...r, close: true };
+    }
+    const cl = (await this.store.get('paperCloses', [])).filter((x) => x.id !== c.id); cl.push({ id: c.id, at: this.now() });
+    await this.store.put('paperCloses', cl.slice(-20));
+    await this.notify(`🔒 Chiusura paper approvata (${c.id}): il runner vende a mercato entro un minuto.`);
+    return { ok: true, close: true };
+  }
   // EMERGENZA IMMEDIATA: ferma i nuovi ingressi, spegne autopilota e reale del runner, vende subito le posizioni reali (2 per giro, il resto al giro dopo).
   // Dall'app è solo una richiesta con un grosso tasto su Telegram; il comando /emergenza dalla tua chat agisce subito.
   emergency() { return this.run(() => this._emergency()); }
@@ -325,6 +358,7 @@ export class Executor {
   }
   propose(req) { return this.run(async () => {
     if (req && req.emergency) return this._proposeEmergency();
+    if (req && req.close) return this._proposeClose(req.close);
     if (req && req.reset) return this._proposeReset(req.reset);
     const { clean, errors } = validate(req && req.changes);
     if (errors.length) return { ok: false, error: 'modifica non valida', errors };
@@ -347,6 +381,7 @@ export class Executor {
     await this.store.put('proposals', props.filter((x) => x.id !== id));
     if (p.exp <= now) return { ok: false, error: 'richiesta scaduta' };
     if (p.emergency) return this._emergency();
+    if (p.close) return this._applyClose(p.close);
     if (p.reset) {
       await this.store.put('paperReset', { id: p.id, capitalSOL: p.reset.capitalSOL, at: now });
       await this.notify(`⚠️ Reset del paper approvato (${p.id}): il runner azzera il conto e riparte con ${p.reset.capitalSOL} SOL entro un minuto.`);
@@ -360,13 +395,14 @@ export class Executor {
   rejectProposal(id) { return this.run(async () => { const ps = await this.store.get('proposals', []); await this.store.put('proposals', ps.filter((x) => x.id !== id)); return { ok: true }; }); }
   resetParams() { return this.run(async () => { await this.store.put('params', {}); this.ov = {}; await this.store.put('proposals', []); await this.notify('↩️ Parametri riportati ai valori di config.json e ai tetti di Cloudflare.'); return { ok: true }; }); }
   // il runner riferisce i parametri che sta davvero usando (con il suo token): servono a mostrare «prima → dopo» corretti
-  async reportRunner(cfg, resetAck) {
+  async reportRunner(cfg, resetAck, closeAck) {
     if (cfg) {
       const { clean } = validate(Object.fromEntries(Object.entries(cfg).filter(([k, v]) => SCHEMA[k] && SCHEMA[k].scope === 'runner' && (typeof v === 'number' || typeof v === 'boolean' || typeof v === 'string'))));
       await this.store.put('runnerCfg', clean);
     }
     const pr = await this.store.get('paperReset', null);
     if (resetAck && pr && pr.id === resetAck) await this.store.put('paperReset', null);   // il runner ha eseguito: la direttiva non serve più
+    if (Array.isArray(closeAck) && closeAck.length) { const done = new Set(closeAck.map(String)); await this.store.put('paperCloses', (await this.store.get('paperCloses', [])).filter((x) => !done.has(x.id))); }
     return { ok: true };
   }
   // Riepilogo del paper in diretta: il runner lo spinge qui (con il suo token) a ogni evento e ogni pochi secondi; l'app lo legge da qui senza ritardi di GitHub.
@@ -381,7 +417,8 @@ export class Executor {
     const now = this.now(), ov = this.ov || {}, split = (scope) => Object.fromEntries(Object.entries(ov).filter(([k]) => SCHEMA[k] && SCHEMA[k].scope === scope));
     return { ok: true, schema: SCHEMA, groups: GROUPS, runner: split('runner'), worker: split('worker'), runnerCfg: await this.store.get('runnerCfg', {}), ceilings: this.ceilings(), limits: this.limits(),
       resetPaper: ((r) => (r && now - r.at < 3600000 ? r : null))(await this.store.get('paperReset', null)),
-      proposals: (await this.store.get('proposals', [])).filter((p) => p.exp > now).map((p) => ({ id: p.id, changes: p.changes, reset: p.reset || null, emergency: !!p.emergency, exp: p.exp })) };
+      closePaper: (await this.store.get('paperCloses', [])).filter((x) => now - x.at < 3600000).map((x) => x.id),
+      proposals: (await this.store.get('proposals', [])).filter((p) => p.exp > now).map((p) => ({ id: p.id, changes: p.changes, reset: p.reset || null, emergency: !!p.emergency, close: p.close || null, exp: p.exp })) };
   }
 
   async kill() { await this.store.put('killed', true); return { ok: true, killed: true }; }

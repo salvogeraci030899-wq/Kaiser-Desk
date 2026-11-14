@@ -100,3 +100,11 @@ Le memecoin sono estremamente rischiose e il reale può perdere tutto il capital
 - **Telegram** `/emergenza`: agisce subito. Attiva il kill switch, spegne autopilota e reale e vende al mercato tutte le posizioni reali (2 per minuto per i limiti del piano gratuito; il resto al giro successivo, con avviso a fine operazione).
 - **Tasto rosso nell'app**: l'app non ha segreti, quindi non può vendere da sola. Invia a Telegram una richiesta con il tasto **CONFERMA EMERGENZA**; il tocco su quel tasto la esegue.
 - Per ripartire: `/riattiva` e riaccendere il reale dai parametri.
+
+## Chiudere una posizione dall'app
+
+- Ogni posizione aperta (paper e reale) ha il tasto **Chiudi**, con popup di conferma. Funziona con o senza approvazione manuale degli ingressi (`realApprove`): le uscite non passano mai dai ticket.
+- L'app non ha chiavi, quindi la richiesta arriva su Telegram con il tasto **Chiudi ora**; la vendita parte quando lo tocchi.
+  - **Reale:** il Worker vende subito tutta la posizione a mercato (con i soliti controlli sulla transazione).
+  - **Paper:** il Worker passa la direttiva al runner, che vende a mercato entro un minuto e avvisa il Worker.
+- Se vuoi che basti il popup dell'app, imposta nel Worker (Cloudflare, variabile in chiaro) `APP_CLOSE=direct`: la chiusura parte subito, senza il tasto su Telegram. Scelta meno sicura: chiunque conosca l'indirizzo del Worker potrebbe chiedere una chiusura. Il predefinito è la conferma su Telegram.
