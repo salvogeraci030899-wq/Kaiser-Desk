@@ -152,6 +152,32 @@ export class Executor {
     return pos;
   }
 
+  // ---- ticket di approvazione: il runner propone, tu approvi dall'app (anche se il runner lavora con l'app chiusa) ----
+  ticket(req) { return this.run(() => this._ticket(req || {})); }
+  async _ticket(req) {
+    if (this.mode() === 'off') return { ok: false, error: 'ordini disattivati nell’esecutore (ORDERS_MODE=off)' };
+    if (await this.store.get('killed', false)) return { ok: false, error: 'kill switch attivo' };
+    const mint = String(req.mint || ''); if (!MINT_RE.test(mint) || mint === SOL) return { ok: false, error: 'mint non valido' };
+    const size = num(req.sizeSol); if (!(size > 0)) return { ok: false, error: 'size non valida' };
+    const now = this.now(), tickets = (await this.store.get('tickets', [])).filter((t) => t.exp > now);
+    if (tickets.some((t) => t.mint === mint)) return { ok: true, duplicate: true };
+    const seq = (await this.store.get('tseq', 0)) + 1; await this.store.put('tseq', seq);
+    const t = { id: 'T-' + String(seq).padStart(4, '0'), mint, sym: String(req.sym || '').slice(0, 20), score: num(req.score), sizeSol: size, slippageBps: num(req.slippageBps, this.limits().maxSlippageBps), params: clampParams(req.params), entryLiq: num(req.entryLiq), at: now, exp: now + 10 * 60000 };
+    tickets.push(t); await this.store.put('tickets', tickets.slice(-10));
+    await this.notify(`✎ Ticket ${t.id}: $${t.sym || mint.slice(0, 6)} score ${t.score} · ${size} SOL\nApprovalo dall'app (Ticket → Reale) entro 10 minuti.`);
+    return { ok: true, ticket: t };
+  }
+  approve(id) {
+    return this.run(async () => {
+      const now = this.now(), tickets = await this.store.get('tickets', []), t = tickets.find((x) => x.id === id);
+      if (!t) return { ok: false, error: 'ticket non trovato' };
+      await this.store.put('tickets', tickets.filter((x) => x.id !== id));
+      if (t.exp <= now) return { ok: false, error: 'ticket scaduto' };
+      return this._buy({ ref: 'tk-' + t.id + '-' + t.at, mint: t.mint, sym: t.sym, sizeSol: t.sizeSol, slippageBps: t.slippageBps, params: t.params, entryLiq: t.entryLiq });
+    });
+  }
+  reject(id) { return this.run(async () => { const ts = await this.store.get('tickets', []); await this.store.put('tickets', ts.filter((x) => x.id !== id)); return { ok: true }; }); }
+
   // ---- uscita ----
   sell(id, frac, reason) { return this.run(async () => { const ps = await this.store.get('positions', []); const p = ps.find((x) => x.id === id); if (!p) return { ok: false, error: 'posizione non trovata' }; return this._sell(p, num(frac, 1), reason || 'Manuale'); }); }
   async _sell(p, frac, reason) {
@@ -246,8 +272,8 @@ export class Executor {
   async kill() { await this.store.put('killed', true); return { ok: true, killed: true }; }
   async resume() { await this.store.put('killed', false); return { ok: true, killed: false }; }
   async state() {
-    const [positions, pending, journal, killed, lastDry] = await Promise.all([this.store.get('positions', []), this.store.get('pending', []), this.store.get('journal', []), this.store.get('killed', false), this.store.get('lastDry', null)]);
-    return { ok: true, mode: this.mode(), killed, positions, pending, journal: journal.slice(-50), dayPnl: this.dayPnl(journal), limits: this.limits(), lastDry };
+    const [positions, pending, journal, killed, lastDry, tickets] = await Promise.all([this.store.get('positions', []), this.store.get('pending', []), this.store.get('journal', []), this.store.get('killed', false), this.store.get('lastDry', null), this.store.get('tickets', [])]);
+    return { ok: true, mode: this.mode(), killed, positions, pending, tickets: tickets.filter((t) => t.exp > this.now()), journal: journal.slice(-50), dayPnl: this.dayPnl(journal), limits: this.limits(), lastDry };
   }
   async health() {
     const lim = this.limits(), out = { ok: true, phase: 3, mode: this.mode(), jupiterConfigured: !!this.env.JUPITER_PROGRAM_ID, limits: lim, wallet: null, balanceSOL: null };

@@ -26,6 +26,19 @@ Variabili da impostare **dalla dashboard** (mai nel repository: un deploy non de
 2. **live** con importi minimi: `ORDERS_MODE=live`, capitale e size piccoli. Controlla su Solscan il primo ordine.
 3. Alza i limiti solo dopo diversi ordini corretti.
 
+## Reale dall'app e dal runner (24/7)
+- **App** (conto REALE): BUY REALE dal dettaglio di un token (con conferma; in `dryrun` è solo una prova), posizioni reali con vendita manuale, ticket reali da approvare, kill switch e stato dell'esecutore in Setup.
+  La size è la % «Size per trade» del **capitale reale massimo** impostato in Setup.
+- **Runner** (anche con app chiusa e telefono spento): il runner non ha chiavi e non firma nulla, chiede all'esecutore. Si accende da `config.json` sul branch `data`:
+  ```json
+  { "realEnabled": true, "realCapitalSOL": 0.05, "realApprove": true }
+  ```
+  - `realApprove: true` → propone un **ticket** (Telegram + app, scade in 10 minuti): lo approvi tu.
+  - `realApprove: false` → **autonomia**: invia l'ordine da solo, con un `ref` stabile (nessun doppione) e gli stessi limiti del server.
+  Servono i segreti GitHub `EXEC_TOKEN` (la stessa password di `EXEC_TOKEN` del Worker) e, se l'URL non è quello predefinito, `EXEC_URL`.
+  Le impostazioni dell'app sono per dispositivo: il runner usa solo `config.json`.
+- Le uscite (Charon) le gestisce sempre il Worker, ogni minuto, con i parametri dell'ordine.
+
 ## Cosa controlla l'esecutore prima di firmare
 - La transazione la costruisce Jupiter, **non la firmiamo alla cieca**: ogni istruzione deve essere di un programma ammesso (System, Token, Associated Token, ComputeBudget, Memo, Jupiter); niente `Transfer`/`Approve`/`SetAuthority` di token; i trasferimenti di SOL solo dal nostro wallet e sotto la size dell'ordine; chiusura account solo verso il nostro wallet; una sola firma, la nostra.
 - Poi la **simulazione** su RPC: il saldo SOL del wallet non può calare più della size dell'ordine più 0,01 SOL di margine. Per le uscite, al massimo 0,01 SOL.
@@ -65,7 +78,8 @@ Perché il Cron di Cloudflare per le uscite: il cron di GitHub Actions può rita
 1. **Fatto:** separazione paper/reale, cancello, impostazioni, test.
 2. **Fatto:** esecutore in sola lettura (`/health`, kill switch).
 3. **Fatto (inerte):** ordini veri, controllo delle transazioni, simulazione, limiti, Charon ogni minuto, Telegram dal Worker.
-4. Integrazione nell'app (BUY REALE, ticket, posizioni reali, vendita manuale) e autonomia dal runner (`realApprove` spento).
+4. **Fatto:** integrazione nell'app (BUY REALE con prova in dry-run, ticket, posizioni reali, vendita manuale, kill switch) e autonomia dal runner (`realApprove` spento), sempre dentro i limiti del Worker.
+5. Da fare dopo i primi ordini veri: confronto paper/reale, filtri sul regime di mercato, alert di saldo basso.
 
 ## Cosa serve da te (fase 2)
 - Account Cloudflare gratuito e un token API per pubblicare il Worker (come in Pinscher);

@@ -31,7 +31,7 @@ if (!fs.existsSync(F.config)) {
 }
 const S = { ...E.DEFAULTS, ...RUNNER_DEFAULTS, ...readJSON(F.config, {}) };
 S.useGrok = S.useGrok && !!process.env.XAI_API_KEY;
-if (S.realEnabled) console.log('NOTA: il runner fa solo paper trading, realEnabled viene ignorato qui.');
+// Il runner non ha chiavi né firma nulla. Il reale è un conto separato gestito dall'esecutore (vedi realEntries).
 
 const st = Object.assign({
   startedAt: Date.now(), runs: 0, cash: S.capitalSOL, positions: [], journal: [], signals: [],
@@ -249,6 +249,35 @@ function botPenalty(c) {
   if (g && g.botRate != null && g.botRate > 0.5) { c.a.notes.push(`bot ${(g.botRate * 100).toFixed(0)}%`); return 8; }
   return 0;
 }
+// ---------------- REALE ----------------
+// Il runner NON ha chiavi e non firma nulla: chiede all'esecutore (Cloudflare), che applica i suoi limiti.
+//   realApprove = true  -> propone un ticket (arriva su Telegram e nell'app, lo approvi tu)
+//   realApprove = false -> invia l'ordine da solo (autonomia), con un ref stabile per non comprare due volte
+// Si accende da config.json sul branch data: realEnabled, realCapitalSOL, realApprove. Servono i segreti GitHub EXEC_TOKEN (e, se diverso, EXEC_URL).
+async function realEntries(buys) {
+  if (!S.realEnabled || !buys.length) return;
+  const url = String(process.env.EXEC_URL || S.executor || '').replace(/\/+$/, ''), tok = process.env.EXEC_TOKEN;
+  if (!url || !tok) { if (!rt.realWarned) { rt.realWarned = true; log('KAISER', 'reale acceso in config.json ma manca il segreto EXEC_TOKEN: nessun ordine reale'); } return; }
+  const size = +(num(S.realCapitalSOL) * S.sizePct / 100).toFixed(4);
+  if (!(size > 0)) { if (!rt.realWarned) { rt.realWarned = true; log('KAISER', 'reale acceso ma realCapitalSOL è 0: nessun ordine reale'); } return; }
+  st.realTried = st.realTried || {};
+  const params = { sl: S.sl, tp1: S.tp1, tp1Sell: S.tp1Sell, trail: S.trail, beAfterTp1: S.beAfterTp1, timeStopMin: S.timeStopMin, timeStopMinPnl: S.timeStopMinPnl, rugLiqDrop: S.rugLiqDrop, sellPressure: S.sellPressure };
+  const approve = S.realApprove !== false, cool = (approve ? 30 : Math.max(10, S.retradeH * 60)) * 60000, bucket = Math.floor(Date.now() / (Math.max(1, S.retradeH) * 3600000));
+  let n = 0;
+  for (const c of buys) {
+    if (n >= S.maxEntriesPerScan) break;
+    if (Date.now() - num(st.realTried[c.mint]) < cool) continue;       // niente tentativi ripetuti sullo stesso token
+    st.realTried[c.mint] = Date.now();
+    const body = { mint: c.mint, sym: c.sym, sizeSol: size, slippageBps: S.slippageBps, entryLiq: c.a.m.liq, score: c.score, params };
+    if (!approve) body.ref = `rn-${c.mint.slice(0, 12)}-${bucket}`;
+    try {
+      const r = await fetchJSON(url + (approve ? '/ticket' : '/order'), { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-app-token': tok }, body: JSON.stringify(body), timeout: 60000 });
+      if (r && r.ok && !r.duplicate) { n++; log('QUARTER', `REALE ${approve ? 'ticket proposto' : r.pending ? 'ordine inviato (in attesa)' : 'ordine eseguito'} $${c.sym} ${size} SOL score ${c.score}`); }
+      else if (r && !r.ok) log('KAISER', `reale rifiutato $${c.sym}: ${r.error || 'errore'}`);
+    } catch (e) { log('KAISER', `esecutore non raggiungibile: ${e.message}`); }
+  }
+  for (const k of Object.keys(st.realTried)) if (Date.now() - st.realTried[k] > 24 * 3600000) delete st.realTried[k];
+}
 async function scan() {
   rollDay();
   await solPrice();
@@ -287,6 +316,7 @@ async function scan() {
     await tg(`🛑 <b>KAISER</b> circuit breaker: stop ingressi fino a domani`);
   }
   if (!S.autopilot) return;
+  await realEntries(buys);   // conto REALE (separato dal paper): solo se acceso in config.json e con l'esecutore collegato
   // pochi ingressi per scan: più BUY nello stesso istante sono scommesse correlate (stesso regime di mercato)
   let entered = 0;
   for (const c of buys) {
@@ -381,4 +411,4 @@ async function main() {
 }
 
 if (require.main === module) main().catch((e) => { console.error(e); save(); process.exit(1); });
-module.exports = { main, st, S, stats, report };
+module.exports = { main, st, S, stats, report, realEntries, rt };

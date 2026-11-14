@@ -35,6 +35,8 @@ jobs:
           XAI_MODEL: ${{ secrets.XAI_MODEL }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          EXEC_TOKEN: ${{ secrets.EXEC_TOKEN }}
+          EXEC_URL: ${{ secrets.EXEC_URL }}
           STATE_DIR: state
           LOOP_MIN: '4.5'
         run: node runner/runner.js

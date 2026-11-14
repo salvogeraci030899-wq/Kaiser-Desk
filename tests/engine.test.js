@@ -71,7 +71,7 @@ test('reale: spento di default e bloccato senza capitale', () => {
   assert.match(E.realGate(E.DEFAULTS, null), /spento/);
 });
 test('reale: cancello fallisce chiuso, una condizione alla volta', () => {
-  const ok = { ok: true, wallet: 'WaLLet1111111111111111111111111111111111111', balanceSOL: 1, ordersEnabled: true };
+  const ok = { ok: true, wallet: 'WaLLet1111111111111111111111111111111111111', balanceSOL: 1, mode: 'live', jupiterConfigured: true };
   const on = { ...E.DEFAULTS, realEnabled: true, realCapitalSOL: 0.5, executor: 'https://x.example' };
   assert.equal(E.realGate(on, ok), '');
   assert.match(E.realGate({ ...on, realCapitalSOL: 0 }, ok), /capitale/);
@@ -83,6 +83,9 @@ test('reale: cancello fallisce chiuso, una condizione alla volta', () => {
   assert.match(E.realGate(on, { ...ok, balanceSOL: null }), /saldo/);
   assert.match(E.realGate(on, { ...ok, wallet: null }), /wallet/);
   assert.match(E.realGate(on, { ...ok, wallet: null, walletError: 'chiave incoerente' }), /incoerente/);
-  assert.match(E.realGate(on, { ...ok, ordersEnabled: false }), /non ancora abilitati/);
+  assert.match(E.realGate(on, { ...ok, mode: 'off' }), /disattivati/);
+  assert.match(E.realGate(on, { ...ok, mode: undefined }), /disattivati/);               // esecutore vecchio senza modo: chiuso
+  assert.match(E.realGate(on, { ...ok, jupiterConfigured: false }), /JUPITER_PROGRAM_ID/);
+  assert.equal(E.realGate(on, { ...ok, mode: 'dryrun' }), '');                            // il dry-run passa: gli ordini sono solo simulati
   assert.match(E.realGate({ ...on, realEnabled: false }, ok), /spento/);
 });
