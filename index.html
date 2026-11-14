@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.11.5">
+<meta name="kz-build" content="2.12.0">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=2">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
@@ -31,7 +31,7 @@
   document.getElementById('metaStatusBar').setAttribute('content', light ? 'default' : (bar === 'separate' ? 'black' : 'black-translucent'));
 })();
 </script>
-<link rel="stylesheet" href="style.css?v=23">
+<link rel="stylesheet" href="style.css?v=24">
 <script src="version.js"></script>
 <script src="theme.js"></script>
 <script src="lock.js"></script>
@@ -722,10 +722,18 @@ function closeNote() {
   let why;
   if (rt.draft && rt.draft.realApprove === false) why = 'Hai spento «Approvazione manuale in reale» ma la modifica <b>non è ancora inviata</b>: premi «Inserisci su Reale» in Sistema → Reale.';
   else if (pend) why = 'Hai spento «Approvazione manuale in reale»: la modifica è <b>in attesa di approvazione su Telegram</b>. Finché non la approvi serve la conferma.';
-  else why = 'Per chiudere senza Telegram spegni «Approvazione manuale in reale» in Sistema → Reale e approva la modifica su Telegram.';
+  else why = 'Per chiudere senza Telegram devi spegnere «Approvazione manuale in reale» (la modifica va approvata una volta su Telegram). <button type="button" class="btn sm" id="dlgAppr" style="margin-top:8px;width:100%">Spegni l’approvazione manuale</button>';
   return 'Approvazione manuale <b>attiva</b>' + src + ': su Telegram ti arriva il tasto <b>Chiudi ora</b>. ' + why;
 }
 document.body.addEventListener('click', async (e) => {
+  if (e.target.closest('#dlgAppr')) {                                              // scorciatoia dal popup di chiusura: spegne l'approvazione e invia la modifica a Telegram
+    $('#dlgNo').click();
+    try {
+      const d = await postPropose({ changes: { realApprove: false } });                // solo questa modifica, senza altre bozze
+      toast(d.ok ? `Richiesta ${esc(d.proposal.id)} inviata (Reale): approvala su Telegram, poi la chiusura sarà diretta` : 'Non inviata: ' + esc(d.error || 'errore'));
+    } catch (err) { toast('Errore di rete: ' + esc(err.message)); }
+    return;
+  }
   const cb = e.target.closest('[data-close]');
   if (cb) {
     const { close: id, cmode: mode, sym, pnl } = cb.dataset, real = mode === 'real';
