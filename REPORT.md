@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-14 14:27 UTC · in esecuzione da 0.1 giorni · 81 run
+Aggiornato: 2026-11-14 14:32 UTC · in esecuzione da 0.1 giorni · 81 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-14 14:27 UTC · in esecuzione da 0.1 giorni · 81 run
 | Cassa | 1.2114 SOL |
 | Trade chiusi | 7 |
 | Win rate | 57% |
-| P&L realizzato | -0.0886 SOL (~$-6.59) |
+| P&L realizzato | -0.0886 SOL (~$-6.57) |
 | Media vincite / perdite | +38.5% / -78.6% |
 | Profit factor | 0.63 |
 | Circuit breaker | no |
@@ -38,6 +38,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+14:32:49 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 245 veto
+14:32:26 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 237 veto
+14:32:01 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 251 veto
+14:31:37 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 244 veto
+14:31:13 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 235 veto
+14:30:49 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 238 veto
+14:30:25 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 239 veto
+14:30:01 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 234 veto
+14:29:37 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 243 veto
+14:29:13 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 241 veto
+14:28:49 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 237 veto
+14:28:25 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 242 veto
+14:28:02 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 238 veto
 14:27:38 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 233 veto
 14:27:14 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 244 veto
 14:26:51 SCRIBE   chiuso P-0111 $CLOCKED 0.0561 SOL (60.3%)
@@ -65,19 +78,6 @@ _nessuna_
 14:19:26 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 248 veto
 14:19:02 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 256 veto
 14:18:38 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 255 veto
-14:18:14 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 251 veto
-14:17:50 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 250 veto
-14:17:27 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 252 veto
-14:17:13 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 253 veto
-14:16:48 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 255 veto
-14:16:25 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 257 veto
-14:16:01 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 248 veto
-14:15:57 SCRIBE   chiuso P-0108 $HOT 0.0504 SOL (50.6%)
-14:15:57 CHARON   Chiusura manuale (app) $HOT vendo 100% a 33.4% -> 0.0489 SOL
-14:15:57 KAISER   chiusura manuale dall'app: P-0108 HOT
-14:15:57 SCRIBE   chiuso P-0106 $ZAPZEKE 0.0420 SOL (39.8%)
-14:15:57 CHARON   Chiusura manuale (app) $ZAPZEKE vendo 100% a 48.0% -> 0.0457 SOL
-14:15:56 KAISER   chiusura manuale dall'app: P-0106 ZAPZEKE
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
