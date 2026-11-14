@@ -1,11 +1,11 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-14 11:52 UTC · in esecuzione da 0.0 giorni · 78 run
+Aggiornato: 2026-11-14 11:57 UTC · in esecuzione da 0.0 giorni · 78 run
 
 | | |
 |---|---|
-| Equity | **1.3011 SOL** (+0.1% dal capitale iniziale di 1.3 SOL) |
-| Cassa | 1.1690 SOL |
+| Equity | **1.3000 SOL** (+0.0% dal capitale iniziale di 1.3 SOL) |
+| Cassa | 1.3000 SOL |
 | Trade chiusi | 0 |
 | Win rate | 0% |
 | P&L realizzato | +0.0000 SOL (~$0.00) |
@@ -14,7 +14,7 @@ Aggiornato: 2026-11-14 11:52 UTC · in esecuzione da 0.0 giorni · 78 run
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$JENSEN** P-0100 · 0.130 SOL · +1.6% · resta 100% · [grafico](https://dexscreener.com/solana/51KN4und5bwRyfRfTP1eFw4uPL8t4vTPHZ6okmLhr5iE)
+_nessuna_
 
 ## Uscite per motivo
 _ancora nessuna_
@@ -24,6 +24,22 @@ _ancora nessuno_
 
 ## Ultimi eventi
 ```
+11:57:03 ORACLE   240 raccolti, 172 analizzati, 2 BUY, 84 veto
+11:56:41 ORACLE   240 raccolti, 170 analizzati, 1 BUY, 82 veto
+11:56:18 ORACLE   240 raccolti, 167 analizzati, 1 BUY, 79 veto
+11:56:16 KAISER   reset del paper (C-0053): conto azzerato, capitale 1.3 SOL
+11:55:55 QUARTER  BUY $SWAMIS 0.105 SOL score 78 impatto 1.40% (Jupiter)
+11:55:55 ORACLE   240 raccolti, 167 analizzati, 1 BUY, 79 veto
+11:55:52 KAISER   parametri dall'app: minScore 72→63, sizePct 10→8, maxPos 6→4, cooldownMin 0→10, tp1 10→40, tp1Sell 100→50, minMcap 7000→3000, srcGmgnTrenches true→false, retradeH 0→2, maxMcap 10000→100000, trail 5→20, maxEntriesPerScan 2→1, minTxH1 40→15, entryGapSec 60→120, srcGmgnTrending true→false
+11:55:32 ORACLE   240 raccolti, 172 analizzati, 0 BUY, 84 veto
+11:55:09 ORACLE   240 raccolti, 156 analizzati, 0 BUY, 72 veto
+11:54:46 ORACLE   240 raccolti, 156 analizzati, 0 BUY, 72 veto
+11:54:23 ORACLE   240 raccolti, 173 analizzati, 0 BUY, 88 veto
+11:54:00 ORACLE   240 raccolti, 167 analizzati, 0 BUY, 81 veto
+11:53:38 ORACLE   240 raccolti, 167 analizzati, 0 BUY, 81 veto
+11:53:17 ORACLE   240 raccolti, 173 analizzati, 0 BUY, 86 veto
+11:52:54 ORACLE   240 raccolti, 164 analizzati, 0 BUY, 80 veto
+11:52:32 ORACLE   240 raccolti, 164 analizzati, 0 BUY, 80 veto
 11:52:09 ORACLE   240 raccolti, 166 analizzati, 0 BUY, 78 veto
 11:51:47 ORACLE   240 raccolti, 156 analizzati, 0 BUY, 72 veto
 11:51:24 ORACLE   240 raccolti, 156 analizzati, 0 BUY, 72 veto
@@ -48,22 +64,6 @@ _ancora nessuno_
 11:46:58 SCOUT    DexScreener errore: fetch failed
 11:46:57 SCOUT    DexScreener errore: fetch failed
 11:46:57 SCOUT    DexScreener errore: fetch failed
-11:46:56 SCOUT    gecko top: fetch failed (riuso l'ultimo elenco)
-11:46:56 SCOUT    gecko nuovi: fetch failed (riuso l'ultimo elenco)
-11:46:56 SCOUT    gecko nuovi: fetch failed (riuso l'ultimo elenco)
-11:46:56 SCOUT    gecko trend: fetch failed (riuso l'ultimo elenco)
-11:46:56 SCOUT    profili: fetch failed
-11:46:40 SCOUT    DexScreener errore: fetch failed
-11:46:29 ORACLE   240 raccolti, 174 analizzati, 0 BUY, 85 veto
-11:46:07 ORACLE   240 raccolti, 164 analizzati, 0 BUY, 75 veto
-11:45:44 ORACLE   240 raccolti, 163 analizzati, 0 BUY, 75 veto
-11:45:20 ORACLE   240 raccolti, 172 analizzati, 0 BUY, 90 veto
-11:44:57 ORACLE   240 raccolti, 164 analizzati, 0 BUY, 84 veto
-11:44:35 ORACLE   240 raccolti, 164 analizzati, 0 BUY, 83 veto
-11:44:12 ORACLE   240 raccolti, 168 analizzati, 0 BUY, 83 veto
-11:43:49 ORACLE   240 raccolti, 165 analizzati, 0 BUY, 79 veto
-11:43:27 ORACLE   240 raccolti, 165 analizzati, 0 BUY, 79 veto
-11:43:03 ORACLE   240 raccolti, 165 analizzati, 0 BUY, 75 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
