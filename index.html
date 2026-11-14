@@ -29,7 +29,7 @@
   document.getElementById('metaStatusBar').setAttribute('content', light ? 'default' : (bar === 'separate' ? 'black' : 'black-translucent'));
 })();
 </script>
-<link rel="stylesheet" href="style.css?v=3">
+<link rel="stylesheet" href="style.css?v=4">
 <script src="version.js"></script>
 <script src="theme.js"></script>
 <script src="lock.js"></script>
@@ -155,6 +155,8 @@
     <h2 style="margin-top:22px">Parametri</h2>
     <div class="card small">Qui cambi i parametri di <b>paper e reale</b> (stop, take profit, size, filtri, limiti). Premi <b>Invia</b>: su Telegram ti arriva un messaggio con la differenza <i>prima → dopo</i> e i tasti <b>Applica / Rifiuta</b>. Solo il tuo tocco applica la modifica; il runner la usa entro un minuto. Non ci sono campi per chiavi, token o indirizzi.</div>
     <div id="parPending"></div>
+    <h2>Conto paper</h2>
+    <div class="card" id="parPaper"></div>
     <div id="parForm"></div>
     <div class="card small" id="parBar"></div>
     <h2 style="margin-top:22px">Comandi Telegram</h2>
@@ -209,7 +211,7 @@ const fmtUsd = (n) => { n = Number(n) || 0; const a = Math.abs(n); return (n < 0
 const fmtPct = (n, d = 0) => (n > 0 ? '+' : '') + (Number(n) || 0).toFixed(d) + '%';
 const fmtSol = (n, d = 3) => (Number(n) || 0).toFixed(d) + ' ◎';
 const cls = (n) => (n > 0 ? 'up' : n < 0 ? 'down' : '');
-const ago = (ms) => { const m = Math.round(ms / 60000); return m < 1 ? '<1m' : m < 60 ? m + 'm' : m < 1440 ? (m / 60).toFixed(1) + 'h' : (m / 1440).toFixed(1) + 'g'; };
+const ago = (ms) => { const s = Math.max(0, Math.round(ms / 1000)); if (s < 60) return s + 's'; const m = Math.round(s / 60); return m < 60 ? m + 'm' : m < 1440 ? (m / 60).toFixed(1) + 'h' : (m / 1440).toFixed(1) + 'g'; };
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const prefGet = (k, d) => { try { return localStorage.getItem(k) || d; } catch { return d; } };
 const prefSet = (k, v) => { try { localStorage.setItem(k, v); } catch { /* memoria non disponibile */ } };
@@ -361,9 +363,14 @@ async function openDetail(mint) {
 function closeSheet() { $('#sheet').classList.remove('open'); $('#sheetInner').innerHTML = ''; }
 
 // ---------- DATI: runner (paper) e Worker (reale), sola lettura ----------
+// Il paper arriva in diretta dal Worker (il runner lo spinge a ogni evento). Ripiego: il file su GitHub, che si aggiorna solo a fine run e che
+// raw.githubusercontent.com tiene in cache fino a 5 minuti. Vince la copia più recente.
 async function loadRunner() {
-  try { rt.run = await fetchJSON(`${RAW}/public.json?t=${Math.floor(Date.now() / 20000)}`); rt.runErr = ''; }
-  catch (e) { rt.runErr = e.message === 'HTTP 404' ? 'il runner non ha ancora pubblicato i dati (aspetta il prossimo giro)' : e.message; }
+  const [live, raw] = await Promise.allSettled([fetchJSON(`${EXEC}/paper`), fetchJSON(`${RAW}/public.json?t=${Math.floor(Date.now() / 20000)}`)]);
+  const a = live.status === 'fulfilled' && live.value && live.value.ok ? live.value.data : null, b = raw.status === 'fulfilled' ? raw.value : null;
+  rt.run = a && (!b || a.updatedAt >= b.updatedAt) ? a : b; rt.runSrc = rt.run && rt.run === a ? 'live' : 'github';
+  const err = raw.status === 'rejected' ? raw.reason.message : '';
+  rt.runErr = rt.run ? '' : (err === 'HTTP 404' ? 'il runner non ha ancora pubblicato i dati (aspetta il prossimo giro)' : err || 'nessun dato dal runner');
 }
 async function loadExec() {
   try { const d = await fetchJSON(`${EXEC}/public`); rt.exec = d && d.ok ? d : null; rt.execErr = d && d.ok ? '' : ((d && d.error) || 'risposta non valida'); }
@@ -406,7 +413,7 @@ function render() {
   $('#brandSub').textContent = real ? 'Solana Meme Desk · REALE' : 'Solana Meme Desk · 24/7';
   // stato del runner: verde se ha lavorato negli ultimi 15 minuti
   const age = run ? Date.now() - run.updatedAt : null, pr = $('#pRun');
-  pr.textContent = run ? (age < 15 * 60000 ? 'RUNNER ' + ago(age) : 'RUNNER FERMO ' + ago(age)) : 'RUNNER —';
+  pr.textContent = run ? (age < 15 * 60000 ? 'RUNNER ' + ago(age) : 'RUNNER FERMO ' + ago(age)) + (rt.runSrc === 'github' ? ' · GH' : '') : 'RUNNER —';
   pr.className = 'pill ' + (run ? (age < 15 * 60000 ? 'on' : 'off') : '');
   $('#pSol').textContent = rt.solUsd ? 'SOL $' + rt.solUsd.toFixed(2) : (run && run.solUsd ? 'SOL $' + Number(run.solUsd).toFixed(2) : 'SOL —'); $('#pSol').className = 'pill gold';
   $('#pEq').textContent = real ? 'EQ REALE ' + (e && e.balanceSOL != null ? Number(e.balanceSOL).toFixed(3) + '◎' : '—') : 'EQ ' + (run ? Number(run.equity).toFixed(3) + '◎' : '—');
@@ -476,6 +483,8 @@ function renderSystem() {
   const row = (k, v) => `<span>${k}</span><span class="mono" style="text-align:right">${v}</span>`;
   $('#sysStatus').innerHTML = `<div class="kv" style="gap:6px 10px">
     ${row('Runner (paper)', run ? `<span class="${Date.now() - run.updatedAt < 15 * 60000 ? 'up' : 'down'}">${Date.now() - run.updatedAt < 15 * 60000 ? 'attivo' : 'fermo'}</span> · ${ago(Date.now() - run.updatedAt)} fa` : `<span class="down">non disponibile</span>${rt.runErr ? ' · ' + esc(rt.runErr) : ''}`)}
+    ${run ? row('Fonte dei dati paper', rt.runSrc === 'live' ? '<span class="up">in diretta</span> (Worker)' : '<span class="warn">GitHub</span> · ritardo fino a 10 min') : ''}
+    ${run && rt.runSrc !== 'live' ? '<span class="tiny muted" style="grid-column:1/-1">Per averli in diretta aggiungi il segreto <span class="mono">EXEC_TOKEN</span> (la stessa password del Worker) tra i segreti GitHub Actions.</span>' : ''}
     ${run ? row('Run totali · circuit breaker', `${run.runs} · ${run.halted ? '<span class="warn">ATTIVO</span>' : 'no'}`) : ''}
     ${row('Orologio (Cloudflare → GitHub)', e ? (clock ? `<span class="${clock.ok ? 'up' : 'down'}">${clock.ok ? 'attivo' : 'errore'}</span> · ${ago(Date.now() - Date.parse(clock.at))} fa${clock.error ? ' · ' + esc(clock.error) : ''}` : 'non ancora partito') : '—')}
     ${row('Esecutore reale', e ? (e.mode === 'live' ? '<span class="warn">LIVE</span>' : e.mode === 'dryrun' ? 'DRY-RUN' : 'spento') + (e.killed ? ' · KILL' : '') : `<span class="down">non raggiungibile</span>${rt.execErr ? ' · ' + esc(rt.execErr) : ''}`)}
@@ -527,14 +536,40 @@ function renderParams() {
     f.innerHTML = p.groups.map((g) => `<h2>${esc(g.title)}</h2><div class="card">${Object.keys(p.schema).filter((k) => p.schema[k].group === g.id).map(paramRow).join('')}</div>`).join('');
     f.dataset.sig = sig;
   }
-  $('#parPending').innerHTML = p.proposals.map((q) => `<div class="card real-note small">⏳ <b>${esc(q.id)}</b> in attesa su Telegram · scade tra ${ago(q.exp - Date.now())}<div class="tiny muted" style="margin-top:4px">${Object.entries(q.changes).map(([k, v]) => `${parLabel(k)} → ${parShow(k, v)}`).join('<br>')}</div></div>`).join('');
+  $('#parPending').innerHTML = (p.resetPaper ? `<div class="card real-note small">♻️ Reset del paper approvato (${esc(p.resetPaper.id)}): il runner lo esegue entro un minuto e riparte con ${esc(p.resetPaper.capitalSOL)} ◎.</div>` : '')
+    + p.proposals.map((q) => `<div class="card real-note small">⏳ <b>${esc(q.id)}</b> in attesa su Telegram · scade tra ${ago(q.exp - Date.now())}<div class="tiny muted" style="margin-top:4px">${q.reset ? `Azzera il paper e riparti con ${esc(q.reset.capitalSOL)} ◎` : Object.entries(q.changes).map(([k, v]) => `${parLabel(k)} → ${parShow(k, v)}`).join('<br>')}</div></div>`).join('');
+  renderPaperCard();
   updateParBar();
+}
+// Conto paper: il capitale iniziale non si cambia "a caldo" (cassa ed equity devono restare coerenti): si azzera e si riparte, con l'approvazione su Telegram.
+function renderPaperCard() {
+  const el = $('#parPaper'), run = rt.run, sig = JSON.stringify([run && run.capital, run && run.equity, run && run.stats && run.stats.n, !!rt.par]);
+  if (el.contains(document.activeElement) || el.dataset.sig === sig) return;
+  el.dataset.sig = sig;
+  el.innerHTML = run ? `<div class="kv" style="gap:4px 10px"><span>Capitale iniziale</span><span class="mono" style="text-align:right">${fmtSol(run.capital, 2)}</span><span>Equity attuale</span><span class="mono" style="text-align:right">${fmtSol(run.equity, 3)}</span><span>Trade chiusi</span><span class="mono" style="text-align:right">${esc(run.stats ? run.stats.n : 0)}</span></div>
+    <div class="set" style="border-top:1px solid var(--border);margin-top:10px"><label>Capitale di ripartenza (SOL)<small>0,1–1000</small></label><input type="number" inputmode="decimal" data-reset="capital" value="${esc(run.capital)}" min="0.1" max="1000" step="0.1"></div>
+    <button class="btn red" data-par="reset" style="width:100%;margin-top:6px" ${rt.par ? '' : 'disabled'}>Azzera il paper e riparti</button>
+    <p class="tiny muted" style="margin:8px 0 0">Cancella posizioni aperte, journal e statistiche del paper e riparte con il capitale indicato. Il conto reale non viene toccato. Su Telegram ti arriva la richiesta da approvare.</p>` : '<span class="muted small">Dati del runner non disponibili.</span>';
+}
+async function postPropose(body) {
+  const r = await fetch(`${EXEC}/propose`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+  return r.json();
+}
+async function resetPaper() {
+  const inp = document.querySelector('[data-reset=capital]'), cap = Number(inp && inp.value);
+  if (!Number.isFinite(cap) || cap < 0.1 || cap > 1000) return toast('Il capitale deve essere tra 0,1 e 1000 SOL');
+  if (!confirm(`Azzerare il conto PAPER?\n\nCancella posizioni aperte, journal e statistiche e riparte con ${cap} SOL. Il conto reale non viene toccato.\n\nTi arriverà la richiesta su Telegram: il reset parte solo se la approvi.`)) return;
+  try {
+    const d = await postPropose({ reset: { capitalSOL: cap } });
+    if (d.ok) { toast(`Richiesta ${esc(d.proposal.id)} inviata: approvala su Telegram`); await loadParams(); renderParams(); }
+    else toast('Non inviata: ' + esc(d.error || 'errore') + (d.errors ? '<br><span class="tiny">' + d.errors.map((e) => esc(e.msg)).join(' · ') + '</span>' : ''));
+  } catch (e) { toast('Errore di rete: ' + esc(e.message)); }
 }
 async function sendParams() {
   if (!Object.keys(rt.draft).length || parProblems().length) return;
   const btn = document.querySelector('[data-par=send]'); if (btn) btn.disabled = true;
   try {
-    const r = await fetch(`${EXEC}/propose`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ changes: rt.draft }) }), d = await r.json();
+    const d = await postPropose({ changes: rt.draft });
     if (d.ok) { toast(`Richiesta ${esc(d.proposal.id)} inviata: approvala su Telegram`); rt.draft = {}; $('#parForm').dataset.sig = ''; await loadParams(); renderParams(); }
     else { toast('Non inviata: ' + esc(d.error || 'errore') + (d.errors ? '<br><span class="tiny">' + d.errors.map((e) => parLabel(e.key) + ': ' + esc(e.msg)).join(' · ') + '</span>' : '')); updateParBar(); }
   } catch (e) { toast('Errore di rete: ' + esc(e.message)); updateParBar(); }
@@ -555,9 +590,9 @@ $('#parForm').addEventListener('input', (e) => {
   if (v === undefined || v === baseVal(k)) delete rt.draft[k]; else rt.draft[k] = v;
   el.closest('.set').classList.toggle('dirty', k in rt.draft); updateParBar();
 });
-$('#parBar').addEventListener('click', (e) => {
+$('#v-set').addEventListener('click', (e) => {
   const b = e.target.closest('[data-par]'); if (!b) return;
-  if (b.dataset.par === 'send') sendParams(); else { rt.draft = {}; $('#parForm').dataset.sig = ''; renderParams(); }
+  if (b.dataset.par === 'send') sendParams(); else if (b.dataset.par === 'reset') resetPaper(); else if (b.dataset.par === 'discard') { rt.draft = {}; $('#parForm').dataset.sig = ''; renderParams(); }
 });
 $('#btnScan').onclick = () => { scan(); loadAll(); };
 $('#pMode').onclick = () => setMode(st.mode === 'real' ? 'paper' : 'real');
@@ -579,7 +614,7 @@ document.addEventListener('visibilitychange', () => { if (!document.hidden) load
 render();
 log('KAISER', 'pannello pronto: paper dal runner 24/7, reale dall’esecutore, comandi da Telegram');
 loadAll();
-setInterval(() => { if (!document.hidden) loadAll(); }, 30000);
+setInterval(() => { if (!document.hidden) loadAll(); }, 15000);
 setInterval(() => { if (!document.hidden && $('#v-radar').classList.contains('active') && Date.now() - rt.lastScan > 90000) scan(); }, 15000);
 setInterval(() => { if (!document.hidden && $('#v-tickets').classList.contains('active') && rt.exec && rt.exec.tickets && rt.exec.tickets.length) renderTickets(); }, 1000);
 })();

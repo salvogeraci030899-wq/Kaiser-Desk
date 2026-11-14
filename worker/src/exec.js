@@ -280,7 +280,22 @@ export class Executor {
   // ---- stato e comandi ----
   // ---- parametri modificabili dall'app: richiesta → messaggio su Telegram → applicata solo se la approvi tu ----
   async current() { await this.refreshOv(); return { ...paramDefaults(), ...(await this.store.get('runnerCfg', {})), ...this.limits(), ...this.ov }; }   // meglio stima possibile dei valori attuali
+  // Reset del conto PAPER (il reale non si tocca mai): stessa approvazione su Telegram. Il runner lo esegue e lo ricorda, così non si ripete.
+  async _proposeReset(r) {
+    const cap = r && r.capitalSOL;
+    if (typeof cap !== 'number' || !Number.isFinite(cap) || cap < 0.1 || cap > 1000) return { ok: false, error: 'modifica non valida', errors: [{ key: 'capitalSOL', msg: 'il capitale deve essere tra 0,1 e 1000 SOL' }] };
+    const now = this.now(), props = (await this.store.get('proposals', [])).filter((p) => p.exp > now);
+    if (props.length >= 3) return { ok: false, error: 'ci sono già 3 richieste in attesa su Telegram: approvale o rifiutale' };
+    if (now - (await this.store.get('lastProposal', 0)) < 15000) return { ok: false, error: 'richieste troppo ravvicinate: riprova tra qualche secondo' };
+    if (props.some((p) => p.reset)) return { ok: false, error: 'c\'è già un reset in attesa su Telegram' };
+    const seq = (await this.store.get('cseq', 0)) + 1; await this.store.put('cseq', seq); await this.store.put('lastProposal', now);
+    const p = { id: 'C-' + String(seq).padStart(4, '0'), changes: {}, reset: { capitalSOL: Number(cap.toFixed(2)) }, at: now, exp: now + 10 * 60000 };
+    props.push(p); await this.store.put('proposals', props);
+    await this.notify(`⚠️ Reset del conto PAPER ${p.id}\nCancella posizioni aperte, journal e statistiche del paper e riparte con ${p.reset.capitalSOL} SOL.\nIl conto reale non viene toccato.\n\nValido per 10 minuti. Se non l'hai chiesto tu, rifiuta.`, { inline_keyboard: [[{ text: '⚠️ Azzera il paper', callback_data: 'pa:' + p.id }, { text: '❌ Rifiuta', callback_data: 'pr:' + p.id }]] });
+    return { ok: true, proposal: p };
+  }
   propose(req) { return this.run(async () => {
+    if (req && req.reset) return this._proposeReset(req.reset);
     const { clean, errors } = validate(req && req.changes);
     if (errors.length) return { ok: false, error: 'modifica non valida', errors };
     const c = this.ceilings(); for (const k of Object.keys(clean)) if (SCHEMA[k].ceiling && clean[k] > c[k]) errors.push({ key: k, msg: `oltre il tetto impostato in Cloudflare (${c[k]})` });
@@ -301,6 +316,11 @@ export class Executor {
     if (!p) return { ok: false, error: 'richiesta non trovata' };
     await this.store.put('proposals', props.filter((x) => x.id !== id));
     if (p.exp <= now) return { ok: false, error: 'richiesta scaduta' };
+    if (p.reset) {
+      await this.store.put('paperReset', { id: p.id, capitalSOL: p.reset.capitalSOL, at: now });
+      await this.notify(`⚠️ Reset del paper approvato (${p.id}): il runner azzera il conto e riparte con ${p.reset.capitalSOL} SOL entro un minuto.`);
+      return { ok: true, reset: true };
+    }
     const cur = await this.current(), ov = { ...(await this.store.get('params', {})), ...p.changes };
     await this.store.put('params', ov); this.ov = ov;
     await this.notify(`✅ Parametri applicati (${p.id})\n${diffText(cur, p.changes)}\nIl runner li usa entro un minuto.`);
@@ -309,15 +329,28 @@ export class Executor {
   rejectProposal(id) { return this.run(async () => { const ps = await this.store.get('proposals', []); await this.store.put('proposals', ps.filter((x) => x.id !== id)); return { ok: true }; }); }
   resetParams() { return this.run(async () => { await this.store.put('params', {}); this.ov = {}; await this.store.put('proposals', []); await this.notify('↩️ Parametri riportati ai valori di config.json e ai tetti di Cloudflare.'); return { ok: true }; }); }
   // il runner riferisce i parametri che sta davvero usando (con il suo token): servono a mostrare «prima → dopo» corretti
-  async reportRunner(cfg) {
-    const { clean } = validate(Object.fromEntries(Object.entries(cfg || {}).filter(([k, v]) => SCHEMA[k] && SCHEMA[k].scope === 'runner' && (typeof v === 'number' || typeof v === 'boolean' || typeof v === 'string'))));
-    await this.store.put('runnerCfg', clean); return { ok: true };
+  async reportRunner(cfg, resetAck) {
+    if (cfg) {
+      const { clean } = validate(Object.fromEntries(Object.entries(cfg).filter(([k, v]) => SCHEMA[k] && SCHEMA[k].scope === 'runner' && (typeof v === 'number' || typeof v === 'boolean' || typeof v === 'string'))));
+      await this.store.put('runnerCfg', clean);
+    }
+    const pr = await this.store.get('paperReset', null);
+    if (resetAck && pr && pr.id === resetAck) await this.store.put('paperReset', null);   // il runner ha eseguito: la direttiva non serve più
+    return { ok: true };
   }
+  // Riepilogo del paper in diretta: il runner lo spinge qui (con il suo token) a ogni evento e ogni pochi secondi; l'app lo legge da qui senza ritardi di GitHub.
+  async paperPut(data) {
+    if (!data || typeof data !== 'object' || data.v !== 1 || !Array.isArray(data.positions) || !Array.isArray(data.journal)) return { ok: false, error: 'riepilogo non valido' };
+    const txt = JSON.stringify(data); if (txt.length > 120000) return { ok: false, error: 'riepilogo troppo grande' };
+    await this.store.put('paper', { receivedAt: this.now(), data }); return { ok: true };
+  }
+  async paperGet() { const p = await this.store.get('paper', null); return p ? { ok: true, receivedAt: p.receivedAt, data: p.data } : { ok: false, error: 'nessun dato dal runner' }; }
   async paramsView() {
     await this.refreshOv();
     const now = this.now(), ov = this.ov || {}, split = (scope) => Object.fromEntries(Object.entries(ov).filter(([k]) => SCHEMA[k] && SCHEMA[k].scope === scope));
     return { ok: true, schema: SCHEMA, groups: GROUPS, runner: split('runner'), worker: split('worker'), runnerCfg: await this.store.get('runnerCfg', {}), ceilings: this.ceilings(), limits: this.limits(),
-      proposals: (await this.store.get('proposals', [])).filter((p) => p.exp > now).map((p) => ({ id: p.id, changes: p.changes, exp: p.exp })) };
+      resetPaper: ((r) => (r && now - r.at < 3600000 ? r : null))(await this.store.get('paperReset', null)),
+      proposals: (await this.store.get('proposals', [])).filter((p) => p.exp > now).map((p) => ({ id: p.id, changes: p.changes, reset: p.reset || null, exp: p.exp })) };
   }
 
   async kill() { await this.store.put('killed', true); return { ok: true, killed: true }; }

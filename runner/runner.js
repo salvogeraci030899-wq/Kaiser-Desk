@@ -38,6 +38,7 @@ const st = Object.assign({
   day: null, cooldownUntil: 0, halted: null, seq: 0, events: [],
 }, readJSON(F.state, {}));
 st.runs++;
+if (st.capital > 0) S.capitalSOL = st.capital;   // capitale scelto con un reset dall'app: resta valido ai run successivi
 const rt = { solUsd: 0, sec: new Map(), grok: new Map(), gmgn: new Map(), cands: new Map() };
 
 function log(agent, msg) {
@@ -53,6 +54,17 @@ function save() {
   fs.writeFileSync(path.join(STATE_DIR, 'REPORT.md'), report());
   fs.writeFileSync(path.join(STATE_DIR, 'journal.csv'), csv());
   fs.writeFileSync(path.join(STATE_DIR, 'public.json'), JSON.stringify(publicSummary()));
+  pushLive().catch(() => {});
+}
+// Paper in diretta: il riepilogo va subito al Worker (con il token del runner), così l'app lo vede in pochi secondi.
+// Il file su GitHub resta come ripiego, ma si aggiorna solo a fine run e raw.githubusercontent.com lo tiene in cache fino a 5 minuti.
+const execUrl = () => String(process.env.EXEC_URL || S.executor || '').replace(/\/+$/, '');
+let lastPush = 0;
+async function pushLive(force) {
+  const tok = process.env.EXEC_TOKEN, url = execUrl(); if (!tok || !url) return;
+  const now = Date.now(); if (now - lastPush < (force ? 1500 : 10000)) return;
+  lastPush = now;
+  try { await fetchJSON(url + '/paper', { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-app-token': tok }, body: JSON.stringify({ data: publicSummary() }), timeout: 6000 }); } catch { /* ripiego: public.json su GitHub */ }
 }
 // Riepilogo leggero e senza segreti per l'app (GitHub Pages): la legge da raw.githubusercontent.com, sola lettura.
 function publicSummary() {
@@ -207,6 +219,7 @@ async function buy(c) {
   };
   st.cash -= p.cost;
   st.positions.push(p);
+  pushLive(true).catch(() => {});
   log('QUARTER', `BUY $${c.sym} ${sizeS.toFixed(3)} SOL score ${c.score} impatto ${(impact * 100).toFixed(2)}% (${src})`);
   await tg(`🟢 <b>BUY paper</b> $${esc(c.sym)} ${sizeS.toFixed(3)} SOL · score ${c.score}\nhttps://dexscreener.com/solana/${fresh.pairAddress}`);
 }
@@ -237,6 +250,7 @@ async function sell(p, frac, reason) {
     const j = { id: p.id, mint: p.mint, sym: p.sym, openedAt: p.openedAt, closedAt: Date.now(), cost: p.cost, back: p.realized, pnl, pct: pnl / p.cost * 100,
       mode: 'paper', reason, score: p.score, solUsd: rt.solUsd, peakPct: (p.peak / p.entry - 1) * 100, trigPct: (m.priceNative / p.entry - 1) * 100, entryInfo: p.entryInfo };
     st.journal.push(j);
+    pushLive(true).catch(() => {});
     if (pnl < 0) st.cooldownUntil = Date.now() + S.cooldownMin * 60000;
     log('SCRIBE', `chiuso ${p.id} $${p.sym} ${pnl.toFixed(4)} SOL (${j.pct.toFixed(1)}%)`);
     await tg(`${pnl >= 0 ? '✅' : '🔻'} <b>CLOSE</b> $${esc(p.sym)} ${pnl.toFixed(4)} SOL (${j.pct.toFixed(1)}%) · ${esc(reason)}\nEquity ${equity().toFixed(3)} SOL`);
@@ -268,8 +282,22 @@ function botPenalty(c) {
 const BASE_S = { ...S };
 const BLOCKED = new Set(['backend', 'appToken', 'executor', 'executorToken']);
 let appliedKeys = new Set();
+// Reset del conto paper approvato dall'app (su Telegram): cancella posizioni, journal e statistiche e riparte con il capitale scelto.
+// Il runner ricorda l'id (st.resetId) per non ripetere il reset e avvisa il Worker, che toglie la direttiva.
+async function ackReset(id) {
+  const tok = process.env.EXEC_TOKEN, url = execUrl(); if (!tok || !url) return;
+  try { await fetchJSON(url + '/runner', { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-app-token': tok }, body: JSON.stringify({ resetAck: id }), timeout: 6000 }); } catch { /* la direttiva scade da sola dopo un'ora */ }
+}
+async function resetPaper(rp) {
+  const cap = Number(Number(rp.capitalSOL).toFixed(2));
+  Object.assign(st, { cash: cap, positions: [], journal: [], signals: [], day: null, halted: null, cooldownUntil: 0, startedAt: Date.now(), capital: cap, resetId: rp.id, realTried: {} });
+  S.capitalSOL = cap; BASE_S.capitalSOL = cap;
+  log('KAISER', `reset del paper (${rp.id}): conto azzerato, capitale ${cap} SOL`);
+  await tg(`♻️ <b>KAISER</b> paper azzerato (${esc(rp.id)}): riparto con ${cap} SOL`);
+  save(); await pushLive(true); await ackReset(rp.id);
+}
 async function pullParams() {
-  const url = String(process.env.EXEC_URL || S.executor || '').replace(/\/+$/, ''); if (!url) return;
+  const url = execUrl(); if (!url) return;
   let d; try { d = await fetchJSON(url + '/params', { timeout: 6000 }); } catch { return; }   // se il Worker non risponde si tengono i valori attuali
   if (!d || d.ok !== true || !d.runner || typeof d.runner !== 'object') return;
   const next = {};
@@ -284,6 +312,10 @@ async function pullParams() {
   }
   appliedKeys = new Set(Object.keys(next));
   if (changed.length) log('KAISER', `parametri dall'app: ${changed.join(', ')}`);
+  const rp = d.resetPaper;
+  if (rp && /^C-\d+$/.test(String(rp.id)) && typeof rp.capitalSOL === 'number' && rp.capitalSOL >= 0.1 && rp.capitalSOL <= 1000 && Date.now() - num(rp.at) < 3600000) {
+    if (rp.id !== st.resetId) await resetPaper(rp); else await ackReset(rp.id);   // già eseguito: si riprova solo ad avvisare il Worker
+  }
   // riferisce al Worker i valori in uso (serve a mostrare «prima → dopo» corretti nei messaggi di Telegram)
   if (process.env.EXEC_TOKEN && (changed.length || !rt.cfgSent)) {
     rt.cfgSent = true;
@@ -299,7 +331,7 @@ async function pullParams() {
 // Si accende da config.json sul branch data: realEnabled, realCapitalSOL, realApprove. Servono i segreti GitHub EXEC_TOKEN (e, se diverso, EXEC_URL).
 async function realEntries(buys) {
   if (!S.realEnabled || !buys.length) return;
-  const url = String(process.env.EXEC_URL || S.executor || '').replace(/\/+$/, ''), tok = process.env.EXEC_TOKEN;
+  const url = execUrl(), tok = process.env.EXEC_TOKEN;
   if (!url || !tok) { if (!rt.realWarned) { rt.realWarned = true; log('KAISER', 'reale acceso in config.json ma manca il segreto EXEC_TOKEN: nessun ordine reale'); } return; }
   const size = +(num(S.realCapitalSOL) * S.sizePct / 100).toFixed(4);
   if (!(size > 0)) { if (!rt.realWarned) { rt.realWarned = true; log('KAISER', 'reale acceso ma realCapitalSOL è 0: nessun ordine reale'); } return; }
@@ -452,7 +484,8 @@ async function main() {
     await tg(`📊 <b>KAISER</b> riepilogo ${dkey}\nOggi: ${today.length} trade, ${pd >= 0 ? '+' : ''}${pd.toFixed(4)} SOL\nTotale: ${s.n} trade, win ${s.wr.toFixed(0)}%, P&L ${s.pnl.toFixed(4)} SOL\nEquity ${equity().toFixed(4)} SOL`);
   }
   save();
+  await pushLive(true);
 }
 
 if (require.main === module) main().catch((e) => { console.error(e); save(); process.exit(1); });
-module.exports = { main, st, S, stats, report, realEntries, rt, publicSummary, pullParams };
+module.exports = { main, st, S, stats, report, realEntries, rt, publicSummary, pullParams, pushLive };
