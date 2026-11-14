@@ -7,6 +7,7 @@
 const fs = require('fs');
 const path = require('path');
 const E = require('../engine.js');
+const Y = require('./young.js');
 
 const STATE_DIR = process.env.STATE_DIR || path.join(__dirname, '..', 'state');
 const LOOP_MIN = Number(process.env.LOOP_MIN || 4.5);
@@ -45,7 +46,7 @@ const st = Object.assign({
 }, readJSON(F.state, {}));
 st.runs++;
 if (st.capital > 0) S.capitalSOL = st.capital;   // capitale scelto con un reset dall'app: resta valido ai run successivi
-const rt = { solUsd: 0, sec: new Map(), grok: new Map(), gmgn: new Map(), cands: new Map(), gmgnCache: {}, gcache: {}, seen: new Map() };
+const rt = { solUsd: 0, sec: new Map(), grok: new Map(), gmgn: new Map(), cands: new Map(), gmgnCache: {}, gcache: {}, seen: new Map(), young: new Map(), youngQ: new Set(), feed: null };
 
 function log(agent, msg) {
   const line = `${new Date().toISOString().slice(11, 19)} ${agent.padEnd(8)} ${msg}`;
@@ -82,6 +83,7 @@ function publicSummary() {
       remaining: p.remaining, tp1Done: p.tp1Done, peak: p.peak, score: p.score, last: p.last ? { priceNative: p.last.priceNative, liq: p.last.liq, t: p.last.t } : null })),
     journal: st.journal.slice(-100).map((j) => ({ id: j.id, mint: j.mint, sym: j.sym, openedAt: j.openedAt, closedAt: j.closedAt, cost: j.cost, back: j.back, pnl: j.pnl, pct: j.pct, reason: j.reason, score: j.score, peakPct: j.peakPct, trigPct: j.trigPct, maePct: j.maePct == null ? null : j.maePct, age: j.age == null ? null : j.age })),
     events: st.events.slice(0, 40), config: cfg,
+    young: Y.youngSummary(rt.young, Date.now(), 80), youngInfo: rt.feed ? { ...rt.feed.status(), tracked: [...rt.young.values()].filter((y) => y.tracked).length } : null,
   };
 }
 
@@ -146,6 +148,8 @@ async function discover() {
   if (S.srcJupiter !== false) for (const [u, src] of E.JUPITER_SOURCES) cached(u, src, E.jupMints);
   // GMGN ha limiti di richieste per IP: con scansioni ogni ~30 s si finiva bannati (HTTP 429). Si interroga al massimo una volta ogni GMGN_MIN_SEC
   // (con pausa lunga dopo un 429) e tra una chiamata e l'altra si riusano gli ultimi risultati.
+  // Token appena creati (0-60 minuti): arrivano dal flusso RPC/PumpPortal; qui si cercano i nuovi non ancora verificati e quelli già seguiti
+  if (S.srcYoung !== false) { rt.youngQ = new Set(Y.youngBatch(rt.young, Date.now(), { pending: 90 })); rt.youngQ.forEach((m) => add(m, 'nuovo')); }
   const gm = async (args, src) => {
     if (!gmgnOn()) return;
     const g = rt.gmgnCache[src] || (rt.gmgnCache[src] = { next: 0, list: [] });
@@ -207,10 +211,13 @@ function rollDay() {
   const today = new Date().toISOString().slice(0, 10);
   if (!st.day || st.day.date !== today) { st.day = { date: today, startEq: equity() }; st.halted = null; }
 }
+// Filtro "entra dopo un calo" per i token giovani (0 = spento)
+const dipOk = (c) => !(S.minDipPct > 0 && c.young && !(c.dipPct <= -S.minDipPct));
 function gates(c) {
   if (st.halted) return 'circuit breaker';
   if (st.positions.length >= S.maxPos) return 'max posizioni';
   if (st.positions.some((p) => p.mint === c.mint)) return 'già in posizione';
+  if (!dipOk(c)) return 'attende il calo';
   if (Date.now() < st.cooldownUntil) return 'cooldown';
   if (Date.now() - num(st.lastEntryAt) < num(S.entryGapSec) * 1000) return 'pausa tra ingressi';
   const last = [...st.journal].reverse().find((j) => j.mint === c.mint);
@@ -369,6 +376,7 @@ async function pullParams() {
 //   realApprove = false -> invia l'ordine da solo (autonomia), con un ref stabile per non comprare due volte
 // Si accende da config.json sul branch data: realEnabled, realCapitalSOL, realApprove. Servono i segreti GitHub EXEC_TOKEN (e, se diverso, EXEC_URL).
 async function realEntries(buys) {
+  buys = buys.filter(dipOk);
   if (!S.realEnabled || !buys.length) return;
   const url = execUrl(), tok = process.env.EXEC_TOKEN;
   if (!url || !tok) { if (!rt.realWarned) { rt.realWarned = true; log('KAISER', 'reale acceso in config.json ma manca il segreto EXEC_TOKEN: nessun ordine reale'); } return; }
@@ -401,13 +409,15 @@ async function scan() {
   await solPrice();
   const found = await discover();
   for (const p of st.positions) if (!found.has(p.mint)) found.set(p.mint, new Set(['posizione']));
-  const mints = E.mergeSeen(rt.seen, found, Date.now(), 30 * 60000, 240);   // anche le Coin viste negli ultimi 30 minuti, con dati freschi
+  const mints = E.mergeSeen(rt.seen, found, Date.now(), 30 * 60000, 360);   // anche le Coin viste negli ultimi 30 minuti, con dati freschi
   const pairs = await dexPairs(mints);
+  if (S.srcYoung !== false) Y.youngApply(rt.young, pairs, Date.now(), { minLiq: 2000 });   // promuove i giovani con liquidità e scambi, aggiorna picco e calo
   const cands = [];
   for (const m of mints) {
     const pair = pairs.get(m); if (!pair) continue;
     const a = E.analyze(pair, rt.gmgn.get(m) || null, S);
     const c = { mint: m, pair, a, sym: (pair.baseToken && pair.baseToken.symbol) || '?', name: (pair.baseToken && pair.baseToken.name) || '', srcs: [...rt.seen.get(m).srcs] };
+    const yg = rt.young.get(m); if (yg && yg.tracked) { c.young = true; c.dipPct = Y.youngDip(yg); a.notes.unshift(`giovane ${Math.round(Y.youngAge(yg, Date.now()))}m · ${c.dipPct.toFixed(0)}% dal picco`); }
     a.base = Math.max(0, a.base - botPenalty(c));
     Object.assign(c, E.decide(a, null, null, S));
     cands.push(c);
@@ -518,7 +528,13 @@ function checkpoint() {
 }
 
 // ---------------- loop ----------------
+function startYoung() {
+  if (S.srcYoung === false) return;
+  rt.feed = new Y.YoungFeed({ rpcUrl: process.env.RPC_URL || '', log: (m) => log('SCOUT', m), onToken: (t) => Y.addYoung(rt.young, t, Date.now(), 800) });
+  rt.feed.start();
+}
 async function main() {
+  startYoung();
   const end = Date.now() + LOOP_MIN * 60000;
   log('KAISER', `run #${st.runs} · ${st.positions.length} posizioni · equity ${equity().toFixed(4)} SOL · GMGN ${gmgnOn() ? 'attiva' : 'spenta (nessuna chiave)'} · Grok ${S.useGrok ? 'on' : 'off'}`);
   let lastScan = 0, lastCp = Date.now();
@@ -544,6 +560,7 @@ async function main() {
     const pd = today.reduce((a, j) => a + j.pnl, 0);
     await tg(`<b>KAISER</b> riepilogo ${dkey}\nOggi: ${today.length} trade, ${pd >= 0 ? '+' : ''}${pd.toFixed(4)} SOL\nTotale: ${s.n} trade, win ${s.wr.toFixed(0)}%, P&L ${s.pnl.toFixed(4)} SOL\nEquity ${equity().toFixed(4)} SOL`);
   }
+  if (rt.feed) rt.feed.stop();
   save();
   await pushLive(true);
 }

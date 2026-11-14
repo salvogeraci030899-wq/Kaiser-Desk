@@ -122,3 +122,12 @@ Le memecoin sono estremamente rischiose e il reale può perdere tutto il capital
 - **Fonti:** profili e boost di DexScreener, GeckoTerminal (in tendenza, nuovi, più scambiati), Jupiter (in tendenza, organic score, nuovi) e, nel runner, GMGN. Ognuna si spegne da Sistema → Paper → Filtri.
 - **Memoria di 30 minuti:** le fonti ruotano; una Coin vista negli ultimi 30 minuti resta nell'elenco e viene riletta con dati freschi a ogni scansione (fino a 240).
 - **Limiti di richieste:** GeckoTerminal e Jupiter si interrogano al massimo una volta al minuto ciascuno; dopo un 429 si aspettano 3 minuti usando l'ultimo elenco. GMGN al massimo ogni 75 secondi. Gli IP condivisi di GitHub vengono limitati spesso: per questo la cache.
+
+## Token appena creati (0-60 minuti)
+
+- **Cosa fa:** il runner ascolta le creazioni di token su pump.fun, li verifica su DexScreener dopo qualche secondo e segue per un'ora quelli con liquidità e scambi, registrando prezzo, picco e calo dal picco. Compaiono nel radar dell'app con la nota «giovane 7m · −23% dal picco» e in Sistema → Stato («Token giovani»).
+- **Fonte principale: nodo RPC.** Serve un indirizzo RPC con WebSocket (per esempio il piano gratuito di Helius). Aggiungilo come segreto GitHub **`RPC_URL`** (Settings → Secrets and variables → Actions). Contiene la chiave: non incollarlo in chat e non finisce mai nei log. Il runner usa lo stesso indirizzo del Worker se vuoi (`RPC_URL` del Worker è separato: va impostato in entrambi i posti).
+- **Riserva: PumpPortal** (WebSocket gratuito, senza chiave). Si attiva da solo se `RPC_URL` manca, se l'RPC non si collega, o se non dà creazioni da 90 secondi; si chiude quando l'RPC torna sano. Senza `RPC_URL` funziona solo PumpPortal.
+- **Da verificare sul sistema vivo:** gli indirizzi del programma pump.fun e il formato degli eventi sono scritti nel codice (`runner/young.js`) e non ho potuto provarli con la rete vera. Se l'RPC resta muto, nel registro compare «RPC collegato ma senza creazioni da 90 s: uso PumpPortal come riserva»: l'indirizzo andrebbe corretto.
+- **Parametri** (Sistema → Paper → Filtri): «Fonte: token appena creati» (acceso/spento) e «Token giovani: entra solo dopo un calo (%)» (0 = spento; con 20 compra un token giovane solo se il prezzo è già sceso del 20% dal picco visto).
+- **Limiti:** il runner controlla ogni 10-30 secondi, quindi non può comprare nei primissimi secondi dopo il lancio. I token giovani sono i più rischiosi (la maggior parte muore o viene svuotata) e il paper sovrastima il reale proprio qui.

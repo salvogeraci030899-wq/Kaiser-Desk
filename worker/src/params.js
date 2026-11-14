@@ -56,6 +56,8 @@ export const SCHEMA = {
   minTxH1: n('Transazioni minime in 1h', 'filt', 0, 5000, { scope: 'runner', step: 5 }),
   srcDexProfiles: b('Fonte: profili DexScreener', 'filt', { scope: 'runner' }),
   srcDexBoosts: b('Fonte: boost DexScreener', 'filt', { scope: 'runner' }),
+  srcYoung: b('Fonte: token appena creati (0-60 min)', 'filt', { scope: 'runner', hint: 'ascolta le creazioni su pump.fun (RPC o PumpPortal) e segue ogni token un\'ora' }),
+  minDipPct: n('Token giovani: entra solo dopo un calo (%)', 'filt', 0, 80, { scope: 'runner', step: 1, hint: '0 = spento; es. 20 = compra solo se il prezzo è già sceso del 20% dal picco' }),
   srcJupiter: b('Fonte: Jupiter', 'filt', { scope: 'runner', hint: 'token in tendenza e appena comparsi' }),
   srcGecko: b('Fonte: GeckoTerminal', 'filt', { scope: 'runner', hint: 'pool in tendenza e appena nati: molte più Coin nel radar' }),
   srcGmgnTrending: b('Fonte: GMGN trending', 'filt', { scope: 'runner', hint: 'serve la chiave GMGN (a pagamento): senza, è ignorata' }),

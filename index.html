@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.20.0">
+<meta name="kz-build" content="2.21.0">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=2">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
@@ -30,7 +30,7 @@
   document.getElementById('metaStatusBar').setAttribute('content', light ? 'default' : (bar === 'separate' ? 'black' : 'black-translucent'));
 })();
 </script>
-<link rel="stylesheet" href="style.css?v=38">
+<link rel="stylesheet" href="style.css?v=39">
 <script src="version.js"></script>
 <script src="theme.js"></script>
 <script src="lock.js"></script>
@@ -317,6 +317,7 @@ async function discover() {
   const cached = (u, src, parse) => jobs.push(cachedList(rt.gcache, u, 60000, () => fetchJSON(u).then(parse)).then((list) => list.forEach((m) => add(m, src))));
   if (s.srcGecko !== false) for (const [u, src] of GECKO_SOURCES) cached(u, src, geckoMints);
   if (s.srcJupiter !== false) for (const [u, src] of JUPITER_SOURCES) cached(u, src, jupMints);
+  if (s.srcYoung !== false) ((rt.run && rt.run.young) || []).forEach((y) => add(y.m, 'nuovo'));   // i token appena creati li segue il runner
   await Promise.all(jobs); return found;
 }
 async function rugcheck(mint) {
@@ -334,7 +335,7 @@ async function scan() {
   rt.scanning = true; $('#btnLogo').classList.add('busy');
   try {
     await solPrice();
-    const found = await discover(), mints = mergeSeen(rt.seen, found, Date.now(), 30 * 60000, 240);   // anche le Coin viste negli ultimi 30 minuti, con dati freschi
+    const found = await discover(), mints = mergeSeen(rt.seen, found, Date.now(), 30 * 60000, 360);   // anche le Coin viste negli ultimi 30 minuti, con dati freschi
     log('SCOUT', `${mints.length} token raccolti`);
     const pairs = await dexPairs(mints), cands = [];
     for (const m of mints) { const p = pairs.get(m); if (p) cands.push(buildCand(m, p, rt.seen.get(m).srcs)); }
@@ -344,6 +345,8 @@ async function scan() {
       if (sec) { Object.assign(c, { sec }, decide(c.a, sec, null, S())); if (sec.vetoes.length) log('SENTINEL', `VETO <b>$${esc(c.sym)}</b>: ${esc(sec.vetoes.join(' · '))}`); }
       await sleep(250);
     }
+    const ym = new Map(((rt.run && rt.run.young) || []).map((y) => [y.m, y]));
+    for (const c of cands) { const y = ym.get(c.mint); if (y) c.a.notes.unshift(`giovane ${Math.round(y.a)}m · ${Math.round(y.d)}% dal picco`); }
     rt.cands = new Map(cands.map((c) => [c.mint, c]));
     log('ORACLE', `${cands.length} analizzati · ${cands.filter((c) => c.verdict === 'BUY').length} BUY · ${cands.filter((c) => c.verdict === 'WATCH').length} WATCH · ${cands.filter((c) => c.verdict === 'VETO').length} veto`);
     rt.lastScan = Date.now();
@@ -613,6 +616,7 @@ function renderSystem() {
     ${row('Esecutore reale', e ? (e.mode === 'live' ? '<span class="warn">LIVE</span>' : e.mode === 'dryrun' ? 'DRY-RUN' : 'spento') + (e.killed ? ' · KILL' : '') : '<span class="down">non raggiungibile</span>')}
     ${row('Limiti ◎', e ? `${e.limits.maxCapitalSOL} · ${e.limits.maxOrderSOL} · ${e.limits.maxDailyLossSOL} · ${e.limits.maxPositions}p` : dash)}
     ${row('Wallet', e ? `${esc(e.wallet || '—')} · ${e.balanceSOL != null ? Number(e.balanceSOL).toFixed(4) + '◎' : '—'}` : dash)}
+    ${row('Token giovani', run && run.youngInfo ? `${run.youngInfo.tracked} seguiti · ${run.youngInfo.rpc === 'on' ? 'RPC' : run.youngInfo.portal === 'on' ? 'PumpPortal' : 'non collegato'}` : dash)}
     ${row('Prova dry-run', e && e.lastDry ? (e.lastDry.ok ? `<span class="up">riuscita</span> · ${esc(e.lastDry.impactPct)}%` : '<span class="down">rifiutata</span>') : dash)}</div>
     <div class="tiny sysnote">${esc(
       (e && e.lastDry && !e.lastDry.ok ? 'Prova rifiutata: ' + (e.lastDry.reasons || []).join(' · ') : '') ||
