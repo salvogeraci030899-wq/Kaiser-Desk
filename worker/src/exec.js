@@ -231,10 +231,18 @@ export class Executor {
   // ---- giro di Charon (ogni minuto) ----
   tick() { return this.run(() => this._tick()); }
   async _tick() {
+    const em = await this.store.get('emergency', null);
     const positions = await this.store.get('positions', []), pending = await this.store.get('pending', []);
-    if (!positions.length && !pending.length) return { ok: true, idle: true };
+    if (!positions.length && !pending.length) { if (em) { await this.store.put('emergency', null); await this.notify('🚨 Emergenza completata: nessuna posizione reale aperta. Ingressi fermi (kill switch), autopilota e reale spenti.\nPer ripartire: /riattiva e /reset_parametri (poi riaccendi quello che serve nelle impostazioni).'); } return { ok: true, idle: true }; }
     if (pending.length && this.env.WALLET_SECRET_KEY) await this.reconcile(pending);
-    const open = await this.store.get('positions', []); if (!open.length) return { ok: true, positions: 0 };
+    const open = await this.store.get('positions', []); if (!open.length) { if (em) { await this.store.put('emergency', null); await this.notify('🚨 Emergenza completata: nessuna posizione reale aperta.'); } return { ok: true, positions: 0 }; }
+    if (em) {                                                    // EMERGENZA: si vende tutto adesso (al massimo 2 posizioni per giro), senza aspettare Charon
+      let sold = 0;
+      for (const p of open) { if (sold >= MAX_SELLS_PER_TICK) break; sold++; await this._sell(p, 1, 'EMERGENZA'); }
+      const left = (await this.store.get('positions', [])).length;
+      if (!left) { await this.store.put('emergency', null); await this.notify('🚨 Emergenza completata: tutte le posizioni reali sono state vendute.\nIngressi fermi (kill switch), autopilota e reale spenti. Per ripartire: /riattiva e /reset_parametri.'); }
+      return { ok: true, emergency: true, sold, left };
+    }
     const prices = await this.prices(open.map((p) => p.mint)), out = { ok: true, sold: 0, checked: 0 }; let dirty = false;
     for (const p of open) {
       const m = prices.get(p.mint); if (!m || !(p.entry > 0)) continue;
@@ -294,7 +302,29 @@ export class Executor {
     await this.notify(`⚠️ Reset del conto PAPER ${p.id}\nCancella posizioni aperte, journal e statistiche del paper e riparte con ${p.reset.capitalSOL} SOL.\nIl conto reale non viene toccato.\n\nValido per 10 minuti. Se non l'hai chiesto tu, rifiuta.`, { inline_keyboard: [[{ text: '⚠️ Azzera il paper', callback_data: 'pa:' + p.id }, { text: '❌ Rifiuta', callback_data: 'pr:' + p.id }]] });
     return { ok: true, proposal: p };
   }
+  // EMERGENZA IMMEDIATA: ferma i nuovi ingressi, spegne autopilota e reale del runner, vende subito le posizioni reali (2 per giro, il resto al giro dopo).
+  // Dall'app è solo una richiesta con un grosso tasto su Telegram; il comando /emergenza dalla tua chat agisce subito.
+  emergency() { return this.run(() => this._emergency()); }
+  async _emergency() {
+    await this.store.put('killed', true);
+    const ov = { ...(await this.store.get('params', {})), autopilot: false, realEnabled: false }; await this.store.put('params', ov); this.ov = ov;
+    await this.store.put('emergency', { at: this.now() });
+    await this.notify('🚨 EMERGENZA attivata: nuovi ingressi fermi, autopilota e reale del runner spenti. Vendo le posizioni reali aperte…');
+    const r = await this._tick();
+    return { ok: true, emergency: true, ...r };
+  }
+  async _proposeEmergency() {
+    const now = this.now(), props = (await this.store.get('proposals', [])).filter((p) => p.exp > now);
+    if (now - (await this.store.get('lastEmergency', 0)) < 10000) return { ok: false, error: 'richiesta di emergenza già inviata: controlla Telegram' };
+    await this.store.put('lastEmergency', now);
+    const seq = (await this.store.get('cseq', 0)) + 1; await this.store.put('cseq', seq);
+    const p = { id: 'C-' + String(seq).padStart(4, '0'), changes: {}, emergency: true, at: now, exp: now + 10 * 60000 };
+    props.push(p); await this.store.put('proposals', props.slice(-6));
+    await this.notify(`🚨 EMERGENZA IMMEDIATA richiesta dall'app (${p.id})\nSe confermi: nuovi ingressi fermi, autopilota e reale spenti, vendita subito di tutte le posizioni reali.\n\nSe non l'hai chiesta tu, premi Annulla.`, { inline_keyboard: [[{ text: '🚨 CONFERMA EMERGENZA', callback_data: 'pa:' + p.id }], [{ text: 'Annulla', callback_data: 'pr:' + p.id }]] });
+    return { ok: true, proposal: p };
+  }
   propose(req) { return this.run(async () => {
+    if (req && req.emergency) return this._proposeEmergency();
     if (req && req.reset) return this._proposeReset(req.reset);
     const { clean, errors } = validate(req && req.changes);
     if (errors.length) return { ok: false, error: 'modifica non valida', errors };
@@ -316,6 +346,7 @@ export class Executor {
     if (!p) return { ok: false, error: 'richiesta non trovata' };
     await this.store.put('proposals', props.filter((x) => x.id !== id));
     if (p.exp <= now) return { ok: false, error: 'richiesta scaduta' };
+    if (p.emergency) return this._emergency();
     if (p.reset) {
       await this.store.put('paperReset', { id: p.id, capitalSOL: p.reset.capitalSOL, at: now });
       await this.notify(`⚠️ Reset del paper approvato (${p.id}): il runner azzera il conto e riparte con ${p.reset.capitalSOL} SOL entro un minuto.`);
@@ -350,7 +381,7 @@ export class Executor {
     const now = this.now(), ov = this.ov || {}, split = (scope) => Object.fromEntries(Object.entries(ov).filter(([k]) => SCHEMA[k] && SCHEMA[k].scope === scope));
     return { ok: true, schema: SCHEMA, groups: GROUPS, runner: split('runner'), worker: split('worker'), runnerCfg: await this.store.get('runnerCfg', {}), ceilings: this.ceilings(), limits: this.limits(),
       resetPaper: ((r) => (r && now - r.at < 3600000 ? r : null))(await this.store.get('paperReset', null)),
-      proposals: (await this.store.get('proposals', [])).filter((p) => p.exp > now).map((p) => ({ id: p.id, changes: p.changes, reset: p.reset || null, exp: p.exp })) };
+      proposals: (await this.store.get('proposals', [])).filter((p) => p.exp > now).map((p) => ({ id: p.id, changes: p.changes, reset: p.reset || null, emergency: !!p.emergency, exp: p.exp })) };
   }
 
   async kill() { await this.store.put('killed', true); return { ok: true, killed: true }; }

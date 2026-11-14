@@ -19,6 +19,7 @@
   var root = document.documentElement;
   try { if (navigator.standalone === true || window.matchMedia('(display-mode: standalone)').matches) root.classList.add('pwa-mode'); } catch (e) {}
   var pref = 'auto', bar = 'integrated', g = 'off';
+  try { var lay = localStorage.getItem('kz_layout'); if (lay === 'lvh' || lay === 'inner') root.classList.add('layout-' + lay); } catch (e) {}
   try { pref = localStorage.getItem('kz_theme') || 'auto'; bar = localStorage.getItem('kz_statusbar') || 'integrated'; g = localStorage.getItem('kz_glass') || 'off'; } catch (e) {}
   var light = pref === 'light' || (pref === 'auto' && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches);
   root.setAttribute('data-theme', light ? 'light' : 'dark');
@@ -29,7 +30,7 @@
   document.getElementById('metaStatusBar').setAttribute('content', light ? 'default' : (bar === 'separate' ? 'black' : 'black-translucent'));
 })();
 </script>
-<link rel="stylesheet" href="style.css?v=5">
+<link rel="stylesheet" href="style.css?v=6">
 <script src="version.js"></script>
 <script src="theme.js"></script>
 <script src="lock.js"></script>
@@ -75,13 +76,14 @@
 <div class="wall-anim" aria-hidden="true"><i></i><i></i><i></i></div>
 <header>
   <div class="brand">
-    <span class="logo"><svg viewBox="0 0 512 512"><use href="#ghost"/></svg></span>
-    <div style="flex:1;min-width:0"><h1>KAISER <span class="ver" id="ver"></span></h1><small id="brandSub">Solana Meme Desk · 24/7</small></div>
-    <button class="btn btn-icon" id="btnScan" aria-label="Scansiona il radar"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7"/><polyline points="21 3 21 9 15 9"/></svg></button>
+    <!-- il fantasmino è il tasto di aggiornamento di radar e dati; l'anello gira mentre aggiorna -->
+    <button class="logo" id="btnLogo" aria-label="Aggiorna radar e dati"><svg viewBox="0 0 512 512"><use href="#ghost"/></svg></button>
+    <div class="titles"><h1>KAISER <span class="ver" id="ver"></span></h1><small id="brandSub">Solana Meme Desk · 24/7</small></div>
+    <button class="btn btn-icon sos" id="btnSos" aria-label="Emergenza immediata"><svg viewBox="0 0 24 24"><polygon points="7.9 2 16.1 2 22 7.9 22 16.1 16.1 22 7.9 22 2 16.1 2 7.9"/><line x1="12" y1="7.5" x2="12" y2="13"/><circle cx="12" cy="16.3" r="0.6"/></svg></button>
   </div>
   <div class="pills">
     <span class="pill gold" id="pMode" role="button" tabindex="0">PAPER</span>
-    <span class="pill" id="pRun">RUNNER —</span>
+    <span class="pill" id="pRun">RUN —</span>
     <span class="pill" id="pSol">SOL —</span>
     <span class="pill" id="pEq">EQ —</span>
   </div>
@@ -90,15 +92,12 @@
 <main>
   <!-- RADAR -->
   <section class="view active" id="v-radar">
-    <div class="card">
-      <div class="row between"><b class="small">SALA OPERATIVA</b><span class="tiny muted" id="lastScan">mai</span></div>
-      <div class="log" id="log"></div>
-    </div>
-    <div class="seg" id="radarFilter" style="margin-bottom:10px">
+    <!-- sala operativa: una striscia di una riga (l'ultimo messaggio); un tocco apre il registro completo -->
+    <button class="ops" id="opsBar" aria-label="Apri la sala operativa"><span class="ag" id="opsAg">KAISER</span><span class="opsmsg" id="opsMsg">pronto</span><span class="tiny muted" id="lastScan">mai</span></button>
+    <div class="seg" id="radarFilter">
       <button data-f="all" class="on">Tutti</button><button data-f="BUY">Buy</button><button data-f="WATCH">Watch</button><button data-f="VETO">Veto</button>
     </div>
-    <div id="radarList"><div class="empty">Premi il tasto di aggiornamento in alto per scansionare il radar.</div></div>
-    <p class="tiny muted" style="margin:6px 6px 0">Il radar è uno strumento di consultazione: gli ingressi li decide il runner 24/7, non questa pagina.</p>
+    <div id="radarList"><div class="empty">Tocca il fantasmino in alto per scansionare il radar.</div></div>
   </section>
 
   <!-- TICKET (reale) -->
@@ -151,6 +150,9 @@
           <div class="theme-toggle"><button data-pref="glass" data-val="off">No</button><button data-pref="glass" data-val="on">Fermo</button><button data-pref="glass" data-val="anim">Animato</button></div></div>
         <div class="set wide"><label>Barra di stato<small>Si applica alla prossima apertura</small></label>
           <div class="theme-toggle"><button data-pref="bar" data-val="integrated">Integrata</button><button data-pref="bar" data-val="separate">Separata</button></div></div>
+        <div class="set wide"><label>Layout schermo<small>Solo se la barra in basso è fuori posto</small></label>
+          <div class="theme-toggle"><button data-layout="fixed">Fisso</button><button data-layout="lvh">Lungo</button><button data-layout="inner">Misurato</button></div></div>
+        <div class="set wide"><label>Diagnostica<small id="diagTxt" class="glass-diag">—</small></label></div>
       </div>
       <h2>Blocco app</h2>
       <div class="card" id="lockSettingsBody"></div>
@@ -242,7 +244,14 @@ function log(agent, msg) {
   const t = new Date().toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
   rt.logs.unshift(`<div><span class="muted">${t}</span> <span class="ag ag-${agent}">${agent}</span> ${msg}</div>`);
   rt.logs.length = Math.min(rt.logs.length, 60);
-  $('#log').innerHTML = rt.logs.join('');
+  const plain = document.createElement('div'); plain.innerHTML = msg;                          // la striscia mostra solo l'ultimo messaggio, su una riga
+  $('#opsAg').className = 'ag ag-' + agent; $('#opsAg').textContent = agent; $('#opsMsg').textContent = plain.textContent;
+  const lg = document.getElementById('logFull'); if (lg) lg.innerHTML = rt.logs.join('');
+}
+function openLog() {
+  $('#sheetInner').innerHTML = `<div class="grab"></div><h2 style="margin-top:0">Sala operativa</h2><div class="card"><div class="log" id="logFull">${rt.logs.join('')}</div></div>
+    <p class="tiny muted" style="margin:8px 4px">Il radar è uno strumento di consultazione: gli ingressi li decide il runner 24/7, non questa pagina.</p><div class="row" style="margin-top:10px"><button class="btn" id="dClose" style="flex:1">Chiudi</button></div>`;
+  $('#dClose').onclick = closeSheet; $('#sheet').classList.add('open');
 }
 let toastT;
 function toast(msg) { const el = $('#toast'); el.innerHTML = msg; el.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(() => el.classList.remove('show'), 3500); try { navigator.vibrate && navigator.vibrate(30); } catch { /* non supportato */ } }
@@ -298,7 +307,7 @@ function buildCand(mint, pair, srcs) {
 }
 async function scan() {
   if (rt.scanning) return;
-  rt.scanning = true; $('#btnScan').disabled = true;
+  rt.scanning = true; $('#btnLogo').classList.add('busy');
   try {
     await solPrice();
     const found = await discover(), mints = [...found.keys()].slice(0, 90);
@@ -315,7 +324,7 @@ async function scan() {
     log('ORACLE', `${cands.length} analizzati · ${cands.filter((c) => c.verdict === 'BUY').length} BUY · ${cands.filter((c) => c.verdict === 'WATCH').length} WATCH · ${cands.filter((c) => c.verdict === 'VETO').length} veto`);
     rt.lastScan = Date.now();
   } catch (e) { log('KAISER', `<span class="warn">errore scan: ${esc(e.message)}</span>`); }
-  finally { rt.scanning = false; $('#btnScan').disabled = false; render(); }
+  finally { rt.scanning = false; $('#btnLogo').classList.remove('busy'); render(); }
 }
 
 function ring(c, big) {
@@ -343,9 +352,24 @@ function candCard(c) {
 function renderRadar() {
   let list = [...rt.cands.values()]; if (rt.filter !== 'all') list = list.filter((c) => c.verdict === rt.filter);
   const order = { BUY: 0, WATCH: 1, SKIP: 2, VETO: 3 }; list.sort((a, b) => order[a.verdict] - order[b.verdict] || b.score - a.score);
-  $('#radarList').innerHTML = list.length ? list.slice(0, 60).map(candCard).join('') : `<div class="empty">${rt.lastScan ? 'Nessun token in questo filtro.' : 'Premi il tasto di aggiornamento in alto per scansionare il radar.'}</div>`;
-  $('#lastScan').textContent = rt.lastScan ? 'ultimo scan ' + new Date(rt.lastScan).toLocaleTimeString('it-IT') : 'mai';
+  const el = $('#radarList'), top = el.scrollTop;
+  el.innerHTML = list.length ? list.slice(0, 60).map(candCard).join('') : `<div class="empty">${rt.lastScan ? 'Nessun token in questo filtro.' : 'Tocca il fantasmino in alto per scansionare il radar.'}</div>`;
+  el.scrollTop = top; fitRadar();
+  $('#lastScan').textContent = rt.lastScan ? new Date(rt.lastScan).toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' }) : 'mai';
 }
+// Due schede sempre intere: l'altezza di ogni riga è metà della lista meno la distanza. Si misura prima del disegno e a ogni cambio di dimensione della finestra.
+function fitRadar() {
+  const el = $('#radarList'), h = el.clientHeight; if (!h) return;
+  const row = Math.floor((h - 10) / 2); if (el.style.getPropertyValue('--row-h') !== row + 'px') el.style.setProperty('--row-h', row + 'px');
+}
+
+try { new ResizeObserver(fitRadar).observe($('#radarList')); } catch (e) { window.addEventListener('resize', fitRadar); }
+// Diagnostica del layout (utile se la barra in basso è fuori posto): misure della finestra e dell'app
+function diag() {
+  const a = $('#app').getBoundingClientRect(), n = document.querySelector('nav').getBoundingClientRect(), el = $('#diagTxt'); if (!el) return;
+  el.textContent = `finestra ${innerWidth}×${innerHeight} · app ${Math.round(a.top)}→${Math.round(a.bottom)} · barra ${Math.round(n.top)}→${Math.round(n.bottom)} · ${window.KZTheme ? window.KZTheme.layout() : '—'}`;
+}
+['resize', 'orientationchange', 'pageshow'].forEach((ev) => window.addEventListener(ev, diag)); setInterval(diag, 3000); diag();
 
 // ---------- DETTAGLIO TOKEN (solo lettura) ----------
 async function openDetail(mint) {
@@ -430,10 +454,10 @@ function render() {
   $('#brandSub').textContent = real ? 'Solana Meme Desk · REALE' : 'Solana Meme Desk · 24/7';
   // stato del runner: verde se ha lavorato negli ultimi 15 minuti
   const age = run ? Date.now() - run.updatedAt : null, pr = $('#pRun');
-  pr.textContent = run ? (age < 15 * 60000 ? 'RUNNER ' + ago(age) : 'RUNNER FERMO ' + ago(age)) + (rt.runSrc === 'github' ? ' · GH' : '') : 'RUNNER —';
+  pr.textContent = run ? (age < 15 * 60000 ? 'RUN ' : 'FERMO ') + ago(age) + (rt.runSrc === 'github' ? '·GH' : '') : 'RUN —';
   pr.className = 'pill ' + (run ? (age < 15 * 60000 ? 'on' : 'off') : '');
   $('#pSol').textContent = rt.solUsd ? 'SOL $' + rt.solUsd.toFixed(2) : (run && run.solUsd ? 'SOL $' + Number(run.solUsd).toFixed(2) : 'SOL —'); $('#pSol').className = 'pill gold';
-  $('#pEq').textContent = real ? 'EQ REALE ' + (e && e.balanceSOL != null ? Number(e.balanceSOL).toFixed(3) + '◎' : '—') : 'EQ ' + (run ? Number(run.equity).toFixed(3) + '◎' : '—');
+  $('#pEq').textContent = 'EQ ' + (real ? (e && e.balanceSOL != null ? Number(e.balanceSOL).toFixed(3) + '◎' : '—') : (run ? Number(run.equity).toFixed(3) + '◎' : '—'));
   applyMode(); renderRadar(); renderTickets(); renderPos(); renderJournal(); renderSystem(); renderParams();
   const nt = ((e && e.tickets) || []).length, np = real ? ((e && e.positions) || []).length : ((run && run.positions) || []).length;
   const dt = $('#dotT'); dt.style.display = nt ? '' : 'none'; dt.textContent = nt;
@@ -498,18 +522,22 @@ function renderSystem() {
   $('#ver').textContent = 'v' + (window.KZ_VERSION || ''); $('#ver2').textContent = 'v' + (window.KZ_VERSION || '');
   $('#cfgLink').href = `https://github.com/${REPO}/edit/data/config.json`;
   const row = (k, v) => `<span>${k}</span><span class="mono" style="text-align:right">${v}</span>`;
-  $('#sysStatus').innerHTML = `<div class="kv" style="gap:6px 10px">
-    ${row('Runner (paper)', run ? `<span class="${Date.now() - run.updatedAt < 15 * 60000 ? 'up' : 'down'}">${Date.now() - run.updatedAt < 15 * 60000 ? 'attivo' : 'fermo'}</span> · ${ago(Date.now() - run.updatedAt)} fa` : `<span class="down">non disponibile</span>${rt.runErr ? ' · ' + esc(rt.runErr) : ''}`)}
-    ${run ? row('Fonte dei dati paper', rt.runSrc === 'live' ? '<span class="up">in diretta</span> (Worker)' : '<span class="warn">GitHub</span> · ritardo fino a 10 min') : ''}
-    ${run && rt.runSrc !== 'live' ? '<span class="tiny muted" style="grid-column:1/-1">Per averli in diretta aggiungi il segreto <span class="mono">EXEC_TOKEN</span> (la stessa password del Worker) tra i segreti GitHub Actions.</span>' : ''}
-    ${run ? row('Run totali · circuit breaker', `${run.runs} · ${run.halted ? '<span class="warn">ATTIVO</span>' : 'no'}`) : ''}
-    ${row('Orologio (Cloudflare → GitHub)', e ? (clock ? `<span class="${clock.ok ? 'up' : 'down'}">${clock.ok ? 'attivo' : 'errore'}</span> · ${ago(Date.now() - Date.parse(clock.at))} fa${clock.error ? ' · ' + esc(clock.error) : ''}` : 'non ancora partito') : '—')}
-    ${row('Esecutore reale', e ? (e.mode === 'live' ? '<span class="warn">LIVE</span>' : e.mode === 'dryrun' ? 'DRY-RUN' : 'spento') + (e.killed ? ' · KILL' : '') : `<span class="down">non raggiungibile</span>${rt.execErr ? ' · ' + esc(rt.execErr) : ''}`)}
-    ${e ? row('Limiti reali', `capitale ${e.limits.maxCapitalSOL}◎ · ordine ${e.limits.maxOrderSOL}◎ · perdita/giorno ${e.limits.maxDailyLossSOL}◎ · pos. ${e.limits.maxPositions}`) : ''}
-    ${e ? row('Wallet · saldo', `${esc(e.wallet || '—')} · ${e.balanceSOL != null ? Number(e.balanceSOL).toFixed(4) + '◎' : '—'}`) : ''}
-    ${e && e.lastDry ? row('Ultima prova (dry-run)', e.lastDry.ok ? `<span class="up">riuscita</span> · impatto ${esc(e.lastDry.impactPct)}%` : `<span class="down">rifiutata</span>`) : ''}</div>
-    ${e && e.lastDry && !e.lastDry.ok ? `<div class="down tiny" style="margin-top:6px">${esc((e.lastDry.reasons || []).join(' · '))}</div>` : ''}
-    ${e && e.telegramNote ? `<div class="warn tiny" style="margin-top:6px">Telegram: ${esc(e.telegramNote)}</div>` : ''}`;
+  const dash = '<span class="muted">—</span>', fresh = !!run && Date.now() - run.updatedAt < 15 * 60000;
+  // Righe sempre presenti (con un trattino se manca il dato): il riquadro non cambia altezza quando arrivano i dati.
+  $('#sysStatus').innerHTML = `<div class="kv sysrows">
+    ${row('Runner (paper)', run ? `<span class="${fresh ? 'up' : 'down'}">${fresh ? 'attivo' : 'fermo'}</span> · ${ago(Date.now() - run.updatedAt)} fa` : '<span class="down">non disponibile</span>')}
+    ${row('Fonte dei dati paper', run ? (rt.runSrc === 'live' ? '<span class="up">in diretta</span>' : '<span class="warn">GitHub</span> · ritardo') : dash)}
+    ${row('Run · circuit breaker', run ? `${run.runs} · ${run.halted ? '<span class="warn">ATTIVO</span>' : 'no'}` : dash)}
+    ${row('Orologio (Cloudflare → GitHub)', e ? (clock ? `<span class="${clock.ok ? 'up' : 'down'}">${clock.ok ? 'attivo' : 'errore'}</span> · ${ago(Date.now() - Date.parse(clock.at))} fa` : 'non ancora partito') : dash)}
+    ${row('Esecutore reale', e ? (e.mode === 'live' ? '<span class="warn">LIVE</span>' : e.mode === 'dryrun' ? 'DRY-RUN' : 'spento') + (e.killed ? ' · KILL' : '') : '<span class="down">non raggiungibile</span>')}
+    ${row('Limiti reali (◎)', e ? `${e.limits.maxCapitalSOL} · ${e.limits.maxOrderSOL} · ${e.limits.maxDailyLossSOL} · ${e.limits.maxPositions} pos.` : dash)}
+    ${row('Wallet · saldo', e ? `${esc(e.wallet || '—')} · ${e.balanceSOL != null ? Number(e.balanceSOL).toFixed(4) + '◎' : '—'}` : dash)}
+    ${row('Ultima prova (dry-run)', e && e.lastDry ? (e.lastDry.ok ? `<span class="up">riuscita</span> · ${esc(e.lastDry.impactPct)}%` : '<span class="down">rifiutata</span>') : dash)}</div>
+    <div class="tiny sysnote">${esc(
+      (e && e.lastDry && !e.lastDry.ok ? 'Prova rifiutata: ' + (e.lastDry.reasons || []).join(' · ') : '') ||
+      (e && e.telegramNote ? 'Telegram: ' + e.telegramNote : '') ||
+      (run && rt.runSrc !== 'live' ? 'Per i dati in diretta aggiungi il segreto EXEC_TOKEN (la password del Worker) tra i segreti GitHub Actions.' : '') ||
+      (!run && rt.runErr ? rt.runErr : '') || (!e && rt.execErr ? 'Esecutore: ' + rt.execErr : ''))}</div>`;
 }
 
 // ---------- IMPOSTAZIONI: schede Generale · Paper · Reale ----------
@@ -638,7 +666,18 @@ $('#v-set').addEventListener('click', (e) => {
   if (b.dataset.par === 'send') sendParams(pg); else if (b.dataset.par === 'reset') resetPaper();
   else if (b.dataset.par === 'discard') { for (const k of Object.keys(draftFor(pg))) delete rt.draft[k]; $(PAGES[pg].form).dataset.sig = ''; renderParams(); }
 });
-$('#btnScan').onclick = () => { scan(); loadAll(); };
+// Il fantasmino aggiorna tutto: scansione del radar e dati di runner, esecutore e parametri
+async function refreshAll() { if (rt.refreshing) return; rt.refreshing = true; $('#btnLogo').classList.add('busy'); try { await Promise.allSettled([scan(), loadAll()]); } finally { rt.refreshing = false; $('#btnLogo').classList.remove('busy'); } }
+$('#btnLogo').onclick = refreshAll;
+$('#opsBar').onclick = openLog;
+// Emergenza: dall'app (senza segreti) è una richiesta con un grosso tasto su Telegram; /emergenza dalla tua chat agisce subito.
+$('#btnSos').onclick = async () => {
+  if (!confirm('EMERGENZA IMMEDIATA\n\nSu Telegram ti arriva il tasto «CONFERMA EMERGENZA». Se confermi: nuovi ingressi fermi, autopilota e reale spenti, vendita subito di tutte le posizioni reali.\n\nInviare la richiesta?')) return;
+  try {
+    const d = await postPropose({ emergency: true });
+    toast(d.ok ? '🚨 Richiesta inviata: tocca <b>CONFERMA EMERGENZA</b> su Telegram (o scrivi /emergenza)' : 'Non inviata: ' + esc(d.error || 'errore') + ' · scrivi /emergenza su Telegram');
+  } catch (e) { toast('Errore di rete: ' + esc(e.message) + ' · scrivi /emergenza su Telegram'); }
+};
 $('#pMode').onclick = () => setMode(st.mode === 'real' ? 'paper' : 'real');
 document.querySelectorAll('.modeSeg').forEach((g) => g.addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) setMode(b.dataset.mode); }));
 $('#sheet').onclick = (e) => { if (e.target.id === 'sheet') closeSheet(); };

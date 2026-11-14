@@ -29,7 +29,7 @@ Variabili da impostare **dalla dashboard** (mai nel repository: un deploy non de
 ## Pannello, Telegram e runner (24/7)
 - **App su GitHub Pages** (conto REALE): **sola lettura**. Mostra posizioni, ticket, journal, saldo, modo, limiti e l'ultima prova in dry-run leggendo la vista pubblica del Worker (`GET /public`, senza segreti: indirizzo abbreviato, mai la chiave). Non contiene né accetta token, chiavi o indirizzi e non può dare comandi.
   La vista pubblica si spegne con la variabile `PUBLIC_VIEW=0` nel Worker (l'app mostrerà «vista pubblica disattivata»).
-- **Comandi: solo da Telegram**, dalla tua chat (il webhook richiede anche un segreto derivato da `EXEC_TOKEN`): `/stato`, `/posizioni`, `/wallet` (indirizzo completo e saldo, per verificare la chiave), `/approva T-0001`, `/rifiuta T-0001`, `/vendi R-0001 [%]`, `/kill`, `/riattiva`; i ticket hanno i tasti Approva e Rifiuta. Il Worker registra il webhook da solo, ma non sopra quello di un altro servizio: usa un bot dedicato a Kaiser.
+- **Comandi: solo da Telegram**, dalla tua chat (il webhook richiede anche un segreto derivato da `EXEC_TOKEN`): `/stato`, `/posizioni`, `/wallet` (indirizzo completo e saldo, per verificare la chiave), `/approva T-0001`, `/rifiuta T-0001`, `/vendi R-0001 [%]`, `/emergenza`, `/kill`, `/riattiva`; i ticket hanno i tasti Approva e Rifiuta. Il Worker registra il webhook da solo, ma non sopra quello di un altro servizio: usa un bot dedicato a Kaiser.
 - Il reale ha parametri **propri**, indipendenti dal paper (scheda Reale dell'app): size = `realSizePct` del **capitale reale** (`realCapitalSOL`), score minimo `realMinScore`, ingressi per scan `realMaxEntriesPerScan`, slippage `realSlippageBps` e uscite `realSl`, `realTp1`, `realTp1Sell`, `realTrail`, `realBeAfterTp1`, `realTimeStopMin`, `realTimeStopMinPnl`, `realRugLiqDrop`, `realSellPressure` (iniziano uguali a quelle del paper). Solo la selezione dei token (filtri) è in comune. Valori in `config.json` o, se cambiati dall'app, quelli approvati.
 - **Parametri dall'app** (Sistema → Parametri): la richiesta passa dal Worker (`POST /propose`, senza segreti, solo da origini ammesse, massimo 3 in attesa e una ogni 15 secondi), arriva su Telegram con la differenza *prima → dopo* e viene applicata solo dal tuo tocco su **Applica** (o scade dopo 10 minuti). Elenco ammesso e intervalli: `worker/src/params.js` (solo numeri, interruttori e scelte; mai token, chiavi, URL, indirizzi o `ORDERS_MODE`).
   I limiti del Worker (`maxCapitalSOL`, `maxOrderSOL`, `maxDailyLossSOL`, `maxPositions`, `maxSlippageBps`, `maxImpactPct`) hanno come **tetto** le variabili `MAX_*` della dashboard: l'app può solo abbassarli. Il runner legge i parametri approvati a ogni scan da `GET /params` (pubblico) e riferisce i valori in uso con `EXEC_TOKEN`, così i messaggi mostrano il «prima» corretto. `PROPOSALS=0` disattiva le richieste.
@@ -94,3 +94,9 @@ Limiti del piano gratuito di Cloudflare (richieste al giorno, tempo CPU per invo
 momento del deploy, perché incidono su quanto lavoro può fare il Worker a ogni minuto.
 
 Le memecoin sono estremamente rischiose e il reale può perdere tutto il capitale: parti con importi minimi.
+
+## Emergenza immediata
+
+- **Telegram** `/emergenza`: agisce subito. Attiva il kill switch, spegne autopilota e reale e vende al mercato tutte le posizioni reali (2 per minuto per i limiti del piano gratuito; il resto al giro successivo, con avviso a fine operazione).
+- **Tasto rosso nell'app**: l'app non ha segreti, quindi non può vendere da sola. Invia a Telegram una richiesta con il tasto **CONFERMA EMERGENZA**; il tocco su quel tasto la esegue.
+- Per ripartire: `/riattiva` e riaccendere il reale dai parametri.

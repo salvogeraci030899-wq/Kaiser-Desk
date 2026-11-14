@@ -56,11 +56,21 @@
     var onChange = function () { if (get(KEY, THEMES, 'auto') === 'auto') apply(); };
     if (media.addEventListener) media.addEventListener('change', onChange); else if (media.addListener) media.addListener(onChange);
   }
-  // altezza reale dell'area visibile in app installata (vedi style.css, html.pwa-mode #app)
-  function fitHeight() { if (root.classList.contains('pwa-mode')) root.style.setProperty('--app-h', window.innerHeight + 'px'); }
+  // Layout dell'app (Sistema → Generale → Schermo): 'fixed' = ancorata ai bordi (predefinito, nessun calcolo), 'lvh' = altezza lunga, 'inner' = altezza misurata.
+  var LAYOUTS = ['fixed', 'lvh', 'inner'], LKEY = 'kz_layout';
+  function fitHeight() { if (root.classList.contains('layout-inner')) root.style.setProperty('--app-h', window.innerHeight + 'px'); }
+  function applyLayout() {
+    var l = get(LKEY, LAYOUTS, 'fixed');
+    LAYOUTS.forEach(function (x) { root.classList.toggle('layout-' + x, x === l && x !== 'fixed'); });
+    if (l === 'inner') fitHeight(); else root.style.removeProperty('--app-h');
+    document.querySelectorAll('[data-layout]').forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-layout') === l); });
+  }
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest ? e.target.closest('[data-layout]') : null; if (!b) return;
+    var v = b.getAttribute('data-layout'); if (LAYOUTS.indexOf(v) >= 0) { set(LKEY, v); applyLayout(); }
+  });
   ['resize', 'orientationchange', 'pageshow'].forEach(function (ev) { window.addEventListener(ev, fitHeight); });
-  document.addEventListener('visibilitychange', fitHeight);
-  fitHeight();
-  document.addEventListener('DOMContentLoaded', function () { fitHeight(); applyGlass(); apply(); syncWalls(); });
-  window.KZTheme = { apply: apply, resolved: resolved };
+  applyLayout();
+  document.addEventListener('DOMContentLoaded', function () { applyLayout(); applyGlass(); apply(); syncWalls(); });
+  window.KZTheme = { apply: apply, resolved: resolved, layout: function () { return get(LKEY, LAYOUTS, 'fixed'); } };
 })();
