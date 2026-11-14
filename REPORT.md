@@ -1,21 +1,21 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-14 15:47 UTC · in esecuzione da 0.1 giorni · 83 run
+Aggiornato: 2026-11-14 15:53 UTC · in esecuzione da 0.1 giorni · 83 run
 
 | | |
 |---|---|
-| Equity | **1.2013 SOL** (-7.6% dal capitale iniziale di 1.3 SOL) |
+| Equity | **1.1958 SOL** (-8.0% dal capitale iniziale di 1.3 SOL) |
 | Cassa | 1.0872 SOL |
 | Trade chiusi | 10 |
 | Win rate | 40% |
-| P&L realizzato | -0.1779 SOL (~$-13.16) |
+| P&L realizzato | -0.1779 SOL (~$-13.08) |
 | Media vincite / perdite | +38.5% / -54.7% |
 | Profit factor | 0.46 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$MOONVALE** P-0114 · 0.094 SOL · +74.2% · resta 30% · [grafico](https://dexscreener.com/solana/3ECm2QMjjyTik9Txr3fmaF7WdKC2Apx2FCRgMqCvkAAm)
-- **$YoungBull** P-0116 · 0.091 SOL · +138.6% · resta 30% · [grafico](https://dexscreener.com/solana/9YjzHjRfMgSknC4BVw55HZjhBRqM4QyJToCb7dcNkDnu)
+- **$MOONVALE** P-0114 · 0.094 SOL · +68.5% · resta 30% · [grafico](https://dexscreener.com/solana/3ECm2QMjjyTik9Txr3fmaF7WdKC2Apx2FCRgMqCvkAAm)
+- **$YoungBull** P-0116 · 0.091 SOL · +124.2% · resta 30% · [grafico](https://dexscreener.com/solana/9YjzHjRfMgSknC4BVw55HZjhBRqM4QyJToCb7dcNkDnu)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -42,6 +42,20 @@ Aggiornato: 2026-11-14 15:47 UTC · in esecuzione da 0.1 giorni · 83 run
 
 ## Ultimi eventi
 ```
+15:53:05 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 255 veto
+15:52:40 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 247 veto
+15:52:16 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 254 veto
+15:51:53 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 250 veto
+15:51:30 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 246 veto
+15:51:07 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 253 veto
+15:50:44 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 248 veto
+15:50:22 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 251 veto
+15:49:59 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 254 veto
+15:49:36 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 254 veto
+15:49:13 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 260 veto
+15:48:50 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 261 veto
+15:48:27 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 258 veto
+15:48:05 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 247 veto
 15:47:41 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 257 veto
 15:47:19 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 254 veto
 15:46:56 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 243 veto
@@ -68,20 +82,6 @@ Aggiornato: 2026-11-14 15:47 UTC · in esecuzione da 0.1 giorni · 83 run
 15:40:06 ORACLE   332 raccolti, 233 analizzati, 0 BUY, 215 veto
 15:39:43 ORACLE   281 raccolti, 195 analizzati, 0 BUY, 181 veto
 15:39:20 ORACLE   269 raccolti, 184 analizzati, 0 BUY, 171 veto
-15:38:58 ORACLE   267 raccolti, 181 analizzati, 0 BUY, 168 veto
-15:38:34 ORACLE   236 raccolti, 159 analizzati, 1 BUY, 152 veto
-15:38:12 ORACLE   231 raccolti, 152 analizzati, 1 BUY, 145 veto
-15:37:50 ORACLE   223 raccolti, 134 analizzati, 1 BUY, 127 veto
-15:37:38 ORACLE   223 raccolti, 134 analizzati, 1 BUY, 127 veto
-15:37:33 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→8, maxPos 3→4, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→1, sl 25→30, tp1Sell 50→70, timeStopMinPnl 5→2, minLiq 15000→5000, minMcap 15000→3000, minAgeMin 5→0, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120, srcGmgnTrending true→false
-15:37:33 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
-15:37:32 KAISER   run #83 · 1 posizioni · equity 1.1396 SOL · GMGN spenta (nessuna chiave) · Grok off
-15:37:22 SCRIBE   fine run · trade 10 · win 40% · P&L -0.1779 SOL · equity 1.1396 SOL
-15:37:11 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 243 veto
-15:36:49 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 236 veto
-15:36:25 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 237 veto
-15:36:23 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
-15:36:23 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
