@@ -1,6 +1,6 @@
 {
  "startedAt": 1794660696112,
- "runs": 80,
+ "runs": 81,
  "cash": 1.0946899032314974,
  "positions": [
   {
@@ -16,7 +16,7 @@
    "tokens": 144380.13165840995,
    "remaining": 1,
    "rawLeft": "148314977332",
-   "peak": 9.781e-7,
+   "peak": 9.976e-7,
    "tp1Done": false,
    "spDone": false,
    "entryLiq": 15827.4,
@@ -50,11 +50,11 @@
     "grok": null
    },
    "last": {
-    "priceNative": 9.185e-7,
-    "liq": 18456.73,
-    "br5": 3.7281553398058254,
-    "tx5": 485,
-    "t": 1794664619326
+    "priceNative": 9.704e-7,
+    "liq": 18989.67,
+    "br5": 4.11214953271028,
+    "tx5": 545,
+    "t": 1794664939749
    },
    "fills": [
     "BUY 0.105 impatto 1.06% (Jupiter)"
@@ -1140,6 +1140,24 @@
  "halted": null,
  "seq": 107,
  "events": [
+  "14:02:19 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 240 veto",
+  "14:01:55 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 233 veto",
+  "14:01:31 ORACLE   355 raccolti, 252 analizzati, 0 BUY, 243 veto",
+  "14:01:08 ORACLE   341 raccolti, 239 analizzati, 0 BUY, 230 veto",
+  "14:00:44 ORACLE   336 raccolti, 228 analizzati, 0 BUY, 219 veto",
+  "14:00:20 ORACLE   306 raccolti, 208 analizzati, 0 BUY, 199 veto",
+  "13:59:56 ORACLE   295 raccolti, 195 analizzati, 0 BUY, 188 veto",
+  "13:59:33 ORACLE   293 raccolti, 194 analizzati, 0 BUY, 187 veto",
+  "13:59:30 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)",
+  "13:59:10 ORACLE   265 raccolti, 181 analizzati, 0 BUY, 174 veto",
+  "13:58:45 ORACLE   259 raccolti, 172 analizzati, 0 BUY, 165 veto",
+  "13:58:22 ORACLE   254 raccolti, 165 analizzati, 0 BUY, 159 veto",
+  "13:57:59 ORACLE   222 raccolti, 150 analizzati, 0 BUY, 146 veto",
+  "13:57:36 ORACLE   215 raccolti, 133 analizzati, 0 BUY, 130 veto",
+  "13:57:15 ORACLE   209 raccolti, 130 analizzati, 0 BUY, 127 veto",
+  "13:57:12 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com",
+  "13:57:12 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→8, maxPos 3→4, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→1, sl 25→30, tp1Sell 50→70, timeStopMinPnl 5→2, minLiq 15000→5000, minMcap 15000→3000, minAgeMin 5→0, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120, srcGmgnTrending true→false",
+  "13:57:11 KAISER   run #81 · 1 posizioni · equity 1.2273 SOL · GMGN spenta (nessuna chiave) · Grok off",
   "13:56:59 SCRIBE   fine run · trade 2 · win 50% · P&L -0.0997 SOL · equity 1.2273 SOL",
   "13:56:59 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 253 veto",
   "13:56:35 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 249 veto",
@@ -1421,25 +1439,7 @@
   "12:20:44 ORACLE   317 raccolti, 240 analizzati, 0 BUY, 226 veto",
   "12:20:21 ORACLE   314 raccolti, 233 analizzati, 0 BUY, 221 veto",
   "12:19:57 ORACLE   294 raccolti, 208 analizzati, 0 BUY, 201 veto",
-  "12:19:34 ORACLE   285 raccolti, 207 analizzati, 0 BUY, 200 veto",
-  "12:19:11 ORACLE   279 raccolti, 203 analizzati, 0 BUY, 198 veto",
-  "12:18:48 ORACLE   268 raccolti, 195 analizzati, 0 BUY, 191 veto",
-  "12:18:26 ORACLE   260 raccolti, 183 analizzati, 0 BUY, 175 veto",
-  "12:18:03 ORACLE   256 raccolti, 180 analizzati, 0 BUY, 174 veto",
-  "12:17:40 ORACLE   239 raccolti, 168 analizzati, 0 BUY, 163 veto",
-  "12:17:18 ORACLE   234 raccolti, 164 analizzati, 0 BUY, 159 veto",
-  "12:16:56 ORACLE   222 raccolti, 153 analizzati, 0 BUY, 147 veto",
-  "12:16:44 ORACLE   222 raccolti, 153 analizzati, 0 BUY, 147 veto",
-  "12:16:39 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com",
-  "12:16:39 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→8, maxPos 3→4, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→1, sl 25→30, tp1Sell 50→70, timeStopMinPnl 5→2, minLiq 15000→5000, minMcap 15000→3000, minAgeMin 5→0, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120, srcGmgnTrending true→false",
-  "12:16:39 KAISER   run #79 · 3 posizioni · equity 1.2789 SOL · GMGN spenta (nessuna chiave) · Grok off",
-  "12:16:18 SCRIBE   fine run · trade 0 · win 0% · P&L 0.0000 SOL · equity 1.2789 SOL",
-  "12:16:05 ORACLE   240 raccolti, 175 analizzati, 1 BUY, 90 veto",
-  "12:15:41 ORACLE   240 raccolti, 166 analizzati, 1 BUY, 82 veto",
-  "12:15:19 ORACLE   240 raccolti, 166 analizzati, 1 BUY, 83 veto",
-  "12:14:55 ORACLE   240 raccolti, 178 analizzati, 2 BUY, 94 veto",
-  "12:14:32 ORACLE   240 raccolti, 168 analizzati, 2 BUY, 86 veto",
-  "12:14:09 ORACLE   240 raccolti, 168 analizzati, 2 BUY, 85 veto"
+  "12:19:34 ORACLE   285 raccolti, 207 analizzati, 0 BUY, 200 veto"
  ],
  "capital": 1.3,
  "resetId": "C-0060",
