@@ -2,7 +2,7 @@
    Token iOS (scuro/chiaro/automatico), angoli concentrici, barra a capsula, Vetro (Liquid Glass) fermo o animato.
    I nomi delle classi sono quelli di Kaiser: cambia l'aspetto, non la struttura. */
 :root {
-  --kz-css: 29;
+  --kz-css: 30;
   color-scheme: dark;
   --bg: #000000;
   --surface: #0a0a0a;
@@ -368,8 +368,8 @@ nav { height: 62px; margin-top: 4px; }
 .poslist > .poscard .sigs { margin-top: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .poslist > .poscard .nm { max-width: none; }
 .poslist > .empty, .poslist > .card.small { height: auto; }
-.btn.pump { margin-left: auto; }
-.btn.closebtn { margin-left: 0; }
+.btn.pump { margin-left: 0; }
+.btn.closebtn { margin-left: auto; }
 .poslist > .poscard .row .btn.sm { padding: 0 10px; }
 .poslist .tok > div { min-width: 0; }
 
