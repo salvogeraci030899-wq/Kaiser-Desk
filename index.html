@@ -29,7 +29,7 @@
   document.getElementById('metaStatusBar').setAttribute('content', light ? 'default' : (bar === 'separate' ? 'black' : 'black-translucent'));
 })();
 </script>
-<link rel="stylesheet" href="style.css?v=2">
+<link rel="stylesheet" href="style.css?v=3">
 <script src="version.js"></script>
 <script src="theme.js"></script>
 <script src="lock.js"></script>
@@ -152,9 +152,12 @@
     <div class="card" id="lockSettingsBody"></div>
     <h2>Stato del sistema</h2>
     <div class="card small" id="sysStatus"></div>
-    <h2>Configurazione (sola lettura)</h2>
-    <div class="card small" id="sysConfig"></div>
-    <h2>Comandi Telegram</h2>
+    <h2 style="margin-top:22px">Parametri</h2>
+    <div class="card small">Qui cambi i parametri di <b>paper e reale</b> (stop, take profit, size, filtri, limiti). Premi <b>Invia</b>: su Telegram ti arriva un messaggio con la differenza <i>prima → dopo</i> e i tasti <b>Applica / Rifiuta</b>. Solo il tuo tocco applica la modifica; il runner la usa entro un minuto. Non ci sono campi per chiavi, token o indirizzi.</div>
+    <div id="parPending"></div>
+    <div id="parForm"></div>
+    <div class="card small" id="parBar"></div>
+    <h2 style="margin-top:22px">Comandi Telegram</h2>
     <div class="card small">
       <div class="kv" style="grid-template-columns:auto 1fr;gap:6px 12px">
         <span class="mono">/stato</span><span>modo, kill switch, posizioni, P&amp;L</span>
@@ -163,13 +166,15 @@
         <span class="mono">/approva T-0001</span><span>esegue un ticket</span>
         <span class="mono">/rifiuta T-0001</span><span>scarta un ticket</span>
         <span class="mono">/vendi R-0001 50</span><span>vende (100 se omesso)</span>
+        <span class="mono">/parametri</span><span>parametri cambiati dall'app, richieste in attesa</span>
+        <span class="mono">/reset_parametri</span><span>annulla le modifiche fatte dall'app</span>
         <span class="mono">/kill · /riattiva</span><span>ferma o riabilita i nuovi ingressi</span>
       </div>
       <p class="tiny muted" style="margin:10px 0 0">I comandi funzionano solo dalla tua chat. Usa un bot dedicato a Kaiser, diverso da quello di altri servizi.</p>
     </div>
     <div class="card small">
       <b>Come si cambia qualcosa</b>
-      <p class="tiny muted" style="margin:6px 0 0">Questa pagina non contiene né accetta token, chiavi o indirizzi. Le regole del runner stanno in <span class="mono">config.json</span> sul ramo <span class="mono">data</span> di GitHub (<a id="cfgLink" target="_blank" rel="noopener">modifica</a>); i limiti e le chiavi del reale nelle impostazioni di Cloudflare; i segreti di Telegram in GitHub e Cloudflare.</p>
+      <p class="tiny muted" style="margin:6px 0 0">I <b>parametri</b> si cambiano qui sopra (con approvazione su Telegram). Questa pagina non contiene né accetta token, chiavi o indirizzi: quelli, il modo del reale (<span class="mono">ORDERS_MODE</span>) e i <b>tetti</b> dei limiti stanno nelle impostazioni di Cloudflare; i segreti di Telegram in GitHub e Cloudflare. Le regole di base del runner restano in <span class="mono">config.json</span> sul ramo <span class="mono">data</span> (<a id="cfgLink" target="_blank" rel="noopener">modifica</a>): le modifiche approvate dall'app vanno sopra quel file.</p>
     </div>
     <p class="tiny muted" style="text-align:center;margin:14px 0 4px">KAISER <span id="ver2"></span> · solo paper o reale con limiti nel Worker · le memecoin possono azzerare il capitale</p>
   </section>
@@ -209,7 +214,7 @@ const prefGet = (k, d) => { try { return localStorage.getItem(k) || d; } catch {
 const prefSet = (k, v) => { try { localStorage.setItem(k, v); } catch { /* memoria non disponibile */ } };
 
 const st = { mode: prefGet('kz_mode', 'paper') === 'real' ? 'real' : 'paper' };
-const rt = { cands: new Map(), sec: new Map(), run: null, runErr: '', exec: null, execErr: '', prices: new Map(), solUsd: 0, scanning: false, lastScan: 0, filter: 'all', logs: [] };
+const rt = { cands: new Map(), sec: new Map(), run: null, runErr: '', exec: null, execErr: '', par: null, parErr: '', draft: {}, prices: new Map(), solUsd: 0, scanning: false, lastScan: 0, filter: 'all', logs: [] };
 const S = () => ({ ...DEFAULTS, ...((rt.run && rt.run.config) || {}) });   // stesse regole e filtri del runner
 
 // ---------- LOG / AVVISI ----------
@@ -368,7 +373,11 @@ async function loadPrices() {
   if (!mints.length) return;
   for (const [m, p] of await dexPairs(mints)) rt.prices.set(m, Number(p.priceNative) || 0);
 }
-async function loadAll() { await Promise.all([loadRunner(), loadExec()]); await loadPrices(); render(); }
+async function loadParams() {
+  try { const d = await fetchJSON(`${EXEC}/params`); rt.par = d && d.ok ? d : null; rt.parErr = d && d.ok ? '' : ((d && d.error) || 'risposta non valida'); }
+  catch (e) { rt.par = null; rt.parErr = e.message === 'HTTP 403' ? 'vista pubblica disattivata' : e.message; }
+}
+async function loadAll() { await Promise.all([loadRunner(), loadExec(), loadParams()]); await loadPrices(); render(); }
 
 // ---------- PAPER / REALE ----------
 function applyMode() {
@@ -400,7 +409,7 @@ function render() {
   pr.className = 'pill ' + (run ? (age < 15 * 60000 ? 'on' : 'off') : '');
   $('#pSol').textContent = rt.solUsd ? 'SOL $' + rt.solUsd.toFixed(2) : (run && run.solUsd ? 'SOL $' + Number(run.solUsd).toFixed(2) : 'SOL —'); $('#pSol').className = 'pill gold';
   $('#pEq').textContent = real ? 'EQ REALE ' + (e && e.balanceSOL != null ? Number(e.balanceSOL).toFixed(3) + '◎' : '—') : 'EQ ' + (run ? Number(run.equity).toFixed(3) + '◎' : '—');
-  applyMode(); renderRadar(); renderTickets(); renderPos(); renderJournal(); renderSystem();
+  applyMode(); renderRadar(); renderTickets(); renderPos(); renderJournal(); renderSystem(); renderParams();
   const nt = ((e && e.tickets) || []).length, np = real ? ((e && e.positions) || []).length : ((run && run.positions) || []).length;
   const dt = $('#dotT'); dt.style.display = nt ? '' : 'none'; dt.textContent = nt;
   const dp = $('#dotP'); dp.style.display = np ? '' : 'none'; dp.textContent = np;
@@ -459,16 +468,8 @@ function renderJournal() {
   const by = {}; for (const j of J) { by[j.reason] = by[j.reason] || { n: 0, pnl: 0 }; by[j.reason].n++; by[j.reason].pnl += j.pnl; }
   $('#jReasons').innerHTML = Object.keys(by).length ? `<div class="kv">${Object.entries(by).map(([k, v]) => `<span>${esc(k)} (${v.n})</span><span class="mono ${cls(v.pnl)}">${v.pnl.toFixed(4)}◎</span>`).join('')}</div>` : '<span class="muted small">Ancora niente.</span>';
 }
-const CFG = [
-  ['Autopilota del runner', [['autopilot', 'Autopilota'], ['approve', 'Approvazione manuale (paper)'], ['scanSec', 'Intervallo scan (s)'], ['minScore', 'Score minimo BUY']]],
-  ['Capitale e rischio (paper)', [['capitalSOL', 'Capitale (SOL)'], ['sizePct', 'Size per trade (%)'], ['maxPos', 'Posizioni max'], ['maxEntriesPerScan', 'Ingressi per scan'], ['slippageBps', 'Slippage max (bps)'], ['dailyLossPct', 'Stop giornaliero (%)'], ['cooldownMin', 'Cooldown dopo perdita (min)'], ['retradeH', 'Ritrade dopo (ore)']]],
-  ['Uscite (Charon)', [['sl', 'Stop loss (%)'], ['tp1', 'TP1 (%)'], ['tp1Sell', 'Quota venduta al TP1 (%)'], ['trail', 'Trailing dal picco (%)'], ['beAfterTp1', 'Break-even dopo TP1'], ['timeStopMin', 'Time stop (min)'], ['rugLiqDrop', 'Uscita se liquidità cala (%)']]],
-  ['Filtri', [['minLiq', 'Liquidità minima ($)'], ['minMcap', 'Market cap minimo ($)'], ['maxMcap', 'Market cap massimo ($)'], ['minAgeMin', 'Età minima (min)'], ['maxAgeH', 'Età massima (ore)'], ['minTxH1', 'Transazioni minime/h']]],
-  ['Reale (dal runner)', [['realEnabled', 'Reale acceso'], ['realCapitalSOL', 'Capitale reale (SOL)'], ['realApprove', 'Approvazione manuale']]],
-];
-const yn = (v) => (v === true ? 'sì' : v === false ? 'no' : v);
 function renderSystem() {
-  const run = rt.run, e = rt.exec, clock = e && e.clock, s = S();
+  const run = rt.run, e = rt.exec, clock = e && e.clock;
   $('#ver').textContent = 'v' + (window.KZ_VERSION || ''); $('#ver2').textContent = 'v' + (window.KZ_VERSION || '');
   $('#cfgLink').href = `https://github.com/${REPO}/edit/data/config.json`;
   const row = (k, v) => `<span>${k}</span><span class="mono" style="text-align:right">${v}</span>`;
@@ -482,7 +483,60 @@ function renderSystem() {
     ${e && e.lastDry ? row('Ultima prova (dry-run)', e.lastDry.ok ? `<span class="up">riuscita</span> · impatto ${esc(e.lastDry.impactPct)}%` : `<span class="down">rifiutata</span>`) : ''}</div>
     ${e && e.lastDry && !e.lastDry.ok ? `<div class="down tiny" style="margin-top:6px">${esc((e.lastDry.reasons || []).join(' · '))}</div>` : ''}
     ${e && e.telegramNote ? `<div class="warn tiny" style="margin-top:6px">Telegram: ${esc(e.telegramNote)}</div>` : ''}`;
-  $('#sysConfig').innerHTML = (run ? '' : '<div class="muted tiny" style="margin-bottom:6px">Valori predefiniti: il runner non ha ancora pubblicato la sua configurazione.</div>') + CFG.map(([title, keys]) => `<b class="tiny muted" style="text-transform:uppercase;letter-spacing:.5px">${esc(title)}</b><div class="kv" style="gap:4px 10px;margin:4px 0 10px">${keys.map(([k, l]) => row(esc(l), esc(yn(s[k])))).join('')}</div>`).join('');
+}
+
+// ---------- PARAMETRI: si scelgono qui, si applicano solo con il tuo tocco su Telegram ----------
+// Il modulo è generato dall'elenco del Worker (solo numeri, interruttori e scelte): non esiste nessun campo di testo libero.
+const baseVal = (k) => {
+  const s = rt.par.schema[k]; if (s.scope === 'worker') return rt.par.limits[k];
+  if (rt.par.runner[k] !== undefined) return rt.par.runner[k];
+  const cfg = rt.run && rt.run.config; if (cfg && cfg[k] !== undefined) return cfg[k];
+  return rt.par.runnerCfg[k] !== undefined ? rt.par.runnerCfg[k] : DEFAULTS[k];
+};
+const parLabel = (k) => esc((rt.par.schema[k] || {}).label || k);
+const parShow = (k, v) => (rt.par.schema[k].t === 'bool' ? (v ? 'sì' : 'no') : esc(v));
+function paramRow(k) {
+  const s = rt.par.schema[k], dirty = k in rt.draft, v = dirty ? rt.draft[k] : baseVal(k);
+  const fromApp = (s.scope === 'worker' ? rt.par.worker : rt.par.runner)[k] !== undefined;
+  const ctl = s.t === 'bool' ? `<input type="checkbox" data-param="${k}" ${v ? 'checked' : ''}>`
+    : s.t === 'enum' ? `<select data-param="${k}">${s.values.map((o) => `<option ${o === v ? 'selected' : ''}>${esc(o)}</option>`).join('')}</select>`
+    : `<input type="number" inputmode="decimal" data-param="${k}" value="${esc(v)}" min="${s.min}" max="${s.max}" step="${s.step || 'any'}">`;
+  const hint = [s.hint, s.ceiling ? `tetto Cloudflare ${rt.par.ceilings[k]}` : '', fromApp ? 'cambiato dall’app' : ''].filter(Boolean).join(' · ');
+  return `<div class="set${dirty ? ' dirty' : ''}"><label>${esc(s.label)}${hint ? `<small>${esc(hint)}</small>` : ''}</label>${ctl}</div>`;
+}
+function parProblems() {
+  const out = [];
+  for (const [k, v] of Object.entries(rt.draft)) { const s = rt.par.schema[k];
+    if (s.t === 'num' && (typeof v !== 'number' || !Number.isFinite(v) || v < s.min || v > s.max)) out.push(`${parLabel(k)}: valore fuori intervallo (${s.min}–${s.max})`);
+    else if (s.ceiling && v > rt.par.ceilings[k]) out.push(`${parLabel(k)}: oltre il tetto di Cloudflare (${rt.par.ceilings[k]})`); }
+  return out;
+}
+function updateParBar() {
+  const bar = $('#parBar'); if (!rt.par) { bar.innerHTML = ''; return; }
+  const n = Object.keys(rt.draft).length, bad = parProblems();
+  bar.innerHTML = n ? `<div class="row between"><b>${n} ${n === 1 ? 'modifica non inviata' : 'modifiche non inviate'}</b><span class="row" style="gap:6px"><button class="btn sm" data-par="discard">Annulla</button><button class="btn gold sm" data-par="send" ${bad.length ? 'disabled' : ''}>Invia per approvazione</button></span></div>
+      <div class="tiny" style="margin-top:6px">${Object.entries(rt.draft).map(([k, v]) => `${parLabel(k)}: ${parShow(k, baseVal(k))} → <b>${parShow(k, v)}</b>`).join('<br>')}</div>${bad.length ? `<div class="down tiny" style="margin-top:6px">${bad.join('<br>')}</div>` : ''}`
+    : '<span class="muted tiny">Modifica i valori e premi Invia: ti arriva su Telegram il messaggio con Applica / Rifiuta.</span>';
+}
+function renderParams() {
+  const f = $('#parForm'), p = rt.par;
+  if (!p) { f.innerHTML = `<div class="card small muted">Parametri non disponibili${rt.parErr ? ': ' + esc(rt.parErr) : ''}.</div>`; f.dataset.sig = ''; $('#parBar').innerHTML = ''; $('#parPending').innerHTML = ''; return; }
+  const sig = JSON.stringify([p.runner, p.worker, p.runnerCfg, p.limits, p.ceilings, rt.run && rt.run.config]);
+  if (!f.contains(document.activeElement) && f.dataset.sig !== sig) {                         // non ricostruire mentre stai scrivendo
+    f.innerHTML = p.groups.map((g) => `<h2>${esc(g.title)}</h2><div class="card">${Object.keys(p.schema).filter((k) => p.schema[k].group === g.id).map(paramRow).join('')}</div>`).join('');
+    f.dataset.sig = sig;
+  }
+  $('#parPending').innerHTML = p.proposals.map((q) => `<div class="card real-note small">⏳ <b>${esc(q.id)}</b> in attesa su Telegram · scade tra ${ago(q.exp - Date.now())}<div class="tiny muted" style="margin-top:4px">${Object.entries(q.changes).map(([k, v]) => `${parLabel(k)} → ${parShow(k, v)}`).join('<br>')}</div></div>`).join('');
+  updateParBar();
+}
+async function sendParams() {
+  if (!Object.keys(rt.draft).length || parProblems().length) return;
+  const btn = document.querySelector('[data-par=send]'); if (btn) btn.disabled = true;
+  try {
+    const r = await fetch(`${EXEC}/propose`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ changes: rt.draft }) }), d = await r.json();
+    if (d.ok) { toast(`Richiesta ${esc(d.proposal.id)} inviata: approvala su Telegram`); rt.draft = {}; $('#parForm').dataset.sig = ''; await loadParams(); renderParams(); }
+    else { toast('Non inviata: ' + esc(d.error || 'errore') + (d.errors ? '<br><span class="tiny">' + d.errors.map((e) => parLabel(e.key) + ': ' + esc(e.msg)).join(' · ') + '</span>' : '')); updateParBar(); }
+  } catch (e) { toast('Errore di rete: ' + esc(e.message)); updateParBar(); }
 }
 
 // ---------- EVENTI ----------
@@ -493,6 +547,17 @@ function go(v) {
 }
 $('#nav').onclick = (e) => { const b = e.target.closest('button'); if (b) go(b.dataset.v); };
 $('#radarFilter').onclick = (e) => { const b = e.target.closest('button'); if (!b) return; rt.filter = b.dataset.f; document.querySelectorAll('#radarFilter button').forEach((x) => x.classList.toggle('on', x === b)); renderRadar(); };
+$('#parForm').addEventListener('input', (e) => {
+  const el = e.target.closest('[data-param]'); if (!el || !rt.par) return;
+  const k = el.dataset.param, s = rt.par.schema[k]; let v;
+  if (s.t === 'bool') v = el.checked; else if (s.t === 'enum') v = el.value; else if (el.value === '') v = undefined; else v = Number(el.value);
+  if (v === undefined || v === baseVal(k)) delete rt.draft[k]; else rt.draft[k] = v;
+  el.closest('.set').classList.toggle('dirty', k in rt.draft); updateParBar();
+});
+$('#parBar').addEventListener('click', (e) => {
+  const b = e.target.closest('[data-par]'); if (!b) return;
+  if (b.dataset.par === 'send') sendParams(); else { rt.draft = {}; $('#parForm').dataset.sig = ''; renderParams(); }
+});
 $('#btnScan').onclick = () => { scan(); loadAll(); };
 $('#pMode').onclick = () => setMode(st.mode === 'real' ? 'paper' : 'real');
 document.querySelectorAll('.modeSeg').forEach((g) => g.addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) setMode(b.dataset.mode); }));

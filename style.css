@@ -288,3 +288,9 @@ table, .card { max-width: 100%; }
 /* ritocchi: link-bottone puliti, righe di stato leggibili */
 a.btn { text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
 #sysStatus .kv, #sysConfig .kv { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
+
+/* ---- modulo dei parametri: font da 16px (iOS non ingrandisce la pagina quando si tocca un campo) ---- */
+.set input[type=number], .set select { font-size: 16px; min-height: 40px; text-align: right; }
+.set select { text-align-last: right; }
+.set.dirty label { color: var(--warning); }
+.set.dirty input, .set.dirty select { border-color: var(--warning); }

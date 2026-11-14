@@ -13,7 +13,7 @@ import { Executor } from './exec.js';
 import { handleUpdate, webhookSecret } from './tg.js';
 
 const json = (obj, status, extra) => new Response(JSON.stringify(obj), { status: status || 200, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...extra } });
-const ROUTES = { '/health': 'GET', '/state': 'GET', '/order': 'POST', '/ticket': 'POST', '/approve': 'POST', '/reject': 'POST', '/sell': 'POST', '/kill': 'POST', '/resume': 'POST', '/tick': 'POST' };
+const ROUTES = { '/health': 'GET', '/state': 'GET', '/runner': 'POST', '/order': 'POST', '/ticket': 'POST', '/approve': 'POST', '/reject': 'POST', '/sell': 'POST', '/kill': 'POST', '/resume': 'POST', '/tick': 'POST' };
 
 // Il Durable Object tiene tutto lo stato reale e serializza le operazioni: un ordine e un giro di Charon non si pestano mai i piedi.
 export class Ledger {
@@ -27,6 +27,9 @@ export class Ledger {
       if (path === '/health') return json(await this.ex.health());
       if (path === '/public') return json(await this.ex.publicView());
       if (path === '/tg') return json(await handleUpdate(this.ex, body));
+      if (path === '/params') return json(await this.ex.paramsView());
+      if (path === '/propose') return json(await this.ex.propose(body));
+      if (path === '/runner') return json(await this.ex.reportRunner(body.config));
       if (path === '/state') return json(await this.ex.state());
       if (path === '/order') return json(await this.ex.buy(body));
       if (path === '/ticket') return json(await this.ex.ticket(body));
@@ -86,6 +89,18 @@ export default {
       if (env.PUBLIC_VIEW === '0') return json({ ok: false, error: 'vista pubblica disattivata' }, 403, cors);
       try { const d = await (await stub(env).fetch('https://ledger/public')).json(); d.clock = await readClock(env); d.telegramNote = (await env.STATE.get('tgwh_note')) || null; return json(d, 200, cors); }
       catch (e) { return json({ ok: false, error: e.message }, 500, cors); }
+    }
+    // Parametri: lettura pubblica; la modifica è solo una RICHIESTA (nessun segreto): la applica soltanto il tuo tocco su Telegram.
+    if (url.pathname === '/params' && req.method === 'GET') {
+      if (env.PUBLIC_VIEW === '0') return json({ ok: false, error: 'vista pubblica disattivata' }, 403, cors);
+      try { return json(await (await stub(env).fetch('https://ledger/params')).json(), 200, cors); } catch (e) { return json({ ok: false, error: e.message }, 500, cors); }
+    }
+    if (url.pathname === '/propose' && req.method === 'POST') {
+      const origin = req.headers.get('Origin') || '', allowed = String(env.ALLOWED_ORIGINS || '').split(',').map((s) => s.trim()).filter(Boolean);
+      if (env.PROPOSALS === '0') return json({ ok: false, error: 'le richieste dall’app sono disattivate' }, 403, cors);
+      if (!allowed.includes(origin)) return json({ ok: false, error: 'origine non ammessa' }, 403, cors);
+      const body = await req.text(); if (body.length > 4000) return json({ ok: false, error: 'richiesta troppo grande' }, 413, cors);
+      try { return json(await (await stub(env).fetch('https://ledger/propose', { method: 'POST', body })).json(), 200, cors); } catch (e) { return json({ ok: false, error: e.message }, 500, cors); }
     }
     // Telegram: nessun token dell'app, ma segreto del webhook (derivato da EXEC_TOKEN) obbligatorio; la chat la controlla tg.js
     if (url.pathname === '/tg' && req.method === 'POST') {

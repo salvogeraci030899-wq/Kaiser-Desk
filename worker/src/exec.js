@@ -5,6 +5,7 @@
 import E from '../../engine.js';
 import { walletAddress, num, limitsFrom } from './lib.js';
 import { parseTx, guardTx, signTx, b64enc, b64dec } from './solana.js';
+import { SCHEMA, GROUPS, validate, diffText, defaults as paramDefaults } from './params.js';
 
 export const SOL = 'So11111111111111111111111111111111111111112';
 const MINT_RE = /^[1-9A-HJ-NP-Za-km-z]{32,44}$/;
@@ -26,9 +27,16 @@ export class Executor {
     this.sleep = sleep || ((ms) => new Promise((r) => setTimeout(r, ms)));
     this.chain = Promise.resolve(); this._wallet = null;
   }
-  run(fn) { const p = this.chain.then(fn, fn); this.chain = p.catch(() => {}); return p; }   // un'operazione alla volta
+  run(fn) { const w = async () => { await this.refreshOv(); return fn(); }; const p = this.chain.then(w, w); this.chain = p.catch(() => {}); return p; }   // un'operazione alla volta
   mode() { return ['off', 'dryrun', 'live'].includes(this.env.ORDERS_MODE) ? this.env.ORDERS_MODE : 'off'; }
-  limits() { return { ...limitsFrom(this.env), maxPositions: num(this.env.MAX_POSITIONS, 3), maxImpactPct: num(this.env.MAX_IMPACT_PCT, 5), exitSlippageBps: num(this.env.EXIT_SLIPPAGE_BPS, 1500) }; }
+  // Tetti dalla dashboard di Cloudflare (variabili d'ambiente): l'app può solo restare sotto questi valori, mai sopra.
+  ceilings() { const e = this.env; return { maxCapitalSOL: num(e.MAX_CAPITAL_SOL), maxOrderSOL: num(e.MAX_ORDER_SOL, 0.05), maxDailyLossSOL: num(e.MAX_DAILY_LOSS_SOL, 0.1), maxSlippageBps: num(e.MAX_SLIPPAGE_BPS, 300), maxPositions: num(e.MAX_POSITIONS, 3), maxImpactPct: num(e.MAX_IMPACT_PCT, 5) }; }
+  limits() {
+    const c = this.ceilings(), ov = this.ov || {}, out = { ...c };
+    for (const k of Object.keys(c)) if (typeof ov[k] === 'number') out[k] = Math.min(c[k], ov[k]);
+    return { ...out, exitSlippageBps: num(this.env.EXIT_SLIPPAGE_BPS, 1500) };
+  }
+  async refreshOv() { try { this.ov = (await this.store.get('params', {})) || {}; } catch { this.ov = {}; } }
   extraPrograms() { return String(this.env.ALLOWED_PROGRAMS || '').split(',').map((s) => s.trim()).filter(Boolean); }
 
   // ---- rete ----
@@ -270,9 +278,52 @@ export class Executor {
   }
 
   // ---- stato e comandi ----
+  // ---- parametri modificabili dall'app: richiesta → messaggio su Telegram → applicata solo se la approvi tu ----
+  async current() { await this.refreshOv(); return { ...paramDefaults(), ...(await this.store.get('runnerCfg', {})), ...this.limits(), ...this.ov }; }   // meglio stima possibile dei valori attuali
+  propose(req) { return this.run(async () => {
+    const { clean, errors } = validate(req && req.changes);
+    if (errors.length) return { ok: false, error: 'modifica non valida', errors };
+    const c = this.ceilings(); for (const k of Object.keys(clean)) if (SCHEMA[k].ceiling && clean[k] > c[k]) errors.push({ key: k, msg: `oltre il tetto impostato in Cloudflare (${c[k]})` });
+    if (errors.length) return { ok: false, error: 'modifica non valida', errors };
+    const now = this.now(), props = (await this.store.get('proposals', [])).filter((p) => p.exp > now);
+    if (props.length >= 3) return { ok: false, error: 'ci sono già 3 richieste in attesa su Telegram: approvale o rifiutale' };
+    if (now - (await this.store.get('lastProposal', 0)) < 15000) return { ok: false, error: 'richieste troppo ravvicinate: riprova tra qualche secondo' };
+    const cur = await this.current(), diff = Object.fromEntries(Object.entries(clean).filter(([k, v]) => cur[k] !== v));
+    if (!Object.keys(diff).length) return { ok: false, error: 'i valori sono già quelli attuali' };
+    const seq = (await this.store.get('cseq', 0)) + 1; await this.store.put('cseq', seq); await this.store.put('lastProposal', now);
+    const p = { id: 'C-' + String(seq).padStart(4, '0'), changes: diff, at: now, exp: now + 10 * 60000 };
+    props.push(p); await this.store.put('proposals', props);
+    await this.notify(`⚙️ Modifica parametri ${p.id}\n${diffText(cur, diff)}\n\nValida per 10 minuti. Se non l'hai chiesta tu, rifiuta.`, { inline_keyboard: [[{ text: '✅ Applica', callback_data: 'pa:' + p.id }, { text: '❌ Rifiuta', callback_data: 'pr:' + p.id }]] });
+    return { ok: true, proposal: p };
+  }); }
+  applyProposal(id) { return this.run(async () => {
+    const now = this.now(), props = await this.store.get('proposals', []), p = props.find((x) => x.id === id);
+    if (!p) return { ok: false, error: 'richiesta non trovata' };
+    await this.store.put('proposals', props.filter((x) => x.id !== id));
+    if (p.exp <= now) return { ok: false, error: 'richiesta scaduta' };
+    const cur = await this.current(), ov = { ...(await this.store.get('params', {})), ...p.changes };
+    await this.store.put('params', ov); this.ov = ov;
+    await this.notify(`✅ Parametri applicati (${p.id})\n${diffText(cur, p.changes)}\nIl runner li usa entro un minuto.`);
+    return { ok: true, applied: p.changes };
+  }); }
+  rejectProposal(id) { return this.run(async () => { const ps = await this.store.get('proposals', []); await this.store.put('proposals', ps.filter((x) => x.id !== id)); return { ok: true }; }); }
+  resetParams() { return this.run(async () => { await this.store.put('params', {}); this.ov = {}; await this.store.put('proposals', []); await this.notify('↩️ Parametri riportati ai valori di config.json e ai tetti di Cloudflare.'); return { ok: true }; }); }
+  // il runner riferisce i parametri che sta davvero usando (con il suo token): servono a mostrare «prima → dopo» corretti
+  async reportRunner(cfg) {
+    const { clean } = validate(Object.fromEntries(Object.entries(cfg || {}).filter(([k, v]) => SCHEMA[k] && SCHEMA[k].scope === 'runner' && (typeof v === 'number' || typeof v === 'boolean' || typeof v === 'string'))));
+    await this.store.put('runnerCfg', clean); return { ok: true };
+  }
+  async paramsView() {
+    await this.refreshOv();
+    const now = this.now(), ov = this.ov || {}, split = (scope) => Object.fromEntries(Object.entries(ov).filter(([k]) => SCHEMA[k] && SCHEMA[k].scope === scope));
+    return { ok: true, schema: SCHEMA, groups: GROUPS, runner: split('runner'), worker: split('worker'), runnerCfg: await this.store.get('runnerCfg', {}), ceilings: this.ceilings(), limits: this.limits(),
+      proposals: (await this.store.get('proposals', [])).filter((p) => p.exp > now).map((p) => ({ id: p.id, changes: p.changes, exp: p.exp })) };
+  }
+
   async kill() { await this.store.put('killed', true); return { ok: true, killed: true }; }
   async resume() { await this.store.put('killed', false); return { ok: true, killed: false }; }
   async state() {
+    await this.refreshOv();
     const [positions, pending, journal, killed, lastDry, tickets] = await Promise.all([this.store.get('positions', []), this.store.get('pending', []), this.store.get('journal', []), this.store.get('killed', false), this.store.get('lastDry', null), this.store.get('tickets', [])]);
     return { ok: true, mode: this.mode(), killed, positions, pending, tickets: tickets.filter((t) => t.exp > this.now()), journal: journal.slice(-50), dayPnl: this.dayPnl(journal), limits: this.limits(), lastDry };
   }
@@ -284,6 +335,7 @@ export class Executor {
       wallet: h.wallet ? h.wallet.slice(0, 4) + '…' + h.wallet.slice(-4) : null, balanceSOL: h.balanceSOL, walletError: h.walletError || null, rpcError: h.rpcError || null };
   }
   async health() {
+    await this.refreshOv();
     const lim = this.limits(), out = { ok: true, phase: 3, mode: this.mode(), jupiterConfigured: !!this.env.JUPITER_PROGRAM_ID, limits: lim, wallet: null, balanceSOL: null };
     out.ordersEnabled = out.mode === 'live' && out.jupiterConfigured;
     out.killed = !!(await this.store.get('killed', false));
