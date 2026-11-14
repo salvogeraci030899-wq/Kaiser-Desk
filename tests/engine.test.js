@@ -89,3 +89,10 @@ test('reale: cancello fallisce chiuso, una condizione alla volta', () => {
   assert.equal(E.realGate(on, { ...ok, mode: 'dryrun' }), '');                            // il dry-run passa: gli ordini sono solo simulati
   assert.match(E.realGate({ ...on, realEnabled: false }, ok), /spento/);
 });
+
+test('GeckoTerminal: dai pool si ricavano i mint dei token base; voci non valide ignorate', () => {
+  const E = require('../engine.js'), A = '9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump', B = 'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v';
+  const j = { data: [{ relationships: { base_token: { data: { id: 'solana_' + A } } } }, { relationships: { base_token: { data: { id: 'solana_' + B } } } }, { relationships: { base_token: { data: { id: 'eth_0xabc' } } } }, { relationships: {} }, null, { relationships: { base_token: { data: { id: 5 } } } }] };
+  assert.deepEqual(E.geckoMints(j), [A, B]); assert.deepEqual(E.geckoMints(null), []); assert.deepEqual(E.geckoMints({ data: 'x' }), []);
+  assert.equal(E.DEFAULTS.srcGecko, true); assert.ok(E.GECKO_SOURCES.length >= 3 && E.GECKO_SOURCES.every(([u]) => u.startsWith('https://api.geckoterminal.com/api/v2/networks/solana/')));
+});

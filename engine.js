@@ -15,7 +15,7 @@ const DEFAULTS = {
   rugLiqDrop: 45, sellPressure: true,
   // Filtri
   minLiq: 15000, minMcap: 15000, maxMcap: 20000000, minAgeMin: 5, maxAgeH: 72, minTxH1: 40,
-  srcDexProfiles: true, srcDexBoosts: true, srcGmgnTrending: true, srcGmgnTrenches: false, gmgnInterval: '1h',
+  srcDexProfiles: true, srcDexBoosts: true, srcGecko: true, srcGmgnTrending: true, srcGmgnTrenches: false, gmgnInterval: '1h',
   // Backend
   backend: '', appToken: '',
   // Trading reale: spento finché non lo accendi. Usa le stesse regole del paper (size, stop, TP, trailing),
@@ -50,6 +50,22 @@ function gmgnNorm(it) {
   };
 }
 // Trova l'array di token dentro qualunque forma di risposta GMGN
+// GeckoTerminal (gratis, senza chiave): pool in tendenza, appena nati e con più scambi su Solana. Allarga di molto l'elenco rispetto ai soli profili/boost di DexScreener.
+const GECKO_SOURCES = [
+  ['https://api.geckoterminal.com/api/v2/networks/solana/trending_pools?page=1', 'gecko trend'],
+  ['https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1', 'gecko nuovi'],
+  ['https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2', 'gecko nuovi'],
+  ['https://api.geckoterminal.com/api/v2/networks/solana/pools?page=1', 'gecko top'],
+];
+function geckoMints(j) {
+  const out = [];
+  for (const p of (j && Array.isArray(j.data) ? j.data : [])) {
+    const id = p && p.relationships && p.relationships.base_token && p.relationships.base_token.data && p.relationships.base_token.data.id;
+    const m = typeof id === 'string' ? id.replace(/^solana_/, '') : '';
+    if (/^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(m)) out.push(m);
+  }
+  return out;
+}
 function gmgnList(data) {
   if (Array.isArray(data)) return data;
   if (!data || typeof data !== 'object') return [];
@@ -214,4 +230,4 @@ function realGate(S, ex) {
   return '';
 }
 
-if (typeof module !== 'undefined') module.exports = { realGate, DEFAULTS, gmgnNorm, gmgnList, analyze, sentinel, grokAdj, decide, estImpact, entryPrice, exitSol, charon, clamp };
+if (typeof module !== 'undefined') module.exports = { realGate, DEFAULTS, GECKO_SOURCES, geckoMints, gmgnNorm, gmgnList, analyze, sentinel, grokAdj, decide, estImpact, entryPrice, exitSol, charon, clamp };

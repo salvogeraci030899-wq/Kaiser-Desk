@@ -136,6 +136,7 @@ async function discover() {
     jobs.push(fetchJSON('https://api.dexscreener.com/token-boosts/latest/v1').then((a) => (a || []).forEach((x) => x.chainId === 'solana' && add(x.tokenAddress, 'boost'))).catch(() => {}));
     jobs.push(fetchJSON('https://api.dexscreener.com/token-boosts/top/v1').then((a) => (a || []).forEach((x) => x.chainId === 'solana' && add(x.tokenAddress, 'top boost'))).catch(() => {}));
   }
+  if (S.srcGecko !== false) for (const [u, src] of E.GECKO_SOURCES) jobs.push(fetchJSON(u).then((j) => E.geckoMints(j).forEach((m) => add(m, src))).catch((e) => log('SCOUT', 'gecko: ' + e.message)));
   const gm = async (args, src) => {
     if (!gmgnRun) return;
     try {
@@ -379,7 +380,7 @@ async function scan() {
   await solPrice();
   const found = await discover();
   for (const p of st.positions) if (!found.has(p.mint)) found.set(p.mint, new Set(['posizione']));
-  const mints = [...found.keys()].slice(0, 90);
+  const mints = [...found.keys()].slice(0, 160);
   const pairs = await dexPairs(mints);
   const cands = [];
   for (const m of mints) {
