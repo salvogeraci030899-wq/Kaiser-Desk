@@ -1,251 +1,149 @@
 {
- "startedAt": 1794641197910,
- "runs": 69,
- "cash": 1.2526072634900114,
- "positions": [],
- "journal": [
+ "startedAt": 1794645035607,
+ "runs": 70,
+ "cash": 0.8799955584315055,
+ "positions": [
   {
-   "id": "P-0036",
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "openedAt": 1794641328297,
-   "closedAt": 1794641989109,
-   "cost": 0.13037819517556642,
-   "back": 0.13484288594,
-   "pnl": 0.004464690764433565,
-   "pct": 3.4244152240498824,
-   "mode": "paper",
-   "reason": "Chiusura manuale (app)",
-   "score": 78,
-   "solUsd": 75.15975522397598,
-   "peakPct": 12.357568107110616,
-   "trigPct": 10.686013083524859,
-   "entryInfo": {
-    "srcs": [
-     "boost",
-     "top boost"
-    ],
-    "notes": [],
-    "plus": [
-     "4 smart money"
-    ],
-    "m": {
-     "liq": 76422.01,
-     "mc": 1011634,
-     "ageMin": 395.0607166666667,
-     "v1": 52080.65,
-     "tx1": 2493,
-     "br1": 1.4436826640548481,
-     "br5": 1.4589235127478755,
-     "c5": 7.28,
-     "c1": -11.16,
-     "c6": 90.62,
-     "turn": 0.6814875714470217,
-     "price": 0.001017,
-     "priceNative": 0.00001352
-    },
-    "grok": null
-   }
-  },
-  {
-   "id": "P-0039",
-   "mint": "RA23GF9Jw9x2xqVfH1XhfBfa5TnWJC9uLDFHeU5pump",
-   "sym": "SCRAP",
-   "openedAt": 1794642829896,
-   "closedAt": 1794642860584,
-   "cost": 0.12710951763822062,
-   "back": 0.12133386667999999,
-   "pnl": -0.005775650958220635,
-   "pct": -4.543838310093587,
-   "mode": "paper",
-   "reason": "Stop loss",
-   "score": 76,
-   "solUsd": 75.17354190626081,
-   "peakPct": 0,
-   "trigPct": -31.815903658956568,
-   "entryInfo": {
-    "srcs": [
-     "profili",
-     "GMGN"
-    ],
-    "notes": [],
-    "plus": [
-     "turnover 40.2x/h",
-     "70 smart money",
-     "5 KOL"
-    ],
-    "m": {
-     "liq": 19999.14,
-     "mc": 68537,
-     "ageMin": 49.10435,
-     "v1": 804888.81,
-     "tx1": 21770,
-     "br1": 1.1809075428227989,
-     "br5": 1.1930946291560103,
-     "c5": -44.69,
-     "c1": 143,
-     "c6": 143,
-     "turn": 40.24617108535667,
-     "price": 0.00007118,
-     "priceNative": 9.475e-7
-    },
-    "grok": null
-   }
-  },
-  {
-   "id": "P-0038",
+   "id": "P-0046",
    "mint": "6EK6KzPzCSFWx9tyXdaP2zNXPqt4ZNihFo1CJzacmmsQ",
    "sym": "SAI",
-   "openedAt": 1794642401235,
-   "closedAt": 1794642893537,
-   "cost": 0.12840098654832402,
-   "back": 0.07934981105,
-   "pnl": -0.04905117549832402,
-   "pct": -38.201556558806885,
-   "mode": "paper",
-   "reason": "Stop loss",
-   "score": 73,
-   "solUsd": 75.29695125570787,
-   "peakPct": 13.267480955538824,
-   "trigPct": -48.28554884617916,
+   "name": "Solana Artificial Inu",
+   "pairAddress": "G55PY56Z2qJdpqAbdwePEngygYsD5uL61wFEYTPsyXT5",
+   "openedAt": 1794645169021,
+   "sizeSOL": 0.13004186865578005,
+   "cost": 0.13074186865578005,
+   "entry": 3.2967901617390227e-7,
+   "tokens": 394449.94153702614,
+   "remaining": 1,
+   "rawLeft": "406457853967",
+   "peak": 3.2967901617390227e-7,
+   "tp1Done": false,
+   "spDone": false,
+   "entryLiq": 10279.36,
+   "realized": 0,
+   "score": 85,
+   "why": "runner",
    "entryInfo": {
     "srcs": [
      "profili"
     ],
     "notes": [],
     "plus": [
-     "turnover 26.7x/h",
-     "pressione in acquisto"
-    ],
-    "m": {
-     "liq": 12177.94,
-     "mc": 30952,
-     "ageMin": 56.08003333333333,
-     "v1": 325132.42,
-     "tx1": 11140,
-     "br1": 1.549073438572409,
-     "br5": 3.0625,
-     "c5": 81.43,
-     "c1": 6.26,
-     "c6": 6.26,
-     "turn": 26.698474454628613,
-     "price": 0.00003251,
-     "priceNative": 4.325e-7
-    },
-    "grok": null
-   }
-  },
-  {
-   "id": "P-0040",
-   "mint": "7x8HCyf5Z3JYWXmC7p6C4w11Hw6JAXFEiZy6PCDBpump",
-   "sym": "SCRAP",
-   "openedAt": 1794643068667,
-   "closedAt": 1794643236475,
-   "cost": 0.12423791516543416,
-   "back": 0.13133003329999998,
-   "pnl": 0.007092118134565825,
-   "pct": 5.708497381915996,
-   "mode": "paper",
-   "reason": "Chiusura manuale (app)",
-   "score": 77,
-   "solUsd": 0,
-   "peakPct": 29.249663338721433,
-   "trigPct": 29.249663338721433,
-   "entryInfo": {
-    "srcs": [
-     "profili",
-     "boost",
-     "GMGN"
-    ],
-    "notes": [
-     "-75% in 1h"
-    ],
-    "plus": [
-     "turnover 5.8x/h",
+     "turnover 3.7x/h",
      "pressione in acquisto",
-     "8 smart money",
-     "1 KOL"
+     "48 smart money",
+     "6 KOL"
     ],
     "m": {
-     "liq": 5079.29,
-     "mc": 7268,
-     "ageMin": 11.6337,
-     "v1": 29453.23,
-     "tx1": 960,
-     "br1": 1.1963470319634704,
-     "br5": 2.074074074074074,
-     "c5": 25.21,
-     "c1": -75.37,
-     "c6": -75.37,
-     "turn": 5.798690368142004,
-     "price": 0.000007344,
-     "priceNative": 9.741e-8
+     "liq": 10279.36,
+     "mc": 22990,
+     "ageMin": 102.20508333333333,
+     "v1": 38286.05,
+     "tx1": 1033,
+     "br1": 1.3738532110091743,
+     "br5": 4,
+     "c5": 19.73,
+     "c1": 28.56,
+     "c6": -21.08,
+     "turn": 3.724555808921956,
+     "price": 0.00002415,
+     "priceNative": 3.205e-7
     },
     "grok": null
-   }
+   },
+   "last": {
+    "priceNative": 3.043e-7,
+    "liq": 9983.2,
+    "br5": 1.0909090909090908,
+    "tx5": 21,
+    "t": 1794645297071
+   },
+   "fills": [
+    "BUY 0.130 impatto 1.85% (Jupiter)"
+   ]
   },
   {
-   "id": "P-0035",
+   "id": "P-0047",
    "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
    "sym": "AMC",
-   "openedAt": 1794641201864,
-   "closedAt": 1794643236952,
-   "cost": 0.1307,
-   "back": 0.10870055093,
-   "pnl": -0.02199944907000001,
-   "pct": -16.832019181331297,
-   "mode": "paper",
-   "reason": "Chiusura manuale (app)",
-   "score": 74,
-   "solUsd": 0,
-   "peakPct": 2.645925793973558,
-   "trigPct": -15.632017128086495,
+   "name": "A MIHAO CAT",
+   "pairAddress": "DxbQyPTjckQTSUWyUqJB11HpupPyLGJZ5x4z7ufHp3Gh",
+   "openedAt": 1794645232780,
+   "sizeSOL": 0.12947466110238334,
+   "cost": 0.13017466110238335,
+   "entry": 0.00006080039802188875,
+   "tokens": 2129.5035117331167,
+   "remaining": 1,
+   "rawLeft": "2194637400",
+   "peak": 0.00006080039802188875,
+   "tp1Done": false,
+   "spDone": false,
+   "entryLiq": 159970.6,
+   "realized": 0,
+   "score": 82,
+   "why": "runner",
    "entryInfo": {
     "srcs": [
      "top boost"
     ],
     "notes": [],
     "plus": [
-     "liquidità solida"
+     "liquidità solida",
+     "pressione in acquisto"
     ],
     "m": {
-     "liq": 176430.92,
-     "mc": 5495414,
-     "ageMin": 766.6952166666666,
-     "v1": 53100,
-     "tx1": 17159,
-     "br1": 1.0928048780487805,
-     "br5": 1.2769516728624535,
-     "c5": 1.31,
-     "c1": 21.05,
-     "c6": 31.87,
-     "turn": 0.3009676535156082,
-     "price": 0.005528,
-     "priceNative": 0.00007368
+     "liq": 159970.6,
+     "mc": 4497767,
+     "ageMin": 833.8777833333334,
+     "v1": 59642.66,
+     "tx1": 18181,
+     "br1": 1.809487021013597,
+     "br5": 2.3351063829787235,
+     "c5": 2.8,
+     "c1": -21.56,
+     "c6": -1.63,
+     "turn": 0.3728351334557725,
+     "price": 0.004525,
+     "priceNative": 0.00006005
     },
     "grok": null
-   }
+   },
+   "last": {
+    "priceNative": 0.00005682,
+    "liq": 155581.52,
+    "br5": 2.2214452214452214,
+    "tx5": 1380,
+    "t": 1794645297071
+   },
+   "fills": [
+    "BUY 0.129 impatto 0.25% (Jupiter)"
+   ]
   },
   {
-   "id": "P-0037",
+   "id": "P-0048",
    "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
    "sym": "WISHMAS",
-   "openedAt": 1794641992766,
-   "closedAt": 1794643237143,
-   "cost": 0.1306957538334539,
-   "back": 0.15201733862,
-   "pnl": 0.02132158478654611,
-   "pct": 16.31390780584677,
-   "mode": "paper",
-   "reason": "Chiusura manuale (app)",
-   "score": 75,
-   "solUsd": 0,
-   "peakPct": 13.00487552197167,
-   "trigPct": 12.641369689974958,
+   "name": "Wishmas ",
+   "pairAddress": "FcsUythNUWbfT7RP2yuFp1kiWjft15du9WtgLUrrqx3p",
+   "openedAt": 1794645297211,
+   "sizeSOL": 0.12463611835309979,
+   "cost": 0.1253361183530998,
+   "entry": 0.0000025998504794986194,
+   "tokens": 47939.72550957463,
+   "remaining": 1,
+   "rawLeft": "49670207885",
+   "peak": 0.0000025998504794986194,
+   "tp1Done": false,
+   "spDone": false,
+   "entryLiq": 34358.24,
+   "realized": 0,
+   "score": 76,
+   "why": "runner",
    "entryInfo": {
     "srcs": [
+     "top boost",
      "boost",
-     "top boost"
+     "GMGN"
     ],
     "notes": [
      "bot 50%"
@@ -256,152 +154,115 @@
      "7 KOL"
     ],
     "m": {
-     "liq": 31764.99,
-     "mc": 156873,
-     "ageMin": 596.41075,
-     "v1": 26698.77,
-     "tx1": 1898,
-     "br1": 1.9921259842519685,
-     "br5": 2.1794871794871793,
-     "c5": 3.97,
-     "c1": 18.75,
-     "c6": 26.83,
-     "turn": 0.8405093154444563,
-     "price": 0.0001643,
-     "priceNative": 0.000002179
+     "liq": 34357.87,
+     "mc": 182263,
+     "ageMin": 651.4911166666667,
+     "v1": 24144.94,
+     "tx1": 1763,
+     "br1": 2.2032667876588024,
+     "br5": 2.4857142857142858,
+     "c5": 7.63,
+     "c1": 20.8,
+     "c6": 20.9,
+     "turn": 0.7027484532655836,
+     "price": 0.0001909,
+     "priceNative": 0.000002533
+    },
+    "grok": null
+   },
+   "last": null,
+   "fills": [
+    "BUY 0.125 impatto 1.62% (Jupiter)"
+   ]
+  }
+ ],
+ "journal": [
+  {
+   "id": "P-0044",
+   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
+   "sym": "JENSEN",
+   "openedAt": 1794645041229,
+   "closedAt": 1794645293778,
+   "cost": 0.1307,
+   "back": 0.10861480802,
+   "pnl": -0.022085191980000016,
+   "pct": -16.897622019892893,
+   "mode": "paper",
+   "reason": "Chiusura manuale (app)",
+   "score": 81,
+   "solUsd": 75.23725441480302,
+   "peakPct": 4.066362890056885,
+   "trigPct": 1.0499465744030712,
+   "entryInfo": {
+    "srcs": [
+     "top boost",
+     "boost"
+    ],
+    "notes": [],
+    "plus": [
+     "pressione in acquisto"
+    ],
+    "m": {
+     "liq": 73590.66,
+     "mc": 930769,
+     "ageMin": 456.9132666666667,
+     "v1": 110159.14,
+     "tx1": 11943,
+     "br1": 1.7055492638731597,
+     "br5": 2.037174721189591,
+     "c5": -10.34,
+     "c1": -10.81,
+     "c6": -41.75,
+     "turn": 1.4969174077253824,
+     "price": 0.0009358,
+     "priceNative": 0.0000124
     },
     "grok": null
    }
   },
   {
-   "id": "P-0041",
-   "mint": "A5bpyAGdSPKwX3YDyF563DmbVSfM3EcYgBPjPna8pump",
-   "sym": "UP",
-   "openedAt": 1794643304612,
-   "closedAt": 1794643902865,
-   "cost": 0.1263052118159001,
-   "back": 0.09306235451,
-   "pnl": -0.0332428573059001,
-   "pct": -26.319466020415856,
+   "id": "P-0045",
+   "mint": "7x8HCyf5Z3JYWXmC7p6C4w11Hw6JAXFEiZy6PCDBpump",
+   "sym": "SCRAP",
+   "openedAt": 1794645105455,
+   "closedAt": 1794645294230,
+   "cost": 0.13053946803723107,
+   "back": 0.11887286655999998,
+   "pnl": -0.011666601477231087,
+   "pct": -8.937221556551513,
    "mode": "paper",
    "reason": "Chiusura manuale (app)",
-   "score": 77,
-   "solUsd": 75.28586023839547,
-   "peakPct": 2.707391443094753,
-   "trigPct": -9.816455942442593,
+   "score": 81,
+   "solUsd": 75.23725441480302,
+   "peakPct": 42.71955866133155,
+   "trigPct": 42.60496392508135,
    "entryInfo": {
     "srcs": [
+     "profili",
+     "top boost",
+     "boost",
      "GMGN"
     ],
     "notes": [],
     "plus": [
-     "turnover 3.1x/h",
-     "72 smart money",
-     "3 KOL"
+     "turnover 22.4x/h",
+     "53 smart money",
+     "2 KOL"
     ],
     "m": {
-     "liq": 11159.98,
-     "mc": 22957,
-     "ageMin": 224.64745,
-     "v1": 34463.57,
-     "tx1": 1254,
-     "br1": 1.1730103806228374,
-     "br5": 1.4375,
-     "c5": 10.97,
-     "c1": -11.95,
-     "c6": -16.39,
-     "turn": 3.0881390468441703,
-     "price": 0.00002483,
-     "priceNative": 3.294e-7
-    },
-    "grok": null
-   }
-  },
-  {
-   "id": "P-0042",
-   "mint": "Ep13piLgesAxM32dB4hVAsmhfWcsTJqVKmQHkYCKpump",
-   "sym": "VICECITY",
-   "openedAt": 1794644032499,
-   "closedAt": 1794644265211,
-   "cost": 0.12298092608531008,
-   "back": 0.18027522571,
-   "pnl": 0.057294299624689904,
-   "pct": 46.58795591191571,
-   "mode": "paper",
-   "reason": "Chiusura manuale (app)",
-   "score": 84,
-   "solUsd": 75.37975998535178,
-   "peakPct": 52.890494016622384,
-   "trigPct": 52.890494016622384,
-   "entryInfo": {
-    "srcs": [
-     "profili"
-    ],
-    "notes": [],
-    "plus": [
-     "turnover 4.3x/h"
-    ],
-    "m": {
-     "liq": 22293.15,
-     "mc": 95095,
-     "ageMin": 12.291383333333334,
-     "v1": 96266.42,
-     "tx1": 4528,
-     "br1": 1.8616550852811118,
-     "br5": 1.0316901408450705,
-     "c5": 89.69,
-     "c1": 198,
-     "c6": 198,
-     "turn": 4.318206265153197,
-     "price": 0.00009509,
-     "priceNative": 0.000001263
-    },
-    "grok": null
-   }
-  },
-  {
-   "id": "P-0043",
-   "mint": "Aq38XaBAkzAtwbpvFKEzKg9hp1eZrEFV5W9H6XJjFUND",
-   "sym": "FUND",
-   "openedAt": 1794644268702,
-   "closedAt": 1794644503784,
-   "cost": 0.12871035604777908,
-   "back": 0.10121405905999999,
-   "pnl": -0.027496296987779098,
-   "pct": -21.362925122802153,
-   "mode": "paper",
-   "reason": "Stop loss",
-   "score": 74,
-   "solUsd": 75.41612073738703,
-   "peakPct": 19.57222084263861,
-   "trigPct": -31.147962998398672,
-   "entryInfo": {
-    "srcs": [
-     "profili"
-    ],
-    "notes": [
-     "bundler alti",
-     "bot 52%"
-    ],
-    "plus": [
-     "turnover 5.1x/h",
-     "pressione in acquisto",
-     "23 smart money"
-    ],
-    "m": {
-     "liq": 11113.38,
-     "mc": 27245,
-     "ageMin": 1.9592833333333333,
-     "v1": 56853.24,
-     "tx1": 1377,
-     "br1": 1.5256410256410255,
-     "br5": 1.5256410256410255,
-     "c5": -23.29,
-     "c1": -23.29,
-     "c6": -23.29,
-     "turn": 5.115746964469856,
-     "price": 0.00002729,
-     "priceNative": 3.621e-7
+     "liq": 16051.79,
+     "mc": 39562,
+     "ageMin": 45.56731666666666,
+     "v1": 359496.58,
+     "tx1": 8848,
+     "br1": 1.1691176470588236,
+     "br5": 1.491304347826087,
+     "c5": 2.49,
+     "c1": 51.88,
+     "c6": 51.88,
+     "turn": 22.396043058126228,
+     "price": 0.00004527,
+     "priceNative": 6.002e-7
     },
     "grok": null
    }
@@ -409,1610 +270,243 @@
  ],
  "signals": [
   {
-   "t": 1794641201800,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 74,
-   "priceNative": 0.00007368
-  },
-  {
-   "t": 1794641265353,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 77,
-   "priceNative": 0.00001276
-  },
-  {
-   "t": 1794641265353,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 74,
-   "priceNative": 0.00007333
-  },
-  {
-   "t": 1794641328246,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 78,
-   "priceNative": 0.00001352
-  },
-  {
-   "t": 1794641328246,
-   "mint": "DWsutTNJSjG5mkhGsPevvT8xbRtVYQBLZdxqxm2Upump",
-   "sym": "ASTRALIS",
-   "score": 74,
-   "priceNative": 0.00000287
-  },
-  {
-   "t": 1794641328246,
-   "mint": "6EK6KzPzCSFWx9tyXdaP2zNXPqt4ZNihFo1CJzacmmsQ",
-   "sym": "SAI",
-   "score": 73,
-   "priceNative": 3.724e-7
-  },
-  {
-   "t": 1794641328246,
-   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
-   "sym": "WISHMAS",
-   "score": 72,
-   "priceNative": 0.000002388
-  },
-  {
-   "t": 1794641391450,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 80,
-   "priceNative": 0.00001441
-  },
-  {
-   "t": 1794641391450,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 74,
-   "priceNative": 0.00007426
-  },
-  {
-   "t": 1794641439051,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 80,
-   "priceNative": 0.00001402
-  },
-  {
-   "t": 1794641439051,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 74,
-   "priceNative": 0.00007464
-  },
-  {
-   "t": 1794641501738,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 80,
-   "priceNative": 0.00001394
-  },
-  {
-   "t": 1794641501738,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 74,
-   "priceNative": 0.00007547
-  },
-  {
-   "t": 1794641564778,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 79,
-   "priceNative": 0.00001412
-  },
-  {
-   "t": 1794641627709,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 79,
-   "priceNative": 0.0000146
-  },
-  {
-   "t": 1794641627709,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 74,
-   "priceNative": 0.0000737
-  },
-  {
-   "t": 1794641690706,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 79,
-   "priceNative": 0.00001433
-  },
-  {
-   "t": 1794641690706,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 74,
-   "priceNative": 0.00007605
-  },
-  {
-   "t": 1794641740085,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 78,
-   "priceNative": 0.00001432
-  },
-  {
-   "t": 1794641740085,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 74,
-   "priceNative": 0.0000766
-  },
-  {
-   "t": 1794641803188,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 78,
-   "priceNative": 0.00001405
-  },
-  {
-   "t": 1794641803188,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 74,
-   "priceNative": 0.00007632
-  },
-  {
-   "t": 1794641866197,
-   "mint": "6EK6KzPzCSFWx9tyXdaP2zNXPqt4ZNihFo1CJzacmmsQ",
-   "sym": "SAI",
-   "score": 79,
-   "priceNative": 2.856e-7
-  },
-  {
-   "t": 1794641866197,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 78,
-   "priceNative": 0.00001485
-  },
-  {
-   "t": 1794641866197,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 74,
-   "priceNative": 0.00007364
-  },
-  {
-   "t": 1794641928816,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 83,
-   "priceNative": 0.00001546
-  },
-  {
-   "t": 1794641992705,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 78,
-   "priceNative": 0.00001516
-  },
-  {
-   "t": 1794641992705,
-   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
-   "sym": "WISHMAS",
-   "score": 75,
-   "priceNative": 0.000002179
-  },
-  {
-   "t": 1794642289071,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 72,
-   "priceNative": 0.00001307
-  },
-  {
-   "t": 1794642338462,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 74,
-   "priceNative": 0.00001393
-  },
-  {
-   "t": 1794642401205,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 74,
-   "priceNative": 0.00001412
-  },
-  {
-   "t": 1794642401205,
-   "mint": "6EK6KzPzCSFWx9tyXdaP2zNXPqt4ZNihFo1CJzacmmsQ",
-   "sym": "SAI",
-   "score": 73,
-   "priceNative": 4.325e-7
-  },
-  {
-   "t": 1794642464872,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 82,
-   "priceNative": 0.00001423
-  },
-  {
-   "t": 1794642464872,
-   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
-   "sym": "WISHMAS",
-   "score": 76,
-   "priceNative": 0.000002211
-  },
-  {
-   "t": 1794642464872,
-   "mint": "6EK6KzPzCSFWx9tyXdaP2zNXPqt4ZNihFo1CJzacmmsQ",
-   "sym": "SAI",
-   "score": 74,
-   "priceNative": 3.742e-7
-  },
-  {
-   "t": 1794642464872,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 72,
-   "priceNative": 0.00006216
-  },
-  {
-   "t": 1794642527541,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 82,
-   "priceNative": 0.00001423
-  },
-  {
-   "t": 1794642527541,
-   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
-   "sym": "WISHMAS",
-   "score": 76,
-   "priceNative": 0.000002143
-  },
-  {
-   "t": 1794642527541,
-   "mint": "6EK6KzPzCSFWx9tyXdaP2zNXPqt4ZNihFo1CJzacmmsQ",
-   "sym": "SAI",
-   "score": 74,
-   "priceNative": 3.944e-7
-  },
-  {
-   "t": 1794642527541,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 72,
-   "priceNative": 0.00005995
-  },
-  {
-   "t": 1794642590253,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 80,
-   "priceNative": 0.00001428
-  },
-  {
-   "t": 1794642590253,
-   "mint": "6EK6KzPzCSFWx9tyXdaP2zNXPqt4ZNihFo1CJzacmmsQ",
-   "sym": "SAI",
-   "score": 77,
-   "priceNative": 4.552e-7
-  },
-  {
-   "t": 1794642590253,
-   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
-   "sym": "WISHMAS",
-   "score": 76,
-   "priceNative": 0.000002143
-  },
-  {
-   "t": 1794642590253,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 74,
-   "priceNative": 0.00006006
-  },
-  {
-   "t": 1794642641239,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 85,
-   "priceNative": 0.00001477
-  },
-  {
-   "t": 1794642641239,
-   "mint": "6EK6KzPzCSFWx9tyXdaP2zNXPqt4ZNihFo1CJzacmmsQ",
-   "sym": "SAI",
-   "score": 77,
-   "priceNative": 4.566e-7
-  },
-  {
-   "t": 1794642641239,
-   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
-   "sym": "WISHMAS",
-   "score": 76,
-   "priceNative": 0.000002156
-  },
-  {
-   "t": 1794642641239,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 74,
-   "priceNative": 0.00006011
-  },
-  {
-   "t": 1794642704599,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 85,
-   "priceNative": 0.0000145
-  },
-  {
-   "t": 1794642704599,
-   "mint": "6EK6KzPzCSFWx9tyXdaP2zNXPqt4ZNihFo1CJzacmmsQ",
-   "sym": "SAI",
-   "score": 77,
-   "priceNative": 4.642e-7
-  },
-  {
-   "t": 1794642704599,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 74,
-   "priceNative": 0.00005913
-  },
-  {
-   "t": 1794642767220,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 80,
-   "priceNative": 0.00001462
-  },
-  {
-   "t": 1794642767220,
-   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
-   "sym": "WISHMAS",
-   "score": 75,
-   "priceNative": 0.00000223
-  },
-  {
-   "t": 1794642767220,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 74,
-   "priceNative": 0.00005816
-  },
-  {
-   "t": 1794642767220,
-   "mint": "6EK6KzPzCSFWx9tyXdaP2zNXPqt4ZNihFo1CJzacmmsQ",
-   "sym": "SAI",
-   "score": 72,
-   "priceNative": 4.014e-7
-  },
-  {
-   "t": 1794642829864,
+   "t": 1794645041012,
    "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
    "sym": "JENSEN",
    "score": 81,
-   "priceNative": 0.00001414
+   "priceNative": 0.0000124
   },
   {
-   "t": 1794642829864,
-   "mint": "RA23GF9Jw9x2xqVfH1XhfBfa5TnWJC9uLDFHeU5pump",
-   "sym": "SCRAP",
-   "score": 76,
-   "priceNative": 9.475e-7
-  },
-  {
-   "t": 1794642829864,
-   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
-   "sym": "WISHMAS",
-   "score": 75,
-   "priceNative": 0.000002231
-  },
-  {
-   "t": 1794642829864,
+   "t": 1794645041012,
    "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
    "sym": "AMC",
-   "score": 74,
-   "priceNative": 0.00005851
+   "score": 80,
+   "priceNative": 0.00005911
   },
   {
-   "t": 1794642829864,
-   "mint": "6EK6KzPzCSFWx9tyXdaP2zNXPqt4ZNihFo1CJzacmmsQ",
-   "sym": "SAI",
-   "score": 72,
-   "priceNative": 4.025e-7
-  },
-  {
-   "t": 1794642893520,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 81,
-   "priceNative": 0.00001483
-  },
-  {
-   "t": 1794642893520,
-   "mint": "RA23GF9Jw9x2xqVfH1XhfBfa5TnWJC9uLDFHeU5pump",
-   "sym": "SCRAP",
-   "score": 76,
-   "priceNative": 0.000001085
-  },
-  {
-   "t": 1794642893520,
-   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
-   "sym": "WISHMAS",
-   "score": 75,
-   "priceNative": 0.000002231
-  },
-  {
-   "t": 1794642893520,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 74,
-   "priceNative": 0.00005921
-  },
-  {
-   "t": 1794642942586,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 74,
-   "priceNative": 0.00001463
-  },
-  {
-   "t": 1794642942586,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 74,
-   "priceNative": 0.00006043
-  },
-  {
-   "t": 1794643005987,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 83,
-   "priceNative": 0.00001506
-  },
-  {
-   "t": 1794643005987,
-   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
-   "sym": "WISHMAS",
-   "score": 76,
-   "priceNative": 0.000002364
-  },
-  {
-   "t": 1794643005987,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 75,
-   "priceNative": 0.00006062
-  },
-  {
-   "t": 1794643005987,
-   "mint": "7x8HCyf5Z3JYWXmC7p6C4w11Hw6JAXFEiZy6PCDBpump",
-   "sym": "SCRAP",
-   "score": 73,
-   "priceNative": 1.042e-7
-  },
-  {
-   "t": 1794643005987,
-   "mint": "RA23GF9Jw9x2xqVfH1XhfBfa5TnWJC9uLDFHeU5pump",
-   "sym": "SCRAP",
-   "score": 73,
-   "priceNative": 0.000001395
-  },
-  {
-   "t": 1794643068626,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 82,
-   "priceNative": 0.00001525
-  },
-  {
-   "t": 1794643068626,
-   "mint": "7x8HCyf5Z3JYWXmC7p6C4w11Hw6JAXFEiZy6PCDBpump",
-   "sym": "SCRAP",
-   "score": 77,
-   "priceNative": 9.741e-8
-  },
-  {
-   "t": 1794643068626,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 76,
-   "priceNative": 0.00006171
-  },
-  {
-   "t": 1794643068626,
-   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
-   "sym": "WISHMAS",
-   "score": 76,
-   "priceNative": 0.000002364
-  },
-  {
-   "t": 1794643068626,
-   "mint": "RA23GF9Jw9x2xqVfH1XhfBfa5TnWJC9uLDFHeU5pump",
-   "sym": "SCRAP",
-   "score": 73,
-   "priceNative": 0.000001474
-  },
-  {
-   "t": 1794643132105,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 87,
-   "priceNative": 0.00001535
-  },
-  {
-   "t": 1794643132105,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 81,
-   "priceNative": 0.00006257
-  },
-  {
-   "t": 1794643132105,
-   "mint": "7x8HCyf5Z3JYWXmC7p6C4w11Hw6JAXFEiZy6PCDBpump",
-   "sym": "SCRAP",
-   "score": 78,
-   "priceNative": 1.074e-7
-  },
-  {
-   "t": 1794643132105,
-   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
-   "sym": "WISHMAS",
-   "score": 76,
-   "priceNative": 0.000002487
-  },
-  {
-   "t": 1794643132105,
-   "mint": "RA23GF9Jw9x2xqVfH1XhfBfa5TnWJC9uLDFHeU5pump",
-   "sym": "SCRAP",
-   "score": 73,
-   "priceNative": 0.000001455
-  },
-  {
-   "t": 1794643194576,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 87,
-   "priceNative": 0.0000154
-  },
-  {
-   "t": 1794643194576,
-   "mint": "7x8HCyf5Z3JYWXmC7p6C4w11Hw6JAXFEiZy6PCDBpump",
-   "sym": "SCRAP",
-   "score": 79,
-   "priceNative": 1.288e-7
-  },
-  {
-   "t": 1794643194576,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 76,
-   "priceNative": 0.00006296
-  },
-  {
-   "t": 1794643194576,
-   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
-   "sym": "WISHMAS",
-   "score": 75,
-   "priceNative": 0.000002479
-  },
-  {
-   "t": 1794643194576,
-   "mint": "RA23GF9Jw9x2xqVfH1XhfBfa5TnWJC9uLDFHeU5pump",
-   "sym": "SCRAP",
-   "score": 72,
-   "priceNative": 0.000001397
-  },
-  {
-   "t": 1794643241353,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 86,
-   "priceNative": 0.00001646
-  },
-  {
-   "t": 1794643241353,
-   "mint": "7x8HCyf5Z3JYWXmC7p6C4w11Hw6JAXFEiZy6PCDBpump",
-   "sym": "SCRAP",
-   "score": 76,
-   "priceNative": 1.577e-7
-  },
-  {
-   "t": 1794643241353,
-   "mint": "A5bpyAGdSPKwX3YDyF563DmbVSfM3EcYgBPjPna8pump",
-   "sym": "UP",
-   "score": 76,
-   "priceNative": 3.218e-7
-  },
-  {
-   "t": 1794643241353,
-   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
-   "sym": "WISHMAS",
-   "score": 75,
-   "priceNative": 0.00000241
-  },
-  {
-   "t": 1794643241353,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 75,
-   "priceNative": 0.00006343
-  },
-  {
-   "t": 1794643304450,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 85,
-   "priceNative": 0.00001589
-  },
-  {
-   "t": 1794643304450,
-   "mint": "A5bpyAGdSPKwX3YDyF563DmbVSfM3EcYgBPjPna8pump",
-   "sym": "UP",
-   "score": 77,
-   "priceNative": 3.294e-7
-  },
-  {
-   "t": 1794643304450,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 74,
-   "priceNative": 0.00006336
-  },
-  {
-   "t": 1794643304450,
-   "mint": "6EK6KzPzCSFWx9tyXdaP2zNXPqt4ZNihFo1CJzacmmsQ",
-   "sym": "SAI",
-   "score": 73,
-   "priceNative": 2.301e-7
-  },
-  {
-   "t": 1794643368107,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 85,
-   "priceNative": 0.00001613
-  },
-  {
-   "t": 1794643368107,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 75,
-   "priceNative": 0.00006292
-  },
-  {
-   "t": 1794643368107,
-   "mint": "A5bpyAGdSPKwX3YDyF563DmbVSfM3EcYgBPjPna8pump",
-   "sym": "UP",
-   "score": 72,
-   "priceNative": 3.21e-7
-  },
-  {
-   "t": 1794643431094,
+   "t": 1794645105277,
    "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
    "sym": "JENSEN",
    "score": 88,
-   "priceNative": 0.000016
+   "priceNative": 0.00001251
   },
   {
-   "t": 1794643431094,
-   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
-   "sym": "WISHMAS",
-   "score": 77,
-   "priceNative": 0.000002555
-  },
-  {
-   "t": 1794643431094,
-   "mint": "RA23GF9Jw9x2xqVfH1XhfBfa5TnWJC9uLDFHeU5pump",
-   "sym": "SCRAP",
-   "score": 75,
-   "priceNative": 0.000001544
-  },
-  {
-   "t": 1794643431094,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 74,
-   "priceNative": 0.00006279
-  },
-  {
-   "t": 1794643494069,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 88,
-   "priceNative": 0.00001595
-  },
-  {
-   "t": 1794643494069,
-   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
-   "sym": "WISHMAS",
-   "score": 78,
-   "priceNative": 0.000002602
-  },
-  {
-   "t": 1794643494069,
-   "mint": "7x8HCyf5Z3JYWXmC7p6C4w11Hw6JAXFEiZy6PCDBpump",
-   "sym": "SCRAP",
-   "score": 76,
-   "priceNative": 3.497e-7
-  },
-  {
-   "t": 1794643494069,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 75,
-   "priceNative": 0.00006226
-  },
-  {
-   "t": 1794643494069,
-   "mint": "A5bpyAGdSPKwX3YDyF563DmbVSfM3EcYgBPjPna8pump",
-   "sym": "UP",
-   "score": 74,
-   "priceNative": 3.354e-7
-  },
-  {
-   "t": 1794643538049,
-   "mint": "7x8HCyf5Z3JYWXmC7p6C4w11Hw6JAXFEiZy6PCDBpump",
-   "sym": "SCRAP",
-   "score": 80,
-   "priceNative": 4.047e-7
-  },
-  {
-   "t": 1794643538049,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 76,
-   "priceNative": 0.0000158
-  },
-  {
-   "t": 1794643538049,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 75,
-   "priceNative": 0.0000619
-  },
-  {
-   "t": 1794643600956,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 76,
-   "priceNative": 0.00001595
-  },
-  {
-   "t": 1794643600956,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 75,
-   "priceNative": 0.00006105
-  },
-  {
-   "t": 1794643600956,
-   "mint": "7x8HCyf5Z3JYWXmC7p6C4w11Hw6JAXFEiZy6PCDBpump",
-   "sym": "SCRAP",
-   "score": 72,
-   "priceNative": 3.798e-7
-  },
-  {
-   "t": 1794643663751,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 83,
-   "priceNative": 0.00001635
-  },
-  {
-   "t": 1794643663751,
-   "mint": "7x8HCyf5Z3JYWXmC7p6C4w11Hw6JAXFEiZy6PCDBpump",
-   "sym": "SCRAP",
-   "score": 79,
-   "priceNative": 6.702e-7
-  },
-  {
-   "t": 1794643663751,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 75,
-   "priceNative": 0.00006074
-  },
-  {
-   "t": 1794643726221,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 83,
-   "priceNative": 0.00001643
-  },
-  {
-   "t": 1794643726221,
-   "mint": "7x8HCyf5Z3JYWXmC7p6C4w11Hw6JAXFEiZy6PCDBpump",
-   "sym": "SCRAP",
-   "score": 81,
-   "priceNative": 8.406e-7
-  },
-  {
-   "t": 1794643726221,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 75,
-   "priceNative": 0.00005895
-  },
-  {
-   "t": 1794643789242,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 91,
-   "priceNative": 0.00001627
-  },
-  {
-   "t": 1794643789242,
-   "mint": "7x8HCyf5Z3JYWXmC7p6C4w11Hw6JAXFEiZy6PCDBpump",
-   "sym": "SCRAP",
-   "score": 84,
-   "priceNative": 5.463e-7
-  },
-  {
-   "t": 1794643789242,
-   "mint": "RA23GF9Jw9x2xqVfH1XhfBfa5TnWJC9uLDFHeU5pump",
-   "sym": "SCRAP",
-   "score": 81,
-   "priceNative": 0.000001039
-  },
-  {
-   "t": 1794643789242,
-   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
-   "sym": "WISHMAS",
-   "score": 79,
-   "priceNative": 0.000002476
-  },
-  {
-   "t": 1794643789242,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 76,
-   "priceNative": 0.00005909
-  },
-  {
-   "t": 1794643842400,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 91,
-   "priceNative": 0.00001667
-  },
-  {
-   "t": 1794643842400,
-   "mint": "7x8HCyf5Z3JYWXmC7p6C4w11Hw6JAXFEiZy6PCDBpump",
-   "sym": "SCRAP",
+   "t": 1794645105277,
+   "mint": "6EK6KzPzCSFWx9tyXdaP2zNXPqt4ZNihFo1CJzacmmsQ",
+   "sym": "SAI",
    "score": 82,
-   "priceNative": 9.024e-7
+   "priceNative": 3.023e-7
   },
   {
-   "t": 1794643842400,
-   "mint": "RA23GF9Jw9x2xqVfH1XhfBfa5TnWJC9uLDFHeU5pump",
-   "sym": "SCRAP",
-   "score": 79,
-   "priceNative": 5.421e-7
-  },
-  {
-   "t": 1794643842400,
-   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
-   "sym": "WISHMAS",
-   "score": 79,
-   "priceNative": 0.000002438
-  },
-  {
-   "t": 1794643842400,
-   "mint": "6EK6KzPzCSFWx9tyXdaP2zNXPqt4ZNihFo1CJzacmmsQ",
-   "sym": "SAI",
-   "score": 72,
-   "priceNative": 1.967e-7
-  },
-  {
-   "t": 1794643906117,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 92,
-   "priceNative": 0.0000172
-  },
-  {
-   "t": 1794643906117,
-   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
-   "sym": "WISHMAS",
-   "score": 84,
-   "priceNative": 0.000002363
-  },
-  {
-   "t": 1794643906117,
+   "t": 1794645105277,
    "mint": "7x8HCyf5Z3JYWXmC7p6C4w11Hw6JAXFEiZy6PCDBpump",
    "sym": "SCRAP",
-   "score": 78,
-   "priceNative": 8.07e-7
-  },
-  {
-   "t": 1794643906117,
-   "mint": "RA23GF9Jw9x2xqVfH1XhfBfa5TnWJC9uLDFHeU5pump",
-   "sym": "SCRAP",
-   "score": 78,
-   "priceNative": 6.649e-7
-  },
-  {
-   "t": 1794643906117,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 78,
-   "priceNative": 0.00005965
-  },
-  {
-   "t": 1794643969299,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 92,
-   "priceNative": 0.00001722
-  },
-  {
-   "t": 1794643969299,
-   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
-   "sym": "WISHMAS",
-   "score": 84,
-   "priceNative": 0.000002436
-  },
-  {
-   "t": 1794643969299,
-   "mint": "7x8HCyf5Z3JYWXmC7p6C4w11Hw6JAXFEiZy6PCDBpump",
-   "sym": "SCRAP",
-   "score": 79,
-   "priceNative": 0.00000143
-  },
-  {
-   "t": 1794643969299,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 79,
-   "priceNative": 0.00006049
-  },
-  {
-   "t": 1794643969299,
-   "mint": "RA23GF9Jw9x2xqVfH1XhfBfa5TnWJC9uLDFHeU5pump",
-   "sym": "SCRAP",
-   "score": 77,
-   "priceNative": 6.089e-7
-  },
-  {
-   "t": 1794644032471,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 92,
-   "priceNative": 0.00001668
-  },
-  {
-   "t": 1794644032471,
-   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
-   "sym": "WISHMAS",
-   "score": 84,
-   "priceNative": 0.00000247
-  },
-  {
-   "t": 1794644032471,
-   "mint": "Ep13piLgesAxM32dB4hVAsmhfWcsTJqVKmQHkYCKpump",
-   "sym": "VICECITY",
-   "score": 84,
-   "priceNative": 0.000001263
-  },
-  {
-   "t": 1794644032471,
-   "mint": "6EK6KzPzCSFWx9tyXdaP2zNXPqt4ZNihFo1CJzacmmsQ",
-   "sym": "SAI",
    "score": 81,
-   "priceNative": 2.58e-7
+   "priceNative": 6.002e-7
   },
   {
-   "t": 1794644032471,
-   "mint": "8w1mrx9uRRJ87rS8e7nmjWL1m6b5ocVudtyxt9iDpump",
-   "sym": "TOONFOLD",
-   "score": 78,
-   "priceNative": 5.471e-7
-  },
-  {
-   "t": 1794644032471,
-   "mint": "RA23GF9Jw9x2xqVfH1XhfBfa5TnWJC9uLDFHeU5pump",
-   "sym": "SCRAP",
-   "score": 76,
-   "priceNative": 4.832e-7
-  },
-  {
-   "t": 1794644032471,
-   "mint": "A5bpyAGdSPKwX3YDyF563DmbVSfM3EcYgBPjPna8pump",
-   "sym": "UP",
-   "score": 74,
-   "priceNative": 2.727e-7
-  },
-  {
-   "t": 1794644095682,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 92,
-   "priceNative": 0.00001749
-  },
-  {
-   "t": 1794644095682,
-   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
-   "sym": "WISHMAS",
-   "score": 85,
-   "priceNative": 0.000002443
-  },
-  {
-   "t": 1794644095682,
-   "mint": "Ep13piLgesAxM32dB4hVAsmhfWcsTJqVKmQHkYCKpump",
-   "sym": "VICECITY",
-   "score": 83,
-   "priceNative": 0.000001175
-  },
-  {
-   "t": 1794644095682,
-   "mint": "7x8HCyf5Z3JYWXmC7p6C4w11Hw6JAXFEiZy6PCDBpump",
-   "sym": "SCRAP",
+   "t": 1794645105277,
+   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
+   "sym": "AMC",
    "score": 80,
-   "priceNative": 0.000001529
+   "priceNative": 0.00005981
   },
   {
-   "t": 1794644095682,
-   "mint": "A5bpyAGdSPKwX3YDyF563DmbVSfM3EcYgBPjPna8pump",
-   "sym": "UP",
-   "score": 74,
-   "priceNative": 2.757e-7
-  },
-  {
-   "t": 1794644141404,
-   "mint": "Ep13piLgesAxM32dB4hVAsmhfWcsTJqVKmQHkYCKpump",
-   "sym": "VICECITY",
-   "score": 83,
-   "priceNative": 0.000001272
-  },
-  {
-   "t": 1794644141404,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 78,
-   "priceNative": 0.00001715
-  },
-  {
-   "t": 1794644141404,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 78,
-   "priceNative": 0.00006002
-  },
-  {
-   "t": 1794644204864,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 92,
-   "priceNative": 0.00001738
-  },
-  {
-   "t": 1794644204864,
-   "mint": "6EK6KzPzCSFWx9tyXdaP2zNXPqt4ZNihFo1CJzacmmsQ",
-   "sym": "SAI",
-   "score": 85,
-   "priceNative": 3.176e-7
-  },
-  {
-   "t": 1794644204864,
+   "t": 1794645105277,
    "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
    "sym": "WISHMAS",
-   "score": 85,
-   "priceNative": 0.000002475
+   "score": 79,
+   "priceNative": 0.000002354
   },
   {
-   "t": 1794644204864,
-   "mint": "A5bpyAGdSPKwX3YDyF563DmbVSfM3EcYgBPjPna8pump",
-   "sym": "UP",
-   "score": 78,
-   "priceNative": 2.809e-7
-  },
-  {
-   "t": 1794644204864,
-   "mint": "9sFGCTjEsBk78uC2bCdxtwuUM1aartbBhe8WQXwRpump",
-   "sym": "Sakura",
-   "score": 77,
-   "priceNative": 0.000001599
-  },
-  {
-   "t": 1794644268643,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 91,
-   "priceNative": 0.00001778
-  },
-  {
-   "t": 1794644268643,
-   "mint": "6EK6KzPzCSFWx9tyXdaP2zNXPqt4ZNihFo1CJzacmmsQ",
-   "sym": "SAI",
-   "score": 84,
-   "priceNative": 2.279e-7
-  },
-  {
-   "t": 1794644268643,
-   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
-   "sym": "WISHMAS",
-   "score": 83,
-   "priceNative": 0.000002388
-  },
-  {
-   "t": 1794644268643,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 78,
-   "priceNative": 0.00006001
-  },
-  {
-   "t": 1794644268643,
-   "mint": "Aq38XaBAkzAtwbpvFKEzKg9hp1eZrEFV5W9H6XJjFUND",
-   "sym": "FUND",
-   "score": 74,
-   "priceNative": 3.621e-7
-  },
-  {
-   "t": 1794644331515,
+   "t": 1794645168907,
    "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
    "sym": "JENSEN",
    "score": 86,
-   "priceNative": 0.00001856
+   "priceNative": 0.00001296
   },
   {
-   "t": 1794644331515,
+   "t": 1794645168907,
    "mint": "6EK6KzPzCSFWx9tyXdaP2zNXPqt4ZNihFo1CJzacmmsQ",
    "sym": "SAI",
    "score": 85,
-   "priceNative": 2.628e-7
+   "priceNative": 3.205e-7
   },
   {
-   "t": 1794644331515,
+   "t": 1794645168907,
    "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
    "sym": "WISHMAS",
    "score": 84,
-   "priceNative": 0.000002407
+   "priceNative": 0.000002366
   },
   {
-   "t": 1794644331515,
-   "mint": "Aq38XaBAkzAtwbpvFKEzKg9hp1eZrEFV5W9H6XJjFUND",
-   "sym": "FUND",
-   "score": 82,
-   "priceNative": 4.392e-7
-  },
-  {
-   "t": 1794644331515,
-   "mint": "RA23GF9Jw9x2xqVfH1XhfBfa5TnWJC9uLDFHeU5pump",
+   "t": 1794645168907,
+   "mint": "7x8HCyf5Z3JYWXmC7p6C4w11Hw6JAXFEiZy6PCDBpump",
    "sym": "SCRAP",
-   "score": 75,
-   "priceNative": 6.327e-7
+   "score": 83,
+   "priceNative": 7.914e-7
   },
   {
-   "t": 1794644394487,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 91,
-   "priceNative": 0.00001725
-  },
-  {
-   "t": 1794644394487,
-   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
-   "sym": "WISHMAS",
-   "score": 84,
-   "priceNative": 0.000002389
-  },
-  {
-   "t": 1794644394487,
-   "mint": "Aq38XaBAkzAtwbpvFKEzKg9hp1eZrEFV5W9H6XJjFUND",
-   "sym": "FUND",
+   "t": 1794645168907,
+   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
+   "sym": "AMC",
    "score": 81,
-   "priceNative": 4.203e-7
+   "priceNative": 0.00006077
   },
   {
-   "t": 1794644394487,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 78,
-   "priceNative": 0.00006012
-  },
-  {
-   "t": 1794644394487,
+   "t": 1794645168907,
    "mint": "RA23GF9Jw9x2xqVfH1XhfBfa5TnWJC9uLDFHeU5pump",
    "sym": "SCRAP",
-   "score": 76,
-   "priceNative": 5.786e-7
-  },
-  {
-   "t": 1794644394487,
-   "mint": "6EK6KzPzCSFWx9tyXdaP2zNXPqt4ZNihFo1CJzacmmsQ",
-   "sym": "SAI",
    "score": 74,
-   "priceNative": 2.578e-7
+   "priceNative": 3.001e-7
   },
   {
-   "t": 1794644440258,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 82,
-   "priceNative": 0.00001794
-  },
-  {
-   "t": 1794644440258,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 79,
-   "priceNative": 0.00005964
-  },
-  {
-   "t": 1794644440258,
-   "mint": "Aq38XaBAkzAtwbpvFKEzKg9hp1eZrEFV5W9H6XJjFUND",
-   "sym": "FUND",
-   "score": 76,
-   "priceNative": 4.3e-7
-  },
-  {
-   "t": 1794644503757,
+   "t": 1794645232665,
    "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
    "sym": "JENSEN",
    "score": 86,
-   "priceNative": 0.00001687
+   "priceNative": 0.00001311
   },
   {
-   "t": 1794644503757,
-   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
-   "sym": "WISHMAS",
-   "score": 84,
-   "priceNative": 0.000002355
-  },
-  {
-   "t": 1794644503757,
+   "t": 1794645232665,
    "mint": "6EK6KzPzCSFWx9tyXdaP2zNXPqt4ZNihFo1CJzacmmsQ",
    "sym": "SAI",
-   "score": 78,
-   "priceNative": 2.562e-7
-  },
-  {
-   "t": 1794644566858,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
    "score": 85,
-   "priceNative": 0.00001312
+   "priceNative": 3.135e-7
   },
   {
-   "t": 1794644566858,
-   "mint": "6EK6KzPzCSFWx9tyXdaP2zNXPqt4ZNihFo1CJzacmmsQ",
-   "sym": "SAI",
-   "score": 83,
-   "priceNative": 2.579e-7
-  },
-  {
-   "t": 1794644566858,
-   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
-   "sym": "WISHMAS",
-   "score": 79,
-   "priceNative": 0.000002323
-  },
-  {
-   "t": 1794644566858,
+   "t": 1794645232665,
    "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
    "sym": "AMC",
-   "score": 79,
-   "priceNative": 0.00005945
-  },
-  {
-   "t": 1794644566858,
-   "mint": "Aq38XaBAkzAtwbpvFKEzKg9hp1eZrEFV5W9H6XJjFUND",
-   "sym": "FUND",
-   "score": 78,
-   "priceNative": 2.809e-7
-  },
-  {
-   "t": 1794644629974,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 86,
-   "priceNative": 0.00001351
-  },
-  {
-   "t": 1794644629975,
-   "mint": "6EK6KzPzCSFWx9tyXdaP2zNXPqt4ZNihFo1CJzacmmsQ",
-   "sym": "SAI",
-   "score": 80,
-   "priceNative": 2.38e-7
-  },
-  {
-   "t": 1794644629975,
-   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
-   "sym": "WISHMAS",
-   "score": 79,
-   "priceNative": 0.000002352
-  },
-  {
-   "t": 1794644629975,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 78,
-   "priceNative": 0.00005955
-  },
-  {
-   "t": 1794644629975,
-   "mint": "Aq38XaBAkzAtwbpvFKEzKg9hp1eZrEFV5W9H6XJjFUND",
-   "sym": "FUND",
-   "score": 77,
-   "priceNative": 2.769e-7
-  },
-  {
-   "t": 1794644692604,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 89,
-   "priceNative": 0.00001371
-  },
-  {
-   "t": 1794644692604,
-   "mint": "6EK6KzPzCSFWx9tyXdaP2zNXPqt4ZNihFo1CJzacmmsQ",
-   "sym": "SAI",
-   "score": 83,
-   "priceNative": 2.767e-7
-  },
-  {
-   "t": 1794644692604,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 79,
-   "priceNative": 0.00005768
-  },
-  {
-   "t": 1794644692604,
-   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
-   "sym": "WISHMAS",
-   "score": 79,
-   "priceNative": 0.000002443
-  },
-  {
-   "t": 1794644692604,
-   "mint": "Aq38XaBAkzAtwbpvFKEzKg9hp1eZrEFV5W9H6XJjFUND",
-   "sym": "FUND",
-   "score": 78,
-   "priceNative": 3.007e-7
-  },
-  {
-   "t": 1794644741689,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 91,
-   "priceNative": 0.00001358
-  },
-  {
-   "t": 1794644741689,
-   "mint": "6EK6KzPzCSFWx9tyXdaP2zNXPqt4ZNihFo1CJzacmmsQ",
-   "sym": "SAI",
    "score": 82,
-   "priceNative": 3.306e-7
+   "priceNative": 0.00006005
   },
   {
-   "t": 1794644741689,
-   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
-   "sym": "WISHMAS",
-   "score": 79,
-   "priceNative": 0.000002381
-  },
-  {
-   "t": 1794644741689,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 78,
-   "priceNative": 0.0000573
-  },
-  {
-   "t": 1794644741689,
+   "t": 1794645232665,
    "mint": "7x8HCyf5Z3JYWXmC7p6C4w11Hw6JAXFEiZy6PCDBpump",
    "sym": "SCRAP",
-   "score": 74,
-   "priceNative": 5.473e-7
+   "score": 81,
+   "priceNative": 7.888e-7
   },
   {
-   "t": 1794644805164,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 91,
-   "priceNative": 0.00001396
-  },
-  {
-   "t": 1794644805164,
-   "mint": "6EK6KzPzCSFWx9tyXdaP2zNXPqt4ZNihFo1CJzacmmsQ",
-   "sym": "SAI",
-   "score": 83,
-   "priceNative": 3.146e-7
-  },
-  {
-   "t": 1794644805164,
+   "t": 1794645232665,
    "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
    "sym": "WISHMAS",
-   "score": 79,
-   "priceNative": 0.000002372
-  },
-  {
-   "t": 1794644805164,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 79,
-   "priceNative": 0.00005769
-  },
-  {
-   "t": 1794644805164,
-   "mint": "Aq38XaBAkzAtwbpvFKEzKg9hp1eZrEFV5W9H6XJjFUND",
-   "sym": "FUND",
    "score": 76,
-   "priceNative": 1.675e-7
+   "priceNative": 0.00000252
   },
   {
-   "t": 1794644805164,
-   "mint": "7x8HCyf5Z3JYWXmC7p6C4w11Hw6JAXFEiZy6PCDBpump",
-   "sym": "SCRAP",
-   "score": 74,
-   "priceNative": 5.647e-7
+   "t": 1794645232665,
+   "mint": "A5bpyAGdSPKwX3YDyF563DmbVSfM3EcYgBPjPna8pump",
+   "sym": "UP",
+   "score": 75,
+   "priceNative": 2.254e-7
   },
   {
-   "t": 1794644805164,
-   "mint": "RA23GF9Jw9x2xqVfH1XhfBfa5TnWJC9uLDFHeU5pump",
-   "sym": "SCRAP",
-   "score": 73,
-   "priceNative": 3.793e-7
-  },
-  {
-   "t": 1794644867785,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 91,
-   "priceNative": 0.00001331
-  },
-  {
-   "t": 1794644867785,
-   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
-   "sym": "WISHMAS",
-   "score": 84,
-   "priceNative": 0.000002393
-  },
-  {
-   "t": 1794644867785,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 79,
-   "priceNative": 0.0000577
-  },
-  {
-   "t": 1794644867785,
-   "mint": "6EK6KzPzCSFWx9tyXdaP2zNXPqt4ZNihFo1CJzacmmsQ",
-   "sym": "SAI",
-   "score": 78,
-   "priceNative": 2.898e-7
-  },
-  {
-   "t": 1794644867785,
-   "mint": "Aq38XaBAkzAtwbpvFKEzKg9hp1eZrEFV5W9H6XJjFUND",
-   "sym": "FUND",
-   "score": 77,
-   "priceNative": 1.7e-7
-  },
-  {
-   "t": 1794644867785,
-   "mint": "7x8HCyf5Z3JYWXmC7p6C4w11Hw6JAXFEiZy6PCDBpump",
-   "sym": "SCRAP",
-   "score": 74,
-   "priceNative": 6.008e-7
-  },
-  {
-   "t": 1794644867785,
+   "t": 1794645232665,
    "mint": "RA23GF9Jw9x2xqVfH1XhfBfa5TnWJC9uLDFHeU5pump",
    "sym": "SCRAP",
    "score": 74,
-   "priceNative": 3.722e-7
+   "priceNative": 3.025e-7
   },
   {
-   "t": 1794644933234,
+   "t": 1794645297071,
    "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
    "sym": "JENSEN",
-   "score": 91,
-   "priceNative": 0.0000126
+   "score": 87,
+   "priceNative": 0.00001151
   },
   {
-   "t": 1794644933234,
+   "t": 1794645297071,
    "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
    "sym": "AMC",
-   "score": 80,
-   "priceNative": 0.00005839
+   "score": 82,
+   "priceNative": 0.00005682
   },
   {
-   "t": 1794644933234,
-   "mint": "6EK6KzPzCSFWx9tyXdaP2zNXPqt4ZNihFo1CJzacmmsQ",
-   "sym": "SAI",
-   "score": 78,
-   "priceNative": 2.728e-7
-  },
-  {
-   "t": 1794644933234,
-   "mint": "Aq38XaBAkzAtwbpvFKEzKg9hp1eZrEFV5W9H6XJjFUND",
-   "sym": "FUND",
-   "score": 77,
-   "priceNative": 2.234e-7
-  },
-  {
-   "t": 1794644933234,
-   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
-   "sym": "WISHMAS",
-   "score": 77,
-   "priceNative": 0.000002344
-  },
-  {
-   "t": 1794644933234,
-   "mint": "RA23GF9Jw9x2xqVfH1XhfBfa5TnWJC9uLDFHeU5pump",
-   "sym": "SCRAP",
-   "score": 72,
-   "priceNative": 3.012e-7
-  },
-  {
-   "t": 1794644996254,
-   "mint": "B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump",
-   "sym": "JENSEN",
-   "score": 90,
-   "priceNative": 0.00001252
-  },
-  {
-   "t": 1794644996254,
-   "mint": "HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump",
-   "sym": "AMC",
-   "score": 80,
-   "priceNative": 0.0000588
-  },
-  {
-   "t": 1794644996254,
-   "mint": "Aq38XaBAkzAtwbpvFKEzKg9hp1eZrEFV5W9H6XJjFUND",
-   "sym": "FUND",
-   "score": 80,
-   "priceNative": 1.929e-7
-  },
-  {
-   "t": 1794644996254,
-   "mint": "6EK6KzPzCSFWx9tyXdaP2zNXPqt4ZNihFo1CJzacmmsQ",
-   "sym": "SAI",
-   "score": 80,
-   "priceNative": 2.893e-7
-  },
-  {
-   "t": 1794644996254,
-   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
-   "sym": "WISHMAS",
-   "score": 78,
-   "priceNative": 0.000002341
-  },
-  {
-   "t": 1794644996254,
+   "t": 1794645297071,
    "mint": "7x8HCyf5Z3JYWXmC7p6C4w11Hw6JAXFEiZy6PCDBpump",
    "sym": "SCRAP",
-   "score": 72,
-   "priceNative": 7.804e-7
+   "score": 81,
+   "priceNative": 8.537e-7
   },
   {
-   "t": 1794644996254,
+   "t": 1794645297071,
+   "mint": "6EK6KzPzCSFWx9tyXdaP2zNXPqt4ZNihFo1CJzacmmsQ",
+   "sym": "SAI",
+   "score": 77,
+   "priceNative": 3.043e-7
+  },
+  {
+   "t": 1794645297071,
+   "mint": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
+   "sym": "WISHMAS",
+   "score": 76,
+   "priceNative": 0.000002533
+  },
+  {
+   "t": 1794645297071,
+   "mint": "A5bpyAGdSPKwX3YDyF563DmbVSfM3EcYgBPjPna8pump",
+   "sym": "UP",
+   "score": 75,
+   "priceNative": 2.35e-7
+  },
+  {
+   "t": 1794645297071,
    "mint": "RA23GF9Jw9x2xqVfH1XhfBfa5TnWJC9uLDFHeU5pump",
    "sym": "SCRAP",
-   "score": 72,
-   "priceNative": 3.137e-7
+   "score": 74,
+   "priceNative": 2.964e-7
   }
  ],
  "day": {
   "date": "2026-11-14",
   "startEq": 1.3
  },
- "cooldownUntil": 1794644503785,
+ "cooldownUntil": 1794645294230,
  "halted": null,
- "seq": 43,
+ "seq": 48,
  "events": [
+  "08:35:05 SCRIBE   fine run · trade 2 · win 0% · P&L -0.0338 SOL · equity 1.2457 SOL",
+  "08:34:57 KAISER   limite 1 ingresso/i per scan: $SCRAP rimandato",
+  "08:34:57 KAISER   limite 1 ingresso/i per scan: $UP rimandato",
+  "08:34:57 QUARTER  BUY $WISHMAS 0.125 SOL score 76 impatto 1.62% (Jupiter)",
+  "08:34:57 ORACLE   90 raccolti, 66 analizzati, 7 BUY, 36 veto",
+  "08:34:55 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 08:35:24 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
+  "08:34:54 SCRIBE   chiuso P-0045 $SCRAP -0.0117 SOL (-8.9%)",
+  "08:34:54 CHARON   Chiusura manuale (app) $SCRAP vendo 100% a 42.6% -> 0.0330 SOL",
+  "08:34:54 KAISER   chiusura manuale dall'app: P-0045 SCRAP",
+  "08:34:53 SCRIBE   chiuso P-0044 $JENSEN -0.0221 SOL (-16.9%)",
+  "08:34:53 CHARON   Chiusura manuale (app) $JENSEN vendo 100% a 1.0% -> 0.1086 SOL",
+  "08:34:53 KAISER   chiusura manuale dall'app: P-0044 JENSEN",
+  "08:33:53 KAISER   limite 1 ingresso/i per scan: $SCRAP rimandato",
+  "08:33:53 KAISER   limite 1 ingresso/i per scan: $UP rimandato",
+  "08:33:53 KAISER   limite 1 ingresso/i per scan: $WISHMAS rimandato",
+  "08:33:53 KAISER   limite 1 ingresso/i per scan: $SCRAP rimandato",
+  "08:33:52 QUARTER  BUY $AMC 0.129 SOL score 82 impatto 0.25% (Jupiter)",
+  "08:33:52 ORACLE   90 raccolti, 67 analizzati, 7 BUY, 37 veto",
+  "08:33:50 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 08:34:20 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
+  "08:32:49 KAISER   limite 1 ingresso/i per scan: $SCRAP rimandato",
+  "08:32:49 KAISER   limite 1 ingresso/i per scan: $AMC rimandato",
+  "08:32:49 KAISER   limite 1 ingresso/i per scan: $SCRAP rimandato",
+  "08:32:49 KAISER   limite 1 ingresso/i per scan: $WISHMAS rimandato",
+  "08:32:49 QUARTER  BUY $SAI 0.130 SOL score 85 impatto 1.85% (Jupiter)",
+  "08:32:48 ORACLE   90 raccolti, 62 analizzati, 6 BUY, 36 veto",
+  "08:32:46 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 08:33:16 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
+  "08:32:16 CHARON   TP1 $SCRAP vendo 75% a 42.7% -> 0.0859 SOL",
+  "08:31:45 KAISER   limite 1 ingresso/i per scan: $WISHMAS rimandato",
+  "08:31:45 KAISER   limite 1 ingresso/i per scan: $AMC rimandato",
+  "08:31:45 QUARTER  BUY $SCRAP 0.130 SOL score 81 impatto 0.77% (Jupiter)",
+  "08:31:45 QUARTER  $SAI impatto 2.3% oltre slippage: annullato",
+  "08:31:45 ORACLE   90 raccolti, 68 analizzati, 5 BUY, 39 veto",
+  "08:31:42 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 08:32:12 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
+  "08:30:41 KAISER   limite 1 ingresso/i per scan: $AMC rimandato",
+  "08:30:41 QUARTER  BUY $JENSEN 0.130 SOL score 81 impatto 0.59% (Jupiter)",
+  "08:30:41 ORACLE   90 raccolti, 63 analizzati, 2 BUY, 38 veto",
+  "08:30:37 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 08:31:07 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
+  "08:30:35 KAISER   reset del paper (C-0027): conto azzerato, capitale 1.3 SOL",
+  "08:30:35 KAISER   parametri dall'app: scanSec 30→15, minScore 68→72, sizePct 5→10, maxPos 3→6, slippageBps 300→200, prioritySOL 0.0005→0.0007, cooldownMin 10→0, sl 25→30, tp1 40→35, tp1Sell 50→75, timeStopMinPnl 5→2, minLiq 15000→5000, minMcap 15000→6500, minAgeMin 5→0, srcGmgnTrenches false→true, retradeH 2→1, rugLiqDrop 45→30, realApprove true→false",
+  "08:30:35 KAISER   run #70 · 0 posizioni · equity 1.2526 SOL · GMGN demo · Grok off",
   "08:30:07 SCRIBE   fine run · trade 9 · win 44% · P&L -0.0474 SOL · equity 1.2526 SOL",
   "08:29:56 ORACLE   90 raccolti, 68 analizzati, 7 BUY, 43 veto",
   "08:29:53 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 08:30:23 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
@@ -2272,49 +766,9 @@
   "07:15:34 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 07:16:04 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
   "07:15:34 KAISER   parametri dall'app: scanSec 30→15, minScore 68→72, sizePct 5→10, maxPos 3→6, slippageBps 300→200, prioritySOL 0.0005→0.0007, cooldownMin 10→0, sl 25→30, tp1 40→35, tp1Sell 50→75, timeStopMinPnl 5→2, minLiq 15000→5000, minMcap 15000→6500, minAgeMin 5→0, srcGmgnTrenches false→true, retradeH 2→1",
   "07:15:34 KAISER   run #55 · 3 posizioni · equity 1.0876 SOL · GMGN demo · Grok off",
-  "07:15:05 SCRIBE   fine run · trade 16 · win 25% · P&L -0.2053 SOL · equity 1.0876 SOL",
-  "07:14:54 ORACLE   90 raccolti, 69 analizzati, 3 BUY, 45 veto",
-  "07:14:52 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 07:15:22 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
-  "07:13:51 ORACLE   90 raccolti, 61 analizzati, 3 BUY, 37 veto",
-  "07:13:49 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 07:14:18 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
-  "07:12:48 ORACLE   90 raccolti, 65 analizzati, 3 BUY, 42 veto",
-  "07:12:46 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 07:13:15 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
-  "07:11:45 ORACLE   90 raccolti, 63 analizzati, 3 BUY, 40 veto",
-  "07:11:42 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 07:12:12 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
-  "07:10:41 ORACLE   90 raccolti, 69 analizzati, 3 BUY, 38 veto",
-  "07:10:36 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 07:11:06 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
-  "07:10:35 KAISER   parametri dall'app: scanSec 30→15, minScore 68→72, sizePct 5→10, maxPos 3→6, slippageBps 300→200, prioritySOL 0.0005→0.0007, cooldownMin 10→0, sl 25→30, tp1 40→35, tp1Sell 50→75, timeStopMinPnl 5→2, minLiq 15000→5000, minMcap 15000→6500, minAgeMin 5→0, srcGmgnTrenches false→true, retradeH 2→1",
-  "07:10:35 KAISER   run #54 · 3 posizioni · equity 1.0919 SOL · GMGN demo · Grok off",
-  "07:10:04 SCRIBE   fine run · trade 16 · win 25% · P&L -0.2053 SOL · equity 1.0919 SOL",
-  "07:09:50 ORACLE   90 raccolti, 69 analizzati, 1 BUY, 45 veto",
-  "07:09:48 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 07:10:18 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
-  "07:08:47 ORACLE   90 raccolti, 67 analizzati, 0 BUY, 45 veto",
-  "07:08:46 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 07:09:15 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
-  "07:07:45 ORACLE   90 raccolti, 68 analizzati, 1 BUY, 38 veto",
-  "07:07:42 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 07:08:12 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
-  "07:06:41 ORACLE   90 raccolti, 67 analizzati, 1 BUY, 38 veto",
-  "07:06:39 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 07:07:09 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
-  "07:05:38 ORACLE   90 raccolti, 62 analizzati, 0 BUY, 41 veto",
-  "07:05:36 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 07:06:05 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
-  "07:05:35 KAISER   parametri dall'app: scanSec 30→15, minScore 68→72, sizePct 5→10, maxPos 3→6, slippageBps 300→200, prioritySOL 0.0005→0.0007, cooldownMin 10→0, sl 25→30, tp1 40→35, tp1Sell 50→75, timeStopMinPnl 5→2, minLiq 15000→5000, minMcap 15000→6500, minAgeMin 5→0, srcGmgnTrenches false→true, retradeH 2→1",
-  "07:05:34 KAISER   run #53 · 3 posizioni · equity 1.1183 SOL · GMGN demo · Grok off",
-  "07:05:04 SCRIBE   fine run · trade 16 · win 25% · P&L -0.2053 SOL · equity 1.1183 SOL",
-  "07:04:52 ORACLE   90 raccolti, 68 analizzati, 1 BUY, 40 veto",
-  "07:04:50 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 07:05:20 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
-  "07:03:49 ORACLE   90 raccolti, 70 analizzati, 1 BUY, 43 veto",
-  "07:03:47 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 07:04:16 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
-  "07:02:46 ORACLE   90 raccolti, 62 analizzati, 1 BUY, 40 veto",
-  "07:02:43 SCOUT    GMGN GMGN: [gmgn-cli] GET /v1/market/rank failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 07:03:13 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
-  "07:01:42 ORACLE   90 raccolti, 68 analizzati, 2 BUY, 41 veto",
-  "07:01:40 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 07:02:09 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
-  "07:00:39 ORACLE   90 raccolti, 68 analizzati, 2 BUY, 41 veto",
-  "07:00:35 SCOUT    GMGN trenches: [gmgn-cli] POST /v1/trenches failed: HTTP 429 code=429 error=RATE_LIMIT_EXCEEDED message=IP rate limit exceeded. Rate limit resets at 2026-11-14 07:01:05 GMT+00:00 (~30s remaining). Stop sending requests before then; repeated requests can extend the ban by 5s up to 5 minutes. 已达到当前套餐的限频上限，点击 https://gmgn.ai/ai?chain=bsc&tab=paid_plans 升级套餐，获得更高速率限制\n",
-  "07:00:35 KAISER   parametri dall'app: scanSec 30→15, minScore 68→72, sizePct 5→10, maxPos 3→6, slippageBps 300→200, prioritySOL 0.0005→0.0007, cooldownMin 10→0, sl 25→30, tp1 40→35, tp1Sell 50→75, timeStopMinPnl 5→2, minLiq 15000→5000, minMcap 15000→6500, minAgeMin 5→0, srcGmgnTrenches false→true, retradeH 2→1",
-  "07:00:34 KAISER   run #52 · 3 posizioni · equity 1.0806 SOL · GMGN demo · Grok off",
-  "07:00:05 SCRIBE   fine run · trade 16 · win 25% · P&L -0.2053 SOL · equity 1.0806 SOL",
-  "06:59:55 ORACLE   90 raccolti, 68 analizzati, 3 BUY, 40 veto"
+  "07:15:05 SCRIBE   fine run · trade 16 · win 25% · P&L -0.2053 SOL · equity 1.0876 SOL"
  ],
  "capital": 1.3,
- "resetId": "C-0013",
+ "resetId": "C-0027",
  "realTried": {}
 }
