@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.6.1">
+<meta name="kz-build" content="2.7.0">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=2">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
@@ -31,7 +31,7 @@
   document.getElementById('metaStatusBar').setAttribute('content', light ? 'default' : (bar === 'separate' ? 'black' : 'black-translucent'));
 })();
 </script>
-<link rel="stylesheet" href="style.css?v=11">
+<link rel="stylesheet" href="style.css?v=12">
 <script src="version.js"></script>
 <script src="theme.js"></script>
 <script src="lock.js"></script>
@@ -137,7 +137,7 @@
       <div class="m"><span id="sLab3">P&amp;L oggi</span><b id="sDay">—</b></div>
     </div></div>
     </div>
-    <div class="vscroll"><div id="posList"></div></div>
+    <div class="vscroll"><div id="posList" class="poslist"></div></div>
   </section>
 
   <!-- JOURNAL -->
@@ -156,9 +156,8 @@
     </div>
     <div class="vscroll">
     <div class="card" style="overflow:auto"><table><thead><tr><th>Token</th><th>Esito</th><th>P&amp;L</th><th>Motivo</th></tr></thead><tbody id="jRows"></tbody></table></div>
-    <h2>Uscite per motivo</h2>
-    <div class="card" id="jReasons"></div>
     </div>
+    <div class="vfoot"><h2 style="margin:6px 6px 4px">Uscite per motivo</h2><div class="card" id="jReasons"></div></div>
   </section>
 
   <!-- SISTEMA -->
@@ -209,7 +208,7 @@
 
     <!-- PAPER -->
     <div class="setpage" id="setPaper" hidden>
-      <div class="card small">Impostazioni del <b>conto paper</b> (simulato, gestito dal runner 24/7). Cambia i valori e premi <b>Inserisci su Paper</b>: su Telegram ti arriva la differenza <i>prima → dopo</i> con <b>Applica / Rifiuta</b>. Il runner usa i nuovi valori entro un minuto.</div>
+      <div class="card small">Impostazioni del <b>conto paper</b> (simulato, gestito dal runner 24/7). Cambia i valori e premi <b>Inserisci su Paper</b>: Il runner usa i nuovi valori entro un minuto.</div>
       <div id="parPendPaper"></div>
       <h2>Conto paper</h2>
       <div class="card" id="parPaper"></div>
@@ -389,7 +388,12 @@ function fitRadar() {
   const row = Math.floor((h - 10) / 2); if (el.style.getPropertyValue('--row-h') !== row + 'px') el.style.setProperty('--row-h', row + 'px');
 }
 
-try { new ResizeObserver(fitRadar).observe($('#radarList')); } catch (e) { window.addEventListener('resize', fitRadar); }
+// Posizioni: tre schede intere per volta (altezza = un terzo della lista, con un minimo perché la scheda resti leggibile)
+function fitPos() {
+  const el = $('#posList'), box = el && el.parentElement, h = box && box.clientHeight; if (!h) return;
+  const row = Math.max(100, Math.floor((h - 20) / 3)); if (el.style.getPropertyValue('--pos-h') !== row + 'px') el.style.setProperty('--pos-h', row + 'px');
+}
+try { const ro = new ResizeObserver(() => { fitRadar(); fitPos(); }); ro.observe($('#radarList')); ro.observe($('#posList').parentElement); } catch (e) { window.addEventListener('resize', () => { fitRadar(); fitPos(); }); }
 // Diagnostica del layout (utile se la barra in basso è fuori posto): misure della finestra e dell'app
 function diag() {
   const a = $('#app').getBoundingClientRect(), n = document.querySelector('nav').getBoundingClientRect(), el = $('#diagTxt'); if (!el) return;
@@ -517,12 +521,12 @@ function renderTickets() {
 function posCard(p, o) {
   const px = rt.prices.get(p.mint) || o.last || p.entry, pnl = p.entry > 0 ? (px / p.entry - 1) * 100 : 0;
   const tgt = p.tp1Done ? `trailing −${o.trail}% dal picco` : `TP1 +${o.tp1}% · SL −${o.sl}%`;
-  return `<div class="card${o.real ? ' real-note' : ''}"><div class="tok"><div class="ph"></div>
-    <div><div class="row"><span class="sym">$${esc(p.sym)}</span><span class="muted tiny">${esc(p.id)} · ${ago(Date.now() - p.openedAt)}${o.real ? ' · REALE' : ''}</span></div>
+  return `<div class="card poscard${o.real ? ' real-note' : ''}"><div class="tok"><div class="ph"></div>
+    <div><div class="row"><span class="sym">$${esc(p.sym)}</span><span class="muted tiny">${esc(p.id)} · ${ago(Date.now() - p.openedAt)}${o.real ? ' · REALE · /vendi ' + esc(p.id) : ''}</span></div>
     <div class="nm">${fmtSol(o.value, 4)} · costo ${fmtSol(o.cost, 4)} · ${tgt}${p.fails ? ` · <span class="down">uscita fallita ×${esc(p.fails)}</span>` : ''}</div></div><div class="score ${cls(pnl)}">${fmtPct(pnl, 1)}</div></div>
     <div class="bar" style="margin-top:8px"><i style="width:${clamp((pnl + o.sl) / (o.tp1 + o.sl) * 100, 0, 100)}%;background:${pnl >= 0 ? 'var(--green)' : 'var(--red)'}"></i></div>
-    <div class="row" style="margin-top:8px;gap:6px"><button class="btn sm" data-detail="${esc(p.mint)}">Dettaglio</button><a class="btn sm" href="https://dexscreener.com/solana/${encodeURIComponent(p.pairAddress || p.mint)}" target="_blank" rel="noopener">Grafico ↗</a>${o.real ? `<span class="tiny muted" style="margin-left:auto">Vendi: <span class="mono">/vendi ${esc(p.id)}</span></span>` : ''}</div>
-    ${o.sigs && o.sigs.length ? `<div class="tiny muted mono" style="margin-top:6px">${o.sigs.map((g) => `<a href="https://solscan.io/tx/${esc(g)}" target="_blank" rel="noopener">${esc(String(g).slice(0, 8))}…</a>`).join(' · ')}</div>` : ''}</div>`;
+    <div class="row" style="margin-top:8px;gap:6px"><button class="btn sm" data-detail="${esc(p.mint)}">Dettaglio</button><a class="btn sm" href="https://dexscreener.com/solana/${encodeURIComponent(p.pairAddress || p.mint)}" target="_blank" rel="noopener">Grafico ↗</a><a class="btn sm pump" href="https://pump.fun/coin/${encodeURIComponent(p.mint)}" target="_blank" rel="noopener" aria-label="Apri su pump.fun">pump.fun ↗</a></div>
+    ${o.sigs && o.sigs.length ? `<div class="tiny muted mono sigs">${o.sigs.map((g) => `<a href="https://solscan.io/tx/${esc(g)}" target="_blank" rel="noopener">${esc(String(g).slice(0, 8))}…</a>`).join(' · ')}</div>` : ''}</div>`;
 }
 function renderPos() {
   const real = st.mode === 'real', run = rt.run, e = rt.exec, s = S();
@@ -624,7 +628,7 @@ function updateParBar(pg) {
   const d = draftFor(pg), n = Object.keys(d).length, bad = parProblems(pg), other = Object.keys(draftFor(pg === 'paper' ? 'real' : 'paper')).length;
   bar.innerHTML = (n ? `<div class="row between"><b>${n} ${n === 1 ? 'modifica non inserita' : 'modifiche non inserite'}</b><span class="row" style="gap:6px"><button class="btn sm" data-par="discard" data-page="${pg}">Annulla</button><button class="btn gold" data-par="send" data-page="${pg}" ${bad.length ? 'disabled' : ''}>Inserisci su ${P.label}</button></span></div>
       <div class="tiny" style="margin-top:6px">${Object.entries(d).map(([k, v]) => `${parLabel(k)}: ${parShow(k, baseVal(k))} → <b>${parShow(k, v)}</b>`).join('<br>')}</div>${bad.length ? `<div class="down tiny" style="margin-top:6px">${bad.join('<br>')}</div>` : ''}`
-    : `<button class="btn" disabled style="width:100%">Inserisci su ${P.label}</button><div class="tiny muted" style="margin-top:6px">Modifica i valori e premi il tasto: ti arriva su Telegram il messaggio con Applica / Rifiuta.</div>`)
+    : `<button class="btn" disabled style="width:100%">Inserisci su ${P.label}</button>`)
     + (other ? `<div class="warn tiny" style="margin-top:6px">${other} ${other === 1 ? 'modifica non inserita' : 'modifiche non inserite'} nella scheda ${PAGES[pg === 'paper' ? 'real' : 'paper'].label}.</div>` : '');
 }
 function renderPage(pg) {

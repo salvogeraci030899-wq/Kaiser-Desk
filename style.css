@@ -2,7 +2,7 @@
    Token iOS (scuro/chiaro/automatico), angoli concentrici, barra a capsula, Vetro (Liquid Glass) fermo o animato.
    I nomi delle classi sono quelli di Kaiser: cambia l'aspetto, non la struttura. */
 :root {
-  --kz-css: 11;
+  --kz-css: 12;
   color-scheme: dark;
   --bg: #000000;
   --surface: #0a0a0a;
@@ -314,7 +314,8 @@ main { overflow: hidden; display: flex; flex-direction: column; padding-bottom: 
 .view.active:not(#v-radar) { display: flex; }
 .vfix, .vfoot { flex: 0 0 auto; }
 .vscroll { flex: 1 1 0; min-height: 0; overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; touch-action: pan-y; padding-bottom: 14px; }
-.vfoot { padding: 6px 0 8px; } .vfoot .card { margin-bottom: 0; }
+.vfoot { padding: 6px 0 8px; }
+#jReasons { max-height: 120px; overflow-y: auto; } .vfoot .card { margin-bottom: 0; }
 .vfoot .card[hidden] { display: none; }
 
 header { height: calc(env(safe-area-inset-top, 0px) + 12px + 44px + 8px + 28px + 8px); padding-bottom: 0; overflow: hidden; }
@@ -358,3 +359,15 @@ nav { height: 62px; margin-top: 4px; }
 .sheet .inner.drag { transition: none; }
 .sheet .inner.snap { transition: transform 0.2s ease-out; }
 .set.stack { grid-template-columns: 1fr; } .set.stack .theme-toggle { justify-self: stretch; }
+
+/* posizioni: tre schede intere per volta, poi si scorre */
+.vscroll:has(> .poslist) { scroll-snap-type: y proximity; padding-bottom: 0; }
+.poslist { display: grid; grid-auto-rows: var(--pos-h, 150px); gap: 10px; }
+.poslist > .poscard { height: var(--pos-h, 150px); margin: 0; padding: 10px 14px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; scroll-snap-align: start; }
+.poslist > .poscard .bar { margin-top: 0 !important; }
+.poslist > .poscard .row { margin-top: 0 !important; }
+.poslist > .poscard .sigs { margin-top: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.poslist > .poscard .nm { max-width: none; }
+.poslist > .empty, .poslist > .card.small { height: auto; }
+.btn.pump { margin-left: auto; }
+.poslist .tok > div { min-width: 0; }
