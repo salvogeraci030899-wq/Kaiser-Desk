@@ -59,10 +59,14 @@ Usa un bot **dedicato a Kaiser** (non lo stesso di altri servizi: il webhook di 
 3. Scrivi `/aiuto` al bot. Comandi: `/stato`, `/posizioni`, `/wallet`, `/prova MINT [SOL]` (collaudo con Jupiter e RPC veri, senza inviare nulla), `/parametri`, `/reset_parametri`, `/approva T-0001`, `/rifiuta T-0001`, `/vendi R-0001 [%]`, `/kill`, `/riattiva`. Rispondono solo alla tua chat. Sotto ogni ticket ci sono i tasti Approva e Rifiuta.
 
 ## Parametri: si cambiano dall'app, si applicano da Telegram
-In **Sistema → Parametri** cambi i parametri di paper e reale (autopilota, size, stop, TP, trailing, filtri, limiti del reale…). Non ci sono campi per chiavi, token o indirizzi: solo numeri, interruttori e scelte.
+**Sistema** ha tre schede: **Generale** (aspetto, blocco, stato, comandi), **Paper** e **Reale**. Paper e Reale hanno parametri **indipendenti** (all'inizio con gli stessi valori), così puoi dare al reale regole più prudenti:
+- **Paper:** autopilota, capitale e rischio, uscite (stop, TP, trailing…), filtri di selezione dei token (in comune con il reale) e il reset del conto.
+- **Reale:** ordini dal runner (acceso, capitale, approvazione, size, score minimo, ingressi per scan, slippage), uscite del reale (`realSl`, `realTp1`, `realTrail`…) e limiti dell'esecutore (sotto i tetti di Cloudflare).
 
-1. Scegli i nuovi valori e premi **Invia per approvazione**. La richiesta non contiene segreti.
-2. Il Worker la controlla (solo parametri ammessi, solo valori nei limiti) e ti manda su Telegram la differenza *prima → dopo* con i tasti **Applica / Rifiuta**. Vale 10 minuti.
+Non ci sono campi per chiavi, token o indirizzi: solo numeri, interruttori e scelte.
+
+1. Scegli i nuovi valori nella scheda e premi **Inserisci su Paper** o **Inserisci su Reale** (ognuno invia solo le modifiche della propria scheda; le bozze restano se cambi scheda). La richiesta non contiene segreti.
+2. Il Worker la controlla (solo parametri ammessi, solo valori nei limiti) e ti manda su Telegram la differenza *prima → dopo*, con ogni voce marcata **Paper ·** o **Reale ·**, e i tasti **Applica / Rifiuta**. Vale 10 minuti.
 3. Applichi: il runner usa i nuovi valori entro un minuto (li legge a ogni scan), il Worker subito. Rifiuti o lasci scadere: non cambia nulla.
 
 I **limiti del reale** (capitale, ordine, perdita giornaliera, posizioni, slippage, impatto) si possono solo **abbassare** dall'app: il tetto è il valore impostato nella dashboard di Cloudflare, che l'app non può superare. `ORDERS_MODE` (off/dryrun/live) resta solo nella dashboard. Telegram: `/parametri` mostra le modifiche fatte dall'app, `/reset_parametri` le annulla. Le richieste si possono disattivare con `PROPOSALS=0` sul Worker.

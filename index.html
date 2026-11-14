@@ -29,7 +29,7 @@
   document.getElementById('metaStatusBar').setAttribute('content', light ? 'default' : (bar === 'separate' ? 'black' : 'black-translucent'));
 })();
 </script>
-<link rel="stylesheet" href="style.css?v=4">
+<link rel="stylesheet" href="style.css?v=5">
 <script src="version.js"></script>
 <script src="theme.js"></script>
 <script src="lock.js"></script>
@@ -139,47 +139,64 @@
 
   <!-- SISTEMA -->
   <section class="view" id="v-set">
-    <h2>Aspetto</h2>
-    <div class="card">
-      <div class="set wide"><label>Tema<small>Automatico segue iOS</small></label>
-        <div class="theme-toggle"><button data-pref="theme" data-val="auto">Auto</button><button data-pref="theme" data-val="light">Chiaro</button><button data-pref="theme" data-val="dark">Scuro</button></div></div>
-      <div class="set wide"><label>Vetro<small>Liquid Glass; Animato = luci sullo sfondo</small></label>
-        <div class="theme-toggle"><button data-pref="glass" data-val="off">No</button><button data-pref="glass" data-val="on">Fermo</button><button data-pref="glass" data-val="anim">Animato</button></div></div>
-      <div class="set wide"><label>Barra di stato<small>Si applica alla prossima apertura</small></label>
-        <div class="theme-toggle"><button data-pref="bar" data-val="integrated">Integrata</button><button data-pref="bar" data-val="separate">Separata</button></div></div>
-    </div>
-    <h2>Blocco app</h2>
-    <div class="card" id="lockSettingsBody"></div>
-    <h2>Stato del sistema</h2>
-    <div class="card small" id="sysStatus"></div>
-    <h2 style="margin-top:22px">Parametri</h2>
-    <div class="card small">Qui cambi i parametri di <b>paper e reale</b> (stop, take profit, size, filtri, limiti). Premi <b>Invia</b>: su Telegram ti arriva un messaggio con la differenza <i>prima → dopo</i> e i tasti <b>Applica / Rifiuta</b>. Solo il tuo tocco applica la modifica; il runner la usa entro un minuto. Non ci sono campi per chiavi, token o indirizzi.</div>
-    <div id="parPending"></div>
-    <h2>Conto paper</h2>
-    <div class="card" id="parPaper"></div>
-    <div id="parForm"></div>
-    <div class="card small" id="parBar"></div>
-    <h2 style="margin-top:22px">Comandi Telegram</h2>
-    <div class="card small">
-      <div class="kv" style="grid-template-columns:auto 1fr;gap:6px 12px">
-        <span class="mono">/stato</span><span>modo, kill switch, posizioni, P&amp;L</span>
-        <span class="mono">/posizioni</span><span>posizioni reali aperte</span>
-        <span class="mono">/wallet</span><span>indirizzo completo e saldo</span>
-        <span class="mono">/prova MINT 0.01</span><span>collaudo senza inviare nulla (dry-run)</span>
-        <span class="mono">/approva T-0001</span><span>esegue un ticket</span>
-        <span class="mono">/rifiuta T-0001</span><span>scarta un ticket</span>
-        <span class="mono">/vendi R-0001 50</span><span>vende (100 se omesso)</span>
-        <span class="mono">/parametri</span><span>parametri cambiati dall'app, richieste in attesa</span>
-        <span class="mono">/reset_parametri</span><span>annulla le modifiche fatte dall'app</span>
-        <span class="mono">/kill · /riattiva</span><span>ferma o riabilita i nuovi ingressi</span>
+    <div class="seg" id="setTabs" style="margin-bottom:10px"><button data-tab="gen" class="on">Generale</button><button data-tab="paper">Paper</button><button data-tab="real">Reale</button></div>
+
+    <!-- GENERALE -->
+    <div class="setpage" id="setGen">
+      <h2>Aspetto</h2>
+      <div class="card">
+        <div class="set wide"><label>Tema<small>Automatico segue iOS</small></label>
+          <div class="theme-toggle"><button data-pref="theme" data-val="auto">Auto</button><button data-pref="theme" data-val="light">Chiaro</button><button data-pref="theme" data-val="dark">Scuro</button></div></div>
+        <div class="set wide"><label>Vetro<small>Liquid Glass; Animato = luci sullo sfondo</small></label>
+          <div class="theme-toggle"><button data-pref="glass" data-val="off">No</button><button data-pref="glass" data-val="on">Fermo</button><button data-pref="glass" data-val="anim">Animato</button></div></div>
+        <div class="set wide"><label>Barra di stato<small>Si applica alla prossima apertura</small></label>
+          <div class="theme-toggle"><button data-pref="bar" data-val="integrated">Integrata</button><button data-pref="bar" data-val="separate">Separata</button></div></div>
       </div>
-      <p class="tiny muted" style="margin:10px 0 0">I comandi funzionano solo dalla tua chat. Usa un bot dedicato a Kaiser, diverso da quello di altri servizi.</p>
+      <h2>Blocco app</h2>
+      <div class="card" id="lockSettingsBody"></div>
+      <h2>Stato del sistema</h2>
+      <div class="card small" id="sysStatus"></div>
+      <h2 style="margin-top:22px">Comandi Telegram</h2>
+      <div class="card small">
+        <div class="kv" style="grid-template-columns:auto 1fr;gap:6px 12px">
+          <span class="mono">/stato</span><span>modo, kill switch, posizioni, P&amp;L</span>
+          <span class="mono">/posizioni</span><span>posizioni reali aperte</span>
+          <span class="mono">/wallet</span><span>indirizzo completo e saldo</span>
+          <span class="mono">/prova MINT 0.01</span><span>collaudo senza inviare nulla (dry-run)</span>
+          <span class="mono">/approva T-0001</span><span>esegue un ticket</span>
+          <span class="mono">/rifiuta T-0001</span><span>scarta un ticket</span>
+          <span class="mono">/vendi R-0001 50</span><span>vende (100 se omesso)</span>
+          <span class="mono">/parametri</span><span>parametri cambiati dall'app, richieste in attesa</span>
+          <span class="mono">/reset_parametri</span><span>annulla le modifiche fatte dall'app</span>
+          <span class="mono">/kill · /riattiva</span><span>ferma o riabilita i nuovi ingressi</span>
+        </div>
+        <p class="tiny muted" style="margin:10px 0 0">I comandi funzionano solo dalla tua chat. Usa un bot dedicato a Kaiser, diverso da quello di altri servizi.</p>
+      </div>
+      <div class="card small">
+        <b>Come si cambia qualcosa</b>
+        <p class="tiny muted" style="margin:6px 0 0">Le impostazioni di <b>paper</b> e <b>reale</b> sono nelle schede qui sopra: premi <b>Inserisci su Paper</b> o <b>Inserisci su Reale</b> e approva su Telegram. Questa pagina non contiene né accetta token, chiavi o indirizzi: quelli, il modo del reale (<span class="mono">ORDERS_MODE</span>) e i <b>tetti</b> dei limiti stanno nelle impostazioni di Cloudflare; i segreti di Telegram in GitHub e Cloudflare. Le regole di base del runner restano in <span class="mono">config.json</span> sul ramo <span class="mono">data</span> (<a id="cfgLink" target="_blank" rel="noopener">modifica</a>): le modifiche approvate dall'app vanno sopra quel file.</p>
+      </div>
+      <p class="tiny muted" style="text-align:center;margin:14px 0 4px">KAISER <span id="ver2"></span> · solo paper o reale con limiti nel Worker · le memecoin possono azzerare il capitale</p>
     </div>
-    <div class="card small">
-      <b>Come si cambia qualcosa</b>
-      <p class="tiny muted" style="margin:6px 0 0">I <b>parametri</b> si cambiano qui sopra (con approvazione su Telegram). Questa pagina non contiene né accetta token, chiavi o indirizzi: quelli, il modo del reale (<span class="mono">ORDERS_MODE</span>) e i <b>tetti</b> dei limiti stanno nelle impostazioni di Cloudflare; i segreti di Telegram in GitHub e Cloudflare. Le regole di base del runner restano in <span class="mono">config.json</span> sul ramo <span class="mono">data</span> (<a id="cfgLink" target="_blank" rel="noopener">modifica</a>): le modifiche approvate dall'app vanno sopra quel file.</p>
+
+    <!-- PAPER -->
+    <div class="setpage" id="setPaper" hidden>
+      <div class="card small">Impostazioni del <b>conto paper</b> (simulato, gestito dal runner 24/7). Cambia i valori e premi <b>Inserisci su Paper</b>: su Telegram ti arriva la differenza <i>prima → dopo</i> con <b>Applica / Rifiuta</b>. Il runner usa i nuovi valori entro un minuto.</div>
+      <div id="parPendPaper"></div>
+      <h2>Conto paper</h2>
+      <div class="card" id="parPaper"></div>
+      <div id="parFormPaper"></div>
+      <div class="card small" id="parBarPaper"></div>
     </div>
-    <p class="tiny muted" style="text-align:center;margin:14px 0 4px">KAISER <span id="ver2"></span> · solo paper o reale con limiti nel Worker · le memecoin possono azzerare il capitale</p>
+
+    <!-- REALE -->
+    <div class="setpage" id="setReal" hidden>
+      <div class="card small real-note">Impostazioni del <b>conto reale</b> (soldi veri, gestito dall'esecutore su Cloudflare). Sono <b>indipendenti dal paper</b>: puoi essere più prudente. La <b>selezione dei token</b> (filtri) è in comune e sta nella scheda Paper. Premi <b>Inserisci su Reale</b> e approva su Telegram.</div>
+      <div class="card small" id="execSummary"></div>
+      <div id="parPendReal"></div>
+      <div id="parFormReal"></div>
+      <div class="card small" id="parBarReal"></div>
+    </div>
   </section>
 </main>
 
@@ -495,8 +512,16 @@ function renderSystem() {
     ${e && e.telegramNote ? `<div class="warn tiny" style="margin-top:6px">Telegram: ${esc(e.telegramNote)}</div>` : ''}`;
 }
 
-// ---------- PARAMETRI: si scelgono qui, si applicano solo con il tuo tocco su Telegram ----------
-// Il modulo è generato dall'elenco del Worker (solo numeri, interruttori e scelte): non esiste nessun campo di testo libero.
+// ---------- IMPOSTAZIONI: schede Generale · Paper · Reale ----------
+// I parametri si scelgono qui ma si applicano solo con il tuo tocco su Telegram. Il modulo è generato dall'elenco del Worker
+// (solo numeri, interruttori e scelte): non esiste nessun campo di testo libero. Paper e Reale sono due pagine con parametri indipendenti.
+const PAGES = { paper: { form: '#parFormPaper', bar: '#parBarPaper', pend: '#parPendPaper', label: 'Paper' }, real: { form: '#parFormReal', bar: '#parBarReal', pend: '#parPendReal', label: 'Reale' } };
+function showTab(t) {
+  rt.setTab = t; prefSet('kz_settab', t);
+  for (const x of ['gen', 'paper', 'real']) $('#set' + x[0].toUpperCase() + x.slice(1)).hidden = x !== t;
+  document.querySelectorAll('#setTabs button').forEach((b) => b.classList.toggle('on', b.dataset.tab === t));
+  document.querySelector('main').scrollTo(0, 0);
+}
 const baseVal = (k) => {
   const s = rt.par.schema[k]; if (s.scope === 'worker') return rt.par.limits[k];
   if (rt.par.runner[k] !== undefined) return rt.par.runner[k];
@@ -505,6 +530,8 @@ const baseVal = (k) => {
 };
 const parLabel = (k) => esc((rt.par.schema[k] || {}).label || k);
 const parShow = (k, v) => (rt.par.schema[k].t === 'bool' ? (v ? 'sì' : 'no') : esc(v));
+const pageOf = (k) => (rt.par.groups.find((g) => g.id === rt.par.schema[k].group) || {}).page;
+const draftFor = (pg) => Object.fromEntries(Object.entries(rt.draft).filter(([k]) => rt.par.schema[k] && pageOf(k) === pg));
 function paramRow(k) {
   const s = rt.par.schema[k], dirty = k in rt.draft, v = dirty ? rt.draft[k] : baseVal(k);
   const fromApp = (s.scope === 'worker' ? rt.par.worker : rt.par.runner)[k] !== undefined;
@@ -514,32 +541,46 @@ function paramRow(k) {
   const hint = [s.hint, s.ceiling ? `tetto Cloudflare ${rt.par.ceilings[k]}` : '', fromApp ? 'cambiato dall’app' : ''].filter(Boolean).join(' · ');
   return `<div class="set${dirty ? ' dirty' : ''}"><label>${esc(s.label)}${hint ? `<small>${esc(hint)}</small>` : ''}</label>${ctl}</div>`;
 }
-function parProblems() {
+function parProblems(pg) {
   const out = [];
-  for (const [k, v] of Object.entries(rt.draft)) { const s = rt.par.schema[k];
+  for (const [k, v] of Object.entries(draftFor(pg))) { const s = rt.par.schema[k];
     if (s.t === 'num' && (typeof v !== 'number' || !Number.isFinite(v) || v < s.min || v > s.max)) out.push(`${parLabel(k)}: valore fuori intervallo (${s.min}–${s.max})`);
     else if (s.ceiling && v > rt.par.ceilings[k]) out.push(`${parLabel(k)}: oltre il tetto di Cloudflare (${rt.par.ceilings[k]})`); }
   return out;
 }
-function updateParBar() {
-  const bar = $('#parBar'); if (!rt.par) { bar.innerHTML = ''; return; }
-  const n = Object.keys(rt.draft).length, bad = parProblems();
-  bar.innerHTML = n ? `<div class="row between"><b>${n} ${n === 1 ? 'modifica non inviata' : 'modifiche non inviate'}</b><span class="row" style="gap:6px"><button class="btn sm" data-par="discard">Annulla</button><button class="btn gold sm" data-par="send" ${bad.length ? 'disabled' : ''}>Invia per approvazione</button></span></div>
-      <div class="tiny" style="margin-top:6px">${Object.entries(rt.draft).map(([k, v]) => `${parLabel(k)}: ${parShow(k, baseVal(k))} → <b>${parShow(k, v)}</b>`).join('<br>')}</div>${bad.length ? `<div class="down tiny" style="margin-top:6px">${bad.join('<br>')}</div>` : ''}`
-    : '<span class="muted tiny">Modifica i valori e premi Invia: ti arriva su Telegram il messaggio con Applica / Rifiuta.</span>';
+function updateParBar(pg) {
+  const P = PAGES[pg], bar = $(P.bar); if (!rt.par) { bar.innerHTML = ''; return; }
+  const d = draftFor(pg), n = Object.keys(d).length, bad = parProblems(pg), other = Object.keys(draftFor(pg === 'paper' ? 'real' : 'paper')).length;
+  bar.innerHTML = (n ? `<div class="row between"><b>${n} ${n === 1 ? 'modifica non inserita' : 'modifiche non inserite'}</b><span class="row" style="gap:6px"><button class="btn sm" data-par="discard" data-page="${pg}">Annulla</button><button class="btn gold" data-par="send" data-page="${pg}" ${bad.length ? 'disabled' : ''}>Inserisci su ${P.label}</button></span></div>
+      <div class="tiny" style="margin-top:6px">${Object.entries(d).map(([k, v]) => `${parLabel(k)}: ${parShow(k, baseVal(k))} → <b>${parShow(k, v)}</b>`).join('<br>')}</div>${bad.length ? `<div class="down tiny" style="margin-top:6px">${bad.join('<br>')}</div>` : ''}`
+    : `<button class="btn" disabled style="width:100%">Inserisci su ${P.label}</button><div class="tiny muted" style="margin-top:6px">Modifica i valori e premi il tasto: ti arriva su Telegram il messaggio con Applica / Rifiuta.</div>`)
+    + (other ? `<div class="warn tiny" style="margin-top:6px">${other} ${other === 1 ? 'modifica non inserita' : 'modifiche non inserite'} nella scheda ${PAGES[pg === 'paper' ? 'real' : 'paper'].label}.</div>` : '');
 }
-function renderParams() {
-  const f = $('#parForm'), p = rt.par;
-  if (!p) { f.innerHTML = `<div class="card small muted">Parametri non disponibili${rt.parErr ? ': ' + esc(rt.parErr) : ''}.</div>`; f.dataset.sig = ''; $('#parBar').innerHTML = ''; $('#parPending').innerHTML = ''; return; }
+function renderPage(pg) {
+  const P = PAGES[pg], f = $(P.form), p = rt.par;
   const sig = JSON.stringify([p.runner, p.worker, p.runnerCfg, p.limits, p.ceilings, rt.run && rt.run.config]);
-  if (!f.contains(document.activeElement) && f.dataset.sig !== sig) {                         // non ricostruire mentre stai scrivendo
-    f.innerHTML = p.groups.map((g) => `<h2>${esc(g.title)}</h2><div class="card">${Object.keys(p.schema).filter((k) => p.schema[k].group === g.id).map(paramRow).join('')}</div>`).join('');
+  if (!f.contains(document.activeElement) && f.dataset.sig !== sig) {                          // non ricostruire mentre stai scrivendo
+    f.innerHTML = p.groups.filter((g) => g.page === pg).map((g) => `<h2>${esc(g.title)}</h2><div class="card">${Object.keys(p.schema).filter((k) => p.schema[k].group === g.id).map(paramRow).join('')}</div>`).join('');
     f.dataset.sig = sig;
   }
-  $('#parPending').innerHTML = (p.resetPaper ? `<div class="card real-note small">♻️ Reset del paper approvato (${esc(p.resetPaper.id)}): il runner lo esegue entro un minuto e riparte con ${esc(p.resetPaper.capitalSOL)} ◎.</div>` : '')
-    + p.proposals.map((q) => `<div class="card real-note small">⏳ <b>${esc(q.id)}</b> in attesa su Telegram · scade tra ${ago(q.exp - Date.now())}<div class="tiny muted" style="margin-top:4px">${q.reset ? `Azzera il paper e riparti con ${esc(q.reset.capitalSOL)} ◎` : Object.entries(q.changes).map(([k, v]) => `${parLabel(k)} → ${parShow(k, v)}`).join('<br>')}</div></div>`).join('');
-  renderPaperCard();
-  updateParBar();
+  const mine = p.proposals.filter((q) => (q.reset ? pg === 'paper' : pageOf(Object.keys(q.changes)[0]) === pg));
+  $(P.pend).innerHTML = (pg === 'paper' && p.resetPaper ? `<div class="card real-note small">♻️ Reset del paper approvato (${esc(p.resetPaper.id)}): il runner lo esegue entro un minuto e riparte con ${esc(p.resetPaper.capitalSOL)} ◎.</div>` : '')
+    + mine.map((q) => `<div class="card real-note small">⏳ <b>${esc(q.id)}</b> in attesa su Telegram · scade tra ${ago(q.exp - Date.now())}<div class="tiny muted" style="margin-top:4px">${q.reset ? `Azzera il paper e riparti con ${esc(q.reset.capitalSOL)} ◎` : Object.entries(q.changes).map(([k, v]) => `${parLabel(k)} → ${parShow(k, v)}`).join('<br>')}</div></div>`).join('');
+  updateParBar(pg);
+}
+function renderParams() {
+  const p = rt.par;
+  if (!p) {
+    for (const pg of ['paper', 'real']) { const P = PAGES[pg]; $(P.form).innerHTML = `<div class="card small muted">Parametri non disponibili${rt.parErr ? ': ' + esc(rt.parErr) : ''}.</div>`; $(P.form).dataset.sig = ''; $(P.bar).innerHTML = ''; $(P.pend).innerHTML = ''; }
+    renderPaperCard(); renderRealSummary(); return;
+  }
+  renderPage('paper'); renderPage('real'); renderPaperCard(); renderRealSummary();
+}
+function renderRealSummary() {
+  const e = rt.exec, c = rt.par && rt.par.ceilings, el = $('#execSummary');
+  el.innerHTML = e ? `<div class="row between"><b>Esecutore</b><span class="pill ${e.mode === 'live' ? 'real' : e.mode === 'dryrun' ? 'gold' : ''}">${e.mode === 'live' ? 'LIVE' : e.mode === 'dryrun' ? 'DRY-RUN' : 'SPENTO'}</span></div>
+    <div class="muted tiny" style="margin-top:6px">Wallet ${esc(e.wallet || '—')} · saldo ${e.balanceSOL != null ? Number(e.balanceSOL).toFixed(4) + ' ◎' : '—'}${e.killed ? ' · <span class="warn">KILL SWITCH ATTIVO</span>' : ''}${c ? `<br>Tetti in Cloudflare: capitale ${c.maxCapitalSOL}◎ · ordine ${c.maxOrderSOL}◎ · perdita/giorno ${c.maxDailyLossSOL}◎ · posizioni ${c.maxPositions}` : ''}<br>Modo (<span class="mono">ORDERS_MODE</span>) e tetti si cambiano solo da Cloudflare.</div>`
+    : `<b>Esecutore</b><div class="down tiny" style="margin-top:4px">non raggiungibile${rt.execErr ? ' (' + esc(rt.execErr) + ')' : ''}</div>`;
 }
 // Conto paper: il capitale iniziale non si cambia "a caldo" (cassa ed equity devono restare coerenti): si azzera e si riparte, con l'approvazione su Telegram.
 function renderPaperCard() {
@@ -565,14 +606,14 @@ async function resetPaper() {
     else toast('Non inviata: ' + esc(d.error || 'errore') + (d.errors ? '<br><span class="tiny">' + d.errors.map((e) => esc(e.msg)).join(' · ') + '</span>' : ''));
   } catch (e) { toast('Errore di rete: ' + esc(e.message)); }
 }
-async function sendParams() {
-  if (!Object.keys(rt.draft).length || parProblems().length) return;
-  const btn = document.querySelector('[data-par=send]'); if (btn) btn.disabled = true;
+async function sendParams(pg) {
+  const changes = draftFor(pg); if (!Object.keys(changes).length || parProblems(pg).length) return;
+  const btn = document.querySelector(`[data-par=send][data-page=${pg}]`); if (btn) btn.disabled = true;
   try {
-    const d = await postPropose({ changes: rt.draft });
-    if (d.ok) { toast(`Richiesta ${esc(d.proposal.id)} inviata: approvala su Telegram`); rt.draft = {}; $('#parForm').dataset.sig = ''; await loadParams(); renderParams(); }
-    else { toast('Non inviata: ' + esc(d.error || 'errore') + (d.errors ? '<br><span class="tiny">' + d.errors.map((e) => parLabel(e.key) + ': ' + esc(e.msg)).join(' · ') + '</span>' : '')); updateParBar(); }
-  } catch (e) { toast('Errore di rete: ' + esc(e.message)); updateParBar(); }
+    const d = await postPropose({ changes });
+    if (d.ok) { toast(`Richiesta ${esc(d.proposal.id)} inviata (${PAGES[pg].label}): approvala su Telegram`); for (const k of Object.keys(changes)) delete rt.draft[k]; $(PAGES[pg].form).dataset.sig = ''; await loadParams(); renderParams(); }
+    else { toast('Non inviata: ' + esc(d.error || 'errore') + (d.errors ? '<br><span class="tiny">' + d.errors.map((e) => parLabel(e.key) + ': ' + esc(e.msg)).join(' · ') + '</span>' : '')); updateParBar(pg); }
+  } catch (e) { toast('Errore di rete: ' + esc(e.message)); updateParBar(pg); }
 }
 
 // ---------- EVENTI ----------
@@ -583,16 +624,19 @@ function go(v) {
 }
 $('#nav').onclick = (e) => { const b = e.target.closest('button'); if (b) go(b.dataset.v); };
 $('#radarFilter').onclick = (e) => { const b = e.target.closest('button'); if (!b) return; rt.filter = b.dataset.f; document.querySelectorAll('#radarFilter button').forEach((x) => x.classList.toggle('on', x === b)); renderRadar(); };
-$('#parForm').addEventListener('input', (e) => {
+$('#v-set').addEventListener('input', (e) => {
   const el = e.target.closest('[data-param]'); if (!el || !rt.par) return;
   const k = el.dataset.param, s = rt.par.schema[k]; let v;
   if (s.t === 'bool') v = el.checked; else if (s.t === 'enum') v = el.value; else if (el.value === '') v = undefined; else v = Number(el.value);
   if (v === undefined || v === baseVal(k)) delete rt.draft[k]; else rt.draft[k] = v;
-  el.closest('.set').classList.toggle('dirty', k in rt.draft); updateParBar();
+  el.closest('.set').classList.toggle('dirty', k in rt.draft); updateParBar(pageOf(k)); updateParBar(pageOf(k) === 'paper' ? 'real' : 'paper');
 });
 $('#v-set').addEventListener('click', (e) => {
+  const t = e.target.closest('#setTabs button'); if (t) return showTab(t.dataset.tab);
   const b = e.target.closest('[data-par]'); if (!b) return;
-  if (b.dataset.par === 'send') sendParams(); else if (b.dataset.par === 'reset') resetPaper(); else if (b.dataset.par === 'discard') { rt.draft = {}; $('#parForm').dataset.sig = ''; renderParams(); }
+  const pg = b.dataset.page;
+  if (b.dataset.par === 'send') sendParams(pg); else if (b.dataset.par === 'reset') resetPaper();
+  else if (b.dataset.par === 'discard') { for (const k of Object.keys(draftFor(pg))) delete rt.draft[k]; $(PAGES[pg].form).dataset.sig = ''; renderParams(); }
 });
 $('#btnScan').onclick = () => { scan(); loadAll(); };
 $('#pMode').onclick = () => setMode(st.mode === 'real' ? 'paper' : 'real');
@@ -611,6 +655,7 @@ document.addEventListener('dragstart', (e) => e.preventDefault());
 document.addEventListener('visibilitychange', () => { if (!document.hidden) loadAll(); });
 
 // ---------- AVVIO ----------
+showTab(['gen', 'paper', 'real'].includes(prefGet('kz_settab', 'gen')) ? prefGet('kz_settab', 'gen') : 'gen');
 render();
 log('KAISER', 'pannello pronto: paper dal runner 24/7, reale dall’esecutore, comandi da Telegram');
 loadAll();

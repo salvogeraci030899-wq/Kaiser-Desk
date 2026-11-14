@@ -294,3 +294,6 @@ a.btn { text-decoration: none; display: inline-flex; align-items: center; justif
 .set select { text-align-last: right; }
 .set.dirty label { color: var(--warning); }
 .set.dirty input, .set.dirty select { border-color: var(--warning); }
+
+.setpage[hidden] { display: none; }
+#parBarPaper .btn.gold, #parBarReal .btn.gold { min-height: 44px; }
