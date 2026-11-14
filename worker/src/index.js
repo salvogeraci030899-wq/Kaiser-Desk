@@ -1,22 +1,43 @@
-// KAISER · esecutore su Cloudflare Workers. FASE 2: sola lettura. Nessun ordine, nessuna firma.
-//   GET  /health   indirizzo del wallet, saldo, limiti, kill switch   (richiede x-app-token)
-//   POST /kill     ferma i nuovi ordini        POST /resume   li riabilita
-//   POST /order    non ancora attivo (fase 3)
-// Segreti (dashboard Cloudflare → Worker → Settings → Variables and Secrets): EXEC_TOKEN, WALLET_SECRET_KEY, facoltativo RPC_URL.
-import { walletAddress, safeEqual, limitsFrom, corsHeaders, dispatchRequest, num } from './lib.js';
+// KAISER · esecutore su Cloudflare Workers.
+//   GET  /health   indirizzo wallet, saldo, modo, limiti, orologio          (token obbligatorio)
+//   GET  /state    posizioni, journal, perdita del giorno, ultimo dry-run
+//   POST /order    ingresso: {ref, mint, sym, sizeSol, slippageBps, params, entryLiq, dryRun}
+//   POST /sell     uscita manuale: {id, frac}
+//   POST /kill     ferma i nuovi ingressi (le uscite restano attive)       POST /resume   li riabilita
+//   POST /tick     giro di Charon a richiesta
+// Cron: ogni 5 minuti avvia il runner paper su GitHub; ogni minuto Charon controlla le posizioni reali.
+// Segreti (dashboard Cloudflare → Variables and Secrets): EXEC_TOKEN, WALLET_SECRET_KEY, GH_TOKEN, facoltativi RPC_URL, TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID.
+// Variabili: ORDERS_MODE (off|dryrun|live), JUPITER_PROGRAM_ID, MAX_CAPITAL_SOL, MAX_ORDER_SOL, MAX_DAILY_LOSS_SOL, MAX_POSITIONS...
+import { safeEqual, corsHeaders, dispatchRequest } from './lib.js';
+import { Executor } from './exec.js';
 
 const json = (obj, status, extra) => new Response(JSON.stringify(obj), { status: status || 200, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...extra } });
+const ROUTES = { '/health': 'GET', '/state': 'GET', '/order': 'POST', '/sell': 'POST', '/kill': 'POST', '/resume': 'POST', '/tick': 'POST' };
 
-async function balanceSOL(env, address) {
-  const rpc = env.RPC_URL || 'https://api.mainnet-beta.solana.com';
-  const r = await fetch(rpc, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'getBalance', params: [address, { commitment: 'confirmed' }] }) });
-  if (!r.ok) throw new Error('RPC HTTP ' + r.status);
-  const d = await r.json();
-  if (d.error) throw new Error('RPC: ' + (d.error.message || 'errore'));
-  return num(d.result && d.result.value) / 1e9;
+// Il Durable Object tiene tutto lo stato reale e serializza le operazioni: un ordine e un giro di Charon non si pestano mai i piedi.
+export class Ledger {
+  constructor(state, env) {
+    this.ex = new Executor({ env, store: { get: async (k, d) => { const v = await state.storage.get(k); return v === undefined ? d : v; }, put: (k, v) => state.storage.put(k, v) } });
+  }
+  async fetch(req) {
+    const path = new URL(req.url).pathname;
+    const body = req.method === 'POST' ? await req.json().catch(() => ({})) : {};
+    try {
+      if (path === '/health') return json(await this.ex.health());
+      if (path === '/state') return json(await this.ex.state());
+      if (path === '/order') return json(await this.ex.buy(body));
+      if (path === '/sell') return json(await this.ex.sell(String(body.id || ''), body.frac, 'Manuale'));
+      if (path === '/kill') return json(await this.ex.kill());
+      if (path === '/resume') return json(await this.ex.resume());
+      if (path === '/tick') return json(await this.ex.tick());
+    } catch (e) { return json({ ok: false, error: e.message }, 500); }
+    return json({ ok: false, error: 'non trovato' }, 404);
+  }
 }
 
-// Orologio: avvia il runner paper su GitHub. Esito salvato in KV (una scrittura ogni 5 minuti, dentro i limiti gratuiti).
+const stub = (env) => env.LEDGER.get(env.LEDGER.idFromName('main'));
+
+// Orologio: avvia il runner paper su GitHub. Esito in KV (una scrittura ogni 5 minuti).
 async function readClock(env) { try { return JSON.parse((await env.STATE.get('clock')) || 'null'); } catch { return null; } }
 export async function runClock(env) {
   const rec = { at: new Date().toISOString(), ok: false, status: null, error: null };
@@ -24,35 +45,31 @@ export async function runClock(env) {
     if (!env.GH_TOKEN) throw new Error('GH_TOKEN non impostato');
     const { url, init } = dispatchRequest(env);
     const r = await fetch(url, init);
-    rec.status = r.status;
-    rec.ok = r.status === 204;
+    rec.status = r.status; rec.ok = r.status === 204;
     if (!rec.ok) rec.error = r.status === 401 || r.status === 403 ? 'token GitHub rifiutato o senza permesso Actions' : r.status === 404 ? 'repository o workflow non trovato (o token senza accesso)' : 'GitHub HTTP ' + r.status;
   } catch (e) { rec.error = e.message; }
-  try { await env.STATE.put('clock', JSON.stringify(rec)); } catch {}
+  try { await env.STATE.put('clock', JSON.stringify(rec)); } catch { /* non critico */ }
   return rec;
 }
 
 export default {
-  async scheduled(event, env, ctx) { ctx.waitUntil(runClock(env)); },
-
+  async scheduled(event, env, ctx) {
+    if (event.cron === '* * * * *') ctx.waitUntil(stub(env).fetch('https://ledger/tick', { method: 'POST', body: '{}' }));
+    else ctx.waitUntil(runClock(env));
+  },
   async fetch(req, env) {
     const cors = corsHeaders(req.headers.get('Origin'), env);
     if (req.method === 'OPTIONS') return new Response(null, { status: 204, headers: cors });
     const url = new URL(req.url);
-
     if (!env.EXEC_TOKEN) return json({ ok: false, error: 'EXEC_TOKEN non impostato nell’esecutore' }, 503, cors);
     if (!safeEqual(req.headers.get('x-app-token') || '', env.EXEC_TOKEN)) return json({ ok: false, error: 'token mancante o errato' }, 401, cors);
-
-    if (url.pathname === '/health' && req.method === 'GET') {
-      const out = { ok: true, phase: 2, ordersEnabled: false, limits: limitsFrom(env), killed: (await env.STATE.get('killed')) === '1', wallet: null, balanceSOL: null, clock: await readClock(env) };
-      if (!env.WALLET_SECRET_KEY) { out.walletError = 'WALLET_SECRET_KEY non impostata'; return json(out, 200, cors); }
-      try { out.wallet = await walletAddress(env.WALLET_SECRET_KEY); } catch (e) { out.walletError = e.message; return json(out, 200, cors); }
-      try { out.balanceSOL = await balanceSOL(env, out.wallet); } catch (e) { out.rpcError = e.message; }
-      return json(out, 200, cors);
-    }
-    if (url.pathname === '/kill' && req.method === 'POST') { await env.STATE.put('killed', '1'); return json({ ok: true, killed: true }, 200, cors); }
-    if (url.pathname === '/resume' && req.method === 'POST') { await env.STATE.delete('killed'); return json({ ok: true, killed: false }, 200, cors); }
-    if (url.pathname === '/order') return json({ ok: false, error: 'ordini non ancora attivi (fase 3)' }, 501, cors);
-    return json({ ok: false, error: 'non trovato' }, 404, cors);
+    if (ROUTES[url.pathname] !== req.method) return json({ ok: false, error: 'non trovato' }, ROUTES[url.pathname] ? 405 : 404, cors);
+    try {
+      const body = req.method === 'POST' ? await req.text() : undefined;
+      const r = await stub(env).fetch('https://ledger' + url.pathname, { method: req.method, body });
+      const data = await r.json();
+      if (url.pathname === '/health') data.clock = await readClock(env);
+      return json(data, r.status, cors);
+    } catch (e) { return json({ ok: false, error: e.message }, 500, cors); }
   },
 };

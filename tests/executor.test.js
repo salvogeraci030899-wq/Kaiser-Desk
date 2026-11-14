@@ -51,13 +51,15 @@ test('limiti e CORS', () => {
   assert.equal(L.corsHeaders('https://evil.example', env)['Access-Control-Allow-Origin'], undefined);
 });
 
-// Il Worker intero, con un KV finto: senza token non risponde, con token ok, il kill switch funziona
-test('worker: autenticazione, health, kill/resume, ordini non attivi', async () => {
-  const { default: W } = await import('../worker/src/index.js');
-  const mem = new Map();
-  const STATE = { get: async (k) => mem.get(k) ?? null, put: async (k, v) => { mem.set(k, v); }, delete: async (k) => { mem.delete(k); } };
+// Il Worker intero, con KV e Durable Object finti: senza token non risponde, con token sì, kill/resume, rotte e metodi
+test('worker: autenticazione, health, kill/resume, rotte', async () => {
+  const { default: W, Ledger } = await import('../worker/src/index.js');
+  const kv = new Map(), dur = new Map();
+  const STATE = { get: async (k) => kv.get(k) ?? null, put: async (k, v) => { kv.set(k, v); }, delete: async (k) => { kv.delete(k); } };
   const k = keypair();
   const env = { EXEC_TOKEN: 'segreto-lungo', STATE, WALLET_SECRET_KEY: L.b58encode(k.full), RPC_URL: 'https://rpc.invalid' };
+  const ledger = new Ledger({ storage: { get: async (x) => dur.get(x), put: async (x, v) => { dur.set(x, v); } } }, env);
+  env.LEDGER = { idFromName: () => 'main', get: () => ({ fetch: (u, init) => ledger.fetch(new Request(u, init)) }) };
   const realFetch = globalThis.fetch;
   globalThis.fetch = async () => new Response(JSON.stringify({ jsonrpc: '2.0', id: 1, result: { value: 1_500_000_000 } }), { status: 200 });
   try {
@@ -66,17 +68,19 @@ test('worker: autenticazione, health, kill/resume, ordini non attivi', async () 
     assert.equal((await call('/health', {}, 'sbagliato')).status, 401);
     assert.equal((await W.fetch(new Request('https://x.example/health'), { ...env, EXEC_TOKEN: '' })).status, 503);
     const h = await (await call('/health')).json();
-    assert.equal(h.ok, true); assert.equal(h.ordersEnabled, false); assert.equal(h.killed, false);
+    assert.equal(h.ok, true); assert.equal(h.mode, 'off'); assert.equal(h.ordersEnabled, false); assert.equal(h.killed, false);
     assert.equal(h.wallet, L.b58encode(k.pub)); assert.equal(h.balanceSOL, 1.5);
     assert.ok(!JSON.stringify(h).includes(env.WALLET_SECRET_KEY));
     assert.equal((await (await call('/kill', { method: 'POST' })).json()).killed, true);
     assert.equal((await (await call('/health')).json()).killed, true);
     assert.equal((await (await call('/resume', { method: 'POST' })).json()).killed, false);
-    assert.equal((await call('/order', { method: 'POST' })).status, 501);
+    const o = await call('/order', { method: 'POST', body: '{}' }); assert.equal((await o.json()).ok, false);   // ordini spenti di default
+    assert.equal((await call('/order')).status, 405);
     assert.equal((await call('/boh')).status, 404);
+    assert.equal((await (await call('/state')).json()).positions.length, 0);
+    assert.equal((await (await call('/tick', { method: 'POST' })).json()).idle, true);
   } finally { globalThis.fetch = realFetch; }
 });
-
 test('orologio: richiesta di dispatch corretta e validata', async () => {
   const L2 = await import('../worker/src/lib.js');
   const { url, init } = L2.dispatchRequest({ GH_REPO: 'salvogeraci030899-wq/Kaiser-Desk', GH_WORKFLOW: 'runner.yml', GH_REF: 'main', GH_TOKEN: 't0k' });

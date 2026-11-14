@@ -1,13 +1,42 @@
 # Trading reale in Kaiser
 
-**Stato: fase 2.** L'app distingue paper e reale, ha il cancello di sicurezza e c'è l'esecutore (`worker/`) in **sola lettura**:
-`/health` (indirizzo del wallet, saldo, limiti), kill switch (`/kill`, `/resume`). Gli ordini veri **non partono ancora**
-(fase 3). Il reale è spento di default e fallisce sempre chiuso.
+**Stato: fase 3 (esecutore).** Il Worker `kaiser-executor` sa fare ordini veri tramite Jupiter, gestire le uscite di Charon ogni
+minuto (anche con app e telefono spenti), applicare i limiti lato server e fermarsi con il kill switch. È **inerte finché non lo
+accendi dalla dashboard di Cloudflare**: `ORDERS_MODE=off` e capitale massimo 0 sono i valori di partenza.
 
-Esecutore: `https://kaiser-executor.salvogeraci030899.workers.dev` (pubblicato dal workflow «Pubblica esecutore»).
-Segreti, solo nella dashboard Cloudflare → Worker → Settings → Variables and Secrets: `EXEC_TOKEN` (stessa password di
-Setup → Token esecutore), `WALLET_SECRET_KEY` (chiave del wallet dedicato: base58 o JSON), facoltativo `RPC_URL`
-(un RPC gratuito dedicato, p.es. Helius, evita i limiti dell'RPC pubblico).
+Esecutore: `https://kaiser-executor.salvogeraci030899.workers.dev`.
+Segreti (dashboard Cloudflare → Worker → Settings → Variables and Secrets): `EXEC_TOKEN`, `WALLET_SECRET_KEY`, `GH_TOKEN`,
+facoltativi `RPC_URL` (RPC gratuito dedicato, p.es. Helius), `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`.
+
+## Come si accende (in quest'ordine, senza fretta)
+Variabili da impostare **dalla dashboard** (mai nel repository: un deploy non deve riportarle a un valore del repo; `keep_vars` le conserva):
+
+| Variabile | Valore consigliato all'inizio | Significato |
+|---|---|---|
+| `ORDERS_MODE` | `dryrun` poi `live` | `off` nessun nuovo ordine · `dryrun` costruisce, controlla e **simula**, non firma né invia · `live` ordini veri |
+| `JUPITER_PROGRAM_ID` | l'indirizzo del programma «Jupiter Aggregator v6» | **Verificalo tu** (Solscan o documentazione ufficiale di Jupiter): è l'unico programma di swap che l'esecutore accetta di firmare. Vuoto = nessun ordine |
+| `MAX_CAPITAL_SOL` | `0.1` | capitale massimo in uso (0 = nessun ordine) |
+| `MAX_ORDER_SOL` | `0.03` | size massima per ordine |
+| `MAX_DAILY_LOSS_SOL` | `0.05` | perdita giornaliera massima: oltre, niente nuovi ingressi fino a domani |
+| `MAX_POSITIONS` | `2` | posizioni aperte contemporaneamente (default 3) |
+| `ALLOWED_PROGRAMS` | vuoto | altri programmi ammessi, separati da virgola, solo se il dry-run li segnala e li hai verificati |
+
+1. **dryrun**: `ORDERS_MODE=dryrun`, poi prova un ordine dall'app (BUY REALE): non viene inviato niente. Il rapporto (e `GET /state` → `lastDry`) mostra programmi, istruzioni, impatto e SOL spostati dalla simulazione.
+   Se un programma non è ammesso il rifiuto lo elenca: verificalo prima di autorizzarlo.
+2. **live** con importi minimi: `ORDERS_MODE=live`, capitale e size piccoli. Controlla su Solscan il primo ordine.
+3. Alza i limiti solo dopo diversi ordini corretti.
+
+## Cosa controlla l'esecutore prima di firmare
+- La transazione la costruisce Jupiter, **non la firmiamo alla cieca**: ogni istruzione deve essere di un programma ammesso (System, Token, Associated Token, ComputeBudget, Memo, Jupiter); niente `Transfer`/`Approve`/`SetAuthority` di token; i trasferimenti di SOL solo dal nostro wallet e sotto la size dell'ordine; chiusura account solo verso il nostro wallet; una sola firma, la nostra.
+- Poi la **simulazione** su RPC: il saldo SOL del wallet non può calare più della size dell'ordine più 0,01 SOL di margine. Per le uscite, al massimo 0,01 SOL.
+- Limiti lato server (non aggirabili dall'app): size per ordine, capitale in uso, numero di posizioni, perdita giornaliera, slippage massimo, impatto massimo (5%), saldo sufficiente, un solo ordine per `ref` (nessun doppione se la richiesta si ripete), un solo ingresso per token.
+- Il **kill switch** ferma i nuovi ingressi; le **uscite continuano** sempre, anche con `ORDERS_MODE=off`: una posizione aperta non resta mai senza stop.
+- Le uscite sono quelle di Charon (le stesse del paper, stesso codice `engine.js`) con i parametri dell'ordine, limitati lato server (stop tra 5% e 60%).
+
+## Limiti del piano gratuito (da tenere d'occhio)
+- Charon controlla ogni minuto: su una memecoin il prezzo può muoversi molto tra un controllo e l'altro, e l'uscita può avvenire peggio dello stop. Lo slippage di uscita è alto (15%) per garantire la vendita.
+- Un giro di Charon vende al massimo 2 posizioni (limite di richieste esterne per invocazione), le altre al giro dopo.
+- Il tempo di calcolo per invocazione sul piano gratuito è limitato: se compaiono errori di limite, l'alternativa è il piano a pagamento di Cloudflare (circa 5 $ al mese).
 
 ## Regole che non cambiano
 - Paper e reale sono due conti separati, mai mescolati (posizioni, journal, equity). Ogni voce ha `mode: paper|real`.
@@ -34,9 +63,9 @@ Perché il Cron di Cloudflare per le uscite: il cron di GitHub Actions può rita
 
 ## Fasi
 1. **Fatto:** separazione paper/reale, cancello, impostazioni, test.
-2. **Fatto:** esecutore in sola lettura: `/health` con indirizzo wallet e saldo (nessun ordine).
-3. Ordini reali con approvazione manuale di ogni ingresso (ticket) e uscite di Charon dall'esecutore.
-4. Autonomia: ingressi automatici dal runner, solo se lo accendi tu (`realApprove` spento).
+2. **Fatto:** esecutore in sola lettura (`/health`, kill switch).
+3. **Fatto (inerte):** ordini veri, controllo delle transazioni, simulazione, limiti, Charon ogni minuto, Telegram dal Worker.
+4. Integrazione nell'app (BUY REALE, ticket, posizioni reali, vendita manuale) e autonomia dal runner (`realApprove` spento).
 
 ## Cosa serve da te (fase 2)
 - Account Cloudflare gratuito e un token API per pubblicare il Worker (come in Pinscher);
