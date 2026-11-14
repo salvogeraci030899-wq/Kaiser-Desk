@@ -56,8 +56,24 @@
     var onChange = function () { if (get(KEY, THEMES, 'auto') === 'auto') apply(); };
     if (media.addEventListener) media.addEventListener('change', onChange); else if (media.addListener) media.addListener(onChange);
   }
-  // Layout dell'app: fisso, altezza lvh (come PinscherTrade). Non è più modificabile dall'utente.
-  root.classList.add('layout-lvh');
+  // Altezza dell'app installata = altezza REALE della finestra (innerHeight). iOS la aggiorna in ritardo (all'avvio, con la barra di stato,
+  // dopo la tastiera): si rimisura spesso per i primi secondi e a ogni evento utile, e si evita che la pagina scorra da sola.
+  var pwa = root.classList.contains('pwa-mode'), lastH = 0;
+  function fitHeight() {
+    if (!pwa) return;
+    var h = Math.round(window.innerHeight); if (!(h > 300)) return;
+    if (h !== lastH) { lastH = h; root.style.setProperty('--app-h', h + 'px'); }
+    if (window.scrollY || document.documentElement.scrollTop) window.scrollTo(0, 0);
+  }
+  if (pwa) {
+    ['resize', 'orientationchange', 'pageshow', 'focus', 'load', 'scroll'].forEach(function (ev) { window.addEventListener(ev, fitHeight, { passive: true }); });
+    if (window.visualViewport) window.visualViewport.addEventListener('resize', fitHeight);
+    document.addEventListener('visibilitychange', fitHeight);
+    document.addEventListener('focusout', function () { setTimeout(fitHeight, 50); setTimeout(fitHeight, 400); });
+    fitHeight(); var n = 0, tick = function () { fitHeight(); if (++n < 40) requestAnimationFrame(tick); }; requestAnimationFrame(tick);   // primo secondo, a ogni frame
+    var slow = 0, iv = setInterval(function () { fitHeight(); if (++slow > 20) clearInterval(iv); }, 500);                                  // poi ogni mezzo secondo per 10 s
+    setInterval(fitHeight, 3000);
+  }
   document.addEventListener('DOMContentLoaded', function () { applyGlass(); apply(); syncWalls(); });
-  window.KZTheme = { apply: apply, resolved: resolved, layout: function () { return 'lvh'; } };
+  window.KZTheme = { apply: apply, resolved: resolved, layout: function () { return pwa ? 'misurato' : 'fisso'; } };
 })();

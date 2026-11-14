@@ -2,7 +2,7 @@
    Token iOS (scuro/chiaro/automatico), angoli concentrici, barra a capsula, Vetro (Liquid Glass) fermo o animato.
    I nomi delle classi sono quelli di Kaiser: cambia l'aspetto, non la struttura. */
 :root {
-  --kz-css: 24;
+  --kz-css: 25;
   color-scheme: dark;
   --bg: #000000;
   --surface: #0a0a0a;
@@ -296,13 +296,15 @@ a.btn { text-decoration: none; display: inline-flex; align-items: center; justif
 #parBarPaper .btn.gold, #parBarReal .btn.gold { min-height: 44px; }
 
 /* ================= LAYOUT STABILE =================
-   Nessuna altezza calcolata da script: l'app è ancorata ai quattro bordi della finestra (position: fixed; inset: 0), quindi non può
-   finire più in alto, più in basso o tagliata a metà. Intestazione e barra hanno altezza fissa, il contenuto riempie lo spazio in mezzo.
-   Se su un dispositivo la barra fosse ancora fuori posto: Sistema → Generale → Schermo → Layout (Fisso / Lungo / Misurato). */
-/* Struttura come in PinscherTrade (che sul telefono funziona): html e body NON sono fixed, tutto prende l'altezza piena dello schermo (lvh)
-   e la barra sta nel flusso. iOS ritaglia i livelli "fixed" dentro un contenitore fixed: era la causa della barra tagliata a metà. */
-html, body { position: static; overflow: hidden; height: 100vh; height: 100lvh; }
-#app { position: relative; inset: auto; width: 100%; height: 100vh; height: 100lvh; }
+   Due casi, perché iOS si comporta in modo diverso:
+   - Safari (scheda del browser): l'app è ancorata ai quattro bordi dell'area visibile (position: fixed; inset: 0), così segue la barra degli
+     indirizzi e la pagina non può scorrere. 100lvh qui sbagliava: è più alto dell'area visibile e la barra finiva sotto la barra di Safari.
+   - App installata (classe pwa-mode): l'altezza è quella REALE della finestra, misurata e rimisurata da theme.js (--app-h = innerHeight).
+     100lvh sbagliava quando iOS non rende trasparente la barra di stato: la finestra è più bassa dello schermo e la barra finiva tagliata. */
+html, body { position: fixed; inset: 0; width: 100%; height: auto; margin: 0; overflow: hidden; }
+#app { position: absolute; inset: 0; width: auto; height: auto; }
+html.pwa-mode, html.pwa-mode body { position: static; height: 100%; }
+html.pwa-mode #app { position: relative; inset: auto; width: 100%; height: var(--app-h, 100%); }
 .view.active { animation: none; }
 main { scrollbar-gutter: stable; }
 /* Le pagine non scorrono per intero: in alto restano fissi selettori e riepiloghi (.vfix), scorre solo il resto (.vscroll); in basso i tasti d'azione (.vfoot). */
