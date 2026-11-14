@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-14 04:00 UTC · in esecuzione da 0.4 giorni · 14 run
+Aggiornato: 2026-11-14 04:05 UTC · in esecuzione da 0.4 giorni · 15 run
 
 | | |
 |---|---|
-| Equity | **4.2733 SOL** (-14.5% dal capitale iniziale di 5 SOL) |
+| Equity | **4.2542 SOL** (-14.9% dal capitale iniziale di 5 SOL) |
 | Cassa | 4.0792 SOL |
 | Trade chiusi | 9 |
 | Win rate | 11% |
-| P&L realizzato | -0.7064 SOL (~$-52.96) |
+| P&L realizzato | -0.7064 SOL (~$-53.08) |
 | Media vincite / perdite | +63.7% / -43.7% |
 | Profit factor | 0.16 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$WOHAIHAO** P-0010 · 0.214 SOL · -9.2% · resta 100% · [grafico](https://dexscreener.com/solana/9Xvu6Bt8nVKcEeJKx15cU6f5t8szWxyL1X13y6gLHQe8)
+- **$WOHAIHAO** P-0010 · 0.214 SOL · -18.2% · resta 100% · [grafico](https://dexscreener.com/solana/9Xvu6Bt8nVKcEeJKx15cU6f5t8szWxyL1X13y6gLHQe8)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -39,6 +39,13 @@ Aggiornato: 2026-11-14 04:00 UTC · in esecuzione da 0.4 giorni · 14 run
 
 ## Ultimi eventi
 ```
+04:05:11 SCRIBE   fine run · trade 9 · win 11% · P&L -0.7064 SOL · equity 4.2542 SOL
+04:04:56 ORACLE   90 raccolti, 64 analizzati, 2 BUY, 40 veto
+04:03:53 ORACLE   90 raccolti, 64 analizzati, 3 BUY, 41 veto
+04:02:50 ORACLE   90 raccolti, 64 analizzati, 6 BUY, 41 veto
+04:01:48 ORACLE   90 raccolti, 64 analizzati, 3 BUY, 40 veto
+04:00:45 ORACLE   90 raccolti, 63 analizzati, 4 BUY, 39 veto
+04:00:41 KAISER   run #15 · 1 posizioni · equity 4.2733 SOL · GMGN demo · Grok off
 04:00:06 SCRIBE   fine run · trade 9 · win 11% · P&L -0.7064 SOL · equity 4.2733 SOL
 03:59:49 ORACLE   90 raccolti, 64 analizzati, 5 BUY, 41 veto
 03:58:46 ORACLE   90 raccolti, 62 analizzati, 5 BUY, 37 veto
@@ -72,13 +79,6 @@ Aggiornato: 2026-11-14 04:00 UTC · in esecuzione da 0.4 giorni · 14 run
 03:40:53 ORACLE   90 raccolti, 67 analizzati, 6 BUY, 44 veto
 03:40:50 KAISER   run #11 · 3 posizioni · equity 4.2867 SOL · GMGN demo · Grok off
 03:40:19 SCRIBE   fine run · trade 7 · win 14% · P&L -0.6601 SOL · equity 4.2867 SOL
-03:40:14 ORACLE   90 raccolti, 66 analizzati, 5 BUY, 43 veto
-03:39:11 QUARTER  BUY $WOHAIHAO 0.214 SOL score 70 impatto 0.57% (Jupiter)
-03:39:11 SCRIBE   chiuso P-0009 $HARAMBE 0.1330 SOL (63.7%)
-03:39:11 CHARON   Trailing stop $HARAMBE vendo 100% a 125.0% -> 0.2282 SOL
-03:39:11 ORACLE   90 raccolti, 65 analizzati, 5 BUY, 43 veto
-03:38:08 ORACLE   90 raccolti, 66 analizzati, 4 BUY, 44 veto
-03:37:05 ORACLE   90 raccolti, 66 analizzati, 3 BUY, 44 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
