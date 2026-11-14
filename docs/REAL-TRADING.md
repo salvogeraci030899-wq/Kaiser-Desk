@@ -131,3 +131,15 @@ Le memecoin sono estremamente rischiose e il reale può perdere tutto il capital
 - **Da verificare sul sistema vivo:** gli indirizzi del programma pump.fun e il formato degli eventi sono scritti nel codice (`runner/young.js`) e non ho potuto provarli con la rete vera. Se l'RPC resta muto, nel registro compare «RPC collegato ma senza creazioni da 90 s: uso PumpPortal come riserva»: l'indirizzo andrebbe corretto.
 - **Parametri** (Sistema → Paper → Filtri): «Fonte: token appena creati» (acceso/spento) e «Token giovani: entra solo dopo un calo (%)» (0 = spento; con 20 compra un token giovane solo se il prezzo è già sceso del 20% dal picco visto).
 - **Limiti:** il runner controlla ogni 10-30 secondi, quindi non può comprare nei primissimi secondi dopo il lancio. I token giovani sono i più rischiosi (la maggior parte muore o viene svuotata) e il paper sovrastima il reale proprio qui.
+
+## Scudo: protezione del trading manuale da pump.fun
+
+Compri a mano (pump.fun, Phantom) con **lo stesso wallet dell'esecutore**; lo Scudo mette stop e take profit al posto tuo.
+
+- **Come si accende:** Sistema → Reale → «Scudo acceso» (richiesta su Telegram come ogni parametro) oppure da Telegram con `/scudo on` (immediato, dalla tua chat). `/scudo off` lo spegne, `/scudo` mostra lo stato.
+- **Cosa fa:** ogni 10 secondi legge i token del wallet. All'accensione ne fa una **fotografia e li ignora per sempre**. Un token che compare dopo (acquisto manuale), con valore sopra il minimo (0,02 SOL di base) e non stabile, viene **adottato** come posizione «SCUDO»: ingresso = prezzo di quando lo vede, poi stop loss, TP1 con quota venduta, trailing, break-even, time stop e uscita per ritiro di liquidità, con gli stessi controlli e la stessa vendita via Jupiter delle posizioni dell'esecutore. Ti avvisa su Telegram a ogni passo.
+- **Non adotta mai:** i token già presenti all'accensione, USDC/USDT/SOL avvolto e altri token principali, i token con market cap sopra 20 milioni, quelli sotto il valore minimo (polvere), quelli che non riesce a prezzare.
+- **Parametri** (Reale → Scudo): stop 25%, TP1 +40% vendendo 50%, trailing 20%, break-even sì, time stop 360 minuti, uscita se la liquidità cala del 45%, vendite dominanti no, valore minimo 0,02 SOL. Tutti modificabili.
+- **Prova prima di rischiare:** con `ORDERS_MODE=dryrun` (o off) lo Scudo **non vende e non registra posizioni**: ti avvisa soltanto («Scudo (prova): rilevato $XYZ… lo proteggerei: stop a…, TP1 a…»). Con `live` le uscite sono vere.
+- **Limiti:** l'ingresso registrato è il prezzo al momento in cui lo Scudo si accorge dell'acquisto (circa 10 secondi dopo il tuo), non il tuo prezzo esatto. Su Coin sottili il prezzo si muove in pochi secondi: lo stop può scattare peggio del previsto. Le Coin ancora sulla curva di pump.fun si vendono solo se Jupiter le instrada. Se il nodo RPC risponde errori (per esempio 403), l'app mostra «Scudo: errore RPC»: serve `RPC_URL` nel Worker.
+- **Sicurezza:** funziona con kill switch, pannello di emergenza e limiti come le altre posizioni reali. Se spegni lo Scudo, le posizioni già adottate restano gestite fino alla chiusura.

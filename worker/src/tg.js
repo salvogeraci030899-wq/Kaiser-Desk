@@ -19,6 +19,7 @@ const HELP = `KAISER · comandi
 /parametri — parametri cambiati dall'app e richieste in attesa
 /reset_parametri — annulla tutte le modifiche fatte dall'app
 /emergenza — IMMEDIATA: ferma gli ingressi, spegne autopilota e reale, vende tutte le posizioni reali
+/scudo [on|off] — stato, accende o spegne lo Scudo (protegge i token che compri a mano)
 /kill — ferma i nuovi ingressi (le uscite restano attive)
 /riattiva — riabilita gli ingressi`;
 
@@ -96,6 +97,12 @@ export async function handleUpdate(ex, update) {
       break; }
     case '/reset_parametri': await ex.resetParams(); break;
     case '/emergenza': { await reply(ex, chat, 'Emergenza in corso…'); const r = await ex.emergency(); if (!r.ok) await reply(ex, chat, `${r.error || 'errore'}`); break; }
+    case '/scudo': {
+      const a = (args[0] || '').toLowerCase();
+      if (a === 'on' || a === 'off') { const r = await ex.shieldSet(a === 'on'); if (!r.ok) await reply(ex, chat, 'Errore'); break; }
+      await ex.refreshOv(); const c = ex.shieldCfg(), inf = await ex.store.get('shieldInfo', null), mode = ex.mode();
+      await reply(ex, chat, `Scudo: ${c.shieldOn ? 'ACCESO' : 'spento'} · ordini ${mode.toUpperCase()}\nStop −${c.shieldSl}% · TP1 +${c.shieldTp1}% (vende ${c.shieldTp1Sell}%) · trailing −${c.shieldTrail}%${c.shieldOn && inf ? (inf.err ? '\nErrore: ' + inf.err : '\nToken ignorati (già nel wallet): ' + (inf.ignored || 0)) : ''}\n/scudo on · /scudo off`);
+      break; }
     case '/kill': { await ex.kill(); await reply(ex, chat, 'Kill switch attivo: nuovi ingressi fermi. Le uscite restano attive. /riattiva per ripartire.'); break; }
     case '/riattiva': { await ex.resume(); await reply(ex, chat, '▶Ingressi riattivati.'); break; }
     default: await reply(ex, chat, 'Comando non riconosciuto.\n\n' + HELP);

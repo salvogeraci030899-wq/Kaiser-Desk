@@ -14,6 +14,7 @@ export const GROUPS = [
   { id: 'filt', page: 'paper', title: 'Filtri di selezione (valgono anche per il reale)' },
   { id: 'real', page: 'real', title: 'Ordini reali dal runner' },
   { id: 'rexit', page: 'real', title: 'Uscite (Charon, reale)' },
+  { id: 'shield', page: 'real', title: 'Scudo: protezione del trading manuale da pump.fun' },
   { id: 'lim', page: 'real', title: 'Limiti dell\'esecutore (tetti in Cloudflare)' },
 ];
 
@@ -83,6 +84,18 @@ export const SCHEMA = {
   maxCapitalSOL: n('Capitale in uso max (SOL)', 'lim', 0, 5, { scope: 'worker', step: 0.01, dec: 4, ceiling: true }),
   maxOrderSOL: n('Size max per ordine (SOL)', 'lim', 0, 1, { scope: 'worker', step: 0.005, dec: 4, ceiling: true }),
   maxDailyLossSOL: n('Perdita giornaliera max (SOL)', 'lim', 0, 2, { scope: 'worker', step: 0.01, dec: 4, ceiling: true }),
+  // Scudo (valori letti dal Worker): stop, TP e uscite per i token che compri a mano con il wallet dell'esecutore
+  shieldOn: b('Scudo acceso', 'shield', { scope: 'worker', hint: 'adotta i token che compri a mano (wallet dell\'esecutore) e applica stop e TP; serve ORDERS_MODE=live' }),
+  shieldSl: n('Scudo: stop loss (%)', 'shield', 5, 60, { scope: 'worker', step: 1 }),
+  shieldTp1: n('Scudo: take profit 1 (%)', 'shield', 5, 1000, { scope: 'worker', step: 1 }),
+  shieldTp1Sell: n('Scudo: quota venduta al TP1 (%)', 'shield', 10, 100, { scope: 'worker', step: 5 }),
+  shieldTrail: n('Scudo: trailing dal picco dopo TP1 (%)', 'shield', 5, 60, { scope: 'worker', step: 1 }),
+  shieldBe: b('Scudo: break-even dopo TP1', 'shield', { scope: 'worker' }),
+  shieldTimeStop: n('Scudo: time stop (min)', 'shield', 5, 720, { scope: 'worker', step: 5 }),
+  shieldTimeStopPnl: n('Scudo: time stop, guadagno minimo (%)', 'shield', -50, 100, { scope: 'worker', step: 1 }),
+  shieldRugDrop: n('Scudo: esci se la liquidità cala del (%)', 'shield', 10, 90, { scope: 'worker', step: 1 }),
+  shieldSellPressure: b('Scudo: esci se dominano le vendite', 'shield', { scope: 'worker' }),
+  shieldMinSol: n('Scudo: valore minimo da proteggere (SOL)', 'shield', 0.005, 10, { scope: 'worker', step: 0.005, hint: 'sotto questo valore il token viene ignorato (polvere)' }),
   maxPositions: n('Posizioni reali max', 'lim', 1, 10, { scope: 'worker', step: 1, ceiling: true }),
   maxSlippageBps: n('Slippage max in ingresso (bps)', 'lim', 50, 1500, { scope: 'worker', step: 10, ceiling: true }),
   maxImpactPct: n('Impatto di prezzo max (%)', 'lim', 0.5, 20, { scope: 'worker', step: 0.5, dec: 2, ceiling: true }),

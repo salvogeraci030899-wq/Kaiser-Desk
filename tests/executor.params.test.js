@@ -31,7 +31,7 @@ test('due pagine, Paper e Reale: ogni gruppo ha la sua pagina; il reale ha param
   for (const g of P.GROUPS) assert.ok(['paper', 'real'].includes(g.page), g.id);
   for (const pg of ['paper', 'real']) assert.ok(Object.keys(P.SCHEMA).filter((k) => page(k) === pg).length >= 10, 'pagina vuota: ' + pg);
   for (const k of Object.keys(P.SCHEMA)) {
-    if (/^real[A-Z]/.test(k) || P.SCHEMA[k].group === 'lim') assert.equal(page(k), 'real', k + ' deve stare nella pagina Reale');
+    if (/^real[A-Z]/.test(k) || P.SCHEMA[k].group === 'lim' || P.SCHEMA[k].group === 'shield') assert.equal(page(k), 'real', k + ' deve stare nella pagina Reale');
     else assert.equal(page(k), 'paper', k + ' deve stare nella pagina Paper');
     if (P.SCHEMA[k].scope === 'runner') {                                                                   // il runner accetta solo chiavi note e dello stesso tipo
       assert.ok(k in E.DEFAULTS, 'manca in engine DEFAULTS: ' + k);
