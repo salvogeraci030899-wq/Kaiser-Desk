@@ -71,7 +71,7 @@ const HANDOVER_MIN = 44;                       // da questa durata in poi il run
 async function runnerBusy(env) {
   try {
     const get = async (s) => { const q = runsRequest(env, s), r = await fetch(q.url, q.init); if (!r.ok) throw new Error('HTTP ' + r.status); return (await r.json()).workflow_runs || []; };
-    if ((await get('queued')).length) return 'un run è già in coda';
+    for (const s of ['queued', 'pending']) if ((await get(s)).length) return 'un run è già in coda';   // 'pending' = in attesa del turno nel gruppo di concorrenza
     const run = (await get('in_progress'))[0];
     if (run && Date.now() - Date.parse(run.run_started_at || run.created_at) < HANDOVER_MIN * 60000) return 'run in corso';
   } catch { /* se non si riesce a sapere, si avvia come prima */ }
