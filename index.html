@@ -19,7 +19,7 @@
   var root = document.documentElement;
   try { if (navigator.standalone === true || window.matchMedia('(display-mode: standalone)').matches) root.classList.add('pwa-mode'); } catch (e) {}
   var pref = 'auto', bar = 'integrated', g = 'off';
-  try { var lay = localStorage.getItem('kz_layout2'); if (lay === 'lvh' || lay === 'inner' || lay === 'screen') root.classList.add('layout-' + lay); } catch (e) {}
+  try { var lay = localStorage.getItem('kz_layout2'); if (['fixed', 'lvh', 'inner', 'screen'].indexOf(lay) < 0) lay = root.classList.contains('pwa-mode') ? 'lvh' : 'fixed'; root.classList.add('layout-' + lay); } catch (e) {}
   try { pref = localStorage.getItem('kz_theme') || 'auto'; bar = localStorage.getItem('kz_statusbar') || 'integrated'; g = localStorage.getItem('kz_glass') || 'off'; } catch (e) {}
   var light = pref === 'light' || (pref === 'auto' && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches);
   root.setAttribute('data-theme', light ? 'light' : 'dark');
@@ -30,7 +30,7 @@
   document.getElementById('metaStatusBar').setAttribute('content', light ? 'default' : (bar === 'separate' ? 'black' : 'black-translucent'));
 })();
 </script>
-<link rel="stylesheet" href="style.css?v=8">
+<link rel="stylesheet" href="style.css?v=9">
 <script src="version.js"></script>
 <script src="theme.js"></script>
 <script src="lock.js"></script>
@@ -150,8 +150,8 @@
           <div class="theme-toggle"><button data-pref="glass" data-val="off">No</button><button data-pref="glass" data-val="on">Fermo</button><button data-pref="glass" data-val="anim">Animato</button></div></div>
         <div class="set wide"><label>Barra di stato<small>Si applica alla prossima apertura</small></label>
           <div class="theme-toggle"><button data-pref="bar" data-val="integrated">Integrata</button><button data-pref="bar" data-val="separate">Separata</button></div></div>
-        <div class="set wide"><label>Layout schermo<small>Fisso segue la finestra reale (consigliato)</small></label>
-          <div class="theme-toggle"><button data-layout="fixed">Fisso</button><button data-layout="screen">Schermo</button><button data-layout="lvh">Lungo</button><button data-layout="inner">Misurato</button></div></div>
+        <div class="set wide stack"><label>Layout schermo<small>Pinscher = come PinscherTrade (consigliato in app)</small></label>
+          <div class="theme-toggle"><button data-layout="lvh">Pinscher</button><button data-layout="fixed">Fisso</button><button data-layout="screen">Schermo</button><button data-layout="inner">Misurato</button></div></div>
         <div class="set wide"><label>Diagnostica<small id="diagTxt" class="glass-diag">—</small></label></div>
       </div>
       <h2>Blocco app</h2>
@@ -251,7 +251,7 @@ function log(agent, msg) {
 function openLog() {
   $('#sheetInner').innerHTML = `<div class="grab"></div><h2 style="margin-top:0">Sala operativa</h2><div class="card"><div class="log" id="logFull">${rt.logs.join('')}</div></div>
     <p class="tiny muted" style="margin:8px 4px">Il radar è uno strumento di consultazione: gli ingressi li decide il runner 24/7, non questa pagina.</p><div class="row" style="margin-top:10px"><button class="btn" id="dClose" style="flex:1">Chiudi</button></div>`;
-  $('#dClose').onclick = closeSheet; $('#sheet').classList.add('open');
+  $('#dClose').onclick = closeSheet; openSheet();
 }
 let toastT;
 function toast(msg) { const el = $('#toast'); el.innerHTML = msg; el.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(() => el.classList.remove('show'), 3500); try { navigator.vibrate && navigator.vibrate(30); } catch { /* non supportato */ } }
@@ -399,9 +399,25 @@ async function openDetail(mint) {
     $('#dCopy').onclick = async () => { try { await navigator.clipboard.writeText(mint); toast('Mint copiato'); } catch { toast('Copia non disponibile su questo dispositivo'); } };
     $('#dSec').onclick = async () => { rt.sec.delete(mint); const s = await rugcheck(mint); if (!s) toast('RugCheck non raggiungibile'); c.sec = s; Object.assign(c, decide(c.a, s, null, S())); draw(); };
   };
-  draw(); $('#sheet').classList.add('open');
+  draw(); openSheet();
 }
-function closeSheet() { $('#sheet').classList.remove('open'); $('#sheetInner').innerHTML = ''; }
+function openSheet() { const s = $('#sheet'), i = $('#sheetInner'); i.classList.remove('drag', 'snap'); i.style.transform = ''; s.classList.add('open'); i.scrollTop = 0; requestAnimationFrame(() => { i.scrollTop = 0; }); }
+function closeSheet() { const i = $('#sheetInner'); $('#sheet').classList.remove('open'); i.innerHTML = ''; i.style.transform = ''; i.scrollTop = 0; }
+// Trascinando la scheda verso il basso (quando è in cima) la si chiude, oltre al tasto Chiudi
+(() => {
+  const i = $('#sheetInner'); let y0 = null, dy = 0;
+  i.addEventListener('touchstart', (e) => { y0 = i.scrollTop <= 0 ? e.touches[0].clientY : null; dy = 0; }, { passive: true });
+  i.addEventListener('touchmove', (e) => {
+    if (y0 == null) return; dy = e.touches[0].clientY - y0;
+    if (dy > 0 && i.scrollTop <= 0) { i.classList.add('drag'); i.classList.remove('snap'); i.style.transform = `translateY(${dy}px)`; if (e.cancelable) e.preventDefault(); }
+    else if (dy <= 0) { i.style.transform = ''; }
+  }, { passive: false });
+  const end = () => {
+    if (y0 == null) return; const far = dy > 110; y0 = null; i.classList.remove('drag');
+    if (far) closeSheet(); else { i.classList.add('snap'); i.style.transform = ''; }
+  };
+  i.addEventListener('touchend', end); i.addEventListener('touchcancel', end);
+})();
 
 // ---------- DATI: runner (paper) e Worker (reale), sola lettura ----------
 // Il paper arriva in diretta dal Worker (il runner lo spinge a ogni evento). Ripiego: il file su GitHub, che si aggiorna solo a fine run e che

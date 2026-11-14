@@ -58,7 +58,7 @@
   }
   // Layout dell'app (Sistema → Generale → Schermo): 'fixed' = ancorata ai bordi (predefinito, nessun calcolo), 'lvh' = altezza lunga, 'inner' = altezza misurata.
   var LAYOUTS = ['screen', 'fixed', 'lvh', 'inner'], LKEY = 'kz_layout2';
-  var dflt = function () { return 'fixed'; };
+  var dflt = function () { return root.classList.contains('pwa-mode') ? 'lvh' : 'fixed'; };
   // 'screen' = altezza dello schermo del telefono (in app installata è l'area visibile intera, senza la barra di Safari)
   function screenH() { var a = screen.width, b = screen.height, port = window.matchMedia ? window.matchMedia('(orientation: portrait)').matches : innerHeight >= innerWidth; return port ? Math.max(a, b) : Math.min(a, b); }
   function fitHeight() {
@@ -67,7 +67,7 @@
   }
   function applyLayout() {
     var l = get(LKEY, LAYOUTS, dflt());
-    LAYOUTS.forEach(function (x) { root.classList.toggle('layout-' + x, x === l && x !== 'fixed'); });
+    LAYOUTS.forEach(function (x) { root.classList.toggle('layout-' + x, x === l); });
     if (l === 'inner' || l === 'screen') fitHeight(); else root.style.removeProperty('--app-h');
     document.querySelectorAll('[data-layout]').forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-layout') === l); });
   }
