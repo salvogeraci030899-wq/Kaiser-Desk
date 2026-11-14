@@ -2,7 +2,7 @@
    Token iOS (scuro/chiaro/automatico), angoli concentrici, barra a capsula, Vetro (Liquid Glass) fermo o animato.
    I nomi delle classi sono quelli di Kaiser: cambia l'aspetto, non la struttura. */
 :root {
-  --kz-css: 40;
+  --kz-css: 41;
   color-scheme: dark;
   --bg: #000000;
   --surface: #0a0a0a;
@@ -102,7 +102,7 @@ h2 { font-size: 10px; letter-spacing: 0.6px; color: var(--text-secondary); margi
 .btn-icon { width: 40px; height: 40px; padding: 0; border-radius: var(--r-ctl); display: grid; place-items: center; flex-shrink: 0; }
 .btn-icon svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
-.tok { display: grid; grid-template-columns: 40px 1fr auto; gap: 10px; align-items: center; }
+.tok { display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; gap: 10px; align-items: center; }
 .tok img, .tok .ph { width: 40px; height: 40px; border-radius: var(--r-ctl); background: var(--surface-2); object-fit: cover; }
 .sym { font-weight: 800; } .nm { color: var(--text-secondary); font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 160px; }
 .score { font: 800 18px var(--mono); text-align: right; }
@@ -438,3 +438,10 @@ nav { height: 62px; margin-top: 4px; }
 #jTabs { margin: 6px 0 6px; } #jTabs button { min-height: 26px; font-size: 11px; padding: 0 6px; }
 
 .btn.preset { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; width: 100%; height: auto; min-height: 44px; padding: 6px 12px; margin-top: 6px; text-align: left; line-height: 1.25; }
+
+/* testata delle schede: nomi e simboli lunghi si accorciano, il punteggio resta sempre dentro la scheda */
+.tok > div { min-width: 0; }
+.tok .row { min-width: 0; }
+.tok .sym { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tok .badge { flex-shrink: 0; }
+.tok .ring, .tok .score { flex-shrink: 0; }
