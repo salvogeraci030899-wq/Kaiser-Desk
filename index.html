@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.8.1">
+<meta name="kz-build" content="2.9.0">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=2">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
@@ -20,7 +20,7 @@
   var root = document.documentElement;
   try { if (navigator.standalone === true || window.matchMedia('(display-mode: standalone)').matches) root.classList.add('pwa-mode'); } catch (e) {}
   var pref = 'auto', bar = 'integrated', g = 'off';
-  try { var lay = localStorage.getItem('kz_layout2'); if (['fixed', 'lvh', 'inner', 'screen'].indexOf(lay) < 0) lay = root.classList.contains('pwa-mode') ? 'lvh' : 'fixed'; root.classList.add('layout-' + lay); } catch (e) {}
+  root.classList.add('layout-lvh');
   try { pref = localStorage.getItem('kz_theme') || 'auto'; bar = localStorage.getItem('kz_statusbar') || 'integrated'; g = localStorage.getItem('kz_glass') || 'off'; } catch (e) {}
   var light = pref === 'light' || (pref === 'auto' && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches);
   root.setAttribute('data-theme', light ? 'light' : 'dark');
@@ -31,7 +31,7 @@
   document.getElementById('metaStatusBar').setAttribute('content', light ? 'default' : (bar === 'separate' ? 'black' : 'black-translucent'));
 })();
 </script>
-<link rel="stylesheet" href="style.css?v=14">
+<link rel="stylesheet" href="style.css?v=15">
 <script src="version.js"></script>
 <script src="theme.js"></script>
 <script src="lock.js"></script>
@@ -166,8 +166,6 @@
           <div class="theme-toggle"><button data-pref="glass" data-val="off">No</button><button data-pref="glass" data-val="on">Fermo</button><button data-pref="glass" data-val="anim">Animato</button></div></div>
         <div class="set wide"><label>Barra di stato<small>Si applica alla prossima apertura</small></label>
           <div class="theme-toggle"><button data-pref="bar" data-val="integrated">Integrata</button><button data-pref="bar" data-val="separate">Separata</button></div></div>
-        <div class="set wide stack"><label>Layout schermo<small>Pinscher = come PinscherTrade (consigliato in app)</small></label>
-          <div class="theme-toggle"><button data-layout="lvh">Pinscher</button><button data-layout="fixed">Fisso</button><button data-layout="screen">Schermo</button><button data-layout="inner">Misurato</button></div></div>
         <div class="set wide"><label>Diagnostica<small id="diagTxt" class="glass-diag">—</small></label></div>
       </div>
       <h2>Blocco app</h2>
@@ -226,6 +224,9 @@
 </nav>
 </div>
 
+<div class="dlg" id="dlg" role="dialog" aria-modal="true" aria-labelledby="dlgTitle"><div class="dlg-box">
+  <div class="dlg-ico" id="dlgIco"></div><h3 id="dlgTitle"></h3><div class="dlg-body" id="dlgBody"></div>
+  <div class="dlg-btns"><button type="button" class="btn" id="dlgNo"></button><button type="button" class="btn" id="dlgYes"></button></div></div></div>
 <div class="sheet" id="sheet"><div class="inner" id="sheetInner"></div></div>
 <div class="toast" id="toast"></div>
 
@@ -420,6 +421,18 @@ async function openDetail(mint) {
     $('#dSec').onclick = async () => { rt.sec.delete(mint); const s = await rugcheck(mint); if (!s) toast('RugCheck non raggiungibile'); c.sec = s; Object.assign(c, decide(c.a, s, null, S())); draw(); };
   };
   draw(); openSheet();
+}
+// Finestra di conferma nello stile dell'app (al posto di confirm() del browser)
+function askDialog(o) {
+  return new Promise((res) => {
+    const d = $('#dlg'); $('#dlgIco').textContent = o.icon || ''; $('#dlgTitle').textContent = o.title || ''; $('#dlgBody').innerHTML = o.body || '';
+    const y = $('#dlgYes'), n = $('#dlgNo'); y.textContent = o.ok || 'OK'; n.textContent = o.cancel || 'Annulla';
+    y.className = 'btn ' + (o.danger ? 'red' : 'gold'); n.className = 'btn';
+    d.classList.toggle('danger', !!o.danger);
+    const done = (v) => { d.classList.remove('open'); y.onclick = n.onclick = d.onclick = null; res(v); };
+    y.onclick = () => done(true); n.onclick = () => done(false); d.onclick = (e) => { if (e.target === d) done(false); };
+    d.classList.add('open');
+  });
 }
 function openSheet() { const s = $('#sheet'), i = $('#sheetInner'); i.classList.remove('drag', 'snap'); i.style.transform = ''; s.classList.add('open'); i.scrollTop = 0; requestAnimationFrame(() => { i.scrollTop = 0; }); }
 function closeSheet() { const i = $('#sheetInner'); $('#sheet').classList.remove('open'); i.innerHTML = ''; i.style.transform = ''; i.scrollTop = 0; }
@@ -708,7 +721,8 @@ $('#btnLogo').onclick = refreshAll;
 $('#opsBar').onclick = openLog;
 // Emergenza: dall'app (senza segreti) è una richiesta con un grosso tasto su Telegram; /emergenza dalla tua chat agisce subito.
 $('#btnSos').onclick = async () => {
-  if (!confirm('EMERGENZA IMMEDIATA\n\nSu Telegram ti arriva il tasto «CONFERMA EMERGENZA». Se confermi: nuovi ingressi fermi, autopilota e reale spenti, vendita subito di tutte le posizioni reali.\n\nInviare la richiesta?')) return;
+  if (!(await askDialog({ icon: '🚨', danger: true, title: 'Emergenza immediata', ok: 'Invia richiesta', cancel: 'Annulla',
+    body: '<p>Su Telegram ti arriva il tasto <b>CONFERMA EMERGENZA</b>. Se confermi:</p><ul><li>nuovi ingressi fermi</li><li>autopilota e reale spenti</li><li>vendita subito di tutte le posizioni reali</li></ul><p class="tiny muted">L’app non ha chiavi: non vende da sola. Puoi anche scrivere <span class="mono">/emergenza</span> su Telegram.</p>' }))) return;
   try {
     const d = await postPropose({ emergency: true });
     toast(d.ok ? '🚨 Richiesta inviata: tocca <b>CONFERMA EMERGENZA</b> su Telegram (o scrivi /emergenza)' : 'Non inviata: ' + esc(d.error || 'errore') + ' · scrivi /emergenza su Telegram');

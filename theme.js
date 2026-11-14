@@ -56,27 +56,8 @@
     var onChange = function () { if (get(KEY, THEMES, 'auto') === 'auto') apply(); };
     if (media.addEventListener) media.addEventListener('change', onChange); else if (media.addListener) media.addListener(onChange);
   }
-  // Layout dell'app (Sistema → Generale → Schermo): 'fixed' = ancorata ai bordi (predefinito, nessun calcolo), 'lvh' = altezza lunga, 'inner' = altezza misurata.
-  var LAYOUTS = ['screen', 'fixed', 'lvh', 'inner'], LKEY = 'kz_layout2';
-  var dflt = function () { return root.classList.contains('pwa-mode') ? 'lvh' : 'fixed'; };
-  // 'screen' = altezza dello schermo del telefono (in app installata è l'area visibile intera, senza la barra di Safari)
-  function screenH() { var a = screen.width, b = screen.height, port = window.matchMedia ? window.matchMedia('(orientation: portrait)').matches : innerHeight >= innerWidth; return port ? Math.max(a, b) : Math.min(a, b); }
-  function fitHeight() {
-    if (root.classList.contains('layout-inner')) root.style.setProperty('--app-h', window.innerHeight + 'px');
-    else if (root.classList.contains('layout-screen')) root.style.setProperty('--app-h', screenH() + 'px');
-  }
-  function applyLayout() {
-    var l = get(LKEY, LAYOUTS, dflt());
-    LAYOUTS.forEach(function (x) { root.classList.toggle('layout-' + x, x === l); });
-    if (l === 'inner' || l === 'screen') fitHeight(); else root.style.removeProperty('--app-h');
-    document.querySelectorAll('[data-layout]').forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-layout') === l); });
-  }
-  document.addEventListener('click', function (e) {
-    var b = e.target.closest ? e.target.closest('[data-layout]') : null; if (!b) return;
-    var v = b.getAttribute('data-layout'); if (LAYOUTS.indexOf(v) >= 0) { set(LKEY, v); applyLayout(); }
-  });
-  ['resize', 'orientationchange', 'pageshow'].forEach(function (ev) { window.addEventListener(ev, fitHeight); });
-  applyLayout();
-  document.addEventListener('DOMContentLoaded', function () { applyLayout(); applyGlass(); apply(); syncWalls(); });
-  window.KZTheme = { apply: apply, resolved: resolved, layout: function () { return get(LKEY, LAYOUTS, dflt()); } };
+  // Layout dell'app: fisso, altezza lvh (come PinscherTrade). Non è più modificabile dall'utente.
+  root.classList.add('layout-lvh');
+  document.addEventListener('DOMContentLoaded', function () { applyGlass(); apply(); syncWalls(); });
+  window.KZTheme = { apply: apply, resolved: resolved, layout: function () { return 'lvh'; } };
 })();
