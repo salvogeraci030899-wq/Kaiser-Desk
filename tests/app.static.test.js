@@ -33,6 +33,7 @@ test('niente zoom, niente selezione del testo, niente lente di ingrandimento', (
 test('la versione è mostrata ed è la stessa in package.json e version.js', () => {
   const v = JSON.parse(read('package.json')).version, m = read('version.js').match(/KZ_VERSION\s*=\s*'([^']+)'/);
   assert.ok(m, 'version.js senza KZ_VERSION'); assert.equal(m[1], v);
+  assert.match(html, new RegExp('name="kz-build" content="' + v.replace(/\./g, '\\.') + '"'), 'meta kz-build diversa dalla versione');
   assert.match(html, /id="ver"/); assert.match(html, /<script src="version\.js">/);
 });
 test('manifest e icone: file presenti, fantasmino al posto della K, installabile da Pages', () => {
