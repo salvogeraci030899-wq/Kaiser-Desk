@@ -98,14 +98,30 @@ test('orologio: esiti 204, 401, 404 e token mancante, salvati in KV senza il tok
   const realFetch = globalThis.fetch; const seen = [];
   try {
     for (const [status, ok, re] of [[204, true, null], [401, false, /rifiutato/], [404, false, /non trovato/], [500, false, /HTTP 500/]]) {
-      globalThis.fetch = async (u, i) => { seen.push([u, i.method]); return new Response(null, { status }); };
+      globalThis.fetch = async (u, i) => { seen.push([u, i.method]); return new Response(i.method === 'GET' ? '{"workflow_runs":[]}' : null, { status: i.method === 'GET' ? 200 : status }); };
       const r = await runClock(base);
       assert.equal(r.ok, ok); assert.equal(r.status, status); if (re) assert.match(r.error, re);
     }
-    assert.ok(seen.every(([, m]) => m === 'POST'));
+    assert.ok(seen.filter(([, m]) => m === 'POST').length === 4 && seen.filter(([u, m]) => m === 'GET' && /\/runs\?status=(queued|in_progress)/.test(u)).length === 8, 'prima di avviare controlla se un run e\' gia in corso');
     const noTok = await runClock({ ...base, GH_TOKEN: '' }); assert.equal(noTok.ok, false); assert.match(noTok.error, /GH_TOKEN/);
     assert.ok(!mem.get('clock').includes('SEGRETO-GH'));
     globalThis.fetch = async () => { throw new Error('rete giu'); };
     assert.match((await runClock(base)).error, /rete giu/);
+  } finally { globalThis.fetch = realFetch; }
+});
+test('orologio: non accoda un run mentre uno e\' in corso da poco o in coda; lo accoda quando il run in corso sta per finire', async () => {
+  const { runClock } = await import('../worker/src/index.js');
+  const mem = new Map(); const STATE = { put: async (k, v) => { mem.set(k, v); }, get: async (k) => mem.get(k) ?? null };
+  const base = { STATE, GH_REPO: 'a/b', GH_WORKFLOW: 'runner.yml', GH_REF: 'main', GH_TOKEN: 'x' }, realFetch = globalThis.fetch;
+  const scenario = async (queued, inprog) => { let posts = 0;
+    globalThis.fetch = async (u, i) => { if (i.method === 'POST') { posts++; return new Response(null, { status: 204 }); } const run = u.includes('status=queued') ? queued : inprog; return new Response(JSON.stringify({ workflow_runs: run ? [run] : [] }), { status: 200 }); };
+    const r = await runClock(base); return { r, posts }; };
+  try {
+    const min = (m) => new Date(Date.now() - m * 60000).toISOString();
+    let s = await scenario(null, { run_started_at: min(10) }); assert.equal(s.posts, 0); assert.equal(s.r.ok, true); assert.match(s.r.note, /in corso/);
+    s = await scenario({ created_at: min(1) }, { run_started_at: min(10) }); assert.equal(s.posts, 0); assert.match(s.r.note, /in coda/);
+    s = await scenario(null, { run_started_at: min(46) }); assert.equal(s.posts, 1, 'run in uscita: si accoda il successivo');
+    s = await scenario(null, null); assert.equal(s.posts, 1, 'nessun run: si avvia');
+    globalThis.fetch = async (u, i) => { if (i.method === 'GET') throw new Error('rete'); return new Response(null, { status: 204 }); }; assert.equal((await runClock(base)).status, 204, 'se non si riesce a sapere, si avvia come prima');
   } finally { globalThis.fetch = realFetch; }
 });

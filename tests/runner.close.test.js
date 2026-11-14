@@ -37,3 +37,9 @@ test('paper in stop o spento: il runner non apre nuove posizioni (pannello di em
   assert.ok(src.indexOf('await realEntries(buys)') < src.indexOf('S.paperStop || S.paperEnabled === false'), 'il reale non dipende dal paper');
   const E = require('../engine.js'); assert.equal(E.DEFAULTS.paperEnabled, true); assert.equal(E.DEFAULTS.paperStop, false);
 });
+test('VELOCITA: runner con controllo delle posizioni ogni 10 s, scan ogni scanSec (30), salvataggio a meta\' run', () => {
+  const src = fs.readFileSync(path.join(__dirname, '..', 'runner', 'runner.js'), 'utf8'), yml = fs.readFileSync(path.join(__dirname, '..', '.github', 'workflows', 'runner.yml'), 'utf8');
+  assert.match(src, /TICK_SEC \|\| 10/); assert.match(src, /SCAN_SEC \|\| 30/); assert.match(src, /Math\.max\(15, num\(S\.scanSec, SCAN_SEC\)\)/);
+  assert.match(yml, /LOOP_MIN: '50'/); assert.match(yml, /CHECKPOINT: '1'/); assert.match(yml, /timeout-minutes: 62/);
+  assert.equal(R.checkpointForTest === undefined, true);                                   // il salvataggio parte solo con CHECKPOINT=1 e non e' esposto
+});
