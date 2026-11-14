@@ -55,6 +55,7 @@ export const SCHEMA = {
   minTxH1: n('Transazioni minime in 1h', 'filt', 0, 5000, { scope: 'runner', step: 5 }),
   srcDexProfiles: b('Fonte: profili DexScreener', 'filt', { scope: 'runner' }),
   srcDexBoosts: b('Fonte: boost DexScreener', 'filt', { scope: 'runner' }),
+  srcGecko: b('Fonte: GeckoTerminal', 'filt', { scope: 'runner', hint: 'pool in tendenza e appena nati: molte più Coin nel radar' }),
   srcGmgnTrending: b('Fonte: GMGN trending', 'filt', { scope: 'runner' }),
   srcGmgnTrenches: b('Fonte: GMGN trenches', 'filt', { scope: 'runner', hint: 'token nuovissimi' }),
   gmgnInterval: { t: 'enum', label: 'Finestra GMGN', group: 'filt', scope: 'runner', values: ['1m', '5m', '1h', '6h', '24h'] },
