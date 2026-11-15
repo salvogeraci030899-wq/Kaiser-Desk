@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-15 00:09 UTC · in esecuzione da 0.5 giorni · 93 run
+Aggiornato: 2026-11-15 00:15 UTC · in esecuzione da 0.5 giorni · 93 run
 
 | | |
 |---|---|
-| Equity | **0.9236 SOL** (-29.0% dal capitale iniziale di 1.3 SOL) |
+| Equity | **0.9133 SOL** (-29.7% dal capitale iniziale di 1.3 SOL) |
 | Cassa | 0.8321 SOL |
 | Trade chiusi | 16 |
 | Win rate | 38% |
-| P&L realizzato | -0.3860 SOL (~$-27.10) |
+| P&L realizzato | -0.3860 SOL (~$-27.20) |
 | Media vincite / perdite | +37.8% / -63.0% |
 | Profit factor | 0.36 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$UM** P-0120 · 0.081 SOL · +13.1% · resta 100% · [grafico](https://dexscreener.com/solana/4ECkS25gto4hChi8eyUfuAftSu12qKdSHpGSqxeHafQk)
+- **$UM** P-0120 · 0.081 SOL · +0.3% · resta 100% · [grafico](https://dexscreener.com/solana/4ECkS25gto4hChi8eyUfuAftSu12qKdSHpGSqxeHafQk)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -47,6 +47,19 @@ Aggiornato: 2026-11-15 00:09 UTC · in esecuzione da 0.5 giorni · 93 run
 
 ## Ultimi eventi
 ```
+00:15:01 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 240 veto
+00:14:37 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 259 veto
+00:14:13 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 263 veto
+00:13:50 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 253 veto
+00:13:27 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 256 veto
+00:13:04 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 254 veto
+00:12:40 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 251 veto
+00:12:16 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 258 veto
+00:11:53 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 256 veto
+00:11:30 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 246 veto
+00:11:06 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 260 veto
+00:10:43 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 260 veto
+00:10:19 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 252 veto
 00:09:55 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 263 veto
 00:09:41 SCRIBE   chiuso P-0121 $Life -0.0688 SOL (-84.6%)
 00:09:41 CHARON   Stop loss $Life vendo 100% a -35.3% -> 0.0125 SOL
@@ -74,19 +87,6 @@ Aggiornato: 2026-11-15 00:09 UTC · in esecuzione da 0.5 giorni · 93 run
 00:02:25 KAISER   limite 1 ingresso/i per scan: $Life rimandato
 00:02:24 QUARTER  BUY $UM 0.081 SOL score 71 impatto 1.99% (Jupiter)
 00:02:24 ORACLE   307 raccolti, 222 analizzati, 3 BUY, 213 veto
-00:02:02 ORACLE   299 raccolti, 210 analizzati, 3 BUY, 201 veto
-00:01:38 ORACLE   276 raccolti, 198 analizzati, 3 BUY, 190 veto
-00:01:15 ORACLE   263 raccolti, 181 analizzati, 2 BUY, 173 veto
-00:00:52 ORACLE   255 raccolti, 168 analizzati, 2 BUY, 159 veto
-00:00:29 ORACLE   222 raccolti, 150 analizzati, 1 BUY, 143 veto
-00:00:05 KAISER   limite 1 ingresso/i per scan: $Life rimandato
-00:00:05 QUARTER  BUY $JOB 0.082 SOL score 79 impatto 1.09% (Jupiter)
-00:00:05 ORACLE   218 raccolti, 128 analizzati, 2 BUY, 123 veto
-23:59:43 ORACLE   215 raccolti, 128 analizzati, 2 BUY, 122 veto
-23:59:39 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
-23:59:39 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→8, maxPos 3→4, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→1, sl 25→30, tp1Sell 50→70, timeStopMinPnl 5→2, minLiq 15000→5000, minMcap 15000→3000, minAgeMin 5→0, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120, srcGmgnTrending true→false
-23:59:39 SCOUT    Laboratorio: collegato a PumpPortal
-23:59:39 KAISER   run #93 · 0 posizioni · equity 1.0203 SOL · GMGN spenta (nessuna chiave) · Grok off
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
