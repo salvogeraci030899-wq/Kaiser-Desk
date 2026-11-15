@@ -219,3 +219,15 @@ Il formato dell'evento di scambio e' noto a memoria e non verificato dal vivo: l
 ### Pagina Lab (v2.31.0)
 
 Il Laboratorio ha una pagina dedicata, con il tasto "Lab" nella barra in basso (tra Journal e Sistema). Non e' piu' una scheda del Journal. La pagina scorre per intero e raggruppa ogni sezione in un riquadro: stato delle fonti, ingresso a 60 secondi per punteggio bot, soglie di market cap, ingresso con ritardo, reazione agli acquisti, fabbrica di strategie, fonti per gli scambi, realismo del paper, vendite grosse.
+
+### Registro delle regole e prova in avanti (v2.32.0)
+
+Solo prova, nessun ordine. La fabbrica propone, il registro mette alla prova, il Lab mostra.
+
+- **Ammissione.** Quando la fabbrica trova una regola positiva dopo i costi sia sui dati vecchi sia su quelli recenti, entra in "prova" (massimo 10 insieme). Una configurazione ritirata non rientra per 7 giorni.
+- **Prova in avanti.** La regola e' valutata solo sui token nati dopo l'ammissione, che nessuno ha usato per sceglierla: e' il test piu' onesto contro il troppo-adattamento. Ogni token concluso dal Laboratorio viene simulato con la regola, costi inclusi.
+- **Validata** con almeno 30 operazioni che coprano almeno un giorno intero, esito medio positivo e fattore di profitto sopra 1.1.
+- **Ritirata** se: dopo 20 operazioni l'esito medio e' sotto -2%; a 30 operazioni l'esito medio non e' positivo; dopo 60 non e' validata; in 3 giorni meno di 10 segnali. Una regola validata viene ritirata se le ultime 30 operazioni hanno esito medio negativo o se la perdita cumulata dal massimo supera 60 punti.
+- **Telegram.** Ogni validazione e ogni ritiro arriva come messaggio.
+- **Nessun ordine.** Una regola validata puo' solo essere proposta per l'uso; il passaggio al paper o al reale richiede la tua approvazione su Telegram, come per ogni altro parametro. L'uso delle regole nel radar e' la tappa successiva.
+- Il registro e' in `strategies.json` sul ramo `data`; la pagina Lab mostra stato, operazioni in avanti, esito medio e le ultime variazioni.
