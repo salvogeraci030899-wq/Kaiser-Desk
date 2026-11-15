@@ -1,17 +1,17 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-15 17:25 UTC · in esecuzione da 0.4 giorni · 113 run
+Aggiornato: 2026-11-15 17:30 UTC · in esecuzione da 0.4 giorni · 113 run
 
 | | |
 |---|---|
-| Equity | **1.2754 SOL** (-15.0% dal capitale iniziale di 1.5 SOL) |
-| Cassa | 1.2754 SOL |
-| Trade chiusi | 29 |
-| Win rate | 28% |
-| P&L realizzato | -0.2246 SOL (~$-16.04) |
-| Media vincite / perdite | +32.5% / -27.3% |
-| Profit factor | 0.55 |
-| Circuit breaker | no |
+| Equity | **1.2635 SOL** (-15.8% dal capitale iniziale di 1.5 SOL) |
+| Cassa | 1.2635 SOL |
+| Trade chiusi | 30 |
+| Win rate | 27% |
+| P&L realizzato | -0.2365 SOL (~$-16.88) |
+| Media vincite / perdite | +32.5% / -26.9% |
+| Profit factor | 0.54 |
+| Circuit breaker | ATTIVO oggi |
 
 ## Posizioni aperte
 _nessuna_
@@ -19,7 +19,7 @@ _nessuna_
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| Stop loss | 13 | -0.3460 |
+| Stop loss | 14 | -0.3578 |
 | Chiusura manuale (app) | 1 | +0.0954 |
 | Trailing stop | 9 | +0.1136 |
 | Time stop | 3 | -0.0276 |
@@ -29,6 +29,7 @@ _nessuna_
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $Pterodactyl | 65 | -18.3% | -0.0119 | +10% | -17% | Stop loss | 3m |
 | $LS | 64 | -11.5% | -0.0075 | +35% | -5% | Break-even | 5m |
 | $AICoin | 79 | -13.3% | -0.0087 | +16% | -4% | Time stop | 6m |
 | $TOYCOIN | 70 | -21.8% | -0.0144 | +4% | -26% | Stop loss | 3m |
@@ -53,10 +54,29 @@ _nessuna_
 | $Gomez | 63 | +10.2% | +0.0078 | +33% | +10% | Trailing stop | 7m |
 | $BigP | 73 | -14.0% | -0.0108 | +5% | -14% | Time stop | 5m |
 | $TOOLS | 69 | +10.5% | +0.0081 | +48% | +23% | Trailing stop | 5m |
-| $SOLA | 68 | -75.0% | -0.0976 | +32% | -50% | Stop loss | 6m |
 
 ## Ultimi eventi
 ```
+17:30:33 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 257 veto
+17:30:08 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 251 veto
+17:29:43 SCRIBE   chiuso P-0153 $Pterodactyl -0.0119 SOL (-18.3%)
+17:29:43 CHARON   Stop loss $Pterodactyl vendo 100% a -16.6% -> 0.0529 SOL
+17:29:43 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 258 veto
+17:29:19 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 246 veto
+17:28:56 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 244 veto
+17:28:32 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 259 veto
+17:28:18 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 256 veto
+17:27:51 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 252 veto
+17:27:28 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 255 veto
+17:27:04 KAISER   CIRCUIT BREAKER: perdita giornaliera oltre 15%
+17:27:04 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 260 veto
+17:26:51 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 256 veto
+17:26:22 QUARTER  BUY $Pterodactyl 0.064 SOL score 65 impatto 0.00% (Jupiter)
+17:26:22 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 265 veto
+17:25:58 QUARTER  $Pterodactyl impatto 3.9% oltre slippage: annullato
+17:25:58 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 263 veto
+17:25:46 QUARTER  $Pterodactyl impatto 2.8% oltre slippage: annullato
+17:25:45 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 259 veto
 17:25:19 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 262 veto
 17:24:56 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 271 veto
 17:24:34 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 265 veto
@@ -77,26 +97,6 @@ _nessuna_
 17:18:55 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 254 veto
 17:18:31 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 263 veto
 17:18:08 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 265 veto
-17:17:44 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 255 veto
-17:17:20 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 260 veto
-17:16:56 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 259 veto
-17:16:44 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 258 veto
-17:16:16 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 269 veto
-17:16:03 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 270 veto
-17:15:37 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 256 veto
-17:15:24 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 259 veto
-17:15:07 ORACLE   360 raccolti, 281 analizzati, 0 BUY, 271 veto
-17:14:49 ORACLE   360 raccolti, 281 analizzati, 0 BUY, 271 veto
-17:14:21 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 260 veto
-17:14:09 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 259 veto
-17:13:44 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 256 veto
-17:13:20 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 254 veto
-17:12:56 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 255 veto
-17:12:32 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 266 veto
-17:12:08 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 253 veto
-17:11:45 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 246 veto
-17:11:21 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 256 veto
-17:11:08 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 256 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
