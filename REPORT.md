@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-15 00:45 UTC · in esecuzione da 0.5 giorni · 93 run
+Aggiornato: 2026-11-15 00:49 UTC · in esecuzione da 0.5 giorni · 93 run
 
 | | |
 |---|---|
-| Equity | **0.8469 SOL** (-34.9% dal capitale iniziale di 1.3 SOL) |
-| Cassa | 0.7718 SOL |
-| Trade chiusi | 18 |
-| Win rate | 33% |
-| P&L realizzato | -0.4463 SOL (~$-31.26) |
-| Media vincite / perdite | +37.8% / -59.4% |
-| Profit factor | 0.33 |
+| Equity | **0.8437 SOL** (-35.1% dal capitale iniziale di 1.3 SOL) |
+| Cassa | 0.8437 SOL |
+| Trade chiusi | 19 |
+| Win rate | 32% |
+| P&L realizzato | -0.4563 SOL (~$-31.79) |
+| Media vincite / perdite | +37.8% / -55.7% |
+| Profit factor | 0.32 |
 | Circuit breaker | ATTIVO oggi |
 
 ## Posizioni aperte
-- **$UM** P-0120 · 0.081 SOL · -7.1% · resta 100% · [grafico](https://dexscreener.com/solana/4ECkS25gto4hChi8eyUfuAftSu12qKdSHpGSqxeHafQk)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -24,10 +24,12 @@ Aggiornato: 2026-11-15 00:45 UTC · in esecuzione da 0.5 giorni · 93 run
 | Stop loss | 5 | -0.2677 |
 | Chiusura manuale (app) | 3 | +0.1062 |
 | Trailing stop | 5 | +0.0578 |
+| Time stop | 1 | -0.0100 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $UM | 71 | -12.2% | -0.0100 | +15% | -6% | Time stop | 45m |
 | $begwork | 65 | -66.5% | -0.0488 | +8% | -30% | Stop loss | 4m |
 | $chairman | 70 | -15.4% | -0.0115 | +89% | +45% | Trailing stop | 1m |
 | $Life | 65 | -84.6% | -0.0688 | +14% | -35% | Stop loss | 5m |
@@ -49,6 +51,19 @@ Aggiornato: 2026-11-15 00:45 UTC · in esecuzione da 0.5 giorni · 93 run
 
 ## Ultimi eventi
 ```
+00:49:40 SCRIBE   fine run · trade 19 · win 32% · P&L -0.4563 SOL · equity 0.8437 SOL
+00:49:40 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 258 veto
+00:49:16 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 246 veto
+00:48:52 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 257 veto
+00:48:28 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 242 veto
+00:48:05 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 252 veto
+00:47:41 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 246 veto
+00:47:27 SCRIBE   chiuso P-0120 $UM -0.0100 SOL (-12.2%)
+00:47:27 CHARON   Time stop $UM vendo 100% a -6.4% -> 0.0719 SOL
+00:47:17 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 245 veto
+00:46:53 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 237 veto
+00:46:30 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 247 veto
+00:46:06 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 252 veto
 00:45:43 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 248 veto
 00:45:18 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 259 veto
 00:44:54 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 252 veto
@@ -76,19 +91,6 @@ Aggiornato: 2026-11-15 00:45 UTC · in esecuzione da 0.5 giorni · 93 run
 00:36:13 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 242 veto
 00:35:49 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 248 veto
 00:35:26 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 246 veto
-00:35:02 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 242 veto
-00:34:38 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 246 veto
-00:34:15 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 242 veto
-00:33:51 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 247 veto
-00:33:28 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 247 veto
-00:33:04 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 239 veto
-00:32:40 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 231 veto
-00:32:16 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 241 veto
-00:31:53 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 242 veto
-00:31:29 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 236 veto
-00:31:05 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 245 veto
-00:30:41 KAISER   CIRCUIT BREAKER: perdita giornaliera oltre 15%
-00:30:40 SCRIBE   chiuso P-0123 $begwork -0.0488 SOL (-66.5%)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
