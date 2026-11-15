@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-15 13:49 UTC · in esecuzione da 0.2 giorni · 109 run
+Aggiornato: 2026-11-15 13:54 UTC · in esecuzione da 0.2 giorni · 109 run
 
 | | |
 |---|---|
@@ -43,6 +43,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+13:54:31 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 273 veto
+13:54:08 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 272 veto
+13:53:44 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 260 veto
+13:53:20 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 263 veto
+13:53:17 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
+13:52:56 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 251 veto
+13:52:34 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 260 veto
+13:52:09 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 262 veto
+13:51:44 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 268 veto
+13:51:32 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 261 veto
+13:51:06 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 270 veto
+13:50:42 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 265 veto
+13:50:19 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 262 veto
+13:49:56 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 265 veto
 13:49:33 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 266 veto
 13:49:09 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 260 veto
 13:48:46 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 254 veto
@@ -69,20 +83,6 @@ _nessuna_
 13:40:50 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 266 veto
 13:40:25 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 276 veto
 13:40:02 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 272 veto
-13:39:39 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 275 veto
-13:39:17 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 268 veto
-13:39:03 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 265 veto
-13:38:37 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 272 veto
-13:38:13 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 270 veto
-13:37:50 SCRIBE   chiuso P-0136 $twert -0.0177 SOL (-23.2%)
-13:37:50 CHARON   Trailing stop $twert vendo 100% a 8.3% -> 0.0171 SOL
-13:37:50 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 266 veto
-13:37:36 CHARON   TP1 $twert vendo 70% a 44.1% -> 0.0415 SOL
-13:37:26 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 265 veto
-13:37:03 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 266 veto
-13:36:39 QUARTER  BUY $twert 0.075 SOL score 80 impatto 1.86% (Jupiter)
-13:36:39 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 266 veto
-13:36:15 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 268 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
