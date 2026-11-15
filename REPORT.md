@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-15 13:14 UTC · in esecuzione da 0.2 giorni · 108 run
+Aggiornato: 2026-11-15 13:19 UTC · in esecuzione da 0.2 giorni · 108 run
 
 | | |
 |---|---|
@@ -42,6 +42,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+13:19:33 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 261 veto
+13:19:10 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 256 veto
+13:18:47 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 257 veto
+13:18:24 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 257 veto
+13:18:02 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 258 veto
+13:17:38 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 264 veto
+13:17:15 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 259 veto
+13:16:52 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 270 veto
+13:16:29 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 260 veto
+13:16:06 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 254 veto
+13:15:43 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 258 veto
+13:15:20 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 262 veto
+13:14:56 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 263 veto
+13:14:33 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 269 veto
 13:14:10 ORACLE   360 raccolti, 282 analizzati, 0 BUY, 271 veto
 13:13:47 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 260 veto
 13:13:24 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 266 veto
@@ -68,20 +82,6 @@ _nessuna_
 13:06:40 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 272 veto
 13:06:14 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 262 veto
 13:05:50 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 274 veto
-13:05:27 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 276 veto
-13:05:05 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 267 veto
-13:04:53 CHARON   TP1 $SWJ vendo 70% a 27.4% -> 0.0599 SOL
-13:04:42 SCRIBE   chiuso P-0135 $pls 0.0081 SOL (10.6%)
-13:04:42 CHARON   Stop loss $pls vendo 100% a -24.0% -> 0.0843 SOL
-13:04:42 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 274 veto
-13:04:19 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 270 veto
-13:04:06 KAISER   limite 1 ingresso/i per scan: $SWJ rimandato
-13:04:05 QUARTER  BUY $pls 0.075 SOL score 72 impatto 0.88% (Jupiter)
-13:04:05 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 266 veto
-13:03:40 QUARTER  $pls impatto 2.6% oltre slippage: annullato
-13:03:40 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 270 veto
-13:03:17 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 275 veto
-13:02:54 QUARTER  $pls impatto 2.5% oltre slippage: annullato
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
