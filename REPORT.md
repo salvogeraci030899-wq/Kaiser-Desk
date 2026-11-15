@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-15 02:40 UTC · in esecuzione da 0.6 giorni · 96 run
+Aggiornato: 2026-11-15 02:45 UTC · in esecuzione da 0.6 giorni · 96 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-15 02:40 UTC · in esecuzione da 0.6 giorni · 96 run
 | Cassa | 0.8437 SOL |
 | Trade chiusi | 19 |
 | Win rate | 32% |
-| P&L realizzato | -0.4563 SOL (~$-32.32) |
+| P&L realizzato | -0.4563 SOL (~$-32.40) |
 | Media vincite / perdite | +37.8% / -55.7% |
 | Profit factor | 0.32 |
 | Circuit breaker | ATTIVO oggi |
@@ -51,46 +51,46 @@ _nessuna_
 
 ## Ultimi eventi
 ```
-02:40:36 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 234 veto
-02:40:13 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 239 veto
-02:39:50 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 242 veto
-02:39:27 ORACLE   360 raccolti, 0 analizzati, 0 BUY, 0 veto
-02:39:27 SCOUT    DexScreener errore: HTTP 429
-02:39:27 SCOUT    DexScreener errore: HTTP 429
-02:39:27 SCOUT    DexScreener errore: HTTP 429
-02:39:27 SCOUT    DexScreener errore: HTTP 429
-02:39:27 SCOUT    DexScreener errore: HTTP 429
-02:39:27 SCOUT    DexScreener errore: HTTP 429
-02:39:27 SCOUT    DexScreener errore: HTTP 429
-02:39:27 SCOUT    DexScreener errore: HTTP 429
-02:39:27 SCOUT    DexScreener errore: HTTP 429
-02:39:27 SCOUT    DexScreener errore: HTTP 429
-02:39:27 SCOUT    DexScreener errore: HTTP 429
-02:39:27 SCOUT    DexScreener errore: HTTP 429
-02:39:27 SCOUT    profili: HTTP 429
-02:39:07 ORACLE   360 raccolti, 0 analizzati, 0 BUY, 0 veto
-02:39:07 SCOUT    DexScreener errore: HTTP 429
-02:39:07 SCOUT    DexScreener errore: HTTP 429
-02:39:07 SCOUT    DexScreener errore: HTTP 429
-02:39:07 SCOUT    DexScreener errore: HTTP 429
-02:39:07 SCOUT    DexScreener errore: HTTP 429
-02:39:07 SCOUT    DexScreener errore: HTTP 429
-02:39:07 SCOUT    DexScreener errore: HTTP 429
-02:39:07 SCOUT    DexScreener errore: HTTP 429
-02:39:07 SCOUT    DexScreener errore: HTTP 429
-02:39:07 SCOUT    DexScreener errore: HTTP 429
-02:39:07 SCOUT    DexScreener errore: HTTP 429
-02:39:07 SCOUT    DexScreener errore: HTTP 429
-02:39:07 SCOUT    profili: HTTP 429
-02:38:46 ORACLE   360 raccolti, 0 analizzati, 0 BUY, 0 veto
-02:38:46 SCOUT    DexScreener errore: HTTP 429
-02:38:46 SCOUT    DexScreener errore: HTTP 429
-02:38:46 SCOUT    DexScreener errore: HTTP 429
-02:38:46 SCOUT    DexScreener errore: HTTP 429
-02:38:46 SCOUT    DexScreener errore: HTTP 429
-02:38:46 SCOUT    DexScreener errore: HTTP 429
-02:38:46 SCOUT    DexScreener errore: HTTP 429
-02:38:46 SCOUT    DexScreener errore: HTTP 429
+02:45:42 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 241 veto
+02:45:20 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 243 veto
+02:44:57 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 237 veto
+02:44:34 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 243 veto
+02:44:13 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 243 veto
+02:43:51 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 239 veto
+02:43:27 ORACLE   360 raccolti, 0 analizzati, 0 BUY, 0 veto
+02:43:27 SCOUT    DexScreener errore: HTTP 429
+02:43:27 SCOUT    DexScreener errore: HTTP 429
+02:43:27 SCOUT    DexScreener errore: HTTP 429
+02:43:27 SCOUT    DexScreener errore: HTTP 429
+02:43:27 SCOUT    DexScreener errore: HTTP 429
+02:43:27 SCOUT    DexScreener errore: HTTP 429
+02:43:27 SCOUT    DexScreener errore: HTTP 429
+02:43:27 SCOUT    DexScreener errore: HTTP 429
+02:43:27 SCOUT    DexScreener errore: HTTP 429
+02:43:27 SCOUT    DexScreener errore: HTTP 429
+02:43:27 SCOUT    DexScreener errore: HTTP 429
+02:43:27 SCOUT    DexScreener errore: HTTP 429
+02:43:27 SCOUT    profili: HTTP 429
+02:43:07 ORACLE   360 raccolti, 0 analizzati, 0 BUY, 0 veto
+02:43:07 SCOUT    DexScreener errore: HTTP 429
+02:43:07 SCOUT    DexScreener errore: HTTP 429
+02:43:07 SCOUT    DexScreener errore: HTTP 429
+02:43:07 SCOUT    DexScreener errore: HTTP 429
+02:43:07 SCOUT    DexScreener errore: HTTP 429
+02:43:07 SCOUT    DexScreener errore: HTTP 429
+02:43:07 SCOUT    DexScreener errore: HTTP 429
+02:43:07 SCOUT    DexScreener errore: HTTP 429
+02:43:07 SCOUT    DexScreener errore: HTTP 429
+02:43:07 SCOUT    DexScreener errore: HTTP 429
+02:43:07 SCOUT    DexScreener errore: HTTP 429
+02:43:07 SCOUT    DexScreener errore: HTTP 429
+02:43:07 SCOUT    profili: HTTP 429
+02:42:47 ORACLE   360 raccolti, 0 analizzati, 0 BUY, 0 veto
+02:42:47 SCOUT    DexScreener errore: HTTP 429
+02:42:47 SCOUT    DexScreener errore: HTTP 429
+02:42:47 SCOUT    DexScreener errore: HTTP 429
+02:42:47 SCOUT    DexScreener errore: HTTP 429
+02:42:47 SCOUT    DexScreener errore: HTTP 429
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
