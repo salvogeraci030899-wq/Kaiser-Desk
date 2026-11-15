@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-15 14:19 UTC · in esecuzione da 0.3 giorni · 110 run
+Aggiornato: 2026-11-15 14:24 UTC · in esecuzione da 0.3 giorni · 110 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-15 14:19 UTC · in esecuzione da 0.3 giorni · 110 run
 | Cassa | 1.4593 SOL |
 | Trade chiusi | 15 |
 | Win rate | 40% |
-| P&L realizzato | -0.0407 SOL (~$-2.95) |
+| P&L realizzato | -0.0407 SOL (~$-2.94) |
 | Media vincite / perdite | +37.8% / -31.2% |
 | Profit factor | 0.86 |
 | Circuit breaker | no |
@@ -45,6 +45,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+14:24:18 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 258 veto
+14:23:55 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 268 veto
+14:23:32 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 266 veto
+14:23:09 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 263 veto
+14:22:46 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 267 veto
+14:22:23 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 257 veto
+14:22:00 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 255 veto
+14:21:36 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 255 veto
+14:21:13 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 254 veto
+14:20:51 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 241 veto
+14:20:27 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 253 veto
+14:20:04 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 249 veto
+14:19:40 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 251 veto
 14:19:16 ORACLE   343 raccolti, 267 analizzati, 0 BUY, 247 veto
 14:18:53 ORACLE   341 raccolti, 258 analizzati, 0 BUY, 234 veto
 14:18:41 ORACLE   338 raccolti, 258 analizzati, 0 BUY, 237 veto
@@ -72,19 +85,6 @@ _nessuna_
 14:14:04 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
 14:14:04 SCOUT    Laboratorio: collegato a PumpPortal
 14:14:04 KAISER   run #110 · 0 posizioni · equity 1.4818 SOL · GMGN spenta (nessuna chiave) · Grok off
-14:13:52 SCRIBE   fine run · trade 14 · win 43% · P&L -0.0182 SOL · equity 1.4818 SOL
-14:13:33 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 251 veto
-14:13:09 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 248 veto
-14:12:45 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 254 veto
-14:12:22 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 249 veto
-14:11:59 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 245 veto
-14:11:35 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 246 veto
-14:11:10 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 248 veto
-14:10:46 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 238 veto
-14:10:23 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 250 veto
-14:09:59 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 245 veto
-14:09:36 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 247 veto
-14:09:12 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 248 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
