@@ -178,3 +178,14 @@ Il Laboratorio ora misura anche (sempre solo osservazione):
 Nel Journal la colonna dell'esito mostra ora "picco X · uscita Y": il picco e' il massimo raggiunto, l'uscita e' il prezzo dell'ultima vendita. L'esito comprende anche le vendite parziali, le fee, l'impatto e la priority.
 
 Limiti: le misure sono significative solo con alcune centinaia di Coin; la market cap in dollari dipende dal cambio SOL/USD noto al runner; il Laboratorio non e' mai stato provato dal vivo.
+
+### Laboratorio: prezzi dalla catena
+
+Dai dati del runner risultava che PumpPortal inviava i nuovi token ma nessuno scambio (0 scambi su centinaia di Coin), quindi nessuna Coin diventava "valida" per il punteggio bot. Il Laboratorio ora non dipende solo da quello:
+
+- Con `RPC_URL` impostato, ogni 10 secondi legge in blocco (100 conti per chiamata) il conto "bonding curve" di ogni Coin seguita e ne ricava la market cap vera dalle riserve della curva. Costa circa 2-3 chiamate ogni 10 secondi.
+- I token creati sono presi sia da PumpPortal sia dalla fonte RPC dei token giovani, quindi basta una delle due.
+- Le misure basate sul solo prezzo (soglie di market cap, gare target/stop, uscita a tempo, picco, calo prima del picco) funzionano senza gli scambi. Punteggio bot, reazione agli acquisti per taglia, vendite grosse e calma dopo il picco restano disponibili solo se PumpPortal invia gli scambi.
+- La scheda Lab mostra quanti messaggi arrivano (nuovi, scambi, altri) e quante letture della catena riescono. Se i primi valori letti non sembrano una market cap sensata, la lettura si spegne da sola (formato del conto diverso da quello atteso).
+
+Limiti: il formato del conto e l'indirizzo della curva (letto dall'evento di creazione) sono noti a memoria e non verificati dal vivo; con un piano RPC a consumo contano circa 25.000 chiamate al giorno.

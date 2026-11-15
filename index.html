@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.26.0">
+<meta name="kz-build" content="2.27.0">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=2">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
@@ -30,7 +30,7 @@
   document.getElementById('metaStatusBar').setAttribute('content', light ? 'default' : (bar === 'separate' ? 'black' : 'black-translucent'));
 })();
 </script>
-<link rel="stylesheet" href="style.css?v=46">
+<link rel="stylesheet" href="style.css?v=47">
 <script src="version.js"></script>
 <script src="theme.js"></script>
 <script src="lock.js"></script>
@@ -599,7 +599,7 @@ function renderJournal() {
       const c = L.cohorts || [], pct = (k) => c.map((g) => (g.n && g.races && g.races[k] ? g.races[k].tp + '/' + g.races[k].sl : '—')).join(' · '), info = L.info, f1 = (v, d) => (v == null ? '—' : String(v)), sec = (t) => `<div class="tiny muted" style="margin:12px 0 4px"><b>${t}</b></div>`;
       const th = (L.th || []).filter((x) => x.n), rr = (x, k) => (x.races && x.races[k] ? x.races[k].tp + '/' + x.races[k].sl : '—'), tbl = (head, rows) => `<table class="ltab"><tr>${head.map((x) => `<th>${x}</th>`).join('')}</tr>${rows.map((r) => `<tr>${r.map((x) => `<td>${x}</td>`).join('')}</tr>`).join('')}</table>`;
       const SZ = { s: '<10 $', m: '10-50 $', l: '>50 $' }, rx = (L.rx || []), cell = (o) => (o ? `${o.drift > 0 ? '+' : ''}${o.drift}%<br><span class="muted">${o.down}% giù</span>` : '—'), fl = L.flow || {};
-      body = `<div class="kv">${kvRow('Coin osservate · valide', L.observed + ' · ' + L.valid)}${info ? kvRow('Ora', info.state === 'on' ? `collegato · ${info.active} Coin · ${info.trades} scambi` : 'non collegato') : ''}</div>`
+      body = `<div class="kv">${kvRow('Coin osservate · con prezzo · con scambi', L.observed + ' · ' + (L.priced || 0) + ' · ' + L.valid)}${info ? kvRow('PumpPortal', info.state === 'on' ? `collegato · ${info.active} Coin seguite` : 'non collegato') : ''}${info && info.msgs ? kvRow('Messaggi ricevuti', `${info.msgs.create} nuovi · ${info.msgs.trade} scambi · ${info.msgs.other} altri`, info.msgs.create >= 20 && !info.msgs.trade ? 'warn' : '') : ''}${info ? kvRow('Prezzi dalla catena', info.poll ? (info.poll.off ? 'spenti (formato non riconosciuto)' : `${info.poll.ok} letture${info.poll.fail ? ' · ' + info.poll.fail + ' errori' : ''}`) : 'RPC non impostato', info.poll && !info.poll.off && info.poll.ok ? 'up' : 'warn') : ''}</div>`
         + sec('Ingresso 60 secondi dopo la nascita, per punteggio bot (basso · medio · alto)')
         + `<div class="kv">${kvRow('Coin per gruppo', c.map((g) => g.n).join(' · '))}${[['12/10', '+12% prima di −10%'], ['20/15', '+20% prima di −15%'], ['30/20', '+30% prima di −20%'], ['30/25', '+30% prima di −25%'], ['50/30', '+50% prima di −30%']].map(([k, l]) => kvRow(l, pct(k))).join('')}${kvRow('Picco mediano (x)', c.map((g) => (g.n ? g.peak + 'x' : '—')).join(' · '))}${kvRow('Dopo 2 minuti (x)', c.map((g) => (g.n && g.x && g.x[1] != null ? g.x[1] + 'x' : '—')).join(' · '))}${kvRow('Dopo 5 minuti (x)', c.map((g) => (g.n && g.x && g.x[2] != null ? g.x[2] + 'x' : '—')).join(' · '))}${kvRow('Dopo un acquirente grosso (x)', c.map((g) => (g.afterBig ? g.afterBig.med + 'x' : '—')).join(' · '))}</div>`
         + sec('Ingresso alla prima volta che la market cap supera la soglia')

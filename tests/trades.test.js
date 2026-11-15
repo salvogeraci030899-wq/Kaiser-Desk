@@ -136,3 +136,45 @@ test('taratura del paper e Lab v2: il runner registra la differenza tra quotazio
   for (const k of ['Ingresso alla prima volta che la market cap supera la soglia', 'Dopo un acquisto: come si muove il prezzo', 'Vendite grosse, rotazione e calma', 'Realismo del paper']) assert.ok(html.includes(k), k);
   assert.ok(html.includes("picco '") || html.includes("'picco '"), 'etichetta del Journal con picco e uscita separati');
 });
+
+// ---------- prezzi dalla catena ----------
+const curveBuf = (vTok, vSol, supply, complete = false) => { const b = Buffer.alloc(8 + 40 + 1 + 32); b.writeBigUInt64LE(BigInt(vTok), 8); b.writeBigUInt64LE(BigInt(vSol), 16); b.writeBigUInt64LE(BigInt(Math.floor(vTok / 2)), 24); b.writeBigUInt64LE(BigInt(Math.floor(vSol / 3)), 32); b.writeBigUInt64LE(BigInt(supply), 40); b[48] = complete ? 1 : 0; return b.toString('base64'); };
+const fakeFetch = (vals) => async () => ({ json: async () => ({ result: { value: vals } }) });
+test('conto della curva: la market cap in SOL si ricava dalle riserve virtuali; formati incoerenti si scartano', () => {
+  const c = Lab.parseCurve(curveBuf(1_073_000_000_000_000, 30_000_000_000, 1_000_000_000_000_000));
+  assert.ok(c.mcSol > 27.9 && c.mcSol < 28.0, 'mc ' + c.mcSol); assert.equal(c.complete, false);
+  assert.equal(Lab.parseCurve(curveBuf(1_000_000_000_000_000, 60_000_000_000, 1_000_000_000_000_000, true)).complete, true);
+  assert.equal(Lab.parseCurve(Buffer.alloc(20).toString('base64')), null, 'troppo corto'); assert.equal(Lab.parseCurve(curveBuf(1, 0, 1)), null, 'riserve a zero');
+});
+test('lettura delle curve: il prezzo entra nel percorso del token anche senza scambi da PumpPortal; il formato sbagliato spegne la lettura', async () => {
+  const b = new Lab.TradeBook({}), m1 = mint(21), m2 = mint(22), CURVE1 = mint(31);
+  b.create({ mint: m1, symbol: 'A', name: 'A', bondingCurveKey: CURVE1 }, T); b.create({ mint: m2, symbol: 'B', name: 'B' }, T);   // la seconda non ha l'indirizzo della curva
+  let now = T + 30000, seen = null;
+  const f = async (url, o) => { seen = JSON.parse(o.body); return { json: async () => ({ result: { value: [{ data: [curveBuf(1_073_000_000_000_000, 40_000_000_000, 1_000_000_000_000_000), 'base64'] }] } }) }; };
+  const p = new Lab.CurvePoller({ url: 'wss://rpc.example/key', fetch: f, book: b, now: () => now, log: () => {} });
+  await p.pollOnce(); assert.deepEqual(seen.params[0], [CURVE1], 'si chiede solo la curva nota'); assert.equal(p.ok, 1);
+  assert.ok(b.toks.get(m1).path[6] > 37 && b.toks.get(m1).path[6] < 38, 'percorso al bin 6: ' + b.toks.get(m1).path[6]); assert.equal(b.toks.get(m2).path.length, 0);
+  assert.equal(p.url.startsWith('https://'), true, 'ws -> https');
+  const bad = new Lab.TradeBook({}), mb = mint(23); bad.create({ mint: mb, symbol: 'C', name: 'C', bondingCurveKey: CURVE1 }, T);
+  const fb = new Lab.CurvePoller({ url: 'https://rpc.example', fetch: async () => ({ json: async () => ({ result: { value: [{ data: [curveBuf(1, 1, 1), 'base64'] }] } }) }), book: bad, now: () => now, log: () => {} });
+  for (let i = 0; i < 20; i++) await fb.pollOnce(); assert.equal(fb.off, true, 'dopo 20 valori senza senso si spegne'); assert.equal(fb.ok, 0);
+});
+test('un token arrivato dall\'RPC viene adottato dal Laboratorio; senza l\'indirizzo della curva si completa dopo', async () => {
+  const feed = new Lab.TradeFeed({ now: () => T, log: () => {}, rpcHttp: 'https://rpc.example', fetch: fakeFetch([]) }), m = mint(24), CURVE = mint(32);
+  assert.equal(feed.adopt({ mint: m, symbol: 'Z', name: 'Zed' }, T), true); assert.equal(feed.book.toks.get(m).curve, '');
+  assert.equal(feed.adopt({ mint: m, symbol: 'Z', curve: CURVE }, T), false); assert.equal(feed.book.toks.get(m).curve, CURVE, 'completata');
+  assert.equal(feed.adopt({ mint: 'no' }, T), false); assert.equal(feed.status().poll.ok, 0); assert.equal(feed.status().msgs.trade, 0);
+});
+test('con i soli prezzi della catena il riassunto calcola soglie e uscita a tempo; la scheda conta le Coin con prezzo', async () => {
+  const feed = new Lab.TradeFeed({ now: () => T, log: () => {}, solUsd: () => 100 }), m = mint(25);
+  feed.adopt({ mint: m, symbol: 'Q', name: 'Q', curve: mint(33) }, T); const t = feed.book.toks.get(m);
+  for (let i = 0; i < 60; i++) feed.book.curveMc(t, T + i * 5000 + 100, { mcSol: i < 20 ? 30 + i * 3 : i < 30 ? 90 : 70 });   // sale oltre i 75 SOL (7.5K a 100 $/SOL), tiene, poi scende
+  const s = Lab.summarize(t, T + 22 * 60000, 100); assert.equal(s.ok, false, 'senza scambi non e\' un ingresso a 60 secondi'); assert.ok(s.th["7.5"], JSON.stringify(Object.keys(s.th))); assert.equal(s.th["10"], undefined, "i 10K (100 SOL) non si superano");
+  assert.ok(s.th["7.5"].pk >= 1.1 && s.th["7.5"].x[0] != null); const g = Lab.labSummary([s], T); assert.equal(g.priced, 1); assert.equal(g.valid, 0);
+});
+test('creazione su RPC: oltre al mint si legge l\'indirizzo della curva', () => {
+  const crypto = require('node:crypto'), disc = crypto.createHash('sha256').update('event:CreateEvent').digest().subarray(0, 8), str = (s) => { const x = Buffer.from(s); const l = Buffer.alloc(4); l.writeUInt32LE(x.length); return Buffer.concat([l, x]); };
+  const mintB = Buffer.alloc(32, 7), curveB = Buffer.alloc(32, 9), ev = Buffer.concat([disc, str('Nome'), str('SYM'), str('https://x'), mintB, curveB, Buffer.alloc(32, 3)]);
+  const r = Y.parseCreateEvent(ev.toString('base64')); assert.equal(r.mint, Y.b58(mintB)); assert.equal(r.curve, Y.b58(curveB)); assert.equal(r.symbol, 'SYM');
+  const noCurve = Y.parseCreateEvent(Buffer.concat([disc, str('N'), str('S'), str('u'), mintB]).toString('base64')); assert.equal(noCurve.curve, undefined, 'senza la curva il token si legge lo stesso');
+});

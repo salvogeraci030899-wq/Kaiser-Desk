@@ -13,6 +13,7 @@ const RX_H = [2, 6, 12], RX_K = [10, 30, 60];                             // rea
 const sizeOf = (usd) => (usd < 10 ? 's' : usd < 50 ? 'm' : 'l');         // taglia dell'acquisto: sotto 10 $, 10-50 $, oltre 50 $
 const MINT_RE = /^[1-9A-HJ-NP-Za-km-z]{32,44}$/;
 const num = (v) => { const n = Number(v); return Number.isFinite(n) ? n : 0; };
+const toHttp = (u) => String(u || '').trim().replace(/^wss:/i, 'https:').replace(/^ws:/i, 'http:');
 const clamp = (x, a, b) => Math.min(b, Math.max(a, x));
 const median = (xs) => { if (!xs.length) return null; const s = [...xs].sort((a, b) => a - b), m = s.length >> 1; return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; };
 
@@ -118,16 +119,52 @@ function labSummary(done, now) {
     lsT: medOf(withLs.filter((d) => d.lsT != null).map((d) => d.lsT), 0), turn: medOf(done.filter((d) => d.turn != null).map((d) => d.turn), 1),
     quiet: qs.length ? { n: qs.length, share: Math.round(100 * qs.filter((d) => d.q[1] <= 0.3 * d.q[0]).length / qs.length) } : null,
     hi15: hi.length ? Math.round(100 * hi.filter((d) => d.hi >= 15000).length / hi.length) : null, hi30: hi.length ? Math.round(100 * hi.filter((d) => d.hi >= 30000).length / hi.length) : null };
-  return { observed: done.length, valid: ok.length, cohorts, th, rx, flow };
+  return { observed: done.length, valid: ok.length, priced: done.filter((d) => d.hi != null).length, cohorts, th, rx, flow };
 }
 
+
+// ---------- prezzo dalla catena ----------
+// Conto "bonding curve" di pump.fun: discriminatore (8) + riserve virtuali di token e di SOL, riserve reali, supply totale (u64 ciascuna) + flag "completata".
+// Market cap in SOL = riserva virtuale di SOL x supply / riserva virtuale di token. Non dipende da nessun sito di terzi: e' il prezzo vero della curva.
+function parseCurve(b64) {
+  let b; try { b = Buffer.from(String(b64), 'base64'); } catch { return null; }
+  if (b.length < 49) return null;
+  const vTok = Number(b.readBigUInt64LE(8)), vSol = Number(b.readBigUInt64LE(16)), supply = Number(b.readBigUInt64LE(40));
+  if (!(vTok > 0) || !(vSol > 0) || !(supply > 0)) return null;
+  return { mcSol: (vSol / 1e9) * (supply / vTok), complete: b[48] === 1 };
+}
+// Legge ogni pochi secondi le curve dei token seguiti con una sola chiamata ogni 100 conti. Se i primi valori non sembrano una market cap sensata il formato non e' quello atteso: si spegne.
+class CurvePoller {
+  constructor(o) {
+    this.url = toHttp(o.url); this.fetch = o.fetch || globalThis.fetch; this.book = o.book; this.now = o.now || Date.now; this.log = o.log || (() => {}); this.every = o.everyMs || 10000;
+    this.last = 0; this.busy = false; this.ok = 0; this.fail = 0; this.bad = 0; this.sane = 0; this.off = !this.url || !this.fetch; this.err = '';
+  }
+  tick() {
+    if (this.off || this.busy) return; const now = this.now(); if (now - this.last < this.every) return; this.last = now; this.busy = true;
+    this.pollOnce().catch((e) => { this.fail++; this.err = String(e && e.message || e).slice(0, 80); }).finally(() => { this.busy = false; });
+  }
+  async pollOnce() {
+    const now = this.now(), list = [...this.book.toks.values()].filter((t) => t.curve && !t.complete && now - t.createdAt < WATCH_MS);
+    for (let i = 0; i < list.length; i += 100) {
+      const chunk = list.slice(i, i + 100);
+      const r = await this.fetch(this.url, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'getMultipleAccounts', params: [chunk.map((t) => t.curve), { encoding: 'base64', commitment: 'processed' }] }), signal: AbortSignal.timeout(8000) });
+      const j = await r.json(), vals = j && j.result && j.result.value;
+      if (!Array.isArray(vals)) { this.fail++; this.err = String((j && j.error && j.error.message) || 'risposta senza valori').slice(0, 80); continue; }
+      chunk.forEach((t, k) => {
+        const v = vals[k]; if (!v || !v.data) return; const c = parseCurve(Array.isArray(v.data) ? v.data[0] : v.data);
+        if (!c || !(c.mcSol > 1 && c.mcSol < 5000)) { this.bad++; if (this.sane < 20 && this.bad >= 20 && this.ok === 0) { this.off = true; this.log('prezzi dalla catena: formato del conto non riconosciuto, lettura spenta'); } return; }
+        this.ok++; this.sane++; this.book.curveMc(t, now, c);
+      });
+    }
+  }
+}
 
 // ---------- registro in memoria ----------
 class TradeBook {
   constructor(o) { this.max = (o && o.max) || 300; this.toks = new Map(); this.seen = new Set(); this.nTrades = 0; this.nCreate = 0; }
   create(m, now) {
     if (!m || !MINT_RE.test(m.mint || '') || this.toks.has(m.mint)) return null;
-    const t = { mint: m.mint, sym: String(m.symbol || '').slice(0, 20), name: String(m.name || '').slice(0, 40), createdAt: now, dev: m.traderPublicKey || '', addr: [], wid: new Map(), tr: [], path: [], lastMc: num(m.marketCapSol), big: [], devIdx: -1 };
+    const t = { mint: m.mint, sym: String(m.symbol || '').slice(0, 20), name: String(m.name || '').slice(0, 40), createdAt: now, dev: m.traderPublicKey || '', addr: [], wid: new Map(), tr: [], path: [], lastMc: num(m.marketCapSol), big: [], devIdx: -1, curve: MINT_RE.test(String(m.bondingCurveKey || m.curve || '')) ? String(m.bondingCurveKey || m.curve) : '', complete: false };
     this.nCreate++; this.toks.set(m.mint, t);
     if (t.dev) { t.devIdx = this._w(t, t.dev); if (num(m.solAmount) > 0) this._tr(t, 0, 1, num(m.solAmount), t.devIdx); }   // l'acquisto iniziale del dev
     if (t.lastMc > 0) this._mc(t, 0, t.lastMc);
@@ -150,6 +187,7 @@ class TradeBook {
     if (mc > 0) this._mc(t, dt, mc);
     return t;
   }
+  curveMc(t, now, c) { this._mc(t, Math.max(0, now - t.createdAt), c.mcSol); if (c.complete) t.complete = true; }
   scoreNow(mint) { const t = this.toks.get(mint); return t ? botScore(features(t, ENTRY_MS)) : null; }
   expired(now) { return [...this.toks.values()].filter((t) => now - t.createdAt >= WATCH_MS); }
   drop(mint) { this.toks.delete(mint); }
@@ -161,7 +199,8 @@ class TradeFeed {
   constructor(o) {
     this.o = o || {}; this.WS = this.o.WebSocketImpl || globalThis.WebSocket; this.now = this.o.now || Date.now; this.schedule = this.o.schedule || ((fn, ms) => setTimeout(fn, ms));
     this.solUsd = this.o.solUsd || (() => 0); this.log = this.o.log || (() => {}); this.onCreate = this.o.onCreate || (() => {}); this.onDone = this.o.onDone || (() => {}); this.url = this.o.url || PORTAL_URL;
-    this.book = new TradeBook({ max: this.o.max }); this.state = 'off'; this.backoff = 2000; this.retrying = false; this.stopped = false; this.ws = null; this.unsub = [];
+    this.book = new TradeBook({ max: this.o.max }); this.stats = { create: 0, trade: 0, other: 0 }; this.warned = false; this.openedAt = 0;
+    this.poller = this.o.rpcHttp ? new CurvePoller({ url: this.o.rpcHttp, book: this.book, now: this.now, log: this.log, fetch: this.o.fetch, everyMs: this.o.pollMs }) : null; this.state = 'off'; this.backoff = 2000; this.retrying = false; this.stopped = false; this.ws = null; this.unsub = [];
   }
   start() { if (!this.WS) { this.log('WebSocket non disponibile (serve Node 22): Laboratorio spento'); return false; } this.stopped = false; this.connect(); return true; }
   stop() { this.stopped = true; try { this.ws && this.ws.close(); } catch { /* niente */ } this.state = 'off'; }
@@ -171,7 +210,7 @@ class TradeFeed {
     try { ws = new this.WS(this.url); } catch { this.retry(); return; }
     this.ws = ws; this.state = 'connecting';
     ws.onopen = () => {
-      this.state = 'on'; this.log('Laboratorio: collegato a PumpPortal'); this.send({ method: 'subscribeNewToken' });
+      this.state = 'on'; this.openedAt = this.now(); this.log('Laboratorio: collegato a PumpPortal'); this.send({ method: 'subscribeNewToken' });
       const keys = [...this.book.toks.keys()]; for (let i = 0; i < keys.length; i += 100) this.send({ method: 'subscribeTokenTrade', keys: keys.slice(i, i + 100) });   // dopo una riconnessione si riprende dai token seguiti
     };
     ws.onmessage = (ev) => this.onMsg(ev && ev.data);
@@ -183,21 +222,31 @@ class TradeFeed {
     let m; try { m = JSON.parse(typeof data === 'string' ? data : Buffer.from(data).toString('utf8')); } catch { return; } if (!m || typeof m !== 'object') return;
     const now = this.now(); this.backoff = 2000;
     if (m.txType === 'create') {
-      const t = this.book.create(m, now); if (!t) return;
+      this.stats.create++; const t = this.book.create(m, now); if (!t) return;
       if (this.book.toks.size > this.book.max) { const o = this.book.oldest(); if (o && o.mint !== t.mint) this.finish(o, now); }
       this.send({ method: 'subscribeTokenTrade', keys: [t.mint] });                       // subito: gli scambi dei primi secondi sono i più utili
       this.onCreate({ mint: t.mint, symbol: t.sym, name: t.name, src: 'portal', at: now }); return;
     }
+    if (m.txType === 'buy' || m.txType === 'sell') this.stats.trade++; else { this.stats.other++; if (this.stats.other <= 3) this.log('messaggio PumpPortal non riconosciuto, chiavi: ' + Object.keys(m).slice(0, 12).join(',')); }
     this.book.trade(m, now);
+  }
+  // token noto da un'altra fonte (RPC): si segue anche qui, cosi' il Laboratorio non dipende da una sola connessione
+  adopt(m, now) {
+    if (!m || !MINT_RE.test(m.mint || '')) return false; const old = this.book.toks.get(m.mint);
+    if (old) { if (!old.curve && m.curve && MINT_RE.test(m.curve)) old.curve = m.curve; return false; }
+    const t = this.book.create({ mint: m.mint, symbol: m.symbol, name: m.name, bondingCurveKey: m.curve }, now || m.at || this.now()); if (!t) return false;
+    if (this.book.toks.size > this.book.max) { const o = this.book.oldest(); if (o && o.mint !== t.mint) this.finish(o, this.now()); }
+    this.send({ method: 'subscribeTokenTrade', keys: [t.mint] }); return true;
   }
   finish(t, now) { this.book.drop(t.mint); this.unsub.push(t.mint); this.onDone(summarize(t, now, this.solUsd())); }
   // da chiamare ogni pochi secondi: chiude i token osservati abbastanza a lungo e annulla le iscrizioni
   tick() {
-    const now = this.now(); for (const t of this.book.expired(now)) this.finish(t, now);
+    const now = this.now(); if (this.poller) this.poller.tick();
+    if (!this.warned && this.state === 'on' && this.stats.create >= 20 && this.stats.trade === 0 && now - this.openedAt > 120000) { this.warned = true; this.log(`PumpPortal invia nuovi token (${this.stats.create}) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena`); } for (const t of this.book.expired(now)) this.finish(t, now);
     if (this.unsub.length) { const keys = this.unsub.splice(0, 100); this.send({ method: 'unsubscribeTokenTrade', keys }); }
   }
   botNow(mint) { return this.book.scoreNow(mint); }
-  status() { return { state: this.state, active: this.book.toks.size, trades: this.book.nTrades, creates: this.book.nCreate }; }
+  status() { const p = this.poller; return { state: this.state, active: this.book.toks.size, trades: this.book.nTrades, creates: this.book.nCreate, msgs: { ...this.stats }, poll: p ? { ok: p.ok, fail: p.fail, bad: p.bad, off: p.off, err: p.err } : null }; }
 }
 
-module.exports = { PORTAL_URL, RACES, ENTRY_MS, WATCH_MS, features, botScore, race, summarize, labSummary, TradeBook, TradeFeed };
+module.exports = { parseCurve, CurvePoller, PORTAL_URL, RACES, ENTRY_MS, WATCH_MS, features, botScore, race, summarize, labSummary, TradeBook, TradeFeed };
