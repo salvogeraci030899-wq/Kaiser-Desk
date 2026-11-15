@@ -1,11 +1,11 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-15 14:29 UTC · in esecuzione da 0.3 giorni · 110 run
+Aggiornato: 2026-11-15 14:34 UTC · in esecuzione da 0.3 giorni · 110 run
 
 | | |
 |---|---|
-| Equity | **1.4525 SOL** (-3.2% dal capitale iniziale di 1.5 SOL) |
-| Cassa | 1.4525 SOL |
+| Equity | **1.4531 SOL** (-3.1% dal capitale iniziale di 1.5 SOL) |
+| Cassa | 1.3789 SOL |
 | Trade chiusi | 16 |
 | Win rate | 38% |
 | P&L realizzato | -0.0475 SOL (~$-3.40) |
@@ -14,7 +14,7 @@ Aggiornato: 2026-11-15 14:29 UTC · in esecuzione da 0.3 giorni · 110 run
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$Nyajira** P-0140 · 0.073 SOL · +2.2% · resta 100% · [grafico](https://dexscreener.com/solana/vM9GA1q6LfbjpWx27u9dqZyRNYeyKzCfC86qLHMXfYa)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -46,6 +46,22 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+14:34:30 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 253 veto
+14:34:06 ORACLE   360 raccolti, 271 analizzati, 3 BUY, 256 veto
+14:33:42 ORACLE   360 raccolti, 270 analizzati, 3 BUY, 254 veto
+14:33:18 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 254 veto
+14:32:56 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 253 veto
+14:32:32 KAISER   limite 1 ingresso/i per scan: $PUMPDEX rimandato
+14:32:32 QUARTER  BUY $Nyajira 0.073 SOL score 68 impatto 1.25% (Jupiter)
+14:32:32 ORACLE   360 raccolti, 269 analizzati, 3 BUY, 256 veto
+14:32:08 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 244 veto
+14:31:44 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 249 veto
+14:31:21 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 248 veto
+14:31:08 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 242 veto
+14:30:43 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 251 veto
+14:30:20 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 251 veto
+14:29:57 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 251 veto
+14:29:33 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 258 veto
 14:29:11 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 256 veto
 14:28:58 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 256 veto
 14:28:33 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 258 veto
@@ -70,22 +86,6 @@ _nessuna_
 14:22:46 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 267 veto
 14:22:23 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 257 veto
 14:22:00 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 255 veto
-14:21:36 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 255 veto
-14:21:13 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 254 veto
-14:20:51 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 241 veto
-14:20:27 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 253 veto
-14:20:04 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 249 veto
-14:19:40 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 251 veto
-14:19:16 ORACLE   343 raccolti, 267 analizzati, 0 BUY, 247 veto
-14:18:53 ORACLE   341 raccolti, 258 analizzati, 0 BUY, 234 veto
-14:18:41 ORACLE   338 raccolti, 258 analizzati, 0 BUY, 237 veto
-14:18:26 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-14:18:16 ORACLE   315 raccolti, 237 analizzati, 0 BUY, 220 veto
-14:17:52 ORACLE   306 raccolti, 228 analizzati, 0 BUY, 211 veto
-14:17:30 ORACLE   304 raccolti, 224 analizzati, 0 BUY, 206 veto
-14:17:05 SCRIBE   chiuso P-0138 $PUMPDEX -0.0225 SOL (-30.0%)
-14:17:05 CHARON   Stop loss $PUMPDEX vendo 100% a -30.5% -> 0.0526 SOL
-14:17:05 ORACLE   280 raccolti, 199 analizzati, 0 BUY, 184 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
