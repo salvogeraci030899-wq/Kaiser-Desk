@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-15 07:22 UTC · in esecuzione da 0.8 giorni · 101 run
+Aggiornato: 2026-11-15 07:27 UTC · in esecuzione da 0.8 giorni · 101 run
 
 | | |
 |---|---|
@@ -51,6 +51,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+07:27:50 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 260 veto
+07:27:27 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 254 veto
+07:27:03 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 253 veto
+07:26:40 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 254 veto
+07:26:17 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 249 veto
+07:25:54 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 254 veto
+07:25:31 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 252 veto
+07:25:09 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 242 veto
+07:24:46 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 256 veto
+07:24:23 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 246 veto
+07:24:01 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 250 veto
+07:23:38 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 249 veto
+07:23:15 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 241 veto
+07:22:52 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 232 veto
 07:22:29 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 238 veto
 07:22:06 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 234 veto
 07:21:42 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 236 veto
@@ -77,20 +91,6 @@ _nessuna_
 07:13:40 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 231 veto
 07:13:17 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 238 veto
 07:12:54 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 238 veto
-07:12:31 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 234 veto
-07:12:18 SCOUT    regola R-016: ritirata (non regge in avanti: 23 operazioni, esito medio -31.72%)
-07:12:18 SCOUT    regola R-015: ritirata (non regge in avanti: 23 operazioni, esito medio -31.72%)
-07:12:18 SCOUT    regola R-014: ritirata (non regge in avanti: 23 operazioni, esito medio -31.72%)
-07:12:18 SCOUT    regola R-013: ritirata (non regge in avanti: 23 operazioni, esito medio -30.33%)
-07:12:18 SCOUT    regola R-012: ritirata (non regge in avanti: 23 operazioni, esito medio -30.88%)
-07:12:18 SCOUT    regola R-011: ritirata (non regge in avanti: 23 operazioni, esito medio -30.74%)
-07:12:18 SCOUT    regola R-010: ritirata (non regge in avanti: 23 operazioni, esito medio -30.16%)
-07:12:18 SCOUT    regola R-009: ritirata (non regge in avanti: 23 operazioni, esito medio -30.57%)
-07:12:08 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 245 veto
-07:11:45 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 243 veto
-07:11:22 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 242 veto
-07:10:59 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 250 veto
-07:10:36 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 251 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
