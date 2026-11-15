@@ -1,33 +1,34 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-15 13:04 UTC · in esecuzione da 0.2 giorni · 108 run
+Aggiornato: 2026-11-15 13:09 UTC · in esecuzione da 0.2 giorni · 108 run
 
 | | |
 |---|---|
-| Equity | **1.5030 SOL** (+0.2% dal capitale iniziale di 1.5 SOL) |
-| Cassa | 1.3390 SOL |
-| Trade chiusi | 10 |
-| Win rate | 40% |
-| P&L realizzato | -0.0092 SOL (~$-0.67) |
-| Media vincite / perdite | +52.2% / -36.7% |
-| Profit factor | 0.96 |
+| Equity | **1.5047 SOL** (+0.3% dal capitale iniziale di 1.5 SOL) |
+| Cassa | 1.5047 SOL |
+| Trade chiusi | 12 |
+| Win rate | 50% |
+| P&L realizzato | +0.0047 SOL (~$0.34) |
+| Media vincite / perdite | +37.8% / -36.7% |
+| Profit factor | 1.02 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$SWJ** P-0134 · 0.075 SOL · +19.1% · resta 100% · [grafico](https://dexscreener.com/solana/G5ix98ZfKnNyNEbMKe1ziuvRh8aqqEnzotd5mkp3YeGg)
-- **$pls** P-0135 · 0.075 SOL · n/d · resta 100% · [grafico](https://dexscreener.com/solana/GZ6QCh2xAkxKKNEfvak9bmbyCSu3pJXw6NJjqLPr8wdz)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| Stop loss | 5 | -0.2403 |
+| Stop loss | 6 | -0.2322 |
 | Chiusura manuale (app) | 1 | +0.0954 |
-| Trailing stop | 3 | +0.1464 |
+| Trailing stop | 4 | +0.1523 |
 | Time stop | 1 | -0.0108 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $SWJ | 64 | +7.7% | +0.0058 | +35% | +14% | Trailing stop | 10m |
+| $pls | 72 | +10.6% | +0.0081 | +0% | -24% | Stop loss | 1m |
 | $PEER | 67 | -4.4% | -0.0033 | +14% | -20% | Stop loss | 2m |
 | $Buttom | 70 | -34.0% | -0.0262 | +0% | -16% | Stop loss | 2m |
 | $Gomez | 63 | +10.2% | +0.0078 | +33% | +10% | Trailing stop | 7m |
@@ -41,6 +42,25 @@ Aggiornato: 2026-11-15 13:04 UTC · in esecuzione da 0.2 giorni · 108 run
 
 ## Ultimi eventi
 ```
+13:09:13 SCRIBE   chiuso P-0134 $SWJ 0.0058 SOL (7.7%)
+13:09:13 CHARON   Trailing stop $SWJ vendo 100% a 14.0% -> 0.0214 SOL
+13:09:03 ORACLE   360 raccolti, 286 analizzati, 0 BUY, 276 veto
+13:08:40 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 263 veto
+13:08:28 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 265 veto
+13:08:02 ORACLE   360 raccolti, 287 analizzati, 0 BUY, 277 veto
+13:07:39 ORACLE   360 raccolti, 283 analizzati, 0 BUY, 272 veto
+13:07:16 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 267 veto
+13:06:53 ORACLE   360 raccolti, 285 analizzati, 1 BUY, 277 veto
+13:06:40 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 272 veto
+13:06:14 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 262 veto
+13:05:50 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 274 veto
+13:05:27 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 276 veto
+13:05:05 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 267 veto
+13:04:53 CHARON   TP1 $SWJ vendo 70% a 27.4% -> 0.0599 SOL
+13:04:42 SCRIBE   chiuso P-0135 $pls 0.0081 SOL (10.6%)
+13:04:42 CHARON   Stop loss $pls vendo 100% a -24.0% -> 0.0843 SOL
+13:04:42 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 274 veto
+13:04:19 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 270 veto
 13:04:06 KAISER   limite 1 ingresso/i per scan: $SWJ rimandato
 13:04:05 QUARTER  BUY $pls 0.075 SOL score 72 impatto 0.88% (Jupiter)
 13:04:05 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 266 veto
@@ -62,25 +82,6 @@ Aggiornato: 2026-11-15 13:04 UTC · in esecuzione da 0.2 giorni · 108 run
 12:59:13 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 270 veto
 12:58:48 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 262 veto
 12:58:26 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 268 veto
-12:58:02 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 271 veto
-12:57:40 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 270 veto
-12:57:17 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 265 veto
-12:56:55 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 269 veto
-12:56:32 ORACLE   360 raccolti, 277 analizzati, 3 BUY, 271 veto
-12:56:10 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 270 veto
-12:55:47 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 268 veto
-12:55:25 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 267 veto
-12:55:02 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 265 veto
-12:54:39 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 267 veto
-12:54:17 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 268 veto
-12:53:55 SCOUT    regola R-048: ritirata (non regge in avanti: 21 operazioni, esito medio -7.7%)
-12:53:54 SCRIBE   chiuso P-0133 $PEER -0.0033 SOL (-4.4%)
-12:53:54 CHARON   Stop loss $PEER vendo 100% a -20.4% -> 0.0724 SOL
-12:53:54 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 267 veto
-12:53:32 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 272 veto
-12:53:09 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 269 veto
-12:52:46 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 267 veto
-12:52:23 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 265 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
