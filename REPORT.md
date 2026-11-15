@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-15 03:35 UTC · in esecuzione da 0.6 giorni · 97 run
+Aggiornato: 2026-11-15 04:16 UTC · in esecuzione da 0.6 giorni · 98 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-15 03:35 UTC · in esecuzione da 0.6 giorni · 97 run
 | Cassa | 0.8437 SOL |
 | Trade chiusi | 19 |
 | Win rate | 32% |
-| P&L realizzato | -0.4563 SOL (~$-32.64) |
+| P&L realizzato | -0.4563 SOL (~$-32.59) |
 | Media vincite / perdite | +37.8% / -55.7% |
 | Profit factor | 0.32 |
 | Circuit breaker | ATTIVO oggi |
@@ -51,6 +51,29 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+04:16:00 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
+04:16:00 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 247 veto
+04:15:35 ORACLE   355 raccolti, 257 analizzati, 0 BUY, 247 veto
+04:15:12 ORACLE   349 raccolti, 255 analizzati, 0 BUY, 245 veto
+04:14:48 ORACLE   341 raccolti, 245 analizzati, 0 BUY, 235 veto
+04:14:24 ORACLE   320 raccolti, 232 analizzati, 0 BUY, 224 veto
+04:14:01 ORACLE   314 raccolti, 220 analizzati, 0 BUY, 212 veto
+04:13:38 ORACLE   311 raccolti, 216 analizzati, 0 BUY, 209 veto
+04:13:14 ORACLE   288 raccolti, 202 analizzati, 0 BUY, 195 veto
+04:12:51 ORACLE   276 raccolti, 192 analizzati, 0 BUY, 185 veto
+04:12:28 ORACLE   265 raccolti, 179 analizzati, 0 BUY, 172 veto
+04:12:04 ORACLE   242 raccolti, 162 analizzati, 0 BUY, 156 veto
+04:11:42 ORACLE   230 raccolti, 150 analizzati, 0 BUY, 144 veto
+04:11:19 ORACLE   219 raccolti, 138 analizzati, 0 BUY, 133 veto
+04:11:07 SCOUT    fabbrica: 18 percorsi, 768 configurazioni, 0 passano, 12 ms
+04:11:07 ORACLE   219 raccolti, 138 analizzati, 0 BUY, 133 veto
+04:11:06 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
+04:11:03 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
+04:11:03 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→8, maxPos 3→4, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→1, sl 25→30, tp1Sell 50→70, timeStopMinPnl 5→2, minLiq 15000→5000, minMcap 15000→3000, minAgeMin 5→0, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120, srcGmgnTrending true→false
+04:11:02 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
+04:11:02 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
+04:11:02 SCOUT    Laboratorio: collegato a PumpPortal
+04:11:02 KAISER   run #98 · 0 posizioni · equity 0.8437 SOL · GMGN spenta (nessuna chiave) · Grok off
 03:35:48 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 244 veto
 03:35:24 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 250 veto
 03:35:01 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 254 veto
@@ -68,29 +91,6 @@ _nessuna_
 03:30:23 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 241 veto
 03:30:00 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 234 veto
 03:29:36 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 237 veto
-03:29:12 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 241 veto
-03:28:49 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 234 veto
-03:28:26 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 244 veto
-03:28:03 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 244 veto
-03:27:39 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 234 veto
-03:27:15 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 242 veto
-03:26:52 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 238 veto
-03:26:29 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 235 veto
-03:26:06 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 238 veto
-03:25:42 ORACLE   351 raccolti, 238 analizzati, 1 BUY, 226 veto
-03:25:28 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-03:25:18 ORACLE   344 raccolti, 230 analizzati, 1 BUY, 218 veto
-03:24:55 ORACLE   317 raccolti, 213 analizzati, 1 BUY, 204 veto
-03:24:32 ORACLE   309 raccolti, 211 analizzati, 1 BUY, 201 veto
-03:24:08 ORACLE   307 raccolti, 198 analizzati, 1 BUY, 187 veto
-03:23:45 ORACLE   285 raccolti, 186 analizzati, 1 BUY, 176 veto
-03:23:22 ORACLE   276 raccolti, 180 analizzati, 1 BUY, 170 veto
-03:23:00 ORACLE   274 raccolti, 180 analizzati, 1 BUY, 170 veto
-03:22:37 ORACLE   254 raccolti, 162 analizzati, 1 BUY, 154 veto
-03:22:19 SCOUT    sonda scambi: PumpPortal 0 scambi, programma RPC 2007 eventi, curve RPC 359
-03:22:14 ORACLE   242 raccolti, 153 analizzati, 0 BUY, 146 veto
-03:21:52 ORACLE   240 raccolti, 150 analizzati, 0 BUY, 142 veto
-03:21:29 ORACLE   222 raccolti, 134 analizzati, 0 BUY, 127 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
