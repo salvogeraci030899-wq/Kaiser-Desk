@@ -1,7 +1,7 @@
 {
  "startedAt": 1794730441037,
  "runs": 103,
- "cash": 1.379,
+ "cash": 1.2973885773095686,
  "positions": [
   {
    "id": "P-0124",
@@ -51,11 +51,11 @@
     "grok": null
    },
    "last": {
-    "priceNative": 4.289e-7,
-    "liq": 11019.22,
-    "br5": 2.0714285714285716,
-    "tx5": 41,
-    "t": 1794731237312
+    "priceNative": 3.725e-7,
+    "liq": 10249.42,
+    "br5": 0.8571428571428571,
+    "tx5": 50,
+    "t": 1794731544036
    },
    "fills": [
     "BUY 0.120 impatto 0.59% (Jupiter)"
@@ -63,7 +63,53 @@
    "trough": 3.31e-7
   }
  ],
- "journal": [],
+ "journal": [
+  {
+   "id": "P-0125",
+   "mint": "5XasjCnMPTczL9VZTDHgbK5sQzwkjnu41oLeHf5Wpump",
+   "sym": "CateGiving",
+   "openedAt": 1794731362092,
+   "closedAt": 1794731439523,
+   "cost": 0.12148090068043145,
+   "back": 0.03986947799,
+   "pnl": -0.08161142269043145,
+   "pct": -67.18045572045853,
+   "mode": "paper",
+   "reason": "Stop loss",
+   "score": 63,
+   "solUsd": 70.51854276310593,
+   "peakPct": 0,
+   "trigPct": -47.935457651285,
+   "entryInfo": {
+    "srcs": [
+     "profili",
+     "gecko nuovi",
+     "top boost",
+     "boost"
+    ],
+    "notes": [],
+    "plus": [],
+    "m": {
+     "liq": 13310,
+     "mc": 42253,
+     "ageMin": 4.7020333333333335,
+     "v1": 13290.33,
+     "tx1": 443,
+     "br1": 0.7943548387096774,
+     "br5": 0.7209302325581395,
+     "c5": 50.06,
+     "c1": 47.05,
+     "c6": 47.05,
+     "turn": 0.9985221637866266,
+     "price": 0.00004229,
+     "priceNative": 6.009e-7
+    },
+    "grok": null
+   },
+   "maePct": -47.935457651285,
+   "age": 5
+  }
+ ],
  "signals": [
   {
    "t": 1794730444352,
@@ -309,16 +355,166 @@
    "sym": "PAW",
    "score": 78,
    "priceNative": 3.886e-7
+  },
+  {
+   "t": 1794731250372,
+   "mint": "HxPrDS84HH3ijsJhiCLF55MN7DqLfxzbt99RnSuSpump",
+   "sym": "PAW",
+   "score": 78,
+   "priceNative": 3.983e-7
+  },
+  {
+   "t": 1794731273743,
+   "mint": "HxPrDS84HH3ijsJhiCLF55MN7DqLfxzbt99RnSuSpump",
+   "sym": "PAW",
+   "score": 78,
+   "priceNative": 3.983e-7
+  },
+  {
+   "t": 1794731296092,
+   "mint": "HxPrDS84HH3ijsJhiCLF55MN7DqLfxzbt99RnSuSpump",
+   "sym": "PAW",
+   "score": 77,
+   "priceNative": 4.022e-7
+  },
+  {
+   "t": 1794731318265,
+   "mint": "HxPrDS84HH3ijsJhiCLF55MN7DqLfxzbt99RnSuSpump",
+   "sym": "PAW",
+   "score": 73,
+   "priceNative": 3.68e-7
+  },
+  {
+   "t": 1794731340163,
+   "mint": "HxPrDS84HH3ijsJhiCLF55MN7DqLfxzbt99RnSuSpump",
+   "sym": "PAW",
+   "score": 73,
+   "priceNative": 3.68e-7
+  },
+  {
+   "t": 1794731361924,
+   "mint": "HxPrDS84HH3ijsJhiCLF55MN7DqLfxzbt99RnSuSpump",
+   "sym": "PAW",
+   "score": 75,
+   "priceNative": 3.867e-7
+  },
+  {
+   "t": 1794731361924,
+   "mint": "5XasjCnMPTczL9VZTDHgbK5sQzwkjnu41oLeHf5Wpump",
+   "sym": "CateGiving",
+   "score": 63,
+   "priceNative": 6.009e-7
+  },
+  {
+   "t": 1794731384144,
+   "mint": "HxPrDS84HH3ijsJhiCLF55MN7DqLfxzbt99RnSuSpump",
+   "sym": "PAW",
+   "score": 75,
+   "priceNative": 3.867e-7
+  },
+  {
+   "t": 1794731384144,
+   "mint": "5XasjCnMPTczL9VZTDHgbK5sQzwkjnu41oLeHf5Wpump",
+   "sym": "CateGiving",
+   "score": 63,
+   "priceNative": 6.009e-7
+  },
+  {
+   "t": 1794731407194,
+   "mint": "HxPrDS84HH3ijsJhiCLF55MN7DqLfxzbt99RnSuSpump",
+   "sym": "PAW",
+   "score": 76,
+   "priceNative": 3.861e-7
+  },
+  {
+   "t": 1794731407194,
+   "mint": "5XasjCnMPTczL9VZTDHgbK5sQzwkjnu41oLeHf5Wpump",
+   "sym": "CateGiving",
+   "score": 68,
+   "priceNative": 6.164e-7
+  },
+  {
+   "t": 1794731429420,
+   "mint": "HxPrDS84HH3ijsJhiCLF55MN7DqLfxzbt99RnSuSpump",
+   "sym": "PAW",
+   "score": 76,
+   "priceNative": 3.861e-7
+  },
+  {
+   "t": 1794731429420,
+   "mint": "5XasjCnMPTczL9VZTDHgbK5sQzwkjnu41oLeHf5Wpump",
+   "sym": "CateGiving",
+   "score": 68,
+   "priceNative": 6.164e-7
+  },
+  {
+   "t": 1794731452314,
+   "mint": "HxPrDS84HH3ijsJhiCLF55MN7DqLfxzbt99RnSuSpump",
+   "sym": "PAW",
+   "score": 74,
+   "priceNative": 3.706e-7
+  },
+  {
+   "t": 1794731452314,
+   "mint": "5XasjCnMPTczL9VZTDHgbK5sQzwkjnu41oLeHf5Wpump",
+   "sym": "CateGiving",
+   "score": 64,
+   "priceNative": 3.32e-7
+  },
+  {
+   "t": 1794731475535,
+   "mint": "HxPrDS84HH3ijsJhiCLF55MN7DqLfxzbt99RnSuSpump",
+   "sym": "PAW",
+   "score": 72,
+   "priceNative": 3.632e-7
+  },
+  {
+   "t": 1794731498279,
+   "mint": "HxPrDS84HH3ijsJhiCLF55MN7DqLfxzbt99RnSuSpump",
+   "sym": "PAW",
+   "score": 72,
+   "priceNative": 3.632e-7
+  },
+  {
+   "t": 1794731520931,
+   "mint": "HxPrDS84HH3ijsJhiCLF55MN7DqLfxzbt99RnSuSpump",
+   "sym": "PAW",
+   "score": 72,
+   "priceNative": 3.725e-7
+  },
+  {
+   "t": 1794731544036,
+   "mint": "HxPrDS84HH3ijsJhiCLF55MN7DqLfxzbt99RnSuSpump",
+   "sym": "PAW",
+   "score": 72,
+   "priceNative": 3.725e-7
   }
  ],
  "day": {
   "date": "2026-11-15",
   "startEq": 1.5
  },
- "cooldownUntil": 0,
+ "cooldownUntil": 1794731499525,
  "halted": null,
- "seq": 124,
+ "seq": 125,
  "events": [
+  "08:32:24 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 243 veto",
+  "08:32:00 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 246 veto",
+  "08:31:38 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 245 veto",
+  "08:31:15 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 241 veto",
+  "08:30:52 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 244 veto",
+  "08:30:39 SCRIBE   chiuso P-0125 $CateGiving -0.0816 SOL (-67.2%)",
+  "08:30:39 CHARON   Stop loss $CateGiving vendo 100% a -47.9% -> 0.0399 SOL",
+  "08:30:29 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 241 veto",
+  "08:30:07 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 241 veto",
+  "08:29:44 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 248 veto",
+  "08:29:22 QUARTER  BUY $CateGiving 0.120 SOL score 63 impatto 1.33% (Jupiter)",
+  "08:29:21 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 242 veto",
+  "08:29:00 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 237 veto",
+  "08:28:38 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 243 veto",
+  "08:28:16 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 246 veto",
+  "08:27:53 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 241 veto",
+  "08:27:30 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 238 veto",
   "08:27:07 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 239 veto",
   "08:26:44 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 227 veto",
   "08:26:21 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 245 veto",
@@ -601,29 +797,12 @@
   "06:55:40 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 256 veto",
   "06:55:18 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 251 veto",
   "06:54:56 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 260 veto",
-  "06:54:34 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 256 veto",
-  "06:54:11 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 258 veto",
-  "06:53:49 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 257 veto",
-  "06:53:27 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 256 veto",
-  "06:53:04 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 247 veto",
-  "06:52:41 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 252 veto",
-  "06:52:19 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 259 veto",
-  "06:51:56 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 248 veto",
-  "06:51:33 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 256 veto",
-  "06:51:11 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 254 veto",
-  "06:50:48 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 254 veto",
-  "06:50:25 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 257 veto",
-  "06:50:02 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 254 veto",
-  "06:49:40 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 251 veto",
-  "06:49:16 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 255 veto",
-  "06:48:54 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 260 veto",
-  "06:48:32 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 256 veto",
-  "06:48:09 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 259 veto"
+  "06:54:34 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 256 veto"
  ],
  "capital": 1.5,
  "resetId": "C-0065",
  "realTried": {},
- "lastEntryAt": 1794730444371,
+ "lastEntryAt": 1794731362092,
  "lab": {
   "done": [
    {
@@ -11959,5 +12138,11 @@
    }
   ]
  },
- "lastDaily": "2026-11-14"
+ "lastDaily": "2026-11-14",
+ "cal": [
+  {
+   "t": 1794731439523,
+   "g": -34.7
+  }
+ ]
 }
