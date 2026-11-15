@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-15 09:58 UTC · in esecuzione da 0.1 giorni · 104 run
+Aggiornato: 2026-11-15 10:02 UTC · in esecuzione da 0.1 giorni · 104 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-15 09:58 UTC · in esecuzione da 0.1 giorni · 104 run
 | Cassa | 1.6128 SOL |
 | Trade chiusi | 4 |
 | Win rate | 50% |
-| P&L realizzato | +0.1128 SOL (~$8.08) |
+| P&L realizzato | +0.1128 SOL (~$8.11) |
 | Media vincite / perdite | +94.0% / -46.5% |
 | Profit factor | 2.00 |
 | Circuit breaker | no |
@@ -33,6 +33,23 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+10:02:26 SCRIBE   fine run · trade 4 · win 50% · P&L 0.1128 SOL · equity 1.6128 SOL
+10:02:11 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 256 veto
+10:01:49 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 262 veto
+10:01:26 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 262 veto
+10:01:04 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 262 veto
+10:00:41 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 264 veto
+10:00:19 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 265 veto
+09:59:57 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 260 veto
+09:59:34 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 267 veto
+09:59:12 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 265 veto
+09:58:49 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 261 veto
+09:58:26 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 265 veto
+09:58:14 SCOUT    regola R-036: ritirata (non regge in avanti: 22 operazioni, esito medio -16.61%)
+09:58:14 SCOUT    regola R-035: ritirata (non regge in avanti: 22 operazioni, esito medio -15.8%)
+09:58:14 SCOUT    regola R-034: ritirata (non regge in avanti: 22 operazioni, esito medio -17.11%)
+09:58:14 SCOUT    regola R-033: ritirata (non regge in avanti: 22 operazioni, esito medio -15.9%)
+09:58:14 SCOUT    regola R-032: ritirata (non regge in avanti: 22 operazioni, esito medio -15.8%)
 09:58:04 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 266 veto
 09:57:42 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 260 veto
 09:57:19 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 265 veto
@@ -56,23 +73,6 @@ _nessuna_
 09:50:39 SCRIBE   chiuso P-0127 $Socks 0.1306 SOL (109.2%)
 09:50:39 CHARON   Trailing stop $Socks vendo 100% a 111.8% -> 0.0995 SOL
 09:50:29 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 262 veto
-09:50:06 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 261 veto
-09:49:43 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 260 veto
-09:49:20 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 260 veto
-09:48:57 CHARON   TP1 $Socks vendo 70% a 42.4% -> 0.1507 SOL
-09:48:57 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 257 veto
-09:48:34 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 254 veto
-09:48:12 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 259 veto
-09:47:49 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 255 veto
-09:47:27 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 251 veto
-09:47:04 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 255 veto
-09:46:41 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 257 veto
-09:46:18 QUARTER  BUY $Socks 0.119 SOL score 67 impatto 0.99% (Jupiter)
-09:46:18 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 254 veto
-09:45:55 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 260 veto
-09:45:32 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 257 veto
-09:45:07 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 248 veto
-09:44:45 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 257 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
