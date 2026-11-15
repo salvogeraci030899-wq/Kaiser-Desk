@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.28.0">
+<meta name="kz-build" content="2.29.0">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=2">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
@@ -610,6 +610,15 @@ function renderJournal() {
         + (rx.length ? tbl(['Acquisto', 'Età', '+10 s', '+30 s', '+60 s'], rx.map((r) => [SZ[r.size], r.age ? '5+ min' : '0-5 min', cell(r.h[10]), cell(r.h[30]), cell(r.h[60])])) : '<span class="muted small">Dati non ancora disponibili.</span>')
         + sec('Realismo del paper')
         + (run.cal ? `<div class="kv">${kvRow('Vendite confrontate', run.cal.n)}${kvRow('Quotazione reale vs stima (mediana)', (run.cal.med > 0 ? '+' : '') + run.cal.med + '%', run.cal.med < -3 ? 'down' : '')}${kvRow('Intervallo 10%-90%', run.cal.lo + '% · ' + run.cal.hi + '%')}</div><div class="tiny muted">Se la differenza è negativa, il paper sovrastima quello che si incasserebbe davvero.</div>` : '<span class="muted small">Servono vendite chiuse con una quotazione di Jupiter disponibile.</span>')
+        + sec('Fabbrica di strategie (prove sui dati registrati)')
+        + (() => {
+          const F = run.farm; if (!F) return '<span class="muted small">In attesa dei primi percorsi: servono almeno 100 token con market cap sopra 5K, salvati dal runner nuovo.</span>';
+          const lbl = (c) => (c.thr / 1000) + 'K · rit. ' + c.delay + ' s · +' + c.tp + '/−' + c.sl + (c.hold ? ' · ' + c.hold + ' s' : ''), ev = (x) => (x.n ? (x.ev > 0 ? '+' : '') + x.ev + '%' : '—');
+          const head = `<div class="kv">${kvRow('Percorsi · dati vecchi · recenti', F.paths + ' · ' + F.train + ' · ' + F.test)}${kvRow('Configurazioni provate', F.tried)}${kvRow('Positive sui dati vecchi', F.posTrain)}${kvRow('Positive anche sui recenti', F.passed, F.passed ? 'up' : 'warn')}${kvRow('Aggiornato', new Date(F.at).toLocaleString('it-IT', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }))}</div>`;
+          const top = F.top && F.top.length ? tbl(['Regola', 'Operazioni (vecchi/recenti)', 'Esito vecchi', 'Esito recenti'], F.top.map((x) => [lbl(x.cfg), x.tr.n + ' / ' + x.te.n, ev(x.tr), ev(x.te)])) : '<div class="tiny muted" style="margin-top:6px">Nessuna regola regge: positiva dopo i costi sia sui dati vecchi sia su quelli recenti.</div>';
+          const bt = F.bestTrain ? `<div class="tiny muted" style="margin-top:6px">Migliore sui dati vecchi: ${lbl(F.bestTrain.cfg)} ha dato ${ev(F.bestTrain.tr)} sui vecchi e ${ev(F.bestTrain.te)} sui recenti. Se la seconda cifra è molto peggiore, la regola era solo un caso.</div>` : '';
+          return head + top + bt + `<div class="tiny muted" style="margin-top:6px">Costo di un giro: ${F.cost}%. Ingresso alla prima volta che la market cap supera la soglia più il ritardo; uscita a target, stop (a parità vince lo stop) o tempo massimo; prezzi letti ogni 10 secondi. Una regola passa solo con almeno 30 operazioni sui dati vecchi e 15 sui recenti.</div>`;
+        })()
         + sec('Vendite grosse, rotazione e calma')
         + `<div class="kv">${kvRow('Coin con vendite sopra 100 $', fl.lsShare == null ? '—' : fl.lsShare + '%')}${kvRow('Prima vendita grossa (secondi dalla nascita)', f1(fl.lsT))}${kvRow('Dopo la prima vendita grossa (x a 60 s)', fl.afterLS ? fl.afterLS.med + 'x' : '—')}${kvRow('Volume / market cap (mediana)', fl.turn == null ? '—' : fl.turn + 'x')}${kvRow('Si spengono dopo il picco', fl.quiet ? fl.quiet.share + '% (su ' + fl.quiet.n + ')' : '—')}${kvRow('Arrivano a 15K · 30K', fl.hi15 == null ? '—' : fl.hi15 + '% · ' + fl.hi30 + '%')}</div>`
         + `<div class="tiny muted" style="margin-top:6px">Le coppie sono «prima il target / prima lo stop» in %. Le soglie di market cap sono in dollari. Acquisto piccolo = sotto 10 $, medio 10-50 $, grosso oltre 50 $; deriva = variazione mediana del prezzo dopo l'acquisto, il secondo numero è la quota di volte in cui è sceso. Il Laboratorio non compra né vende: osserva soltanto. I risultati sono significativi solo con alcune centinaia di Coin.</div>`;

@@ -78,10 +78,12 @@ function flowStats(t, p, usd) {
   let tot = 0; for (const x of t.tr) tot += x[2]; if (maxMc > 0) o.turn = +(tot / maxMc).toFixed(2);   // volume scambiato diviso market cap massima (entrambi in SOL)
   return o;
 }
+// Percorso della market cap (SOL) a intervalli da 5 s fino all'eta' del token (max 21 minuti); gli intervalli senza letture ripetono l'ultimo valore
+function paddedPath(t, now) { const p = t.path.slice(), bins = Math.min(252, Math.floor((now - t.createdAt) / BIN_MS)); while (p.length && p.length <= bins) p.push(p[p.length - 1]); return p; }
 // Riassunto di un token osservato fino in fondo (o fin dove si è arrivati). solUsd serve per le soglie in dollari
 function summarize(t, now, solUsd) {
   const usd = solUsd > 0 ? solUsd : 150;
-  const p = t.path.slice(), bins = Math.min(252, Math.floor((now - t.createdAt) / BIN_MS)); while (p.length && p.length <= bins) p.push(p[p.length - 1]);
+  const p = paddedPath(t, now);
   const f60 = features(t, ENTRY_MS), ok = p.length > ENTRY_BIN && p[ENTRY_BIN] > 0 && f60.n >= 5;
   const out = { m: t.mint, s: t.sym, at: t.createdAt, n60: f60.n, b: botScore(f60), f: { top3: +f60.top3Share.toFixed(3), bundle: +f60.bundleShare.toFixed(3), cyc: +f60.cyclerShare.toFixed(3), uniq: f60.uniq, devSold: f60.devSold }, ok };
   if (ok) {
@@ -207,7 +209,7 @@ class TradeBook {
 class TradeFeed {
   constructor(o) {
     this.o = o || {}; this.WS = this.o.WebSocketImpl || globalThis.WebSocket; this.now = this.o.now || Date.now; this.schedule = this.o.schedule || ((fn, ms) => setTimeout(fn, ms));
-    this.solUsd = this.o.solUsd || (() => 0); this.log = this.o.log || (() => {}); this.onCreate = this.o.onCreate || (() => {}); this.onDone = this.o.onDone || (() => {}); this.url = this.o.url || PORTAL_URL;
+    this.solUsd = this.o.solUsd || (() => 0); this.log = this.o.log || (() => {}); this.onCreate = this.o.onCreate || (() => {}); this.onDone = this.o.onDone || (() => {}); this.onPath = this.o.onPath || null; this.keepUsd = this.o.keepUsd == null ? 5000 : this.o.keepUsd; this.url = this.o.url || PORTAL_URL;
     this.book = new TradeBook({ max: this.o.max }); this.stats = { create: 0, trade: 0, other: 0 }; this.warned = false; this.openedAt = 0;
     this.poller = this.o.rpcHttp ? new CurvePoller({ url: this.o.rpcHttp, book: this.book, now: this.now, log: this.log, fetch: this.o.fetch, everyMs: this.o.pollMs }) : null; this.state = 'off'; this.backoff = 2000; this.retrying = false; this.stopped = false; this.ws = null; this.unsub = [];
   }
@@ -247,7 +249,11 @@ class TradeFeed {
     if (this.book.toks.size > this.book.max) { const o = this.book.oldest(); if (o && o.mint !== t.mint) this.finish(o, this.now()); }
     this.send({ method: 'subscribeTokenTrade', keys: [t.mint] }); return true;
   }
-  finish(t, now) { this.book.drop(t.mint); this.unsub.push(t.mint); this.onDone(summarize(t, now, this.solUsd())); }
+  finish(t, now) {
+    this.book.drop(t.mint); this.unsub.push(t.mint); const usd = this.solUsd() > 0 ? this.solUsd() : 150;
+    this.onDone(summarize(t, now, usd));
+    if (this.onPath) { const p = paddedPath(t, now); if (p.length > 24 && Math.max(...p) * usd >= this.keepUsd) { try { this.onPath({ m: t.mint, s: t.sym, at: t.createdAt, p, usd }); } catch { /* il salvataggio non deve fermare il Laboratorio */ } } }   // solo i token che superano circa 5K: il resto non serve alla fabbrica
+  }
   // da chiamare ogni pochi secondi: chiude i token osservati abbastanza a lungo e annulla le iscrizioni
   tick() {
     const now = this.now(); if (this.poller) this.poller.tick();

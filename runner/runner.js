@@ -9,6 +9,7 @@ const path = require('path');
 const E = require('../engine.js');
 const Y = require('./young.js');
 const Lab = require('./trades.js');
+const Farm = require('./farm.js');
 
 const STATE_DIR = process.env.STATE_DIR || path.join(__dirname, '..', 'state');
 const LOOP_MIN = Number(process.env.LOOP_MIN || 4.5);
@@ -47,7 +48,7 @@ const st = Object.assign({
 }, readJSON(F.state, {}));
 st.runs++;
 if (st.capital > 0) S.capitalSOL = st.capital;   // capitale scelto con un reset dall'app: resta valido ai run successivi
-const rt = { solUsd: 0, sec: new Map(), grok: new Map(), gmgn: new Map(), cands: new Map(), gmgnCache: {}, gcache: {}, seen: new Map(), young: new Map(), youngQ: new Set(), feed: null, trades: null };
+const rt = { solUsd: 0, sec: new Map(), grok: new Map(), gmgn: new Map(), cands: new Map(), gmgnCache: {}, gcache: {}, seen: new Map(), young: new Map(), youngQ: new Set(), feed: null, trades: null, pathBuf: [], farm: null, farmAt: 0, farmBusy: false };
 
 function log(agent, msg) {
   const line = `${new Date().toISOString().slice(11, 19)} ${agent.padEnd(8)} ${msg}`;
@@ -85,7 +86,7 @@ function publicSummary() {
     journal: st.journal.slice(-100).map((j) => ({ id: j.id, mint: j.mint, sym: j.sym, openedAt: j.openedAt, closedAt: j.closedAt, cost: j.cost, back: j.back, pnl: j.pnl, pct: j.pct, reason: j.reason, score: j.score, peakPct: j.peakPct, trigPct: j.trigPct, maePct: j.maePct == null ? null : j.maePct, age: j.age == null ? null : j.age })),
     events: st.events.slice(0, 40), config: cfg,
     young: Y.youngSummary(rt.young, Date.now(), 80, (m) => (rt.trades ? rt.trades.botNow(m) : null)),
-    cal: calSummary(st.cal),
+    cal: calSummary(st.cal), farm: rt.farm || null,
     lab: rt.trades || (st.lab && st.lab.done.length) ? { info: rt.trades ? rt.trades.status() : null, ...Lab.labSummary((st.lab && st.lab.done) || [], Date.now()) } : null, youngInfo: rt.feed ? { ...rt.feed.status(), tracked: [...rt.young.values()].filter((y) => y.tracked).length } : null,
   };
 }
@@ -526,6 +527,24 @@ function csv() {
 // I run sono lunghi (~50 min): ogni 5 minuti lo stato (posizioni, journal) va sul branch data, così un'interruzione non perde nulla.
 // Parte in secondo piano e solo con CHECKPOINT=1 (lo imposta il workflow); non blocca il controllo delle posizioni.
 let cpBusy = false;
+// Percorsi di prezzo dei token osservati: un file piccolo per ogni scrittura (mai riscritto), conservati 7 giorni, usati dalla fabbrica di strategie
+function flushPaths(final) {
+  try {
+    const dir = path.join(STATE_DIR, 'lab', 'paths'), n = rt.pathBuf.length;
+    if (n) { Farm.writeBatch(dir, rt.pathBuf.splice(0), Date.now()); }
+    if (n || final) Farm.prune(dir, Date.now(), Farm.KEEP_DAYS);
+  } catch (e) { log('KAISER', 'salvataggio percorsi non riuscito: ' + String(e.message).split('\n')[0]); }
+}
+// La fabbrica gira in un processo separato (non rallenta i controlli delle posizioni) al massimo una volta all'ora
+function maybeFarm() {
+  const now = Date.now(); if (rt.farmBusy || now - (rt.farmAt || 0) < 3600000 || process.env.NO_FARM === '1') return; rt.farmAt = now; rt.farmBusy = true;
+  const out = path.join(STATE_DIR, 'farm.json');
+  require('node:child_process').execFile(process.execPath, [path.join(__dirname, 'farm.js'), '--in', path.join(STATE_DIR, 'lab', 'paths'), '--out', out], { timeout: 240000 }, (e, so) => {
+    rt.farmBusy = false; if (e) { log('SCOUT', 'fabbrica non riuscita: ' + String(e.message).split('\n')[0]); return; }
+    log('SCOUT', String(so || '').trim()); loadFarm();
+  });
+}
+function loadFarm() { try { rt.farm = JSON.parse(fs.readFileSync(path.join(STATE_DIR, 'farm.json'), 'utf8')); } catch { /* ancora nessun rapporto */ } }
 function checkpoint() {
   if (process.env.CHECKPOINT !== '1' || cpBusy) return;
   cpBusy = true;
@@ -543,7 +562,7 @@ function checkpoint() {
 function startYoung() {
   const onToken = (t) => { if (S.srcYoung !== false) Y.addYoung(rt.young, t, Date.now(), 800); };
   if (S.srcLab !== false) {                                     // Laboratorio: una sola connessione a PumpPortal per nuovi token e scambi (osservazione, nessun ordine)
-    rt.trades = new Lab.TradeFeed({ log: (m) => log('SCOUT', m), solUsd: () => rt.solUsd, rpcHttp: process.env.RPC_URL || '', onCreate: onToken, onDone: (s) => { st.lab = st.lab || { done: [] }; st.lab.done.push(s); st.lab.done = st.lab.done.slice(-400); } });
+    rt.trades = new Lab.TradeFeed({ log: (m) => log('SCOUT', m), solUsd: () => rt.solUsd, rpcHttp: process.env.RPC_URL || '', onPath: (x) => { rt.pathBuf.push(Farm.pack(x)); }, onCreate: onToken, onDone: (s) => { st.lab = st.lab || { done: [] }; st.lab.done.push(s); st.lab.done = st.lab.done.slice(-400); } });
     rt.trades.start();
   }
   if (S.srcYoung === false) return;
@@ -551,6 +570,7 @@ function startYoung() {
   if (rpc || !rt.trades) { rt.feed = new Y.YoungFeed({ rpcUrl: rpc, portal: !rt.trades, log: (m) => log('SCOUT', m), onToken: (t) => { Y.addYoung(rt.young, t, Date.now(), 800); if (rt.trades) rt.trades.adopt(t); } }); rt.feed.start(); }   // RPC come fonte principale; PumpPortal (Laboratorio) come riserva
 }
 async function main() {
+  loadFarm();
   startYoung();
   const end = Date.now() + LOOP_MIN * 60000;
   log('KAISER', `run #${st.runs} · ${st.positions.length} posizioni · equity ${equity().toFixed(4)} SOL · GMGN ${gmgnOn() ? 'attiva' : 'spenta (nessuna chiave)'} · Grok ${S.useGrok ? 'on' : 'off'}`);
@@ -561,8 +581,9 @@ async function main() {
       else await manage();
     } catch (e) { log('KAISER', 'errore: ' + (e.stack || e.message).split('\n')[0]); }
     if (rt.trades) rt.trades.tick();
+    maybeFarm();
     save();
-    if (Date.now() - lastCp >= CHECKPOINT_MS) { lastCp = Date.now(); checkpoint(); }
+    if (Date.now() - lastCp >= CHECKPOINT_MS) { lastCp = Date.now(); flushPaths(false); checkpoint(); }
     const left = end - Date.now();
     if (left <= 0) break;
     await sleep(Math.min(TICK_SEC * 1000, left));
@@ -580,6 +601,7 @@ async function main() {
   }
   if (rt.feed) rt.feed.stop();
   if (rt.trades) rt.trades.stop();
+  flushPaths(true);
   save();
   await pushLive(true);
 }
