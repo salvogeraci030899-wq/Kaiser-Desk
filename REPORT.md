@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-15 16:25 UTC · in esecuzione da 0.3 giorni · 112 run
+Aggiornato: 2026-11-15 16:30 UTC · in esecuzione da 0.3 giorni · 112 run
 
 | | |
 |---|---|
-| Equity | **1.2916 SOL** (-13.9% dal capitale iniziale di 1.5 SOL) |
-| Cassa | 1.2916 SOL |
+| Equity | **1.2940 SOL** (-13.7% dal capitale iniziale di 1.5 SOL) |
+| Cassa | 1.2260 SOL |
 | Trade chiusi | 27 |
 | Win rate | 30% |
-| P&L realizzato | -0.2084 SOL (~$-14.83) |
+| P&L realizzato | -0.2084 SOL (~$-14.93) |
 | Media vincite / perdite | +32.5% / -28.9% |
 | Profit factor | 0.57 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$AICoin** P-0151 · 0.065 SOL · +5.3% · resta 100% · [grafico](https://dexscreener.com/solana/H3WbG13D6pKXWC19WHnUDncDnLAcQVT3gUGyuVkoi6h6)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -57,6 +57,21 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+16:30:10 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 250 veto
+16:29:41 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 234 veto
+16:29:28 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 238 veto
+16:29:02 QUARTER  BUY $AICoin 0.065 SOL score 79 impatto 0.00% (Jupiter)
+16:29:02 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 246 veto
+16:28:40 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 244 veto
+16:28:17 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 234 veto
+16:27:55 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 226 veto
+16:27:32 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 231 veto
+16:27:08 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 230 veto
+16:26:46 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 235 veto
+16:26:33 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 241 veto
+16:26:07 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 229 veto
+16:25:53 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 234 veto
+16:25:38 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 240 veto
 16:25:05 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 239 veto
 16:24:42 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 249 veto
 16:24:19 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 238 veto
@@ -82,21 +97,6 @@ _nessuna_
 16:18:27 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 270 veto
 16:18:03 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 252 veto
 16:17:40 ORACLE   360 raccolti, 274 analizzati, 2 BUY, 268 veto
-16:17:16 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 263 veto
-16:16:53 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 262 veto
-16:16:30 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 262 veto
-16:16:18 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 262 veto
-16:15:59 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 264 veto
-16:15:34 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 253 veto
-16:15:10 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 265 veto
-16:14:47 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 247 veto
-16:14:33 SCRIBE   chiuso P-0149 $REKT -0.0624 SOL (-89.9%)
-16:14:33 CHARON   RUG-EXIT liquidità $REKT vendo 100% a -88.4% -> 0.0070 SOL
-16:14:23 ORACLE   360 raccolti, 220 analizzati, 2 BUY, 210 veto
-16:13:59 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 248 veto
-16:13:36 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 246 veto
-16:13:12 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 241 veto
-16:12:49 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 239 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
