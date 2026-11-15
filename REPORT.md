@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-15 10:58 UTC · in esecuzione da 0.1 giorni · 106 run
+Aggiornato: 2026-11-15 11:03 UTC · in esecuzione da 0.1 giorni · 106 run
 
 | | |
 |---|---|
@@ -34,6 +34,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+11:03:10 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 253 veto
+11:02:48 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 268 veto
+11:02:25 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 267 veto
+11:02:01 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 259 veto
+11:01:37 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 263 veto
+11:01:14 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 260 veto
+11:00:51 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 253 veto
+11:00:28 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 261 veto
+11:00:05 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 263 veto
+10:59:43 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 265 veto
+10:59:19 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 261 veto
+10:58:57 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 256 veto
+10:58:34 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 254 veto
 10:58:11 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 257 veto
 10:57:48 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 256 veto
 10:57:25 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 251 veto
@@ -61,19 +74,6 @@ _nessuna_
 10:52:59 KAISER   run #106 · 0 posizioni · equity 1.5152 SOL · GMGN spenta (nessuna chiave) · Grok off
 10:52:38 SCRIBE   fine run · trade 5 · win 40% · P&L 0.0152 SOL · equity 1.5152 SOL
 10:52:31 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 264 veto
-10:52:09 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 263 veto
-10:51:46 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 265 veto
-10:51:23 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 257 veto
-10:51:00 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 262 veto
-10:50:37 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 263 veto
-10:50:14 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 262 veto
-10:49:52 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 262 veto
-10:49:29 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 261 veto
-10:49:05 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 256 veto
-10:48:42 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 255 veto
-10:48:20 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 253 veto
-10:47:57 SCRIBE   chiuso P-0128 $SOLA -0.0976 SOL (-75.0%)
-10:47:57 CHARON   Stop loss $SOLA vendo 100% a -49.9% -> 0.0324 SOL
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
