@@ -1,66 +1,8 @@
 {
  "startedAt": 1794660696112,
  "runs": 93,
- "cash": 0.7745659717093243,
+ "cash": 0.8321171575793243,
  "positions": [
-  {
-   "id": "P-0119",
-   "mint": "7rBatsxwXiMLcz2PJjh8G45wZfHNHd4dvtBUMwsepump",
-   "sym": "JOB",
-   "name": "get a job nigga",
-   "pairAddress": "AXiGzvK8dgeQzJNUcTooc7GKvHNfTPZ8oKD9kw5dDsgo",
-   "openedAt": 1794700805435,
-   "sizeSOL": 0.08162531380454961,
-   "cost": 0.08262531380454961,
-   "entry": 6.651575588668098e-7,
-   "tokens": 122715.75766741628,
-   "remaining": 1,
-   "rawLeft": "127709737833",
-   "peak": 6.651575588668098e-7,
-   "tp1Done": false,
-   "spDone": false,
-   "entryLiq": 14191.82,
-   "realized": 0,
-   "score": 79,
-   "why": "runner",
-   "entryInfo": {
-    "srcs": [
-     "profili",
-     "jup organic"
-    ],
-    "notes": [],
-    "plus": [
-     "turnover 4.1x/h"
-    ],
-    "m": {
-     "liq": 14192.79,
-     "mc": 43386,
-     "ageMin": 40.7553,
-     "v1": 58358.96,
-     "tx1": 1356,
-     "br1": 1.1867954911433172,
-     "br5": 1.2820512820512822,
-     "c5": 30.99,
-     "c1": 62.84,
-     "c6": 62.84,
-     "turn": 4.111873704888186,
-     "price": 0.00004573,
-     "priceNative": 6.515e-7
-    },
-    "grok": null
-   },
-   "last": {
-    "priceNative": 5.099e-7,
-    "liq": 12570.7,
-    "br5": 0.8666666666666667,
-    "tx5": 26,
-    "t": 1794701086692
-   },
-   "fills": [
-    "BUY 0.082 impatto 1.09% (Jupiter)"
-   ],
-   "trough": 5.042e-7
-  },
   {
    "id": "P-0120",
    "mint": "FL3LnVeZTtn7uvcpytRLyAYsqUJtznskjdE4p1HSpump",
@@ -74,7 +16,7 @@
    "tokens": 54985.38532149584,
    "remaining": 1,
    "rawLeft": "53762111450",
-   "peak": 0.000001539,
+   "peak": 0.000001689,
    "tp1Done": false,
    "spDone": false,
    "entryLiq": 21369.1,
@@ -109,68 +51,16 @@
     "grok": null
    },
    "last": {
-    "priceNative": 0.000001539,
-    "liq": 22224.62,
-    "br5": 0.9166666666666666,
-    "tx5": 44,
-    "t": 1794701086692
+    "priceNative": 0.000001664,
+    "liq": 23198.34,
+    "br5": 0.7727272727272727,
+    "tx5": 76,
+    "t": 1794701395486
    },
    "fills": [
     "BUY 0.081 impatto 1.99% (Jupiter)"
    ],
    "trough": 0.000001463
-  },
-  {
-   "id": "P-0121",
-   "mint": "DbHr5Pa3gQ8egkSmGQG4zzN3aZHpAG5SdLLhBKDVpump",
-   "sym": "Life",
-   "name": "Life after losing everything",
-   "pairAddress": "AQBexVterHJqAvUaYjVXDRdmZsCAF37wh5pL4PKw7o5A",
-   "openedAt": 1794701086729,
-   "sizeSOL": 0.08024010822206278,
-   "cost": 0.08124010822206278,
-   "entry": 9.495785819747976e-7,
-   "tokens": 84500.75617248115,
-   "remaining": 1,
-   "rawLeft": "70088244364",
-   "peak": 9.495785819747976e-7,
-   "tp1Done": false,
-   "spDone": false,
-   "entryLiq": 21975.42,
-   "realized": 0,
-   "score": 65,
-   "why": "runner",
-   "entryInfo": {
-    "srcs": [
-     "jup trend"
-    ],
-    "notes": [
-     "nessun social"
-    ],
-    "plus": [
-     "turnover 57.2x/h"
-    ],
-    "m": {
-     "liq": 21975.42,
-     "mc": 65402,
-     "ageMin": 22.972566666666665,
-     "v1": 1257094.28,
-     "tx1": 14465,
-     "br1": 1.281141595711132,
-     "br5": 1.4702380952380953,
-     "c5": -38.51,
-     "c1": 134,
-     "c6": 134,
-     "turn": 57.20456218811746,
-     "price": 0.00006552,
-     "priceNative": 9.336e-7
-    },
-    "grok": null
-   },
-   "last": null,
-   "fills": [
-    "BUY 0.080 impatto 0.70% (Jupiter)"
-   ]
   }
  ],
  "journal": [
@@ -829,184 +719,100 @@
    },
    "maePct": -2.1964517190217525,
    "age": 2
+  },
+  {
+   "id": "P-0119",
+   "mint": "7rBatsxwXiMLcz2PJjh8G45wZfHNHd4dvtBUMwsepump",
+   "sym": "JOB",
+   "openedAt": 1794700805435,
+   "closedAt": 1794701097542,
+   "cost": 0.08262531380454961,
+   "back": 0.04507644239,
+   "pnl": -0.037548871414549614,
+   "pct": -45.44475498558658,
+   "mode": "paper",
+   "reason": "Stop loss",
+   "score": 79,
+   "solUsd": 70.17146382980879,
+   "peakPct": 0,
+   "trigPct": -43.45700578961477,
+   "entryInfo": {
+    "srcs": [
+     "profili",
+     "jup organic"
+    ],
+    "notes": [],
+    "plus": [
+     "turnover 4.1x/h"
+    ],
+    "m": {
+     "liq": 14192.79,
+     "mc": 43386,
+     "ageMin": 40.7553,
+     "v1": 58358.96,
+     "tx1": 1356,
+     "br1": 1.1867954911433172,
+     "br5": 1.2820512820512822,
+     "c5": 30.99,
+     "c1": 62.84,
+     "c6": 62.84,
+     "turn": 4.111873704888186,
+     "price": 0.00004573,
+     "priceNative": 6.515e-7
+    },
+    "grok": null
+   },
+   "maePct": -43.45700578961477,
+   "age": 41
+  },
+  {
+   "id": "P-0121",
+   "mint": "DbHr5Pa3gQ8egkSmGQG4zzN3aZHpAG5SdLLhBKDVpump",
+   "sym": "Life",
+   "openedAt": 1794701086729,
+   "closedAt": 1794701381095,
+   "cost": 0.08124010822206278,
+   "back": 0.012474743479999998,
+   "pnl": -0.06876536474206278,
+   "pct": -84.6446001205447,
+   "mode": "paper",
+   "reason": "Stop loss",
+   "score": 65,
+   "solUsd": 70.12405463617442,
+   "peakPct": 13.945282732663511,
+   "trigPct": -35.318675920146106,
+   "entryInfo": {
+    "srcs": [
+     "jup trend"
+    ],
+    "notes": [
+     "nessun social"
+    ],
+    "plus": [
+     "turnover 57.2x/h"
+    ],
+    "m": {
+     "liq": 21975.42,
+     "mc": 65402,
+     "ageMin": 22.972566666666665,
+     "v1": 1257094.28,
+     "tx1": 14465,
+     "br1": 1.281141595711132,
+     "br5": 1.4702380952380953,
+     "c5": -38.51,
+     "c1": 134,
+     "c6": 134,
+     "turn": 57.20456218811746,
+     "price": 0.00006552,
+     "priceNative": 9.336e-7
+    },
+    "grok": null
+   },
+   "maePct": -35.318675920146106,
+   "age": 23
   }
  ],
  "signals": [
-  {
-   "t": 1794684172902,
-   "mint": "46sup1Mc1AdQPpikrdNLUjmzSgZcEYdV3pk8XPPXpump",
-   "sym": "DOGCOIN",
-   "score": 66,
-   "priceNative": 6.355e-7
-  },
-  {
-   "t": 1794684196168,
-   "mint": "46sup1Mc1AdQPpikrdNLUjmzSgZcEYdV3pk8XPPXpump",
-   "sym": "DOGCOIN",
-   "score": 66,
-   "priceNative": 7.109e-7
-  },
-  {
-   "t": 1794684219304,
-   "mint": "46sup1Mc1AdQPpikrdNLUjmzSgZcEYdV3pk8XPPXpump",
-   "sym": "DOGCOIN",
-   "score": 67,
-   "priceNative": 6.728e-7
-  },
-  {
-   "t": 1794684243385,
-   "mint": "46sup1Mc1AdQPpikrdNLUjmzSgZcEYdV3pk8XPPXpump",
-   "sym": "DOGCOIN",
-   "score": 67,
-   "priceNative": 5.892e-7
-  },
-  {
-   "t": 1794684266723,
-   "mint": "46sup1Mc1AdQPpikrdNLUjmzSgZcEYdV3pk8XPPXpump",
-   "sym": "DOGCOIN",
-   "score": 67,
-   "priceNative": 6.056e-7
-  },
-  {
-   "t": 1794684289740,
-   "mint": "46sup1Mc1AdQPpikrdNLUjmzSgZcEYdV3pk8XPPXpump",
-   "sym": "DOGCOIN",
-   "score": 67,
-   "priceNative": 6.056e-7
-  },
-  {
-   "t": 1794684313910,
-   "mint": "46sup1Mc1AdQPpikrdNLUjmzSgZcEYdV3pk8XPPXpump",
-   "sym": "DOGCOIN",
-   "score": 67,
-   "priceNative": 6.355e-7
-  },
-  {
-   "t": 1794684336865,
-   "mint": "Hys8218U9PqSzA7B7hprwydyXJ43mcGXTkVPHH7Gpump",
-   "sym": "GREGORY",
-   "score": 64,
-   "priceNative": 7.574e-7
-  },
-  {
-   "t": 1794684430105,
-   "mint": "46sup1Mc1AdQPpikrdNLUjmzSgZcEYdV3pk8XPPXpump",
-   "sym": "DOGCOIN",
-   "score": 64,
-   "priceNative": 6.636e-7
-  },
-  {
-   "t": 1794684453260,
-   "mint": "46sup1Mc1AdQPpikrdNLUjmzSgZcEYdV3pk8XPPXpump",
-   "sym": "DOGCOIN",
-   "score": 69,
-   "priceNative": 7.821e-7
-  },
-  {
-   "t": 1794684476211,
-   "mint": "46sup1Mc1AdQPpikrdNLUjmzSgZcEYdV3pk8XPPXpump",
-   "sym": "DOGCOIN",
-   "score": 69,
-   "priceNative": 8.899e-7
-  },
-  {
-   "t": 1794684499588,
-   "mint": "46sup1Mc1AdQPpikrdNLUjmzSgZcEYdV3pk8XPPXpump",
-   "sym": "DOGCOIN",
-   "score": 69,
-   "priceNative": 0.000001237
-  },
-  {
-   "t": 1794684523601,
-   "mint": "46sup1Mc1AdQPpikrdNLUjmzSgZcEYdV3pk8XPPXpump",
-   "sym": "DOGCOIN",
-   "score": 69,
-   "priceNative": 0.00000108
-  },
-  {
-   "t": 1794684546694,
-   "mint": "46sup1Mc1AdQPpikrdNLUjmzSgZcEYdV3pk8XPPXpump",
-   "sym": "DOGCOIN",
-   "score": 69,
-   "priceNative": 0.00000108
-  },
-  {
-   "t": 1794684569741,
-   "mint": "46sup1Mc1AdQPpikrdNLUjmzSgZcEYdV3pk8XPPXpump",
-   "sym": "DOGCOIN",
-   "score": 70,
-   "priceNative": 0.000001059
-  },
-  {
-   "t": 1794684593683,
-   "mint": "46sup1Mc1AdQPpikrdNLUjmzSgZcEYdV3pk8XPPXpump",
-   "sym": "DOGCOIN",
-   "score": 69,
-   "priceNative": 0.000001157
-  },
-  {
-   "t": 1794684617112,
-   "mint": "AvsmjCMGAUNuVfCCZpTCGHvRPctAzbRFfYA4WYAwpump",
-   "sym": "OnlyCats",
-   "score": 82,
-   "priceNative": 9.005e-7
-  },
-  {
-   "t": 1794684617112,
-   "mint": "46sup1Mc1AdQPpikrdNLUjmzSgZcEYdV3pk8XPPXpump",
-   "sym": "DOGCOIN",
-   "score": 69,
-   "priceNative": 0.000001136
-  },
-  {
-   "t": 1794684640779,
-   "mint": "AvsmjCMGAUNuVfCCZpTCGHvRPctAzbRFfYA4WYAwpump",
-   "sym": "OnlyCats",
-   "score": 82,
-   "priceNative": 9.005e-7
-  },
-  {
-   "t": 1794684640779,
-   "mint": "46sup1Mc1AdQPpikrdNLUjmzSgZcEYdV3pk8XPPXpump",
-   "sym": "DOGCOIN",
-   "score": 69,
-   "priceNative": 0.000001136
-  },
-  {
-   "t": 1794684664367,
-   "mint": "AvsmjCMGAUNuVfCCZpTCGHvRPctAzbRFfYA4WYAwpump",
-   "sym": "OnlyCats",
-   "score": 82,
-   "priceNative": 8.307e-7
-  },
-  {
-   "t": 1794684664367,
-   "mint": "46sup1Mc1AdQPpikrdNLUjmzSgZcEYdV3pk8XPPXpump",
-   "sym": "DOGCOIN",
-   "score": 69,
-   "priceNative": 9.143e-7
-  },
-  {
-   "t": 1794684687333,
-   "mint": "AvsmjCMGAUNuVfCCZpTCGHvRPctAzbRFfYA4WYAwpump",
-   "sym": "OnlyCats",
-   "score": 82,
-   "priceNative": 7.937e-7
-  },
-  {
-   "t": 1794684687333,
-   "mint": "46sup1Mc1AdQPpikrdNLUjmzSgZcEYdV3pk8XPPXpump",
-   "sym": "DOGCOIN",
-   "score": 65,
-   "priceNative": 7.787e-7
-  },
-  {
-   "t": 1794684710254,
-   "mint": "AvsmjCMGAUNuVfCCZpTCGHvRPctAzbRFfYA4WYAwpump",
-   "sym": "OnlyCats",
-   "score": 82,
-   "priceNative": 7.762e-7
-  },
   {
    "t": 1794684710254,
    "mint": "46sup1Mc1AdQPpikrdNLUjmzSgZcEYdV3pk8XPPXpump",
@@ -7831,16 +7637,208 @@
    "sym": "Life",
    "score": 65,
    "priceNative": 9.336e-7
+  },
+  {
+   "t": 1794701111848,
+   "mint": "7rBatsxwXiMLcz2PJjh8G45wZfHNHd4dvtBUMwsepump",
+   "sym": "JOB",
+   "score": 75,
+   "priceNative": 3.761e-7
+  },
+  {
+   "t": 1794701111848,
+   "mint": "DbHr5Pa3gQ8egkSmGQG4zzN3aZHpAG5SdLLhBKDVpump",
+   "sym": "Life",
+   "score": 64,
+   "priceNative": 9.982e-7
+  },
+  {
+   "t": 1794701136081,
+   "mint": "7rBatsxwXiMLcz2PJjh8G45wZfHNHd4dvtBUMwsepump",
+   "sym": "JOB",
+   "score": 76,
+   "priceNative": 3.669e-7
+  },
+  {
+   "t": 1794701136081,
+   "mint": "DbHr5Pa3gQ8egkSmGQG4zzN3aZHpAG5SdLLhBKDVpump",
+   "sym": "Life",
+   "score": 64,
+   "priceNative": 7.393e-7
+  },
+  {
+   "t": 1794701159716,
+   "mint": "7rBatsxwXiMLcz2PJjh8G45wZfHNHd4dvtBUMwsepump",
+   "sym": "JOB",
+   "score": 73,
+   "priceNative": 3.318e-7
+  },
+  {
+   "t": 1794701159716,
+   "mint": "DbHr5Pa3gQ8egkSmGQG4zzN3aZHpAG5SdLLhBKDVpump",
+   "sym": "Life",
+   "score": 64,
+   "priceNative": 8.109e-7
+  },
+  {
+   "t": 1794701183034,
+   "mint": "7rBatsxwXiMLcz2PJjh8G45wZfHNHd4dvtBUMwsepump",
+   "sym": "JOB",
+   "score": 73,
+   "priceNative": 3.318e-7
+  },
+  {
+   "t": 1794701183034,
+   "mint": "DbHr5Pa3gQ8egkSmGQG4zzN3aZHpAG5SdLLhBKDVpump",
+   "sym": "Life",
+   "score": 64,
+   "priceNative": 8.109e-7
+  },
+  {
+   "t": 1794701206877,
+   "mint": "7rBatsxwXiMLcz2PJjh8G45wZfHNHd4dvtBUMwsepump",
+   "sym": "JOB",
+   "score": 74,
+   "priceNative": 3.684e-7
+  },
+  {
+   "t": 1794701206877,
+   "mint": "DbHr5Pa3gQ8egkSmGQG4zzN3aZHpAG5SdLLhBKDVpump",
+   "sym": "Life",
+   "score": 64,
+   "priceNative": 8.597e-7
+  },
+  {
+   "t": 1794701229887,
+   "mint": "7rBatsxwXiMLcz2PJjh8G45wZfHNHd4dvtBUMwsepump",
+   "sym": "JOB",
+   "score": 74,
+   "priceNative": 3.684e-7
+  },
+  {
+   "t": 1794701229887,
+   "mint": "DbHr5Pa3gQ8egkSmGQG4zzN3aZHpAG5SdLLhBKDVpump",
+   "sym": "Life",
+   "score": 64,
+   "priceNative": 8.597e-7
+  },
+  {
+   "t": 1794701253605,
+   "mint": "7rBatsxwXiMLcz2PJjh8G45wZfHNHd4dvtBUMwsepump",
+   "sym": "JOB",
+   "score": 74,
+   "priceNative": 3.758e-7
+  },
+  {
+   "t": 1794701253605,
+   "mint": "DbHr5Pa3gQ8egkSmGQG4zzN3aZHpAG5SdLLhBKDVpump",
+   "sym": "Life",
+   "score": 64,
+   "priceNative": 8.592e-7
+  },
+  {
+   "t": 1794701276971,
+   "mint": "7rBatsxwXiMLcz2PJjh8G45wZfHNHd4dvtBUMwsepump",
+   "sym": "JOB",
+   "score": 74,
+   "priceNative": 3.758e-7
+  },
+  {
+   "t": 1794701276971,
+   "mint": "DbHr5Pa3gQ8egkSmGQG4zzN3aZHpAG5SdLLhBKDVpump",
+   "sym": "Life",
+   "score": 64,
+   "priceNative": 8.419e-7
+  },
+  {
+   "t": 1794701300247,
+   "mint": "7rBatsxwXiMLcz2PJjh8G45wZfHNHd4dvtBUMwsepump",
+   "sym": "JOB",
+   "score": 74,
+   "priceNative": 3.605e-7
+  },
+  {
+   "t": 1794701300247,
+   "mint": "DbHr5Pa3gQ8egkSmGQG4zzN3aZHpAG5SdLLhBKDVpump",
+   "sym": "Life",
+   "score": 64,
+   "priceNative": 8.419e-7
+  },
+  {
+   "t": 1794701323666,
+   "mint": "7rBatsxwXiMLcz2PJjh8G45wZfHNHd4dvtBUMwsepump",
+   "sym": "JOB",
+   "score": 74,
+   "priceNative": 3.605e-7
+  },
+  {
+   "t": 1794701323666,
+   "mint": "DbHr5Pa3gQ8egkSmGQG4zzN3aZHpAG5SdLLhBKDVpump",
+   "sym": "Life",
+   "score": 65,
+   "priceNative": 9.17e-7
+  },
+  {
+   "t": 1794701347196,
+   "mint": "7rBatsxwXiMLcz2PJjh8G45wZfHNHd4dvtBUMwsepump",
+   "sym": "JOB",
+   "score": 74,
+   "priceNative": 3.27e-7
+  },
+  {
+   "t": 1794701347196,
+   "mint": "DbHr5Pa3gQ8egkSmGQG4zzN3aZHpAG5SdLLhBKDVpump",
+   "sym": "Life",
+   "score": 70,
+   "priceNative": 0.000001049
+  },
+  {
+   "t": 1794701370898,
+   "mint": "7rBatsxwXiMLcz2PJjh8G45wZfHNHd4dvtBUMwsepump",
+   "sym": "JOB",
+   "score": 74,
+   "priceNative": 3.27e-7
+  },
+  {
+   "t": 1794701370898,
+   "mint": "DbHr5Pa3gQ8egkSmGQG4zzN3aZHpAG5SdLLhBKDVpump",
+   "sym": "Life",
+   "score": 70,
+   "priceNative": 0.000001049
+  },
+  {
+   "t": 1794701395485,
+   "mint": "7rBatsxwXiMLcz2PJjh8G45wZfHNHd4dvtBUMwsepump",
+   "sym": "JOB",
+   "score": 74,
+   "priceNative": 3.519e-7
   }
  ],
  "day": {
   "date": "2026-11-15",
   "startEq": 1.0203164225568702
  },
- "cooldownUntil": 1794672413404,
+ "cooldownUntil": 1794701441095,
  "halted": null,
  "seq": 121,
  "events": [
+  "00:09:55 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 263 veto",
+  "00:09:41 SCRIBE   chiuso P-0121 $Life -0.0688 SOL (-84.6%)",
+  "00:09:41 CHARON   Stop loss $Life vendo 100% a -35.3% -> 0.0125 SOL",
+  "00:09:30 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 258 veto",
+  "00:09:07 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 254 veto",
+  "00:08:43 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 254 veto",
+  "00:08:20 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 262 veto",
+  "00:07:56 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 259 veto",
+  "00:07:33 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 260 veto",
+  "00:07:09 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 255 veto",
+  "00:06:46 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 260 veto",
+  "00:06:23 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 264 veto",
+  "00:05:59 ORACLE   360 raccolti, 274 analizzati, 2 BUY, 265 veto",
+  "00:05:36 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 260 veto",
+  "00:05:11 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 261 veto",
+  "00:04:57 SCRIBE   chiuso P-0119 $JOB -0.0375 SOL (-45.4%)",
+  "00:04:57 CHARON   Stop loss $JOB vendo 100% a -43.5% -> 0.0451 SOL",
   "00:04:46 QUARTER  BUY $Life 0.080 SOL score 65 impatto 0.70% (Jupiter)",
   "00:04:46 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 256 veto",
   "00:04:22 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 251 veto",
@@ -8123,24 +8121,7 @@
   "22:22:41 ORACLE   356 raccolti, 238 analizzati, 2 BUY, 227 veto",
   "22:22:17 ORACLE   319 raccolti, 216 analizzati, 2 BUY, 205 veto",
   "22:21:53 ORACLE   302 raccolti, 200 analizzati, 2 BUY, 191 veto",
-  "22:21:30 ORACLE   292 raccolti, 196 analizzati, 2 BUY, 188 veto",
-  "22:21:27 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)",
-  "22:21:07 ORACLE   274 raccolti, 186 analizzati, 2 BUY, 180 veto",
-  "22:20:44 ORACLE   263 raccolti, 173 analizzati, 2 BUY, 168 veto",
-  "22:20:22 ORACLE   261 raccolti, 165 analizzati, 2 BUY, 160 veto",
-  "22:19:59 ORACLE   226 raccolti, 139 analizzati, 2 BUY, 135 veto",
-  "22:19:37 ORACLE   203 raccolti, 123 analizzati, 2 BUY, 119 veto",
-  "22:19:15 ORACLE   199 raccolti, 113 analizzati, 2 BUY, 110 veto",
-  "22:19:13 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com",
-  "22:19:13 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→8, maxPos 3→4, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→1, sl 25→30, tp1Sell 50→70, timeStopMinPnl 5→2, minLiq 15000→5000, minMcap 15000→3000, minAgeMin 5→0, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120, srcGmgnTrending true→false",
-  "22:19:13 SCOUT    Laboratorio: collegato a PumpPortal",
-  "22:19:12 KAISER   run #91 · 0 posizioni · equity 1.0203 SOL · GMGN spenta (nessuna chiave) · Grok off",
-  "22:19:00 SCRIBE   fine run · trade 14 · win 43% · P&L -0.2797 SOL · equity 1.0203 SOL",
-  "22:18:48 ORACLE   360 raccolti, 235 analizzati, 2 BUY, 231 veto",
-  "22:18:26 ORACLE   360 raccolti, 235 analizzati, 2 BUY, 230 veto",
-  "22:18:04 ORACLE   360 raccolti, 229 analizzati, 1 BUY, 221 veto",
-  "22:17:41 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 224 veto",
-  "22:17:18 ORACLE   360 raccolti, 225 analizzati, 2 BUY, 216 veto"
+  "22:21:30 ORACLE   292 raccolti, 196 analizzati, 2 BUY, 188 veto"
  ],
  "capital": 1.3,
  "resetId": "C-0060",
