@@ -178,3 +178,21 @@ test('creazione su RPC: oltre al mint si legge l\'indirizzo della curva', () => 
   const r = Y.parseCreateEvent(ev.toString('base64')); assert.equal(r.mint, Y.b58(mintB)); assert.equal(r.curve, Y.b58(curveB)); assert.equal(r.symbol, 'SYM');
   const noCurve = Y.parseCreateEvent(Buffer.concat([disc, str('N'), str('S'), str('u'), mintB]).toString('base64')); assert.equal(noCurve.curve, undefined, 'senza la curva il token si legge lo stesso');
 });
+
+test('ingresso con ritardo: il prezzo di entrata e le gare ripartono 10 e 20 secondi dopo la soglia', () => {
+  const feed = new Lab.TradeFeed({ now: () => T, log: () => {}, solUsd: () => 100 }), m = mint(26);
+  feed.adopt({ mint: m, symbol: 'R', name: 'R', curve: mint(34) }, T); const t = feed.book.toks.get(m), px = [];
+  for (let i = 0; i < 15; i++) px.push(30 + i * 3); px.push(76, 78, 82, 86, 90); for (let i = 0; i < 40; i++) px.push(70);
+  px.forEach((mc, i) => feed.book.curveMc(t, T + i * 5000 + 100, { mcSol: mc }));
+  const s = Lab.summarize(t, T + 22 * 60000, 100), h = s.th['7.5'];
+  assert.ok(h && h.d[10] && h.d[20], JSON.stringify(h)); assert.ok(Math.abs(h.d[10].g - 82 / 76) < 1e-3, 'g10 ' + h.d[10].g); assert.ok(Math.abs(h.d[20].g - 90 / 76) < 1e-3);
+  assert.equal(h.d[20].r['12/10'], 'sl', 'entrando al picco (90) il prezzo cala a 70: stop'); const g = Lab.labSummary([s], T); assert.equal(g.th[0].delays[0].delay, 10); assert.equal(g.th[0].delays[1].n, 1);
+});
+test('letture scartate: il motivo viene contato e un campione resta visibile', async () => {
+  assert.equal(Lab.curveWhy(Buffer.alloc(10).toString('base64')), 'corto'); assert.equal(Lab.curveWhy(curveBuf(1, 0, 1)), 'zero');
+  assert.equal(Lab.curveWhy(curveBuf(1_000_000_000_000_000, 500_000_000, 1_000_000_000_000_000)), 'bassa'); assert.equal(Lab.curveWhy(curveBuf(1_000_000_000_000_000, 6_000_000_000_000, 1_000_000_000_000_000)), 'alta');
+  const b = new Lab.TradeBook({}), ms = [mint(41), mint(42), mint(43)]; ms.forEach((m, i) => b.create({ mint: m, symbol: 'S' + i, name: 'S', bondingCurveKey: mint(51 + i) }, T));
+  const vals = [{ data: [curveBuf(1, 0, 1), 'base64'] }, null, { data: [curveBuf(1_073_000_000_000_000, 30_000_000_000, 1_000_000_000_000_000), 'base64'] }];
+  const p = new Lab.CurvePoller({ url: 'https://rpc.example', fetch: fakeFetch(vals), book: b, now: () => T + 20000, log: () => {} }); await p.pollOnce();
+  assert.equal(p.ok, 1); assert.equal(p.bad, 1); assert.equal(p.why.zero, 1); assert.equal(p.gone, 1); assert.equal(p.sample.length, 1);
+});
