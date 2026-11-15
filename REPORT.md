@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-15 15:14 UTC · in esecuzione da 0.3 giorni · 111 run
+Aggiornato: 2026-11-15 15:19 UTC · in esecuzione da 0.3 giorni · 111 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-15 15:14 UTC · in esecuzione da 0.3 giorni · 111 run
 | Cassa | 1.4495 SOL |
 | Trade chiusi | 21 |
 | Win rate | 38% |
-| P&L realizzato | -0.0505 SOL (~$-3.59) |
+| P&L realizzato | -0.0505 SOL (~$-3.60) |
 | Media vincite / perdite | +32.5% / -25.1% |
 | Profit factor | 0.85 |
 | Circuit breaker | no |
@@ -52,6 +52,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+15:19:30 ORACLE   360 raccolti, 266 analizzati, 3 BUY, 255 veto
+15:19:07 ORACLE   360 raccolti, 262 analizzati, 3 BUY, 253 veto
+15:18:44 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 255 veto
+15:18:21 ORACLE   360 raccolti, 247 analizzati, 3 BUY, 237 veto
+15:17:59 ORACLE   360 raccolti, 251 analizzati, 3 BUY, 241 veto
+15:17:36 ORACLE   360 raccolti, 258 analizzati, 3 BUY, 248 veto
+15:17:11 ORACLE   360 raccolti, 260 analizzati, 3 BUY, 250 veto
+15:16:49 ORACLE   360 raccolti, 252 analizzati, 3 BUY, 241 veto
+15:16:25 ORACLE   360 raccolti, 257 analizzati, 3 BUY, 244 veto
+15:16:02 ORACLE   360 raccolti, 252 analizzati, 3 BUY, 239 veto
+15:15:39 ORACLE   360 raccolti, 254 analizzati, 3 BUY, 243 veto
+15:15:16 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 252 veto
+15:14:53 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 254 veto
 15:14:30 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 248 veto
 15:14:07 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 252 veto
 15:13:44 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 258 veto
@@ -79,19 +92,6 @@ _nessuna_
 15:07:43 ORACLE   314 raccolti, 239 analizzati, 4 BUY, 229 veto
 15:07:20 ORACLE   295 raccolti, 229 analizzati, 4 BUY, 219 veto
 15:06:57 ORACLE   283 raccolti, 203 analizzati, 4 BUY, 194 veto
-15:06:34 ORACLE   282 raccolti, 201 analizzati, 4 BUY, 193 veto
-15:06:10 ORACLE   252 raccolti, 189 analizzati, 5 BUY, 181 veto
-15:05:48 ORACLE   243 raccolti, 177 analizzati, 5 BUY, 169 veto
-15:05:26 KAISER   limite 1 ingresso/i per scan: $SI rimandato
-15:05:26 KAISER   limite 1 ingresso/i per scan: $Nyajira rimandato
-15:05:26 KAISER   limite 1 ingresso/i per scan: $PUMPDEX rimandato
-15:05:26 QUARTER  BUY $Nyajira 0.073 SOL score 86 impatto 0.14% (Jupiter)
-15:05:26 ORACLE   239 raccolti, 176 analizzati, 5 BUY, 168 veto
-15:05:03 ORACLE   213 raccolti, 144 analizzati, 5 BUY, 136 veto
-15:04:41 ORACLE   198 raccolti, 133 analizzati, 5 BUY, 125 veto
-15:04:19 SCOUT    fabbrica: 1272 percorsi, 768 configurazioni, 0 passano, 248 ms
-15:04:19 ORACLE   194 raccolti, 128 analizzati, 5 BUY, 120 veto
-15:04:18 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
