@@ -194,3 +194,13 @@ Limiti: il formato del conto e l'indirizzo della curva (letto dall'evento di cre
 
 - Per ogni soglia di market cap il Laboratorio simula anche l'entrata 10 e 20 secondi dopo la soglia (la tua reazione), con gare +12/-10 e +20/-15 e valore dopo 1 minuto, e mostra il prezzo di entrata mediano rispetto a quello della soglia. L'entrata istantanea alla soglia e' ottimistica: nella realta' si compra qualche secondo dopo, spesso piu' in alto.
 - Le letture della curva scartate (conto troppo corto, riserve a zero, market cap troppo bassa o troppo alta) sono contate per motivo, con un campione, nella riga "Prezzi dalla catena" della scheda Lab.
+
+### Fabbrica di strategie (v2.29.0)
+
+Solo prova su dati registrati, nessun ordine.
+
+- **Percorsi salvati.** Il Laboratorio consegna il percorso della market cap (SOL, un valore ogni 5 secondi, fino a 21 minuti) di ogni token che supera circa 5K in dollari. Il runner li salva compressi in `lab/paths/` sul ramo `data`, come punti di variazione, con un file nuovo a ogni scrittura (mai riscritto, per non gonfiare Git) e li tiene 7 giorni.
+- **Motore di prova.** `runner/farm.js` valuta una griglia di 768 configurazioni (soglia 7.5K-15K, ritardo 0-20 s, target 10-30%, stop 10-25%, tempo massimo 1-5 minuti o nessuno) con un costo di 7% a giro. Gira in un processo separato, al massimo una volta all'ora, e scrive `farm.json`; la scheda Lab lo mostra.
+- **Contro il troppo-adattamento.** I token vengono ordinati per data: il 60% piu' vecchio serve a scegliere, il 40% piu' recente a controllare. Una regola passa solo se e' positiva dopo i costi in entrambi i gruppi, con almeno 30 operazioni sui dati vecchi e 15 sui recenti. La scheda mostra anche la migliore sui dati vecchi con il suo risultato sui recenti, per vedere quando una regola era solo un caso.
+- **Limiti.** Prezzi letti ogni 10 secondi; i prezzi di uscita sono quelli letti, non i livelli ideali; il costo di 7% e' una stima prudente; non ci sono dati sugli scambi (portafogli), solo sui prezzi. Con 768 configurazioni qualcuna sembra buona per caso: contano solo le regole che restano positive per piu' giorni.
+- Dalla riga di comando: `node runner/farm.js --in state/lab/paths --out state/farm.json`. Variabile `NO_FARM=1` per spegnerla nel runner.
