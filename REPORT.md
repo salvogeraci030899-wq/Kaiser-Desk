@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-15 16:09 UTC · in esecuzione da 0.3 giorni · 112 run
+Aggiornato: 2026-11-15 16:14 UTC · in esecuzione da 0.3 giorni · 112 run
 
 | | |
 |---|---|
-| Equity | **1.3675 SOL** (-8.8% dal capitale iniziale di 1.5 SOL) |
-| Cassa | 1.2990 SOL |
-| Trade chiusi | 25 |
-| Win rate | 32% |
-| P&L realizzato | -0.1315 SOL (~$-9.38) |
-| Media vincite / perdite | +32.5% / -25.7% |
-| Profit factor | 0.68 |
+| Equity | **1.3060 SOL** (-12.9% dal capitale iniziale di 1.5 SOL) |
+| Cassa | 1.3060 SOL |
+| Trade chiusi | 26 |
+| Win rate | 31% |
+| P&L realizzato | -0.1940 SOL (~$-13.81) |
+| Media vincite / perdite | +32.5% / -29.3% |
+| Profit factor | 0.59 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$REKT** P-0149 · 0.068 SOL · n/d · resta 100% · [grafico](https://dexscreener.com/solana/5JE28R2bK8zyN96SgFUb2WUmNo3HxqMF7zcSpSZs7WVf)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -24,10 +24,12 @@ Aggiornato: 2026-11-15 16:09 UTC · in esecuzione da 0.3 giorni · 112 run
 | Trailing stop | 9 | +0.1136 |
 | Time stop | 2 | -0.0189 |
 | Break-even | 1 | +0.0098 |
+| RUG-EXIT liquidità | 1 | -0.0624 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $REKT | 72 | -89.9% | -0.0624 | +1% | -88% | RUG-EXIT liquidità | 5m |
 | $SI | 73 | -62.5% | -0.0457 | +0% | -23% | Stop loss | 1m |
 | $VI | 88 | -26.5% | -0.0193 | +69% | +36% | Trailing stop | 3m |
 | $billy | 75 | -3.9% | -0.0028 | +71% | +31% | Trailing stop | 12m |
@@ -52,10 +54,24 @@ Aggiornato: 2026-11-15 16:09 UTC · in esecuzione da 0.3 giorni · 112 run
 | $Socks | 67 | +109.2% | +0.1306 | +176% | +112% | Trailing stop | 4m |
 | $dragoncat | 65 | -25.9% | -0.0316 | +0% | -32% | Stop loss | 2m |
 | $PAW | 75 | +78.9% | +0.0954 | +215% | +181% | Chiusura manuale (app) | 58m |
-| $CateGiving | 63 | -67.2% | -0.0816 | +0% | -48% | Stop loss | 1m |
 
 ## Ultimi eventi
 ```
+16:14:47 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 247 veto
+16:14:33 SCRIBE   chiuso P-0149 $REKT -0.0624 SOL (-89.9%)
+16:14:33 CHARON   RUG-EXIT liquidità $REKT vendo 100% a -88.4% -> 0.0070 SOL
+16:14:23 ORACLE   360 raccolti, 220 analizzati, 2 BUY, 210 veto
+16:13:59 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 248 veto
+16:13:36 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 246 veto
+16:13:12 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 241 veto
+16:12:49 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 239 veto
+16:12:26 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 246 veto
+16:12:02 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 250 veto
+16:11:38 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 264 veto
+16:11:14 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 260 veto
+16:11:00 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 241 veto
+16:10:34 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 253 veto
+16:10:11 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 264 veto
 16:09:48 KAISER   limite 1 ingresso/i per scan: $VI rimandato
 16:09:48 KAISER   limite 1 ingresso/i per scan: $GTAVI rimandato
 16:09:47 QUARTER  BUY $REKT 0.068 SOL score 72 impatto 1.98% (Jupiter)
@@ -81,21 +97,6 @@ Aggiornato: 2026-11-15 16:09 UTC · in esecuzione da 0.3 giorni · 112 run
 16:02:22 ORACLE   360 raccolti, 254 analizzati, 4 BUY, 243 veto
 16:02:08 SCRIBE   chiuso P-0148 $SI -0.0457 SOL (-62.5%)
 16:02:08 CHARON   Stop loss $SI vendo 100% a -23.1% -> 0.0274 SOL
-16:01:58 ORACLE   360 raccolti, 249 analizzati, 4 BUY, 238 veto
-16:01:44 SCRIBE   chiuso P-0147 $VI -0.0193 SOL (-26.5%)
-16:01:44 CHARON   Trailing stop $VI vendo 100% a 36.4% -> 0.0081 SOL
-16:01:34 ORACLE   360 raccolti, 244 analizzati, 4 BUY, 233 veto
-16:01:20 KAISER   limite 1 ingresso/i per scan: $NIHAOMAS rimandato
-16:01:20 KAISER   limite 1 ingresso/i per scan: $GTAVI rimandato
-16:01:20 QUARTER  BUY $SI 0.072 SOL score 73 impatto 0.00% (Jupiter)
-16:01:19 ORACLE   360 raccolti, 252 analizzati, 4 BUY, 242 veto
-16:00:52 ORACLE   360 raccolti, 257 analizzati, 3 BUY, 245 veto
-16:00:39 ORACLE   360 raccolti, 240 analizzati, 3 BUY, 230 veto
-16:00:07 ORACLE   360 raccolti, 251 analizzati, 3 BUY, 239 veto
-15:59:54 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 237 veto
-15:59:32 CHARON   TP1 $VI vendo 70% a 50.5% -> 0.0453 SOL
-15:59:21 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 233 veto
-15:58:57 KAISER   limite 1 ingresso/i per scan: $SI rimandato
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
