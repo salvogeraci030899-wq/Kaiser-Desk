@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-15 02:45 UTC · in esecuzione da 0.6 giorni · 96 run
+Aggiornato: 2026-11-15 02:50 UTC · in esecuzione da 0.6 giorni · 96 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-15 02:45 UTC · in esecuzione da 0.6 giorni · 96 run
 | Cassa | 0.8437 SOL |
 | Trade chiusi | 19 |
 | Win rate | 32% |
-| P&L realizzato | -0.4563 SOL (~$-32.40) |
+| P&L realizzato | -0.4563 SOL (~$-32.42) |
 | Media vincite / perdite | +37.8% / -55.7% |
 | Profit factor | 0.32 |
 | Circuit breaker | ATTIVO oggi |
@@ -51,6 +51,25 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+02:50:36 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 243 veto
+02:50:13 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 234 veto
+02:49:52 SCOUT    Laboratorio: collegato a PumpPortal
+02:49:51 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 238 veto
+02:49:49 SCOUT    prezzo SOL non disponibile: HTTP 429
+02:49:28 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 234 veto
+02:49:05 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 240 veto
+02:48:43 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 244 veto
+02:48:20 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 242 veto
+02:47:58 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 240 veto
+02:47:36 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 236 veto
+02:47:13 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 237 veto
+02:47:11 SCOUT    jup trend: HTTP 429 (riuso l'ultimo elenco)
+02:47:11 SCOUT    jup organic: HTTP 429 (riuso l'ultimo elenco)
+02:47:11 SCOUT    jup nuovi: HTTP 429 (riuso l'ultimo elenco)
+02:47:11 SCOUT    prezzo SOL non disponibile: HTTP 429
+02:46:51 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 241 veto
+02:46:28 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 240 veto
+02:46:05 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 236 veto
 02:45:42 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 241 veto
 02:45:20 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 243 veto
 02:44:57 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 237 veto
@@ -72,25 +91,6 @@ _nessuna_
 02:43:27 SCOUT    DexScreener errore: HTTP 429
 02:43:27 SCOUT    profili: HTTP 429
 02:43:07 ORACLE   360 raccolti, 0 analizzati, 0 BUY, 0 veto
-02:43:07 SCOUT    DexScreener errore: HTTP 429
-02:43:07 SCOUT    DexScreener errore: HTTP 429
-02:43:07 SCOUT    DexScreener errore: HTTP 429
-02:43:07 SCOUT    DexScreener errore: HTTP 429
-02:43:07 SCOUT    DexScreener errore: HTTP 429
-02:43:07 SCOUT    DexScreener errore: HTTP 429
-02:43:07 SCOUT    DexScreener errore: HTTP 429
-02:43:07 SCOUT    DexScreener errore: HTTP 429
-02:43:07 SCOUT    DexScreener errore: HTTP 429
-02:43:07 SCOUT    DexScreener errore: HTTP 429
-02:43:07 SCOUT    DexScreener errore: HTTP 429
-02:43:07 SCOUT    DexScreener errore: HTTP 429
-02:43:07 SCOUT    profili: HTTP 429
-02:42:47 ORACLE   360 raccolti, 0 analizzati, 0 BUY, 0 veto
-02:42:47 SCOUT    DexScreener errore: HTTP 429
-02:42:47 SCOUT    DexScreener errore: HTTP 429
-02:42:47 SCOUT    DexScreener errore: HTTP 429
-02:42:47 SCOUT    DexScreener errore: HTTP 429
-02:42:47 SCOUT    DexScreener errore: HTTP 429
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
