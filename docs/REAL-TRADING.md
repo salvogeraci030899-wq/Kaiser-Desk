@@ -204,3 +204,14 @@ Solo prova su dati registrati, nessun ordine.
 - **Contro il troppo-adattamento.** I token vengono ordinati per data: il 60% piu' vecchio serve a scegliere, il 40% piu' recente a controllare. Una regola passa solo se e' positiva dopo i costi in entrambi i gruppi, con almeno 30 operazioni sui dati vecchi e 15 sui recenti. La scheda mostra anche la migliore sui dati vecchi con il suo risultato sui recenti, per vedere quando una regola era solo un caso.
 - **Limiti.** Prezzi letti ogni 10 secondi; i prezzi di uscita sono quelli letti, non i livelli ideali; il costo di 7% e' una stima prudente; non ci sono dati sugli scambi (portafogli), solo sui prezzi. Con 768 configurazioni qualcuna sembra buona per caso: contano solo le regole che restano positive per piu' giorni.
 - Dalla riga di comando: `node runner/farm.js --in state/lab/paths --out state/farm.json`. Variabile `NO_FARM=1` per spegnerla nel runner.
+
+### Sonda delle fonti per gli scambi (v2.30.0)
+
+PumpPortal conferma le iscrizioni ma non invia scambi, quindi senza una fonte alternativa non si misurano i portafogli (punteggio bot, vendite grosse). La sonda prova le candidate sul runner, per 40 secondi, una volta ogni 12 ore (si spegne con `NO_PROBE=1`) e mostra l'esito nella scheda Lab:
+
+- **PumpPortal:** quanti messaggi arrivano, il testo della risposta e quanti sono scambi dei token seguiti. Usa una seconda connessione per pochi secondi: se il servizio dovesse lamentarsene, spegnere la sonda.
+- **Eventi del programma via RPC:** ascolta tutti gli scambi di pump.fun (`logsSubscribe` sul programma) e misura messaggi al secondo, KB al secondo (il costo di banda sul piano RPC), quanti eventi di scambio si leggono con importo, verso e portafoglio, e quanti riguardano i token seguiti.
+- **Una curva alla volta via RPC:** iscrizioni separate sul conto di ciascuna curva (fino a 20), con gli eventuali errori di limite del piano.
+- **API pubblica di pump.fun:** una richiesta per un token seguito (non ufficiale: puo' essere bloccata).
+
+Il formato dell'evento di scambio e' noto a memoria e non verificato dal vivo: la sonda conta separatamente gli eventi "leggibili" (importi e market cap sensati). Il rapporto non contiene l'indirizzo RPC.

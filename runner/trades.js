@@ -238,7 +238,7 @@ class TradeFeed {
       this.send({ method: 'subscribeTokenTrade', keys: [t.mint] });                       // subito: gli scambi dei primi secondi sono i più utili
       this.onCreate({ mint: t.mint, symbol: t.sym, name: t.name, src: 'portal', at: now }); return;
     }
-    if (m.txType === 'buy' || m.txType === 'sell') this.stats.trade++; else { this.stats.other++; if (this.stats.other <= 3) this.log('messaggio PumpPortal non riconosciuto, chiavi: ' + Object.keys(m).slice(0, 12).join(',')); }
+    if (m.txType === 'buy' || m.txType === 'sell') this.stats.trade++; else { this.stats.other++; if (this.stats.other <= 3) this.log('messaggio PumpPortal non riconosciuto, chiavi: ' + Object.keys(m).slice(0, 12).join(',') + (m.message ? ' · testo: ' + String(m.message).slice(0, 100) : '')); }
     this.book.trade(m, now);
   }
   // token noto da un'altra fonte (RPC): si segue anche qui, cosi' il Laboratorio non dipende da una sola connessione
