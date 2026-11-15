@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-15 11:58 UTC · in esecuzione da 0.2 giorni · 107 run
+Aggiornato: 2026-11-15 12:03 UTC · in esecuzione da 0.2 giorni · 107 run
 
 | | |
 |---|---|
-| Equity | **1.5260 SOL** (+1.7% dal capitale iniziale di 1.5 SOL) |
-| Cassa | 1.4461 SOL |
-| Trade chiusi | 6 |
-| Win rate | 50% |
-| P&L realizzato | +0.0233 SOL (~$1.69) |
-| Media vincite / perdite | +66.2% / -56.0% |
-| Profit factor | 1.11 |
+| Equity | **1.5125 SOL** (+0.8% dal capitale iniziale di 1.5 SOL) |
+| Cassa | 1.5125 SOL |
+| Trade chiusi | 7 |
+| Win rate | 43% |
+| P&L realizzato | +0.0125 SOL (~$0.90) |
+| Media vincite / perdite | +66.2% / -45.5% |
+| Profit factor | 1.06 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$BigP** P-0130 · 0.076 SOL · +5.0% · resta 100% · [grafico](https://dexscreener.com/solana/6tniZnjr36wY4GwLBDX5b25RGF4nmg3fZKgawDRbQM3c)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -22,10 +22,12 @@ Aggiornato: 2026-11-15 11:58 UTC · in esecuzione da 0.2 giorni · 107 run
 | Stop loss | 3 | -0.2108 |
 | Chiusura manuale (app) | 1 | +0.0954 |
 | Trailing stop | 2 | +0.1386 |
+| Time stop | 1 | -0.0108 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $BigP | 73 | -14.0% | -0.0108 | +5% | -14% | Time stop | 5m |
 | $TOOLS | 69 | +10.5% | +0.0081 | +48% | +23% | Trailing stop | 5m |
 | $SOLA | 68 | -75.0% | -0.0976 | +32% | -50% | Stop loss | 6m |
 | $Socks | 67 | +109.2% | +0.1306 | +176% | +112% | Trailing stop | 4m |
@@ -35,6 +37,22 @@ Aggiornato: 2026-11-15 11:58 UTC · in esecuzione da 0.2 giorni · 107 run
 
 ## Ultimi eventi
 ```
+12:03:38 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 234 veto
+12:03:15 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 243 veto
+12:03:01 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 242 veto
+12:02:36 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 242 veto
+12:02:23 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 240 veto
+12:02:06 SCRIBE   chiuso P-0130 $BigP -0.0108 SOL (-14.0%)
+12:02:06 CHARON   Time stop $BigP vendo 100% a -13.5% -> 0.0664 SOL
+12:01:56 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 245 veto
+12:01:32 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 235 veto
+12:01:09 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 244 veto
+12:00:45 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 250 veto
+12:00:32 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 241 veto
+12:00:06 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 258 veto
+11:59:42 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 257 veto
+11:59:19 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 251 veto
+11:58:55 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 263 veto
 11:58:32 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 260 veto
 11:58:08 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 257 veto
 11:57:45 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 264 veto
@@ -59,22 +77,6 @@ Aggiornato: 2026-11-15 11:58 UTC · in esecuzione da 0.2 giorni · 107 run
 11:51:17 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 255 veto
 11:50:54 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 255 veto
 11:50:31 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 253 veto
-11:50:08 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 246 veto
-11:49:44 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 256 veto
-11:49:20 ORACLE   352 raccolti, 254 analizzati, 0 BUY, 246 veto
-11:48:57 ORACLE   346 raccolti, 248 analizzati, 0 BUY, 242 veto
-11:48:34 ORACLE   333 raccolti, 241 analizzati, 0 BUY, 235 veto
-11:48:12 ORACLE   326 raccolti, 235 analizzati, 0 BUY, 228 veto
-11:47:49 ORACLE   324 raccolti, 221 analizzati, 0 BUY, 214 veto
-11:47:26 ORACLE   306 raccolti, 210 analizzati, 0 BUY, 206 veto
-11:47:04 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-11:47:04 ORACLE   294 raccolti, 204 analizzati, 0 BUY, 200 veto
-11:46:42 ORACLE   292 raccolti, 196 analizzati, 1 BUY, 191 veto
-11:46:18 ORACLE   270 raccolti, 184 analizzati, 1 BUY, 180 veto
-11:45:56 ORACLE   262 raccolti, 173 analizzati, 0 BUY, 169 veto
-11:45:35 ORACLE   258 raccolti, 168 analizzati, 0 BUY, 164 veto
-11:45:22 SCRIBE   chiuso P-0129 $TOOLS 0.0081 SOL (10.5%)
-11:45:22 CHARON   Trailing stop $TOOLS vendo 100% a 22.9% -> 0.0154 SOL
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
