@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-15 01:50 UTC · in esecuzione da 0.5 giorni · 95 run
+Aggiornato: 2026-11-15 01:55 UTC · in esecuzione da 0.5 giorni · 95 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-15 01:50 UTC · in esecuzione da 0.5 giorni · 95 run
 | Cassa | 0.8437 SOL |
 | Trade chiusi | 19 |
 | Win rate | 32% |
-| P&L realizzato | -0.4563 SOL (~$-30.95) |
+| P&L realizzato | -0.4563 SOL (~$-30.83) |
 | Media vincite / perdite | +37.8% / -55.7% |
 | Profit factor | 0.32 |
 | Circuit breaker | ATTIVO oggi |
@@ -51,6 +51,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+01:55:22 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 262 veto
+01:54:59 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 261 veto
+01:54:36 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 256 veto
+01:54:14 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 266 veto
+01:53:51 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 264 veto
+01:53:28 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 259 veto
+01:53:05 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 261 veto
+01:52:42 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 258 veto
+01:52:19 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 246 veto
+01:51:57 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 255 veto
+01:51:34 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 256 veto
+01:51:11 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 249 veto
+01:50:48 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 252 veto
 01:50:25 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 251 veto
 01:50:02 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 244 veto
 01:49:39 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 250 veto
@@ -78,19 +91,6 @@ _nessuna_
 01:43:33 SCOUT    prezzo SOL non disponibile: HTTP 429
 01:43:12 ORACLE   330 raccolti, 245 analizzati, 2 BUY, 234 veto
 01:43:10 SCOUT    prezzo SOL non disponibile: HTTP 429
-01:42:50 ORACLE   320 raccolti, 237 analizzati, 2 BUY, 225 veto
-01:42:48 SCOUT    prezzo SOL non disponibile: HTTP 429
-01:42:27 ORACLE   313 raccolti, 232 analizzati, 2 BUY, 220 veto
-01:42:25 SCOUT    jup trend: HTTP 429 (riuso l'ultimo elenco)
-01:42:05 ORACLE   287 raccolti, 210 analizzati, 2 BUY, 200 veto
-01:41:42 ORACLE   277 raccolti, 185 analizzati, 1 BUY, 179 veto
-01:41:20 ORACLE   269 raccolti, 185 analizzati, 1 BUY, 179 veto
-01:40:58 ORACLE   237 raccolti, 167 analizzati, 2 BUY, 161 veto
-01:40:36 ORACLE   230 raccolti, 155 analizzati, 2 BUY, 149 veto
-01:40:14 ORACLE   224 raccolti, 152 analizzati, 2 BUY, 146 veto
-01:40:13 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message
-01:40:13 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message
-01:40:11 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→8, maxPos 3→4, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→1, sl 25→30, tp1Sell 50→70, timeStopMinPnl 5→2, minLiq 15000→5000, minMcap 15000→3000, minAgeMin 5→0, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120, srcGmgnTrending true→false
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
