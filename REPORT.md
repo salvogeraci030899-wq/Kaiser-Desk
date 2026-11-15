@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-15 15:00 UTC · in esecuzione da 0.3 giorni · 110 run
+Aggiornato: 2026-11-15 15:04 UTC · in esecuzione da 0.3 giorni · 110 run
 
 | | |
 |---|---|
-| Equity | **1.4730 SOL** (-1.8% dal capitale iniziale di 1.5 SOL) |
-| Cassa | 1.4439 SOL |
-| Trade chiusi | 18 |
-| Win rate | 39% |
-| P&L realizzato | -0.0485 SOL (~$-3.45) |
-| Media vincite / perdite | +35.2% / -28.2% |
-| Profit factor | 0.85 |
+| Equity | **1.4613 SOL** (-2.6% dal capitale iniziale di 1.5 SOL) |
+| Cassa | 1.4613 SOL |
+| Trade chiusi | 19 |
+| Win rate | 42% |
+| P&L realizzato | -0.0387 SOL (~$-2.75) |
+| Media vincite / perdite | +32.5% / -28.2% |
+| Profit factor | 0.88 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$GTA** P-0141 · 0.073 SOL · +32.1% · resta 30% · [grafico](https://dexscreener.com/solana/EQLp3JKdNcKbzbqJyvaDDqWrPtidQgLe1bZUAS8YBiG3)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -23,10 +23,12 @@ Aggiornato: 2026-11-15 15:00 UTC · in esecuzione da 0.3 giorni · 110 run
 | Chiusura manuale (app) | 1 | +0.0954 |
 | Trailing stop | 6 | +0.1490 |
 | Time stop | 1 | -0.0108 |
+| Break-even | 1 | +0.0098 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $GTA | 74 | +13.2% | +0.0098 | +35% | -9% | Break-even | 16m |
 | $SI | 74 | -20.5% | -0.0155 | +0% | -23% | Stop loss | 1m |
 | $Nyajira | 68 | +19.6% | +0.0144 | +40% | +19% | Trailing stop | 6m |
 | $investinu | 69 | -9.1% | -0.0068 | +0% | -15% | Stop loss | 0m |
@@ -48,6 +50,19 @@ Aggiornato: 2026-11-15 15:00 UTC · in esecuzione da 0.3 giorni · 110 run
 
 ## Ultimi eventi
 ```
+15:04:04 SCRIBE   fine run · trade 19 · win 42% · P&L -0.0387 SOL · equity 1.4613 SOL
+15:03:46 ORACLE   360 raccolti, 269 analizzati, 4 BUY, 253 veto
+15:03:33 ORACLE   360 raccolti, 283 analizzati, 4 BUY, 268 veto
+15:03:08 ORACLE   360 raccolti, 278 analizzati, 4 BUY, 262 veto
+15:02:45 ORACLE   360 raccolti, 272 analizzati, 4 BUY, 256 veto
+15:02:22 ORACLE   360 raccolti, 278 analizzati, 4 BUY, 262 veto
+15:02:09 ORACLE   360 raccolti, 278 analizzati, 3 BUY, 263 veto
+15:01:53 SCRIBE   chiuso P-0141 $GTA 0.0098 SOL (13.2%)
+15:01:53 CHARON   Break-even $GTA vendo 100% a -9.4% -> 0.0174 SOL
+15:01:43 ORACLE   360 raccolti, 275 analizzati, 3 BUY, 258 veto
+15:01:29 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 259 veto
+15:01:03 ORACLE   360 raccolti, 270 analizzati, 3 BUY, 254 veto
+15:00:40 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 250 veto
 15:00:17 SCRIBE   chiuso P-0142 $SI -0.0155 SOL (-20.5%)
 15:00:17 CHARON   Stop loss $SI vendo 100% a -23.3% -> 0.0599 SOL
 15:00:17 ORACLE   360 raccolti, 270 analizzati, 3 BUY, 254 veto
@@ -75,19 +90,6 @@ Aggiornato: 2026-11-15 15:00 UTC · in esecuzione da 0.3 giorni · 110 run
 14:53:32 ORACLE   360 raccolti, 260 analizzati, 3 BUY, 242 veto
 14:53:09 ORACLE   360 raccolti, 265 analizzati, 3 BUY, 247 veto
 14:52:46 ORACLE   360 raccolti, 260 analizzati, 3 BUY, 244 veto
-14:52:23 ORACLE   360 raccolti, 258 analizzati, 3 BUY, 240 veto
-14:52:09 ORACLE   360 raccolti, 264 analizzati, 3 BUY, 246 veto
-14:51:43 ORACLE   360 raccolti, 258 analizzati, 4 BUY, 242 veto
-14:51:20 ORACLE   360 raccolti, 261 analizzati, 4 BUY, 243 veto
-14:50:57 ORACLE   360 raccolti, 267 analizzati, 4 BUY, 250 veto
-14:50:34 ORACLE   360 raccolti, 256 analizzati, 3 BUY, 241 veto
-14:50:11 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 240 veto
-14:49:48 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 249 veto
-14:49:23 ORACLE   360 raccolti, 257 analizzati, 3 BUY, 245 veto
-14:48:59 ORACLE   360 raccolti, 259 analizzati, 4 BUY, 246 veto
-14:48:36 ORACLE   360 raccolti, 258 analizzati, 4 BUY, 246 veto
-14:48:24 ORACLE   360 raccolti, 256 analizzati, 4 BUY, 244 veto
-14:47:54 ORACLE   360 raccolti, 258 analizzati, 4 BUY, 245 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
