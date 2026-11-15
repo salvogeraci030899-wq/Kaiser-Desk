@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-15 02:35 UTC · in esecuzione da 0.6 giorni · 96 run
+Aggiornato: 2026-11-15 02:40 UTC · in esecuzione da 0.6 giorni · 96 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-15 02:35 UTC · in esecuzione da 0.6 giorni · 96 run
 | Cassa | 0.8437 SOL |
 | Trade chiusi | 19 |
 | Win rate | 32% |
-| P&L realizzato | -0.4563 SOL (~$-32.30) |
+| P&L realizzato | -0.4563 SOL (~$-32.32) |
 | Media vincite / perdite | +37.8% / -55.7% |
 | Profit factor | 0.32 |
 | Circuit breaker | ATTIVO oggi |
@@ -51,46 +51,46 @@ _nessuna_
 
 ## Ultimi eventi
 ```
-02:35:22 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 239 veto
-02:35:09 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 234 veto
-02:34:44 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 238 veto
-02:34:21 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 232 veto
-02:33:58 ORACLE   349 raccolti, 235 analizzati, 0 BUY, 224 veto
-02:33:36 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-02:33:36 ORACLE   330 raccolti, 222 analizzati, 0 BUY, 212 veto
-02:33:13 ORACLE   321 raccolti, 218 analizzati, 0 BUY, 208 veto
-02:32:50 ORACLE   313 raccolti, 209 analizzati, 0 BUY, 199 veto
-02:32:28 ORACLE   294 raccolti, 198 analizzati, 0 BUY, 187 veto
-02:32:05 ORACLE   285 raccolti, 185 analizzati, 0 BUY, 175 veto
-02:31:43 ORACLE   280 raccolti, 182 analizzati, 0 BUY, 172 veto
-02:31:18 ORACLE   237 raccolti, 154 analizzati, 0 BUY, 146 veto
-02:30:55 ORACLE   223 raccolti, 136 analizzati, 0 BUY, 128 veto
-02:30:34 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message
-02:30:33 ORACLE   220 raccolti, 135 analizzati, 0 BUY, 127 veto
-02:30:30 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message
-02:30:29 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→8, maxPos 3→4, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→1, sl 25→30, tp1Sell 50→70, timeStopMinPnl 5→2, minLiq 15000→5000, minMcap 15000→3000, minAgeMin 5→0, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120, srcGmgnTrending true→false
-02:30:29 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
-02:30:29 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message
-02:30:29 SCOUT    Laboratorio: collegato a PumpPortal
-02:30:29 KAISER   run #96 · 0 posizioni · equity 0.8437 SOL · GMGN spenta (nessuna chiave) · Grok off
-02:30:11 SCRIBE   fine run · trade 19 · win 32% · P&L -0.4563 SOL · equity 0.8437 SOL
-02:30:09 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 232 veto
-02:29:44 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 226 veto
-02:29:21 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 227 veto
-02:28:58 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 223 veto
-02:28:35 ORACLE   360 raccolti, 223 analizzati, 0 BUY, 216 veto
-02:28:12 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 235 veto
-02:27:50 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 224 veto
-02:27:27 ORACLE   360 raccolti, 230 analizzati, 0 BUY, 221 veto
-02:27:05 ORACLE   360 raccolti, 229 analizzati, 0 BUY, 221 veto
-02:26:42 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 226 veto
-02:26:19 ORACLE   360 raccolti, 229 analizzati, 0 BUY, 222 veto
-02:25:54 ORACLE   360 raccolti, 232 analizzati, 0 BUY, 226 veto
-02:25:31 ORACLE   360 raccolti, 235 analizzati, 0 BUY, 230 veto
-02:25:18 ORACLE   360 raccolti, 234 analizzati, 0 BUY, 230 veto
-02:24:53 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 237 veto
-02:24:31 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 234 veto
-02:24:18 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 233 veto
+02:40:36 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 234 veto
+02:40:13 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 239 veto
+02:39:50 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 242 veto
+02:39:27 ORACLE   360 raccolti, 0 analizzati, 0 BUY, 0 veto
+02:39:27 SCOUT    DexScreener errore: HTTP 429
+02:39:27 SCOUT    DexScreener errore: HTTP 429
+02:39:27 SCOUT    DexScreener errore: HTTP 429
+02:39:27 SCOUT    DexScreener errore: HTTP 429
+02:39:27 SCOUT    DexScreener errore: HTTP 429
+02:39:27 SCOUT    DexScreener errore: HTTP 429
+02:39:27 SCOUT    DexScreener errore: HTTP 429
+02:39:27 SCOUT    DexScreener errore: HTTP 429
+02:39:27 SCOUT    DexScreener errore: HTTP 429
+02:39:27 SCOUT    DexScreener errore: HTTP 429
+02:39:27 SCOUT    DexScreener errore: HTTP 429
+02:39:27 SCOUT    DexScreener errore: HTTP 429
+02:39:27 SCOUT    profili: HTTP 429
+02:39:07 ORACLE   360 raccolti, 0 analizzati, 0 BUY, 0 veto
+02:39:07 SCOUT    DexScreener errore: HTTP 429
+02:39:07 SCOUT    DexScreener errore: HTTP 429
+02:39:07 SCOUT    DexScreener errore: HTTP 429
+02:39:07 SCOUT    DexScreener errore: HTTP 429
+02:39:07 SCOUT    DexScreener errore: HTTP 429
+02:39:07 SCOUT    DexScreener errore: HTTP 429
+02:39:07 SCOUT    DexScreener errore: HTTP 429
+02:39:07 SCOUT    DexScreener errore: HTTP 429
+02:39:07 SCOUT    DexScreener errore: HTTP 429
+02:39:07 SCOUT    DexScreener errore: HTTP 429
+02:39:07 SCOUT    DexScreener errore: HTTP 429
+02:39:07 SCOUT    DexScreener errore: HTTP 429
+02:39:07 SCOUT    profili: HTTP 429
+02:38:46 ORACLE   360 raccolti, 0 analizzati, 0 BUY, 0 veto
+02:38:46 SCOUT    DexScreener errore: HTTP 429
+02:38:46 SCOUT    DexScreener errore: HTTP 429
+02:38:46 SCOUT    DexScreener errore: HTTP 429
+02:38:46 SCOUT    DexScreener errore: HTTP 429
+02:38:46 SCOUT    DexScreener errore: HTTP 429
+02:38:46 SCOUT    DexScreener errore: HTTP 429
+02:38:46 SCOUT    DexScreener errore: HTTP 429
+02:38:46 SCOUT    DexScreener errore: HTTP 429
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
