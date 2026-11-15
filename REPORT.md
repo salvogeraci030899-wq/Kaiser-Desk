@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-15 11:08 UTC · in esecuzione da 0.1 giorni · 106 run
+Aggiornato: 2026-11-15 11:13 UTC · in esecuzione da 0.1 giorni · 106 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-15 11:08 UTC · in esecuzione da 0.1 giorni · 106 run
 | Cassa | 1.5152 SOL |
 | Trade chiusi | 5 |
 | Win rate | 40% |
-| P&L realizzato | +0.0152 SOL (~$1.10) |
+| P&L realizzato | +0.0152 SOL (~$1.09) |
 | Media vincite / perdite | +94.0% / -56.0% |
 | Profit factor | 1.07 |
 | Circuit breaker | no |
@@ -34,6 +34,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+11:13:38 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 248 veto
+11:13:25 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 246 veto
+11:13:00 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 251 veto
+11:12:37 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 249 veto
+11:12:14 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 245 veto
+11:11:51 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 253 veto
+11:11:27 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 254 veto
+11:11:05 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 248 veto
+11:10:43 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 255 veto
+11:10:21 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 257 veto
+11:09:56 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 258 veto
+11:09:34 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 263 veto
+11:09:12 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 261 veto
+11:08:50 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 257 veto
 11:08:28 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 261 veto
 11:08:06 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 256 veto
 11:07:43 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 258 veto
@@ -60,20 +74,6 @@ _nessuna_
 11:00:05 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 263 veto
 10:59:43 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 265 veto
 10:59:19 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 261 veto
-10:58:57 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 256 veto
-10:58:34 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 254 veto
-10:58:11 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 257 veto
-10:57:48 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 256 veto
-10:57:25 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 251 veto
-10:57:02 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 263 veto
-10:56:40 ORACLE   359 raccolti, 265 analizzati, 0 BUY, 257 veto
-10:56:17 ORACLE   354 raccolti, 257 analizzati, 0 BUY, 250 veto
-10:56:13 KAISER   parametri dall'app: minScore 63→70, sizePct 8→5, maxPos 4→3, cooldownMin 1→5, sl 30→15, tp1 40→25, timeStopMin 45→5, minLiq 5000→7500, trail 20→15
-10:55:53 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-10:55:53 ORACLE   327 raccolti, 239 analizzati, 0 BUY, 233 veto
-10:55:30 ORACLE   321 raccolti, 227 analizzati, 0 BUY, 222 veto
-10:55:08 ORACLE   315 raccolti, 219 analizzati, 0 BUY, 215 veto
-10:54:46 ORACLE   287 raccolti, 208 analizzati, 0 BUY, 205 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
