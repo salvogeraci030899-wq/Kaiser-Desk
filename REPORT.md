@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-15 22:01 UTC · in esecuzione da 0.6 giorni · 119 run
+Aggiornato: 2026-11-15 22:06 UTC · in esecuzione da 0.6 giorni · 119 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-15 22:01 UTC · in esecuzione da 0.6 giorni · 119 run
 | Cassa | 1.2635 SOL |
 | Trade chiusi | 30 |
 | Win rate | 27% |
-| P&L realizzato | -0.2365 SOL (~$-17.00) |
+| P&L realizzato | -0.2365 SOL (~$-17.04) |
 | Media vincite / perdite | +32.5% / -26.9% |
 | Profit factor | 0.54 |
 | Circuit breaker | ATTIVO oggi |
@@ -57,6 +57,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+22:06:20 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 231 veto
+22:05:57 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 229 veto
+22:05:33 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 227 veto
+22:05:09 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 227 veto
+22:04:46 ORACLE   360 raccolti, 229 analizzati, 0 BUY, 218 veto
+22:04:22 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 232 veto
+22:03:59 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 230 veto
+22:03:35 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 231 veto
+22:03:10 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 229 veto
+22:02:47 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 233 veto
+22:02:24 ORACLE   360 raccolti, 231 analizzati, 0 BUY, 221 veto
+22:02:20 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
+22:02:00 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 229 veto
+22:01:37 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 227 veto
 22:01:13 ORACLE   360 raccolti, 229 analizzati, 1 BUY, 221 veto
 22:00:49 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 234 veto
 22:00:26 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 234 veto
@@ -83,20 +97,6 @@ _nessuna_
 21:52:14 ORACLE   360 raccolti, 264 analizzati, 3 BUY, 258 veto
 21:51:52 ORACLE   360 raccolti, 269 analizzati, 3 BUY, 263 veto
 21:51:28 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 268 veto
-21:51:05 ORACLE   360 raccolti, 251 analizzati, 3 BUY, 246 veto
-21:50:41 ORACLE   360 raccolti, 251 analizzati, 3 BUY, 246 veto
-21:50:19 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 257 veto
-21:49:55 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 250 veto
-21:49:32 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 225 veto
-21:49:09 ORACLE   315 raccolti, 226 analizzati, 0 BUY, 212 veto
-21:48:45 SCOUT    PumpPortal invia nuovi token (21) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-21:48:45 ORACLE   306 raccolti, 217 analizzati, 0 BUY, 203 veto
-21:48:21 ORACLE   298 raccolti, 208 analizzati, 1 BUY, 193 veto
-21:47:57 ORACLE   277 raccolti, 194 analizzati, 1 BUY, 181 veto
-21:47:34 ORACLE   265 raccolti, 171 analizzati, 1 BUY, 160 veto
-21:47:11 ORACLE   256 raccolti, 171 analizzati, 1 BUY, 160 veto
-21:46:48 ORACLE   222 raccolti, 140 analizzati, 2 BUY, 132 veto
-21:46:25 ORACLE   211 raccolti, 132 analizzati, 2 BUY, 124 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
