@@ -11,6 +11,7 @@ const Y = require('./young.js');
 const Lab = require('./trades.js');
 const Farm = require('./farm.js');
 const Probe = require('./probe.js');
+const Strat = require('./strategies.js');
 
 const STATE_DIR = process.env.STATE_DIR || path.join(__dirname, '..', 'state');
 const LOOP_MIN = Number(process.env.LOOP_MIN || 4.5);
@@ -49,7 +50,7 @@ const st = Object.assign({
 }, readJSON(F.state, {}));
 st.runs++;
 if (st.capital > 0) S.capitalSOL = st.capital;   // capitale scelto con un reset dall'app: resta valido ai run successivi
-const rt = { solUsd: 0, sec: new Map(), grok: new Map(), gmgn: new Map(), cands: new Map(), gmgnCache: {}, gcache: {}, seen: new Map(), young: new Map(), youngQ: new Set(), feed: null, trades: null, pathBuf: [], farm: null, farmAt: 0, farmBusy: false, probe: null, probeBusy: false, probeDone: false };
+const rt = { solUsd: 0, sec: new Map(), grok: new Map(), gmgn: new Map(), cands: new Map(), gmgnCache: {}, gcache: {}, seen: new Map(), young: new Map(), youngQ: new Set(), feed: null, trades: null, pathBuf: [], farm: null, farmAt: 0, farmBusy: false, probe: null, probeBusy: false, probeDone: false, strat: Strat.create(), stratDirty: false };
 
 function log(agent, msg) {
   const line = `${new Date().toISOString().slice(11, 19)} ${agent.padEnd(8)} ${msg}`;
@@ -87,7 +88,7 @@ function publicSummary() {
     journal: st.journal.slice(-100).map((j) => ({ id: j.id, mint: j.mint, sym: j.sym, openedAt: j.openedAt, closedAt: j.closedAt, cost: j.cost, back: j.back, pnl: j.pnl, pct: j.pct, reason: j.reason, score: j.score, peakPct: j.peakPct, trigPct: j.trigPct, maePct: j.maePct == null ? null : j.maePct, age: j.age == null ? null : j.age })),
     events: st.events.slice(0, 40), config: cfg,
     young: Y.youngSummary(rt.young, Date.now(), 80, (m) => (rt.trades ? rt.trades.botNow(m) : null)),
-    cal: calSummary(st.cal), farm: rt.farm || null, probe: rt.probe || null,
+    cal: calSummary(st.cal), farm: rt.farm || null, probe: rt.probe || null, strat: Strat.summary(rt.strat, Date.now()),
     lab: rt.trades || (st.lab && st.lab.done.length) ? { info: rt.trades ? rt.trades.status() : null, ...Lab.labSummary((st.lab && st.lab.done) || [], Date.now()) } : null, youngInfo: rt.feed ? { ...rt.feed.status(), tracked: [...rt.young.values()].filter((y) => y.tracked).length } : null,
   };
 }
@@ -534,6 +535,9 @@ function flushPaths(final) {
     const dir = path.join(STATE_DIR, 'lab', 'paths'), n = rt.pathBuf.length;
     if (n) { Farm.writeBatch(dir, rt.pathBuf.splice(0), Date.now()); }
     if (n || final) Farm.prune(dir, Date.now(), Farm.KEEP_DAYS);
+    const before = rt.strat.log.length, ch = Strat.review(rt.strat, Date.now()); if (ch) rt.stratDirty = true;
+    if (ch) for (const e of rt.strat.log.slice(-ch)) { log('SCOUT', `regola ${e.id}: ${e.to} (${e.why})`); if (e.to !== 'prova') tg(`<b>Regola ${esc(e.id)}</b> ${esc(e.to)}\n${esc(e.why)}`).catch(() => {}); }
+    if (rt.stratDirty || final) { Strat.save(STRAT_FILE(), rt.strat); rt.stratDirty = false; }
   } catch (e) { log('KAISER', 'salvataggio percorsi non riuscito: ' + String(e.message).split('\n')[0]); }
 }
 // La fabbrica gira in un processo separato (non rallenta i controlli delle posizioni) al massimo una volta all'ora
@@ -545,7 +549,11 @@ function maybeFarm() {
     log('SCOUT', String(so || '').trim()); loadFarm();
   });
 }
-function loadFarm() { try { rt.farm = JSON.parse(fs.readFileSync(path.join(STATE_DIR, 'farm.json'), 'utf8')); } catch { /* ancora nessun rapporto */ } }
+function loadFarm() {
+  try { rt.farm = JSON.parse(fs.readFileSync(path.join(STATE_DIR, 'farm.json'), 'utf8')); } catch { /* ancora nessun rapporto */ }
+  if (rt.farm && Strat.ingest(rt.strat, rt.farm, Date.now())) rt.stratDirty = true;   // nuove regole candidate: entrano in prova in avanti
+}
+const STRAT_FILE = () => path.join(STATE_DIR, 'strategies.json');
 // Sonda delle fonti per gli scambi: una volta ogni 12 ore, per 40 secondi, quando ci sono abbastanza token seguiti. Solo lettura; il rapporto non contiene l'indirizzo RPC.
 function loadProbe() { try { rt.probe = JSON.parse(fs.readFileSync(path.join(STATE_DIR, 'probe.json'), 'utf8')); } catch { /* ancora nessuna prova */ } }
 function maybeProbe() {
@@ -574,7 +582,7 @@ function checkpoint() {
 function startYoung() {
   const onToken = (t) => { if (S.srcYoung !== false) Y.addYoung(rt.young, t, Date.now(), 800); };
   if (S.srcLab !== false) {                                     // Laboratorio: una sola connessione a PumpPortal per nuovi token e scambi (osservazione, nessun ordine)
-    rt.trades = new Lab.TradeFeed({ log: (m) => log('SCOUT', m), solUsd: () => rt.solUsd, rpcHttp: process.env.RPC_URL || '', onPath: (x) => { rt.pathBuf.push(Farm.pack(x)); }, onCreate: onToken, onDone: (s) => { st.lab = st.lab || { done: [] }; st.lab.done.push(s); st.lab.done = st.lab.done.slice(-400); } });
+    rt.trades = new Lab.TradeFeed({ log: (m) => log('SCOUT', m), solUsd: () => rt.solUsd, rpcHttp: process.env.RPC_URL || '', onPath: (x) => { rt.pathBuf.push(Farm.pack(x)); if (Strat.record(rt.strat, x, Date.now())) rt.stratDirty = true; }, onCreate: onToken, onDone: (s) => { st.lab = st.lab || { done: [] }; st.lab.done.push(s); st.lab.done = st.lab.done.slice(-400); } });
     rt.trades.start();
   }
   if (S.srcYoung === false) return;
@@ -582,7 +590,7 @@ function startYoung() {
   if (rpc || !rt.trades) { rt.feed = new Y.YoungFeed({ rpcUrl: rpc, portal: !rt.trades, log: (m) => log('SCOUT', m), onToken: (t) => { Y.addYoung(rt.young, t, Date.now(), 800); if (rt.trades) rt.trades.adopt(t); } }); rt.feed.start(); }   // RPC come fonte principale; PumpPortal (Laboratorio) come riserva
 }
 async function main() {
-  loadFarm(); loadProbe();
+  rt.strat = Strat.load(STRAT_FILE()); loadFarm(); loadProbe();
   startYoung();
   const end = Date.now() + LOOP_MIN * 60000;
   log('KAISER', `run #${st.runs} · ${st.positions.length} posizioni · equity ${equity().toFixed(4)} SOL · GMGN ${gmgnOn() ? 'attiva' : 'spenta (nessuna chiave)'} · Grok ${S.useGrok ? 'on' : 'off'}`);
