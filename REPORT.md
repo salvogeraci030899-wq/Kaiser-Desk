@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-15 15:24 UTC · in esecuzione da 0.3 giorni · 111 run
+Aggiornato: 2026-11-15 15:29 UTC · in esecuzione da 0.3 giorni · 111 run
 
 | | |
 |---|---|
@@ -52,6 +52,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+15:29:41 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 262 veto
+15:29:18 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 259 veto
+15:28:55 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 254 veto
+15:28:33 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 258 veto
+15:28:10 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 252 veto
+15:27:47 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 254 veto
+15:27:24 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 244 veto
+15:27:01 ORACLE   360 raccolti, 247 analizzati, 3 BUY, 232 veto
+15:26:38 ORACLE   360 raccolti, 252 analizzati, 3 BUY, 236 veto
+15:26:15 ORACLE   360 raccolti, 257 analizzati, 3 BUY, 241 veto
+15:26:02 ORACLE   360 raccolti, 254 analizzati, 3 BUY, 239 veto
+15:25:37 ORACLE   360 raccolti, 270 analizzati, 3 BUY, 256 veto
+15:25:14 ORACLE   360 raccolti, 269 analizzati, 3 BUY, 255 veto
 15:24:51 ORACLE   360 raccolti, 257 analizzati, 3 BUY, 245 veto
 15:24:28 ORACLE   360 raccolti, 269 analizzati, 3 BUY, 256 veto
 15:24:05 ORACLE   360 raccolti, 272 analizzati, 3 BUY, 258 veto
@@ -79,19 +92,6 @@ _nessuna_
 15:15:39 ORACLE   360 raccolti, 254 analizzati, 3 BUY, 243 veto
 15:15:16 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 252 veto
 15:14:53 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 254 veto
-15:14:30 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 248 veto
-15:14:07 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 252 veto
-15:13:44 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 258 veto
-15:13:21 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 250 veto
-15:12:57 ORACLE   360 raccolti, 276 analizzati, 3 BUY, 263 veto
-15:12:34 ORACLE   360 raccolti, 280 analizzati, 5 BUY, 264 veto
-15:12:11 ORACLE   360 raccolti, 265 analizzati, 5 BUY, 249 veto
-15:11:48 ORACLE   360 raccolti, 278 analizzati, 5 BUY, 263 veto
-15:11:25 ORACLE   360 raccolti, 281 analizzati, 5 BUY, 265 veto
-15:11:01 ORACLE   360 raccolti, 279 analizzati, 4 BUY, 263 veto
-15:10:37 SCRIBE   chiuso P-0143 $Nyajira -0.0081 SOL (-11.0%)
-15:10:37 CHARON   Time stop $Nyajira vendo 100% a -0.1% -> 0.0659 SOL
-15:10:37 ORACLE   360 raccolti, 290 analizzati, 4 BUY, 274 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
