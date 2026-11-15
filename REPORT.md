@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-15 12:48 UTC · in esecuzione da 0.2 giorni · 108 run
+Aggiornato: 2026-11-15 12:53 UTC · in esecuzione da 0.2 giorni · 108 run
 
 | | |
 |---|---|
-| Equity | **1.4941 SOL** (-0.4% dal capitale iniziale di 1.5 SOL) |
-| Cassa | 1.4941 SOL |
-| Trade chiusi | 9 |
-| Win rate | 44% |
-| P&L realizzato | -0.0059 SOL (~$-0.43) |
-| Media vincite / perdite | +52.2% / -43.2% |
-| Profit factor | 0.98 |
+| Equity | **1.4908 SOL** (-0.6% dal capitale iniziale di 1.5 SOL) |
+| Cassa | 1.4908 SOL |
+| Trade chiusi | 10 |
+| Win rate | 40% |
+| P&L realizzato | -0.0092 SOL (~$-0.67) |
+| Media vincite / perdite | +52.2% / -36.7% |
+| Profit factor | 0.96 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -19,7 +19,7 @@ _nessuna_
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| Stop loss | 4 | -0.2370 |
+| Stop loss | 5 | -0.2403 |
 | Chiusura manuale (app) | 1 | +0.0954 |
 | Trailing stop | 3 | +0.1464 |
 | Time stop | 1 | -0.0108 |
@@ -27,6 +27,7 @@ _nessuna_
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $PEER | 67 | -4.4% | -0.0033 | +14% | -20% | Stop loss | 2m |
 | $Buttom | 70 | -34.0% | -0.0262 | +0% | -16% | Stop loss | 2m |
 | $Gomez | 63 | +10.2% | +0.0078 | +33% | +10% | Trailing stop | 7m |
 | $BigP | 73 | -14.0% | -0.0108 | +5% | -14% | Time stop | 5m |
@@ -39,6 +40,23 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+12:53:54 SCRIBE   chiuso P-0133 $PEER -0.0033 SOL (-4.4%)
+12:53:54 CHARON   Stop loss $PEER vendo 100% a -20.4% -> 0.0724 SOL
+12:53:54 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 267 veto
+12:53:32 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 272 veto
+12:53:09 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 269 veto
+12:52:46 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 267 veto
+12:52:23 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 265 veto
+12:51:59 QUARTER  BUY $PEER 0.075 SOL score 67 impatto 1.33% (Jupiter)
+12:51:59 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 263 veto
+12:51:47 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 253 veto
+12:51:20 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 268 veto
+12:51:08 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 266 veto
+12:50:38 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 266 veto
+12:50:15 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 261 veto
+12:49:51 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 265 veto
+12:49:28 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 264 veto
+12:49:06 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 268 veto
 12:48:43 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 252 veto
 12:48:21 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 253 veto
 12:48:20 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
@@ -62,23 +80,6 @@ _nessuna_
 12:43:04 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 265 veto
 12:42:42 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 263 veto
 12:42:19 ORACLE   360 raccolti, 284 analizzati, 0 BUY, 277 veto
-12:41:55 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 272 veto
-12:41:32 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 266 veto
-12:41:09 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 266 veto
-12:40:46 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 256 veto
-12:40:23 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 258 veto
-12:40:00 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 262 veto
-12:39:37 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 257 veto
-12:39:14 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 254 veto
-12:38:50 ORACLE   333 raccolti, 253 analizzati, 1 BUY, 240 veto
-12:38:27 ORACLE   321 raccolti, 244 analizzati, 1 BUY, 232 veto
-12:38:04 ORACLE   317 raccolti, 235 analizzati, 1 BUY, 223 veto
-12:37:41 ORACLE   298 raccolti, 220 analizzati, 1 BUY, 211 veto
-12:37:18 ORACLE   286 raccolti, 209 analizzati, 1 BUY, 202 veto
-12:36:56 ORACLE   284 raccolti, 203 analizzati, 1 BUY, 195 veto
-12:36:33 ORACLE   267 raccolti, 190 analizzati, 1 BUY, 184 veto
-12:36:11 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-12:36:11 ORACLE   259 raccolti, 188 analizzati, 1 BUY, 182 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
