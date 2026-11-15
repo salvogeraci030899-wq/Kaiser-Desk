@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-15 14:44 UTC · in esecuzione da 0.3 giorni · 110 run
+Aggiornato: 2026-11-15 14:49 UTC · in esecuzione da 0.3 giorni · 110 run
 
 | | |
 |---|---|
-| Equity | **1.4670 SOL** (-2.2% dal capitale iniziale di 1.5 SOL) |
-| Cassa | 1.4670 SOL |
+| Equity | **1.4698 SOL** (-2.0% dal capitale iniziale di 1.5 SOL) |
+| Cassa | 1.3926 SOL |
 | Trade chiusi | 17 |
 | Win rate | 41% |
-| P&L realizzato | -0.0330 SOL (~$-2.35) |
+| P&L realizzato | -0.0330 SOL (~$-2.36) |
 | Media vincite / perdite | +35.2% / -29.0% |
 | Profit factor | 0.89 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$GTA** P-0141 · 0.073 SOL · +5.2% · resta 100% · [grafico](https://dexscreener.com/solana/EQLp3JKdNcKbzbqJyvaDDqWrPtidQgLe1bZUAS8YBiG3)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -47,6 +47,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+14:49:48 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 249 veto
+14:49:23 ORACLE   360 raccolti, 257 analizzati, 3 BUY, 245 veto
+14:48:59 ORACLE   360 raccolti, 259 analizzati, 4 BUY, 246 veto
+14:48:36 ORACLE   360 raccolti, 258 analizzati, 4 BUY, 246 veto
+14:48:24 ORACLE   360 raccolti, 256 analizzati, 4 BUY, 244 veto
+14:47:54 ORACLE   360 raccolti, 258 analizzati, 4 BUY, 245 veto
+14:47:31 ORACLE   360 raccolti, 259 analizzati, 3 BUY, 246 veto
+14:47:08 ORACLE   360 raccolti, 253 analizzati, 3 BUY, 239 veto
+14:46:44 ORACLE   360 raccolti, 262 analizzati, 3 BUY, 248 veto
+14:46:21 ORACLE   360 raccolti, 259 analizzati, 3 BUY, 244 veto
+14:45:57 QUARTER  BUY $GTA 0.073 SOL score 74 impatto 1.31% (Jupiter)
+14:45:57 ORACLE   360 raccolti, 256 analizzati, 3 BUY, 239 veto
+14:45:34 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 246 veto
+14:45:11 ORACLE   360 raccolti, 265 analizzati, 3 BUY, 248 veto
 14:44:48 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 246 veto
 14:44:26 ORACLE   360 raccolti, 270 analizzati, 3 BUY, 254 veto
 14:44:02 ORACLE   360 raccolti, 267 analizzati, 4 BUY, 249 veto
@@ -73,20 +87,6 @@ _nessuna_
 14:36:51 CHARON   TP1 $Nyajira vendo 70% a 40.1% -> 0.0666 SOL
 14:36:51 ORACLE   360 raccolti, 264 analizzati, 5 BUY, 252 veto
 14:36:27 ORACLE   360 raccolti, 267 analizzati, 3 BUY, 258 veto
-14:36:03 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 262 veto
-14:35:40 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 261 veto
-14:35:16 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 258 veto
-14:34:52 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 257 veto
-14:34:30 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 253 veto
-14:34:06 ORACLE   360 raccolti, 271 analizzati, 3 BUY, 256 veto
-14:33:42 ORACLE   360 raccolti, 270 analizzati, 3 BUY, 254 veto
-14:33:18 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 254 veto
-14:32:56 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 253 veto
-14:32:32 KAISER   limite 1 ingresso/i per scan: $PUMPDEX rimandato
-14:32:32 QUARTER  BUY $Nyajira 0.073 SOL score 68 impatto 1.25% (Jupiter)
-14:32:32 ORACLE   360 raccolti, 269 analizzati, 3 BUY, 256 veto
-14:32:08 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 244 veto
-14:31:44 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 249 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
