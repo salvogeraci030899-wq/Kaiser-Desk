@@ -10,6 +10,7 @@ const E = require('../engine.js');
 const Y = require('./young.js');
 const Lab = require('./trades.js');
 const Farm = require('./farm.js');
+const Probe = require('./probe.js');
 
 const STATE_DIR = process.env.STATE_DIR || path.join(__dirname, '..', 'state');
 const LOOP_MIN = Number(process.env.LOOP_MIN || 4.5);
@@ -48,7 +49,7 @@ const st = Object.assign({
 }, readJSON(F.state, {}));
 st.runs++;
 if (st.capital > 0) S.capitalSOL = st.capital;   // capitale scelto con un reset dall'app: resta valido ai run successivi
-const rt = { solUsd: 0, sec: new Map(), grok: new Map(), gmgn: new Map(), cands: new Map(), gmgnCache: {}, gcache: {}, seen: new Map(), young: new Map(), youngQ: new Set(), feed: null, trades: null, pathBuf: [], farm: null, farmAt: 0, farmBusy: false };
+const rt = { solUsd: 0, sec: new Map(), grok: new Map(), gmgn: new Map(), cands: new Map(), gmgnCache: {}, gcache: {}, seen: new Map(), young: new Map(), youngQ: new Set(), feed: null, trades: null, pathBuf: [], farm: null, farmAt: 0, farmBusy: false, probe: null, probeBusy: false, probeDone: false };
 
 function log(agent, msg) {
   const line = `${new Date().toISOString().slice(11, 19)} ${agent.padEnd(8)} ${msg}`;
@@ -86,7 +87,7 @@ function publicSummary() {
     journal: st.journal.slice(-100).map((j) => ({ id: j.id, mint: j.mint, sym: j.sym, openedAt: j.openedAt, closedAt: j.closedAt, cost: j.cost, back: j.back, pnl: j.pnl, pct: j.pct, reason: j.reason, score: j.score, peakPct: j.peakPct, trigPct: j.trigPct, maePct: j.maePct == null ? null : j.maePct, age: j.age == null ? null : j.age })),
     events: st.events.slice(0, 40), config: cfg,
     young: Y.youngSummary(rt.young, Date.now(), 80, (m) => (rt.trades ? rt.trades.botNow(m) : null)),
-    cal: calSummary(st.cal), farm: rt.farm || null,
+    cal: calSummary(st.cal), farm: rt.farm || null, probe: rt.probe || null,
     lab: rt.trades || (st.lab && st.lab.done.length) ? { info: rt.trades ? rt.trades.status() : null, ...Lab.labSummary((st.lab && st.lab.done) || [], Date.now()) } : null, youngInfo: rt.feed ? { ...rt.feed.status(), tracked: [...rt.young.values()].filter((y) => y.tracked).length } : null,
   };
 }
@@ -545,6 +546,17 @@ function maybeFarm() {
   });
 }
 function loadFarm() { try { rt.farm = JSON.parse(fs.readFileSync(path.join(STATE_DIR, 'farm.json'), 'utf8')); } catch { /* ancora nessun rapporto */ } }
+// Sonda delle fonti per gli scambi: una volta ogni 12 ore, per 40 secondi, quando ci sono abbastanza token seguiti. Solo lettura; il rapporto non contiene l'indirizzo RPC.
+function loadProbe() { try { rt.probe = JSON.parse(fs.readFileSync(path.join(STATE_DIR, 'probe.json'), 'utf8')); } catch { /* ancora nessuna prova */ } }
+function maybeProbe() {
+  if (rt.probeBusy || rt.probeDone || process.env.NO_PROBE === '1' || !rt.trades) return; const now = Date.now();
+  if (rt.probe && now - rt.probe.at < 12 * 3600000) { rt.probeDone = true; return; }
+  const toks = [...rt.trades.book.toks.values()].filter((t) => t.curve && now - t.createdAt < 10 * 60000); if (toks.length < 20) return;
+  rt.probeBusy = true;
+  Probe.runProbe({ rpcUrl: process.env.RPC_URL || '', mints: toks.slice(0, 50).map((t) => ({ mint: t.mint, curve: t.curve })), ms: 40000 })
+    .then((rep) => { rt.probe = rep; rt.probeDone = true; try { fs.writeFileSync(path.join(STATE_DIR, 'probe.json'), JSON.stringify(rep)); } catch { /* niente */ } log('SCOUT', `sonda scambi: PumpPortal ${(rep.portal && rep.portal.tracked) || 0} scambi, programma RPC ${(rep.program && rep.program.events) || 0} eventi, curve RPC ${(rep.curves && rep.curves.events) || 0}`); })
+    .catch((e) => log('SCOUT', 'sonda scambi non riuscita: ' + String(e.message).split('\n')[0])).finally(() => { rt.probeBusy = false; });
+}
 function checkpoint() {
   if (process.env.CHECKPOINT !== '1' || cpBusy) return;
   cpBusy = true;
@@ -570,7 +582,7 @@ function startYoung() {
   if (rpc || !rt.trades) { rt.feed = new Y.YoungFeed({ rpcUrl: rpc, portal: !rt.trades, log: (m) => log('SCOUT', m), onToken: (t) => { Y.addYoung(rt.young, t, Date.now(), 800); if (rt.trades) rt.trades.adopt(t); } }); rt.feed.start(); }   // RPC come fonte principale; PumpPortal (Laboratorio) come riserva
 }
 async function main() {
-  loadFarm();
+  loadFarm(); loadProbe();
   startYoung();
   const end = Date.now() + LOOP_MIN * 60000;
   log('KAISER', `run #${st.runs} · ${st.positions.length} posizioni · equity ${equity().toFixed(4)} SOL · GMGN ${gmgnOn() ? 'attiva' : 'spenta (nessuna chiave)'} · Grok ${S.useGrok ? 'on' : 'off'}`);
@@ -582,6 +594,7 @@ async function main() {
     } catch (e) { log('KAISER', 'errore: ' + (e.stack || e.message).split('\n')[0]); }
     if (rt.trades) rt.trades.tick();
     maybeFarm();
+    maybeProbe();
     save();
     if (Date.now() - lastCp >= CHECKPOINT_MS) { lastCp = Date.now(); flushPaths(false); checkpoint(); }
     const left = end - Date.now();

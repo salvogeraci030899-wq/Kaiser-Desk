@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.29.0">
+<meta name="kz-build" content="2.30.0">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=2">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
@@ -618,6 +618,12 @@ function renderJournal() {
           const top = F.top && F.top.length ? tbl(['Regola', 'Operazioni (vecchi/recenti)', 'Esito vecchi', 'Esito recenti'], F.top.map((x) => [lbl(x.cfg), x.tr.n + ' / ' + x.te.n, ev(x.tr), ev(x.te)])) : '<div class="tiny muted" style="margin-top:6px">Nessuna regola regge: positiva dopo i costi sia sui dati vecchi sia su quelli recenti.</div>';
           const bt = F.bestTrain ? `<div class="tiny muted" style="margin-top:6px">Migliore sui dati vecchi: ${lbl(F.bestTrain.cfg)} ha dato ${ev(F.bestTrain.tr)} sui vecchi e ${ev(F.bestTrain.te)} sui recenti. Se la seconda cifra è molto peggiore, la regola era solo un caso.</div>` : '';
           return head + top + bt + `<div class="tiny muted" style="margin-top:6px">Costo di un giro: ${F.cost}%. Ingresso alla prima volta che la market cap supera la soglia più il ritardo; uscita a target, stop (a parità vince lo stop) o tempo massimo; prezzi letti ogni 10 secondi. Una regola passa solo con almeno 30 operazioni sui dati vecchi e 15 sui recenti.</div>`;
+        })()
+        + sec('Fonti per gli scambi (prova di 40 secondi)')
+        + (() => {
+          const Q = run.probe; if (!Q) return '<span class="muted small">La prova parte da sola quando il runner nuovo segue almeno 20 token; si ripete ogni 12 ore.</span>';
+          const pp = Q.portal || {}, pr = Q.program || {}, cv = Q.curves || {}, api = Q.api || {}, ok = (b) => (b ? 'up' : 'warn');
+          return `<div class="kv">${kvRow('PumpPortal', pp.opened ? `${pp.msgs} messaggi · ${pp.tracked} scambi dei token seguiti` : (pp.error || 'non collegato'), ok(pp.tracked > 0))}${pp.info ? kvRow('Risposta PumpPortal', esc(pp.info)) : ''}${pr.skipped ? kvRow('Eventi del programma (RPC)', pr.skipped) : kvRow('Eventi del programma (RPC)', pr.opened ? `${pr.perSec}/s · ${pr.kbPerSec} KB/s · ${pr.events} scambi (${pr.sane} leggibili, ${pr.tracked} dei token seguiti)${pr.err ? ' · ' + esc(pr.err) : ''}` : (pr.error || 'non collegato'), ok(pr.sane > 0))}${cv.skipped ? '' : kvRow('Una curva alla volta (RPC)', cv.opened ? `${cv.subs}/${cv.asked} iscrizioni · ${cv.events} scambi${cv.errs ? ' · errori ' + cv.errs + ': ' + esc(cv.firstErr) : ''}` : (cv.error || 'non collegato'), ok(cv.events > 0))}${kvRow('API pubblica pump.fun', api.error ? esc(api.error) : api.status ? `HTTP ${api.status}${api.n != null ? ' · ' + api.n + ' scambi' : ''}` : '—', ok(api.n > 0))}${kvRow('Eseguita', new Date(Q.at).toLocaleString('it-IT', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }))}</div><div class="tiny muted" style="margin-top:6px">Una fonte vale se arrivano scambi dei token seguiti, con importo e portafoglio leggibili, a un costo di banda sostenibile dal piano RPC.</div>`;
         })()
         + sec('Vendite grosse, rotazione e calma')
         + `<div class="kv">${kvRow('Coin con vendite sopra 100 $', fl.lsShare == null ? '—' : fl.lsShare + '%')}${kvRow('Prima vendita grossa (secondi dalla nascita)', f1(fl.lsT))}${kvRow('Dopo la prima vendita grossa (x a 60 s)', fl.afterLS ? fl.afterLS.med + 'x' : '—')}${kvRow('Volume / market cap (mediana)', fl.turn == null ? '—' : fl.turn + 'x')}${kvRow('Si spengono dopo il picco', fl.quiet ? fl.quiet.share + '% (su ' + fl.quiet.n + ')' : '—')}${kvRow('Arrivano a 15K · 30K', fl.hi15 == null ? '—' : fl.hi15 + '% · ' + fl.hi30 + '%')}</div>`
