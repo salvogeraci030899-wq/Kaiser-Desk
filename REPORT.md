@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-15 16:19 UTC · in esecuzione da 0.3 giorni · 112 run
+Aggiornato: 2026-11-15 16:25 UTC · in esecuzione da 0.3 giorni · 112 run
 
 | | |
 |---|---|
-| Equity | **1.3060 SOL** (-12.9% dal capitale iniziale di 1.5 SOL) |
-| Cassa | 1.3060 SOL |
-| Trade chiusi | 26 |
-| Win rate | 31% |
-| P&L realizzato | -0.1940 SOL (~$-13.79) |
-| Media vincite / perdite | +32.5% / -29.3% |
-| Profit factor | 0.59 |
+| Equity | **1.2916 SOL** (-13.9% dal capitale iniziale di 1.5 SOL) |
+| Cassa | 1.2916 SOL |
+| Trade chiusi | 27 |
+| Win rate | 30% |
+| P&L realizzato | -0.2084 SOL (~$-14.83) |
+| Media vincite / perdite | +32.5% / -28.9% |
+| Profit factor | 0.57 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -19,7 +19,7 @@ _nessuna_
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| Stop loss | 12 | -0.3315 |
+| Stop loss | 13 | -0.3460 |
 | Chiusura manuale (app) | 1 | +0.0954 |
 | Trailing stop | 9 | +0.1136 |
 | Time stop | 2 | -0.0189 |
@@ -29,6 +29,7 @@ _nessuna_
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $TOYCOIN | 70 | -21.8% | -0.0144 | +4% | -26% | Stop loss | 3m |
 | $REKT | 72 | -89.9% | -0.0624 | +1% | -88% | RUG-EXIT liquidità | 5m |
 | $SI | 73 | -62.5% | -0.0457 | +0% | -23% | Stop loss | 1m |
 | $VI | 88 | -26.5% | -0.0193 | +69% | +36% | Trailing stop | 3m |
@@ -53,10 +54,27 @@ _nessuna_
 | $SOLA | 68 | -75.0% | -0.0976 | +32% | -50% | Stop loss | 6m |
 | $Socks | 67 | +109.2% | +0.1306 | +176% | +112% | Trailing stop | 4m |
 | $dragoncat | 65 | -25.9% | -0.0316 | +0% | -32% | Stop loss | 2m |
-| $PAW | 75 | +78.9% | +0.0954 | +215% | +181% | Chiusura manuale (app) | 58m |
 
 ## Ultimi eventi
 ```
+16:25:05 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 239 veto
+16:24:42 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 249 veto
+16:24:19 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 238 veto
+16:24:06 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 239 veto
+16:23:40 SCRIBE   chiuso P-0150 $TOYCOIN -0.0144 SOL (-21.8%)
+16:23:40 CHARON   Stop loss $TOYCOIN vendo 100% a -26.2% -> 0.0519 SOL
+16:23:40 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 247 veto
+16:23:17 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 239 veto
+16:22:54 ORACLE   360 raccolti, 246 analizzati, 3 BUY, 238 veto
+16:22:30 ORACLE   360 raccolti, 253 analizzati, 3 BUY, 246 veto
+16:22:06 ORACLE   360 raccolti, 249 analizzati, 3 BUY, 243 veto
+16:21:44 ORACLE   360 raccolti, 246 analizzati, 3 BUY, 240 veto
+16:21:20 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 259 veto
+16:21:07 ORACLE   360 raccolti, 267 analizzati, 3 BUY, 259 veto
+16:20:38 ORACLE   360 raccolti, 267 analizzati, 3 BUY, 259 veto
+16:20:24 KAISER   limite 1 ingresso/i per scan: $VI rimandato
+16:20:23 QUARTER  BUY $TOYCOIN 0.065 SOL score 70 impatto 0.77% (Jupiter)
+16:20:23 ORACLE   360 raccolti, 265 analizzati, 3 BUY, 257 veto
 16:19:58 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 264 veto
 16:19:36 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 253 veto
 16:19:12 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 235 veto
@@ -79,24 +97,6 @@ _nessuna_
 16:13:36 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 246 veto
 16:13:12 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 241 veto
 16:12:49 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 239 veto
-16:12:26 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 246 veto
-16:12:02 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 250 veto
-16:11:38 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 264 veto
-16:11:14 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 260 veto
-16:11:00 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 241 veto
-16:10:34 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 253 veto
-16:10:11 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 264 veto
-16:09:48 KAISER   limite 1 ingresso/i per scan: $VI rimandato
-16:09:48 KAISER   limite 1 ingresso/i per scan: $GTAVI rimandato
-16:09:47 QUARTER  BUY $REKT 0.068 SOL score 72 impatto 1.98% (Jupiter)
-16:09:47 ORACLE   360 raccolti, 271 analizzati, 3 BUY, 264 veto
-16:09:23 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 267 veto
-16:09:00 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 251 veto
-16:08:37 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 262 veto
-16:08:13 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 260 veto
-16:07:50 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 260 veto
-16:07:27 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 234 veto
-16:07:04 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 253 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
