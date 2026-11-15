@@ -1,33 +1,34 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-15 15:50 UTC · in esecuzione da 0.3 giorni · 111 run
+Aggiornato: 2026-11-15 15:54 UTC · in esecuzione da 0.3 giorni · 111 run
 
 | | |
 |---|---|
-| Equity | **1.4477 SOL** (-3.5% dal capitale iniziale di 1.5 SOL) |
-| Cassa | 1.4120 SOL |
-| Trade chiusi | 22 |
-| Win rate | 36% |
-| P&L realizzato | -0.0637 SOL (~$-4.53) |
-| Media vincite / perdite | +32.5% / -24.6% |
+| Equity | **1.4334 SOL** (-4.4% dal capitale iniziale di 1.5 SOL) |
+| Cassa | 1.4334 SOL |
+| Trade chiusi | 23 |
+| Win rate | 35% |
+| P&L realizzato | -0.0666 SOL (~$-4.73) |
+| Media vincite / perdite | +32.5% / -23.2% |
 | Profit factor | 0.81 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$billy** P-0145 · 0.072 SOL · +63.9% · resta 30% · [grafico](https://dexscreener.com/solana/HEAHg3p29L3yhXXk67W7Dyi3KyEiV6paKRHJcZqmCAfk)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 11 | -0.2858 |
 | Chiusura manuale (app) | 1 | +0.0954 |
-| Trailing stop | 7 | +0.1358 |
+| Trailing stop | 8 | +0.1329 |
 | Time stop | 2 | -0.0189 |
 | Break-even | 1 | +0.0098 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $billy | 75 | -3.9% | -0.0028 | +71% | +31% | Trailing stop | 12m |
 | $GTAVI | 69 | -17.9% | -0.0132 | +39% | +8% | Trailing stop | 1m |
 | $Nyajira | 86 | -11.0% | -0.0081 | +20% | -0% | Time stop | 5m |
 | $SI | 65 | -4.9% | -0.0037 | +0% | -22% | Stop loss | 1m |
@@ -53,6 +54,20 @@ Aggiornato: 2026-11-15 15:50 UTC · in esecuzione da 0.3 giorni · 111 run
 
 ## Ultimi eventi
 ```
+15:54:15 SCRIBE   fine run · trade 23 · win 35% · P&L -0.0666 SOL · equity 1.4334 SOL
+15:54:13 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 243 veto
+15:53:50 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 240 veto
+15:53:26 ORACLE   360 raccolti, 261 analizzati, 3 BUY, 246 veto
+15:53:13 SCRIBE   chiuso P-0145 $billy -0.0028 SOL (-3.9%)
+15:53:13 CHARON   Trailing stop $billy vendo 100% a 31.2% -> 0.0214 SOL
+15:53:03 ORACLE   360 raccolti, 261 analizzati, 3 BUY, 247 veto
+15:52:40 ORACLE   360 raccolti, 252 analizzati, 3 BUY, 241 veto
+15:52:17 ORACLE   360 raccolti, 260 analizzati, 3 BUY, 244 veto
+15:51:54 ORACLE   360 raccolti, 264 analizzati, 3 BUY, 249 veto
+15:51:32 ORACLE   360 raccolti, 254 analizzati, 3 BUY, 238 veto
+15:51:19 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 252 veto
+15:51:02 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 249 veto
+15:50:45 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 253 veto
 15:50:19 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 253 veto
 15:49:54 SCRIBE   chiuso P-0146 $GTAVI -0.0132 SOL (-17.9%)
 15:49:54 CHARON   Trailing stop $GTAVI vendo 100% a 7.8% -> 0.0175 SOL
@@ -79,20 +94,6 @@ Aggiornato: 2026-11-15 15:50 UTC · in esecuzione da 0.3 giorni · 111 run
 15:43:15 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 242 veto
 15:42:53 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 248 veto
 15:42:30 CHARON   TP1 $billy vendo 70% a 29.1% -> 0.0492 SOL
-15:42:30 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 241 veto
-15:42:07 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 238 veto
-15:41:44 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 245 veto
-15:41:31 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 242 veto
-15:41:06 QUARTER  BUY $billy 0.072 SOL score 75 impatto 0.00% (Jupiter)
-15:41:06 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 246 veto
-15:40:43 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 252 veto
-15:40:30 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 242 veto
-15:40:04 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 250 veto
-15:39:42 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 250 veto
-15:39:19 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 246 veto
-15:39:06 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 245 veto
-15:38:40 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 255 veto
-15:38:18 QUARTER  $STICKY impatto 2.2% oltre slippage: annullato
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
