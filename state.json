@@ -1,66 +1,8 @@
 {
  "startedAt": 1794730441037,
  "runs": 111,
- "cash": 1.383606077981324,
- "positions": [
-  {
-   "id": "P-0143",
-   "mint": "4KK5kAhvBjU5RD2CXjCnxpdtedKmvpG4i3KbMvTqpump",
-   "sym": "Nyajira",
-   "name": "ニャジラ",
-   "pairAddress": "8TYJomxH4szQPktvuFPddGkgCJo1nMKSJfwQT4Wm9LaA",
-   "openedAt": 1794755126192,
-   "sizeSOL": 0.07306661272447713,
-   "cost": 0.07406661272447713,
-   "entry": 0.0000012824630804592046,
-   "tokens": 56973.65782905389,
-   "remaining": 1,
-   "rawLeft": "54808244056",
-   "peak": 0.000001534,
-   "tp1Done": false,
-   "spDone": false,
-   "entryLiq": 20384.49,
-   "realized": 0,
-   "score": 86,
-   "why": "runner",
-   "entryInfo": {
-    "srcs": [
-     "profili"
-    ],
-    "notes": [],
-    "plus": [
-     "turnover 6.4x/h"
-    ],
-    "m": {
-     "liq": 20384.49,
-     "mc": 90411,
-     "ageMin": 14.212816666666667,
-     "v1": 129889.91,
-     "tx1": 4894,
-     "br1": 2.0018393623543838,
-     "br5": 1.1943127962085307,
-     "c5": 21.61,
-     "c1": 201,
-     "c6": 201,
-     "turn": 6.371997042849735,
-     "price": 0.00009046,
-     "priceNative": 0.000001268
-    },
-    "grok": null
-   },
-   "last": {
-    "priceNative": 0.000001159,
-    "liq": 19520.53,
-    "br5": 1.3229166666666667,
-    "tx5": 667,
-    "t": 1794755364482
-   },
-   "fills": [
-    "BUY 0.073 impatto 0.14% (Jupiter)"
-   ],
-   "trough": 0.000001159
-  }
- ],
+ "cash": 1.449526479331324,
+ "positions": [],
  "journal": [
   {
    "id": "P-0125",
@@ -982,6 +924,50 @@
    },
    "maePct": -22.094027793662498,
    "age": 23
+  },
+  {
+   "id": "P-0143",
+   "mint": "4KK5kAhvBjU5RD2CXjCnxpdtedKmvpG4i3KbMvTqpump",
+   "sym": "Nyajira",
+   "openedAt": 1794755126192,
+   "closedAt": 1794755437938,
+   "cost": 0.07406661272447713,
+   "back": 0.06592040135,
+   "pnl": -0.00814621137447713,
+   "pct": -10.99849321418342,
+   "mode": "paper",
+   "reason": "Time stop",
+   "score": 86,
+   "solUsd": 71.5036809169647,
+   "peakPct": 19.613579788256285,
+   "trigPct": -0.11408363184074455,
+   "entryInfo": {
+    "srcs": [
+     "profili"
+    ],
+    "notes": [],
+    "plus": [
+     "turnover 6.4x/h"
+    ],
+    "m": {
+     "liq": 20384.49,
+     "mc": 90411,
+     "ageMin": 14.212816666666667,
+     "v1": 129889.91,
+     "tx1": 4894,
+     "br1": 2.0018393623543838,
+     "br5": 1.1943127962085307,
+     "c5": 21.61,
+     "c1": 201,
+     "c6": 201,
+     "turn": 6.371997042849735,
+     "price": 0.00009046,
+     "priceNative": 0.000001268
+    },
+    "grok": null
+   },
+   "maePct": -12.590076308581954,
+   "age": 14
   }
  ],
  "signals": [
@@ -6822,16 +6808,389 @@
    "sym": "Nyajira",
    "score": 79,
    "priceNative": 0.000001138
+  },
+  {
+   "t": 1794755379673,
+   "mint": "9iypDvJZvy5RRC6gKdKVxNbLZevYViYqcW7jQ9nwpump",
+   "sym": "GTA",
+   "score": 93,
+   "priceNative": 0.000001116
+  },
+  {
+   "t": 1794755379673,
+   "mint": "Dq2tWuLu9rtSP8TTJbxBRcds1avBgtFJ7y4VGV5vpump",
+   "sym": "PUMPDEX",
+   "score": 83,
+   "priceNative": 5.038e-7
+  },
+  {
+   "t": 1794755379673,
+   "mint": "8cWGfiHyKqxgLrLtkPt2NnLkSUV2JbcLBf4RN6Fapump",
+   "sym": "Nyajira",
+   "score": 79,
+   "priceNative": 0.000001109
+  },
+  {
+   "t": 1794755379673,
+   "mint": "4KK5kAhvBjU5RD2CXjCnxpdtedKmvpG4i3KbMvTqpump",
+   "sym": "Nyajira",
+   "score": 66,
+   "priceNative": 0.000001159
+  },
+  {
+   "t": 1794755392606,
+   "mint": "9iypDvJZvy5RRC6gKdKVxNbLZevYViYqcW7jQ9nwpump",
+   "sym": "GTA",
+   "score": 93,
+   "priceNative": 0.000001116
+  },
+  {
+   "t": 1794755392606,
+   "mint": "Dq2tWuLu9rtSP8TTJbxBRcds1avBgtFJ7y4VGV5vpump",
+   "sym": "PUMPDEX",
+   "score": 83,
+   "priceNative": 5.038e-7
+  },
+  {
+   "t": 1794755392606,
+   "mint": "8cWGfiHyKqxgLrLtkPt2NnLkSUV2JbcLBf4RN6Fapump",
+   "sym": "Nyajira",
+   "score": 79,
+   "priceNative": 0.000001109
+  },
+  {
+   "t": 1794755392606,
+   "mint": "4KK5kAhvBjU5RD2CXjCnxpdtedKmvpG4i3KbMvTqpump",
+   "sym": "Nyajira",
+   "score": 66,
+   "priceNative": 0.000001159
+  },
+  {
+   "t": 1794755415356,
+   "mint": "9iypDvJZvy5RRC6gKdKVxNbLZevYViYqcW7jQ9nwpump",
+   "sym": "GTA",
+   "score": 93,
+   "priceNative": 0.000001086
+  },
+  {
+   "t": 1794755415356,
+   "mint": "Dq2tWuLu9rtSP8TTJbxBRcds1avBgtFJ7y4VGV5vpump",
+   "sym": "PUMPDEX",
+   "score": 83,
+   "priceNative": 4.167e-7
+  },
+  {
+   "t": 1794755415356,
+   "mint": "8cWGfiHyKqxgLrLtkPt2NnLkSUV2JbcLBf4RN6Fapump",
+   "sym": "Nyajira",
+   "score": 79,
+   "priceNative": 0.000001173
+  },
+  {
+   "t": 1794755415356,
+   "mint": "4KK5kAhvBjU5RD2CXjCnxpdtedKmvpG4i3KbMvTqpump",
+   "sym": "Nyajira",
+   "score": 66,
+   "priceNative": 0.000001121
+  },
+  {
+   "t": 1794755437927,
+   "mint": "9iypDvJZvy5RRC6gKdKVxNbLZevYViYqcW7jQ9nwpump",
+   "sym": "GTA",
+   "score": 88,
+   "priceNative": 9.867e-7
+  },
+  {
+   "t": 1794755437927,
+   "mint": "Dq2tWuLu9rtSP8TTJbxBRcds1avBgtFJ7y4VGV5vpump",
+   "sym": "PUMPDEX",
+   "score": 82,
+   "priceNative": 4.126e-7
+  },
+  {
+   "t": 1794755437927,
+   "mint": "8cWGfiHyKqxgLrLtkPt2NnLkSUV2JbcLBf4RN6Fapump",
+   "sym": "Nyajira",
+   "score": 79,
+   "priceNative": 9.712e-7
+  },
+  {
+   "t": 1794755437927,
+   "mint": "4KK5kAhvBjU5RD2CXjCnxpdtedKmvpG4i3KbMvTqpump",
+   "sym": "Nyajira",
+   "score": 66,
+   "priceNative": 0.000001281
+  },
+  {
+   "t": 1794755461193,
+   "mint": "9iypDvJZvy5RRC6gKdKVxNbLZevYViYqcW7jQ9nwpump",
+   "sym": "GTA",
+   "score": 88,
+   "priceNative": 9.994e-7
+  },
+  {
+   "t": 1794755461193,
+   "mint": "Dq2tWuLu9rtSP8TTJbxBRcds1avBgtFJ7y4VGV5vpump",
+   "sym": "PUMPDEX",
+   "score": 77,
+   "priceNative": 3.96e-7
+  },
+  {
+   "t": 1794755461193,
+   "mint": "8cWGfiHyKqxgLrLtkPt2NnLkSUV2JbcLBf4RN6Fapump",
+   "sym": "Nyajira",
+   "score": 74,
+   "priceNative": 8.315e-7
+  },
+  {
+   "t": 1794755461193,
+   "mint": "4KK5kAhvBjU5RD2CXjCnxpdtedKmvpG4i3KbMvTqpump",
+   "sym": "Nyajira",
+   "score": 66,
+   "priceNative": 0.00000123
+  },
+  {
+   "t": 1794755485885,
+   "mint": "9iypDvJZvy5RRC6gKdKVxNbLZevYViYqcW7jQ9nwpump",
+   "sym": "GTA",
+   "score": 88,
+   "priceNative": 9.994e-7
+  },
+  {
+   "t": 1794755485885,
+   "mint": "Dq2tWuLu9rtSP8TTJbxBRcds1avBgtFJ7y4VGV5vpump",
+   "sym": "PUMPDEX",
+   "score": 77,
+   "priceNative": 3.96e-7
+  },
+  {
+   "t": 1794755485885,
+   "mint": "H32xctVzxwiSTZ4vg7BgW5jZRAdfbC7aw2tXmqjwpump",
+   "sym": "SI",
+   "score": 76,
+   "priceNative": 0.000001073
+  },
+  {
+   "t": 1794755485885,
+   "mint": "8cWGfiHyKqxgLrLtkPt2NnLkSUV2JbcLBf4RN6Fapump",
+   "sym": "Nyajira",
+   "score": 74,
+   "priceNative": 8.315e-7
+  },
+  {
+   "t": 1794755485885,
+   "mint": "4KK5kAhvBjU5RD2CXjCnxpdtedKmvpG4i3KbMvTqpump",
+   "sym": "Nyajira",
+   "score": 66,
+   "priceNative": 0.00000123
+  },
+  {
+   "t": 1794755508613,
+   "mint": "9iypDvJZvy5RRC6gKdKVxNbLZevYViYqcW7jQ9nwpump",
+   "sym": "GTA",
+   "score": 88,
+   "priceNative": 0.000001011
+  },
+  {
+   "t": 1794755508613,
+   "mint": "Dq2tWuLu9rtSP8TTJbxBRcds1avBgtFJ7y4VGV5vpump",
+   "sym": "PUMPDEX",
+   "score": 76,
+   "priceNative": 3.902e-7
+  },
+  {
+   "t": 1794755508613,
+   "mint": "H32xctVzxwiSTZ4vg7BgW5jZRAdfbC7aw2tXmqjwpump",
+   "sym": "SI",
+   "score": 76,
+   "priceNative": 0.000001073
+  },
+  {
+   "t": 1794755508613,
+   "mint": "8cWGfiHyKqxgLrLtkPt2NnLkSUV2JbcLBf4RN6Fapump",
+   "sym": "Nyajira",
+   "score": 74,
+   "priceNative": 8.356e-7
+  },
+  {
+   "t": 1794755508613,
+   "mint": "4KK5kAhvBjU5RD2CXjCnxpdtedKmvpG4i3KbMvTqpump",
+   "sym": "Nyajira",
+   "score": 66,
+   "priceNative": 0.000001316
+  },
+  {
+   "t": 1794755531462,
+   "mint": "9iypDvJZvy5RRC6gKdKVxNbLZevYViYqcW7jQ9nwpump",
+   "sym": "GTA",
+   "score": 88,
+   "priceNative": 0.000001011
+  },
+  {
+   "t": 1794755531462,
+   "mint": "Dq2tWuLu9rtSP8TTJbxBRcds1avBgtFJ7y4VGV5vpump",
+   "sym": "PUMPDEX",
+   "score": 76,
+   "priceNative": 3.902e-7
+  },
+  {
+   "t": 1794755531462,
+   "mint": "H32xctVzxwiSTZ4vg7BgW5jZRAdfbC7aw2tXmqjwpump",
+   "sym": "SI",
+   "score": 76,
+   "priceNative": 0.000001073
+  },
+  {
+   "t": 1794755531462,
+   "mint": "8cWGfiHyKqxgLrLtkPt2NnLkSUV2JbcLBf4RN6Fapump",
+   "sym": "Nyajira",
+   "score": 74,
+   "priceNative": 8.356e-7
+  },
+  {
+   "t": 1794755531462,
+   "mint": "4KK5kAhvBjU5RD2CXjCnxpdtedKmvpG4i3KbMvTqpump",
+   "sym": "Nyajira",
+   "score": 66,
+   "priceNative": 0.000001316
+  },
+  {
+   "t": 1794755554523,
+   "mint": "9iypDvJZvy5RRC6gKdKVxNbLZevYViYqcW7jQ9nwpump",
+   "sym": "GTA",
+   "score": 88,
+   "priceNative": 0.000001056
+  },
+  {
+   "t": 1794755554523,
+   "mint": "H32xctVzxwiSTZ4vg7BgW5jZRAdfbC7aw2tXmqjwpump",
+   "sym": "SI",
+   "score": 83,
+   "priceNative": 0.000001151
+  },
+  {
+   "t": 1794755554523,
+   "mint": "Dq2tWuLu9rtSP8TTJbxBRcds1avBgtFJ7y4VGV5vpump",
+   "sym": "PUMPDEX",
+   "score": 76,
+   "priceNative": 3.545e-7
+  },
+  {
+   "t": 1794755554523,
+   "mint": "8cWGfiHyKqxgLrLtkPt2NnLkSUV2JbcLBf4RN6Fapump",
+   "sym": "Nyajira",
+   "score": 74,
+   "priceNative": 8.046e-7
+  },
+  {
+   "t": 1794755554523,
+   "mint": "4KK5kAhvBjU5RD2CXjCnxpdtedKmvpG4i3KbMvTqpump",
+   "sym": "Nyajira",
+   "score": 66,
+   "priceNative": 0.000001249
+  },
+  {
+   "t": 1794755577359,
+   "mint": "9iypDvJZvy5RRC6gKdKVxNbLZevYViYqcW7jQ9nwpump",
+   "sym": "GTA",
+   "score": 88,
+   "priceNative": 0.000001056
+  },
+  {
+   "t": 1794755577359,
+   "mint": "8cWGfiHyKqxgLrLtkPt2NnLkSUV2JbcLBf4RN6Fapump",
+   "sym": "Nyajira",
+   "score": 74,
+   "priceNative": 8.046e-7
+  },
+  {
+   "t": 1794755577359,
+   "mint": "4KK5kAhvBjU5RD2CXjCnxpdtedKmvpG4i3KbMvTqpump",
+   "sym": "Nyajira",
+   "score": 66,
+   "priceNative": 0.000001249
+  },
+  {
+   "t": 1794755601691,
+   "mint": "8cWGfiHyKqxgLrLtkPt2NnLkSUV2JbcLBf4RN6Fapump",
+   "sym": "Nyajira",
+   "score": 75,
+   "priceNative": 9.027e-7
+  },
+  {
+   "t": 1794755601691,
+   "mint": "4KK5kAhvBjU5RD2CXjCnxpdtedKmvpG4i3KbMvTqpump",
+   "sym": "Nyajira",
+   "score": 72,
+   "priceNative": 0.000001292
+  },
+  {
+   "t": 1794755624459,
+   "mint": "8cWGfiHyKqxgLrLtkPt2NnLkSUV2JbcLBf4RN6Fapump",
+   "sym": "Nyajira",
+   "score": 75,
+   "priceNative": 9.027e-7
+  },
+  {
+   "t": 1794755624459,
+   "mint": "4KK5kAhvBjU5RD2CXjCnxpdtedKmvpG4i3KbMvTqpump",
+   "sym": "Nyajira",
+   "score": 72,
+   "priceNative": 0.000001292
+  },
+  {
+   "t": 1794755647280,
+   "mint": "8cWGfiHyKqxgLrLtkPt2NnLkSUV2JbcLBf4RN6Fapump",
+   "sym": "Nyajira",
+   "score": 75,
+   "priceNative": 8.101e-7
+  },
+  {
+   "t": 1794755647280,
+   "mint": "4KK5kAhvBjU5RD2CXjCnxpdtedKmvpG4i3KbMvTqpump",
+   "sym": "Nyajira",
+   "score": 73,
+   "priceNative": 0.000001378
+  },
+  {
+   "t": 1794755670224,
+   "mint": "H32xctVzxwiSTZ4vg7BgW5jZRAdfbC7aw2tXmqjwpump",
+   "sym": "SI",
+   "score": 81,
+   "priceNative": 0.000001149
+  },
+  {
+   "t": 1794755670224,
+   "mint": "8cWGfiHyKqxgLrLtkPt2NnLkSUV2JbcLBf4RN6Fapump",
+   "sym": "Nyajira",
+   "score": 75,
+   "priceNative": 7.999e-7
   }
  ],
  "day": {
   "date": "2026-11-15",
   "startEq": 1.5
  },
- "cooldownUntil": 1794755618581,
+ "cooldownUntil": 1794755737941,
  "halted": null,
  "seq": 144,
  "events": [
+  "15:14:30 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 248 veto",
+  "15:14:07 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 252 veto",
+  "15:13:44 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 258 veto",
+  "15:13:21 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 250 veto",
+  "15:12:57 ORACLE   360 raccolti, 276 analizzati, 3 BUY, 263 veto",
+  "15:12:34 ORACLE   360 raccolti, 280 analizzati, 5 BUY, 264 veto",
+  "15:12:11 ORACLE   360 raccolti, 265 analizzati, 5 BUY, 249 veto",
+  "15:11:48 ORACLE   360 raccolti, 278 analizzati, 5 BUY, 263 veto",
+  "15:11:25 ORACLE   360 raccolti, 281 analizzati, 5 BUY, 265 veto",
+  "15:11:01 ORACLE   360 raccolti, 279 analizzati, 4 BUY, 263 veto",
+  "15:10:37 SCRIBE   chiuso P-0143 $Nyajira -0.0081 SOL (-11.0%)",
+  "15:10:37 CHARON   Time stop $Nyajira vendo 100% a -0.1% -> 0.0659 SOL",
+  "15:10:37 ORACLE   360 raccolti, 290 analizzati, 4 BUY, 274 veto",
+  "15:10:15 ORACLE   360 raccolti, 278 analizzati, 4 BUY, 262 veto",
+  "15:09:52 ORACLE   360 raccolti, 282 analizzati, 4 BUY, 268 veto",
+  "15:09:39 ORACLE   352 raccolti, 282 analizzati, 4 BUY, 270 veto",
   "15:09:14 ORACLE   347 raccolti, 275 analizzati, 4 BUY, 263 veto",
   "15:08:51 ORACLE   341 raccolti, 260 analizzati, 5 BUY, 248 veto",
   "15:08:38 SCRIBE   chiuso P-0144 $SI -0.0037 SOL (-4.9%)",
@@ -7115,23 +7474,7 @@
   "13:43:05 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 267 veto",
   "13:42:41 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 273 veto",
   "13:42:18 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 268 veto",
-  "13:42:03 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 270 veto",
-  "13:41:38 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 269 veto",
-  "13:41:13 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 262 veto",
-  "13:40:50 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 266 veto",
-  "13:40:25 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 276 veto",
-  "13:40:02 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 272 veto",
-  "13:39:39 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 275 veto",
-  "13:39:17 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 268 veto",
-  "13:39:03 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 265 veto",
-  "13:38:37 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 272 veto",
-  "13:38:13 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 270 veto",
-  "13:37:50 SCRIBE   chiuso P-0136 $twert -0.0177 SOL (-23.2%)",
-  "13:37:50 CHARON   Trailing stop $twert vendo 100% a 8.3% -> 0.0171 SOL",
-  "13:37:50 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 266 veto",
-  "13:37:36 CHARON   TP1 $twert vendo 70% a 44.1% -> 0.0415 SOL",
-  "13:37:26 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 265 veto",
-  "13:37:03 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 266 veto"
+  "13:42:03 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 270 veto"
  ],
  "capital": 1.5,
  "resetId": "C-0065",
@@ -18638,6 +18981,10 @@
   {
    "t": 1794755318578,
    "g": 27.3
+  },
+  {
+   "t": 1794755437938,
+   "g": -7.4
   }
  ]
 }

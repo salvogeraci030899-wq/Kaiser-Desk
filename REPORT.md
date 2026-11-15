@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-15 15:09 UTC · in esecuzione da 0.3 giorni · 111 run
+Aggiornato: 2026-11-15 15:14 UTC · in esecuzione da 0.3 giorni · 111 run
 
 | | |
 |---|---|
-| Equity | **1.4496 SOL** (-3.4% dal capitale iniziale di 1.5 SOL) |
-| Cassa | 1.3836 SOL |
-| Trade chiusi | 20 |
-| Win rate | 40% |
-| P&L realizzato | -0.0423 SOL (~$-3.02) |
-| Media vincite / perdite | +32.5% / -26.3% |
-| Profit factor | 0.87 |
+| Equity | **1.4495 SOL** (-3.4% dal capitale iniziale di 1.5 SOL) |
+| Cassa | 1.4495 SOL |
+| Trade chiusi | 21 |
+| Win rate | 38% |
+| P&L realizzato | -0.0505 SOL (~$-3.59) |
+| Media vincite / perdite | +32.5% / -25.1% |
+| Profit factor | 0.85 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$Nyajira** P-0143 · 0.073 SOL · -9.6% · resta 100% · [grafico](https://dexscreener.com/solana/8TYJomxH4szQPktvuFPddGkgCJo1nMKSJfwQT4Wm9LaA)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -22,12 +22,13 @@ Aggiornato: 2026-11-15 15:09 UTC · in esecuzione da 0.3 giorni · 111 run
 | Stop loss | 11 | -0.2858 |
 | Chiusura manuale (app) | 1 | +0.0954 |
 | Trailing stop | 6 | +0.1490 |
-| Time stop | 1 | -0.0108 |
+| Time stop | 2 | -0.0189 |
 | Break-even | 1 | +0.0098 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $Nyajira | 86 | -11.0% | -0.0081 | +20% | -0% | Time stop | 5m |
 | $SI | 65 | -4.9% | -0.0037 | +0% | -22% | Stop loss | 1m |
 | $GTA | 74 | +13.2% | +0.0098 | +35% | -9% | Break-even | 16m |
 | $SI | 74 | -20.5% | -0.0155 | +0% | -23% | Stop loss | 1m |
@@ -51,6 +52,22 @@ Aggiornato: 2026-11-15 15:09 UTC · in esecuzione da 0.3 giorni · 111 run
 
 ## Ultimi eventi
 ```
+15:14:30 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 248 veto
+15:14:07 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 252 veto
+15:13:44 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 258 veto
+15:13:21 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 250 veto
+15:12:57 ORACLE   360 raccolti, 276 analizzati, 3 BUY, 263 veto
+15:12:34 ORACLE   360 raccolti, 280 analizzati, 5 BUY, 264 veto
+15:12:11 ORACLE   360 raccolti, 265 analizzati, 5 BUY, 249 veto
+15:11:48 ORACLE   360 raccolti, 278 analizzati, 5 BUY, 263 veto
+15:11:25 ORACLE   360 raccolti, 281 analizzati, 5 BUY, 265 veto
+15:11:01 ORACLE   360 raccolti, 279 analizzati, 4 BUY, 263 veto
+15:10:37 SCRIBE   chiuso P-0143 $Nyajira -0.0081 SOL (-11.0%)
+15:10:37 CHARON   Time stop $Nyajira vendo 100% a -0.1% -> 0.0659 SOL
+15:10:37 ORACLE   360 raccolti, 290 analizzati, 4 BUY, 274 veto
+15:10:15 ORACLE   360 raccolti, 278 analizzati, 4 BUY, 262 veto
+15:09:52 ORACLE   360 raccolti, 282 analizzati, 4 BUY, 268 veto
+15:09:39 ORACLE   352 raccolti, 282 analizzati, 4 BUY, 270 veto
 15:09:14 ORACLE   347 raccolti, 275 analizzati, 4 BUY, 263 veto
 15:08:51 ORACLE   341 raccolti, 260 analizzati, 5 BUY, 248 veto
 15:08:38 SCRIBE   chiuso P-0144 $SI -0.0037 SOL (-4.9%)
@@ -75,22 +92,6 @@ Aggiornato: 2026-11-15 15:09 UTC · in esecuzione da 0.3 giorni · 111 run
 15:04:19 SCOUT    fabbrica: 1272 percorsi, 768 configurazioni, 0 passano, 248 ms
 15:04:19 ORACLE   194 raccolti, 128 analizzati, 5 BUY, 120 veto
 15:04:18 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-15:04:15 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-15:04:15 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→15, tp1 40→25, tp1Sell 50→70, timeStopMin 45→5, timeStopMinPnl 5→2, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, trail 20→15, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120, srcGmgnTrending true→false
-15:04:15 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
-15:04:15 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
-15:04:15 SCOUT    Laboratorio: collegato a PumpPortal
-15:04:15 KAISER   run #111 · 0 posizioni · equity 1.4613 SOL · GMGN spenta (nessuna chiave) · Grok off
-15:04:04 SCRIBE   fine run · trade 19 · win 42% · P&L -0.0387 SOL · equity 1.4613 SOL
-15:03:46 ORACLE   360 raccolti, 269 analizzati, 4 BUY, 253 veto
-15:03:33 ORACLE   360 raccolti, 283 analizzati, 4 BUY, 268 veto
-15:03:08 ORACLE   360 raccolti, 278 analizzati, 4 BUY, 262 veto
-15:02:45 ORACLE   360 raccolti, 272 analizzati, 4 BUY, 256 veto
-15:02:22 ORACLE   360 raccolti, 278 analizzati, 4 BUY, 262 veto
-15:02:09 ORACLE   360 raccolti, 278 analizzati, 3 BUY, 263 veto
-15:01:53 SCRIBE   chiuso P-0141 $GTA 0.0098 SOL (13.2%)
-15:01:53 CHARON   Break-even $GTA vendo 100% a -9.4% -> 0.0174 SOL
-15:01:43 ORACLE   360 raccolti, 275 analizzati, 3 BUY, 258 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
