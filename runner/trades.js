@@ -55,7 +55,8 @@ function flowStats(t, p, usd) {
     let i = -1; for (let j = 1; j < p.length; j++) if (p[j - 1] * usd < thr && p[j] * usd >= thr) { i = j; break; }
     if (i < 0 || p.length - i <= 12) continue;                                   // mai superata, o meno di 60 secondi di storia dopo
     const e = p[i], rest = p.slice(i); let pk = 0; for (let j = 1; j < rest.length; j++) if (rest[j] > rest[pk]) pk = j;
-    o.th[key] = { e: i * 5, pk: +(rest[pk] / e).toFixed(3), ts: pk * 5, dip: +(Math.min(...rest.slice(0, pk + 1)) / e).toFixed(3), r: racesOf(p, i, THR_RACES), x: HOR.map((h) => (i + h < p.length ? +(p[i + h] / e).toFixed(3) : null)) };
+    o.th[key] = { e: i * 5, pk: +(rest[pk] / e).toFixed(3), ts: pk * 5, dip: +(Math.min(...rest.slice(0, pk + 1)) / e).toFixed(3), r: racesOf(p, i, THR_RACES), x: HOR.map((h) => (i + h < p.length ? +(p[i + h] / e).toFixed(3) : null)), d: {} };
+    for (const k of [2, 4]) { const j = i + k; if (p.length - j <= 12 || !(p[j] > 0)) continue; o.th[key].d[k * 5] = { g: +(p[j] / e).toFixed(3), r: racesOf(p, j, THR_RACES), x: HOR.map((h) => (j + h < p.length ? +(p[j + h] / p[j]).toFixed(3) : null)) }; }   // d[10], d[20]: entrata dopo 10 e 20 secondi; g = prezzo di entrata rispetto a quello della soglia
   }
   // dopo ogni acquisto: deriva del prezzo a +10, +30 e +60 s rispetto al prezzo subito dopo l'acquisto (somma dei logaritmi, conteggi e quante volte è sceso)
   const rx = {};
@@ -106,7 +107,8 @@ function labSummary(done, now) {
   });
   const th = THR.map(([, key]) => {
     const g = done.filter((d) => d.th && d.th[key]);
-    return { key, n: g.length, races: pctRaces(g, (d) => d.th[key].r, THR_RACES), peak: medOf(g.map((d) => d.th[key].pk), 2), ts: medOf(g.map((d) => d.th[key].ts), 0), dip: medOf(g.map((d) => d.th[key].dip), 2), x: xs(g, (d) => d.th[key].x) };
+    const dl = [10, 20].map((s) => { const h = g.filter((d) => d.th[key].d && d.th[key].d[s]); return { delay: s, n: h.length, races: pctRaces(h, (d) => d.th[key].d[s].r, THR_RACES), gap: medOf(h.map((d) => d.th[key].d[s].g), 2), x: xs(h, (d) => d.th[key].d[s].x) }; });
+    return { key, n: g.length, delays: dl, races: pctRaces(g, (d) => d.th[key].r, THR_RACES), peak: medOf(g.map((d) => d.th[key].pk), 2), ts: medOf(g.map((d) => d.th[key].ts), 0), dip: medOf(g.map((d) => d.th[key].dip), 2), x: xs(g, (d) => d.th[key].x) };
   });
   const rx = [];
   for (const s of ['s', 'm', 'l']) for (const a of [0, 1]) {
@@ -126,6 +128,13 @@ function labSummary(done, now) {
 // ---------- prezzo dalla catena ----------
 // Conto "bonding curve" di pump.fun: discriminatore (8) + riserve virtuali di token e di SOL, riserve reali, supply totale (u64 ciascuna) + flag "completata".
 // Market cap in SOL = riserva virtuale di SOL x supply / riserva virtuale di token. Non dipende da nessun sito di terzi: e' il prezzo vero della curva.
+// Motivo per cui un conto non e' una curva sensata (per la diagnostica): corto, riserve a zero, market cap troppo bassa o troppo alta
+function curveWhy(b64) {
+  let b; try { b = Buffer.from(String(b64), 'base64'); } catch { return 'illeggibile'; }
+  if (b.length < 49) return 'corto';
+  const c = parseCurve(b64); if (!c) return 'zero';
+  return c.mcSol <= 1 ? 'bassa' : c.mcSol >= 5000 ? 'alta' : 'ok';
+}
 function parseCurve(b64) {
   let b; try { b = Buffer.from(String(b64), 'base64'); } catch { return null; }
   if (b.length < 49) return null;
@@ -137,7 +146,7 @@ function parseCurve(b64) {
 class CurvePoller {
   constructor(o) {
     this.url = toHttp(o.url); this.fetch = o.fetch || globalThis.fetch; this.book = o.book; this.now = o.now || Date.now; this.log = o.log || (() => {}); this.every = o.everyMs || 10000;
-    this.last = 0; this.busy = false; this.ok = 0; this.fail = 0; this.bad = 0; this.sane = 0; this.off = !this.url || !this.fetch; this.err = '';
+    this.last = 0; this.busy = false; this.ok = 0; this.fail = 0; this.bad = 0; this.why = {}; this.sample = []; this.gone = 0; this.done = 0; this.sane = 0; this.off = !this.url || !this.fetch; this.err = '';
   }
   tick() {
     if (this.off || this.busy) return; const now = this.now(); if (now - this.last < this.every) return; this.last = now; this.busy = true;
@@ -151,8 +160,8 @@ class CurvePoller {
       const j = await r.json(), vals = j && j.result && j.result.value;
       if (!Array.isArray(vals)) { this.fail++; this.err = String((j && j.error && j.error.message) || 'risposta senza valori').slice(0, 80); continue; }
       chunk.forEach((t, k) => {
-        const v = vals[k]; if (!v || !v.data) return; const c = parseCurve(Array.isArray(v.data) ? v.data[0] : v.data);
-        if (!c || !(c.mcSol > 1 && c.mcSol < 5000)) { this.bad++; if (this.sane < 20 && this.bad >= 20 && this.ok === 0) { this.off = true; this.log('prezzi dalla catena: formato del conto non riconosciuto, lettura spenta'); } return; }
+        const v = vals[k]; if (!v || !v.data) { this.gone++; return; } const c = parseCurve(Array.isArray(v.data) ? v.data[0] : v.data);
+        if (!c || !(c.mcSol > 1 && c.mcSol < 5000)) { this.bad++; const w = curveWhy(Array.isArray(v.data) ? v.data[0] : v.data); this.why[w] = (this.why[w] || 0) + 1; if (this.sample.length < 3) this.sample.push(w + (c ? ' mc ' + Math.round(c.mcSol) : '') + ' lunghezza ' + Buffer.from(String(Array.isArray(v.data) ? v.data[0] : v.data), 'base64').length); if (this.sane < 20 && this.bad >= 20 && this.ok === 0) { this.off = true; this.log('prezzi dalla catena: formato del conto non riconosciuto, lettura spenta'); } return; }
         this.ok++; this.sane++; this.book.curveMc(t, now, c);
       });
     }
@@ -246,7 +255,7 @@ class TradeFeed {
     if (this.unsub.length) { const keys = this.unsub.splice(0, 100); this.send({ method: 'unsubscribeTokenTrade', keys }); }
   }
   botNow(mint) { return this.book.scoreNow(mint); }
-  status() { const p = this.poller; return { state: this.state, active: this.book.toks.size, trades: this.book.nTrades, creates: this.book.nCreate, msgs: { ...this.stats }, poll: p ? { ok: p.ok, fail: p.fail, bad: p.bad, off: p.off, err: p.err } : null }; }
+  status() { const p = this.poller; return { state: this.state, active: this.book.toks.size, trades: this.book.nTrades, creates: this.book.nCreate, msgs: { ...this.stats }, poll: p ? { ok: p.ok, fail: p.fail, bad: p.bad, why: p.why, gone: p.gone, sample: p.sample, off: p.off, err: p.err } : null }; }
 }
 
-module.exports = { parseCurve, CurvePoller, PORTAL_URL, RACES, ENTRY_MS, WATCH_MS, features, botScore, race, summarize, labSummary, TradeBook, TradeFeed };
+module.exports = { curveWhy, parseCurve, CurvePoller, PORTAL_URL, RACES, ENTRY_MS, WATCH_MS, features, botScore, race, summarize, labSummary, TradeBook, TradeFeed };

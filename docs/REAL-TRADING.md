@@ -189,3 +189,8 @@ Dai dati del runner risultava che PumpPortal inviava i nuovi token ma nessuno sc
 - La scheda Lab mostra quanti messaggi arrivano (nuovi, scambi, altri) e quante letture della catena riescono. Se i primi valori letti non sembrano una market cap sensata, la lettura si spegne da sola (formato del conto diverso da quello atteso).
 
 Limiti: il formato del conto e l'indirizzo della curva (letto dall'evento di creazione) sono noti a memoria e non verificati dal vivo; con un piano RPC a consumo contano circa 25.000 chiamate al giorno.
+
+### Laboratorio: entrata con ritardo e letture scartate (v2.28.0)
+
+- Per ogni soglia di market cap il Laboratorio simula anche l'entrata 10 e 20 secondi dopo la soglia (la tua reazione), con gare +12/-10 e +20/-15 e valore dopo 1 minuto, e mostra il prezzo di entrata mediano rispetto a quello della soglia. L'entrata istantanea alla soglia e' ottimistica: nella realta' si compra qualche secondo dopo, spesso piu' in alto.
+- Le letture della curva scartate (conto troppo corto, riserve a zero, market cap troppo bassa o troppo alta) sono contate per motivo, con un campione, nella riga "Prezzi dalla catena" della scheda Lab.
