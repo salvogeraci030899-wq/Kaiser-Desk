@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-15 09:17 UTC · in esecuzione da 0.0 giorni · 104 run
+Aggiornato: 2026-11-15 09:22 UTC · in esecuzione da 0.0 giorni · 104 run
 
 | | |
 |---|---|
@@ -30,6 +30,22 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+09:22:36 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 258 veto
+09:22:14 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 265 veto
+09:21:50 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 257 veto
+09:21:28 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 256 veto
+09:21:05 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 259 veto
+09:20:42 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 259 veto
+09:20:20 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 253 veto
+09:19:57 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 260 veto
+09:19:34 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 258 veto
+09:19:11 ORACLE   359 raccolti, 265 analizzati, 0 BUY, 253 veto
+09:19:09 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)
+09:18:48 ORACLE   338 raccolti, 249 analizzati, 0 BUY, 240 veto
+09:18:26 ORACLE   330 raccolti, 242 analizzati, 0 BUY, 233 veto
+09:18:03 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
+09:18:03 ORACLE   325 raccolti, 238 analizzati, 0 BUY, 229 veto
+09:17:40 ORACLE   314 raccolti, 225 analizzati, 0 BUY, 217 veto
 09:17:17 ORACLE   305 raccolti, 222 analizzati, 0 BUY, 215 veto
 09:16:55 ORACLE   304 raccolti, 215 analizzati, 0 BUY, 207 veto
 09:16:33 ORACLE   291 raccolti, 210 analizzati, 0 BUY, 201 veto
@@ -54,22 +70,6 @@ _nessuna_
 09:12:26 KAISER   run #104 · 0 posizioni · equity 1.5138 SOL · GMGN spenta (nessuna chiave) · Grok off
 09:12:09 SCRIBE   fine run · trade 2 · win 50% · P&L 0.0138 SOL · equity 1.5138 SOL
 09:12:00 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 251 veto
-09:11:57 SCRIBE   chiuso P-0124 $PAW 0.0954 SOL (78.9%)
-09:11:57 CHARON   Chiusura manuale (app) $PAW vendo 100% a 180.8% -> 0.0968 SOL
-09:11:57 KAISER   chiusura manuale dall'app: P-0124 PAW
-09:11:37 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 246 veto
-09:11:15 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 245 veto
-09:10:52 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 249 veto
-09:10:29 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 250 veto
-09:10:06 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 247 veto
-09:09:43 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 248 veto
-09:09:20 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 249 veto
-09:08:57 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 248 veto
-09:08:34 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 251 veto
-09:08:21 SCOUT    regola R-031: ritirata (non regge in avanti: 20 operazioni, esito medio -7.15%)
-09:08:21 SCOUT    regola R-030: ritirata (non regge in avanti: 20 operazioni, esito medio -7.15%)
-09:08:21 SCOUT    regola R-029: ritirata (non regge in avanti: 20 operazioni, esito medio -4.74%)
-09:08:21 SCOUT    regola R-028: ritirata (non regge in avanti: 20 operazioni, esito medio -8.98%)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
