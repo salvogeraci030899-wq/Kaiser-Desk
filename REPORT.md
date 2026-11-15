@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-15 14:09 UTC · in esecuzione da 0.2 giorni · 109 run
+Aggiornato: 2026-11-15 14:13 UTC · in esecuzione da 0.2 giorni · 109 run
 
 | | |
 |---|---|
@@ -44,6 +44,16 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+14:13:52 SCRIBE   fine run · trade 14 · win 43% · P&L -0.0182 SOL · equity 1.4818 SOL
+14:13:33 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 251 veto
+14:13:09 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 248 veto
+14:12:45 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 254 veto
+14:12:22 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 249 veto
+14:11:59 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 245 veto
+14:11:35 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 246 veto
+14:11:10 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 248 veto
+14:10:46 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 238 veto
+14:10:23 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 250 veto
 14:09:59 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 245 veto
 14:09:36 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 247 veto
 14:09:12 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 248 veto
@@ -74,16 +84,6 @@ _nessuna_
 14:01:12 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 249 veto
 14:00:49 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 249 veto
 14:00:25 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 251 veto
-14:00:01 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 243 veto
-13:59:38 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 249 veto
-13:59:15 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 251 veto
-13:58:51 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 250 veto
-13:58:38 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 249 veto
-13:58:23 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 246 veto
-13:57:54 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 254 veto
-13:57:29 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 257 veto
-13:57:16 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 253 veto
-13:56:51 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 261 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
