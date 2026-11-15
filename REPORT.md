@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-15 13:09 UTC · in esecuzione da 0.2 giorni · 108 run
+Aggiornato: 2026-11-15 13:14 UTC · in esecuzione da 0.2 giorni · 108 run
 
 | | |
 |---|---|
@@ -42,6 +42,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+13:14:10 ORACLE   360 raccolti, 282 analizzati, 0 BUY, 271 veto
+13:13:47 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 260 veto
+13:13:24 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 266 veto
+13:13:01 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 272 veto
+13:12:48 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 268 veto
+13:12:22 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 270 veto
+13:12:00 ORACLE   360 raccolti, 287 analizzati, 0 BUY, 278 veto
+13:11:37 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 268 veto
+13:11:13 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 271 veto
+13:10:50 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 271 veto
+13:10:27 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 268 veto
+13:10:04 ORACLE   360 raccolti, 287 analizzati, 0 BUY, 278 veto
+13:09:42 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 262 veto
+13:09:29 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 269 veto
 13:09:13 SCRIBE   chiuso P-0134 $SWJ 0.0058 SOL (7.7%)
 13:09:13 CHARON   Trailing stop $SWJ vendo 100% a 14.0% -> 0.0214 SOL
 13:09:03 ORACLE   360 raccolti, 286 analizzati, 0 BUY, 276 veto
@@ -68,20 +82,6 @@ _nessuna_
 13:03:40 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 270 veto
 13:03:17 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 275 veto
 13:02:54 QUARTER  $pls impatto 2.5% oltre slippage: annullato
-13:02:54 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 267 veto
-13:02:31 ORACLE   360 raccolti, 288 analizzati, 1 BUY, 278 veto
-13:02:09 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 269 veto
-13:01:44 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 270 veto
-13:01:21 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 265 veto
-13:00:58 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 271 veto
-13:00:34 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 270 veto
-13:00:12 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 274 veto
-12:59:48 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 275 veto
-12:59:26 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 267 veto
-12:59:13 QUARTER  BUY $SWJ 0.075 SOL score 64 impatto 0.24% (Jupiter)
-12:59:13 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 270 veto
-12:58:48 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 262 veto
-12:58:26 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 268 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
