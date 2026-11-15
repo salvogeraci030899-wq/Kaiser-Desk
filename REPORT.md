@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-15 15:19 UTC · in esecuzione da 0.3 giorni · 111 run
+Aggiornato: 2026-11-15 15:24 UTC · in esecuzione da 0.3 giorni · 111 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-15 15:19 UTC · in esecuzione da 0.3 giorni · 111 run
 | Cassa | 1.4495 SOL |
 | Trade chiusi | 21 |
 | Win rate | 38% |
-| P&L realizzato | -0.0505 SOL (~$-3.60) |
+| P&L realizzato | -0.0505 SOL (~$-3.59) |
 | Media vincite / perdite | +32.5% / -25.1% |
 | Profit factor | 0.85 |
 | Circuit breaker | no |
@@ -52,6 +52,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+15:24:51 ORACLE   360 raccolti, 257 analizzati, 3 BUY, 245 veto
+15:24:28 ORACLE   360 raccolti, 269 analizzati, 3 BUY, 256 veto
+15:24:05 ORACLE   360 raccolti, 272 analizzati, 3 BUY, 258 veto
+15:23:43 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 254 veto
+15:23:20 ORACLE   360 raccolti, 268 analizzati, 3 BUY, 256 veto
+15:22:57 ORACLE   360 raccolti, 272 analizzati, 3 BUY, 260 veto
+15:22:34 ORACLE   360 raccolti, 268 analizzati, 3 BUY, 255 veto
+15:22:11 ORACLE   360 raccolti, 277 analizzati, 3 BUY, 265 veto
+15:21:48 ORACLE   360 raccolti, 273 analizzati, 3 BUY, 264 veto
+15:21:25 ORACLE   360 raccolti, 272 analizzati, 3 BUY, 263 veto
+15:21:02 ORACLE   360 raccolti, 264 analizzati, 3 BUY, 255 veto
+15:20:39 ORACLE   360 raccolti, 275 analizzati, 3 BUY, 267 veto
+15:20:16 ORACLE   360 raccolti, 266 analizzati, 3 BUY, 258 veto
+15:19:52 ORACLE   360 raccolti, 267 analizzati, 3 BUY, 256 veto
 15:19:30 ORACLE   360 raccolti, 266 analizzati, 3 BUY, 255 veto
 15:19:07 ORACLE   360 raccolti, 262 analizzati, 3 BUY, 253 veto
 15:18:44 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 255 veto
@@ -78,20 +92,6 @@ _nessuna_
 15:10:37 SCRIBE   chiuso P-0143 $Nyajira -0.0081 SOL (-11.0%)
 15:10:37 CHARON   Time stop $Nyajira vendo 100% a -0.1% -> 0.0659 SOL
 15:10:37 ORACLE   360 raccolti, 290 analizzati, 4 BUY, 274 veto
-15:10:15 ORACLE   360 raccolti, 278 analizzati, 4 BUY, 262 veto
-15:09:52 ORACLE   360 raccolti, 282 analizzati, 4 BUY, 268 veto
-15:09:39 ORACLE   352 raccolti, 282 analizzati, 4 BUY, 270 veto
-15:09:14 ORACLE   347 raccolti, 275 analizzati, 4 BUY, 263 veto
-15:08:51 ORACLE   341 raccolti, 260 analizzati, 5 BUY, 248 veto
-15:08:38 SCRIBE   chiuso P-0144 $SI -0.0037 SOL (-4.9%)
-15:08:38 CHARON   Stop loss $SI vendo 100% a -22.1% -> 0.0711 SOL
-15:08:28 ORACLE   326 raccolti, 246 analizzati, 4 BUY, 235 veto
-15:08:16 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-15:08:05 ORACLE   316 raccolti, 246 analizzati, 4 BUY, 235 veto
-15:07:43 QUARTER  BUY $SI 0.074 SOL score 65 impatto 1.88% (Jupiter)
-15:07:43 ORACLE   314 raccolti, 239 analizzati, 4 BUY, 229 veto
-15:07:20 ORACLE   295 raccolti, 229 analizzati, 4 BUY, 219 veto
-15:06:57 ORACLE   283 raccolti, 203 analizzati, 4 BUY, 194 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
