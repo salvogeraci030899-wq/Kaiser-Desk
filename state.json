@@ -1,68 +1,8 @@
 {
  "startedAt": 1794730441037,
  "runs": 112,
- "cash": 1.4060219703136112,
- "positions": [
-  {
-   "id": "P-0147",
-   "mint": "4Dj8m9vWqu779F1KDBUttvXM8YFm7U92SDpvjBNKtEiB",
-   "sym": "VI",
-   "name": "GTA VI",
-   "pairAddress": "3pEHyg4hvDF2chcaS7n11SBo3VYeJmzrvAtoqxRTE9Zz",
-   "openedAt": 1794758337191,
-   "sizeSOL": 0.07167215085176899,
-   "cost": 0.072672150851769,
-   "entry": 6.992031471418782e-7,
-   "tokens": 102505.47518949553,
-   "remaining": 0.30000000000000004,
-   "rawLeft": "20023259920",
-   "peak": 0.000001052,
-   "tp1Done": true,
-   "spDone": false,
-   "entryLiq": 14631.54,
-   "realized": 0.04525110413,
-   "score": 88,
-   "why": "runner",
-   "entryInfo": {
-    "srcs": [
-     "profili",
-     "jup trend"
-    ],
-    "notes": [],
-    "plus": [
-     "turnover 3.5x/h",
-     "pressione in acquisto"
-    ],
-    "m": {
-     "liq": 14631.54,
-     "mc": 49120,
-     "ageMin": 8.851883333333333,
-     "v1": 50661.35,
-     "tx1": 1722,
-     "br1": 1.8926174496644295,
-     "br5": 1.6620209059233448,
-     "c5": 86.99,
-     "c1": 68.66,
-     "c6": 68.66,
-     "turn": 3.4624755835681,
-     "price": 0.00004918,
-     "priceNative": 6.908e-7
-    },
-    "grok": null
-   },
-   "last": {
-    "priceNative": 0.000001052,
-    "liq": 18336.47,
-    "br5": 1.3864541832669324,
-    "tx5": 1196,
-    "t": 1794758371852
-   },
-   "fills": [
-    "BUY 0.072 impatto 0.21% (Jupiter)",
-    "SELL 70% -> 0.0453 (TP1, Jupiter)"
-   ]
-  }
- ],
+ "cash": 1.3684539574960168,
+ "positions": [],
  "journal": [
   {
    "id": "P-0125",
@@ -1123,303 +1063,100 @@
    },
    "maePct": -0.9900990099009799,
    "age": 4
+  },
+  {
+   "id": "P-0147",
+   "mint": "4Dj8m9vWqu779F1KDBUttvXM8YFm7U92SDpvjBNKtEiB",
+   "sym": "VI",
+   "openedAt": 1794758337191,
+   "closedAt": 1794758504566,
+   "cost": 0.072672150851769,
+   "back": 0.053384160039999996,
+   "pnl": -0.019287990811768997,
+   "pct": -26.541103553011858,
+   "mode": "paper",
+   "reason": "Trailing stop",
+   "score": 88,
+   "solUsd": 71.0604743878855,
+   "peakPct": 68.76354244449092,
+   "trigPct": 36.369523492222115,
+   "entryInfo": {
+    "srcs": [
+     "profili",
+     "jup trend"
+    ],
+    "notes": [],
+    "plus": [
+     "turnover 3.5x/h",
+     "pressione in acquisto"
+    ],
+    "m": {
+     "liq": 14631.54,
+     "mc": 49120,
+     "ageMin": 8.851883333333333,
+     "v1": 50661.35,
+     "tx1": 1722,
+     "br1": 1.8926174496644295,
+     "br5": 1.6620209059233448,
+     "c5": 86.99,
+     "c1": 68.66,
+     "c6": 68.66,
+     "turn": 3.4624755835681,
+     "price": 0.00004918,
+     "priceNative": 6.908e-7
+    },
+    "grok": null
+   },
+   "maePct": null,
+   "age": 9
+  },
+  {
+   "id": "P-0148",
+   "mint": "CmUoTvE986qgTB1Kvo4NVbHXBH5Qa2PyGhe7GMDepump",
+   "sym": "SI",
+   "openedAt": 1794758480063,
+   "closedAt": 1794758528734,
+   "cost": 0.07308008103759425,
+   "back": 0.02737901231,
+   "pnl": -0.04570106872759425,
+   "pct": -62.535602148668204,
+   "mode": "paper",
+   "reason": "Stop loss",
+   "score": 73,
+   "solUsd": 71.09378027454113,
+   "peakPct": 0,
+   "trigPct": -23.057893523594263,
+   "entryInfo": {
+    "srcs": [
+     "gecko nuovi",
+     "profili"
+    ],
+    "notes": [],
+    "plus": [
+     "turnover 5.7x/h"
+    ],
+    "m": {
+     "liq": 10399.73,
+     "mc": 25049,
+     "ageMin": 4.683583333333333,
+     "v1": 58860.04,
+     "tx1": 2552,
+     "br1": 1.182905982905983,
+     "br5": 1.1804586241276172,
+     "c5": -21.06,
+     "c1": -15.19,
+     "c6": -15.19,
+     "turn": 5.659766167006259,
+     "price": 0.00002508,
+     "priceNative": 3.522e-7
+    },
+    "grok": null
+   },
+   "maePct": -23.057893523594263,
+   "age": 5
   }
  ],
  "signals": [
-  {
-   "t": 1794736366824,
-   "mint": "FS1pBmZKp2Qw1atC64GoLamHstECAos9ot8bGPgDpump",
-   "sym": "Socks",
-   "score": 82,
-   "priceNative": 9.964e-7
-  },
-  {
-   "t": 1794736389683,
-   "mint": "FS1pBmZKp2Qw1atC64GoLamHstECAos9ot8bGPgDpump",
-   "sym": "Socks",
-   "score": 79,
-   "priceNative": 8.978e-7
-  },
-  {
-   "t": 1794736412336,
-   "mint": "FS1pBmZKp2Qw1atC64GoLamHstECAos9ot8bGPgDpump",
-   "sym": "Socks",
-   "score": 79,
-   "priceNative": 8.978e-7
-  },
-  {
-   "t": 1794736435192,
-   "mint": "FS1pBmZKp2Qw1atC64GoLamHstECAos9ot8bGPgDpump",
-   "sym": "Socks",
-   "score": 80,
-   "priceNative": 8.698e-7
-  },
-  {
-   "t": 1794736458185,
-   "mint": "FS1pBmZKp2Qw1atC64GoLamHstECAos9ot8bGPgDpump",
-   "sym": "Socks",
-   "score": 75,
-   "priceNative": 8.698e-7
-  },
-  {
-   "t": 1794736480758,
-   "mint": "FS1pBmZKp2Qw1atC64GoLamHstECAos9ot8bGPgDpump",
-   "sym": "Socks",
-   "score": 75,
-   "priceNative": 8.698e-7
-  },
-  {
-   "t": 1794736503451,
-   "mint": "FS1pBmZKp2Qw1atC64GoLamHstECAos9ot8bGPgDpump",
-   "sym": "Socks",
-   "score": 75,
-   "priceNative": 0.000001032
-  },
-  {
-   "t": 1794736503451,
-   "mint": "3nbHBkEDdbPiF5zJMhsxucm25V6UHKv9BVQuTKJVpump",
-   "sym": "dragoncat",
-   "score": 64,
-   "priceNative": 1.418e-7
-  },
-  {
-   "t": 1794736525971,
-   "mint": "FS1pBmZKp2Qw1atC64GoLamHstECAos9ot8bGPgDpump",
-   "sym": "Socks",
-   "score": 75,
-   "priceNative": 0.000001032
-  },
-  {
-   "t": 1794736525971,
-   "mint": "3nbHBkEDdbPiF5zJMhsxucm25V6UHKv9BVQuTKJVpump",
-   "sym": "dragoncat",
-   "score": 64,
-   "priceNative": 1.418e-7
-  },
-  {
-   "t": 1794736548409,
-   "mint": "FS1pBmZKp2Qw1atC64GoLamHstECAos9ot8bGPgDpump",
-   "sym": "Socks",
-   "score": 77,
-   "priceNative": 8.225e-7
-  },
-  {
-   "t": 1794736571151,
-   "mint": "FS1pBmZKp2Qw1atC64GoLamHstECAos9ot8bGPgDpump",
-   "sym": "Socks",
-   "score": 77,
-   "priceNative": 8.225e-7
-  },
-  {
-   "t": 1794736594047,
-   "mint": "FS1pBmZKp2Qw1atC64GoLamHstECAos9ot8bGPgDpump",
-   "sym": "Socks",
-   "score": 76,
-   "priceNative": 6.24e-7
-  },
-  {
-   "t": 1794736616984,
-   "mint": "FS1pBmZKp2Qw1atC64GoLamHstECAos9ot8bGPgDpump",
-   "sym": "Socks",
-   "score": 77,
-   "priceNative": 6.159e-7
-  },
-  {
-   "t": 1794736639758,
-   "mint": "FS1pBmZKp2Qw1atC64GoLamHstECAos9ot8bGPgDpump",
-   "sym": "Socks",
-   "score": 78,
-   "priceNative": 7.055e-7
-  },
-  {
-   "t": 1794736662507,
-   "mint": "FS1pBmZKp2Qw1atC64GoLamHstECAos9ot8bGPgDpump",
-   "sym": "Socks",
-   "score": 78,
-   "priceNative": 7.055e-7
-  },
-  {
-   "t": 1794736684629,
-   "mint": "FS1pBmZKp2Qw1atC64GoLamHstECAos9ot8bGPgDpump",
-   "sym": "Socks",
-   "score": 77,
-   "priceNative": 8.265e-7
-  },
-  {
-   "t": 1794736706535,
-   "mint": "FS1pBmZKp2Qw1atC64GoLamHstECAos9ot8bGPgDpump",
-   "sym": "Socks",
-   "score": 77,
-   "priceNative": 8.265e-7
-  },
-  {
-   "t": 1794736729470,
-   "mint": "FS1pBmZKp2Qw1atC64GoLamHstECAos9ot8bGPgDpump",
-   "sym": "Socks",
-   "score": 83,
-   "priceNative": 9.001e-7
-  },
-  {
-   "t": 1794736752179,
-   "mint": "FS1pBmZKp2Qw1atC64GoLamHstECAos9ot8bGPgDpump",
-   "sym": "Socks",
-   "score": 83,
-   "priceNative": 9.001e-7
-  },
-  {
-   "t": 1794736774927,
-   "mint": "FS1pBmZKp2Qw1atC64GoLamHstECAos9ot8bGPgDpump",
-   "sym": "Socks",
-   "score": 82,
-   "priceNative": 9.929e-7
-  },
-  {
-   "t": 1794736797359,
-   "mint": "FS1pBmZKp2Qw1atC64GoLamHstECAos9ot8bGPgDpump",
-   "sym": "Socks",
-   "score": 83,
-   "priceNative": 9.727e-7
-  },
-  {
-   "t": 1794736819305,
-   "mint": "FS1pBmZKp2Qw1atC64GoLamHstECAos9ot8bGPgDpump",
-   "sym": "Socks",
-   "score": 83,
-   "priceNative": 9.727e-7
-  },
-  {
-   "t": 1794736841993,
-   "mint": "FS1pBmZKp2Qw1atC64GoLamHstECAos9ot8bGPgDpump",
-   "sym": "Socks",
-   "score": 82,
-   "priceNative": 9.144e-7
-  },
-  {
-   "t": 1794736864565,
-   "mint": "FS1pBmZKp2Qw1atC64GoLamHstECAos9ot8bGPgDpump",
-   "sym": "Socks",
-   "score": 83,
-   "priceNative": 9.94e-7
-  },
-  {
-   "t": 1794736886541,
-   "mint": "FS1pBmZKp2Qw1atC64GoLamHstECAos9ot8bGPgDpump",
-   "sym": "Socks",
-   "score": 81,
-   "priceNative": 0.000001081
-  },
-  {
-   "t": 1794736886541,
-   "mint": "3nbHBkEDdbPiF5zJMhsxucm25V6UHKv9BVQuTKJVpump",
-   "sym": "dragoncat",
-   "score": 63,
-   "priceNative": 1.22e-7
-  },
-  {
-   "t": 1794736909378,
-   "mint": "FS1pBmZKp2Qw1atC64GoLamHstECAos9ot8bGPgDpump",
-   "sym": "Socks",
-   "score": 81,
-   "priceNative": 0.000001094
-  },
-  {
-   "t": 1794736909378,
-   "mint": "3nbHBkEDdbPiF5zJMhsxucm25V6UHKv9BVQuTKJVpump",
-   "sym": "dragoncat",
-   "score": 63,
-   "priceNative": 1.273e-7
-  },
-  {
-   "t": 1794736931897,
-   "mint": "FS1pBmZKp2Qw1atC64GoLamHstECAos9ot8bGPgDpump",
-   "sym": "Socks",
-   "score": 82,
-   "priceNative": 0.000001101
-  },
-  {
-   "t": 1794736931897,
-   "mint": "3nbHBkEDdbPiF5zJMhsxucm25V6UHKv9BVQuTKJVpump",
-   "sym": "dragoncat",
-   "score": 63,
-   "priceNative": 1.27e-7
-  },
-  {
-   "t": 1794736962462,
-   "mint": "FS1pBmZKp2Qw1atC64GoLamHstECAos9ot8bGPgDpump",
-   "sym": "Socks",
-   "score": 82,
-   "priceNative": 0.000001101
-  },
-  {
-   "t": 1794736962462,
-   "mint": "3nbHBkEDdbPiF5zJMhsxucm25V6UHKv9BVQuTKJVpump",
-   "sym": "dragoncat",
-   "score": 63,
-   "priceNative": 1.27e-7
-  },
-  {
-   "t": 1794736983933,
-   "mint": "FS1pBmZKp2Qw1atC64GoLamHstECAos9ot8bGPgDpump",
-   "sym": "Socks",
-   "score": 83,
-   "priceNative": 0.000001098
-  },
-  {
-   "t": 1794736983933,
-   "mint": "3nbHBkEDdbPiF5zJMhsxucm25V6UHKv9BVQuTKJVpump",
-   "sym": "dragoncat",
-   "score": 64,
-   "priceNative": 1.273e-7
-  },
-  {
-   "t": 1794737005840,
-   "mint": "FS1pBmZKp2Qw1atC64GoLamHstECAos9ot8bGPgDpump",
-   "sym": "Socks",
-   "score": 82,
-   "priceNative": 0.000001085
-  },
-  {
-   "t": 1794737005840,
-   "mint": "3nbHBkEDdbPiF5zJMhsxucm25V6UHKv9BVQuTKJVpump",
-   "sym": "dragoncat",
-   "score": 67,
-   "priceNative": 1.255e-7
-  },
-  {
-   "t": 1794737028160,
-   "mint": "FS1pBmZKp2Qw1atC64GoLamHstECAos9ot8bGPgDpump",
-   "sym": "Socks",
-   "score": 82,
-   "priceNative": 0.000001085
-  },
-  {
-   "t": 1794737028160,
-   "mint": "3nbHBkEDdbPiF5zJMhsxucm25V6UHKv9BVQuTKJVpump",
-   "sym": "dragoncat",
-   "score": 67,
-   "priceNative": 1.255e-7
-  },
-  {
-   "t": 1794737049679,
-   "mint": "FS1pBmZKp2Qw1atC64GoLamHstECAos9ot8bGPgDpump",
-   "sym": "Socks",
-   "score": 82,
-   "priceNative": 0.000001085
-  },
-  {
-   "t": 1794737049679,
-   "mint": "3nbHBkEDdbPiF5zJMhsxucm25V6UHKv9BVQuTKJVpump",
-   "sym": "dragoncat",
-   "score": 67,
-   "priceNative": 1.255e-7
-  },
-  {
-   "t": 1794737072682,
-   "mint": "FS1pBmZKp2Qw1atC64GoLamHstECAos9ot8bGPgDpump",
-   "sym": "Socks",
-   "score": 82,
-   "priceNative": 0.000001175
-  },
   {
    "t": 1794737072682,
    "mint": "3nbHBkEDdbPiF5zJMhsxucm25V6UHKv9BVQuTKJVpump",
@@ -8125,16 +7862,331 @@
    "sym": "billy",
    "score": 84,
    "priceNative": 0.000001042
+  },
+  {
+   "t": 1794758394299,
+   "mint": "Q7ZMt9VfQRfuka7QKgjRQ1xnLNV3rgVjqUVfUnBpump",
+   "sym": "billy",
+   "score": 89,
+   "priceNative": 0.000001115
+  },
+  {
+   "t": 1794758394299,
+   "mint": "4Dj8m9vWqu779F1KDBUttvXM8YFm7U92SDpvjBNKtEiB",
+   "sym": "VI",
+   "score": 81,
+   "priceNative": 0.00000118
+  },
+  {
+   "t": 1794758407507,
+   "mint": "Q7ZMt9VfQRfuka7QKgjRQ1xnLNV3rgVjqUVfUnBpump",
+   "sym": "billy",
+   "score": 89,
+   "priceNative": 0.000001115
+  },
+  {
+   "t": 1794758407507,
+   "mint": "4Dj8m9vWqu779F1KDBUttvXM8YFm7U92SDpvjBNKtEiB",
+   "sym": "VI",
+   "score": 81,
+   "priceNative": 0.00000118
+  },
+  {
+   "t": 1794758407507,
+   "mint": "CmUoTvE986qgTB1Kvo4NVbHXBH5Qa2PyGhe7GMDepump",
+   "sym": "SI",
+   "score": 73,
+   "priceNative": 3.092e-7
+  },
+  {
+   "t": 1794758439855,
+   "mint": "Q7ZMt9VfQRfuka7QKgjRQ1xnLNV3rgVjqUVfUnBpump",
+   "sym": "billy",
+   "score": 84,
+   "priceNative": 9.019e-7
+  },
+  {
+   "t": 1794758439855,
+   "mint": "4Dj8m9vWqu779F1KDBUttvXM8YFm7U92SDpvjBNKtEiB",
+   "sym": "VI",
+   "score": 81,
+   "priceNative": 0.000001012
+  },
+  {
+   "t": 1794758439855,
+   "mint": "8FfbSYvgjFkPDw3crLRpQis1en5aQieybNMbyMYvpump",
+   "sym": "NIHAOMAS",
+   "score": 70,
+   "priceNative": 5.4e-7
+  },
+  {
+   "t": 1794758452820,
+   "mint": "Q7ZMt9VfQRfuka7QKgjRQ1xnLNV3rgVjqUVfUnBpump",
+   "sym": "billy",
+   "score": 84,
+   "priceNative": 9.019e-7
+  },
+  {
+   "t": 1794758452820,
+   "mint": "4Dj8m9vWqu779F1KDBUttvXM8YFm7U92SDpvjBNKtEiB",
+   "sym": "VI",
+   "score": 81,
+   "priceNative": 0.000001012
+  },
+  {
+   "t": 1794758452820,
+   "mint": "8FfbSYvgjFkPDw3crLRpQis1en5aQieybNMbyMYvpump",
+   "sym": "NIHAOMAS",
+   "score": 70,
+   "priceNative": 5.4e-7
+  },
+  {
+   "t": 1794758479954,
+   "mint": "4Dj8m9vWqu779F1KDBUttvXM8YFm7U92SDpvjBNKtEiB",
+   "sym": "VI",
+   "score": 79,
+   "priceNative": 0.000001157
+  },
+  {
+   "t": 1794758479954,
+   "mint": "CmUoTvE986qgTB1Kvo4NVbHXBH5Qa2PyGhe7GMDepump",
+   "sym": "SI",
+   "score": 73,
+   "priceNative": 3.522e-7
+  },
+  {
+   "t": 1794758479954,
+   "mint": "2anhKq7srLuvKDi63EyAPYyK71vSGeyTrVxTJRN4fc8N",
+   "sym": "GTAVI",
+   "score": 66,
+   "priceNative": 4.048e-7
+  },
+  {
+   "t": 1794758479954,
+   "mint": "8FfbSYvgjFkPDw3crLRpQis1en5aQieybNMbyMYvpump",
+   "sym": "NIHAOMAS",
+   "score": 65,
+   "priceNative": 6.066e-7
+  },
+  {
+   "t": 1794758494385,
+   "mint": "4Dj8m9vWqu779F1KDBUttvXM8YFm7U92SDpvjBNKtEiB",
+   "sym": "VI",
+   "score": 79,
+   "priceNative": 0.000001157
+  },
+  {
+   "t": 1794758494385,
+   "mint": "CmUoTvE986qgTB1Kvo4NVbHXBH5Qa2PyGhe7GMDepump",
+   "sym": "SI",
+   "score": 73,
+   "priceNative": 3.324e-7
+  },
+  {
+   "t": 1794758494385,
+   "mint": "2anhKq7srLuvKDi63EyAPYyK71vSGeyTrVxTJRN4fc8N",
+   "sym": "GTAVI",
+   "score": 67,
+   "priceNative": 3.767e-7
+  },
+  {
+   "t": 1794758494385,
+   "mint": "8FfbSYvgjFkPDw3crLRpQis1en5aQieybNMbyMYvpump",
+   "sym": "NIHAOMAS",
+   "score": 65,
+   "priceNative": 6.066e-7
+  },
+  {
+   "t": 1794758518568,
+   "mint": "4Dj8m9vWqu779F1KDBUttvXM8YFm7U92SDpvjBNKtEiB",
+   "sym": "VI",
+   "score": 80,
+   "priceNative": 9.056e-7
+  },
+  {
+   "t": 1794758518568,
+   "mint": "CmUoTvE986qgTB1Kvo4NVbHXBH5Qa2PyGhe7GMDepump",
+   "sym": "SI",
+   "score": 73,
+   "priceNative": 3.324e-7
+  },
+  {
+   "t": 1794758518568,
+   "mint": "2anhKq7srLuvKDi63EyAPYyK71vSGeyTrVxTJRN4fc8N",
+   "sym": "GTAVI",
+   "score": 70,
+   "priceNative": 7.502e-7
+  },
+  {
+   "t": 1794758518568,
+   "mint": "8FfbSYvgjFkPDw3crLRpQis1en5aQieybNMbyMYvpump",
+   "sym": "NIHAOMAS",
+   "score": 68,
+   "priceNative": 5.703e-7
+  },
+  {
+   "t": 1794758542884,
+   "mint": "4Dj8m9vWqu779F1KDBUttvXM8YFm7U92SDpvjBNKtEiB",
+   "sym": "VI",
+   "score": 80,
+   "priceNative": 9.056e-7
+  },
+  {
+   "t": 1794758542884,
+   "mint": "8FfbSYvgjFkPDw3crLRpQis1en5aQieybNMbyMYvpump",
+   "sym": "NIHAOMAS",
+   "score": 68,
+   "priceNative": 5.703e-7
+  },
+  {
+   "t": 1794758542884,
+   "mint": "2anhKq7srLuvKDi63EyAPYyK71vSGeyTrVxTJRN4fc8N",
+   "sym": "GTAVI",
+   "score": 67,
+   "priceNative": 9.21e-7
+  },
+  {
+   "t": 1794758542884,
+   "mint": "CmUoTvE986qgTB1Kvo4NVbHXBH5Qa2PyGhe7GMDepump",
+   "sym": "SI",
+   "score": 63,
+   "priceNative": 2.347e-7
+  },
+  {
+   "t": 1794758571152,
+   "mint": "4Dj8m9vWqu779F1KDBUttvXM8YFm7U92SDpvjBNKtEiB",
+   "sym": "VI",
+   "score": 75,
+   "priceNative": 5.96e-7
+  },
+  {
+   "t": 1794758571152,
+   "mint": "2anhKq7srLuvKDi63EyAPYyK71vSGeyTrVxTJRN4fc8N",
+   "sym": "GTAVI",
+   "score": 69,
+   "priceNative": 8.256e-7
+  },
+  {
+   "t": 1794758571152,
+   "mint": "CmUoTvE986qgTB1Kvo4NVbHXBH5Qa2PyGhe7GMDepump",
+   "sym": "SI",
+   "score": 63,
+   "priceNative": 2.347e-7
+  },
+  {
+   "t": 1794758584991,
+   "mint": "4Dj8m9vWqu779F1KDBUttvXM8YFm7U92SDpvjBNKtEiB",
+   "sym": "VI",
+   "score": 75,
+   "priceNative": 5.96e-7
+  },
+  {
+   "t": 1794758584991,
+   "mint": "2anhKq7srLuvKDi63EyAPYyK71vSGeyTrVxTJRN4fc8N",
+   "sym": "GTAVI",
+   "score": 69,
+   "priceNative": 8.256e-7
+  },
+  {
+   "t": 1794758608194,
+   "mint": "4Dj8m9vWqu779F1KDBUttvXM8YFm7U92SDpvjBNKtEiB",
+   "sym": "VI",
+   "score": 75,
+   "priceNative": 5.85e-7
+  },
+  {
+   "t": 1794758608194,
+   "mint": "2anhKq7srLuvKDi63EyAPYyK71vSGeyTrVxTJRN4fc8N",
+   "sym": "GTAVI",
+   "score": 69,
+   "priceNative": 8.582e-7
+  },
+  {
+   "t": 1794758632798,
+   "mint": "4Dj8m9vWqu779F1KDBUttvXM8YFm7U92SDpvjBNKtEiB",
+   "sym": "VI",
+   "score": 75,
+   "priceNative": 5.85e-7
+  },
+  {
+   "t": 1794758632798,
+   "mint": "2anhKq7srLuvKDi63EyAPYyK71vSGeyTrVxTJRN4fc8N",
+   "sym": "GTAVI",
+   "score": 70,
+   "priceNative": 9.283e-7
+  },
+  {
+   "t": 1794758656412,
+   "mint": "4Dj8m9vWqu779F1KDBUttvXM8YFm7U92SDpvjBNKtEiB",
+   "sym": "VI",
+   "score": 75,
+   "priceNative": 4.155e-7
+  },
+  {
+   "t": 1794758656412,
+   "mint": "6bYndfKKu7FKho8WEuQKjoByhJAqdVYMXNTouUFgpump",
+   "sym": "TOYCOIN",
+   "score": 72,
+   "priceNative": 4.954e-7
+  },
+  {
+   "t": 1794758656412,
+   "mint": "2anhKq7srLuvKDi63EyAPYyK71vSGeyTrVxTJRN4fc8N",
+   "sym": "GTAVI",
+   "score": 70,
+   "priceNative": 9.909e-7
+  },
+  {
+   "t": 1794758680295,
+   "mint": "4Dj8m9vWqu779F1KDBUttvXM8YFm7U92SDpvjBNKtEiB",
+   "sym": "VI",
+   "score": 75,
+   "priceNative": 4.155e-7
+  },
+  {
+   "t": 1794758680295,
+   "mint": "6bYndfKKu7FKho8WEuQKjoByhJAqdVYMXNTouUFgpump",
+   "sym": "TOYCOIN",
+   "score": 72,
+   "priceNative": 4.981e-7
+  },
+  {
+   "t": 1794758680295,
+   "mint": "2anhKq7srLuvKDi63EyAPYyK71vSGeyTrVxTJRN4fc8N",
+   "sym": "GTAVI",
+   "score": 70,
+   "priceNative": 9.296e-7
   }
  ],
  "day": {
   "date": "2026-11-15",
   "startEq": 1.5
  },
- "cooldownUntil": 1794758293184,
+ "cooldownUntil": 1794758828736,
  "halted": null,
- "seq": 147,
+ "seq": 148,
  "events": [
+  "16:04:40 ORACLE   360 raccolti, 264 analizzati, 3 BUY, 253 veto",
+  "16:04:16 ORACLE   360 raccolti, 259 analizzati, 3 BUY, 247 veto",
+  "16:03:52 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 244 veto",
+  "16:03:28 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 244 veto",
+  "16:03:04 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 242 veto",
+  "16:02:51 ORACLE   360 raccolti, 247 analizzati, 3 BUY, 237 veto",
+  "16:02:22 ORACLE   360 raccolti, 254 analizzati, 4 BUY, 243 veto",
+  "16:02:08 SCRIBE   chiuso P-0148 $SI -0.0457 SOL (-62.5%)",
+  "16:02:08 CHARON   Stop loss $SI vendo 100% a -23.1% -> 0.0274 SOL",
+  "16:01:58 ORACLE   360 raccolti, 249 analizzati, 4 BUY, 238 veto",
+  "16:01:44 SCRIBE   chiuso P-0147 $VI -0.0193 SOL (-26.5%)",
+  "16:01:44 CHARON   Trailing stop $VI vendo 100% a 36.4% -> 0.0081 SOL",
+  "16:01:34 ORACLE   360 raccolti, 244 analizzati, 4 BUY, 233 veto",
+  "16:01:20 KAISER   limite 1 ingresso/i per scan: $NIHAOMAS rimandato",
+  "16:01:20 KAISER   limite 1 ingresso/i per scan: $GTAVI rimandato",
+  "16:01:20 QUARTER  BUY $SI 0.072 SOL score 73 impatto 0.00% (Jupiter)",
+  "16:01:19 ORACLE   360 raccolti, 252 analizzati, 4 BUY, 242 veto",
+  "16:00:52 ORACLE   360 raccolti, 257 analizzati, 3 BUY, 245 veto",
+  "16:00:39 ORACLE   360 raccolti, 240 analizzati, 3 BUY, 230 veto",
+  "16:00:07 ORACLE   360 raccolti, 251 analizzati, 3 BUY, 239 veto",
+  "15:59:54 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 237 veto",
   "15:59:32 CHARON   TP1 $VI vendo 70% a 50.5% -> 0.0453 SOL",
   "15:59:21 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 233 veto",
   "15:58:57 KAISER   limite 1 ingresso/i per scan: $SI rimandato",
@@ -8413,33 +8465,12 @@
   "14:37:15 ORACLE   360 raccolti, 269 analizzati, 4 BUY, 259 veto",
   "14:36:51 CHARON   TP1 $Nyajira vendo 70% a 40.1% -> 0.0666 SOL",
   "14:36:51 ORACLE   360 raccolti, 264 analizzati, 5 BUY, 252 veto",
-  "14:36:27 ORACLE   360 raccolti, 267 analizzati, 3 BUY, 258 veto",
-  "14:36:03 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 262 veto",
-  "14:35:40 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 261 veto",
-  "14:35:16 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 258 veto",
-  "14:34:52 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 257 veto",
-  "14:34:30 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 253 veto",
-  "14:34:06 ORACLE   360 raccolti, 271 analizzati, 3 BUY, 256 veto",
-  "14:33:42 ORACLE   360 raccolti, 270 analizzati, 3 BUY, 254 veto",
-  "14:33:18 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 254 veto",
-  "14:32:56 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 253 veto",
-  "14:32:32 KAISER   limite 1 ingresso/i per scan: $PUMPDEX rimandato",
-  "14:32:32 QUARTER  BUY $Nyajira 0.073 SOL score 68 impatto 1.25% (Jupiter)",
-  "14:32:32 ORACLE   360 raccolti, 269 analizzati, 3 BUY, 256 veto",
-  "14:32:08 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 244 veto",
-  "14:31:44 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 249 veto",
-  "14:31:21 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 248 veto",
-  "14:31:08 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 242 veto",
-  "14:30:43 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 251 veto",
-  "14:30:20 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 251 veto",
-  "14:29:57 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 251 veto",
-  "14:29:33 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 258 veto",
-  "14:29:11 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 256 veto"
+  "14:36:27 ORACLE   360 raccolti, 267 analizzati, 3 BUY, 258 veto"
  ],
  "capital": 1.5,
  "resetId": "C-0065",
  "realTried": {},
- "lastEntryAt": 1794758337191,
+ "lastEntryAt": 1794758480063,
  "lab": {
   "done": [
    {
@@ -19894,6 +19925,14 @@
   {
    "t": 1794758372101,
    "g": -38.6
+  },
+  {
+   "t": 1794758504566,
+   "g": -71
+  },
+  {
+   "t": 1794758528734,
+   "g": -49.2
   }
  ]
 }

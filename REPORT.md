@@ -1,33 +1,35 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-15 15:59 UTC · in esecuzione da 0.3 giorni · 112 run
+Aggiornato: 2026-11-15 16:04 UTC · in esecuzione da 0.3 giorni · 112 run
 
 | | |
 |---|---|
-| Equity | **1.4384 SOL** (-4.1% dal capitale iniziale di 1.5 SOL) |
-| Cassa | 1.4060 SOL |
-| Trade chiusi | 23 |
-| Win rate | 35% |
-| P&L realizzato | -0.0666 SOL (~$-4.74) |
-| Media vincite / perdite | +32.5% / -23.2% |
-| Profit factor | 0.81 |
+| Equity | **1.3685 SOL** (-8.8% dal capitale iniziale di 1.5 SOL) |
+| Cassa | 1.3685 SOL |
+| Trade chiusi | 25 |
+| Win rate | 32% |
+| P&L realizzato | -0.1315 SOL (~$-9.35) |
+| Media vincite / perdite | +32.5% / -25.7% |
+| Profit factor | 0.68 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$VI** P-0147 · 0.072 SOL · +50.5% · resta 30% · [grafico](https://dexscreener.com/solana/3pEHyg4hvDF2chcaS7n11SBo3VYeJmzrvAtoqxRTE9Zz)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| Stop loss | 11 | -0.2858 |
+| Stop loss | 12 | -0.3315 |
 | Chiusura manuale (app) | 1 | +0.0954 |
-| Trailing stop | 8 | +0.1329 |
+| Trailing stop | 9 | +0.1136 |
 | Time stop | 2 | -0.0189 |
 | Break-even | 1 | +0.0098 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $SI | 73 | -62.5% | -0.0457 | +0% | -23% | Stop loss | 1m |
+| $VI | 88 | -26.5% | -0.0193 | +69% | +36% | Trailing stop | 3m |
 | $billy | 75 | -3.9% | -0.0028 | +71% | +31% | Trailing stop | 12m |
 | $GTAVI | 69 | -17.9% | -0.0132 | +39% | +8% | Trailing stop | 1m |
 | $Nyajira | 86 | -11.0% | -0.0081 | +20% | -0% | Time stop | 5m |
@@ -54,6 +56,27 @@ Aggiornato: 2026-11-15 15:59 UTC · in esecuzione da 0.3 giorni · 112 run
 
 ## Ultimi eventi
 ```
+16:04:40 ORACLE   360 raccolti, 264 analizzati, 3 BUY, 253 veto
+16:04:16 ORACLE   360 raccolti, 259 analizzati, 3 BUY, 247 veto
+16:03:52 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 244 veto
+16:03:28 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 244 veto
+16:03:04 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 242 veto
+16:02:51 ORACLE   360 raccolti, 247 analizzati, 3 BUY, 237 veto
+16:02:22 ORACLE   360 raccolti, 254 analizzati, 4 BUY, 243 veto
+16:02:08 SCRIBE   chiuso P-0148 $SI -0.0457 SOL (-62.5%)
+16:02:08 CHARON   Stop loss $SI vendo 100% a -23.1% -> 0.0274 SOL
+16:01:58 ORACLE   360 raccolti, 249 analizzati, 4 BUY, 238 veto
+16:01:44 SCRIBE   chiuso P-0147 $VI -0.0193 SOL (-26.5%)
+16:01:44 CHARON   Trailing stop $VI vendo 100% a 36.4% -> 0.0081 SOL
+16:01:34 ORACLE   360 raccolti, 244 analizzati, 4 BUY, 233 veto
+16:01:20 KAISER   limite 1 ingresso/i per scan: $NIHAOMAS rimandato
+16:01:20 KAISER   limite 1 ingresso/i per scan: $GTAVI rimandato
+16:01:20 QUARTER  BUY $SI 0.072 SOL score 73 impatto 0.00% (Jupiter)
+16:01:19 ORACLE   360 raccolti, 252 analizzati, 4 BUY, 242 veto
+16:00:52 ORACLE   360 raccolti, 257 analizzati, 3 BUY, 245 veto
+16:00:39 ORACLE   360 raccolti, 240 analizzati, 3 BUY, 230 veto
+16:00:07 ORACLE   360 raccolti, 251 analizzati, 3 BUY, 239 veto
+15:59:54 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 237 veto
 15:59:32 CHARON   TP1 $VI vendo 70% a 50.5% -> 0.0453 SOL
 15:59:21 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 233 veto
 15:58:57 KAISER   limite 1 ingresso/i per scan: $SI rimandato
@@ -73,27 +96,6 @@ Aggiornato: 2026-11-15 15:59 UTC · in esecuzione da 0.3 giorni · 112 run
 15:55:50 ORACLE   256 raccolti, 170 analizzati, 2 BUY, 158 veto
 15:55:27 ORACLE   228 raccolti, 152 analizzati, 2 BUY, 142 veto
 15:55:15 ORACLE   224 raccolti, 145 analizzati, 2 BUY, 135 veto
-15:54:49 ORACLE   212 raccolti, 133 analizzati, 2 BUY, 125 veto
-15:54:37 SCOUT    fabbrica: 1424 percorsi, 768 configurazioni, 0 passano, 257 ms
-15:54:37 ORACLE   211 raccolti, 133 analizzati, 2 BUY, 125 veto
-15:54:32 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-15:54:30 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-15:54:27 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
-15:54:27 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
-15:54:27 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→15, tp1 40→25, tp1Sell 50→70, timeStopMin 45→5, timeStopMinPnl 5→2, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, trail 20→15, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120, srcGmgnTrending true→false
-15:54:27 SCOUT    Laboratorio: collegato a PumpPortal
-15:54:27 KAISER   run #112 · 0 posizioni · equity 1.4334 SOL · GMGN spenta (nessuna chiave) · Grok off
-15:54:15 SCRIBE   fine run · trade 23 · win 35% · P&L -0.0666 SOL · equity 1.4334 SOL
-15:54:13 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 243 veto
-15:53:50 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 240 veto
-15:53:26 ORACLE   360 raccolti, 261 analizzati, 3 BUY, 246 veto
-15:53:13 SCRIBE   chiuso P-0145 $billy -0.0028 SOL (-3.9%)
-15:53:13 CHARON   Trailing stop $billy vendo 100% a 31.2% -> 0.0214 SOL
-15:53:03 ORACLE   360 raccolti, 261 analizzati, 3 BUY, 247 veto
-15:52:40 ORACLE   360 raccolti, 252 analizzati, 3 BUY, 241 veto
-15:52:17 ORACLE   360 raccolti, 260 analizzati, 3 BUY, 244 veto
-15:51:54 ORACLE   360 raccolti, 264 analizzati, 3 BUY, 249 veto
-15:51:32 ORACLE   360 raccolti, 254 analizzati, 3 BUY, 238 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
