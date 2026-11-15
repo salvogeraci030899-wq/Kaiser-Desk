@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.30.0">
+<meta name="kz-build" content="2.31.0">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=2">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
@@ -30,7 +30,7 @@
   document.getElementById('metaStatusBar').setAttribute('content', light ? 'default' : (bar === 'separate' ? 'black' : 'black-translucent'));
 })();
 </script>
-<link rel="stylesheet" href="style.css?v=47">
+<link rel="stylesheet" href="style.css?v=48">
 <script src="version.js"></script>
 <script src="theme.js"></script>
 <script src="lock.js"></script>
@@ -150,8 +150,11 @@
     <div class="vscroll jfix">
     <div class="card jcard"><div class="jrow jhead"><span>Token</span><span>Esito</span><span>P&amp;L</span><span>Motivo</span></div><div class="jbody" id="jRows"></div></div>
     </div>
-    <div class="vfoot"><div class="seg jseg" id="jTabs"><button data-jt="mot" class="on">Motivi di uscita</button><button data-jt="age">Per età</button><button data-jt="dip">Discese</button><button data-jt="lab">Lab</button></div><div class="card" id="jReasons"></div></div>
+    <div class="vfoot"><div class="seg jseg" id="jTabs"><button data-jt="mot" class="on">Motivi di uscita</button><button data-jt="age">Per età</button><button data-jt="dip">Discese</button></div><div class="card" id="jReasons"></div></div>
   </section>
+
+  <!-- LABORATORIO -->
+  <section class="view" id="v-lab"><div class="vscroll" id="labBody"></div></section>
 
   <!-- SISTEMA -->
   <section class="view" id="v-set">
@@ -200,6 +203,7 @@
   <button data-v="radar" class="active"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path d="M12 12l5-5"/></svg>Radar</button>
   <button data-v="pos"><svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>Posizioni<span class="dot" id="dotP" style="display:none">0</span></button>
   <button data-v="journal"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>Journal</button>
+  <button data-v="lab"><svg viewBox="0 0 24 24"><path d="M9 3h6"/><path d="M10 3v6.5L4.5 19a1.5 1.5 0 0 0 1.3 2.2h12.4a1.5 1.5 0 0 0 1.3-2.2L14 9.5V3"/><path d="M7.5 15h9"/></svg>Lab</button>
   <button data-v="set"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h0a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h0a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Sistema</button>
 </nav>
 </div>
@@ -520,7 +524,7 @@ function render(fast) {
   pr.className = 'pill ' + (run ? (age < 15 * 60000 ? 'on' : 'off') : '');
   $('#pSol').textContent = rt.solUsd ? 'SOL $' + rt.solUsd.toFixed(2) : (run && run.solUsd ? 'SOL $' + Number(run.solUsd).toFixed(2) : 'SOL —'); $('#pSol').className = 'pill gold';
   $('#pEq').textContent = 'EQ ' + (real ? (e && e.balanceSOL != null ? Number(e.balanceSOL).toFixed(3) + '◎' : '—') : (run ? Number(run.equity).toFixed(3) + '◎' : '—'));
-  applyMode(); if (!fast) renderRadar(); renderPos(); renderJournal(); renderSystem(); if (!fast) renderParams();
+  applyMode(); if (!fast) renderRadar(); renderPos(); renderJournal(); renderLab(); renderSystem(); if (!fast) renderParams();
   const np = real ? ((e && e.positions) || []).length : ((run && run.positions) || []).length;
   const dp = $('#dotP'); dp.style.display = np ? '' : 'none'; dp.textContent = np;
 }
@@ -562,41 +566,14 @@ function renderPos() {
   $('#sLab3').textContent = 'vs capitale'; $('#sDay').innerHTML = `<span class="${cls(d)}">${fmtSol(d)}</span>`;
   $('#posList').innerHTML = run.positions.length ? run.positions.map((p) => posCard(p, { value: p.tokens * p.remaining * (rt.prices.get(p.mint) || (p.last && p.last.priceNative) || p.entry), cost: p.cost, sl: s.sl, tp1: s.tp1, trail: s.trail, last: p.last && p.last.priceNative })).join('') : '<div class="empty">Nessuna posizione paper aperta. Il runner entra da solo quando trova un BUY.</div>';
 }
-function renderJournal() {
-  const real = st.mode === 'real', run = rt.run, e = rt.exec;
-  $('#realNoteJ').innerHTML = realNoteHtml();
-  const J = real ? ((e && e.journal) || []) : ((run && run.journal) || []);
-  const wins = J.filter((j) => j.pnl > 0), losses = J.filter((j) => j.pnl <= 0), tot = J.reduce((a, j) => a + j.pnl, 0);
-  const gw = wins.reduce((a, j) => a + j.pnl, 0), gl = -losses.reduce((a, j) => a + j.pnl, 0);
-  const st0 = !real && run && run.stats ? run.stats : null;                        // il runner conta anche i trade oltre gli ultimi 100
-  $('#jN').textContent = st0 ? st0.n : J.length;
-  $('#jWR').textContent = (st0 ? st0.n : J.length) ? (st0 ? st0.wr : wins.length / J.length * 100).toFixed(0) + '%' : '—';
-  const P = st0 ? st0.pnl : tot; $('#jPnl').innerHTML = `<span class="${cls(P)}">${fmtSol(P)}</span>`;
-  const aw = st0 ? st0.aw : (wins.length ? wins.reduce((a, j) => a + j.pct, 0) / wins.length : 0), al = st0 ? st0.al : (losses.length ? losses.reduce((a, j) => a + j.pct, 0) / losses.length : 0);
-  $('#jAW').textContent = aw ? fmtPct(aw, 1) : '—'; $('#jAL').textContent = al ? fmtPct(al, 1) : '—';
-  const pf = st0 ? st0.pf : (gl ? gw / gl : gw ? Infinity : 0); $('#jPF').textContent = pf == null || pf === Infinity ? (J.length ? '∞' : '—') : Number(pf).toFixed(2);
-  // Attesa per trade (guadagno medio atteso, in %), perdita massima (dal picco, sui trade in elenco) e affidabilità del campione
-  const nT = st0 ? st0.n : J.length, wr = nT ? (st0 ? st0.wr : wins.length / J.length * 100) : 0;
-  const ex = nT ? wr / 100 * aw + (1 - wr / 100) * al : null;
-  let cum = 0, peak = 0, dd = 0; for (const j of J) { cum += j.pnl; peak = Math.max(peak, cum); dd = Math.max(dd, peak - cum); }
-  $('#jEx').innerHTML = ex == null ? '—' : `<span class="${cls(ex)}">${fmtPct(ex, 1)}</span>`;
-  $('#jDD').innerHTML = J.length ? `<span class="${dd > 0 ? 'down' : ''}">${dd > 0 ? '−' : ''}${fmtSol(dd, 3)}</span>` : '—';
-  const pfN = pf == null || pf === Infinity ? (J.length ? 99 : 0) : Number(pf);
-  $('#jSmpL').textContent = nT < 30 ? 'Pochi trade' : nT < 100 ? 'Campione scarso' : pfN >= 1.3 && ex > 0 ? 'Esito positivo' : pfN >= 1 && ex > 0 ? 'Esito incerto' : 'Esito negativo';
-  $('#jSmp').innerHTML = `<span class="${nT >= 100 ? (pfN >= 1.3 && ex > 0 ? 'up' : pfN >= 1 && ex > 0 ? 'warn' : 'down') : 'warn'}">${nT}/100</span>`;
-  $('#jRows').innerHTML = [...J].reverse().slice(0, 100).map((j) => `<div class="jrow"><span>$${esc(j.sym)}<br><span class="muted">${new Date(j.closedAt).toLocaleString('it-IT', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' })}</span></span><span class="${cls(j.pct)}">${fmtPct(j.pct, 1)}${j.trigPct != null && Math.abs(j.trigPct - j.pct) >= 1 ? `<br><span class="muted tiny" title="Il picco e' il massimo raggiunto dopo l'ingresso; il prezzo di uscita e' quello dell'ultima vendita. L'esito e' diverso perche' include le vendite parziali, le fee, l'impatto e la priority">${j.peakPct != null ? 'picco ' + fmtPct(j.peakPct, 0) + ' · ' : ''}uscita ${fmtPct(j.trigPct, 0)}</span>` : ''}</span><span class="${cls(j.pnl)}">${Number(j.pnl).toFixed(4)}</span><span class="jr">${esc(j.reason)}</span></div>`).join('') || `<div class="empty" style="padding:18px 6px">${!real && !run ? 'Dati del runner non disponibili.' : 'Nessun trade chiuso.'}</div>`;
-  // Riquadro in basso: motivi di uscita, risultati per età del token all'ingresso, discese prima dei profitti
-  const tab = rt.jtab || 'mot', kvRow = (k, v, c) => `<span>${k}</span><span class="mono ${c || ''}">${v}</span>`, none = '<span class="muted small">Dati non ancora disponibili: servono trade chiusi con la versione più recente del runner.</span>';
-  document.querySelectorAll('#jTabs button').forEach((x) => x.classList.toggle('on', x.dataset.jt === tab));
-  let body;
-  if (tab === 'age') {
-    const B = [['< 15 min', (x) => x < 15], ['15-60 min', (x) => x < 60], ['1-6 ore', (x) => x < 360], ['6-24 ore', (x) => x < 1440], ['oltre 24 ore', () => true]], G = B.map(() => ({ n: 0, w: 0, pnl: 0 })), A = J.filter((j) => j.age != null);
-    for (const j of A) { const i = B.findIndex(([, f]) => f(j.age)); G[i].n++; G[i].w += j.pnl > 0 ? 1 : 0; G[i].pnl += j.pnl; }
-    body = A.length ? `<div class="kv">${B.map(([l], i) => G[i].n ? kvRow(`${l} (${G[i].n}) · ${Math.round(G[i].w / G[i].n * 100)}% vinti`, G[i].pnl.toFixed(4) + '◎', cls(G[i].pnl)) : '').join('')}</div>` : none;
-  } else if (tab === 'lab') {
+
+// ---------- LABORATORIO (pagina dedicata) ----------
+function renderLab() {
+  const run = rt.run, kvRow = (k, v, c) => `<span>${k}</span><span class="mono ${c || ''}">${v}</span>`; let body = '';
+  const head = '<div class="card labcard"><div style="font-weight:700">Laboratorio</div><div class="tiny muted" style="margin-top:4px">Osserva le Coin nuove di pump.fun e prova regole sui dati registrati. Non compra e non vende nulla.</div></div>';
     const L = run && run.lab, none2 = '<span class="muted small">Il Laboratorio osserva le Coin nuove di pump.fun: i primi risultati arrivano dopo circa 20 minuti dall\'avvio del runner con il codice nuovo.</span>';
-    if (!L) body = none2; else {
-      const c = L.cohorts || [], pct = (k) => c.map((g) => (g.n && g.races && g.races[k] ? g.races[k].tp + '/' + g.races[k].sl : '—')).join(' · '), info = L.info, f1 = (v, d) => (v == null ? '—' : String(v)), sec = (t) => `<div class="tiny muted" style="margin:12px 0 4px"><b>${t}</b></div>`;
+    if (!L) body = '<div class="card">' + none2 + '</div>'; else {
+      const c = L.cohorts || [], pct = (k) => c.map((g) => (g.n && g.races && g.races[k] ? g.races[k].tp + '/' + g.races[k].sl : '—')).join(' · '), info = L.info, f1 = (v, d) => (v == null ? '—' : String(v)), sec = (t) => `</div><div class="card labcard"><div class="tiny muted" style="margin:0 0 8px"><b>${t}</b></div>`;
       const th = (L.th || []).filter((x) => x.n), rr = (x, k) => (x.races && x.races[k] ? x.races[k].tp + '/' + x.races[k].sl : '—'), tbl = (head, rows) => `<table class="ltab"><tr>${head.map((x) => `<th>${x}</th>`).join('')}</tr>${rows.map((r) => `<tr>${r.map((x) => `<td>${x}</td>`).join('')}</tr>`).join('')}</table>`;
       const SZ = { s: '<10 $', m: '10-50 $', l: '>50 $' }, rx = (L.rx || []), cell = (o) => (o ? `${o.drift > 0 ? '+' : ''}${o.drift}%<br><span class="muted">${o.down}% giù</span>` : '—'), fl = L.flow || {};
       body = `<div class="kv">${kvRow('Coin osservate · con prezzo · con scambi', L.observed + ' · ' + (L.priced || 0) + ' · ' + L.valid)}${info ? kvRow('PumpPortal', info.state === 'on' ? `collegato · ${info.active} Coin seguite` : 'non collegato') : ''}${info && info.msgs ? kvRow('Messaggi ricevuti', `${info.msgs.create} nuovi · ${info.msgs.trade} scambi · ${info.msgs.other} altri`, info.msgs.create >= 20 && !info.msgs.trade ? 'warn' : '') : ''}${info ? kvRow('Prezzi dalla catena', info.poll === undefined ? 'il runner in corso non ha ancora il codice nuovo: parte al prossimo avvio' : info.poll ? (info.poll.off ? 'spenti (formato non riconosciuto)' : `${info.poll.ok} letture${info.poll.fail ? ' · ' + info.poll.fail + ' errori' : ''}${info.poll.bad ? ' · ' + info.poll.bad + ' scartate (' + Object.entries(info.poll.why || {}).map(([k, v]) => k + ' ' + v).join(', ') + ')' : ''}`) : 'RPC non impostato nel runner (segreto RPC_URL su GitHub)', info.poll && !info.poll.off && info.poll.ok ? 'up' : 'warn') : ''}</div>`
@@ -629,6 +606,40 @@ function renderJournal() {
         + `<div class="kv">${kvRow('Coin con vendite sopra 100 $', fl.lsShare == null ? '—' : fl.lsShare + '%')}${kvRow('Prima vendita grossa (secondi dalla nascita)', f1(fl.lsT))}${kvRow('Dopo la prima vendita grossa (x a 60 s)', fl.afterLS ? fl.afterLS.med + 'x' : '—')}${kvRow('Volume / market cap (mediana)', fl.turn == null ? '—' : fl.turn + 'x')}${kvRow('Si spengono dopo il picco', fl.quiet ? fl.quiet.share + '% (su ' + fl.quiet.n + ')' : '—')}${kvRow('Arrivano a 15K · 30K', fl.hi15 == null ? '—' : fl.hi15 + '% · ' + fl.hi30 + '%')}</div>`
         + `<div class="tiny muted" style="margin-top:6px">Le coppie sono «prima il target / prima lo stop» in %. Le soglie di market cap sono in dollari. Acquisto piccolo = sotto 10 $, medio 10-50 $, grosso oltre 50 $; deriva = variazione mediana del prezzo dopo l'acquisto, il secondo numero è la quota di volte in cui è sceso. Il Laboratorio non compra né vende: osserva soltanto. I risultati sono significativi solo con alcune centinaia di Coin.</div>`;
     }
+  if (L) body = '<div class="card labcard">' + body + '</div>';
+  $('#labBody').innerHTML = head + body;
+}
+function renderJournal() {
+  const real = st.mode === 'real', run = rt.run, e = rt.exec;
+  $('#realNoteJ').innerHTML = realNoteHtml();
+  const J = real ? ((e && e.journal) || []) : ((run && run.journal) || []);
+  const wins = J.filter((j) => j.pnl > 0), losses = J.filter((j) => j.pnl <= 0), tot = J.reduce((a, j) => a + j.pnl, 0);
+  const gw = wins.reduce((a, j) => a + j.pnl, 0), gl = -losses.reduce((a, j) => a + j.pnl, 0);
+  const st0 = !real && run && run.stats ? run.stats : null;                        // il runner conta anche i trade oltre gli ultimi 100
+  $('#jN').textContent = st0 ? st0.n : J.length;
+  $('#jWR').textContent = (st0 ? st0.n : J.length) ? (st0 ? st0.wr : wins.length / J.length * 100).toFixed(0) + '%' : '—';
+  const P = st0 ? st0.pnl : tot; $('#jPnl').innerHTML = `<span class="${cls(P)}">${fmtSol(P)}</span>`;
+  const aw = st0 ? st0.aw : (wins.length ? wins.reduce((a, j) => a + j.pct, 0) / wins.length : 0), al = st0 ? st0.al : (losses.length ? losses.reduce((a, j) => a + j.pct, 0) / losses.length : 0);
+  $('#jAW').textContent = aw ? fmtPct(aw, 1) : '—'; $('#jAL').textContent = al ? fmtPct(al, 1) : '—';
+  const pf = st0 ? st0.pf : (gl ? gw / gl : gw ? Infinity : 0); $('#jPF').textContent = pf == null || pf === Infinity ? (J.length ? '∞' : '—') : Number(pf).toFixed(2);
+  // Attesa per trade (guadagno medio atteso, in %), perdita massima (dal picco, sui trade in elenco) e affidabilità del campione
+  const nT = st0 ? st0.n : J.length, wr = nT ? (st0 ? st0.wr : wins.length / J.length * 100) : 0;
+  const ex = nT ? wr / 100 * aw + (1 - wr / 100) * al : null;
+  let cum = 0, peak = 0, dd = 0; for (const j of J) { cum += j.pnl; peak = Math.max(peak, cum); dd = Math.max(dd, peak - cum); }
+  $('#jEx').innerHTML = ex == null ? '—' : `<span class="${cls(ex)}">${fmtPct(ex, 1)}</span>`;
+  $('#jDD').innerHTML = J.length ? `<span class="${dd > 0 ? 'down' : ''}">${dd > 0 ? '−' : ''}${fmtSol(dd, 3)}</span>` : '—';
+  const pfN = pf == null || pf === Infinity ? (J.length ? 99 : 0) : Number(pf);
+  $('#jSmpL').textContent = nT < 30 ? 'Pochi trade' : nT < 100 ? 'Campione scarso' : pfN >= 1.3 && ex > 0 ? 'Esito positivo' : pfN >= 1 && ex > 0 ? 'Esito incerto' : 'Esito negativo';
+  $('#jSmp').innerHTML = `<span class="${nT >= 100 ? (pfN >= 1.3 && ex > 0 ? 'up' : pfN >= 1 && ex > 0 ? 'warn' : 'down') : 'warn'}">${nT}/100</span>`;
+  $('#jRows').innerHTML = [...J].reverse().slice(0, 100).map((j) => `<div class="jrow"><span>$${esc(j.sym)}<br><span class="muted">${new Date(j.closedAt).toLocaleString('it-IT', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' })}</span></span><span class="${cls(j.pct)}">${fmtPct(j.pct, 1)}${j.trigPct != null && Math.abs(j.trigPct - j.pct) >= 1 ? `<br><span class="muted tiny" title="Il picco e' il massimo raggiunto dopo l'ingresso; il prezzo di uscita e' quello dell'ultima vendita. L'esito e' diverso perche' include le vendite parziali, le fee, l'impatto e la priority">${j.peakPct != null ? 'picco ' + fmtPct(j.peakPct, 0) + ' · ' : ''}uscita ${fmtPct(j.trigPct, 0)}</span>` : ''}</span><span class="${cls(j.pnl)}">${Number(j.pnl).toFixed(4)}</span><span class="jr">${esc(j.reason)}</span></div>`).join('') || `<div class="empty" style="padding:18px 6px">${!real && !run ? 'Dati del runner non disponibili.' : 'Nessun trade chiuso.'}</div>`;
+  // Riquadro in basso: motivi di uscita, risultati per età del token all'ingresso, discese prima dei profitti
+  const tab = rt.jtab && rt.jtab !== 'lab' ? rt.jtab : 'mot', kvRow = (k, v, c) => `<span>${k}</span><span class="mono ${c || ''}">${v}</span>`, none = '<span class="muted small">Dati non ancora disponibili: servono trade chiusi con la versione più recente del runner.</span>';
+  document.querySelectorAll('#jTabs button').forEach((x) => x.classList.toggle('on', x.dataset.jt === tab));
+  let body;
+  if (tab === 'age') {
+    const B = [['< 15 min', (x) => x < 15], ['15-60 min', (x) => x < 60], ['1-6 ore', (x) => x < 360], ['6-24 ore', (x) => x < 1440], ['oltre 24 ore', () => true]], G = B.map(() => ({ n: 0, w: 0, pnl: 0 })), A = J.filter((j) => j.age != null);
+    for (const j of A) { const i = B.findIndex(([, f]) => f(j.age)); G[i].n++; G[i].w += j.pnl > 0 ? 1 : 0; G[i].pnl += j.pnl; }
+    body = A.length ? `<div class="kv">${B.map(([l], i) => G[i].n ? kvRow(`${l} (${G[i].n}) · ${Math.round(G[i].w / G[i].n * 100)}% vinti`, G[i].pnl.toFixed(4) + '◎', cls(G[i].pnl)) : '').join('')}</div>` : none;
   } else if (tab === 'dip') {
     const W = J.filter((j) => j.pnl > 0 && j.maePct != null), L = J.filter((j) => j.pnl <= 0 && j.maePct != null), avg = (xs) => (xs.length ? xs.reduce((s, j) => s + j.maePct, 0) / xs.length : 0), cnt = (xs, t) => xs.filter((j) => j.maePct <= t).length;
     body = W.length + L.length ? `<div class="kv">${kvRow(`In profitto (${W.length}): calo medio prima`, W.length ? fmtPct(avg(W), 1) : '—')}${kvRow('   scesi oltre −10%', W.length ? cnt(W, -10) + '/' + W.length : '—')}${kvRow('   scesi oltre −25%', W.length ? cnt(W, -25) + '/' + W.length : '—')}${kvRow(`In perdita (${L.length}): calo medio`, L.length ? fmtPct(avg(L), 1) : '—', 'down')}</div>` : none;
@@ -636,7 +647,7 @@ function renderJournal() {
     const by = {}; for (const j of J) { by[j.reason] = by[j.reason] || { n: 0, pnl: 0 }; by[j.reason].n++; by[j.reason].pnl += j.pnl; }
     body = Object.keys(by).length ? `<div class="kv">${Object.entries(by).map(([k, v]) => kvRow(`${esc(k)} (${v.n})`, v.pnl.toFixed(4) + '◎', cls(v.pnl))).join('')}</div>` : '<span class="muted small">Ancora nessuna uscita.</span>';
   }
-  $('#jReasons').innerHTML = body; $('#jReasons').classList.toggle('lab', tab === 'lab');
+  $('#jReasons').innerHTML = body;
 }
 function renderSystem() {
   const run = rt.run, e = rt.exec, clock = e && e.clock;

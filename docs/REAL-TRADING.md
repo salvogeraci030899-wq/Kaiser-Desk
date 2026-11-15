@@ -215,3 +215,7 @@ PumpPortal conferma le iscrizioni ma non invia scambi, quindi senza una fonte al
 - **API pubblica di pump.fun:** una richiesta per un token seguito (non ufficiale: puo' essere bloccata).
 
 Il formato dell'evento di scambio e' noto a memoria e non verificato dal vivo: la sonda conta separatamente gli eventi "leggibili" (importi e market cap sensati). Il rapporto non contiene l'indirizzo RPC.
+
+### Pagina Lab (v2.31.0)
+
+Il Laboratorio ha una pagina dedicata, con il tasto "Lab" nella barra in basso (tra Journal e Sistema). Non e' piu' una scheda del Journal. La pagina scorre per intero e raggruppa ogni sezione in un riquadro: stato delle fonti, ingresso a 60 secondi per punteggio bot, soglie di market cap, ingresso con ritardo, reazione agli acquisti, fabbrica di strategie, fonti per gli scambi, realismo del paper, vendite grosse.

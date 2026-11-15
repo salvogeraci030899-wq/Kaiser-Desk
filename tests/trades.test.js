@@ -196,3 +196,10 @@ test('letture scartate: il motivo viene contato e un campione resta visibile', a
   const p = new Lab.CurvePoller({ url: 'https://rpc.example', fetch: fakeFetch(vals), book: b, now: () => T + 20000, log: () => {} }); await p.pollOnce();
   assert.equal(p.ok, 1); assert.equal(p.bad, 1); assert.equal(p.why.zero, 1); assert.equal(p.gone, 1); assert.equal(p.sample.length, 1);
 });
+
+test('il Laboratorio ha una pagina dedicata con il suo tasto nella barra e non e\' piu\' una scheda del Journal', () => {
+  const fs = require('node:fs'), html = fs.readFileSync(require.resolve('../index.html'), 'utf8'), css = fs.readFileSync(require.resolve('../style.css'), 'utf8');
+  assert.ok(html.includes('data-v="lab"') && html.includes('id="v-lab"') && html.includes('id="labBody"'), 'pagina e tasto');
+  assert.ok(!html.includes('data-jt="lab"'), 'nessuna scheda Lab nel Journal'); assert.match(html, /function renderLab\(\)/); assert.match(html, /renderJournal\(\); renderLab\(\);/);
+  assert.equal((html.match(/<nav id="nav">[\s\S]*?<\/nav>/)[0].match(/<button data-v=/g) || []).length, 5, 'cinque tasti nella barra'); assert.match(css, /grid-template-columns: repeat\(5, 1fr\)/);
+});
