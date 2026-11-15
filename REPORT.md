@@ -1,10 +1,10 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-15 14:49 UTC · in esecuzione da 0.3 giorni · 110 run
+Aggiornato: 2026-11-15 14:55 UTC · in esecuzione da 0.3 giorni · 110 run
 
 | | |
 |---|---|
-| Equity | **1.4698 SOL** (-2.0% dal capitale iniziale di 1.5 SOL) |
+| Equity | **1.4692 SOL** (-2.1% dal capitale iniziale di 1.5 SOL) |
 | Cassa | 1.3926 SOL |
 | Trade chiusi | 17 |
 | Win rate | 41% |
@@ -14,7 +14,7 @@ Aggiornato: 2026-11-15 14:49 UTC · in esecuzione da 0.3 giorni · 110 run
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$GTA** P-0141 · 0.073 SOL · +5.2% · resta 100% · [grafico](https://dexscreener.com/solana/EQLp3JKdNcKbzbqJyvaDDqWrPtidQgLe1bZUAS8YBiG3)
+- **$GTA** P-0141 · 0.073 SOL · +4.3% · resta 100% · [grafico](https://dexscreener.com/solana/EQLp3JKdNcKbzbqJyvaDDqWrPtidQgLe1bZUAS8YBiG3)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -47,6 +47,20 @@ Aggiornato: 2026-11-15 14:49 UTC · in esecuzione da 0.3 giorni · 110 run
 
 ## Ultimi eventi
 ```
+14:55:06 ORACLE   360 raccolti, 257 analizzati, 3 BUY, 240 veto
+14:54:41 ORACLE   360 raccolti, 258 analizzati, 4 BUY, 242 veto
+14:54:18 ORACLE   360 raccolti, 262 analizzati, 4 BUY, 246 veto
+14:53:55 ORACLE   360 raccolti, 254 analizzati, 3 BUY, 237 veto
+14:53:32 ORACLE   360 raccolti, 260 analizzati, 3 BUY, 242 veto
+14:53:09 ORACLE   360 raccolti, 265 analizzati, 3 BUY, 247 veto
+14:52:46 ORACLE   360 raccolti, 260 analizzati, 3 BUY, 244 veto
+14:52:23 ORACLE   360 raccolti, 258 analizzati, 3 BUY, 240 veto
+14:52:09 ORACLE   360 raccolti, 264 analizzati, 3 BUY, 246 veto
+14:51:43 ORACLE   360 raccolti, 258 analizzati, 4 BUY, 242 veto
+14:51:20 ORACLE   360 raccolti, 261 analizzati, 4 BUY, 243 veto
+14:50:57 ORACLE   360 raccolti, 267 analizzati, 4 BUY, 250 veto
+14:50:34 ORACLE   360 raccolti, 256 analizzati, 3 BUY, 241 veto
+14:50:11 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 240 veto
 14:49:48 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 249 veto
 14:49:23 ORACLE   360 raccolti, 257 analizzati, 3 BUY, 245 veto
 14:48:59 ORACLE   360 raccolti, 259 analizzati, 4 BUY, 246 veto
@@ -73,20 +87,6 @@ Aggiornato: 2026-11-15 14:49 UTC · in esecuzione da 0.3 giorni · 110 run
 14:41:21 ORACLE   360 raccolti, 265 analizzati, 5 BUY, 252 veto
 14:40:58 ORACLE   360 raccolti, 271 analizzati, 5 BUY, 261 veto
 14:40:35 ORACLE   360 raccolti, 273 analizzati, 5 BUY, 263 veto
-14:40:12 ORACLE   360 raccolti, 273 analizzati, 5 BUY, 262 veto
-14:39:49 ORACLE   360 raccolti, 266 analizzati, 5 BUY, 254 veto
-14:39:26 ORACLE   360 raccolti, 270 analizzati, 5 BUY, 258 veto
-14:39:04 ORACLE   360 raccolti, 268 analizzati, 4 BUY, 257 veto
-14:38:50 SCRIBE   chiuso P-0140 $Nyajira 0.0144 SOL (19.6%)
-14:38:50 CHARON   Trailing stop $Nyajira vendo 100% a 18.6% -> 0.0214 SOL
-14:38:50 ORACLE   360 raccolti, 268 analizzati, 5 BUY, 256 veto
-14:38:25 ORACLE   360 raccolti, 274 analizzati, 5 BUY, 262 veto
-14:38:02 ORACLE   360 raccolti, 270 analizzati, 5 BUY, 258 veto
-14:37:39 ORACLE   360 raccolti, 271 analizzati, 5 BUY, 261 veto
-14:37:15 ORACLE   360 raccolti, 269 analizzati, 4 BUY, 259 veto
-14:36:51 CHARON   TP1 $Nyajira vendo 70% a 40.1% -> 0.0666 SOL
-14:36:51 ORACLE   360 raccolti, 264 analizzati, 5 BUY, 252 veto
-14:36:27 ORACLE   360 raccolti, 267 analizzati, 3 BUY, 258 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
