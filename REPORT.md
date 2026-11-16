@@ -1,33 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 12:15 UTC · in esecuzione da 0.4 giorni · 136 run
+Aggiornato: 2026-11-16 12:20 UTC · in esecuzione da 0.4 giorni · 136 run
 
 | | |
 |---|---|
-| Equity | **5.7111 SOL** (-4.8% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.4221 SOL |
-| Trade chiusi | 23 |
-| Win rate | 30% |
-| P&L realizzato | -0.3498 SOL (~$-24.77) |
-| Media vincite / perdite | +54.0% / -41.8% |
-| Profit factor | 0.55 |
+| Equity | **5.6582 SOL** (-5.7% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.5277 SOL |
+| Trade chiusi | 24 |
+| Win rate | 29% |
+| P&L realizzato | -0.3583 SOL (~$-25.34) |
+| Media vincite / perdite | +54.0% / -39.8% |
+| Profit factor | 0.54 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$WASTED6** P-0193 · 0.113 SOL · +14.6% · resta 100% · [grafico](https://dexscreener.com/solana/4V1zT5VAixLkZpqRMxNgmgmpoQAnKm3YpHNhq1bxrSZS)
-- **$ZLUSD** P-0194 · 0.113 SOL · +40.9% · resta 100% · [grafico](https://dexscreener.com/solana/2eft8gFjKT8JJjiUH92wDyjeWKmxCFdAfeRybVrydcpG)
+- **$WASTED6** P-0193 · 0.113 SOL · +15.6% · resta 100% · [grafico](https://dexscreener.com/solana/4V1zT5VAixLkZpqRMxNgmgmpoQAnKm3YpHNhq1bxrSZS)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 7 | -0.3345 |
-| Time stop | 6 | -0.1148 |
+| Time stop | 7 | -0.1234 |
 | RUG-EXIT liquidità | 4 | -0.2925 |
 | TP1 | 6 | +0.3921 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $ZLUSD | 70 | -7.5% | -0.0086 | +53% | +2% | Time stop | 11m |
 | $GOSSIP | 79 | +32.3% | +0.0366 | +0% | -67% | RUG-EXIT liquidità | 0m |
 | $FIBDIP | 75 | -24.3% | -0.0277 | +45% | +1% | Time stop | 13m |
 | $Stallions | 76 | -41.9% | -0.0481 | +5% | -36% | Stop loss | 3m |
@@ -54,6 +54,21 @@ Aggiornato: 2026-11-16 12:15 UTC · in esecuzione da 0.4 giorni · 136 run
 
 ## Ultimi eventi
 ```
+12:20:44 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 258 veto
+12:20:30 SCRIBE   chiuso P-0194 $ZLUSD -0.0086 SOL (-7.5%)
+12:20:30 CHARON   Time stop $ZLUSD vendo 100% a 1.7% -> 0.1055 SOL
+12:20:20 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 254 veto
+12:19:56 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 258 veto
+12:19:33 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 255 veto
+12:19:11 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 261 veto
+12:18:48 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 251 veto
+12:18:25 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 253 veto
+12:18:02 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 261 veto
+12:17:37 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 255 veto
+12:17:14 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 260 veto
+12:16:51 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 260 veto
+12:16:28 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 255 veto
+12:16:05 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 253 veto
 12:15:42 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 258 veto
 12:15:19 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 256 veto
 12:14:56 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 247 veto
@@ -79,21 +94,6 @@ Aggiornato: 2026-11-16 12:15 UTC · in esecuzione da 0.4 giorni · 136 run
 12:07:40 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 258 veto
 12:07:18 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 247 veto
 12:06:55 ORACLE   360 raccolti, 274 analizzati, 2 BUY, 261 veto
-12:06:32 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 257 veto
-12:06:09 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 254 veto
-12:05:46 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 253 veto
-12:05:23 ORACLE   356 raccolti, 261 analizzati, 2 BUY, 250 veto
-12:05:00 SCOUT    PumpPortal invia nuovi token (22) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-12:05:00 ORACLE   350 raccolti, 255 analizzati, 2 BUY, 243 veto
-12:04:37 ORACLE   336 raccolti, 246 analizzati, 2 BUY, 237 veto
-12:04:14 ORACLE   330 raccolti, 238 analizzati, 2 BUY, 226 veto
-12:03:52 ORACLE   325 raccolti, 232 analizzati, 2 BUY, 221 veto
-12:03:29 ORACLE   303 raccolti, 213 analizzati, 2 BUY, 204 veto
-12:03:06 ORACLE   295 raccolti, 209 analizzati, 2 BUY, 200 veto
-12:02:44 ORACLE   294 raccolti, 203 analizzati, 2 BUY, 195 veto
-12:02:21 ORACLE   270 raccolti, 192 analizzati, 2 BUY, 185 veto
-12:01:58 ORACLE   264 raccolti, 184 analizzati, 2 BUY, 176 veto
-12:01:36 ORACLE   256 raccolti, 173 analizzati, 2 BUY, 165 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
