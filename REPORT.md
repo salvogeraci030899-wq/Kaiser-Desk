@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 06:54 UTC · in esecuzione da 0.2 giorni · 129 run
+Aggiornato: 2026-11-16 06:58 UTC · in esecuzione da 0.2 giorni · 129 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-16 06:54 UTC · in esecuzione da 0.2 giorni · 129 run
 | Cassa | 5.5064 SOL |
 | Trade chiusi | 12 |
 | Win rate | 8% |
-| P&L realizzato | -0.4936 SOL (~$-35.15) |
+| P&L realizzato | -0.4936 SOL (~$-35.20) |
 | Media vincite / perdite | +15.9% / -39.8% |
 | Profit factor | 0.03 |
 | Circuit breaker | no |
@@ -42,6 +42,16 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+06:58:21 SCRIBE   fine run · trade 12 · win 8% · P&L -0.4936 SOL · equity 5.5064 SOL
+06:58:18 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 243 veto
+06:57:55 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 232 veto
+06:57:32 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 245 veto
+06:57:09 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 238 veto
+06:56:46 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 235 veto
+06:56:22 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 239 veto
+06:55:59 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 239 veto
+06:55:34 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 233 veto
+06:55:11 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 239 veto
 06:54:48 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 245 veto
 06:54:25 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 235 veto
 06:54:02 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 246 veto
@@ -72,16 +82,6 @@ _nessuna_
 06:45:13 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 257 veto
 06:44:50 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 265 veto
 06:44:27 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 262 veto
-06:44:04 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 252 veto
-06:43:41 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 262 veto
-06:43:17 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 261 veto
-06:42:55 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 262 veto
-06:42:31 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 266 veto
-06:42:09 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 262 veto
-06:41:46 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 261 veto
-06:41:23 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 257 veto
-06:41:00 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 260 veto
-06:40:36 SCRIBE   chiuso P-0181 $Percy 0.0176 SOL (15.9%)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
