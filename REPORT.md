@@ -1,34 +1,35 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 14:01 UTC · in esecuzione da 0.5 giorni · 138 run
+Aggiornato: 2026-11-16 14:06 UTC · in esecuzione da 0.5 giorni · 138 run
 
 | | |
 |---|---|
-| Equity | **5.6497 SOL** (-5.8% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.3867 SOL |
-| Trade chiusi | 30 |
-| Win rate | 33% |
-| P&L realizzato | -0.3877 SOL (~$-27.42) |
-| Media vincite / perdite | +51.9% / -42.1% |
-| Profit factor | 0.60 |
+| Equity | **5.4576 SOL** (-9.0% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.4576 SOL |
+| Trade chiusi | 32 |
+| Win rate | 31% |
+| P&L realizzato | -0.5424 SOL (~$-38.36) |
+| Media vincite / perdite | +51.9% / -44.5% |
+| Profit factor | 0.52 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$Stumpy** P-0200 · 0.111 SOL · +24.7% · resta 100% · [grafico](https://dexscreener.com/solana/5DgX6ojtBDahHpBV5bL5TktXzXzUygTmXqTomfMJgwHT)
-- **$DADDY** P-0201 · 0.112 SOL · +10.7% · resta 100% · [grafico](https://dexscreener.com/solana/28wdoaidsD5U2AsCrX23ZzJ4ZpU6W1ivPMJHUcvwcxgb)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| Stop loss | 9 | -0.4437 |
+| Stop loss | 10 | -0.4885 |
 | Time stop | 7 | -0.1234 |
-| RUG-EXIT liquidità | 5 | -0.3709 |
+| RUG-EXIT liquidità | 6 | -0.4807 |
 | TP1 | 8 | +0.5280 |
 | Chiusura manuale (app) | 1 | +0.0221 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $Stumpy | 67 | -39.9% | -0.0448 | +42% | -25% | Stop loss | 8m |
+| $DADDY | 67 | -97.1% | -0.1098 | +32% | -96% | RUG-EXIT liquidità | 2m |
 | $hello | 66 | +64.5% | +0.0721 | +66% | +66% | TP1 | 11m |
 | $Stumpy | 67 | -72.2% | -0.0819 | +38% | -49% | Stop loss | 2m |
 | $Stumpy | 66 | +56.9% | +0.0639 | +78% | +78% | TP1 | 1m |
@@ -52,11 +53,27 @@ Aggiornato: 2026-11-16 14:01 UTC · in esecuzione da 0.5 giorni · 138 run
 | $equity | 67 | -93.6% | -0.1059 | +27% | -89% | RUG-EXIT liquidità | 2m |
 | $KELPGUY | 75 | -42.4% | -0.0484 | +0% | -40% | Stop loss | 2m |
 | $oop | 64 | -7.4% | -0.0086 | +18% | +1% | Time stop | 27m |
-| $PASSED | 88 | -99.5% | -0.1162 | +2% | -99% | RUG-EXIT liquidità | 2m |
-| $Gib | 63 | -64.2% | -0.0759 | +7% | -45% | Stop loss | 2m |
 
 ## Ultimi eventi
 ```
+14:06:13 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 234 veto
+14:05:50 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 232 veto
+14:05:26 SCRIBE   chiuso P-0200 $Stumpy -0.0448 SOL (-39.9%)
+14:05:26 CHARON   Stop loss $Stumpy vendo 100% a -25.1% -> 0.0676 SOL
+14:05:26 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 245 veto
+14:05:04 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 248 veto
+14:04:41 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 236 veto
+14:04:18 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 254 veto
+14:03:54 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 253 veto
+14:03:32 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 255 veto
+14:03:08 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 258 veto
+14:02:45 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 261 veto
+14:02:22 SCRIBE   chiuso P-0201 $DADDY -0.1098 SOL (-97.1%)
+14:02:22 CHARON   RUG-EXIT liquidità $DADDY vendo 100% a -96.2% -> 0.0033 SOL
+14:02:22 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 251 veto
+14:02:19 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
+14:01:59 ORACLE   360 raccolti, 271 analizzati, 4 BUY, 260 veto
+14:01:36 ORACLE   360 raccolti, 265 analizzati, 3 BUY, 254 veto
 14:01:13 ORACLE   360 raccolti, 266 analizzati, 4 BUY, 256 veto
 14:00:50 ORACLE   360 raccolti, 253 analizzati, 4 BUY, 244 veto
 14:00:26 QUARTER  BUY $DADDY 0.112 SOL score 67 impatto 1.61% (Jupiter)
@@ -79,24 +96,6 @@ Aggiornato: 2026-11-16 14:01 UTC · in esecuzione da 0.5 giorni · 138 run
 13:56:15 ORACLE   360 raccolti, 240 analizzati, 2 BUY, 233 veto
 13:55:52 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 229 veto
 13:55:29 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 227 veto
-13:55:06 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 235 veto
-13:54:44 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 231 veto
-13:54:21 ORACLE   360 raccolti, 229 analizzati, 2 BUY, 221 veto
-13:53:58 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 240 veto
-13:53:35 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 237 veto
-13:53:12 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 234 veto
-13:52:49 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 237 veto
-13:52:26 ORACLE   360 raccolti, 247 analizzati, 3 BUY, 238 veto
-13:52:03 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 225 veto
-13:51:40 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 238 veto
-13:51:17 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 240 veto
-13:50:54 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 238 veto
-13:50:30 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 241 veto
-13:50:08 ORACLE   360 raccolti, 258 analizzati, 3 BUY, 244 veto
-13:49:45 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 242 veto
-13:49:22 KAISER   limite 1 ingresso/i per scan: $Stumpy rimandato
-13:49:21 QUARTER  BUY $hello 0.111 SOL score 66 impatto 1.25% (Jupiter)
-13:49:21 ORACLE   360 raccolti, 256 analizzati, 3 BUY, 246 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
