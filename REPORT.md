@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 22:02 UTC · in esecuzione da 0.2 giorni · 147 run
+Aggiornato: 2026-11-16 22:07 UTC · in esecuzione da 0.2 giorni · 147 run
 
 | | |
 |---|---|
-| Equity | **6.0742 SOL** (+1.2% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.9406 SOL |
-| Trade chiusi | 24 |
-| Win rate | 33% |
-| P&L realizzato | +0.0629 SOL (~$4.53) |
-| Media vincite / perdite | +46.2% / -19.6% |
-| Profit factor | 1.17 |
+| Equity | **6.2057 SOL** (+3.4% dal capitale iniziale di 6 SOL) |
+| Cassa | 6.2057 SOL |
+| Trade chiusi | 25 |
+| Win rate | 36% |
+| P&L realizzato | +0.2057 SOL (~$14.79) |
+| Media vincite / perdite | +54.0% / -19.6% |
+| Profit factor | 1.54 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$GROYPERS** P-0240 · 0.121 SOL · +10.1% · resta 100% · [grafico](https://dexscreener.com/solana/6YasJG5zw98eYES8F5ZqHrMU6VnGHMkXUW27gzD5Nsd3)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | RUG-EXIT liquidità | 2 | -0.0151 |
 | Time stop | 12 | -0.1574 |
-| TP1 | 6 | +0.3202 |
+| TP1 | 7 | +0.4630 |
 | Stop loss | 4 | -0.0848 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $GROYPERS | 65 | +116.8% | +0.1428 | +92% | +92% | TP1 | 4m |
 | $BAWSAQ | 63 | +26.7% | +0.0325 | +71% | +71% | TP1 | 1m |
 | $CHOP | 74 | -33.6% | -0.0413 | +0% | -41% | Stop loss | 3m |
 | $WORLDCRAFT | 86 | -11.7% | -0.0144 | +25% | +2% | Time stop | 5m |
@@ -54,6 +55,21 @@ Aggiornato: 2026-11-16 22:02 UTC · in esecuzione da 0.2 giorni · 147 run
 
 ## Ultimi eventi
 ```
+22:07:24 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 258 veto
+22:07:00 ORACLE   360 raccolti, 266 analizzati, 3 BUY, 256 veto
+22:06:37 ORACLE   360 raccolti, 261 analizzati, 3 BUY, 251 veto
+22:06:13 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 257 veto
+22:05:49 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 261 veto
+22:05:24 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 253 veto
+22:05:00 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 261 veto
+22:04:37 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 255 veto
+22:04:14 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 258 veto
+22:03:50 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 272 veto
+22:03:26 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 268 veto
+22:03:02 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 264 veto
+22:02:39 SCRIBE   chiuso P-0240 $GROYPERS 0.1428 SOL (116.8%)
+22:02:39 CHARON   TP1 $GROYPERS vendo 100% a 92.1% -> 0.2651 SOL
+22:02:39 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 261 veto
 22:02:15 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 241 veto
 22:01:52 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 238 veto
 22:01:28 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 263 veto
@@ -79,21 +95,6 @@ Aggiornato: 2026-11-16 22:02 UTC · in esecuzione da 0.2 giorni · 147 run
 21:55:11 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 265 veto
 21:54:47 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 261 veto
 21:54:23 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 264 veto
-21:53:59 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 263 veto
-21:53:36 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 253 veto
-21:53:12 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 266 veto
-21:52:48 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 263 veto
-21:52:24 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 250 veto
-21:52:00 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 262 veto
-21:51:36 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 265 veto
-21:51:12 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 259 veto
-21:50:48 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 255 veto
-21:50:24 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 262 veto
-21:50:00 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 257 veto
-21:49:35 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 259 veto
-21:49:11 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 258 veto
-21:48:48 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 245 veto
-21:48:24 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 257 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
