@@ -1,27 +1,27 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 02:07 UTC · in esecuzione da 0.7 giorni · 124 run
+Aggiornato: 2026-11-16 02:12 UTC · in esecuzione da 0.7 giorni · 124 run
 
 | | |
 |---|---|
-| Equity | **1.1903 SOL** (-20.6% dal capitale iniziale di 1.5 SOL) |
-| Cassa | 1.1624 SOL |
-| Trade chiusi | 40 |
-| Win rate | 25% |
-| P&L realizzato | -0.3239 SOL (~$-23.20) |
-| Media vincite / perdite | +33.0% / -26.7% |
-| Profit factor | 0.50 |
+| Equity | **1.1931 SOL** (-20.5% dal capitale iniziale di 1.5 SOL) |
+| Cassa | 1.1931 SOL |
+| Trade chiusi | 41 |
+| Win rate | 27% |
+| P&L realizzato | -0.3069 SOL (~$-22.02) |
+| Media vincite / perdite | +32.6% / -26.7% |
+| Profit factor | 0.53 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$XRL** P-0164 · 0.059 SOL · +57.9% · resta 30% · [grafico](https://dexscreener.com/solana/58A2c7uxZbPQaSTTnkdHoG7ancHnuu92ZSgmPrc13Xoq)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 23 | -0.4887 |
 | Chiusura manuale (app) | 1 | +0.0954 |
-| Trailing stop | 10 | +0.1571 |
+| Trailing stop | 11 | +0.1741 |
 | Time stop | 3 | -0.0276 |
 | Break-even | 2 | +0.0023 |
 | RUG-EXIT liquidità | 1 | -0.0624 |
@@ -29,6 +29,7 @@ Aggiornato: 2026-11-16 02:07 UTC · in esecuzione da 0.7 giorni · 124 run
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $XRL | 66 | +28.4% | +0.0170 | +58% | +29% | Trailing stop | 5m |
 | $LILY | 69 | -52.4% | -0.0322 | +31% | -22% | Stop loss | 1m |
 | $APED | 70 | -11.5% | -0.0071 | +0% | -15% | Stop loss | 1m |
 | $Billy | 68 | -49.2% | -0.0312 | +0% | -15% | Stop loss | 1m |
@@ -53,10 +54,24 @@ Aggiornato: 2026-11-16 02:07 UTC · in esecuzione da 0.7 giorni · 124 run
 | $GTA | 74 | +13.2% | +0.0098 | +35% | -9% | Break-even | 16m |
 | $SI | 74 | -20.5% | -0.0155 | +0% | -23% | Stop loss | 1m |
 | $Nyajira | 68 | +19.6% | +0.0144 | +40% | +19% | Trailing stop | 6m |
-| $investinu | 69 | -9.1% | -0.0068 | +0% | -15% | Stop loss | 0m |
 
 ## Ultimi eventi
 ```
+02:12:30 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 242 veto
+02:12:07 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 246 veto
+02:11:44 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 249 veto
+02:11:20 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 242 veto
+02:10:57 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 242 veto
+02:10:33 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 242 veto
+02:10:10 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 238 veto
+02:09:47 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 240 veto
+02:09:23 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 232 veto
+02:09:10 SCRIBE   chiuso P-0164 $XRL 0.0170 SOL (28.4%)
+02:09:10 CHARON   Trailing stop $XRL vendo 100% a 28.9% -> 0.0307 SOL
+02:09:10 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 230 veto
+02:08:44 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 234 veto
+02:08:21 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 232 veto
+02:07:56 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 231 veto
 02:07:32 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 234 veto
 02:07:09 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 236 veto
 02:06:45 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 229 veto
@@ -82,21 +97,6 @@ Aggiornato: 2026-11-16 02:07 UTC · in esecuzione da 0.7 giorni · 124 run
 01:59:44 ORACLE   338 raccolti, 191 analizzati, 0 BUY, 181 veto
 01:59:30 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
 01:59:20 ORACLE   311 raccolti, 166 analizzati, 0 BUY, 159 veto
-01:58:56 ORACLE   300 raccolti, 152 analizzati, 0 BUY, 145 veto
-01:58:34 ORACLE   288 raccolti, 152 analizzati, 0 BUY, 145 veto
-01:58:11 ORACLE   247 raccolti, 133 analizzati, 1 BUY, 128 veto
-01:57:48 ORACLE   235 raccolti, 111 analizzati, 1 BUY, 108 veto
-01:57:27 SCOUT    fabbrica: 3279 percorsi, 768 configurazioni, 0 passano, 563 ms
-01:57:26 QUARTER  $Nеil impatto 2.2% oltre slippage: annullato
-01:57:26 ORACLE   229 raccolti, 111 analizzati, 2 BUY, 107 veto
-01:57:24 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-01:57:24 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-01:57:22 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
-01:57:22 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
-01:57:22 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→15, tp1 40→25, tp1Sell 50→70, timeStopMin 45→5, timeStopMinPnl 5→2, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, rugLiqDrop 45→30, maxMcap 20000000→100000, trail 20→15, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120, srcGmgnTrending true→false
-01:57:22 SCOUT    Laboratorio: collegato a PumpPortal
-01:57:22 KAISER   run #124 · 0 posizioni · equity 1.1761 SOL · GMGN spenta (nessuna chiave) · Grok off
-01:57:04 SCRIBE   fine run · trade 40 · win 25% · P&L -0.3239 SOL · equity 1.1761 SOL
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
