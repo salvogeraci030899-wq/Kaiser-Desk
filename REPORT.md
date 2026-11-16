@@ -1,31 +1,32 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 18:12 UTC · in esecuzione da 0.0 giorni · 143 run
+Aggiornato: 2026-11-16 18:17 UTC · in esecuzione da 0.0 giorni · 143 run
 
 | | |
 |---|---|
-| Equity | **5.9473 SOL** (-0.9% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.8336 SOL |
-| Trade chiusi | 6 |
-| Win rate | 17% |
-| P&L realizzato | -0.0463 SOL (~$-3.29) |
-| Media vincite / perdite | +43.4% / -16.3% |
-| Profit factor | 0.53 |
+| Equity | **6.0344 SOL** (+0.6% dal capitale iniziale di 6 SOL) |
+| Cassa | 6.0344 SOL |
+| Trade chiusi | 7 |
+| Win rate | 29% |
+| P&L realizzato | +0.0344 SOL (~$2.45) |
+| Media vincite / perdite | +55.3% / -16.3% |
+| Profit factor | 1.35 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$LUCIA** P-0222 · 0.119 SOL · -4.5% · resta 100% · [grafico](https://dexscreener.com/solana/4ZT5P3hYcS57EMHianCrED82ojc62JNUdJvVN4SrKVx7)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | RUG-EXIT liquidità | 1 | -0.0417 |
 | Time stop | 4 | -0.0565 |
-| TP1 | 1 | +0.0518 |
+| TP1 | 2 | +0.1325 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $LUCIA | 74 | +67.2% | +0.0807 | +65% | +65% | TP1 | 4m |
 | $DUST | 66 | -14.5% | -0.0174 | +0% | -27% | Time stop | 5m |
 | $COGE | 64 | -0.4% | -0.0005 | +15% | +3% | Time stop | 5m |
 | $COGE | 68 | +43.4% | +0.0518 | +67% | +67% | TP1 | 6m |
@@ -35,6 +36,21 @@ Aggiornato: 2026-11-16 18:12 UTC · in esecuzione da 0.0 giorni · 143 run
 
 ## Ultimi eventi
 ```
+18:17:03 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 241 veto
+18:16:39 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 247 veto
+18:16:16 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 246 veto
+18:15:53 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 238 veto
+18:15:30 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 245 veto
+18:15:07 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 236 veto
+18:14:44 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 233 veto
+18:14:21 SCRIBE   chiuso P-0222 $LUCIA 0.0807 SOL (67.2%)
+18:14:21 CHARON   TP1 $LUCIA vendo 100% a 64.7% -> 0.2008 SOL
+18:14:21 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 236 veto
+18:13:58 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 239 veto
+18:13:35 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 235 veto
+18:13:12 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 245 veto
+18:12:48 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 245 veto
+18:12:25 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 237 veto
 18:12:02 ORACLE   360 raccolti, 251 analizzati, 3 BUY, 242 veto
 18:11:39 ORACLE   360 raccolti, 260 analizzati, 3 BUY, 250 veto
 18:11:16 ORACLE   360 raccolti, 252 analizzati, 3 BUY, 242 veto
@@ -60,21 +76,6 @@ Aggiornato: 2026-11-16 18:12 UTC · in esecuzione da 0.0 giorni · 143 run
 18:05:51 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 227 veto
 18:05:27 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 227 veto
 18:05:04 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 233 veto
-18:04:50 SCRIBE   chiuso P-0221 $DUST -0.0174 SOL (-14.5%)
-18:04:50 CHARON   Time stop $DUST vendo 100% a -26.8% -> 0.1024 SOL
-18:04:40 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 236 veto
-18:04:17 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 228 veto
-18:03:54 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 235 veto
-18:03:31 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 230 veto
-18:03:07 ORACLE   360 raccolti, 238 analizzati, 2 BUY, 230 veto
-18:02:43 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 241 veto
-18:02:19 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 238 veto
-18:01:56 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 236 veto
-18:01:33 ORACLE   360 raccolti, 267 analizzati, 3 BUY, 255 veto
-18:01:09 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 252 veto
-18:00:56 SCRIBE   chiuso P-0220 $COGE -0.0005 SOL (-0.4%)
-18:00:56 CHARON   Time stop $COGE vendo 100% a 3.3% -> 0.1190 SOL
-18:00:46 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 244 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
