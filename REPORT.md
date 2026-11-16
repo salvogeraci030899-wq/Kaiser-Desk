@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 02:28 UTC · in esecuzione da 0.0 giorni · 124 run
+Aggiornato: 2026-11-16 02:33 UTC · in esecuzione da 0.0 giorni · 124 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-16 02:28 UTC · in esecuzione da 0.0 giorni · 124 run
 | Cassa | 1.4815 SOL |
 | Trade chiusi | 1 |
 | Win rate | 0% |
-| P&L realizzato | -0.0185 SOL (~$-1.35) |
+| P&L realizzato | -0.0185 SOL (~$-1.34) |
 | Media vincite / perdite | +0.0% / -24.4% |
 | Profit factor | 0.00 |
 | Circuit breaker | no |
@@ -28,6 +28,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+02:33:21 ORACLE   360 raccolti, 227 analizzati, 1 BUY, 215 veto
+02:32:57 ORACLE   360 raccolti, 229 analizzati, 1 BUY, 220 veto
+02:32:34 ORACLE   360 raccolti, 229 analizzati, 1 BUY, 219 veto
+02:32:10 ORACLE   360 raccolti, 225 analizzati, 1 BUY, 218 veto
+02:31:47 ORACLE   360 raccolti, 229 analizzati, 1 BUY, 221 veto
+02:31:34 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 229 veto
+02:31:05 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 231 veto
+02:30:42 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 233 veto
+02:30:18 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 225 veto
+02:29:55 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 229 veto
+02:29:31 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 225 veto
+02:29:08 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 227 veto
+02:28:45 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 228 veto
+02:28:22 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 237 veto
 02:27:59 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 234 veto
 02:27:36 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 233 veto
 02:27:22 SCRIBE   chiuso P-0166 $XRL -0.0185 SOL (-24.4%)
@@ -54,20 +68,6 @@ _nessuna_
 02:21:02 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 244 veto
 02:20:38 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 239 veto
 02:20:15 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 244 veto
-02:19:51 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 246 veto
-02:19:36 SCRIBE   chiuso P-0165 $Neil 0.0160 SOL (26.4%)
-02:19:36 CHARON   Trailing stop $Neil vendo 100% a 7.5% -> 0.0216 SOL
-02:19:26 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 234 veto
-02:19:02 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 240 veto
-02:18:38 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 234 veto
-02:18:26 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 234 veto
-02:18:00 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 233 veto
-02:17:36 CHARON   TP1 $Neil vendo 70% a 27.9% -> 0.0550 SOL
-02:17:36 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 233 veto
-02:17:13 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 232 veto
-02:16:49 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 243 veto
-02:16:25 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 234 veto
-02:16:02 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 233 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
