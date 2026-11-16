@@ -1,21 +1,21 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 12:10 UTC · in esecuzione da 0.4 giorni · 136 run
+Aggiornato: 2026-11-16 12:15 UTC · in esecuzione da 0.4 giorni · 136 run
 
 | | |
 |---|---|
-| Equity | **5.6607 SOL** (-5.7% dal capitale iniziale di 6 SOL) |
+| Equity | **5.7111 SOL** (-4.8% dal capitale iniziale di 6 SOL) |
 | Cassa | 5.4221 SOL |
 | Trade chiusi | 23 |
 | Win rate | 30% |
-| P&L realizzato | -0.3498 SOL (~$-24.78) |
+| P&L realizzato | -0.3498 SOL (~$-24.77) |
 | Media vincite / perdite | +54.0% / -41.8% |
 | Profit factor | 0.55 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$WASTED6** P-0193 · 0.113 SOL · +7.7% · resta 100% · [grafico](https://dexscreener.com/solana/4V1zT5VAixLkZpqRMxNgmgmpoQAnKm3YpHNhq1bxrSZS)
-- **$ZLUSD** P-0194 · 0.113 SOL · +3.3% · resta 100% · [grafico](https://dexscreener.com/solana/2eft8gFjKT8JJjiUH92wDyjeWKmxCFdAfeRybVrydcpG)
+- **$WASTED6** P-0193 · 0.113 SOL · +14.6% · resta 100% · [grafico](https://dexscreener.com/solana/4V1zT5VAixLkZpqRMxNgmgmpoQAnKm3YpHNhq1bxrSZS)
+- **$ZLUSD** P-0194 · 0.113 SOL · +40.9% · resta 100% · [grafico](https://dexscreener.com/solana/2eft8gFjKT8JJjiUH92wDyjeWKmxCFdAfeRybVrydcpG)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -54,6 +54,20 @@ Aggiornato: 2026-11-16 12:10 UTC · in esecuzione da 0.4 giorni · 136 run
 
 ## Ultimi eventi
 ```
+12:15:42 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 258 veto
+12:15:19 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 256 veto
+12:14:56 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 247 veto
+12:14:33 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 254 veto
+12:14:10 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 249 veto
+12:13:47 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 252 veto
+12:13:24 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 247 veto
+12:13:01 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 246 veto
+12:12:38 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 255 veto
+12:12:15 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 254 veto
+12:11:52 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 253 veto
+12:11:30 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 257 veto
+12:11:07 ORACLE   360 raccolti, 273 analizzati, 3 BUY, 259 veto
+12:10:44 ORACLE   360 raccolti, 272 analizzati, 3 BUY, 260 veto
 12:10:21 ORACLE   360 raccolti, 272 analizzati, 3 BUY, 261 veto
 12:09:58 ORACLE   360 raccolti, 270 analizzati, 3 BUY, 259 veto
 12:09:35 QUARTER  BUY $ZLUSD 0.113 SOL score 70 impatto 0.92% (Jupiter)
@@ -80,20 +94,6 @@ Aggiornato: 2026-11-16 12:10 UTC · in esecuzione da 0.4 giorni · 136 run
 12:02:21 ORACLE   270 raccolti, 192 analizzati, 2 BUY, 185 veto
 12:01:58 ORACLE   264 raccolti, 184 analizzati, 2 BUY, 176 veto
 12:01:36 ORACLE   256 raccolti, 173 analizzati, 2 BUY, 165 veto
-12:01:13 ORACLE   227 raccolti, 155 analizzati, 2 BUY, 148 veto
-12:00:51 ORACLE   218 raccolti, 147 analizzati, 2 BUY, 140 veto
-12:00:28 ORACLE   212 raccolti, 142 analizzati, 2 BUY, 137 veto
-12:00:17 SCOUT    fabbrica: 4328 percorsi, 768 configurazioni, 0 passano, 789 ms
-12:00:16 KAISER   limite 1 ingresso/i per scan: $FIBDIP rimandato
-12:00:16 QUARTER  BUY $WASTED6 0.113 SOL score 93 impatto 0.92% (Jupiter)
-12:00:16 ORACLE   212 raccolti, 142 analizzati, 2 BUY, 137 veto
-12:00:15 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-12:00:12 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-12:00:12 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
-12:00:12 SCOUT    Laboratorio: collegato a PumpPortal
-12:00:12 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, tp1 40→60, tp1Sell 50→100, timeStopMin 45→10, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, rugLiqDrop 45→30, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120, srcGmgnTrending true→false
-12:00:11 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
-12:00:11 KAISER   run #136 · 0 posizioni · equity 5.6502 SOL · GMGN spenta (nessuna chiave) · Grok off
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
