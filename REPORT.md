@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 00:36 UTC · in esecuzione da 0.7 giorni · 122 run
+Aggiornato: 2026-11-16 00:42 UTC · in esecuzione da 0.7 giorni · 122 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-16 00:36 UTC · in esecuzione da 0.7 giorni · 122 run
 | Cassa | 1.2510 SOL |
 | Trade chiusi | 36 |
 | Win rate | 28% |
-| P&L realizzato | -0.2490 SOL (~$-17.89) |
+| P&L realizzato | -0.2490 SOL (~$-17.83) |
 | Media vincite / perdite | +33.0% / -26.1% |
 | Profit factor | 0.57 |
 | Circuit breaker | no |
@@ -57,6 +57,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+00:41:50 ORACLE   360 raccolti, 240 analizzati, 3 BUY, 232 veto
+00:41:27 ORACLE   360 raccolti, 247 analizzati, 3 BUY, 239 veto
+00:41:03 ORACLE   360 raccolti, 237 analizzati, 3 BUY, 227 veto
+00:40:40 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 243 veto
+00:40:17 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 230 veto
+00:39:54 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 232 veto
+00:39:30 ORACLE   360 raccolti, 249 analizzati, 3 BUY, 239 veto
+00:39:08 ORACLE   360 raccolti, 253 analizzati, 3 BUY, 242 veto
+00:38:44 ORACLE   360 raccolti, 252 analizzati, 3 BUY, 244 veto
+00:38:21 ORACLE   360 raccolti, 252 analizzati, 3 BUY, 240 veto
+00:37:57 ORACLE   360 raccolti, 258 analizzati, 3 BUY, 245 veto
+00:37:35 ORACLE   360 raccolti, 247 analizzati, 3 BUY, 235 veto
+00:37:11 ORACLE   360 raccolti, 257 analizzati, 3 BUY, 245 veto
 00:36:48 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 242 veto
 00:36:25 ORACLE   360 raccolti, 251 analizzati, 3 BUY, 239 veto
 00:36:01 SCRIBE   chiuso P-0159 $Culture -0.0085 SOL (-13.3%)
@@ -84,19 +97,6 @@ _nessuna_
 00:29:32 KAISER   limite 1 ingresso/i per scan: $nma rimandato
 00:29:31 QUARTER  BUY $FiveM 0.063 SOL score 77 impatto 1.13% (Jupiter)
 00:29:31 ORACLE   360 raccolti, 228 analizzati, 3 BUY, 217 veto
-00:29:08 ORACLE   360 raccolti, 229 analizzati, 3 BUY, 218 veto
-00:28:44 ORACLE   360 raccolti, 231 analizzati, 3 BUY, 220 veto
-00:28:21 ORACLE   360 raccolti, 231 analizzati, 3 BUY, 219 veto
-00:27:58 ORACLE   360 raccolti, 234 analizzati, 3 BUY, 219 veto
-00:27:34 ORACLE   360 raccolti, 234 analizzati, 3 BUY, 219 veto
-00:27:12 ORACLE   360 raccolti, 222 analizzati, 3 BUY, 208 veto
-00:26:48 ORACLE   360 raccolti, 230 analizzati, 3 BUY, 217 veto
-00:26:25 ORACLE   360 raccolti, 240 analizzati, 3 BUY, 224 veto
-00:26:02 ORACLE   360 raccolti, 234 analizzati, 3 BUY, 219 veto
-00:25:38 ORACLE   360 raccolti, 232 analizzati, 2 BUY, 217 veto
-00:25:15 ORACLE   360 raccolti, 238 analizzati, 2 BUY, 225 veto
-00:24:52 ORACLE   360 raccolti, 231 analizzati, 2 BUY, 217 veto
-00:24:28 SCRIBE   chiuso P-0157 $PercPools -0.0052 SOL (-8.1%)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
