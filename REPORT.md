@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 21:27 UTC · in esecuzione da 0.2 giorni · 146 run
+Aggiornato: 2026-11-16 21:32 UTC · in esecuzione da 0.2 giorni · 146 run
 
 | | |
 |---|---|
-| Equity | **6.0923 SOL** (+1.5% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.9634 SOL |
-| Trade chiusi | 21 |
-| Win rate | 33% |
-| P&L realizzato | +0.0861 SOL (~$6.17) |
-| Media vincite / perdite | +48.9% / -19.2% |
-| Profit factor | 1.26 |
+| Equity | **6.0238 SOL** (+0.4% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.9487 SOL |
+| Trade chiusi | 22 |
+| Win rate | 32% |
+| P&L realizzato | +0.0717 SOL (~$5.14) |
+| Media vincite / perdite | +48.9% / -18.7% |
+| Profit factor | 1.21 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$WORLDCRAFT** P-0237 · 0.122 SOL · +5.9% · resta 100% · [grafico](https://dexscreener.com/solana/H9PLE6RuRf7rEk2fP5BdSHFThD4tHNB9boPSJAafDvko)
+- **$CHOP** P-0238 · 0.122 SOL · -38.4% · resta 100% · [grafico](https://dexscreener.com/solana/CvapRRSnJRcXiWk3zEtnXi58DpjJEEB4u4cmZtBuMnby)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | RUG-EXIT liquidità | 2 | -0.0151 |
-| Time stop | 11 | -0.1430 |
+| Time stop | 12 | -0.1574 |
 | TP1 | 5 | +0.2877 |
 | Stop loss | 3 | -0.0435 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $WORLDCRAFT | 86 | -11.7% | -0.0144 | +25% | +2% | Time stop | 5m |
 | $VICE | 69 | -10.0% | -0.0123 | +62% | +62% | TP1 | 4m |
 | $GTA6 | 77 | +11.4% | +0.0139 | +26% | +2% | Time stop | 7m |
 | $DIDNT | 69 | -6.6% | -0.0081 | +3% | -5% | Time stop | 5m |
@@ -51,6 +52,25 @@ Aggiornato: 2026-11-16 21:27 UTC · in esecuzione da 0.2 giorni · 146 run
 
 ## Ultimi eventi
 ```
+21:32:05 ORACLE   360 raccolti, 257 analizzati, 4 BUY, 248 veto
+21:32:02 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
+21:32:02 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
+21:31:41 ORACLE   360 raccolti, 266 analizzati, 4 BUY, 257 veto
+21:31:17 ORACLE   360 raccolti, 253 analizzati, 4 BUY, 244 veto
+21:31:04 SCRIBE   chiuso P-0237 $WORLDCRAFT -0.0144 SOL (-11.7%)
+21:31:04 CHARON   Time stop $WORLDCRAFT vendo 100% a 2.3% -> 0.1083 SOL
+21:31:04 ORACLE   360 raccolti, 257 analizzati, 4 BUY, 248 veto
+21:30:39 ORACLE   360 raccolti, 267 analizzati, 4 BUY, 260 veto
+21:30:15 ORACLE   360 raccolti, 266 analizzati, 4 BUY, 259 veto
+21:29:51 ORACLE   360 raccolti, 253 analizzati, 3 BUY, 248 veto
+21:29:28 KAISER   limite 1 ingresso/i per scan: $OPTIMJACK rimandato
+21:29:27 QUARTER  BUY $CHOP 0.122 SOL score 74 impatto 1.18% (Jupiter)
+21:29:27 ORACLE   360 raccolti, 265 analizzati, 3 BUY, 260 veto
+21:29:03 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 253 veto
+21:28:40 ORACLE   360 raccolti, 243 analizzati, 2 BUY, 238 veto
+21:28:17 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 256 veto
+21:27:53 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 252 veto
+21:27:31 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 238 veto
 21:27:08 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 237 veto
 21:26:45 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 246 veto
 21:26:21 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 244 veto
@@ -72,25 +92,6 @@ Aggiornato: 2026-11-16 21:27 UTC · in esecuzione da 0.2 giorni · 146 run
 21:20:55 CHARON   TP1 $VICE vendo 100% a 61.6% -> 0.1106 SOL
 21:20:45 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 249 veto
 21:20:21 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 240 veto
-21:19:57 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 249 veto
-21:19:34 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 252 veto
-21:19:11 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 246 veto
-21:18:48 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 249 veto
-21:18:25 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 250 veto
-21:18:02 ORACLE   360 raccolti, 243 analizzati, 2 BUY, 237 veto
-21:17:39 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 241 veto
-21:17:15 ORACLE   360 raccolti, 243 analizzati, 2 BUY, 237 veto
-21:16:52 KAISER   limite 1 ingresso/i per scan: $BRUTAL rimandato
-21:16:52 QUARTER  BUY $VICE 0.122 SOL score 69 impatto 0.98% (Jupiter)
-21:16:52 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 238 veto
-21:16:28 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 241 veto
-21:16:05 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 245 veto
-21:15:42 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 247 veto
-21:15:29 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 239 veto
-21:15:02 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 237 veto
-21:14:38 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 243 veto
-21:14:14 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 232 veto
-21:13:50 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 250 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
