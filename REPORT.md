@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 10:10 UTC · in esecuzione da 0.3 giorni · 133 run
+Aggiornato: 2026-11-16 10:15 UTC · in esecuzione da 0.3 giorni · 133 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-16 10:10 UTC · in esecuzione da 0.3 giorni · 133 run
 | Cassa | 5.6646 SOL |
 | Trade chiusi | 15 |
 | Win rate | 20% |
-| P&L realizzato | -0.3354 SOL (~$-23.85) |
+| P&L realizzato | -0.3354 SOL (~$-23.81) |
 | Media vincite / perdite | +58.7% / -38.0% |
 | Profit factor | 0.37 |
 | Circuit breaker | no |
@@ -45,6 +45,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+10:15:16 ORACLE   360 raccolti, 285 analizzati, 1 BUY, 262 veto
+10:14:53 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 260 veto
+10:14:29 ORACLE   360 raccolti, 285 analizzati, 1 BUY, 266 veto
+10:14:05 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 259 veto
+10:13:42 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 252 veto
+10:13:18 ORACLE   360 raccolti, 285 analizzati, 2 BUY, 266 veto
+10:12:54 ORACLE   360 raccolti, 282 analizzati, 2 BUY, 263 veto
+10:12:30 QUARTER  $Hasia impatto 5.6% oltre slippage: annullato
+10:12:30 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 257 veto
+10:12:07 ORACLE   360 raccolti, 285 analizzati, 2 BUY, 271 veto
+10:11:44 ORACLE   360 raccolti, 283 analizzati, 2 BUY, 268 veto
+10:11:20 ORACLE   360 raccolti, 281 analizzati, 2 BUY, 266 veto
+10:10:57 ORACLE   360 raccolti, 286 analizzati, 1 BUY, 272 veto
+10:10:34 ORACLE   360 raccolti, 283 analizzati, 2 BUY, 268 veto
 10:10:10 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 258 veto
 10:09:47 ORACLE   360 raccolti, 288 analizzati, 1 BUY, 272 veto
 10:09:23 ORACLE   360 raccolti, 286 analizzati, 1 BUY, 267 veto
@@ -71,20 +85,6 @@ _nessuna_
 10:01:09 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 260 veto
 10:00:46 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 257 veto
 10:00:21 SCRIBE   chiuso P-0184 $देसी 0.0891 SOL (79.2%)
-10:00:21 CHARON   TP1 $देसी vendo 100% a 92.7% -> 0.2016 SOL
-10:00:21 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 259 veto
-09:59:57 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 260 veto
-09:59:34 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 254 veto
-09:59:10 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 253 veto
-09:58:46 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 251 veto
-09:58:23 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 247 veto
-09:57:59 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 252 veto
-09:57:35 QUARTER  BUY $देसी 0.112 SOL score 71 impatto 0.25% (Jupiter)
-09:57:35 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 253 veto
-09:57:12 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 248 veto
-09:56:48 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 252 veto
-09:56:25 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 256 veto
-09:56:02 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 251 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
