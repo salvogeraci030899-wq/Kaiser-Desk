@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 10:24 UTC · in esecuzione da 0.3 giorni · 134 run
+Aggiornato: 2026-11-16 10:29 UTC · in esecuzione da 0.3 giorni · 134 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-16 10:24 UTC · in esecuzione da 0.3 giorni · 134 run
 | Cassa | 5.7425 SOL |
 | Trade chiusi | 16 |
 | Win rate | 25% |
-| P&L realizzato | -0.2575 SOL (~$-18.30) |
+| P&L realizzato | -0.2575 SOL (~$-18.35) |
 | Media vincite / perdite | +61.1% / -38.0% |
 | Profit factor | 0.52 |
 | Circuit breaker | no |
@@ -46,6 +46,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+10:29:45 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 258 veto
+10:29:21 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 251 veto
+10:28:59 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 250 veto
+10:28:36 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 259 veto
+10:28:12 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 258 veto
+10:27:50 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 258 veto
+10:27:37 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 252 veto
+10:27:11 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 258 veto
+10:26:47 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 251 veto
+10:26:25 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 248 veto
+10:26:02 ORACLE   349 raccolti, 253 analizzati, 2 BUY, 243 veto
+10:25:39 ORACLE   339 raccolti, 245 analizzati, 1 BUY, 235 veto
+10:25:16 ORACLE   336 raccolti, 240 analizzati, 0 BUY, 234 veto
+10:24:53 ORACLE   319 raccolti, 227 analizzati, 1 BUY, 220 veto
 10:24:30 ORACLE   313 raccolti, 222 analizzati, 1 BUY, 215 veto
 10:24:07 ORACLE   307 raccolti, 216 analizzati, 0 BUY, 210 veto
 10:23:45 ORACLE   296 raccolti, 210 analizzati, 1 BUY, 203 veto
@@ -72,20 +86,6 @@ _nessuna_
 10:19:38 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
 10:19:38 SCOUT    Laboratorio: collegato a PumpPortal
 10:19:37 KAISER   run #134 · 0 posizioni · equity 5.6646 SOL · GMGN spenta (nessuna chiave) · Grok off
-10:19:25 SCRIBE   fine run · trade 15 · win 20% · P&L -0.3354 SOL · equity 5.6646 SOL
-10:19:11 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 253 veto
-10:18:48 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 255 veto
-10:18:24 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 250 veto
-10:18:00 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 255 veto
-10:17:36 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 255 veto
-10:17:14 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 252 veto
-10:16:50 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 254 veto
-10:16:26 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 254 veto
-10:16:03 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 248 veto
-10:15:39 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 254 veto
-10:15:16 ORACLE   360 raccolti, 285 analizzati, 1 BUY, 262 veto
-10:14:53 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 260 veto
-10:14:29 ORACLE   360 raccolti, 285 analizzati, 1 BUY, 266 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
