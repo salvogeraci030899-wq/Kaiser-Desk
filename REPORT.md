@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 11:25 UTC · in esecuzione da 0.4 giorni · 135 run
+Aggiornato: 2026-11-16 11:30 UTC · in esecuzione da 0.4 giorni · 135 run
 
 | | |
 |---|---|
-| Equity | **5.6414 SOL** (-6.0% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.6414 SOL |
+| Equity | **5.6517 SOL** (-5.8% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.5275 SOL |
 | Trade chiusi | 21 |
 | Win rate | 29% |
-| P&L realizzato | -0.3586 SOL (~$-25.63) |
+| P&L realizzato | -0.3586 SOL (~$-25.62) |
 | Media vincite / perdite | +57.7% / -43.0% |
 | Profit factor | 0.52 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$FIBDIP** P-0191 · 0.113 SOL · +10.0% · resta 100% · [grafico](https://dexscreener.com/solana/DCTJQganeHnYbJ91p57uoscVFteadiw3f1GrU5qrJtGd)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -51,6 +51,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+11:30:17 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 259 veto
+11:29:54 QUARTER  BUY $FIBDIP 0.113 SOL score 75 impatto 1.45% (Jupiter)
+11:29:54 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 259 veto
+11:29:30 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 254 veto
+11:29:07 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 266 veto
+11:28:44 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 264 veto
+11:28:21 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 256 veto
+11:27:58 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 261 veto
+11:27:35 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 262 veto
+11:27:12 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 263 veto
+11:26:50 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 261 veto
+11:26:27 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 262 veto
+11:26:04 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 262 veto
+11:25:40 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 259 veto
 11:25:17 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 269 veto
 11:24:55 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 266 veto
 11:24:32 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 268 veto
@@ -77,20 +91,6 @@ _nessuna_
 11:16:52 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 250 veto
 11:16:29 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 253 veto
 11:16:06 SCRIBE   chiuso P-0190 $Stallions -0.0481 SOL (-41.9%)
-11:16:06 CHARON   Stop loss $Stallions vendo 100% a -35.6% -> 0.0667 SOL
-11:16:06 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 250 veto
-11:15:43 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 248 veto
-11:15:20 ORACLE   346 raccolti, 260 analizzati, 1 BUY, 240 veto
-11:14:57 ORACLE   339 raccolti, 252 analizzati, 1 BUY, 230 veto
-11:14:34 ORACLE   337 raccolti, 245 analizzati, 1 BUY, 225 veto
-11:14:11 ORACLE   313 raccolti, 225 analizzati, 1 BUY, 210 veto
-11:13:48 ORACLE   302 raccolti, 218 analizzati, 1 BUY, 202 veto
-11:13:36 SCOUT    PumpPortal invia nuovi token (21) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-11:13:26 ORACLE   300 raccolti, 208 analizzati, 1 BUY, 194 veto
-11:13:03 QUARTER  BUY $Stallions 0.114 SOL score 76 impatto 1.77% (Jupiter)
-11:13:02 ORACLE   277 raccolti, 189 analizzati, 1 BUY, 172 veto
-11:12:40 ORACLE   266 raccolti, 186 analizzati, 0 BUY, 168 veto
-11:12:17 ORACLE   264 raccolti, 177 analizzati, 0 BUY, 162 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
