@@ -1,68 +1,8 @@
 {
  "startedAt": 1794730441037,
  "runs": 122,
- "cash": 1.2001095738970446,
- "positions": [
-  {
-   "id": "P-0157",
-   "mint": "EwLANuSwR7z9QNTXGwdsW7mFzXPiaucUBZjiXfw6pump",
-   "sym": "PercPools",
-   "name": "PercPools",
-   "pairAddress": "JCvKtGyRXrYVdXdpdvnCNEwJPrVUwvBeucNyztMmZAR8",
-   "openedAt": 1794788412849,
-   "sizeSOL": 0.06321629336300236,
-   "cost": 0.06421629336300236,
-   "entry": 4.777161593151227e-7,
-   "tokens": 132330.23863716968,
-   "remaining": 1,
-   "rawLeft": "145201872700",
-   "peak": 5.606e-7,
-   "tp1Done": false,
-   "spDone": false,
-   "entryLiq": 12090.38,
-   "realized": 0,
-   "score": 79,
-   "why": "runner",
-   "entryInfo": {
-    "srcs": [
-     "profili",
-     "gecko nuovi",
-     "jup trend"
-    ],
-    "notes": [],
-    "plus": [
-     "turnover 4.1x/h"
-    ],
-    "m": {
-     "liq": 12138.21,
-     "mc": 33967,
-     "ageMin": 3.6527333333333334,
-     "v1": 49819.23,
-     "tx1": 1534,
-     "br1": 1.2358078602620088,
-     "br5": 1.2358078602620088,
-     "c5": 13.41,
-     "c1": 13.41,
-     "c6": 13.41,
-     "turn": 4.10433086921383,
-     "price": 0.000034,
-     "priceNative": 4.707e-7
-    },
-    "grok": null
-   },
-   "last": {
-    "priceNative": 5.058e-7,
-    "liq": 12729.99,
-    "br5": 1.3018648018648018,
-    "tx5": 1973,
-    "t": 1794788505456
-   },
-   "fills": [
-    "BUY 0.063 impatto 0.49% (Jupiter)"
-   ],
-   "trough": 4.307e-7
-  }
- ],
+ "cash": 1.2591548083770447,
+ "positions": [],
  "journal": [
   {
    "id": "P-0125",
@@ -1589,212 +1529,55 @@
    },
    "maePct": -1.3116193932327769,
    "age": 53
+  },
+  {
+   "id": "P-0157",
+   "mint": "EwLANuSwR7z9QNTXGwdsW7mFzXPiaucUBZjiXfw6pump",
+   "sym": "PercPools",
+   "openedAt": 1794788412849,
+   "closedAt": 1794788668790,
+   "cost": 0.06421629336300236,
+   "back": 0.05904523448,
+   "pnl": -0.005171058883002358,
+   "pct": -8.052565185865458,
+   "mode": "paper",
+   "reason": "Stop loss",
+   "score": 79,
+   "solUsd": 72.08370052784663,
+   "peakPct": 17.35001822079949,
+   "trigPct": -16.142673386992023,
+   "entryInfo": {
+    "srcs": [
+     "profili",
+     "gecko nuovi",
+     "jup trend"
+    ],
+    "notes": [],
+    "plus": [
+     "turnover 4.1x/h"
+    ],
+    "m": {
+     "liq": 12138.21,
+     "mc": 33967,
+     "ageMin": 3.6527333333333334,
+     "v1": 49819.23,
+     "tx1": 1534,
+     "br1": 1.2358078602620088,
+     "br5": 1.2358078602620088,
+     "c5": 13.41,
+     "c1": 13.41,
+     "c6": 13.41,
+     "turn": 4.10433086921383,
+     "price": 0.000034,
+     "priceNative": 4.707e-7
+    },
+    "grok": null
+   },
+   "maePct": -16.142673386992023,
+   "age": 4
   }
  ],
  "signals": [
-  {
-   "t": 1794774922547,
-   "mint": "FfXDcTtDk5tzETc9QGRsy8ZSV2TGm4DXXpHXpjVVpump",
-   "sym": "HENSEN",
-   "score": 74,
-   "priceNative": 8.385e-7
-  },
-  {
-   "t": 1794774945762,
-   "mint": "FfXDcTtDk5tzETc9QGRsy8ZSV2TGm4DXXpHXpjVVpump",
-   "sym": "HENSEN",
-   "score": 77,
-   "priceNative": 8.054e-7
-  },
-  {
-   "t": 1794774945762,
-   "mint": "AQMq7HyW7unGhyktDTzFPjiioQt4TsPp7Wo6AYRApump",
-   "sym": "Bob",
-   "score": 72,
-   "priceNative": 4.147e-7
-  },
-  {
-   "t": 1794774968300,
-   "mint": "FfXDcTtDk5tzETc9QGRsy8ZSV2TGm4DXXpHXpjVVpump",
-   "sym": "HENSEN",
-   "score": 77,
-   "priceNative": 6.948e-7
-  },
-  {
-   "t": 1794774968300,
-   "mint": "AQMq7HyW7unGhyktDTzFPjiioQt4TsPp7Wo6AYRApump",
-   "sym": "Bob",
-   "score": 72,
-   "priceNative": 4.147e-7
-  },
-  {
-   "t": 1794774990718,
-   "mint": "FfXDcTtDk5tzETc9QGRsy8ZSV2TGm4DXXpHXpjVVpump",
-   "sym": "HENSEN",
-   "score": 77,
-   "priceNative": 6.948e-7
-  },
-  {
-   "t": 1794774990718,
-   "mint": "AQMq7HyW7unGhyktDTzFPjiioQt4TsPp7Wo6AYRApump",
-   "sym": "Bob",
-   "score": 72,
-   "priceNative": 3.655e-7
-  },
-  {
-   "t": 1794775013918,
-   "mint": "FfXDcTtDk5tzETc9QGRsy8ZSV2TGm4DXXpHXpjVVpump",
-   "sym": "HENSEN",
-   "score": 77,
-   "priceNative": 6.12e-7
-  },
-  {
-   "t": 1794775013918,
-   "mint": "AQMq7HyW7unGhyktDTzFPjiioQt4TsPp7Wo6AYRApump",
-   "sym": "Bob",
-   "score": 72,
-   "priceNative": 3.688e-7
-  },
-  {
-   "t": 1794775042081,
-   "mint": "AQMq7HyW7unGhyktDTzFPjiioQt4TsPp7Wo6AYRApump",
-   "sym": "Bob",
-   "score": 72,
-   "priceNative": 3.688e-7
-  },
-  {
-   "t": 1794775042081,
-   "mint": "FfXDcTtDk5tzETc9QGRsy8ZSV2TGm4DXXpHXpjVVpump",
-   "sym": "HENSEN",
-   "score": 72,
-   "priceNative": 5.78e-7
-  },
-  {
-   "t": 1794775054862,
-   "mint": "AQMq7HyW7unGhyktDTzFPjiioQt4TsPp7Wo6AYRApump",
-   "sym": "Bob",
-   "score": 74,
-   "priceNative": 3.835e-7
-  },
-  {
-   "t": 1794775054862,
-   "mint": "FfXDcTtDk5tzETc9QGRsy8ZSV2TGm4DXXpHXpjVVpump",
-   "sym": "HENSEN",
-   "score": 72,
-   "priceNative": 5.78e-7
-  },
-  {
-   "t": 1794775079340,
-   "mint": "AQMq7HyW7unGhyktDTzFPjiioQt4TsPp7Wo6AYRApump",
-   "sym": "Bob",
-   "score": 74,
-   "priceNative": 3.835e-7
-  },
-  {
-   "t": 1794775079340,
-   "mint": "FfXDcTtDk5tzETc9QGRsy8ZSV2TGm4DXXpHXpjVVpump",
-   "sym": "HENSEN",
-   "score": 72,
-   "priceNative": 5.369e-7
-  },
-  {
-   "t": 1794775104226,
-   "mint": "AQMq7HyW7unGhyktDTzFPjiioQt4TsPp7Wo6AYRApump",
-   "sym": "Bob",
-   "score": 74,
-   "priceNative": 3.651e-7
-  },
-  {
-   "t": 1794775104226,
-   "mint": "FfXDcTtDk5tzETc9QGRsy8ZSV2TGm4DXXpHXpjVVpump",
-   "sym": "HENSEN",
-   "score": 72,
-   "priceNative": 6.464e-7
-  },
-  {
-   "t": 1794775129951,
-   "mint": "AQMq7HyW7unGhyktDTzFPjiioQt4TsPp7Wo6AYRApump",
-   "sym": "Bob",
-   "score": 74,
-   "priceNative": 3.651e-7
-  },
-  {
-   "t": 1794775129951,
-   "mint": "FfXDcTtDk5tzETc9QGRsy8ZSV2TGm4DXXpHXpjVVpump",
-   "sym": "HENSEN",
-   "score": 72,
-   "priceNative": 6.625e-7
-  },
-  {
-   "t": 1794775143251,
-   "mint": "FfXDcTtDk5tzETc9QGRsy8ZSV2TGm4DXXpHXpjVVpump",
-   "sym": "HENSEN",
-   "score": 77,
-   "priceNative": 8.972e-7
-  },
-  {
-   "t": 1794775143251,
-   "mint": "AQMq7HyW7unGhyktDTzFPjiioQt4TsPp7Wo6AYRApump",
-   "sym": "Bob",
-   "score": 74,
-   "priceNative": 3.662e-7
-  },
-  {
-   "t": 1794775165739,
-   "mint": "FfXDcTtDk5tzETc9QGRsy8ZSV2TGm4DXXpHXpjVVpump",
-   "sym": "HENSEN",
-   "score": 82,
-   "priceNative": 8.904e-7
-  },
-  {
-   "t": 1794775165739,
-   "mint": "AQMq7HyW7unGhyktDTzFPjiioQt4TsPp7Wo6AYRApump",
-   "sym": "Bob",
-   "score": 74,
-   "priceNative": 3.662e-7
-  },
-  {
-   "t": 1794775188557,
-   "mint": "FfXDcTtDk5tzETc9QGRsy8ZSV2TGm4DXXpHXpjVVpump",
-   "sym": "HENSEN",
-   "score": 82,
-   "priceNative": 8.89e-7
-  },
-  {
-   "t": 1794775188557,
-   "mint": "AQMq7HyW7unGhyktDTzFPjiioQt4TsPp7Wo6AYRApump",
-   "sym": "Bob",
-   "score": 74,
-   "priceNative": 3.558e-7
-  },
-  {
-   "t": 1794775216573,
-   "mint": "FfXDcTtDk5tzETc9QGRsy8ZSV2TGm4DXXpHXpjVVpump",
-   "sym": "HENSEN",
-   "score": 93,
-   "priceNative": 8.912e-7
-  },
-  {
-   "t": 1794775216573,
-   "mint": "AQMq7HyW7unGhyktDTzFPjiioQt4TsPp7Wo6AYRApump",
-   "sym": "Bob",
-   "score": 74,
-   "priceNative": 3.558e-7
-  },
-  {
-   "t": 1794775229049,
-   "mint": "FfXDcTtDk5tzETc9QGRsy8ZSV2TGm4DXXpHXpjVVpump",
-   "sym": "HENSEN",
-   "score": 93,
-   "priceNative": 8.909e-7
-  },
-  {
-   "t": 1794775229049,
-   "mint": "AQMq7HyW7unGhyktDTzFPjiioQt4TsPp7Wo6AYRApump",
-   "sym": "Bob",
-   "score": 74,
-   "priceNative": 2.954e-7
-  },
   {
    "t": 1794775252226,
    "mint": "FfXDcTtDk5tzETc9QGRsy8ZSV2TGm4DXXpHXpjVVpump",
@@ -8591,16 +8374,234 @@
    "sym": "nma",
    "score": 72,
    "priceNative": 3.522e-7
+  },
+  {
+   "t": 1794788529342,
+   "mint": "EwLANuSwR7z9QNTXGwdsW7mFzXPiaucUBZjiXfw6pump",
+   "sym": "PercPools",
+   "score": 80,
+   "priceNative": 5.292e-7
+  },
+  {
+   "t": 1794788529342,
+   "mint": "Fvv62MhgjrXpvXmKcLci2HoiCAxFmSkUm1Niamvipump",
+   "sym": "nma",
+   "score": 78,
+   "priceNative": 7.331e-7
+  },
+  {
+   "t": 1794788552792,
+   "mint": "EwLANuSwR7z9QNTXGwdsW7mFzXPiaucUBZjiXfw6pump",
+   "sym": "PercPools",
+   "score": 80,
+   "priceNative": 5.292e-7
+  },
+  {
+   "t": 1794788552792,
+   "mint": "Fvv62MhgjrXpvXmKcLci2HoiCAxFmSkUm1Niamvipump",
+   "sym": "nma",
+   "score": 78,
+   "priceNative": 7.331e-7
+  },
+  {
+   "t": 1794788575844,
+   "mint": "Fvv62MhgjrXpvXmKcLci2HoiCAxFmSkUm1Niamvipump",
+   "sym": "nma",
+   "score": 79,
+   "priceNative": 7.651e-7
+  },
+  {
+   "t": 1794788575844,
+   "mint": "EwLANuSwR7z9QNTXGwdsW7mFzXPiaucUBZjiXfw6pump",
+   "sym": "PercPools",
+   "score": 76,
+   "priceNative": 5.036e-7
+  },
+  {
+   "t": 1794788599194,
+   "mint": "Fvv62MhgjrXpvXmKcLci2HoiCAxFmSkUm1Niamvipump",
+   "sym": "nma",
+   "score": 79,
+   "priceNative": 7.651e-7
+  },
+  {
+   "t": 1794788599194,
+   "mint": "EwLANuSwR7z9QNTXGwdsW7mFzXPiaucUBZjiXfw6pump",
+   "sym": "PercPools",
+   "score": 76,
+   "priceNative": 5.036e-7
+  },
+  {
+   "t": 1794788622547,
+   "mint": "Fvv62MhgjrXpvXmKcLci2HoiCAxFmSkUm1Niamvipump",
+   "sym": "nma",
+   "score": 79,
+   "priceNative": 7.725e-7
+  },
+  {
+   "t": 1794788622547,
+   "mint": "EwLANuSwR7z9QNTXGwdsW7mFzXPiaucUBZjiXfw6pump",
+   "sym": "PercPools",
+   "score": 76,
+   "priceNative": 4.889e-7
+  },
+  {
+   "t": 1794788645640,
+   "mint": "Fvv62MhgjrXpvXmKcLci2HoiCAxFmSkUm1Niamvipump",
+   "sym": "nma",
+   "score": 79,
+   "priceNative": 7.725e-7
+  },
+  {
+   "t": 1794788645640,
+   "mint": "EwLANuSwR7z9QNTXGwdsW7mFzXPiaucUBZjiXfw6pump",
+   "sym": "PercPools",
+   "score": 76,
+   "priceNative": 4.889e-7
+  },
+  {
+   "t": 1794788668756,
+   "mint": "Fvv62MhgjrXpvXmKcLci2HoiCAxFmSkUm1Niamvipump",
+   "sym": "nma",
+   "score": 79,
+   "priceNative": 7.846e-7
+  },
+  {
+   "t": 1794788668756,
+   "mint": "EwLANuSwR7z9QNTXGwdsW7mFzXPiaucUBZjiXfw6pump",
+   "sym": "PercPools",
+   "score": 76,
+   "priceNative": 4.006e-7
+  },
+  {
+   "t": 1794788692763,
+   "mint": "Fvv62MhgjrXpvXmKcLci2HoiCAxFmSkUm1Niamvipump",
+   "sym": "nma",
+   "score": 79,
+   "priceNative": 7.846e-7
+  },
+  {
+   "t": 1794788692763,
+   "mint": "EwLANuSwR7z9QNTXGwdsW7mFzXPiaucUBZjiXfw6pump",
+   "sym": "PercPools",
+   "score": 76,
+   "priceNative": 4.006e-7
+  },
+  {
+   "t": 1794788715818,
+   "mint": "EwLANuSwR7z9QNTXGwdsW7mFzXPiaucUBZjiXfw6pump",
+   "sym": "PercPools",
+   "score": 81,
+   "priceNative": 4.385e-7
+  },
+  {
+   "t": 1794788715818,
+   "mint": "Fvv62MhgjrXpvXmKcLci2HoiCAxFmSkUm1Niamvipump",
+   "sym": "nma",
+   "score": 79,
+   "priceNative": 8.812e-7
+  },
+  {
+   "t": 1794788738838,
+   "mint": "EwLANuSwR7z9QNTXGwdsW7mFzXPiaucUBZjiXfw6pump",
+   "sym": "PercPools",
+   "score": 81,
+   "priceNative": 4.385e-7
+  },
+  {
+   "t": 1794788738838,
+   "mint": "Fvv62MhgjrXpvXmKcLci2HoiCAxFmSkUm1Niamvipump",
+   "sym": "nma",
+   "score": 79,
+   "priceNative": 8.812e-7
+  },
+  {
+   "t": 1794788762365,
+   "mint": "Fvv62MhgjrXpvXmKcLci2HoiCAxFmSkUm1Niamvipump",
+   "sym": "nma",
+   "score": 79,
+   "priceNative": 8.755e-7
+  },
+  {
+   "t": 1794788762365,
+   "mint": "EwLANuSwR7z9QNTXGwdsW7mFzXPiaucUBZjiXfw6pump",
+   "sym": "PercPools",
+   "score": 76,
+   "priceNative": 3.774e-7
+  },
+  {
+   "t": 1794788762365,
+   "mint": "2YxbK7V6ZTKSxcavk3V4kFzdtZ4uywhhoyuSxapjpump",
+   "sym": "FiveM",
+   "score": 64,
+   "priceNative": 0.000001217
+  },
+  {
+   "t": 1794788785517,
+   "mint": "Fvv62MhgjrXpvXmKcLci2HoiCAxFmSkUm1Niamvipump",
+   "sym": "nma",
+   "score": 79,
+   "priceNative": 8.755e-7
+  },
+  {
+   "t": 1794788785517,
+   "mint": "EwLANuSwR7z9QNTXGwdsW7mFzXPiaucUBZjiXfw6pump",
+   "sym": "PercPools",
+   "score": 76,
+   "priceNative": 3.774e-7
+  },
+  {
+   "t": 1794788785517,
+   "mint": "2YxbK7V6ZTKSxcavk3V4kFzdtZ4uywhhoyuSxapjpump",
+   "sym": "FiveM",
+   "score": 64,
+   "priceNative": 0.000001286
+  },
+  {
+   "t": 1794788808754,
+   "mint": "EwLANuSwR7z9QNTXGwdsW7mFzXPiaucUBZjiXfw6pump",
+   "sym": "PercPools",
+   "score": 76,
+   "priceNative": 3.692e-7
+  },
+  {
+   "t": 1794788808754,
+   "mint": "Fvv62MhgjrXpvXmKcLci2HoiCAxFmSkUm1Niamvipump",
+   "sym": "nma",
+   "score": 74,
+   "priceNative": 7.644e-7
+  },
+  {
+   "t": 1794788808754,
+   "mint": "2YxbK7V6ZTKSxcavk3V4kFzdtZ4uywhhoyuSxapjpump",
+   "sym": "FiveM",
+   "score": 69,
+   "priceNative": 0.000001071
   }
  ],
  "day": {
   "date": "2026-11-16",
   "startEq": 1.2635092799768781
  },
- "cooldownUntil": 1794788399228,
+ "cooldownUntil": 1794788968792,
  "halted": null,
  "seq": 157,
  "events": [
+  "00:26:48 ORACLE   360 raccolti, 230 analizzati, 3 BUY, 217 veto",
+  "00:26:25 ORACLE   360 raccolti, 240 analizzati, 3 BUY, 224 veto",
+  "00:26:02 ORACLE   360 raccolti, 234 analizzati, 3 BUY, 219 veto",
+  "00:25:38 ORACLE   360 raccolti, 232 analizzati, 2 BUY, 217 veto",
+  "00:25:15 ORACLE   360 raccolti, 238 analizzati, 2 BUY, 225 veto",
+  "00:24:52 ORACLE   360 raccolti, 231 analizzati, 2 BUY, 217 veto",
+  "00:24:28 SCRIBE   chiuso P-0157 $PercPools -0.0052 SOL (-8.1%)",
+  "00:24:28 CHARON   Stop loss $PercPools vendo 100% a -16.1% -> 0.0590 SOL",
+  "00:24:28 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 225 veto",
+  "00:24:05 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 227 veto",
+  "00:23:42 ORACLE   360 raccolti, 235 analizzati, 2 BUY, 222 veto",
+  "00:23:19 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 226 veto",
+  "00:22:55 ORACLE   360 raccolti, 229 analizzati, 2 BUY, 215 veto",
+  "00:22:32 ORACLE   360 raccolti, 229 analizzati, 2 BUY, 213 veto",
+  "00:22:09 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 219 veto",
   "00:21:45 ORACLE   360 raccolti, 231 analizzati, 2 BUY, 213 veto",
   "00:21:22 ORACLE   360 raccolti, 230 analizzati, 1 BUY, 212 veto",
   "00:20:59 ORACLE   360 raccolti, 236 analizzati, 2 BUY, 221 veto",
@@ -8885,22 +8886,7 @@
   "22:47:16 ORACLE   360 raccolti, 230 analizzati, 1 BUY, 226 veto",
   "22:46:53 ORACLE   360 raccolti, 228 analizzati, 1 BUY, 224 veto",
   "22:46:30 ORACLE   360 raccolti, 227 analizzati, 1 BUY, 222 veto",
-  "22:46:07 ORACLE   360 raccolti, 224 analizzati, 1 BUY, 217 veto",
-  "22:45:43 ORACLE   360 raccolti, 225 analizzati, 1 BUY, 218 veto",
-  "22:45:19 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 230 veto",
-  "22:44:56 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 223 veto",
-  "22:44:32 ORACLE   360 raccolti, 228 analizzati, 1 BUY, 221 veto",
-  "22:44:08 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 235 veto",
-  "22:43:45 ORACLE   360 raccolti, 233 analizzati, 1 BUY, 226 veto",
-  "22:43:21 ORACLE   360 raccolti, 230 analizzati, 1 BUY, 223 veto",
-  "22:42:58 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 233 veto",
-  "22:42:34 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 230 veto",
-  "22:42:10 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 221 veto",
-  "22:41:46 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 229 veto",
-  "22:41:22 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 227 veto",
-  "22:40:58 ORACLE   360 raccolti, 233 analizzati, 1 BUY, 225 veto",
-  "22:40:34 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 231 veto",
-  "22:40:10 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 234 veto"
+  "22:46:07 ORACLE   360 raccolti, 224 analizzati, 1 BUY, 217 veto"
  ],
  "capital": 1.5,
  "resetId": "C-0065",
@@ -19924,6 +19910,10 @@
   {
    "t": 1794788343909,
    "g": -2.5
+  },
+  {
+   "t": 1794788668790,
+   "g": 14.8
   }
  ]
 }
