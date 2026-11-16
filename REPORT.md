@@ -1,20 +1,21 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 12:05 UTC · in esecuzione da 0.4 giorni · 136 run
+Aggiornato: 2026-11-16 12:10 UTC · in esecuzione da 0.4 giorni · 136 run
 
 | | |
 |---|---|
-| Equity | **5.6510 SOL** (-5.8% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.5362 SOL |
+| Equity | **5.6607 SOL** (-5.7% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.4221 SOL |
 | Trade chiusi | 23 |
 | Win rate | 30% |
-| P&L realizzato | -0.3498 SOL (~$-24.86) |
+| P&L realizzato | -0.3498 SOL (~$-24.78) |
 | Media vincite / perdite | +54.0% / -41.8% |
 | Profit factor | 0.55 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$WASTED6** P-0193 · 0.113 SOL · +1.5% · resta 100% · [grafico](https://dexscreener.com/solana/4V1zT5VAixLkZpqRMxNgmgmpoQAnKm3YpHNhq1bxrSZS)
+- **$WASTED6** P-0193 · 0.113 SOL · +7.7% · resta 100% · [grafico](https://dexscreener.com/solana/4V1zT5VAixLkZpqRMxNgmgmpoQAnKm3YpHNhq1bxrSZS)
+- **$ZLUSD** P-0194 · 0.113 SOL · +3.3% · resta 100% · [grafico](https://dexscreener.com/solana/2eft8gFjKT8JJjiUH92wDyjeWKmxCFdAfeRybVrydcpG)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -53,6 +54,20 @@ Aggiornato: 2026-11-16 12:05 UTC · in esecuzione da 0.4 giorni · 136 run
 
 ## Ultimi eventi
 ```
+12:10:21 ORACLE   360 raccolti, 272 analizzati, 3 BUY, 261 veto
+12:09:58 ORACLE   360 raccolti, 270 analizzati, 3 BUY, 259 veto
+12:09:35 QUARTER  BUY $ZLUSD 0.113 SOL score 70 impatto 0.92% (Jupiter)
+12:09:35 ORACLE   360 raccolti, 265 analizzati, 3 BUY, 252 veto
+12:09:12 ORACLE   360 raccolti, 274 analizzati, 2 BUY, 265 veto
+12:08:49 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 262 veto
+12:08:26 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 255 veto
+12:08:03 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 259 veto
+12:07:40 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 258 veto
+12:07:18 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 247 veto
+12:06:55 ORACLE   360 raccolti, 274 analizzati, 2 BUY, 261 veto
+12:06:32 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 257 veto
+12:06:09 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 254 veto
+12:05:46 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 253 veto
 12:05:23 ORACLE   356 raccolti, 261 analizzati, 2 BUY, 250 veto
 12:05:00 SCOUT    PumpPortal invia nuovi token (22) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
 12:05:00 ORACLE   350 raccolti, 255 analizzati, 2 BUY, 243 veto
@@ -79,20 +94,6 @@ Aggiornato: 2026-11-16 12:05 UTC · in esecuzione da 0.4 giorni · 136 run
 12:00:12 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, tp1 40→60, tp1Sell 50→100, timeStopMin 45→10, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, rugLiqDrop 45→30, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120, srcGmgnTrending true→false
 12:00:11 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
 12:00:11 KAISER   run #136 · 0 posizioni · equity 5.6502 SOL · GMGN spenta (nessuna chiave) · Grok off
-11:59:59 SCRIBE   fine run · trade 23 · win 30% · P&L -0.3498 SOL · equity 5.6502 SOL
-11:59:59 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 251 veto
-11:59:36 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 247 veto
-11:59:14 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 246 veto
-11:59:11 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
-11:58:50 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 242 veto
-11:58:27 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 241 veto
-11:58:05 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 241 veto
-11:57:42 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 242 veto
-11:57:19 ORACLE   360 raccolti, 260 analizzati, 3 BUY, 242 veto
-11:56:56 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 240 veto
-11:56:33 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 245 veto
-11:56:09 ORACLE   360 raccolti, 258 analizzati, 3 BUY, 244 veto
-11:55:46 ORACLE   360 raccolti, 253 analizzati, 3 BUY, 240 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
