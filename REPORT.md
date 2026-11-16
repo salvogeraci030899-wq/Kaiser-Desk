@@ -1,20 +1,21 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 14:26 UTC · in esecuzione da 0.5 giorni · 138 run
+Aggiornato: 2026-11-16 14:30 UTC · in esecuzione da 0.5 giorni · 138 run
 
 | | |
 |---|---|
-| Equity | **5.4560 SOL** (-9.1% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.4560 SOL |
+| Equity | **5.4350 SOL** (-9.4% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.2360 SOL |
 | Trade chiusi | 34 |
 | Win rate | 32% |
-| P&L realizzato | -0.5440 SOL (~$-38.75) |
+| P&L realizzato | -0.5440 SOL (~$-38.86) |
 | Media vincite / perdite | +49.6% / -43.7% |
 | Profit factor | 0.53 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$CHEMO** P-0204 · 0.109 SOL · -16.1% · resta 100% · [grafico](https://dexscreener.com/solana/6KA2M5W2Ba8e7pFK2q9AUQk2LCW8DwFyFGq9BCagJeTH)
+- **$GIFT** P-0205 · 0.109 SOL · -1.3% · resta 100% · [grafico](https://dexscreener.com/solana/3hdXGQX7AjJw1beQ1NY6PKUhcALC9vfCXX5MMZSmga7T)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -56,6 +57,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+14:30:36 SCRIBE   fine run · trade 34 · win 32% · P&L -0.5440 SOL · equity 5.4350 SOL
+14:30:29 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 234 veto
+14:30:06 QUARTER  BUY $GIFT 0.109 SOL score 65 impatto 0.30% (Jupiter)
+14:30:06 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 231 veto
+14:29:43 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 237 veto
+14:29:20 ORACLE   360 raccolti, 249 analizzati, 3 BUY, 239 veto
+14:28:57 ORACLE   360 raccolti, 249 analizzati, 3 BUY, 236 veto
+14:28:34 ORACLE   360 raccolti, 254 analizzati, 3 BUY, 242 veto
+14:28:10 ORACLE   360 raccolti, 256 analizzati, 3 BUY, 245 veto
+14:27:46 QUARTER  BUY $CHEMO 0.109 SOL score 64 impatto 0.67% (Jupiter)
+14:27:46 ORACLE   360 raccolti, 252 analizzati, 3 BUY, 240 veto
+14:27:23 ORACLE   360 raccolti, 256 analizzati, 3 BUY, 244 veto
+14:27:00 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 241 veto
 14:26:37 ORACLE   360 raccolti, 251 analizzati, 3 BUY, 237 veto
 14:26:13 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 241 veto
 14:25:50 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 246 veto
@@ -83,19 +97,6 @@ _nessuna_
 14:18:09 ORACLE   360 raccolti, 256 analizzati, 3 BUY, 240 veto
 14:17:46 ORACLE   360 raccolti, 258 analizzati, 3 BUY, 242 veto
 14:17:23 ORACLE   360 raccolti, 249 analizzati, 4 BUY, 237 veto
-14:17:00 KAISER   limite 1 ingresso/i per scan: $Minimoon rimandato
-14:17:00 KAISER   limite 1 ingresso/i per scan: $Stumpy rimandato
-14:17:00 QUARTER  BUY $WATER 0.110 SOL score 82 impatto 1.13% (Jupiter)
-14:17:00 ORACLE   360 raccolti, 254 analizzati, 3 BUY, 240 veto
-14:16:36 QUARTER  $WATER impatto 2.3% oltre slippage: annullato
-14:16:36 ORACLE   360 raccolti, 253 analizzati, 3 BUY, 239 veto
-14:16:14 QUARTER  $WATER impatto 2.7% oltre slippage: annullato
-14:16:14 ORACLE   360 raccolti, 244 analizzati, 3 BUY, 231 veto
-14:15:50 QUARTER  $WATER impatto 2.6% oltre slippage: annullato
-14:15:50 ORACLE   360 raccolti, 246 analizzati, 3 BUY, 233 veto
-14:15:27 QUARTER  $WATER impatto 2.6% oltre slippage: annullato
-14:15:27 ORACLE   360 raccolti, 249 analizzati, 4 BUY, 236 veto
-14:15:14 SCRIBE   chiuso P-0202 $Minimoon 0.0290 SOL (26.3%)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
