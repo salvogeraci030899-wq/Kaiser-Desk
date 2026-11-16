@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 13:31 UTC · in esecuzione da 0.4 giorni · 137 run
+Aggiornato: 2026-11-16 13:36 UTC · in esecuzione da 0.4 giorni · 137 run
 
 | | |
 |---|---|
@@ -56,6 +56,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+13:36:25 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 254 veto
+13:36:01 ORACLE   360 raccolti, 267 analizzati, 3 BUY, 254 veto
+13:35:37 ORACLE   360 raccolti, 264 analizzati, 3 BUY, 252 veto
+13:35:14 ORACLE   360 raccolti, 268 analizzati, 3 BUY, 256 veto
+13:34:50 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 246 veto
+13:34:27 ORACLE   360 raccolti, 264 analizzati, 3 BUY, 250 veto
+13:34:03 ORACLE   360 raccolti, 264 analizzati, 3 BUY, 252 veto
+13:33:39 ORACLE   360 raccolti, 266 analizzati, 3 BUY, 253 veto
+13:33:16 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 252 veto
+13:32:53 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 257 veto
+13:32:29 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 252 veto
+13:32:05 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 244 veto
+13:31:41 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 247 veto
 13:31:17 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 252 veto
 13:30:53 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 253 veto
 13:30:29 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 249 veto
@@ -83,19 +96,6 @@ _nessuna_
 13:23:29 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 251 veto
 13:23:03 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 242 veto
 13:22:40 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 250 veto
-13:22:17 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 256 veto
-13:21:53 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 253 veto
-13:21:30 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 256 veto
-13:21:06 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 252 veto
-13:20:43 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 251 veto
-13:20:19 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 262 veto
-13:19:56 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 253 veto
-13:19:32 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 254 veto
-13:19:08 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 260 veto
-13:18:45 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 259 veto
-13:18:21 SCRIBE   chiuso P-0196 $CLAUDEMOM -0.0273 SOL (-24.2%)
-13:18:21 CHARON   Stop loss $CLAUDEMOM vendo 100% a -25.4% -> 0.0854 SOL
-13:18:21 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 250 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
