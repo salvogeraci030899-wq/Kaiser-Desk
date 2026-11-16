@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 11:30 UTC · in esecuzione da 0.4 giorni · 135 run
+Aggiornato: 2026-11-16 11:35 UTC · in esecuzione da 0.4 giorni · 135 run
 
 | | |
 |---|---|
-| Equity | **5.6517 SOL** (-5.8% dal capitale iniziale di 6 SOL) |
+| Equity | **5.6856 SOL** (-5.2% dal capitale iniziale di 6 SOL) |
 | Cassa | 5.5275 SOL |
 | Trade chiusi | 21 |
 | Win rate | 29% |
-| P&L realizzato | -0.3586 SOL (~$-25.62) |
+| P&L realizzato | -0.3586 SOL (~$-25.64) |
 | Media vincite / perdite | +57.7% / -43.0% |
 | Profit factor | 0.52 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$FIBDIP** P-0191 · 0.113 SOL · +10.0% · resta 100% · [grafico](https://dexscreener.com/solana/DCTJQganeHnYbJ91p57uoscVFteadiw3f1GrU5qrJtGd)
+- **$FIBDIP** P-0191 · 0.113 SOL · +40.1% · resta 100% · [grafico](https://dexscreener.com/solana/DCTJQganeHnYbJ91p57uoscVFteadiw3f1GrU5qrJtGd)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -51,6 +51,20 @@ Aggiornato: 2026-11-16 11:30 UTC · in esecuzione da 0.4 giorni · 135 run
 
 ## Ultimi eventi
 ```
+11:35:32 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 264 veto
+11:35:10 ORACLE   360 raccolti, 274 analizzati, 2 BUY, 263 veto
+11:34:46 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 266 veto
+11:34:23 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 259 veto
+11:34:00 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 253 veto
+11:33:37 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 267 veto
+11:33:14 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 265 veto
+11:32:51 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 261 veto
+11:32:28 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 262 veto
+11:32:06 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 262 veto
+11:31:43 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 257 veto
+11:31:19 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 266 veto
+11:31:06 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 266 veto
+11:30:40 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 254 veto
 11:30:17 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 259 veto
 11:29:54 QUARTER  BUY $FIBDIP 0.113 SOL score 75 impatto 1.45% (Jupiter)
 11:29:54 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 259 veto
@@ -77,20 +91,6 @@ Aggiornato: 2026-11-16 11:30 UTC · in esecuzione da 0.4 giorni · 135 run
 11:21:52 ORACLE   360 raccolti, 286 analizzati, 0 BUY, 276 veto
 11:21:29 ORACLE   360 raccolti, 281 analizzati, 0 BUY, 270 veto
 11:21:05 ORACLE   360 raccolti, 288 analizzati, 0 BUY, 277 veto
-11:20:43 ORACLE   360 raccolti, 288 analizzati, 0 BUY, 277 veto
-11:20:20 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 267 veto
-11:19:57 ORACLE   360 raccolti, 284 analizzati, 0 BUY, 273 veto
-11:19:53 KAISER   parametri dall'app: sl 30→25
-11:19:33 ORACLE   360 raccolti, 282 analizzati, 0 BUY, 271 veto
-11:19:10 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 267 veto
-11:18:47 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 265 veto
-11:18:25 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 265 veto
-11:18:01 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 251 veto
-11:17:38 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 260 veto
-11:17:15 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 257 veto
-11:16:52 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 250 veto
-11:16:29 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 253 veto
-11:16:06 SCRIBE   chiuso P-0190 $Stallions -0.0481 SOL (-41.9%)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
