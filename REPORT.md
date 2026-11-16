@@ -1,21 +1,21 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 03:23 UTC · in esecuzione da 0.0 giorni · 125 run
+Aggiornato: 2026-11-16 03:28 UTC · in esecuzione da 0.0 giorni · 125 run
 
 | | |
 |---|---|
-| Equity | **5.9651 SOL** (-0.6% dal capitale iniziale di 6 SOL) |
+| Equity | **5.8955 SOL** (-1.7% dal capitale iniziale di 6 SOL) |
 | Cassa | 5.6609 SOL |
 | Trade chiusi | 3 |
 | Win rate | 0% |
-| P&L realizzato | -0.1005 SOL (~$-7.26) |
+| P&L realizzato | -0.1005 SOL (~$-7.25) |
 | Media vincite / perdite | +0.0% / -27.8% |
 | Profit factor | 0.00 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$LMAO** P-0173 · 0.118 SOL · +57.0% · resta 100% · [grafico](https://dexscreener.com/solana/EzV5qj3Cx8xPSatbb63aV2owQZ2wqipmb4g2TCY8AxkF)
-- **$PSYOP** P-0174 · 0.119 SOL · +0.3% · resta 100% · [grafico](https://dexscreener.com/solana/6cUFUEwu77tgoNVoSYiAATLM8qn3LPNQJmBT2dU5DtXv)
+- **$LMAO** P-0173 · 0.118 SOL · +7.5% · resta 100% · [grafico](https://dexscreener.com/solana/EzV5qj3Cx8xPSatbb63aV2owQZ2wqipmb4g2TCY8AxkF)
+- **$PSYOP** P-0174 · 0.119 SOL · -9.2% · resta 100% · [grafico](https://dexscreener.com/solana/6cUFUEwu77tgoNVoSYiAATLM8qn3LPNQJmBT2dU5DtXv)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -32,6 +32,19 @@ Aggiornato: 2026-11-16 03:23 UTC · in esecuzione da 0.0 giorni · 125 run
 
 ## Ultimi eventi
 ```
+03:28:33 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 242 veto
+03:28:07 ORACLE   360 raccolti, 258 analizzati, 3 BUY, 244 veto
+03:27:43 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 241 veto
+03:27:19 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 243 veto
+03:26:55 ORACLE   360 raccolti, 256 analizzati, 3 BUY, 241 veto
+03:26:31 ORACLE   360 raccolti, 249 analizzati, 4 BUY, 234 veto
+03:26:07 ORACLE   360 raccolti, 261 analizzati, 4 BUY, 248 veto
+03:25:43 ORACLE   360 raccolti, 264 analizzati, 3 BUY, 251 veto
+03:25:20 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 242 veto
+03:24:55 ORACLE   360 raccolti, 259 analizzati, 4 BUY, 248 veto
+03:24:31 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 253 veto
+03:24:07 ORACLE   360 raccolti, 261 analizzati, 3 BUY, 252 veto
+03:23:43 ORACLE   360 raccolti, 260 analizzati, 3 BUY, 252 veto
 03:23:20 ORACLE   360 raccolti, 269 analizzati, 3 BUY, 259 veto
 03:22:56 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 252 veto
 03:22:31 KAISER   limite 1 ingresso/i per scan: $LMAO rimandato
@@ -59,19 +72,6 @@ Aggiornato: 2026-11-16 03:23 UTC · in esecuzione da 0.0 giorni · 125 run
 03:16:08 ORACLE   360 raccolti, 257 analizzati, 3 BUY, 244 veto
 03:15:45 ORACLE   360 raccolti, 256 analizzati, 3 BUY, 242 veto
 03:15:21 ORACLE   360 raccolti, 264 analizzati, 4 BUY, 253 veto
-03:14:57 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 246 veto
-03:14:33 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 235 veto
-03:14:09 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 240 veto
-03:13:46 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 236 veto
-03:13:22 ORACLE   360 raccolti, 247 analizzati, 3 BUY, 233 veto
-03:12:58 ORACLE   360 raccolti, 238 analizzati, 3 BUY, 225 veto
-03:12:34 ORACLE   360 raccolti, 233 analizzati, 3 BUY, 221 veto
-03:12:11 ORACLE   360 raccolti, 227 analizzati, 3 BUY, 216 veto
-03:11:46 ORACLE   360 raccolti, 223 analizzati, 3 BUY, 214 veto
-03:11:23 ORACLE   360 raccolti, 217 analizzati, 3 BUY, 209 veto
-03:10:59 SCRIBE   chiuso P-0172 $bul -0.0233 SOL (-19.5%)
-03:10:59 CHARON   Stop loss $bul vendo 100% a -35.0% -> 0.0962 SOL
-03:10:59 ORACLE   360 raccolti, 213 analizzati, 3 BUY, 205 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
