@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 16:16 UTC · in esecuzione da 0.6 giorni · 141 run
+Aggiornato: 2026-11-16 16:21 UTC · in esecuzione da 0.6 giorni · 141 run
 
 | | |
 |---|---|
-| Equity | **5.2837 SOL** (-11.9% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.2837 SOL |
+| Equity | **5.2494 SOL** (-12.5% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.1771 SOL |
 | Trade chiusi | 41 |
 | Win rate | 32% |
-| P&L realizzato | -0.7163 SOL (~$-50.50) |
+| P&L realizzato | -0.7163 SOL (~$-50.51) |
 | Media vincite / perdite | +46.1% / -43.5% |
 | Profit factor | 0.49 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$QUATS** P-0211 · 0.106 SOL · -31.5% · resta 100% · [grafico](https://dexscreener.com/solana/6eFvLxyp7tE4g2wXsqBKLXcWA1e6TrCKohptcjpHUWzK)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -56,6 +56,22 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+16:21:25 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 246 veto
+16:21:03 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 259 veto
+16:20:40 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 244 veto
+16:20:18 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 243 veto
+16:19:56 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 248 veto
+16:19:34 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 247 veto
+16:19:12 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 231 veto
+16:18:49 QUARTER  BUY $QUATS 0.106 SOL score 63 impatto 1.35% (Jupiter)
+16:18:49 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 235 veto
+16:18:26 QUARTER  $QUATS impatto 2.0% oltre slippage: annullato
+16:18:26 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 240 veto
+16:18:03 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 239 veto
+16:17:40 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 243 veto
+16:17:17 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 239 veto
+16:16:54 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 235 veto
+16:16:31 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 250 veto
 16:16:08 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 251 veto
 16:15:45 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 246 veto
 16:15:22 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 246 veto
@@ -80,22 +96,6 @@ _nessuna_
 16:11:14 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
 16:11:14 SCOUT    Laboratorio: collegato a PumpPortal
 16:11:14 KAISER   run #141 · 0 posizioni · equity 5.2837 SOL · GMGN spenta (nessuna chiave) · Grok off
-16:11:01 SCRIBE   fine run · trade 41 · win 32% · P&L -0.7163 SOL · equity 5.2837 SOL
-16:10:44 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 246 veto
-16:10:20 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 241 veto
-16:09:57 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 247 veto
-16:09:33 ORACLE   360 raccolti, 222 analizzati, 0 BUY, 216 veto
-16:09:10 ORACLE   360 raccolti, 236 analizzati, 0 BUY, 232 veto
-16:08:46 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 240 veto
-16:08:24 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 238 veto
-16:08:01 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 234 veto
-16:07:38 ORACLE   360 raccolti, 230 analizzati, 1 BUY, 223 veto
-16:07:24 SCRIBE   chiuso P-0210 $LEOSTAR -0.0327 SOL (-30.5%)
-16:07:24 CHARON   Stop loss $LEOSTAR vendo 100% a -27.7% -> 0.0746 SOL
-16:07:14 ORACLE   360 raccolti, 228 analizzati, 0 BUY, 223 veto
-16:06:51 ORACLE   360 raccolti, 219 analizzati, 0 BUY, 213 veto
-16:06:26 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 237 veto
-16:06:03 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 240 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
