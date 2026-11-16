@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 22:12 UTC · in esecuzione da 0.2 giorni · 147 run
+Aggiornato: 2026-11-16 22:17 UTC · in esecuzione da 0.2 giorni · 147 run
 
 | | |
 |---|---|
-| Equity | **6.2057 SOL** (+3.4% dal capitale iniziale di 6 SOL) |
-| Cassa | 6.2057 SOL |
-| Trade chiusi | 25 |
-| Win rate | 36% |
-| P&L realizzato | +0.2057 SOL (~$14.84) |
-| Media vincite / perdite | +54.0% / -19.6% |
-| Profit factor | 1.54 |
+| Equity | **6.1304 SOL** (+2.2% dal capitale iniziale di 6 SOL) |
+| Cassa | 6.1304 SOL |
+| Trade chiusi | 26 |
+| Win rate | 35% |
+| P&L realizzato | +0.1304 SOL (~$9.40) |
+| Media vincite / perdite | +54.0% / -22.0% |
+| Profit factor | 1.29 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -22,11 +22,12 @@ _nessuna_
 | RUG-EXIT liquidità | 2 | -0.0151 |
 | Time stop | 12 | -0.1574 |
 | TP1 | 7 | +0.4630 |
-| Stop loss | 4 | -0.0848 |
+| Stop loss | 5 | -0.1601 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $WASTED | 69 | -60.2% | -0.0753 | +0% | -44% | Stop loss | 2m |
 | $GROYPERS | 65 | +116.8% | +0.1428 | +92% | +92% | TP1 | 4m |
 | $BAWSAQ | 63 | +26.7% | +0.0325 | +71% | +71% | TP1 | 1m |
 | $CHOP | 74 | -33.6% | -0.0413 | +0% | -41% | Stop loss | 3m |
@@ -51,10 +52,25 @@ _nessuna_
 | $COGE | 68 | +43.4% | +0.0518 | +67% | +67% | TP1 | 6m |
 | $Huss | 68 | -10.1% | -0.0122 | +0% | -19% | Time stop | 5m |
 | $BanMuTun | 67 | -21.9% | -0.0264 | +5% | -25% | Time stop | 5m |
-| $MAYA | 82 | -34.4% | -0.0417 | +0% | -82% | RUG-EXIT liquidità | 0m |
 
 ## Ultimi eventi
 ```
+22:17:29 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 246 veto
+22:17:06 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 243 veto
+22:16:43 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 247 veto
+22:16:19 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 252 veto
+22:15:56 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 253 veto
+22:15:33 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 256 veto
+22:15:10 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 262 veto
+22:14:46 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 253 veto
+22:14:23 SCRIBE   chiuso P-0241 $WASTED -0.0753 SOL (-60.2%)
+22:14:23 CHARON   Stop loss $WASTED vendo 100% a -44.2% -> 0.0498 SOL
+22:14:23 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 261 veto
+22:13:59 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 254 veto
+22:13:36 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 248 veto
+22:13:12 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 251 veto
+22:12:48 QUARTER  BUY $WASTED 0.124 SOL score 69 impatto 1.16% (Jupiter)
+22:12:48 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 256 veto
 22:12:25 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 250 veto
 22:12:01 QUARTER  $SIX impatto 2.3% oltre slippage: annullato
 22:12:01 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 246 veto
@@ -79,22 +95,6 @@ _nessuna_
 22:04:37 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 255 veto
 22:04:14 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 258 veto
 22:03:50 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 272 veto
-22:03:26 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 268 veto
-22:03:02 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 264 veto
-22:02:39 SCRIBE   chiuso P-0240 $GROYPERS 0.1428 SOL (116.8%)
-22:02:39 CHARON   TP1 $GROYPERS vendo 100% a 92.1% -> 0.2651 SOL
-22:02:39 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 261 veto
-22:02:15 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 241 veto
-22:01:52 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 238 veto
-22:01:28 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 263 veto
-22:01:04 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 255 veto
-22:00:40 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 246 veto
-22:00:15 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 245 veto
-21:59:51 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 258 veto
-21:59:27 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 237 veto
-21:59:03 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 253 veto
-21:58:39 QUARTER  BUY $GROYPERS 0.121 SOL score 65 impatto 1.55% (Jupiter)
-21:58:39 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 254 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
