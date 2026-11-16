@@ -1,32 +1,34 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 22:47 UTC · in esecuzione da 0.2 giorni · 148 run
+Aggiornato: 2026-11-16 22:52 UTC · in esecuzione da 0.2 giorni · 148 run
 
 | | |
 |---|---|
-| Equity | **6.2609 SOL** (+4.3% dal capitale iniziale di 6 SOL) |
-| Cassa | 6.0891 SOL |
-| Trade chiusi | 28 |
-| Win rate | 36% |
-| P&L realizzato | +0.2144 SOL (~$15.41) |
-| Media vincite / perdite | +56.4% / -21.3% |
-| Profit factor | 1.46 |
+| Equity | **6.0440 SOL** (+0.7% dal capitale iniziale di 6 SOL) |
+| Cassa | 6.0440 SOL |
+| Trade chiusi | 30 |
+| Win rate | 33% |
+| P&L realizzato | +0.0440 SOL (~$3.16) |
+| Media vincite / perdite | +56.4% / -25.9% |
+| Profit factor | 1.07 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$mimic** P-0244 · 0.124 SOL · +38.2% · resta 100% · [grafico](https://dexscreener.com/solana/9rXn5A254WL2nRrgmn4PB3nS2atcJ9HCjmCt31smyg1k)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| RUG-EXIT liquidità | 2 | -0.0151 |
-| Time stop | 12 | -0.1574 |
+| RUG-EXIT liquidità | 3 | -0.1372 |
+| Time stop | 13 | -0.2057 |
 | TP1 | 8 | +0.5590 |
 | Stop loss | 6 | -0.1721 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $mimic | 64 | -38.6% | -0.0483 | +40% | +4% | Time stop | 5m |
+| $LUCIA | 74 | -97.0% | -0.1220 | +13% | -96% | RUG-EXIT liquidità | 3m |
 | $Zoo | 70 | -9.5% | -0.0120 | +0% | -43% | Stop loss | 1m |
 | $SIX | 65 | +77.6% | +0.0959 | +82% | +82% | TP1 | 4m |
 | $WASTED | 69 | -60.2% | -0.0753 | +0% | -44% | Stop loss | 2m |
@@ -50,11 +52,28 @@ Aggiornato: 2026-11-16 22:47 UTC · in esecuzione da 0.2 giorni · 148 run
 | $MAYA | 88 | +44.7% | +0.0543 | +4% | -42% | Stop loss | 1m |
 | $LUCIA | 74 | +67.2% | +0.0807 | +65% | +65% | TP1 | 4m |
 | $DUST | 66 | -14.5% | -0.0174 | +0% | -27% | Time stop | 5m |
-| $COGE | 64 | -0.4% | -0.0005 | +15% | +3% | Time stop | 5m |
-| $COGE | 68 | +43.4% | +0.0518 | +67% | +67% | TP1 | 6m |
 
 ## Ultimi eventi
 ```
+22:52:15 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 231 veto
+22:51:52 ORACLE   360 raccolti, 228 analizzati, 1 BUY, 222 veto
+22:51:29 SCRIBE   chiuso P-0244 $mimic -0.0483 SOL (-38.6%)
+22:51:29 CHARON   Time stop $mimic vendo 100% a 3.5% -> 0.0769 SOL
+22:51:29 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 232 veto
+22:51:05 SCRIBE   chiuso P-0245 $LUCIA -0.1220 SOL (-97.0%)
+22:51:05 CHARON   RUG-EXIT liquidità $LUCIA vendo 100% a -95.7% -> 0.0038 SOL
+22:51:05 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 226 veto
+22:50:41 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 230 veto
+22:50:18 ORACLE   360 raccolti, 226 analizzati, 2 BUY, 218 veto
+22:49:55 ORACLE   360 raccolti, 236 analizzati, 2 BUY, 227 veto
+22:49:31 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 234 veto
+22:49:08 ORACLE   360 raccolti, 217 analizzati, 3 BUY, 209 veto
+22:48:44 ORACLE   360 raccolti, 243 analizzati, 3 BUY, 234 veto
+22:48:21 KAISER   limite 1 ingresso/i per scan: $SIX rimandato
+22:48:20 QUARTER  BUY $LUCIA 0.125 SOL score 74 impatto 1.13% (Jupiter)
+22:48:20 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 232 veto
+22:47:57 ORACLE   360 raccolti, 240 analizzati, 2 BUY, 230 veto
+22:47:33 ORACLE   360 raccolti, 238 analizzati, 2 BUY, 231 veto
 22:47:10 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 232 veto
 22:46:47 ORACLE   360 raccolti, 233 analizzati, 1 BUY, 228 veto
 22:46:24 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 243 veto
@@ -76,25 +95,6 @@ Aggiornato: 2026-11-16 22:47 UTC · in esecuzione da 0.2 giorni · 148 run
 22:40:39 SCRIBE   chiuso P-0243 $Zoo -0.0120 SOL (-9.5%)
 22:40:39 CHARON   Stop loss $Zoo vendo 100% a -43.1% -> 0.1136 SOL
 22:40:39 ORACLE   360 raccolti, 228 analizzati, 2 BUY, 223 veto
-22:40:17 ORACLE   360 raccolti, 229 analizzati, 2 BUY, 224 veto
-22:39:54 ORACLE   360 raccolti, 213 analizzati, 2 BUY, 207 veto
-22:39:31 KAISER   limite 1 ingresso/i per scan: $SIX rimandato
-22:39:31 QUARTER  BUY $Zoo 0.125 SOL score 70 impatto 1.15% (Jupiter)
-22:39:31 ORACLE   360 raccolti, 216 analizzati, 3 BUY, 209 veto
-22:39:08 ORACLE   360 raccolti, 210 analizzati, 3 BUY, 203 veto
-22:38:45 ORACLE   360 raccolti, 206 analizzati, 2 BUY, 201 veto
-22:38:22 ORACLE   360 raccolti, 218 analizzati, 3 BUY, 213 veto
-22:38:00 ORACLE   360 raccolti, 208 analizzati, 3 BUY, 204 veto
-22:37:38 ORACLE   360 raccolti, 205 analizzati, 3 BUY, 200 veto
-22:37:15 ORACLE   360 raccolti, 201 analizzati, 2 BUY, 198 veto
-22:36:51 ORACLE   360 raccolti, 202 analizzati, 1 BUY, 199 veto
-22:36:29 ORACLE   360 raccolti, 189 analizzati, 1 BUY, 187 veto
-22:36:07 ORACLE   360 raccolti, 206 analizzati, 1 BUY, 204 veto
-22:35:45 ORACLE   360 raccolti, 198 analizzati, 1 BUY, 193 veto
-22:35:23 ORACLE   360 raccolti, 200 analizzati, 1 BUY, 195 veto
-22:35:00 ORACLE   360 raccolti, 215 analizzati, 1 BUY, 208 veto
-22:34:37 ORACLE   352 raccolti, 208 analizzati, 1 BUY, 201 veto
-22:34:24 SCOUT    PumpPortal invia nuovi token (21) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
