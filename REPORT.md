@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 17:47 UTC · in esecuzione da 0.0 giorni · 142 run
+Aggiornato: 2026-11-16 17:51 UTC · in esecuzione da 0.0 giorni · 142 run
 
 | | |
 |---|---|
@@ -31,6 +31,17 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+17:51:27 SCRIBE   fine run · trade 3 · win 0% · P&L -0.0802 SOL · equity 5.9198 SOL
+17:51:14 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 238 veto
+17:50:50 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 233 veto
+17:50:26 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 249 veto
+17:50:02 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 247 veto
+17:49:38 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 238 veto
+17:49:14 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 248 veto
+17:48:51 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 242 veto
+17:48:28 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 240 veto
+17:48:05 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 241 veto
+17:47:42 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 240 veto
 17:47:18 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 230 veto
 17:46:53 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 246 veto
 17:46:30 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 236 veto
@@ -60,17 +71,6 @@ _nessuna_
 17:38:37 ORACLE   360 raccolti, 236 analizzati, 2 BUY, 228 veto
 17:38:14 ORACLE   360 raccolti, 238 analizzati, 2 BUY, 230 veto
 17:37:50 KAISER   limite 1 ingresso/i per scan: $mert rimandato
-17:37:49 QUARTER  BUY $Huss 0.119 SOL score 68 impatto 1.12% (Jupiter)
-17:37:49 ORACLE   360 raccolti, 236 analizzati, 2 BUY, 228 veto
-17:37:26 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 233 veto
-17:37:02 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 241 veto
-17:36:38 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 235 veto
-17:36:14 ORACLE   360 raccolti, 252 analizzati, 3 BUY, 243 veto
-17:35:51 ORACLE   360 raccolti, 249 analizzati, 3 BUY, 241 veto
-17:35:27 KAISER   limite 1 ingresso/i per scan: $mert rimandato
-17:35:26 QUARTER  BUY $BanMuTun 0.119 SOL score 67 impatto 0.32% (Jupiter)
-17:35:26 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 239 veto
-17:35:02 QUARTER  $BanMuTun impatto 2.2% oltre slippage: annullato
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
