@@ -1,15 +1,15 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 01:17 UTC · in esecuzione da 0.7 giorni · 123 run
+Aggiornato: 2026-11-16 01:22 UTC · in esecuzione da 0.7 giorni · 123 run
 
 | | |
 |---|---|
-| Equity | **1.2155 SOL** (-19.0% dal capitale iniziale di 1.5 SOL) |
-| Cassa | 1.2155 SOL |
-| Trade chiusi | 38 |
+| Equity | **1.2083 SOL** (-19.4% dal capitale iniziale di 1.5 SOL) |
+| Cassa | 1.2083 SOL |
+| Trade chiusi | 39 |
 | Win rate | 26% |
-| P&L realizzato | -0.2845 SOL (~$-20.31) |
-| Media vincite / perdite | +33.0% / -26.3% |
+| P&L realizzato | -0.2917 SOL (~$-20.79) |
+| Media vincite / perdite | +33.0% / -25.8% |
 | Profit factor | 0.53 |
 | Circuit breaker | no |
 
@@ -19,7 +19,7 @@ _nessuna_
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| Stop loss | 21 | -0.4493 |
+| Stop loss | 22 | -0.4565 |
 | Chiusura manuale (app) | 1 | +0.0954 |
 | Trailing stop | 10 | +0.1571 |
 | Time stop | 3 | -0.0276 |
@@ -29,6 +29,7 @@ _nessuna_
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $APED | 70 | -11.5% | -0.0071 | +0% | -15% | Stop loss | 1m |
 | $Billy | 68 | -49.2% | -0.0312 | +0% | -15% | Stop loss | 1m |
 | $Nеil | 68 | -6.9% | -0.0044 | +0% | -25% | Stop loss | 0m |
 | $Culture | 68 | -13.3% | -0.0085 | +0% | -22% | Stop loss | 0m |
@@ -53,10 +54,26 @@ _nessuna_
 | $Nyajira | 68 | +19.6% | +0.0144 | +40% | +19% | Trailing stop | 6m |
 | $investinu | 69 | -9.1% | -0.0068 | +0% | -15% | Stop loss | 0m |
 | $PUMPDEX | 66 | -30.0% | -0.0225 | +5% | -30% | Stop loss | 2m |
-| $WANTED | 64 | -6.9% | -0.0052 | +0% | -19% | Stop loss | 0m |
 
 ## Ultimi eventi
 ```
+01:22:17 ORACLE   360 raccolti, 230 analizzati, 1 BUY, 223 veto
+01:21:53 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 237 veto
+01:21:30 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 244 veto
+01:21:07 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 238 veto
+01:20:43 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 237 veto
+01:20:19 SCRIBE   chiuso P-0162 $APED -0.0071 SOL (-11.5%)
+01:20:19 CHARON   Stop loss $APED vendo 100% a -15.1% -> 0.0546 SOL
+01:20:19 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 242 veto
+01:19:55 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 240 veto
+01:19:32 KAISER   limite 1 ingresso/i per scan: $Neil rimandato
+01:19:31 QUARTER  BUY $APED 0.061 SOL score 70 impatto 0.00% (Jupiter)
+01:19:31 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 242 veto
+01:19:07 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 241 veto
+01:18:45 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 237 veto
+01:18:21 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 237 veto
+01:17:57 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 244 veto
+01:17:33 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 239 veto
 01:17:10 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 244 veto
 01:16:45 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 246 veto
 01:16:23 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 240 veto
@@ -80,23 +97,6 @@ _nessuna_
 01:10:08 ORACLE   305 raccolti, 206 analizzati, 0 BUY, 199 veto
 01:09:45 ORACLE   294 raccolti, 186 analizzati, 0 BUY, 179 veto
 01:09:22 ORACLE   289 raccolti, 183 analizzati, 0 BUY, 178 veto
-01:09:09 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-01:08:59 ORACLE   263 raccolti, 172 analizzati, 0 BUY, 167 veto
-01:08:37 ORACLE   256 raccolti, 164 analizzati, 0 BUY, 159 veto
-01:08:14 SCRIBE   chiuso P-0161 $Billy -0.0312 SOL (-49.2%)
-01:08:14 CHARON   Stop loss $Billy vendo 100% a -15.4% -> 0.0321 SOL
-01:08:14 ORACLE   250 raccolti, 156 analizzati, 2 BUY, 150 veto
-01:07:51 ORACLE   228 raccolti, 146 analizzati, 2 BUY, 142 veto
-01:07:28 KAISER   limite 1 ingresso/i per scan: $SAME rimandato
-01:07:28 QUARTER  BUY $Billy 0.062 SOL score 68 impatto 1.71% (Jupiter)
-01:07:28 ORACLE   219 raccolti, 128 analizzati, 2 BUY, 125 veto
-01:07:10 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-01:07:08 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-01:07:07 SCOUT    fabbrica: 3151 percorsi, 768 configurazioni, 0 passano, 548 ms
-01:07:06 ORACLE   214 raccolti, 126 analizzati, 2 BUY, 123 veto
-01:07:04 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
-01:07:04 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
-01:07:04 SCOUT    Laboratorio: collegato a PumpPortal
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
