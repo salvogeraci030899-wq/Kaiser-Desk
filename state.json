@@ -1,8 +1,66 @@
 {
  "startedAt": 1794797373814,
- "runs": 127,
- "cash": 5.655822967507852,
- "positions": [],
+ "runs": 128,
+ "cash": 5.541706508157695,
+ "positions": [
+  {
+   "id": "P-0178",
+   "mint": "CiV5UJFf2dp87cymyPf3UaV8FLCiynYVZopgN5QSpump",
+   "sym": "KELPGUY",
+   "name": "Kelp Guy",
+   "pairAddress": "FdBEshZmFNNJAWCfWiCKZxSpFMRpHm4uebWmZp161c4M",
+   "openedAt": 1794806520714,
+   "sizeSOL": 0.11311645935015704,
+   "cost": 0.11411645935015705,
+   "entry": 3.6663e-7,
+   "tokens": 308530.28762009944,
+   "remaining": 1,
+   "rawLeft": "325496609766",
+   "peak": 3.6663e-7,
+   "tp1Done": false,
+   "spDone": false,
+   "entryLiq": 10174.33,
+   "realized": 0,
+   "score": 75,
+   "why": "runner",
+   "entryInfo": {
+    "srcs": [
+     "profili"
+    ],
+    "notes": [],
+    "plus": [
+     "pressione in acquisto"
+    ],
+    "m": {
+     "liq": 10174.33,
+     "mc": 25919,
+     "ageMin": 1.0299333333333334,
+     "v1": 4545.18,
+     "tx1": 145,
+     "br1": 2.2666666666666666,
+     "br5": 2.2666666666666666,
+     "c5": -13.44,
+     "c1": -13.44,
+     "c6": -13.44,
+     "turn": 0.44673015323859167,
+     "price": 0.00002591,
+     "priceNative": 3.63e-7
+    },
+    "grok": null
+   },
+   "last": {
+    "priceNative": 3.067e-7,
+    "liq": 9315.68,
+    "br5": 1.9222222222222223,
+    "tx5": 261,
+    "t": 1794806599679
+   },
+   "fills": [
+    "BUY 0.113 impatto 0.00% (Jupiter)"
+   ],
+   "trough": 3.067e-7
+  }
+ ],
  "journal": [
   {
    "id": "P-0171",
@@ -3217,6 +3275,34 @@
    "sym": "PASSED",
    "score": 88,
    "priceNative": 0.000001333
+  },
+  {
+   "t": 1794806520683,
+   "mint": "CiV5UJFf2dp87cymyPf3UaV8FLCiynYVZopgN5QSpump",
+   "sym": "KELPGUY",
+   "score": 75,
+   "priceNative": 3.63e-7
+  },
+  {
+   "t": 1794806543651,
+   "mint": "CiV5UJFf2dp87cymyPf3UaV8FLCiynYVZopgN5QSpump",
+   "sym": "KELPGUY",
+   "score": 73,
+   "priceNative": 3.542e-7
+  },
+  {
+   "t": 1794806566449,
+   "mint": "CiV5UJFf2dp87cymyPf3UaV8FLCiynYVZopgN5QSpump",
+   "sym": "KELPGUY",
+   "score": 72,
+   "priceNative": 3.067e-7
+  },
+  {
+   "t": 1794806589603,
+   "mint": "HnNTiEwkmHezJBnvUa3QMZ97uS4jXf67NCXSAV8bpump",
+   "sym": "equity",
+   "score": 64,
+   "priceNative": 5.493e-7
   }
  ],
  "day": {
@@ -3225,8 +3311,32 @@
  },
  "cooldownUntil": 1794806152241,
  "halted": null,
- "seq": 177,
+ "seq": 178,
  "events": [
+  "05:23:09 ORACLE   335 raccolti, 238 analizzati, 1 BUY, 221 veto",
+  "05:22:46 ORACLE   329 raccolti, 233 analizzati, 1 BUY, 216 veto",
+  "05:22:33 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena",
+  "05:22:23 ORACLE   312 raccolti, 217 analizzati, 1 BUY, 201 veto",
+  "05:22:00 QUARTER  BUY $KELPGUY 0.113 SOL score 75 impatto 0.00% (Jupiter)",
+  "05:22:00 ORACLE   302 raccolti, 214 analizzati, 1 BUY, 198 veto",
+  "05:21:37 ORACLE   301 raccolti, 209 analizzati, 0 BUY, 194 veto",
+  "05:21:15 ORACLE   287 raccolti, 200 analizzati, 0 BUY, 186 veto",
+  "05:20:52 ORACLE   282 raccolti, 187 analizzati, 0 BUY, 176 veto",
+  "05:20:29 ORACLE   278 raccolti, 187 analizzati, 0 BUY, 177 veto",
+  "05:20:06 ORACLE   260 raccolti, 182 analizzati, 0 BUY, 169 veto",
+  "05:19:43 ORACLE   257 raccolti, 163 analizzati, 0 BUY, 155 veto",
+  "05:19:21 ORACLE   257 raccolti, 163 analizzati, 0 BUY, 155 veto",
+  "05:18:59 ORACLE   227 raccolti, 152 analizzati, 0 BUY, 143 veto",
+  "05:18:36 ORACLE   220 raccolti, 138 analizzati, 0 BUY, 130 veto",
+  "05:18:15 SCOUT    fabbrica: 3627 percorsi, 768 configurazioni, 0 passano, 579 ms",
+  "05:18:14 ORACLE   216 raccolti, 135 analizzati, 0 BUY, 127 veto",
+  "05:18:13 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an",
+  "05:18:12 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an",
+  "05:18:11 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→10, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, rugLiqDrop 45→30, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120, srcGmgnTrending true→false",
+  "05:18:11 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com",
+  "05:18:11 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.",
+  "05:18:10 SCOUT    Laboratorio: collegato a PumpPortal",
+  "05:18:10 KAISER   run #128 · 0 posizioni · equity 5.6558 SOL · GMGN spenta (nessuna chiave) · Grok off",
   "05:17:59 SCRIBE   fine run · trade 8 · win 0% · P&L -0.3442 SOL · equity 5.6558 SOL",
   "05:17:49 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 234 veto",
   "05:17:25 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 231 veto",
@@ -3502,36 +3612,12 @@
   "03:41:54 CHARON   Stop loss $Gib vendo 100% a -44.5% -> 0.0422 SOL",
   "03:41:54 ORACLE   349 raccolti, 250 analizzati, 0 BUY, 237 veto",
   "03:41:41 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena",
-  "03:41:31 ORACLE   339 raccolti, 225 analizzati, 0 BUY, 213 veto",
-  "03:41:19 ORACLE   339 raccolti, 225 analizzati, 0 BUY, 213 veto",
-  "03:40:53 ORACLE   303 raccolti, 211 analizzati, 1 BUY, 201 veto",
-  "03:40:31 ORACLE   297 raccolti, 210 analizzati, 1 BUY, 200 veto",
-  "03:40:07 QUARTER  BUY $Gib 0.117 SOL score 63 impatto 1.46% (Jupiter)",
-  "03:40:07 ORACLE   291 raccolti, 204 analizzati, 1 BUY, 195 veto",
-  "03:39:44 ORACLE   276 raccolti, 193 analizzati, 0 BUY, 185 veto",
-  "03:39:22 ORACLE   269 raccolti, 192 analizzati, 0 BUY, 184 veto",
-  "03:38:59 ORACLE   265 raccolti, 190 analizzati, 0 BUY, 181 veto",
-  "03:38:36 ORACLE   238 raccolti, 168 analizzati, 1 BUY, 160 veto",
-  "03:38:13 ORACLE   235 raccolti, 159 analizzati, 1 BUY, 152 veto",
-  "03:37:52 SCOUT    fabbrica: 3491 percorsi, 768 configurazioni, 0 passano, 547 ms",
-  "03:37:52 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an",
-  "03:37:51 ORACLE   230 raccolti, 159 analizzati, 1 BUY, 152 veto",
-  "03:37:51 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an",
-  "03:37:48 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→10, timeStopMinPnl 5→2, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, rugLiqDrop 45→30, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120, srcGmgnTrending true→false",
-  "03:37:48 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com",
-  "03:37:47 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.",
-  "03:37:47 SCOUT    Laboratorio: collegato a PumpPortal",
-  "03:37:47 KAISER   run #126 · 0 posizioni · equity 5.8565 SOL · GMGN spenta (nessuna chiave) · Grok off",
-  "03:37:36 SCRIBE   fine run · trade 5 · win 0% · P&L -0.1435 SOL · equity 5.8565 SOL",
-  "03:37:32 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 255 veto",
-  "03:37:08 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 245 veto",
-  "03:36:44 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 250 veto",
-  "03:36:20 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 248 veto"
+  "03:41:31 ORACLE   339 raccolti, 225 analizzati, 0 BUY, 213 veto"
  ],
  "capital": 6,
  "resetId": "C-0075",
  "realTried": {},
- "lastEntryAt": 1794805651408,
+ "lastEntryAt": 1794806520714,
  "lab": {
   "done": [
    {
