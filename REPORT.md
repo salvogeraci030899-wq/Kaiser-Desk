@@ -1,25 +1,25 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 01:42 UTC · in esecuzione da 0.7 giorni · 123 run
+Aggiornato: 2026-11-16 01:47 UTC · in esecuzione da 0.7 giorni · 123 run
 
 | | |
 |---|---|
-| Equity | **1.2073 SOL** (-19.5% dal capitale iniziale di 1.5 SOL) |
-| Cassa | 1.1469 SOL |
-| Trade chiusi | 39 |
-| Win rate | 26% |
-| P&L realizzato | -0.2917 SOL (~$-20.77) |
-| Media vincite / perdite | +33.0% / -25.8% |
-| Profit factor | 0.53 |
+| Equity | **1.1761 SOL** (-21.6% dal capitale iniziale di 1.5 SOL) |
+| Cassa | 1.1761 SOL |
+| Trade chiusi | 40 |
+| Win rate | 25% |
+| P&L realizzato | -0.3239 SOL (~$-23.07) |
+| Media vincite / perdite | +33.0% / -26.7% |
+| Profit factor | 0.50 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$LILY** P-0163 · 0.060 SOL · n/d · resta 100% · [grafico](https://dexscreener.com/solana/HZ26n5YaRutxbcFFV61SpapjSdxPQj4CVyXdjHkerV2H)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| Stop loss | 22 | -0.4565 |
+| Stop loss | 23 | -0.4887 |
 | Chiusura manuale (app) | 1 | +0.0954 |
 | Trailing stop | 10 | +0.1571 |
 | Time stop | 3 | -0.0276 |
@@ -29,6 +29,7 @@ Aggiornato: 2026-11-16 01:42 UTC · in esecuzione da 0.7 giorni · 123 run
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $LILY | 69 | -52.4% | -0.0322 | +31% | -22% | Stop loss | 1m |
 | $APED | 70 | -11.5% | -0.0071 | +0% | -15% | Stop loss | 1m |
 | $Billy | 68 | -49.2% | -0.0312 | +0% | -15% | Stop loss | 1m |
 | $Nеil | 68 | -6.9% | -0.0044 | +0% | -25% | Stop loss | 0m |
@@ -53,10 +54,25 @@ Aggiornato: 2026-11-16 01:42 UTC · in esecuzione da 0.7 giorni · 123 run
 | $SI | 74 | -20.5% | -0.0155 | +0% | -23% | Stop loss | 1m |
 | $Nyajira | 68 | +19.6% | +0.0144 | +40% | +19% | Trailing stop | 6m |
 | $investinu | 69 | -9.1% | -0.0068 | +0% | -15% | Stop loss | 0m |
-| $PUMPDEX | 66 | -30.0% | -0.0225 | +5% | -30% | Stop loss | 2m |
 
 ## Ultimi eventi
 ```
+01:47:54 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 255 veto
+01:47:29 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 251 veto
+01:47:06 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 250 veto
+01:46:43 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 251 veto
+01:46:19 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 253 veto
+01:45:56 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 244 veto
+01:45:33 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 244 veto
+01:45:09 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 244 veto
+01:44:45 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 245 veto
+01:44:22 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 243 veto
+01:43:58 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 247 veto
+01:43:44 SCRIBE   chiuso P-0163 $LILY -0.0322 SOL (-52.4%)
+01:43:44 CHARON   Stop loss $LILY vendo 100% a -22.4% -> 0.0101 SOL
+01:43:34 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 242 veto
+01:43:20 CHARON   TP1 $LILY vendo 70% a 30.6% -> 0.0191 SOL
+01:43:10 ORACLE   360 raccolti, 250 analizzati, 3 BUY, 239 veto
 01:42:47 KAISER   limite 1 ingresso/i per scan: $Nеil rimandato
 01:42:47 KAISER   limite 1 ingresso/i per scan: $Billy rimandato
 01:42:46 QUARTER  BUY $LILY 0.060 SOL score 69 impatto 0.00% (Jupiter)
@@ -81,22 +97,6 @@ Aggiornato: 2026-11-16 01:42 UTC · in esecuzione da 0.7 giorni · 123 run
 01:36:27 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 251 veto
 01:36:04 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 237 veto
 01:35:40 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 245 veto
-01:35:17 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 246 veto
-01:34:53 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 259 veto
-01:34:29 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 258 veto
-01:34:05 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 255 veto
-01:33:42 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 264 veto
-01:33:18 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 255 veto
-01:32:55 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 248 veto
-01:32:31 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 259 veto
-01:32:07 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 249 veto
-01:31:44 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 246 veto
-01:31:21 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 252 veto
-01:30:57 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 252 veto
-01:30:34 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 237 veto
-01:30:10 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 240 veto
-01:29:46 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 237 veto
-01:29:22 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 225 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
