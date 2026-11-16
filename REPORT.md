@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 10:39 UTC · in esecuzione da 0.3 giorni · 134 run
+Aggiornato: 2026-11-16 10:44 UTC · in esecuzione da 0.3 giorni · 134 run
 
 | | |
 |---|---|
-| Equity | **5.7882 SOL** (-3.5% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.6938 SOL |
-| Trade chiusi | 17 |
-| Win rate | 29% |
-| P&L realizzato | -0.1892 SOL (~$-13.52) |
-| Media vincite / perdite | +60.6% / -38.0% |
-| Profit factor | 0.64 |
+| Equity | **5.7038 SOL** (-4.9% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.7038 SOL |
+| Trade chiusi | 18 |
+| Win rate | 28% |
+| P&L realizzato | -0.2962 SOL (~$-21.15) |
+| Media vincite / perdite | +60.6% / -42.2% |
+| Profit factor | 0.54 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$MAINNEKO** P-0187 · 0.116 SOL · -18.6% · resta 100% · [grafico](https://dexscreener.com/solana/9SUx9H6gWHwQTEGTF6RAVoQVML8a4s1PJ1QFKnytnr5d)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 5 | -0.2229 |
 | Time stop | 5 | -0.0871 |
-| RUG-EXIT liquidità | 2 | -0.2222 |
+| RUG-EXIT liquidità | 3 | -0.3291 |
 | TP1 | 5 | +0.3429 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $MAINNEKO | 74 | -91.5% | -0.1070 | +0% | -91% | RUG-EXIT liquidità | 4m |
 | $1.0 | 68 | +58.9% | +0.0682 | +85% | +85% | TP1 | 6m |
 | $Hasia | 63 | +68.2% | +0.0780 | +60% | +60% | TP1 | 3m |
 | $देसी | 71 | +79.2% | +0.0891 | +93% | +93% | TP1 | 3m |
@@ -47,6 +48,21 @@ Aggiornato: 2026-11-16 10:39 UTC · in esecuzione da 0.3 giorni · 134 run
 
 ## Ultimi eventi
 ```
+10:44:47 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 261 veto
+10:44:25 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 264 veto
+10:44:02 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 260 veto
+10:43:38 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 266 veto
+10:43:16 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 264 veto
+10:42:53 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 259 veto
+10:42:29 SCRIBE   chiuso P-0187 $MAINNEKO -0.1070 SOL (-91.5%)
+10:42:29 CHARON   RUG-EXIT liquidità $MAINNEKO vendo 100% a -90.8% -> 0.0100 SOL
+10:42:29 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 263 veto
+10:42:06 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 256 veto
+10:41:43 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 246 veto
+10:41:20 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 254 veto
+10:40:57 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 254 veto
+10:40:34 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 243 veto
+10:40:09 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 253 veto
 10:39:44 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 250 veto
 10:39:21 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 248 veto
 10:38:58 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 251 veto
@@ -72,21 +88,6 @@ Aggiornato: 2026-11-16 10:39 UTC · in esecuzione da 0.3 giorni · 134 run
 10:32:49 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 256 veto
 10:32:26 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 253 veto
 10:32:02 QUARTER  $1.0 impatto 4.0% oltre slippage: annullato
-10:32:02 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 265 veto
-10:31:40 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 262 veto
-10:31:17 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 255 veto
-10:30:53 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 259 veto
-10:30:30 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 256 veto
-10:30:08 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 251 veto
-10:29:45 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 258 veto
-10:29:21 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 251 veto
-10:28:59 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 250 veto
-10:28:36 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 259 veto
-10:28:12 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 258 veto
-10:27:50 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 258 veto
-10:27:37 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 252 veto
-10:27:11 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 258 veto
-10:26:47 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 251 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
