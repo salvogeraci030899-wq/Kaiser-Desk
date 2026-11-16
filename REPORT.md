@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 10:15 UTC · in esecuzione da 0.3 giorni · 133 run
+Aggiornato: 2026-11-16 10:19 UTC · in esecuzione da 0.3 giorni · 133 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-16 10:15 UTC · in esecuzione da 0.3 giorni · 133 run
 | Cassa | 5.6646 SOL |
 | Trade chiusi | 15 |
 | Win rate | 20% |
-| P&L realizzato | -0.3354 SOL (~$-23.81) |
+| P&L realizzato | -0.3354 SOL (~$-23.82) |
 | Media vincite / perdite | +58.7% / -38.0% |
 | Profit factor | 0.37 |
 | Circuit breaker | no |
@@ -45,6 +45,17 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+10:19:25 SCRIBE   fine run · trade 15 · win 20% · P&L -0.3354 SOL · equity 5.6646 SOL
+10:19:11 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 253 veto
+10:18:48 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 255 veto
+10:18:24 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 250 veto
+10:18:00 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 255 veto
+10:17:36 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 255 veto
+10:17:14 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 252 veto
+10:16:50 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 254 veto
+10:16:26 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 254 veto
+10:16:03 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 248 veto
+10:15:39 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 254 veto
 10:15:16 ORACLE   360 raccolti, 285 analizzati, 1 BUY, 262 veto
 10:14:53 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 260 veto
 10:14:29 ORACLE   360 raccolti, 285 analizzati, 1 BUY, 266 veto
@@ -74,17 +85,6 @@ _nessuna_
 10:05:29 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 262 veto
 10:05:05 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 267 veto
 10:04:42 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 264 veto
-10:04:19 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 261 veto
-10:03:55 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 265 veto
-10:03:31 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 259 veto
-10:03:08 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 254 veto
-10:02:44 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 257 veto
-10:02:20 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 261 veto
-10:01:56 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 258 veto
-10:01:33 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 258 veto
-10:01:09 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 260 veto
-10:00:46 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 257 veto
-10:00:21 SCRIBE   chiuso P-0184 $देसी 0.0891 SOL (79.2%)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
