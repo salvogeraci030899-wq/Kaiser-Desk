@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 02:02 UTC · in esecuzione da 0.7 giorni · 124 run
+Aggiornato: 2026-11-16 02:07 UTC · in esecuzione da 0.7 giorni · 124 run
 
 | | |
 |---|---|
-| Equity | **1.1761 SOL** (-21.6% dal capitale iniziale di 1.5 SOL) |
-| Cassa | 1.1761 SOL |
+| Equity | **1.1903 SOL** (-20.6% dal capitale iniziale di 1.5 SOL) |
+| Cassa | 1.1624 SOL |
 | Trade chiusi | 40 |
 | Win rate | 25% |
-| P&L realizzato | -0.3239 SOL (~$-23.18) |
+| P&L realizzato | -0.3239 SOL (~$-23.20) |
 | Media vincite / perdite | +33.0% / -26.7% |
 | Profit factor | 0.50 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$XRL** P-0164 · 0.059 SOL · +57.9% · resta 30% · [grafico](https://dexscreener.com/solana/58A2c7uxZbPQaSTTnkdHoG7ancHnuu92ZSgmPrc13Xoq)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -57,6 +57,21 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+02:07:32 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 234 veto
+02:07:09 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 236 veto
+02:06:45 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 229 veto
+02:06:22 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 227 veto
+02:05:59 CHARON   TP1 $XRL vendo 70% a 33.0% -> 0.0461 SOL
+02:05:59 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 228 veto
+02:05:35 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 224 veto
+02:05:11 ORACLE   360 raccolti, 234 analizzati, 2 BUY, 221 veto
+02:04:48 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 219 veto
+02:04:25 ORACLE   360 raccolti, 229 analizzati, 1 BUY, 217 veto
+02:04:01 QUARTER  BUY $XRL 0.059 SOL score 66 impatto 0.00% (Jupiter)
+02:04:01 ORACLE   360 raccolti, 234 analizzati, 2 BUY, 223 veto
+02:03:37 ORACLE   360 raccolti, 228 analizzati, 1 BUY, 220 veto
+02:03:15 ORACLE   360 raccolti, 231 analizzati, 1 BUY, 222 veto
+02:02:51 ORACLE   360 raccolti, 229 analizzati, 1 BUY, 220 veto
 02:02:27 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 226 veto
 02:02:03 ORACLE   360 raccolti, 229 analizzati, 1 BUY, 222 veto
 02:01:40 ORACLE   360 raccolti, 223 analizzati, 1 BUY, 215 veto
@@ -82,21 +97,6 @@ _nessuna_
 01:57:22 SCOUT    Laboratorio: collegato a PumpPortal
 01:57:22 KAISER   run #124 · 0 posizioni · equity 1.1761 SOL · GMGN spenta (nessuna chiave) · Grok off
 01:57:04 SCRIBE   fine run · trade 40 · win 25% · P&L -0.3239 SOL · equity 1.1761 SOL
-01:56:52 ORACLE   360 raccolti, 202 analizzati, 1 BUY, 195 veto
-01:56:29 ORACLE   360 raccolti, 199 analizzati, 1 BUY, 193 veto
-01:56:06 ORACLE   360 raccolti, 215 analizzati, 1 BUY, 207 veto
-01:55:43 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 225 veto
-01:55:19 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 226 veto
-01:54:56 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 253 veto
-01:54:32 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 258 veto
-01:54:09 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 254 veto
-01:53:45 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 258 veto
-01:53:21 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 256 veto
-01:52:59 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 248 veto
-01:52:34 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 248 veto
-01:52:11 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 257 veto
-01:51:48 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 242 veto
-01:51:25 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 255 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
