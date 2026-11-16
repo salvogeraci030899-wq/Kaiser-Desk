@@ -1,21 +1,22 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 23:17 UTC · in esecuzione da 0.2 giorni · 148 run
+Aggiornato: 2026-11-16 23:21 UTC · in esecuzione da 0.2 giorni · 148 run
 
 | | |
 |---|---|
-| Equity | **6.1179 SOL** (+2.0% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.8524 SOL |
+| Equity | **6.1511 SOL** (+2.5% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.7284 SOL |
 | Trade chiusi | 32 |
 | Win rate | 34% |
-| P&L realizzato | +0.0985 SOL (~$7.07) |
+| P&L realizzato | +0.0985 SOL (~$7.06) |
 | Media vincite / perdite | +56.9% / -25.5% |
 | Profit factor | 1.15 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$BLACKOUT** P-0248 · 0.122 SOL · +11.2% · resta 100% · [grafico](https://dexscreener.com/solana/GLCiXuYxDNR3kumW6DU1H56MvmkuiRRFBLjzg2Xg9ZX9)
-- **$GTA** P-0249 · 0.122 SOL · +6.3% · resta 100% · [grafico](https://dexscreener.com/solana/6HkUoh7bx8xLCtDAGx8rMqKAcH2QhtNxpTycLuAK7Dtd)
+- **$BLACKOUT** P-0248 · 0.122 SOL · +26.8% · resta 100% · [grafico](https://dexscreener.com/solana/GLCiXuYxDNR3kumW6DU1H56MvmkuiRRFBLjzg2Xg9ZX9)
+- **$GTA** P-0249 · 0.122 SOL · +17.9% · resta 100% · [grafico](https://dexscreener.com/solana/6HkUoh7bx8xLCtDAGx8rMqKAcH2QhtNxpTycLuAK7Dtd)
+- **$DOME** P-0250 · 0.123 SOL · +0.8% · resta 100% · [grafico](https://dexscreener.com/solana/9T71Ndx3Jd7zeA6W2yXHNdV9wgr4vmL5W69BeUXVxfLx)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -56,6 +57,19 @@ Aggiornato: 2026-11-16 23:17 UTC · in esecuzione da 0.2 giorni · 148 run
 
 ## Ultimi eventi
 ```
+23:21:58 SCRIBE   fine run · trade 32 · win 34% · P&L 0.0985 SOL · equity 6.1511 SOL
+23:21:41 ORACLE   360 raccolti, 266 analizzati, 4 BUY, 254 veto
+23:21:18 ORACLE   360 raccolti, 273 analizzati, 3 BUY, 266 veto
+23:20:54 ORACLE   360 raccolti, 271 analizzati, 3 BUY, 261 veto
+23:20:29 ORACLE   360 raccolti, 266 analizzati, 3 BUY, 255 veto
+23:20:05 ORACLE   360 raccolti, 269 analizzati, 3 BUY, 258 veto
+23:19:42 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 244 veto
+23:19:19 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 247 veto
+23:18:55 QUARTER  BUY $DOME 0.123 SOL score 70 impatto 0.05% (Jupiter)
+23:18:55 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 257 veto
+23:18:31 QUARTER  $DOME impatto 4.1% oltre slippage: annullato
+23:18:31 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 249 veto
+23:18:08 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 241 veto
 23:17:44 ORACLE   360 raccolti, 250 analizzati, 3 BUY, 239 veto
 23:17:21 ORACLE   360 raccolti, 254 analizzati, 3 BUY, 241 veto
 23:16:56 ORACLE   360 raccolti, 242 analizzati, 3 BUY, 229 veto
@@ -83,19 +97,6 @@ Aggiornato: 2026-11-16 23:17 UTC · in esecuzione da 0.2 giorni · 148 run
 23:11:05 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 241 veto
 23:10:40 SCRIBE   chiuso P-0247 $LEOSTAR 0.0758 SOL (62.1%)
 23:10:40 CHARON   TP1 $LEOSTAR vendo 100% a 70.7% -> 0.1977 SOL
-23:10:40 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 248 veto
-23:10:17 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 245 veto
-23:09:53 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 246 veto
-23:09:30 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 251 veto
-23:09:08 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 251 veto
-23:08:45 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 251 veto
-23:08:21 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 253 veto
-23:07:59 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 256 veto
-23:07:35 SCRIBE   chiuso P-0246 $LULU -0.0212 SOL (-17.4%)
-23:07:35 CHARON   Time stop $LULU vendo 100% a -24.1% -> 0.1006 SOL
-23:07:35 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 253 veto
-23:07:11 QUARTER  BUY $LEOSTAR 0.121 SOL score 82 impatto 1.58% (Jupiter)
-23:07:11 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 260 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
