@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 14:40 UTC · in esecuzione da 0.5 giorni · 139 run
+Aggiornato: 2026-11-16 14:46 UTC · in esecuzione da 0.5 giorni · 139 run
 
 | | |
 |---|---|
-| Equity | **5.4139 SOL** (-9.8% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.2664 SOL |
-| Trade chiusi | 36 |
-| Win rate | 31% |
-| P&L realizzato | -0.6238 SOL (~$-45.04) |
-| Media vincite / perdite | +49.6% / -43.1% |
-| Profit factor | 0.50 |
+| Equity | **5.4347 SOL** (-9.4% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.4347 SOL |
+| Trade chiusi | 37 |
+| Win rate | 32% |
+| P&L realizzato | -0.5653 SOL (~$-40.80) |
+| Media vincite / perdite | +49.9% / -43.1% |
+| Profit factor | 0.54 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$ET** P-0206 · 0.109 SOL · +35.5% · resta 100% · [grafico](https://dexscreener.com/solana/HgtzrxkJgy8R5TXrxqARfaMG7B2n1PDjY7oP1xeTXNY8)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -22,12 +22,13 @@ Aggiornato: 2026-11-16 14:40 UTC · in esecuzione da 0.5 giorni · 139 run
 | Stop loss | 13 | -0.5988 |
 | Time stop | 7 | -0.1234 |
 | RUG-EXIT liquidità | 6 | -0.4807 |
-| TP1 | 9 | +0.5570 |
+| TP1 | 10 | +0.6155 |
 | Chiusura manuale (app) | 1 | +0.0221 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $ET | 66 | +53.2% | +0.0585 | +70% | +70% | TP1 | 9m |
 | $GIFT | 65 | -45.3% | -0.0497 | +0% | -35% | Stop loss | 4m |
 | $CHEMO | 64 | -27.2% | -0.0300 | +20% | -26% | Stop loss | 6m |
 | $WATER | 82 | -27.6% | -0.0306 | +0% | -28% | Stop loss | 2m |
@@ -52,10 +53,24 @@ Aggiornato: 2026-11-16 14:40 UTC · in esecuzione da 0.5 giorni · 139 run
 | $देसी | 71 | +79.2% | +0.0891 | +93% | +93% | TP1 | 3m |
 | $bopdog | 64 | -18.6% | -0.0210 | +0% | -32% | Stop loss | 2m |
 | $afk | 63 | +81.0% | +0.0901 | +96% | +96% | TP1 | 4m |
-| $47 | 67 | -11.5% | -0.0127 | +0% | -8% | Time stop | 10m |
 
 ## Ultimi eventi
 ```
+14:45:53 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 231 veto
+14:45:29 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 235 veto
+14:45:06 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 227 veto
+14:44:43 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 231 veto
+14:44:20 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 235 veto
+14:43:57 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 231 veto
+14:43:33 ORACLE   360 raccolti, 235 analizzati, 3 BUY, 223 veto
+14:43:10 ORACLE   360 raccolti, 243 analizzati, 3 BUY, 231 veto
+14:42:47 ORACLE   360 raccolti, 248 analizzati, 3 BUY, 237 veto
+14:42:23 SCRIBE   chiuso P-0206 $ET 0.0585 SOL (53.2%)
+14:42:23 CHARON   TP1 $ET vendo 100% a 69.8% -> 0.1683 SOL
+14:42:23 ORACLE   360 raccolti, 248 analizzati, 3 BUY, 236 veto
+14:41:59 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 239 veto
+14:41:35 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 237 veto
+14:41:12 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 235 veto
 14:40:48 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 241 veto
 14:40:25 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 234 veto
 14:40:13 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 234 veto
@@ -81,21 +96,6 @@ Aggiornato: 2026-11-16 14:40 UTC · in esecuzione da 0.5 giorni · 139 run
 14:33:56 ORACLE   340 raccolti, 235 analizzati, 2 BUY, 224 veto
 14:33:33 ORACLE   324 raccolti, 218 analizzati, 4 BUY, 207 veto
 14:33:10 QUARTER  BUY $ET 0.109 SOL score 66 impatto 0.40% (Jupiter)
-14:33:10 ORACLE   310 raccolti, 197 analizzati, 4 BUY, 186 veto
-14:32:56 SCOUT    PumpPortal invia nuovi token (25) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-14:32:46 ORACLE   273 raccolti, 187 analizzati, 3 BUY, 178 veto
-14:32:24 ORACLE   261 raccolti, 177 analizzati, 3 BUY, 168 veto
-14:32:01 ORACLE   257 raccolti, 170 analizzati, 3 BUY, 161 veto
-14:31:38 ORACLE   229 raccolti, 151 analizzati, 2 BUY, 142 veto
-14:31:14 ORACLE   218 raccolti, 116 analizzati, 3 BUY, 109 veto
-14:30:52 SCOUT    fabbrica: 4703 percorsi, 768 configurazioni, 0 passano, 615 ms
-14:30:52 ORACLE   211 raccolti, 116 analizzati, 2 BUY, 109 veto
-14:30:50 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-14:30:50 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-14:30:48 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
-14:30:48 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, tp1 40→60, tp1Sell 50→100, timeStopMin 45→10, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120, srcGmgnTrending true→false
-14:30:48 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
-14:30:48 SCOUT    Laboratorio: collegato a PumpPortal
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
