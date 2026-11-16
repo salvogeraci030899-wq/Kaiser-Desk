@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 22:52 UTC · in esecuzione da 0.2 giorni · 148 run
+Aggiornato: 2026-11-16 22:57 UTC · in esecuzione da 0.2 giorni · 148 run
 
 | | |
 |---|---|
@@ -55,6 +55,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+22:57:34 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 242 veto
+22:57:11 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 244 veto
+22:56:48 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 236 veto
+22:56:24 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 241 veto
+22:56:02 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 228 veto
+22:55:38 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 242 veto
+22:55:16 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 233 veto
+22:54:54 ORACLE   360 raccolti, 226 analizzati, 1 BUY, 222 veto
+22:54:32 ORACLE   360 raccolti, 227 analizzati, 1 BUY, 223 veto
+22:54:08 ORACLE   360 raccolti, 218 analizzati, 1 BUY, 214 veto
+22:53:45 ORACLE   360 raccolti, 216 analizzati, 1 BUY, 212 veto
+22:53:22 ORACLE   360 raccolti, 226 analizzati, 1 BUY, 223 veto
+22:52:59 ORACLE   360 raccolti, 225 analizzati, 1 BUY, 222 veto
+22:52:37 ORACLE   360 raccolti, 213 analizzati, 1 BUY, 210 veto
 22:52:15 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 231 veto
 22:51:52 ORACLE   360 raccolti, 228 analizzati, 1 BUY, 222 veto
 22:51:29 SCRIBE   chiuso P-0244 $mimic -0.0483 SOL (-38.6%)
@@ -81,20 +95,6 @@ _nessuna_
 22:46:00 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 243 veto
 22:45:37 ORACLE   360 raccolti, 229 analizzati, 2 BUY, 220 veto
 22:45:14 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 250 veto
-22:44:50 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 238 veto
-22:44:27 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 241 veto
-22:44:04 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 248 veto
-22:43:41 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 249 veto
-22:43:18 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 233 veto
-22:43:03 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 236 veto
-22:42:36 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 233 veto
-22:42:13 ORACLE   360 raccolti, 234 analizzati, 0 BUY, 223 veto
-22:41:49 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 235 veto
-22:41:26 ORACLE   360 raccolti, 219 analizzati, 1 BUY, 210 veto
-22:41:03 ORACLE   360 raccolti, 225 analizzati, 1 BUY, 217 veto
-22:40:39 SCRIBE   chiuso P-0243 $Zoo -0.0120 SOL (-9.5%)
-22:40:39 CHARON   Stop loss $Zoo vendo 100% a -43.1% -> 0.1136 SOL
-22:40:39 ORACLE   360 raccolti, 228 analizzati, 2 BUY, 223 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
