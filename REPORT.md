@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 03:33 UTC · in esecuzione da 0.0 giorni · 125 run
+Aggiornato: 2026-11-16 03:37 UTC · in esecuzione da 0.0 giorni · 125 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-16 03:33 UTC · in esecuzione da 0.0 giorni · 125 run
 | Cassa | 5.8565 SOL |
 | Trade chiusi | 5 |
 | Win rate | 0% |
-| P&L realizzato | -0.1435 SOL (~$-10.30) |
+| P&L realizzato | -0.1435 SOL (~$-10.29) |
 | Media vincite / perdite | +0.0% / -23.9% |
 | Profit factor | 0.00 |
 | Circuit breaker | no |
@@ -33,6 +33,17 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+03:37:36 SCRIBE   fine run · trade 5 · win 0% · P&L -0.1435 SOL · equity 5.8565 SOL
+03:37:32 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 255 veto
+03:37:08 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 245 veto
+03:36:44 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 250 veto
+03:36:20 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 248 veto
+03:35:57 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 248 veto
+03:35:33 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 248 veto
+03:35:09 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 245 veto
+03:34:45 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 237 veto
+03:34:21 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 237 veto
+03:33:57 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 237 veto
 03:33:34 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 233 veto
 03:33:10 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 236 veto
 03:32:47 ORACLE   360 raccolti, 249 analizzati, 3 BUY, 238 veto
@@ -62,17 +73,6 @@ _nessuna_
 03:24:55 ORACLE   360 raccolti, 259 analizzati, 4 BUY, 248 veto
 03:24:31 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 253 veto
 03:24:07 ORACLE   360 raccolti, 261 analizzati, 3 BUY, 252 veto
-03:23:43 ORACLE   360 raccolti, 260 analizzati, 3 BUY, 252 veto
-03:23:20 ORACLE   360 raccolti, 269 analizzati, 3 BUY, 259 veto
-03:22:56 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 252 veto
-03:22:31 KAISER   limite 1 ingresso/i per scan: $LMAO rimandato
-03:22:31 QUARTER  BUY $PSYOP 0.119 SOL score 71 impatto 0.71% (Jupiter)
-03:22:31 ORACLE   360 raccolti, 269 analizzati, 3 BUY, 259 veto
-03:22:07 QUARTER  $PSYOP impatto 2.5% oltre slippage: annullato
-03:22:07 ORACLE   360 raccolti, 266 analizzati, 3 BUY, 255 veto
-03:21:43 QUARTER  $PSYOP impatto 2.4% oltre slippage: annullato
-03:21:43 ORACLE   360 raccolti, 268 analizzati, 3 BUY, 257 veto
-03:21:18 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 255 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
