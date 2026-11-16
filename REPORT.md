@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 17:16 UTC · in esecuzione da 0.6 giorni · 142 run
+Aggiornato: 2026-11-16 17:21 UTC · in esecuzione da 0.6 giorni · 142 run
 
 | | |
 |---|---|
-| Equity | **5.2629 SOL** (-12.3% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.2629 SOL |
+| Equity | **5.2751 SOL** (-12.1% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.1566 SOL |
 | Trade chiusi | 44 |
 | Win rate | 32% |
-| P&L realizzato | -0.7371 SOL (~$-52.77) |
+| P&L realizzato | -0.7371 SOL (~$-52.86) |
 | Media vincite / perdite | +47.0% / -43.2% |
 | Profit factor | 0.50 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$MooManao** P-0214 · 0.105 SOL · +12.6% · resta 100% · [grafico](https://dexscreener.com/solana/EVQXQBKvyHtGht3T52YxDLmVchsSU1t9pqN5Tgg7mtdj)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -56,6 +56,21 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+17:21:51 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 245 veto
+17:21:28 ORACLE   360 raccolti, 240 analizzati, 2 BUY, 231 veto
+17:21:04 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 248 veto
+17:20:41 ORACLE   360 raccolti, 259 analizzati, 3 BUY, 248 veto
+17:20:17 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 235 veto
+17:19:53 ORACLE   360 raccolti, 252 analizzati, 3 BUY, 241 veto
+17:19:29 QUARTER  $Mask impatto 2.4% oltre slippage: annullato
+17:19:28 ORACLE   360 raccolti, 254 analizzati, 4 BUY, 243 veto
+17:19:05 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 235 veto
+17:18:40 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 246 veto
+17:18:16 ORACLE   360 raccolti, 253 analizzati, 4 BUY, 244 veto
+17:17:52 ORACLE   360 raccolti, 242 analizzati, 4 BUY, 233 veto
+17:17:28 QUARTER  BUY $MooManao 0.105 SOL score 63 impatto 1.97% (Jupiter)
+17:17:28 ORACLE   360 raccolti, 253 analizzati, 3 BUY, 243 veto
+17:17:04 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 243 veto
 17:16:40 ORACLE   360 raccolti, 243 analizzati, 3 BUY, 232 veto
 17:16:16 ORACLE   360 raccolti, 253 analizzati, 3 BUY, 241 veto
 17:15:52 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 238 veto
@@ -81,21 +96,6 @@ _nessuna_
 17:08:19 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 235 veto
 17:07:55 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 234 veto
 17:07:31 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 229 veto
-17:07:08 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 233 veto
-17:06:44 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 241 veto
-17:06:20 SCRIBE   chiuso P-0213 $BanMuTun 0.0611 SOL (58.1%)
-17:06:20 CHARON   TP1 $BanMuTun vendo 100% a 83.5% -> 0.1661 SOL
-17:06:20 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 236 veto
-17:06:06 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 231 veto
-17:05:40 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 242 veto
-17:05:16 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 247 veto
-17:04:52 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 239 veto
-17:04:27 ORACLE   358 raccolti, 251 analizzati, 1 BUY, 246 veto
-17:04:04 ORACLE   349 raccolti, 246 analizzati, 1 BUY, 241 veto
-17:03:51 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-17:03:41 ORACLE   343 raccolti, 235 analizzati, 1 BUY, 229 veto
-17:03:18 KAISER   limite 1 ingresso/i per scan: $GTAMAS rimandato
-17:03:17 QUARTER  BUY $BanMuTun 0.104 SOL score 65 impatto 0.52% (Jupiter)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
