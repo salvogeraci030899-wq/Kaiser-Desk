@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 13:45 UTC · in esecuzione da 0.5 giorni · 138 run
+Aggiornato: 2026-11-16 13:50 UTC · in esecuzione da 0.5 giorni · 138 run
 
 | | |
 |---|---|
-| Equity | **5.5401 SOL** (-7.7% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.5401 SOL |
+| Equity | **5.5360 SOL** (-7.7% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.4283 SOL |
 | Trade chiusi | 29 |
 | Win rate | 31% |
-| P&L realizzato | -0.4599 SOL (~$-32.60) |
+| P&L realizzato | -0.4599 SOL (~$-32.64) |
 | Media vincite / perdite | +50.5% / -42.1% |
 | Profit factor | 0.53 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$hello** P-0199 · 0.111 SOL · -2.9% · resta 100% · [grafico](https://dexscreener.com/solana/2zXQoisGWLEhdBg3tAD2RMciAwDXgqT4DKijLr4BvjUx)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -56,6 +56,23 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+13:50:54 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 238 veto
+13:50:30 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 241 veto
+13:50:08 ORACLE   360 raccolti, 258 analizzati, 3 BUY, 244 veto
+13:49:45 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 242 veto
+13:49:22 KAISER   limite 1 ingresso/i per scan: $Stumpy rimandato
+13:49:21 QUARTER  BUY $hello 0.111 SOL score 66 impatto 1.25% (Jupiter)
+13:49:21 ORACLE   360 raccolti, 256 analizzati, 3 BUY, 246 veto
+13:48:59 QUARTER  $hello impatto 2.3% oltre slippage: annullato
+13:48:58 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 247 veto
+13:48:36 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 247 veto
+13:48:13 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 247 veto
+13:47:51 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 251 veto
+13:47:28 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 243 veto
+13:47:05 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 258 veto
+13:46:42 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 257 veto
+13:46:19 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 247 veto
+13:45:56 ORACLE   360 raccolti, 279 analizzati, 3 BUY, 270 veto
 13:45:33 ORACLE   360 raccolti, 277 analizzati, 3 BUY, 268 veto
 13:45:10 ORACLE   360 raccolti, 269 analizzati, 3 BUY, 257 veto
 13:44:47 ORACLE   336 raccolti, 250 analizzati, 3 BUY, 240 veto
@@ -79,23 +96,6 @@ _nessuna_
 13:40:36 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, tp1 40→60, tp1Sell 50→100, timeStopMin 45→10, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120, srcGmgnTrending true→false
 13:40:36 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
 13:40:36 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
-13:40:36 SCOUT    Laboratorio: collegato a PumpPortal
-13:40:36 KAISER   run #138 · 1 posizioni · equity 5.6639 SOL · GMGN spenta (nessuna chiave) · Grok off
-13:40:24 SCRIBE   fine run · trade 28 · win 32% · P&L -0.3780 SOL · equity 5.6639 SOL
-13:40:11 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 254 veto
-13:39:47 ORACLE   360 raccolti, 278 analizzati, 3 BUY, 265 veto
-13:39:34 KAISER   limite 1 ingresso/i per scan: $Stumpy rimandato
-13:39:33 QUARTER  BUY $Stumpy 0.112 SOL score 67 impatto 1.39% (Jupiter)
-13:39:33 ORACLE   360 raccolti, 272 analizzati, 4 BUY, 258 veto
-13:39:08 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 246 veto
-13:38:44 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 251 veto
-13:38:21 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 252 veto
-13:37:58 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 250 veto
-13:37:35 ORACLE   360 raccolti, 270 analizzati, 3 BUY, 255 veto
-13:37:11 ORACLE   360 raccolti, 274 analizzati, 3 BUY, 259 veto
-13:36:48 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 253 veto
-13:36:25 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 254 veto
-13:36:01 ORACLE   360 raccolti, 267 analizzati, 3 BUY, 254 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
