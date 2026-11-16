@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 18:27 UTC · in esecuzione da 0.0 giorni · 143 run
+Aggiornato: 2026-11-16 18:32 UTC · in esecuzione da 0.0 giorni · 143 run
 
 | | |
 |---|---|
-| Equity | **6.0883 SOL** (+1.5% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.9660 SOL |
-| Trade chiusi | 8 |
-| Win rate | 38% |
-| P&L realizzato | +0.0887 SOL (~$6.32) |
-| Media vincite / perdite | +51.8% / -16.3% |
-| Profit factor | 1.90 |
+| Equity | **6.0934 SOL** (+1.6% dal capitale iniziale di 6 SOL) |
+| Cassa | 6.0934 SOL |
+| Trade chiusi | 9 |
+| Win rate | 44% |
+| P&L realizzato | +0.0934 SOL (~$6.64) |
+| Media vincite / perdite | +39.8% / -16.3% |
+| Profit factor | 1.95 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$SI** P-0224 · 0.122 SOL · +0.5% · resta 100% · [grafico](https://dexscreener.com/solana/232uByzRnA7XSaRwUyqCagEgrvhJfZdHo7aSYf9ZbGrS)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | RUG-EXIT liquidità | 1 | -0.0417 |
-| Time stop | 4 | -0.0565 |
+| Time stop | 5 | -0.0518 |
 | TP1 | 2 | +0.1325 |
 | Stop loss | 1 | +0.0543 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $SI | 88 | +3.8% | +0.0046 | +17% | +3% | Time stop | 5m |
 | $MAYA | 88 | +44.7% | +0.0543 | +4% | -42% | Stop loss | 1m |
 | $LUCIA | 74 | +67.2% | +0.0807 | +65% | +65% | TP1 | 4m |
 | $DUST | 66 | -14.5% | -0.0174 | +0% | -27% | Time stop | 5m |
@@ -38,6 +39,21 @@ Aggiornato: 2026-11-16 18:27 UTC · in esecuzione da 0.0 giorni · 143 run
 
 ## Ultimi eventi
 ```
+18:31:59 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 231 veto
+18:31:36 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 243 veto
+18:31:13 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 241 veto
+18:30:50 SCRIBE   chiuso P-0224 $SI 0.0046 SOL (3.8%)
+18:30:50 CHARON   Time stop $SI vendo 100% a 3.2% -> 0.1274 SOL
+18:30:50 ORACLE   360 raccolti, 254 analizzati, 3 BUY, 242 veto
+18:30:27 ORACLE   360 raccolti, 265 analizzati, 3 BUY, 252 veto
+18:30:03 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 249 veto
+18:29:39 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 243 veto
+18:29:16 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 255 veto
+18:28:53 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 252 veto
+18:28:30 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 255 veto
+18:28:07 ORACLE   360 raccolti, 269 analizzati, 3 BUY, 260 veto
+18:27:44 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 253 veto
+18:27:21 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 249 veto
 18:26:56 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 250 veto
 18:26:34 ORACLE   360 raccolti, 261 analizzati, 3 BUY, 249 veto
 18:26:11 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 244 veto
@@ -63,21 +79,6 @@ Aggiornato: 2026-11-16 18:27 UTC · in esecuzione da 0.0 giorni · 143 run
 18:20:01 SCRIBE   chiuso P-0223 $MAYA 0.0543 SOL (44.7%)
 18:20:01 CHARON   Stop loss $MAYA vendo 100% a -42.1% -> 0.1760 SOL
 18:20:01 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 249 veto
-18:19:38 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 259 veto
-18:19:15 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 249 veto
-18:18:52 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 249 veto
-18:18:39 KAISER   limite 1 ingresso/i per scan: $DUST rimandato
-18:18:38 QUARTER  BUY $MAYA 0.121 SOL score 88 impatto 0.96% (Jupiter)
-18:18:38 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 254 veto
-18:18:13 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 250 veto
-18:17:49 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 249 veto
-18:17:26 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 253 veto
-18:17:03 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 241 veto
-18:16:39 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 247 veto
-18:16:16 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 246 veto
-18:15:53 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 238 veto
-18:15:30 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 245 veto
-18:15:07 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 236 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
