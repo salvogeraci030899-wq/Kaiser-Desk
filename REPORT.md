@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 13:36 UTC · in esecuzione da 0.4 giorni · 137 run
+Aggiornato: 2026-11-16 13:40 UTC · in esecuzione da 0.5 giorni · 137 run
 
 | | |
 |---|---|
-| Equity | **5.6220 SOL** (-6.3% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.6220 SOL |
+| Equity | **5.6639 SOL** (-5.6% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.5086 SOL |
 | Trade chiusi | 28 |
 | Win rate | 32% |
-| P&L realizzato | -0.3780 SOL (~$-26.85) |
+| P&L realizzato | -0.3780 SOL (~$-26.81) |
 | Media vincite / perdite | +50.5% / -40.5% |
 | Profit factor | 0.58 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$Stumpy** P-0198 · 0.112 SOL · +38.2% · resta 100% · [grafico](https://dexscreener.com/solana/7pJSH98FMpKr3n3uT6GAVtfbBJuZggkwn85DVBczVEtC)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -56,6 +56,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+13:40:24 SCRIBE   fine run · trade 28 · win 32% · P&L -0.3780 SOL · equity 5.6639 SOL
+13:40:11 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 254 veto
+13:39:47 ORACLE   360 raccolti, 278 analizzati, 3 BUY, 265 veto
+13:39:34 KAISER   limite 1 ingresso/i per scan: $Stumpy rimandato
+13:39:33 QUARTER  BUY $Stumpy 0.112 SOL score 67 impatto 1.39% (Jupiter)
+13:39:33 ORACLE   360 raccolti, 272 analizzati, 4 BUY, 258 veto
+13:39:08 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 246 veto
+13:38:44 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 251 veto
+13:38:21 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 252 veto
+13:37:58 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 250 veto
+13:37:35 ORACLE   360 raccolti, 270 analizzati, 3 BUY, 255 veto
+13:37:11 ORACLE   360 raccolti, 274 analizzati, 3 BUY, 259 veto
+13:36:48 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 253 veto
 13:36:25 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 254 veto
 13:36:01 ORACLE   360 raccolti, 267 analizzati, 3 BUY, 254 veto
 13:35:37 ORACLE   360 raccolti, 264 analizzati, 3 BUY, 252 veto
@@ -83,19 +96,6 @@ _nessuna_
 13:27:06 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 254 veto
 13:26:42 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 250 veto
 13:26:18 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 245 veto
-13:26:05 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 249 veto
-13:25:40 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 245 veto
-13:25:17 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 245 veto
-13:24:53 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 252 veto
-13:24:29 SCRIBE   chiuso P-0197 $Stumpy 0.0639 SOL (56.9%)
-13:24:29 CHARON   TP1 $Stumpy vendo 100% a 77.6% -> 0.1760 SOL
-13:24:29 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 249 veto
-13:24:06 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 241 veto
-13:23:42 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 248 veto
-13:23:29 QUARTER  BUY $Stumpy 0.111 SOL score 66 impatto 1.17% (Jupiter)
-13:23:29 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 251 veto
-13:23:03 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 242 veto
-13:22:40 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 250 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
