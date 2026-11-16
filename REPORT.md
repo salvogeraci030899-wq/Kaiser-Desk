@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 14:21 UTC · in esecuzione da 0.5 giorni · 138 run
+Aggiornato: 2026-11-16 14:26 UTC · in esecuzione da 0.5 giorni · 138 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-16 14:21 UTC · in esecuzione da 0.5 giorni · 138 run
 | Cassa | 5.4560 SOL |
 | Trade chiusi | 34 |
 | Win rate | 32% |
-| P&L realizzato | -0.5440 SOL (~$-38.73) |
+| P&L realizzato | -0.5440 SOL (~$-38.75) |
 | Media vincite / perdite | +49.6% / -43.7% |
 | Profit factor | 0.53 |
 | Circuit breaker | no |
@@ -56,6 +56,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+14:26:37 ORACLE   360 raccolti, 251 analizzati, 3 BUY, 237 veto
+14:26:13 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 241 veto
+14:25:50 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 246 veto
+14:25:27 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 240 veto
+14:25:04 ORACLE   360 raccolti, 270 analizzati, 3 BUY, 255 veto
+14:24:42 ORACLE   360 raccolti, 269 analizzati, 3 BUY, 254 veto
+14:24:19 ORACLE   360 raccolti, 260 analizzati, 3 BUY, 247 veto
+14:23:56 ORACLE   360 raccolti, 265 analizzati, 3 BUY, 249 veto
+14:23:33 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 248 veto
+14:23:09 ORACLE   360 raccolti, 256 analizzati, 3 BUY, 240 veto
+14:22:46 ORACLE   360 raccolti, 260 analizzati, 3 BUY, 246 veto
+14:22:24 ORACLE   360 raccolti, 260 analizzati, 3 BUY, 246 veto
+14:22:00 ORACLE   360 raccolti, 258 analizzati, 3 BUY, 244 veto
+14:21:38 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 250 veto
 14:21:15 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 248 veto
 14:20:51 ORACLE   360 raccolti, 253 analizzati, 3 BUY, 240 veto
 14:20:28 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 247 veto
@@ -82,20 +96,6 @@ _nessuna_
 14:15:27 QUARTER  $WATER impatto 2.6% oltre slippage: annullato
 14:15:27 ORACLE   360 raccolti, 249 analizzati, 4 BUY, 236 veto
 14:15:14 SCRIBE   chiuso P-0202 $Minimoon 0.0290 SOL (26.3%)
-14:15:14 CHARON   TP1 $Minimoon vendo 100% a 64.7% -> 0.1391 SOL
-14:15:04 QUARTER  $WATER impatto 2.1% oltre slippage: annullato
-14:15:04 ORACLE   360 raccolti, 242 analizzati, 4 BUY, 231 veto
-14:14:41 ORACLE   360 raccolti, 247 analizzati, 4 BUY, 234 veto
-14:14:17 ORACLE   360 raccolti, 243 analizzati, 3 BUY, 228 veto
-14:13:54 ORACLE   360 raccolti, 239 analizzati, 4 BUY, 224 veto
-14:13:31 ORACLE   360 raccolti, 243 analizzati, 3 BUY, 231 veto
-14:13:08 ORACLE   360 raccolti, 240 analizzati, 3 BUY, 229 veto
-14:12:46 ORACLE   360 raccolti, 233 analizzati, 4 BUY, 222 veto
-14:12:22 QUARTER  BUY $Minimoon 0.109 SOL score 64 impatto 0.34% (Jupiter)
-14:12:22 ORACLE   360 raccolti, 232 analizzati, 2 BUY, 223 veto
-14:11:58 ORACLE   360 raccolti, 235 analizzati, 2 BUY, 223 veto
-14:11:35 ORACLE   360 raccolti, 225 analizzati, 2 BUY, 214 veto
-14:11:12 ORACLE   360 raccolti, 224 analizzati, 1 BUY, 212 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
