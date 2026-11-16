@@ -1,25 +1,25 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 11:14 UTC · in esecuzione da 0.4 giorni · 135 run
+Aggiornato: 2026-11-16 11:20 UTC · in esecuzione da 0.4 giorni · 135 run
 
 | | |
 |---|---|
-| Equity | **5.6796 SOL** (-5.3% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.5746 SOL |
-| Trade chiusi | 20 |
-| Win rate | 30% |
-| P&L realizzato | -0.3106 SOL (~$-22.21) |
-| Media vincite / perdite | +57.7% / -43.1% |
-| Profit factor | 0.56 |
+| Equity | **5.6414 SOL** (-6.0% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.6414 SOL |
+| Trade chiusi | 21 |
+| Win rate | 29% |
+| P&L realizzato | -0.3586 SOL (~$-25.67) |
+| Media vincite / perdite | +57.7% / -43.0% |
+| Profit factor | 0.52 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$Stallions** P-0190 · 0.114 SOL · -7.8% · resta 100% · [grafico](https://dexscreener.com/solana/DpBaKSB2nPSabutam7ALdHnhGoZxWc1vD3rmZJRJrFDQ)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| Stop loss | 6 | -0.2864 |
+| Stop loss | 7 | -0.3345 |
 | Time stop | 5 | -0.0871 |
 | RUG-EXIT liquidità | 3 | -0.3291 |
 | TP1 | 6 | +0.3921 |
@@ -27,6 +27,7 @@ Aggiornato: 2026-11-16 11:14 UTC · in esecuzione da 0.4 giorni · 135 run
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $Stallions | 76 | -41.9% | -0.0481 | +5% | -36% | Stop loss | 3m |
 | $1NU | 78 | -54.7% | -0.0635 | +12% | -36% | Stop loss | 4m |
 | $1.0 | 64 | +42.7% | +0.0491 | +96% | +96% | TP1 | 2m |
 | $MAINNEKO | 74 | -91.5% | -0.1070 | +0% | -91% | RUG-EXIT liquidità | 4m |
@@ -50,6 +51,22 @@ Aggiornato: 2026-11-16 11:14 UTC · in esecuzione da 0.4 giorni · 135 run
 
 ## Ultimi eventi
 ```
+11:19:57 ORACLE   360 raccolti, 284 analizzati, 0 BUY, 273 veto
+11:19:53 KAISER   parametri dall'app: sl 30→25
+11:19:33 ORACLE   360 raccolti, 282 analizzati, 0 BUY, 271 veto
+11:19:10 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 267 veto
+11:18:47 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 265 veto
+11:18:25 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 265 veto
+11:18:01 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 251 veto
+11:17:38 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 260 veto
+11:17:15 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 257 veto
+11:16:52 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 250 veto
+11:16:29 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 253 veto
+11:16:06 SCRIBE   chiuso P-0190 $Stallions -0.0481 SOL (-41.9%)
+11:16:06 CHARON   Stop loss $Stallions vendo 100% a -35.6% -> 0.0667 SOL
+11:16:06 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 250 veto
+11:15:43 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 248 veto
+11:15:20 ORACLE   346 raccolti, 260 analizzati, 1 BUY, 240 veto
 11:14:57 ORACLE   339 raccolti, 252 analizzati, 1 BUY, 230 veto
 11:14:34 ORACLE   337 raccolti, 245 analizzati, 1 BUY, 225 veto
 11:14:11 ORACLE   313 raccolti, 225 analizzati, 1 BUY, 210 veto
@@ -74,22 +91,6 @@ Aggiornato: 2026-11-16 11:14 UTC · in esecuzione da 0.4 giorni · 135 run
 11:09:57 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
 11:09:57 SCOUT    Laboratorio: collegato a PumpPortal
 11:09:56 KAISER   run #135 · 0 posizioni · equity 5.6894 SOL · GMGN spenta (nessuna chiave) · Grok off
-11:09:39 SCRIBE   fine run · trade 20 · win 30% · P&L -0.3106 SOL · equity 5.6894 SOL
-11:09:39 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 244 veto
-11:09:16 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 242 veto
-11:08:53 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 243 veto
-11:08:29 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 244 veto
-11:08:06 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 246 veto
-11:07:43 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 246 veto
-11:07:20 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 247 veto
-11:06:57 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 244 veto
-11:06:34 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 252 veto
-11:06:11 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 249 veto
-11:05:49 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 248 veto
-11:05:25 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 253 veto
-11:05:02 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 255 veto
-11:04:39 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 249 veto
-11:04:15 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 255 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
