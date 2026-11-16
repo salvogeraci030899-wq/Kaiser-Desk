@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 03:53 UTC · in esecuzione da 0.0 giorni · 126 run
+Aggiornato: 2026-11-16 03:58 UTC · in esecuzione da 0.0 giorni · 126 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-16 03:53 UTC · in esecuzione da 0.0 giorni · 126 run
 | Cassa | 5.7807 SOL |
 | Trade chiusi | 6 |
 | Win rate | 0% |
-| P&L realizzato | -0.2193 SOL (~$-15.78) |
+| P&L realizzato | -0.2193 SOL (~$-15.82) |
 | Media vincite / perdite | +0.0% / -30.6% |
 | Profit factor | 0.00 |
 | Circuit breaker | no |
@@ -34,6 +34,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+03:58:15 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 254 veto
+03:57:52 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 228 veto
+03:57:30 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 228 veto
+03:57:07 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 247 veto
+03:56:45 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 250 veto
+03:56:22 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 248 veto
+03:55:59 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 255 veto
+03:55:37 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 256 veto
+03:55:14 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 251 veto
+03:54:51 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 247 veto
+03:54:28 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 248 veto
+03:54:06 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 246 veto
+03:53:42 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 251 veto
+03:53:19 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 242 veto
 03:52:56 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 238 veto
 03:52:33 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 247 veto
 03:52:10 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 244 veto
@@ -60,20 +74,6 @@ _nessuna_
 03:44:12 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 246 veto
 03:43:49 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 241 veto
 03:43:26 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 242 veto
-03:43:03 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 229 veto
-03:42:40 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 239 veto
-03:42:17 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 247 veto
-03:41:54 SCRIBE   chiuso P-0175 $Gib -0.0759 SOL (-64.2%)
-03:41:54 CHARON   Stop loss $Gib vendo 100% a -44.5% -> 0.0422 SOL
-03:41:54 ORACLE   349 raccolti, 250 analizzati, 0 BUY, 237 veto
-03:41:41 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-03:41:31 ORACLE   339 raccolti, 225 analizzati, 0 BUY, 213 veto
-03:41:19 ORACLE   339 raccolti, 225 analizzati, 0 BUY, 213 veto
-03:40:53 ORACLE   303 raccolti, 211 analizzati, 1 BUY, 201 veto
-03:40:31 ORACLE   297 raccolti, 210 analizzati, 1 BUY, 200 veto
-03:40:07 QUARTER  BUY $Gib 0.117 SOL score 63 impatto 1.46% (Jupiter)
-03:40:07 ORACLE   291 raccolti, 204 analizzati, 1 BUY, 195 veto
-03:39:44 ORACLE   276 raccolti, 193 analizzati, 0 BUY, 185 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
