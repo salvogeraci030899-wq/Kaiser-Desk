@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 13:26 UTC · in esecuzione da 0.4 giorni · 137 run
+Aggiornato: 2026-11-16 13:31 UTC · in esecuzione da 0.4 giorni · 137 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-16 13:26 UTC · in esecuzione da 0.4 giorni · 137 run
 | Cassa | 5.6220 SOL |
 | Trade chiusi | 28 |
 | Win rate | 32% |
-| P&L realizzato | -0.3780 SOL (~$-26.78) |
+| P&L realizzato | -0.3780 SOL (~$-26.85) |
 | Media vincite / perdite | +50.5% / -40.5% |
 | Profit factor | 0.58 |
 | Circuit breaker | no |
@@ -56,6 +56,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+13:31:17 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 252 veto
+13:30:53 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 253 veto
+13:30:29 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 249 veto
+13:30:15 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 247 veto
+13:29:50 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 246 veto
+13:29:27 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 251 veto
+13:29:03 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 247 veto
+13:28:40 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 248 veto
+13:28:16 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 249 veto
+13:27:53 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 250 veto
+13:27:30 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 250 veto
+13:27:06 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 254 veto
+13:26:42 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 250 veto
 13:26:18 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 245 veto
 13:26:05 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 249 veto
 13:25:40 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 245 veto
@@ -83,19 +96,6 @@ _nessuna_
 13:18:21 SCRIBE   chiuso P-0196 $CLAUDEMOM -0.0273 SOL (-24.2%)
 13:18:21 CHARON   Stop loss $CLAUDEMOM vendo 100% a -25.4% -> 0.0854 SOL
 13:18:21 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 250 veto
-13:17:57 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 265 veto
-13:17:33 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 258 veto
-13:17:09 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 260 veto
-13:16:45 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 268 veto
-13:16:22 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 262 veto
-13:15:59 ORACLE   360 raccolti, 274 analizzati, 2 BUY, 264 veto
-13:15:35 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 267 veto
-13:15:11 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 267 veto
-13:14:48 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 265 veto
-13:14:25 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 271 veto
-13:14:01 QUARTER  BUY $CLAUDEMOM 0.112 SOL score 90 impatto 0.00% (Jupiter)
-13:14:01 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 263 veto
-13:13:37 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 264 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
