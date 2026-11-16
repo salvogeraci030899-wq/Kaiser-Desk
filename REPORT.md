@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 06:49 UTC · in esecuzione da 0.2 giorni · 129 run
+Aggiornato: 2026-11-16 06:54 UTC · in esecuzione da 0.2 giorni · 129 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-16 06:49 UTC · in esecuzione da 0.2 giorni · 129 run
 | Cassa | 5.5064 SOL |
 | Trade chiusi | 12 |
 | Win rate | 8% |
-| P&L realizzato | -0.4936 SOL (~$-35.10) |
+| P&L realizzato | -0.4936 SOL (~$-35.15) |
 | Media vincite / perdite | +15.9% / -39.8% |
 | Profit factor | 0.03 |
 | Circuit breaker | no |
@@ -42,6 +42,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+06:54:48 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 245 veto
+06:54:25 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 235 veto
+06:54:02 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 246 veto
+06:53:39 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 244 veto
+06:53:16 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 239 veto
+06:52:53 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 246 veto
+06:52:30 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 245 veto
+06:52:07 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 235 veto
+06:51:44 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 238 veto
+06:51:21 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 241 veto
+06:50:58 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 234 veto
+06:50:35 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 244 veto
+06:50:12 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 246 veto
+06:49:50 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 240 veto
 06:49:26 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 245 veto
 06:49:03 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 252 veto
 06:48:41 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 251 veto
@@ -68,20 +82,6 @@ _nessuna_
 06:41:23 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 257 veto
 06:41:00 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 260 veto
 06:40:36 SCRIBE   chiuso P-0181 $Percy 0.0176 SOL (15.9%)
-06:40:36 CHARON   TP1 $Percy vendo 100% a 60.5% -> 0.1283 SOL
-06:40:36 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 254 veto
-06:40:12 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 254 veto
-06:39:49 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 255 veto
-06:39:26 QUARTER  BUY $Percy 0.110 SOL score 63 impatto 0.25% (Jupiter)
-06:39:26 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 255 veto
-06:39:02 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 250 veto
-06:38:39 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 250 veto
-06:38:16 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 249 veto
-06:37:53 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 252 veto
-06:37:30 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 244 veto
-06:37:07 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 244 veto
-06:36:44 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 247 veto
-06:36:21 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 248 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
