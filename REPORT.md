@@ -1,11 +1,11 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 23:12 UTC · in esecuzione da 0.2 giorni · 148 run
+Aggiornato: 2026-11-16 23:17 UTC · in esecuzione da 0.2 giorni · 148 run
 
 | | |
 |---|---|
-| Equity | **6.0985 SOL** (+1.6% dal capitale iniziale di 6 SOL) |
-| Cassa | 6.0985 SOL |
+| Equity | **6.1179 SOL** (+2.0% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.8524 SOL |
 | Trade chiusi | 32 |
 | Win rate | 34% |
 | P&L realizzato | +0.0985 SOL (~$7.07) |
@@ -14,7 +14,8 @@ Aggiornato: 2026-11-16 23:12 UTC · in esecuzione da 0.2 giorni · 148 run
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$BLACKOUT** P-0248 · 0.122 SOL · +11.2% · resta 100% · [grafico](https://dexscreener.com/solana/GLCiXuYxDNR3kumW6DU1H56MvmkuiRRFBLjzg2Xg9ZX9)
+- **$GTA** P-0249 · 0.122 SOL · +6.3% · resta 100% · [grafico](https://dexscreener.com/solana/6HkUoh7bx8xLCtDAGx8rMqKAcH2QhtNxpTycLuAK7Dtd)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +56,26 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+23:17:44 ORACLE   360 raccolti, 250 analizzati, 3 BUY, 239 veto
+23:17:21 ORACLE   360 raccolti, 254 analizzati, 3 BUY, 241 veto
+23:16:56 ORACLE   360 raccolti, 242 analizzati, 3 BUY, 229 veto
+23:16:32 KAISER   limite 1 ingresso/i per scan: $BLACKOUT rimandato
+23:16:31 QUARTER  BUY $GTA 0.122 SOL score 69 impatto 1.15% (Jupiter)
+23:16:31 QUARTER  $DOME impatto 3.5% oltre slippage: annullato
+23:16:31 ORACLE   360 raccolti, 244 analizzati, 3 BUY, 231 veto
+23:16:08 QUARTER  $GTA impatto 2.4% oltre slippage: annullato
+23:16:08 QUARTER  $DOME impatto 3.9% oltre slippage: annullato
+23:16:08 ORACLE   360 raccolti, 251 analizzati, 3 BUY, 239 veto
+23:15:44 QUARTER  $GTA impatto 2.6% oltre slippage: annullato
+23:15:44 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 232 veto
+23:15:20 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 240 veto
+23:14:56 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 247 veto
+23:14:34 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 234 veto
+23:14:10 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 247 veto
+23:13:47 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 255 veto
+23:13:24 QUARTER  BUY $BLACKOUT 0.122 SOL score 63 impatto 1.47% (Jupiter)
+23:13:24 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 243 veto
+23:13:00 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 249 veto
 23:12:37 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 246 veto
 23:12:14 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 246 veto
 23:11:51 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 246 veto
@@ -75,26 +96,6 @@ _nessuna_
 23:07:35 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 253 veto
 23:07:11 QUARTER  BUY $LEOSTAR 0.121 SOL score 82 impatto 1.58% (Jupiter)
 23:07:11 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 260 veto
-23:06:47 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 257 veto
-23:06:25 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 246 veto
-23:06:01 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 251 veto
-23:05:37 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 248 veto
-23:05:13 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 240 veto
-23:04:50 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 248 veto
-23:04:26 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 244 veto
-23:04:03 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 231 veto
-23:03:39 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 251 veto
-23:03:15 ORACLE   360 raccolti, 236 analizzati, 2 BUY, 231 veto
-23:02:52 ORACLE   360 raccolti, 245 analizzati, 3 BUY, 240 veto
-23:02:29 KAISER   limite 1 ingresso/i per scan: $SIX rimandato
-23:02:29 QUARTER  BUY $LULU 0.121 SOL score 67 impatto 0.07% (Jupiter)
-23:02:29 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 249 veto
-23:02:05 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 237 veto
-23:01:42 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 229 veto
-23:01:29 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 245 veto
-23:01:04 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 233 veto
-23:00:41 ORACLE   360 raccolti, 240 analizzati, 2 BUY, 233 veto
-23:00:17 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 245 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
