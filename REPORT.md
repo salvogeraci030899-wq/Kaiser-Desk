@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 21:46 UTC · in esecuzione da 0.2 giorni · 147 run
+Aggiornato: 2026-11-16 21:52 UTC · in esecuzione da 0.2 giorni · 147 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-16 21:46 UTC · in esecuzione da 0.2 giorni · 147 run
 | Cassa | 6.0629 SOL |
 | Trade chiusi | 24 |
 | Win rate | 33% |
-| P&L realizzato | +0.0629 SOL (~$4.52) |
+| P&L realizzato | +0.0629 SOL (~$4.53) |
 | Media vincite / perdite | +46.2% / -19.6% |
 | Profit factor | 1.17 |
 | Circuit breaker | no |
@@ -54,6 +54,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+21:52:00 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 262 veto
+21:51:36 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 265 veto
+21:51:12 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 259 veto
+21:50:48 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 255 veto
+21:50:24 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 262 veto
+21:50:00 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 257 veto
+21:49:35 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 259 veto
+21:49:11 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 258 veto
+21:48:48 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 245 veto
+21:48:24 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 257 veto
+21:48:00 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 254 veto
+21:47:36 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 248 veto
+21:47:11 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 252 veto
 21:46:48 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 250 veto
 21:46:24 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 241 veto
 21:46:00 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 257 veto
@@ -81,19 +94,6 @@ _nessuna_
 21:41:28 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 248 veto
 21:41:12 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 257 veto
 21:40:48 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 249 veto
-21:40:22 SCRIBE   chiuso P-0239 $BAWSAQ 0.0325 SOL (26.7%)
-21:40:22 CHARON   TP1 $BAWSAQ vendo 100% a 70.6% -> 0.1541 SOL
-21:40:22 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 242 veto
-21:39:58 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 257 veto
-21:39:35 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 258 veto
-21:39:12 QUARTER  BUY $BAWSAQ 0.121 SOL score 63 impatto 1.50% (Jupiter)
-21:39:11 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 241 veto
-21:38:47 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 252 veto
-21:38:24 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 245 veto
-21:38:00 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 238 veto
-21:37:36 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 248 veto
-21:37:13 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 247 veto
-21:36:50 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 236 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
