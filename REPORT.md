@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 14:16 UTC · in esecuzione da 0.5 giorni · 138 run
+Aggiornato: 2026-11-16 14:21 UTC · in esecuzione da 0.5 giorni · 138 run
 
 | | |
 |---|---|
-| Equity | **5.4866 SOL** (-8.6% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.4866 SOL |
-| Trade chiusi | 33 |
-| Win rate | 33% |
-| P&L realizzato | -0.5134 SOL (~$-36.60) |
-| Media vincite / perdite | +49.6% / -44.5% |
-| Profit factor | 0.55 |
+| Equity | **5.4560 SOL** (-9.1% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.4560 SOL |
+| Trade chiusi | 34 |
+| Win rate | 32% |
+| P&L realizzato | -0.5440 SOL (~$-38.73) |
+| Media vincite / perdite | +49.6% / -43.7% |
+| Profit factor | 0.53 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -19,7 +19,7 @@ _nessuna_
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| Stop loss | 10 | -0.4885 |
+| Stop loss | 11 | -0.5191 |
 | Time stop | 7 | -0.1234 |
 | RUG-EXIT liquidità | 6 | -0.4807 |
 | TP1 | 9 | +0.5570 |
@@ -28,6 +28,7 @@ _nessuna_
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $WATER | 82 | -27.6% | -0.0306 | +0% | -28% | Stop loss | 2m |
 | $Minimoon | 64 | +26.3% | +0.0290 | +65% | +65% | TP1 | 3m |
 | $Stumpy | 67 | -39.9% | -0.0448 | +42% | -25% | Stop loss | 8m |
 | $DADDY | 67 | -97.1% | -0.1098 | +32% | -96% | RUG-EXIT liquidità | 2m |
@@ -52,10 +53,28 @@ _nessuna_
 | $47 | 67 | -11.5% | -0.0127 | +0% | -8% | Time stop | 10m |
 | $Percy | 63 | +15.9% | +0.0176 | +60% | +60% | TP1 | 1m |
 | $equity | 67 | -93.6% | -0.1059 | +27% | -89% | RUG-EXIT liquidità | 2m |
-| $KELPGUY | 75 | -42.4% | -0.0484 | +0% | -40% | Stop loss | 2m |
 
 ## Ultimi eventi
 ```
+14:21:15 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 248 veto
+14:20:51 ORACLE   360 raccolti, 253 analizzati, 3 BUY, 240 veto
+14:20:28 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 247 veto
+14:20:05 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 250 veto
+14:19:42 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 246 veto
+14:19:19 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 246 veto
+14:18:56 ORACLE   360 raccolti, 254 analizzati, 3 BUY, 240 veto
+14:18:43 SCRIBE   chiuso P-0203 $WATER -0.0306 SOL (-27.6%)
+14:18:43 CHARON   Stop loss $WATER vendo 100% a -27.6% -> 0.0801 SOL
+14:18:33 ORACLE   360 raccolti, 249 analizzati, 3 BUY, 232 veto
+14:18:09 ORACLE   360 raccolti, 256 analizzati, 3 BUY, 240 veto
+14:17:46 ORACLE   360 raccolti, 258 analizzati, 3 BUY, 242 veto
+14:17:23 ORACLE   360 raccolti, 249 analizzati, 4 BUY, 237 veto
+14:17:00 KAISER   limite 1 ingresso/i per scan: $Minimoon rimandato
+14:17:00 KAISER   limite 1 ingresso/i per scan: $Stumpy rimandato
+14:17:00 QUARTER  BUY $WATER 0.110 SOL score 82 impatto 1.13% (Jupiter)
+14:17:00 ORACLE   360 raccolti, 254 analizzati, 3 BUY, 240 veto
+14:16:36 QUARTER  $WATER impatto 2.3% oltre slippage: annullato
+14:16:36 ORACLE   360 raccolti, 253 analizzati, 3 BUY, 239 veto
 14:16:14 QUARTER  $WATER impatto 2.7% oltre slippage: annullato
 14:16:14 ORACLE   360 raccolti, 244 analizzati, 3 BUY, 231 veto
 14:15:50 QUARTER  $WATER impatto 2.6% oltre slippage: annullato
@@ -77,25 +96,6 @@ _nessuna_
 14:11:58 ORACLE   360 raccolti, 235 analizzati, 2 BUY, 223 veto
 14:11:35 ORACLE   360 raccolti, 225 analizzati, 2 BUY, 214 veto
 14:11:12 ORACLE   360 raccolti, 224 analizzati, 1 BUY, 212 veto
-14:10:49 ORACLE   360 raccolti, 227 analizzati, 0 BUY, 215 veto
-14:10:26 ORACLE   360 raccolti, 220 analizzati, 0 BUY, 207 veto
-14:10:03 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 222 veto
-14:09:40 ORACLE   360 raccolti, 233 analizzati, 1 BUY, 218 veto
-14:09:17 ORACLE   360 raccolti, 225 analizzati, 1 BUY, 210 veto
-14:08:54 ORACLE   360 raccolti, 230 analizzati, 1 BUY, 216 veto
-14:08:31 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 218 veto
-14:08:08 ORACLE   360 raccolti, 229 analizzati, 1 BUY, 216 veto
-14:07:45 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 227 veto
-14:07:22 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 228 veto
-14:06:59 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 226 veto
-14:06:36 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 230 veto
-14:06:13 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 234 veto
-14:05:50 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 232 veto
-14:05:26 SCRIBE   chiuso P-0200 $Stumpy -0.0448 SOL (-39.9%)
-14:05:26 CHARON   Stop loss $Stumpy vendo 100% a -25.1% -> 0.0676 SOL
-14:05:26 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 245 veto
-14:05:04 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 248 veto
-14:04:41 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 236 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
