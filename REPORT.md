@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 10:34 UTC · in esecuzione da 0.3 giorni · 134 run
+Aggiornato: 2026-11-16 10:39 UTC · in esecuzione da 0.3 giorni · 134 run
 
 | | |
 |---|---|
-| Equity | **5.7975 SOL** (-3.4% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.6267 SOL |
-| Trade chiusi | 16 |
-| Win rate | 25% |
-| P&L realizzato | -0.2575 SOL (~$-18.36) |
-| Media vincite / perdite | +61.1% / -38.0% |
-| Profit factor | 0.52 |
+| Equity | **5.7882 SOL** (-3.5% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.6938 SOL |
+| Trade chiusi | 17 |
+| Win rate | 29% |
+| P&L realizzato | -0.1892 SOL (~$-13.52) |
+| Media vincite / perdite | +60.6% / -38.0% |
+| Profit factor | 0.64 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$1.0** P-0186 · 0.115 SOL · +48.7% · resta 100% · [grafico](https://dexscreener.com/solana/BaCY7eYKY77Y7f5j2z955fgeT3xTPX5thLjutD6ZwVqj)
+- **$MAINNEKO** P-0187 · 0.116 SOL · -18.6% · resta 100% · [grafico](https://dexscreener.com/solana/9SUx9H6gWHwQTEGTF6RAVoQVML8a4s1PJ1QFKnytnr5d)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -22,11 +22,12 @@ Aggiornato: 2026-11-16 10:34 UTC · in esecuzione da 0.3 giorni · 134 run
 | Stop loss | 5 | -0.2229 |
 | Time stop | 5 | -0.0871 |
 | RUG-EXIT liquidità | 2 | -0.2222 |
-| TP1 | 4 | +0.2747 |
+| TP1 | 5 | +0.3429 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $1.0 | 68 | +58.9% | +0.0682 | +85% | +85% | TP1 | 6m |
 | $Hasia | 63 | +68.2% | +0.0780 | +60% | +60% | TP1 | 3m |
 | $देसी | 71 | +79.2% | +0.0891 | +93% | +93% | TP1 | 3m |
 | $bopdog | 64 | -18.6% | -0.0210 | +0% | -32% | Stop loss | 2m |
@@ -46,6 +47,22 @@ Aggiornato: 2026-11-16 10:34 UTC · in esecuzione da 0.3 giorni · 134 run
 
 ## Ultimi eventi
 ```
+10:39:44 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 250 veto
+10:39:21 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 248 veto
+10:38:58 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 251 veto
+10:38:45 SCRIBE   chiuso P-0186 $1.0 0.0682 SOL (58.9%)
+10:38:45 CHARON   TP1 $1.0 vendo 100% a 85.1% -> 0.1841 SOL
+10:38:35 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 257 veto
+10:38:11 QUARTER  BUY $MAINNEKO 0.116 SOL score 74 impatto 0.00% (Jupiter)
+10:38:11 ORACLE   360 raccolti, 265 analizzati, 3 BUY, 253 veto
+10:37:48 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 254 veto
+10:37:25 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 254 veto
+10:37:02 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 239 veto
+10:36:39 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 256 veto
+10:36:15 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 250 veto
+10:35:53 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 252 veto
+10:35:30 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 259 veto
+10:35:07 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 261 veto
 10:34:44 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 256 veto
 10:34:21 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 262 veto
 10:33:58 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 262 veto
@@ -70,22 +87,6 @@ Aggiornato: 2026-11-16 10:34 UTC · in esecuzione da 0.3 giorni · 134 run
 10:27:37 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 252 veto
 10:27:11 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 258 veto
 10:26:47 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 251 veto
-10:26:25 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 248 veto
-10:26:02 ORACLE   349 raccolti, 253 analizzati, 2 BUY, 243 veto
-10:25:39 ORACLE   339 raccolti, 245 analizzati, 1 BUY, 235 veto
-10:25:16 ORACLE   336 raccolti, 240 analizzati, 0 BUY, 234 veto
-10:24:53 ORACLE   319 raccolti, 227 analizzati, 1 BUY, 220 veto
-10:24:30 ORACLE   313 raccolti, 222 analizzati, 1 BUY, 215 veto
-10:24:07 ORACLE   307 raccolti, 216 analizzati, 0 BUY, 210 veto
-10:23:45 ORACLE   296 raccolti, 210 analizzati, 1 BUY, 203 veto
-10:23:23 SCOUT    PumpPortal invia nuovi token (21) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-10:23:23 ORACLE   284 raccolti, 198 analizzati, 1 BUY, 190 veto
-10:23:00 SCRIBE   chiuso P-0185 $Hasia 0.0780 SOL (68.2%)
-10:23:00 CHARON   TP1 $Hasia vendo 100% a 60.1% -> 0.1922 SOL
-10:23:00 ORACLE   278 raccolti, 190 analizzati, 1 BUY, 182 veto
-10:22:37 ORACLE   267 raccolti, 184 analizzati, 1 BUY, 176 veto
-10:22:14 ORACLE   262 raccolti, 180 analizzati, 0 BUY, 172 veto
-10:21:51 ORACLE   257 raccolti, 173 analizzati, 0 BUY, 166 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
