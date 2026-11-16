@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 18:37 UTC · in esecuzione da 0.0 giorni · 143 run
+Aggiornato: 2026-11-16 18:41 UTC · in esecuzione da 0.1 giorni · 143 run
 
 | | |
 |---|---|
-| Equity | **6.0816 SOL** (+1.4% dal capitale iniziale di 6 SOL) |
-| Cassa | 6.0816 SOL |
+| Equity | **6.0725 SOL** (+1.2% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.9590 SOL |
 | Trade chiusi | 10 |
 | Win rate | 40% |
-| P&L realizzato | +0.0816 SOL (~$5.78) |
+| P&L realizzato | +0.0816 SOL (~$5.80) |
 | Media vincite / perdite | +39.8% / -15.2% |
 | Profit factor | 1.74 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$BANKLESS** P-0226 · 0.122 SOL · -6.7% · resta 100% · [grafico](https://dexscreener.com/solana/HmbBJEMuXZiNuHK5F3iBcKp4MY3jgMeyP1ThTxEogGGF)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -40,6 +40,22 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+18:41:41 SCRIBE   fine run · trade 10 · win 40% · P&L 0.0816 SOL · equity 6.0725 SOL
+18:41:41 ORACLE   360 raccolti, 275 analizzati, 3 BUY, 265 veto
+18:41:18 KAISER   limite 1 ingresso/i per scan: $COGE rimandato
+18:41:18 KAISER   limite 1 ingresso/i per scan: $Zelleinu rimandato
+18:41:18 QUARTER  BUY $BANKLESS 0.122 SOL score 68 impatto 0.55% (Jupiter)
+18:41:18 ORACLE   360 raccolti, 268 analizzati, 3 BUY, 258 veto
+18:40:54 ORACLE   360 raccolti, 287 analizzati, 4 BUY, 277 veto
+18:40:30 ORACLE   360 raccolti, 278 analizzati, 3 BUY, 267 veto
+18:40:07 ORACLE   360 raccolti, 276 analizzati, 3 BUY, 265 veto
+18:39:44 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 261 veto
+18:39:21 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 262 veto
+18:38:58 ORACLE   360 raccolti, 259 analizzati, 3 BUY, 246 veto
+18:38:35 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 260 veto
+18:38:12 ORACLE   360 raccolti, 284 analizzati, 2 BUY, 272 veto
+18:37:48 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 259 veto
+18:37:25 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 264 veto
 18:37:01 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 247 veto
 18:36:38 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 239 veto
 18:36:15 SCRIBE   chiuso P-0225 $Zelleinu -0.0118 SOL (-9.6%)
@@ -64,22 +80,6 @@ _nessuna_
 18:30:50 SCRIBE   chiuso P-0224 $SI 0.0046 SOL (3.8%)
 18:30:50 CHARON   Time stop $SI vendo 100% a 3.2% -> 0.1274 SOL
 18:30:50 ORACLE   360 raccolti, 254 analizzati, 3 BUY, 242 veto
-18:30:27 ORACLE   360 raccolti, 265 analizzati, 3 BUY, 252 veto
-18:30:03 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 249 veto
-18:29:39 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 243 veto
-18:29:16 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 255 veto
-18:28:53 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 252 veto
-18:28:30 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 255 veto
-18:28:07 ORACLE   360 raccolti, 269 analizzati, 3 BUY, 260 veto
-18:27:44 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 253 veto
-18:27:21 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 249 veto
-18:26:56 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 250 veto
-18:26:34 ORACLE   360 raccolti, 261 analizzati, 3 BUY, 249 veto
-18:26:11 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 244 veto
-18:25:47 KAISER   limite 1 ingresso/i per scan: $PNUT rimandato
-18:25:47 KAISER   limite 1 ingresso/i per scan: $COGE rimandato
-18:25:47 QUARTER  BUY $SI 0.122 SOL score 88 impatto 1.20% (Jupiter)
-18:25:47 ORACLE   360 raccolti, 258 analizzati, 4 BUY, 246 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
