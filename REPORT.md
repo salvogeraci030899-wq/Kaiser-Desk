@@ -1,29 +1,48 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 02:22 UTC · in esecuzione da 0.0 giorni · 124 run
+Aggiornato: 2026-11-16 02:28 UTC · in esecuzione da 0.0 giorni · 124 run
 
 | | |
 |---|---|
-| Equity | **1.4983 SOL** (-0.1% dal capitale iniziale di 1.5 SOL) |
-| Cassa | 1.4240 SOL |
-| Trade chiusi | 0 |
+| Equity | **1.4815 SOL** (-1.2% dal capitale iniziale di 1.5 SOL) |
+| Cassa | 1.4815 SOL |
+| Trade chiusi | 1 |
 | Win rate | 0% |
-| P&L realizzato | +0.0000 SOL (~$0.00) |
-| Media vincite / perdite | +0.0% / +0.0% |
+| P&L realizzato | -0.0185 SOL (~$-1.35) |
+| Media vincite / perdite | +0.0% / -24.4% |
 | Profit factor | 0.00 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$XRL** P-0166 · 0.075 SOL · -0.9% · resta 100% · [grafico](https://dexscreener.com/solana/58A2c7uxZbPQaSTTnkdHoG7ancHnuu92ZSgmPrc13Xoq)
+_nessuna_
 
 ## Uscite per motivo
-_ancora nessuna_
+| Motivo | Trade | P&L SOL |
+|---|---|---|
+| Time stop | 1 | -0.0185 |
 
 ## Ultimi 25 trade
-_ancora nessuno_
+| Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
+|---|---|---|---|---|---|---|---|
+| $XRL | 76 | -24.4% | -0.0185 | +6% | -9% | Time stop | 5m |
 
 ## Ultimi eventi
 ```
+02:27:59 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 234 veto
+02:27:36 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 233 veto
+02:27:22 SCRIBE   chiuso P-0166 $XRL -0.0185 SOL (-24.4%)
+02:27:22 CHARON   Time stop $XRL vendo 100% a -9.2% -> 0.0575 SOL
+02:27:12 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 238 veto
+02:26:48 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 238 veto
+02:26:24 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 239 veto
+02:26:00 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 242 veto
+02:25:35 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 240 veto
+02:25:12 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 231 veto
+02:24:58 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 239 veto
+02:24:33 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 237 veto
+02:24:10 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 238 veto
+02:23:46 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 241 veto
+02:23:22 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 239 veto
 02:22:59 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 240 veto
 02:22:36 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 238 veto
 02:22:13 QUARTER  BUY $XRL 0.075 SOL score 76 impatto 1.84% (Jupiter)
@@ -49,21 +68,6 @@ _ancora nessuno_
 02:16:49 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 243 veto
 02:16:25 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 234 veto
 02:16:02 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 233 veto
-02:15:38 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 243 veto
-02:15:15 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 241 veto
-02:14:51 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 240 veto
-02:14:28 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 250 veto
-02:14:04 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 252 veto
-02:13:40 QUARTER  BUY $Neil 0.060 SOL score 63 impatto 0.03% (Jupiter)
-02:13:40 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 241 veto
-02:13:17 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 242 veto
-02:12:54 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 246 veto
-02:12:30 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 242 veto
-02:12:07 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 246 veto
-02:11:44 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 249 veto
-02:11:20 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 242 veto
-02:10:57 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 242 veto
-02:10:33 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 242 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
