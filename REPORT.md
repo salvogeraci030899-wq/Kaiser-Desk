@@ -1,20 +1,21 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 03:18 UTC · in esecuzione da 0.0 giorni · 125 run
+Aggiornato: 2026-11-16 03:23 UTC · in esecuzione da 0.0 giorni · 125 run
 
 | | |
 |---|---|
-| Equity | **5.8995 SOL** (-1.7% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.8995 SOL |
+| Equity | **5.9651 SOL** (-0.6% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.6609 SOL |
 | Trade chiusi | 3 |
 | Win rate | 0% |
-| P&L realizzato | -0.1005 SOL (~$-7.24) |
+| P&L realizzato | -0.1005 SOL (~$-7.26) |
 | Media vincite / perdite | +0.0% / -27.8% |
 | Profit factor | 0.00 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$LMAO** P-0173 · 0.118 SOL · +57.0% · resta 100% · [grafico](https://dexscreener.com/solana/EzV5qj3Cx8xPSatbb63aV2owQZ2wqipmb4g2TCY8AxkF)
+- **$PSYOP** P-0174 · 0.119 SOL · +0.3% · resta 100% · [grafico](https://dexscreener.com/solana/6cUFUEwu77tgoNVoSYiAATLM8qn3LPNQJmBT2dU5DtXv)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -31,6 +32,25 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+03:23:20 ORACLE   360 raccolti, 269 analizzati, 3 BUY, 259 veto
+03:22:56 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 252 veto
+03:22:31 KAISER   limite 1 ingresso/i per scan: $LMAO rimandato
+03:22:31 QUARTER  BUY $PSYOP 0.119 SOL score 71 impatto 0.71% (Jupiter)
+03:22:31 ORACLE   360 raccolti, 269 analizzati, 3 BUY, 259 veto
+03:22:07 QUARTER  $PSYOP impatto 2.5% oltre slippage: annullato
+03:22:07 ORACLE   360 raccolti, 266 analizzati, 3 BUY, 255 veto
+03:21:43 QUARTER  $PSYOP impatto 2.4% oltre slippage: annullato
+03:21:43 ORACLE   360 raccolti, 268 analizzati, 3 BUY, 257 veto
+03:21:18 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 255 veto
+03:20:54 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 252 veto
+03:20:31 ORACLE   360 raccolti, 265 analizzati, 3 BUY, 252 veto
+03:20:07 ORACLE   360 raccolti, 275 analizzati, 3 BUY, 262 veto
+03:19:43 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 258 veto
+03:19:20 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 259 veto
+03:18:55 QUARTER  BUY $LMAO 0.118 SOL score 72 impatto 0.45% (Jupiter)
+03:18:55 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 263 veto
+03:18:31 QUARTER  $LMAO impatto 3.2% oltre slippage: annullato
+03:18:31 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 265 veto
 03:18:08 ORACLE   360 raccolti, 274 analizzati, 2 BUY, 262 veto
 03:17:43 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 250 veto
 03:17:20 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 255 veto
@@ -52,25 +72,6 @@ _nessuna_
 03:10:59 SCRIBE   chiuso P-0172 $bul -0.0233 SOL (-19.5%)
 03:10:59 CHARON   Stop loss $bul vendo 100% a -35.0% -> 0.0962 SOL
 03:10:59 ORACLE   360 raccolti, 213 analizzati, 3 BUY, 205 veto
-03:10:35 ORACLE   360 raccolti, 209 analizzati, 3 BUY, 199 veto
-03:10:11 QUARTER  BUY $bul 0.118 SOL score 65 impatto 0.70% (Jupiter)
-03:10:11 ORACLE   360 raccolti, 203 analizzati, 3 BUY, 193 veto
-03:09:47 ORACLE   360 raccolti, 206 analizzati, 3 BUY, 196 veto
-03:09:22 ORACLE   360 raccolti, 209 analizzati, 3 BUY, 201 veto
-03:09:09 ORACLE   360 raccolti, 209 analizzati, 3 BUY, 200 veto
-03:08:44 ORACLE   360 raccolti, 204 analizzati, 3 BUY, 197 veto
-03:08:21 ORACLE   360 raccolti, 212 analizzati, 3 BUY, 204 veto
-03:07:56 ORACLE   360 raccolti, 208 analizzati, 3 BUY, 200 veto
-03:07:33 ORACLE   360 raccolti, 208 analizzati, 2 BUY, 199 veto
-03:07:09 ORACLE   360 raccolti, 213 analizzati, 2 BUY, 205 veto
-03:06:45 ORACLE   360 raccolti, 209 analizzati, 2 BUY, 200 veto
-03:06:22 ORACLE   360 raccolti, 208 analizzati, 2 BUY, 199 veto
-03:05:58 ORACLE   360 raccolti, 230 analizzati, 3 BUY, 220 veto
-03:05:45 SCOUT    Laboratorio: collegato a PumpPortal
-03:05:34 ORACLE   360 raccolti, 245 analizzati, 4 BUY, 233 veto
-03:05:11 ORACLE   360 raccolti, 244 analizzati, 3 BUY, 233 veto
-03:04:46 ORACLE   360 raccolti, 244 analizzati, 3 BUY, 233 veto
-03:04:23 ORACLE   360 raccolti, 250 analizzati, 3 BUY, 239 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
