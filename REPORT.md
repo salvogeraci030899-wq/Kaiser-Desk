@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 08:49 UTC · in esecuzione da 0.2 giorni · 132 run
+Aggiornato: 2026-11-16 08:54 UTC · in esecuzione da 0.3 giorni · 132 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-16 08:49 UTC · in esecuzione da 0.2 giorni · 132 run
 | Cassa | 5.5755 SOL |
 | Trade chiusi | 14 |
 | Win rate | 14% |
-| P&L realizzato | -0.4245 SOL (~$-30.14) |
+| P&L realizzato | -0.4245 SOL (~$-30.07) |
 | Media vincite / perdite | +48.5% / -38.0% |
 | Profit factor | 0.20 |
 | Circuit breaker | no |
@@ -44,6 +44,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+08:54:07 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 255 veto
+08:53:44 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 257 veto
+08:53:20 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 253 veto
+08:52:57 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 254 veto
+08:52:33 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 259 veto
+08:52:10 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 258 veto
+08:51:47 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 249 veto
+08:51:24 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 260 veto
+08:51:01 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 256 veto
+08:50:37 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 254 veto
+08:50:14 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 241 veto
+08:49:50 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 252 veto
+08:49:27 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 248 veto
 08:49:03 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 247 veto
 08:48:40 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 233 veto
 08:48:16 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 227 veto
@@ -71,19 +84,6 @@ _nessuna_
 08:40:39 CHARON   Stop loss $bopdog vendo 100% a -31.6% -> 0.0920 SOL
 08:40:28 ORACLE   243 raccolti, 160 analizzati, 2 BUY, 150 veto
 08:40:05 ORACLE   240 raccolti, 154 analizzati, 2 BUY, 144 veto
-08:39:42 ORACLE   214 raccolti, 134 analizzati, 2 BUY, 125 veto
-08:39:19 ORACLE   206 raccolti, 130 analizzati, 2 BUY, 120 veto
-08:39:07 SCOUT    fabbrica: 3963 percorsi, 768 configurazioni, 0 passano, 616 ms
-08:39:07 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-08:39:07 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-08:39:06 QUARTER  BUY $bopdog 0.112 SOL score 64 impatto 1.81% (Jupiter)
-08:39:06 ORACLE   206 raccolti, 130 analizzati, 2 BUY, 120 veto
-08:39:02 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
-08:39:01 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
-08:39:01 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→10, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, rugLiqDrop 45→30, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120, srcGmgnTrending true→false
-08:39:01 SCOUT    Laboratorio: collegato a PumpPortal
-08:39:01 KAISER   run #132 · 0 posizioni · equity 5.5965 SOL · GMGN spenta (nessuna chiave) · Grok off
-08:38:47 SCRIBE   fine run · trade 13 · win 15% · P&L -0.4035 SOL · equity 5.5965 SOL
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
