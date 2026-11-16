@@ -1,15 +1,15 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 00:31 UTC · in esecuzione da 0.7 giorni · 122 run
+Aggiornato: 2026-11-16 00:36 UTC · in esecuzione da 0.7 giorni · 122 run
 
 | | |
 |---|---|
-| Equity | **1.2595 SOL** (-16.0% dal capitale iniziale di 1.5 SOL) |
-| Cassa | 1.2595 SOL |
-| Trade chiusi | 35 |
-| Win rate | 29% |
-| P&L realizzato | -0.2405 SOL (~$-17.29) |
-| Media vincite / perdite | +33.0% / -26.7% |
+| Equity | **1.2510 SOL** (-16.6% dal capitale iniziale di 1.5 SOL) |
+| Cassa | 1.2510 SOL |
+| Trade chiusi | 36 |
+| Win rate | 28% |
+| P&L realizzato | -0.2490 SOL (~$-17.89) |
+| Media vincite / perdite | +33.0% / -26.1% |
 | Profit factor | 0.57 |
 | Circuit breaker | no |
 
@@ -19,7 +19,7 @@ _nessuna_
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| Stop loss | 18 | -0.4053 |
+| Stop loss | 19 | -0.4138 |
 | Chiusura manuale (app) | 1 | +0.0954 |
 | Trailing stop | 10 | +0.1571 |
 | Time stop | 3 | -0.0276 |
@@ -29,6 +29,7 @@ _nessuna_
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $Culture | 68 | -13.3% | -0.0085 | +0% | -22% | Stop loss | 0m |
 | $FiveM | 77 | +0.6% | +0.0004 | +0% | -20% | Stop loss | 0m |
 | $PercPools | 79 | -8.1% | -0.0052 | +17% | -16% | Stop loss | 4m |
 | $GOAT | 77 | +69.7% | +0.0434 | +85% | +56% | Trailing stop | 12m |
@@ -53,10 +54,25 @@ _nessuna_
 | $WANTED | 64 | -6.9% | -0.0052 | +0% | -19% | Stop loss | 0m |
 | $twert | 80 | -23.2% | -0.0177 | +44% | +8% | Trailing stop | 1m |
 | $SWJ | 64 | +7.7% | +0.0058 | +35% | +14% | Trailing stop | 10m |
-| $pls | 72 | +10.6% | +0.0081 | +0% | -24% | Stop loss | 1m |
 
 ## Ultimi eventi
 ```
+00:36:48 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 242 veto
+00:36:25 ORACLE   360 raccolti, 251 analizzati, 3 BUY, 239 veto
+00:36:01 SCRIBE   chiuso P-0159 $Culture -0.0085 SOL (-13.3%)
+00:36:01 CHARON   Stop loss $Culture vendo 100% a -22.0% -> 0.0555 SOL
+00:36:01 ORACLE   360 raccolti, 230 analizzati, 3 BUY, 221 veto
+00:35:37 QUARTER  BUY $Culture 0.063 SOL score 68 impatto 0.93% (Jupiter)
+00:35:37 ORACLE   360 raccolti, 236 analizzati, 3 BUY, 228 veto
+00:35:14 ORACLE   360 raccolti, 231 analizzati, 3 BUY, 223 veto
+00:34:50 ORACLE   360 raccolti, 234 analizzati, 3 BUY, 227 veto
+00:34:27 ORACLE   360 raccolti, 227 analizzati, 3 BUY, 220 veto
+00:34:05 ORACLE   360 raccolti, 230 analizzati, 3 BUY, 223 veto
+00:33:42 ORACLE   360 raccolti, 230 analizzati, 4 BUY, 224 veto
+00:33:19 ORACLE   360 raccolti, 220 analizzati, 3 BUY, 215 veto
+00:32:57 ORACLE   360 raccolti, 218 analizzati, 3 BUY, 213 veto
+00:32:34 ORACLE   360 raccolti, 223 analizzati, 3 BUY, 219 veto
+00:32:12 ORACLE   360 raccolti, 221 analizzati, 3 BUY, 217 veto
 00:31:50 ORACLE   360 raccolti, 218 analizzati, 3 BUY, 212 veto
 00:31:27 ORACLE   360 raccolti, 225 analizzati, 3 BUY, 219 veto
 00:31:05 ORACLE   360 raccolti, 231 analizzati, 3 BUY, 223 veto
@@ -81,22 +97,6 @@ _nessuna_
 00:25:15 ORACLE   360 raccolti, 238 analizzati, 2 BUY, 225 veto
 00:24:52 ORACLE   360 raccolti, 231 analizzati, 2 BUY, 217 veto
 00:24:28 SCRIBE   chiuso P-0157 $PercPools -0.0052 SOL (-8.1%)
-00:24:28 CHARON   Stop loss $PercPools vendo 100% a -16.1% -> 0.0590 SOL
-00:24:28 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 225 veto
-00:24:05 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 227 veto
-00:23:42 ORACLE   360 raccolti, 235 analizzati, 2 BUY, 222 veto
-00:23:19 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 226 veto
-00:22:55 ORACLE   360 raccolti, 229 analizzati, 2 BUY, 215 veto
-00:22:32 ORACLE   360 raccolti, 229 analizzati, 2 BUY, 213 veto
-00:22:09 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 219 veto
-00:21:45 ORACLE   360 raccolti, 231 analizzati, 2 BUY, 213 veto
-00:21:22 ORACLE   360 raccolti, 230 analizzati, 1 BUY, 212 veto
-00:20:59 ORACLE   360 raccolti, 236 analizzati, 2 BUY, 221 veto
-00:20:36 ORACLE   351 raccolti, 232 analizzati, 2 BUY, 217 veto
-00:20:13 KAISER   limite 1 ingresso/i per scan: $nma rimandato
-00:20:12 QUARTER  BUY $PercPools 0.063 SOL score 79 impatto 0.49% (Jupiter)
-00:20:12 ORACLE   346 raccolti, 221 analizzati, 2 BUY, 206 veto
-00:19:49 ORACLE   326 raccolti, 214 analizzati, 2 BUY, 200 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
