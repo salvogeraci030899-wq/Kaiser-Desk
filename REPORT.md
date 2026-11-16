@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 21:06 UTC · in esecuzione da 0.2 giorni · 146 run
+Aggiornato: 2026-11-16 21:11 UTC · in esecuzione da 0.2 giorni · 146 run
 
 | | |
 |---|---|
-| Equity | **6.0985 SOL** (+1.6% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.9618 SOL |
-| Trade chiusi | 19 |
-| Win rate | 32% |
-| P&L realizzato | +0.0845 SOL (~$6.02) |
-| Media vincite / perdite | +55.2% / -19.9% |
-| Profit factor | 1.27 |
+| Equity | **6.0984 SOL** (+1.6% dal capitale iniziale di 6 SOL) |
+| Cassa | 6.0984 SOL |
+| Trade chiusi | 20 |
+| Win rate | 35% |
+| P&L realizzato | +0.0984 SOL (~$7.03) |
+| Media vincite / perdite | +48.9% / -19.9% |
+| Profit factor | 1.31 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$GTA6** P-0235 · 0.122 SOL · +12.4% · resta 100% · [grafico](https://dexscreener.com/solana/9hnSUykeKNcjspg66e29iXJ8GHVSVLCNjBA9JNiXviaU)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | RUG-EXIT liquidità | 2 | -0.0151 |
-| Time stop | 10 | -0.1569 |
+| Time stop | 11 | -0.1430 |
 | TP1 | 4 | +0.3000 |
 | Stop loss | 3 | -0.0435 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $GTA6 | 77 | +11.4% | +0.0139 | +26% | +2% | Time stop | 7m |
 | $DIDNT | 69 | -6.6% | -0.0081 | +3% | -5% | Time stop | 5m |
 | $SENT | 67 | +150.3% | +0.1793 | +81% | +81% | TP1 | 3m |
 | $VI | 69 | -24.2% | -0.0290 | +0% | -46% | Stop loss | 2m |
@@ -49,6 +50,21 @@ Aggiornato: 2026-11-16 21:06 UTC · in esecuzione da 0.2 giorni · 146 run
 
 ## Ultimi eventi
 ```
+21:11:55 ORACLE   360 raccolti, 242 analizzati, 3 BUY, 235 veto
+21:11:31 SCRIBE   chiuso P-0235 $GTA6 0.0139 SOL (11.4%)
+21:11:31 CHARON   Time stop $GTA6 vendo 100% a 1.7% -> 0.1366 SOL
+21:11:31 ORACLE   360 raccolti, 249 analizzati, 3 BUY, 242 veto
+21:11:06 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 240 veto
+21:10:42 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 237 veto
+21:10:18 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 243 veto
+21:09:54 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 243 veto
+21:09:30 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 238 veto
+21:09:05 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 243 veto
+21:08:41 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 255 veto
+21:08:16 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 250 veto
+21:07:53 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 257 veto
+21:07:29 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 254 veto
+21:07:05 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 246 veto
 21:06:40 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 253 veto
 21:06:16 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 249 veto
 21:05:52 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 247 veto
@@ -74,21 +90,6 @@ Aggiornato: 2026-11-16 21:06 UTC · in esecuzione da 0.2 giorni · 146 run
 20:59:16 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 267 veto
 20:58:52 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 257 veto
 20:58:28 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 246 veto
-20:58:04 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 245 veto
-20:57:40 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 252 veto
-20:57:16 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 250 veto
-20:56:52 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 262 veto
-20:56:37 SCRIBE   chiuso P-0234 $DIDNT -0.0081 SOL (-6.6%)
-20:56:37 CHARON   Time stop $DIDNT vendo 100% a -5.0% -> 0.1147 SOL
-20:56:37 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 259 veto
-20:56:12 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 244 veto
-20:55:48 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 249 veto
-20:55:24 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 261 veto
-20:55:01 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 253 veto
-20:54:36 ORACLE   350 raccolti, 252 analizzati, 2 BUY, 242 veto
-20:54:13 ORACLE   335 raccolti, 242 analizzati, 2 BUY, 232 veto
-20:53:50 ORACLE   328 raccolti, 227 analizzati, 2 BUY, 218 veto
-20:53:26 SCOUT    PumpPortal invia nuovi token (27) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
