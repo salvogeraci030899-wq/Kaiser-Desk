@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 22:07 UTC · in esecuzione da 0.2 giorni · 147 run
+Aggiornato: 2026-11-16 22:12 UTC · in esecuzione da 0.2 giorni · 147 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-16 22:07 UTC · in esecuzione da 0.2 giorni · 147 run
 | Cassa | 6.2057 SOL |
 | Trade chiusi | 25 |
 | Win rate | 36% |
-| P&L realizzato | +0.2057 SOL (~$14.79) |
+| P&L realizzato | +0.2057 SOL (~$14.84) |
 | Media vincite / perdite | +54.0% / -19.6% |
 | Profit factor | 1.54 |
 | Circuit breaker | no |
@@ -55,6 +55,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+22:12:25 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 250 veto
+22:12:01 QUARTER  $SIX impatto 2.3% oltre slippage: annullato
+22:12:01 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 246 veto
+22:11:38 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 251 veto
+22:11:14 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 241 veto
+22:10:50 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 243 veto
+22:10:26 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 246 veto
+22:10:12 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 247 veto
+22:09:47 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 256 veto
+22:09:24 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 260 veto
+22:09:00 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 244 veto
+22:08:36 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 249 veto
+22:08:11 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 245 veto
+22:07:48 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 243 veto
 22:07:24 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 258 veto
 22:07:00 ORACLE   360 raccolti, 266 analizzati, 3 BUY, 256 veto
 22:06:37 ORACLE   360 raccolti, 261 analizzati, 3 BUY, 251 veto
@@ -81,20 +95,6 @@ _nessuna_
 21:59:03 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 253 veto
 21:58:39 QUARTER  BUY $GROYPERS 0.121 SOL score 65 impatto 1.55% (Jupiter)
 21:58:39 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 254 veto
-21:58:15 QUARTER  $GROYPERS impatto 2.4% oltre slippage: annullato
-21:58:15 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 245 veto
-21:58:11 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
-21:57:50 QUARTER  $GROYPERS impatto 7.0% oltre slippage: annullato
-21:57:50 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 254 veto
-21:57:27 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 260 veto
-21:57:03 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 258 veto
-21:56:49 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 262 veto
-21:56:23 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 263 veto
-21:56:00 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 257 veto
-21:55:35 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 265 veto
-21:55:11 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 265 veto
-21:54:47 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 261 veto
-21:54:23 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 264 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
