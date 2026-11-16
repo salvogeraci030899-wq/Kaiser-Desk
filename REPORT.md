@@ -1,30 +1,52 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 02:57 UTC · in esecuzione da 0.0 giorni · 125 run
+Aggiornato: 2026-11-16 03:02 UTC · in esecuzione da 0.0 giorni · 125 run
 
 | | |
 |---|---|
-| Equity | **5.9989 SOL** (-0.0% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.7584 SOL |
-| Trade chiusi | 0 |
+| Equity | **5.9228 SOL** (-1.3% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.9228 SOL |
+| Trade chiusi | 2 |
 | Win rate | 0% |
-| P&L realizzato | +0.0000 SOL (~$0.00) |
-| Media vincite / perdite | +0.0% / +0.0% |
+| P&L realizzato | -0.0772 SOL (~$-5.58) |
+| Media vincite / perdite | +0.0% / -32.0% |
 | Profit factor | 0.00 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$Holden** P-0170 · 0.120 SOL · -3.9% · resta 100% · [grafico](https://dexscreener.com/solana/4KGkH5uLN1JGfF77vJ2XLn9u8uEyug8gyRWmmQwCMiT5)
-- **$XRL** P-0171 · 0.120 SOL · +4.7% · resta 100% · [grafico](https://dexscreener.com/solana/58A2c7uxZbPQaSTTnkdHoG7ancHnuu92ZSgmPrc13Xoq)
+_nessuna_
 
 ## Uscite per motivo
-_ancora nessuna_
+| Motivo | Trade | P&L SOL |
+|---|---|---|
+| Stop loss | 1 | -0.0544 |
+| Time stop | 1 | -0.0228 |
 
 ## Ultimi 25 trade
-_ancora nessuno_
+| Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
+|---|---|---|---|---|---|---|---|
+| $Holden | 79 | -18.8% | -0.0228 | +10% | -16% | Time stop | 10m |
+| $XRL | 79 | -45.2% | -0.0544 | +11% | -40% | Stop loss | 7m |
 
 ## Ultimi eventi
 ```
+03:02:49 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 245 veto
+03:02:24 ORACLE   360 raccolti, 260 analizzati, 3 BUY, 251 veto
+03:02:01 ORACLE   360 raccolti, 257 analizzati, 4 BUY, 248 veto
+03:01:37 SCRIBE   chiuso P-0170 $Holden -0.0228 SOL (-18.8%)
+03:01:37 CHARON   Time stop $Holden vendo 100% a -16.3% -> 0.0982 SOL
+03:01:37 ORACLE   360 raccolti, 254 analizzati, 4 BUY, 246 veto
+03:01:13 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 239 veto
+03:00:49 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 247 veto
+03:00:35 SCRIBE   chiuso P-0171 $XRL -0.0544 SOL (-45.2%)
+03:00:35 CHARON   Stop loss $XRL vendo 100% a -40.3% -> 0.0661 SOL
+03:00:25 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 228 veto
+03:00:11 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 246 veto
+02:59:45 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 235 veto
+02:59:22 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 242 veto
+02:58:58 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 239 veto
+02:58:34 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 235 veto
+02:58:10 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 225 veto
 02:57:47 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 248 veto
 02:57:22 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 225 veto
 02:56:58 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 230 veto
@@ -48,23 +70,6 @@ _ancora nessuno_
 02:51:33 QUARTER  $XRL impatto 2.1% oltre slippage: annullato
 02:51:33 ORACLE   315 raccolti, 203 analizzati, 2 BUY, 190 veto
 02:51:10 ORACLE   297 raccolti, 199 analizzati, 2 BUY, 186 veto
-02:50:46 ORACLE   275 raccolti, 188 analizzati, 2 BUY, 175 veto
-02:50:23 ORACLE   270 raccolti, 179 analizzati, 3 BUY, 166 veto
-02:50:00 ORACLE   266 raccolti, 179 analizzati, 4 BUY, 166 veto
-02:49:37 ORACLE   245 raccolti, 165 analizzati, 4 BUY, 155 veto
-02:49:33 KAISER   reset del paper (C-0075): conto azzerato, capitale 6 SOL
-02:49:12 QUARTER  BUY $mihao 0.029 SOL score 64 impatto 1.56% (Jupiter)
-02:49:12 ORACLE   237 raccolti, 157 analizzati, 4 BUY, 147 veto
-02:48:50 QUARTER  $mihao impatto 2.4% oltre slippage: annullato
-02:48:50 ORACLE   230 raccolti, 152 analizzati, 4 BUY, 142 veto
-02:48:26 ORACLE   212 raccolti, 138 analizzati, 3 BUY, 129 veto
-02:48:22 KAISER   parametri dall'app: sizePct 5→2
-02:48:02 ORACLE   210 raccolti, 130 analizzati, 3 BUY, 123 veto
-02:47:41 SCOUT    fabbrica: 3391 percorsi, 768 configurazioni, 0 passano, 608 ms
-02:47:40 ORACLE   208 raccolti, 129 analizzati, 3 BUY, 122 veto
-02:47:39 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-02:47:37 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-02:47:36 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
