@@ -1,31 +1,32 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 05:23 UTC · in esecuzione da 0.1 giorni · 128 run
+Aggiornato: 2026-11-16 05:28 UTC · in esecuzione da 0.1 giorni · 128 run
 
 | | |
 |---|---|
-| Equity | **5.6363 SOL** (-6.1% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.5417 SOL |
-| Trade chiusi | 8 |
+| Equity | **5.6075 SOL** (-6.5% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.6075 SOL |
+| Trade chiusi | 9 |
 | Win rate | 0% |
-| P&L realizzato | -0.3442 SOL (~$-24.70) |
-| Media vincite / perdite | +0.0% / -36.3% |
+| P&L realizzato | -0.3925 SOL (~$-28.16) |
+| Media vincite / perdite | +0.0% / -37.0% |
 | Profit factor | 0.00 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$KELPGUY** P-0178 · 0.113 SOL · -16.3% · resta 100% · [grafico](https://dexscreener.com/solana/FdBEshZmFNNJAWCfWiCKZxSpFMRpHm4uebWmZp161c4M)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| Stop loss | 3 | -0.1536 |
+| Stop loss | 4 | -0.2019 |
 | Time stop | 4 | -0.0744 |
 | RUG-EXIT liquidità | 1 | -0.1162 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $KELPGUY | 75 | -42.4% | -0.0484 | +0% | -40% | Stop loss | 2m |
 | $oop | 64 | -7.4% | -0.0086 | +18% | +1% | Time stop | 27m |
 | $PASSED | 88 | -99.5% | -0.1162 | +2% | -99% | RUG-EXIT liquidità | 2m |
 | $Gib | 63 | -64.2% | -0.0759 | +7% | -45% | Stop loss | 2m |
@@ -37,6 +38,21 @@ Aggiornato: 2026-11-16 05:23 UTC · in esecuzione da 0.1 giorni · 128 run
 
 ## Ultimi eventi
 ```
+05:28:09 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 238 veto
+05:27:46 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 236 veto
+05:27:23 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 231 veto
+05:27:00 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 236 veto
+05:26:37 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 235 veto
+05:26:14 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 236 veto
+05:25:50 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 235 veto
+05:25:27 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 237 veto
+05:25:04 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 235 veto
+05:24:41 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 241 veto
+05:24:19 ORACLE   357 raccolti, 252 analizzati, 1 BUY, 238 veto
+05:23:56 ORACLE   354 raccolti, 246 analizzati, 2 BUY, 231 veto
+05:23:42 SCRIBE   chiuso P-0178 $KELPGUY -0.0484 SOL (-42.4%)
+05:23:42 CHARON   Stop loss $KELPGUY vendo 100% a -39.5% -> 0.0658 SOL
+05:23:32 ORACLE   336 raccolti, 238 analizzati, 1 BUY, 221 veto
 05:23:09 ORACLE   335 raccolti, 238 analizzati, 1 BUY, 221 veto
 05:22:46 ORACLE   329 raccolti, 233 analizzati, 1 BUY, 216 veto
 05:22:33 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
@@ -62,21 +78,6 @@ Aggiornato: 2026-11-16 05:23 UTC · in esecuzione da 0.1 giorni · 128 run
 05:18:10 SCOUT    Laboratorio: collegato a PumpPortal
 05:18:10 KAISER   run #128 · 0 posizioni · equity 5.6558 SOL · GMGN spenta (nessuna chiave) · Grok off
 05:17:59 SCRIBE   fine run · trade 8 · win 0% · P&L -0.3442 SOL · equity 5.6558 SOL
-05:17:49 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 234 veto
-05:17:25 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 231 veto
-05:17:00 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 239 veto
-05:16:37 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 236 veto
-05:16:14 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 237 veto
-05:15:50 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 239 veto
-05:15:26 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 240 veto
-05:15:03 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 236 veto
-05:14:40 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 243 veto
-05:14:16 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 243 veto
-05:13:52 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 239 veto
-05:13:28 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 243 veto
-05:13:04 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 247 veto
-05:12:41 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 244 veto
-05:12:17 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 248 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.

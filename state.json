@@ -1,66 +1,8 @@
 {
  "startedAt": 1794797373814,
  "runs": 128,
- "cash": 5.541706508157695,
- "positions": [
-  {
-   "id": "P-0178",
-   "mint": "CiV5UJFf2dp87cymyPf3UaV8FLCiynYVZopgN5QSpump",
-   "sym": "KELPGUY",
-   "name": "Kelp Guy",
-   "pairAddress": "FdBEshZmFNNJAWCfWiCKZxSpFMRpHm4uebWmZp161c4M",
-   "openedAt": 1794806520714,
-   "sizeSOL": 0.11311645935015704,
-   "cost": 0.11411645935015705,
-   "entry": 3.6663e-7,
-   "tokens": 308530.28762009944,
-   "remaining": 1,
-   "rawLeft": "325496609766",
-   "peak": 3.6663e-7,
-   "tp1Done": false,
-   "spDone": false,
-   "entryLiq": 10174.33,
-   "realized": 0,
-   "score": 75,
-   "why": "runner",
-   "entryInfo": {
-    "srcs": [
-     "profili"
-    ],
-    "notes": [],
-    "plus": [
-     "pressione in acquisto"
-    ],
-    "m": {
-     "liq": 10174.33,
-     "mc": 25919,
-     "ageMin": 1.0299333333333334,
-     "v1": 4545.18,
-     "tx1": 145,
-     "br1": 2.2666666666666666,
-     "br5": 2.2666666666666666,
-     "c5": -13.44,
-     "c1": -13.44,
-     "c6": -13.44,
-     "turn": 0.44673015323859167,
-     "price": 0.00002591,
-     "priceNative": 3.63e-7
-    },
-    "grok": null
-   },
-   "last": {
-    "priceNative": 3.067e-7,
-    "liq": 9315.68,
-    "br5": 1.9222222222222223,
-    "tx5": 261,
-    "t": 1794806599679
-   },
-   "fills": [
-    "BUY 0.113 impatto 0.00% (Jupiter)"
-   ],
-   "trough": 3.067e-7
-  }
- ],
+ "cash": 5.607468443177695,
+ "positions": [],
  "journal": [
   {
    "id": "P-0171",
@@ -431,6 +373,50 @@
    },
    "maePct": -2.381534625090198,
    "age": 40
+  },
+  {
+   "id": "P-0178",
+   "mint": "CiV5UJFf2dp87cymyPf3UaV8FLCiynYVZopgN5QSpump",
+   "sym": "KELPGUY",
+   "openedAt": 1794806520714,
+   "closedAt": 1794806622872,
+   "cost": 0.11411645935015705,
+   "back": 0.06576193502000001,
+   "pnl": -0.04835452433015704,
+   "pct": -42.37296232770868,
+   "mode": "paper",
+   "reason": "Stop loss",
+   "score": 75,
+   "solUsd": 71.77563345724566,
+   "peakPct": 0,
+   "trigPct": -39.53031666803044,
+   "entryInfo": {
+    "srcs": [
+     "profili"
+    ],
+    "notes": [],
+    "plus": [
+     "pressione in acquisto"
+    ],
+    "m": {
+     "liq": 10174.33,
+     "mc": 25919,
+     "ageMin": 1.0299333333333334,
+     "v1": 4545.18,
+     "tx1": 145,
+     "br1": 2.2666666666666666,
+     "br5": 2.2666666666666666,
+     "c5": -13.44,
+     "c1": -13.44,
+     "c6": -13.44,
+     "turn": 0.44673015323859167,
+     "price": 0.00002591,
+     "priceNative": 3.63e-7
+    },
+    "grok": null
+   },
+   "maePct": -39.53031666803044,
+   "age": 1
   }
  ],
  "signals": [
@@ -3303,16 +3289,157 @@
    "sym": "equity",
    "score": 64,
    "priceNative": 5.493e-7
+  },
+  {
+   "t": 1794806612616,
+   "mint": "HnNTiEwkmHezJBnvUa3QMZ97uS4jXf67NCXSAV8bpump",
+   "sym": "equity",
+   "score": 64,
+   "priceNative": 5.134e-7
+  },
+  {
+   "t": 1794806636574,
+   "mint": "CiV5UJFf2dp87cymyPf3UaV8FLCiynYVZopgN5QSpump",
+   "sym": "KELPGUY",
+   "score": 75,
+   "priceNative": 2.365e-7
+  },
+  {
+   "t": 1794806636574,
+   "mint": "HnNTiEwkmHezJBnvUa3QMZ97uS4jXf67NCXSAV8bpump",
+   "sym": "equity",
+   "score": 64,
+   "priceNative": 6.397e-7
+  },
+  {
+   "t": 1794806659192,
+   "mint": "HnNTiEwkmHezJBnvUa3QMZ97uS4jXf67NCXSAV8bpump",
+   "sym": "equity",
+   "score": 64,
+   "priceNative": 6.313e-7
+  },
+  {
+   "t": 1794806681789,
+   "mint": "HnNTiEwkmHezJBnvUa3QMZ97uS4jXf67NCXSAV8bpump",
+   "sym": "equity",
+   "score": 66,
+   "priceNative": 6.442e-7
+  },
+  {
+   "t": 1794806704670,
+   "mint": "HnNTiEwkmHezJBnvUa3QMZ97uS4jXf67NCXSAV8bpump",
+   "sym": "equity",
+   "score": 66,
+   "priceNative": 5.504e-7
+  },
+  {
+   "t": 1794806727840,
+   "mint": "CiV5UJFf2dp87cymyPf3UaV8FLCiynYVZopgN5QSpump",
+   "sym": "KELPGUY",
+   "score": 75,
+   "priceNative": 2.319e-7
+  },
+  {
+   "t": 1794806727840,
+   "mint": "HnNTiEwkmHezJBnvUa3QMZ97uS4jXf67NCXSAV8bpump",
+   "sym": "equity",
+   "score": 67,
+   "priceNative": 5.628e-7
+  },
+  {
+   "t": 1794806750720,
+   "mint": "CiV5UJFf2dp87cymyPf3UaV8FLCiynYVZopgN5QSpump",
+   "sym": "KELPGUY",
+   "score": 75,
+   "priceNative": 2.683e-7
+  },
+  {
+   "t": 1794806750720,
+   "mint": "HnNTiEwkmHezJBnvUa3QMZ97uS4jXf67NCXSAV8bpump",
+   "sym": "equity",
+   "score": 68,
+   "priceNative": 5.794e-7
+  },
+  {
+   "t": 1794806774033,
+   "mint": "CiV5UJFf2dp87cymyPf3UaV8FLCiynYVZopgN5QSpump",
+   "sym": "KELPGUY",
+   "score": 75,
+   "priceNative": 2.683e-7
+  },
+  {
+   "t": 1794806774033,
+   "mint": "HnNTiEwkmHezJBnvUa3QMZ97uS4jXf67NCXSAV8bpump",
+   "sym": "equity",
+   "score": 68,
+   "priceNative": 5.794e-7
+  },
+  {
+   "t": 1794806797131,
+   "mint": "CiV5UJFf2dp87cymyPf3UaV8FLCiynYVZopgN5QSpump",
+   "sym": "KELPGUY",
+   "score": 78,
+   "priceNative": 2.418e-7
+  },
+  {
+   "t": 1794806797131,
+   "mint": "HnNTiEwkmHezJBnvUa3QMZ97uS4jXf67NCXSAV8bpump",
+   "sym": "equity",
+   "score": 65,
+   "priceNative": 6.518e-7
+  },
+  {
+   "t": 1794806820392,
+   "mint": "CiV5UJFf2dp87cymyPf3UaV8FLCiynYVZopgN5QSpump",
+   "sym": "KELPGUY",
+   "score": 78,
+   "priceNative": 2.361e-7
+  },
+  {
+   "t": 1794806820392,
+   "mint": "HnNTiEwkmHezJBnvUa3QMZ97uS4jXf67NCXSAV8bpump",
+   "sym": "equity",
+   "score": 66,
+   "priceNative": 6.457e-7
+  },
+  {
+   "t": 1794806843586,
+   "mint": "CiV5UJFf2dp87cymyPf3UaV8FLCiynYVZopgN5QSpump",
+   "sym": "KELPGUY",
+   "score": 78,
+   "priceNative": 2.761e-7
+  },
+  {
+   "t": 1794806866546,
+   "mint": "CiV5UJFf2dp87cymyPf3UaV8FLCiynYVZopgN5QSpump",
+   "sym": "KELPGUY",
+   "score": 78,
+   "priceNative": 2.761e-7
   }
  ],
  "day": {
   "date": "2026-11-16",
   "startEq": 6
  },
- "cooldownUntil": 1794806152241,
+ "cooldownUntil": 1794806922873,
  "halted": null,
  "seq": 178,
  "events": [
+  "05:28:09 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 238 veto",
+  "05:27:46 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 236 veto",
+  "05:27:23 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 231 veto",
+  "05:27:00 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 236 veto",
+  "05:26:37 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 235 veto",
+  "05:26:14 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 236 veto",
+  "05:25:50 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 235 veto",
+  "05:25:27 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 237 veto",
+  "05:25:04 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 235 veto",
+  "05:24:41 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 241 veto",
+  "05:24:19 ORACLE   357 raccolti, 252 analizzati, 1 BUY, 238 veto",
+  "05:23:56 ORACLE   354 raccolti, 246 analizzati, 2 BUY, 231 veto",
+  "05:23:42 SCRIBE   chiuso P-0178 $KELPGUY -0.0484 SOL (-42.4%)",
+  "05:23:42 CHARON   Stop loss $KELPGUY vendo 100% a -39.5% -> 0.0658 SOL",
+  "05:23:32 ORACLE   336 raccolti, 238 analizzati, 1 BUY, 221 veto",
   "05:23:09 ORACLE   335 raccolti, 238 analizzati, 1 BUY, 221 veto",
   "05:22:46 ORACLE   329 raccolti, 233 analizzati, 1 BUY, 216 veto",
   "05:22:33 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena",
@@ -3597,22 +3724,7 @@
   "03:47:15 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 243 veto",
   "03:46:52 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 250 veto",
   "03:46:29 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 250 veto",
-  "03:46:07 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 243 veto",
-  "03:45:43 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 251 veto",
-  "03:45:20 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 249 veto",
-  "03:44:57 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 243 veto",
-  "03:44:35 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 250 veto",
-  "03:44:12 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 246 veto",
-  "03:43:49 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 241 veto",
-  "03:43:26 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 242 veto",
-  "03:43:03 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 229 veto",
-  "03:42:40 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 239 veto",
-  "03:42:17 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 247 veto",
-  "03:41:54 SCRIBE   chiuso P-0175 $Gib -0.0759 SOL (-64.2%)",
-  "03:41:54 CHARON   Stop loss $Gib vendo 100% a -44.5% -> 0.0422 SOL",
-  "03:41:54 ORACLE   349 raccolti, 250 analizzati, 0 BUY, 237 veto",
-  "03:41:41 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena",
-  "03:41:31 ORACLE   339 raccolti, 225 analizzati, 0 BUY, 213 veto"
+  "03:46:07 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 243 veto"
  ],
  "capital": 6,
  "resetId": "C-0075",
@@ -13754,6 +13866,10 @@
   {
    "t": 1794805852239,
    "g": -5.4
+  },
+  {
+   "t": 1794806622872,
+   "g": -1.3
   }
  ]
 }
