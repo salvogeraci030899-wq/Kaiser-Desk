@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-16 20:31 UTC · in esecuzione da 0.1 giorni · 145 run
+Aggiornato: 2026-11-16 20:37 UTC · in esecuzione da 0.1 giorni · 145 run
 
 | | |
 |---|---|
-| Equity | **5.9133 SOL** (-1.4% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.9133 SOL |
-| Trade chiusi | 17 |
-| Win rate | 29% |
-| P&L realizzato | -0.0867 SOL (~$-6.19) |
-| Media vincite / perdite | +36.2% / -21.0% |
-| Profit factor | 0.72 |
+| Equity | **6.0926 SOL** (+1.5% dal capitale iniziale di 6 SOL) |
+| Cassa | 6.0926 SOL |
+| Trade chiusi | 18 |
+| Win rate | 33% |
+| P&L realizzato | +0.0926 SOL (~$6.60) |
+| Media vincite / perdite | +55.2% / -21.0% |
+| Profit factor | 1.30 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -21,12 +21,13 @@ _nessuna_
 |---|---|---|
 | RUG-EXIT liquidità | 2 | -0.0151 |
 | Time stop | 9 | -0.1488 |
-| TP1 | 3 | +0.1208 |
+| TP1 | 4 | +0.3000 |
 | Stop loss | 3 | -0.0435 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $SENT | 67 | +150.3% | +0.1793 | +81% | +81% | TP1 | 3m |
 | $VI | 69 | -24.2% | -0.0290 | +0% | -46% | Stop loss | 2m |
 | $CAESAR | 66 | -56.8% | -0.0688 | +11% | -52% | Stop loss | 2m |
 | $FPT | 71 | -13.5% | -0.0164 | +0% | -11% | Time stop | 5m |
@@ -47,6 +48,23 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+20:37:06 SCRIBE   chiuso P-0233 $SENT 0.1793 SOL (150.3%)
+20:37:06 CHARON   TP1 $SENT vendo 100% a 81.0% -> 0.2986 SOL
+20:37:06 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 266 veto
+20:36:42 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 264 veto
+20:36:18 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 246 veto
+20:35:53 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 248 veto
+20:35:30 ORACLE   360 raccolti, 210 analizzati, 2 BUY, 204 veto
+20:35:06 ORACLE   360 raccolti, 234 analizzati, 2 BUY, 228 veto
+20:34:43 ORACLE   360 raccolti, 242 analizzati, 3 BUY, 234 veto
+20:34:18 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 245 veto
+20:33:55 KAISER   limite 1 ingresso/i per scan: $22M rimandato
+20:33:54 QUARTER  BUY $SENT 0.118 SOL score 67 impatto 0.86% (Jupiter)
+20:33:54 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 232 veto
+20:33:30 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 227 veto
+20:33:06 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 234 veto
+20:32:43 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 234 veto
+20:32:18 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 248 veto
 20:31:55 ORACLE   360 raccolti, 230 analizzati, 1 BUY, 225 veto
 20:31:32 ORACLE   360 raccolti, 219 analizzati, 2 BUY, 213 veto
 20:31:08 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 242 veto
@@ -70,23 +88,6 @@ _nessuna_
 20:24:52 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 252 veto
 20:24:28 QUARTER  BUY $VI 0.119 SOL score 69 impatto 1.72% (Jupiter)
 20:24:28 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 230 veto
-20:24:04 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 239 veto
-20:23:40 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 243 veto
-20:23:16 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 226 veto
-20:22:52 ORACLE   360 raccolti, 240 analizzati, 2 BUY, 235 veto
-20:22:29 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 242 veto
-20:22:05 ORACLE   360 raccolti, 228 analizzati, 1 BUY, 225 veto
-20:21:42 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 237 veto
-20:21:19 ORACLE   360 raccolti, 223 analizzati, 1 BUY, 221 veto
-20:20:56 QUARTER  $Smoke impatto 2.3% oltre slippage: annullato
-20:20:56 ORACLE   360 raccolti, 230 analizzati, 1 BUY, 228 veto
-20:20:34 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 233 veto
-20:20:11 ORACLE   360 raccolti, 233 analizzati, 1 BUY, 231 veto
-20:19:49 ORACLE   360 raccolti, 229 analizzati, 1 BUY, 227 veto
-20:19:26 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 240 veto
-20:19:04 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 245 veto
-20:18:42 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 253 veto
-20:18:17 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 253 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
