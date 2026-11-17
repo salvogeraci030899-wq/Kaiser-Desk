@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 04:44 UTC · in esecuzione da 0.5 giorni · 155 run
+Aggiornato: 2026-11-17 04:49 UTC · in esecuzione da 0.5 giorni · 155 run
 
 | | |
 |---|---|
-| Equity | **5.9217 SOL** (-1.3% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.8088 SOL |
-| Trade chiusi | 63 |
-| Win rate | 37% |
-| P&L realizzato | -0.0717 SOL (~$-5.23) |
-| Media vincite / perdite | +49.0% / -29.3% |
+| Equity | **5.9224 SOL** (-1.3% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.9224 SOL |
+| Trade chiusi | 64 |
+| Win rate | 36% |
+| P&L realizzato | -0.0776 SOL (~$-5.66) |
+| Media vincite / perdite | +49.0% / -28.7% |
 | Profit factor | 0.95 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$KLAUDIA** P-0279 · 0.119 SOL · -4.7% · resta 100% · [grafico](https://dexscreener.com/solana/2XFQJ7bfdntiNTVAygbvec4Qi2jtqonQZNDpRprk6Hcj)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | RUG-EXIT liquidità | 10 | -0.6019 |
-| Time stop | 27 | -0.3012 |
+| Time stop | 28 | -0.3072 |
 | TP1 | 15 | +1.1701 |
 | Stop loss | 11 | -0.3386 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $KLAUDIA | 81 | -5.0% | -0.0060 | +17% | +4% | Time stop | 6m |
 | $Tuff | 66 | -10.4% | -0.0125 | +0% | -15% | Time stop | 5m |
 | $DRILL | 63 | +1.3% | +0.0015 | +6% | +4% | Time stop | 6m |
 | $Mischio | 72 | +12.8% | +0.0153 | +1% | -21% | Time stop | 5m |
@@ -51,10 +52,24 @@ Aggiornato: 2026-11-17 04:44 UTC · in esecuzione da 0.5 giorni · 155 run
 | $BINDER | 69 | +30.3% | +0.0369 | +49% | +5% | Time stop | 6m |
 | $GTAMARKET | 64 | -7.6% | -0.0092 | +30% | -6% | Time stop | 11m |
 | $LUCIA | 82 | -21.2% | -0.0261 | +0% | -44% | Stop loss | 0m |
-| $Epstein | 75 | -45.5% | -0.0561 | +0% | -54% | RUG-EXIT liquidità | 4m |
 
 ## Ultimi eventi
 ```
+04:49:03 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 252 veto
+04:48:40 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 240 veto
+04:48:17 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 254 veto
+04:47:54 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 254 veto
+04:47:30 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 250 veto
+04:47:07 SCRIBE   chiuso P-0279 $KLAUDIA -0.0060 SOL (-5.0%)
+04:47:07 CHARON   Time stop $KLAUDIA vendo 100% a 4.5% -> 0.1136 SOL
+04:47:07 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 251 veto
+04:46:44 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 260 veto
+04:46:22 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 257 veto
+04:45:59 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 266 veto
+04:45:36 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 262 veto
+04:45:13 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 242 veto
+04:44:51 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 266 veto
+04:44:28 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 266 veto
 04:44:06 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 245 veto
 04:43:43 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 267 veto
 04:43:20 ORACLE   360 raccolti, 282 analizzati, 2 BUY, 271 veto
@@ -80,21 +95,6 @@ Aggiornato: 2026-11-17 04:44 UTC · in esecuzione da 0.5 giorni · 155 run
 04:36:53 ORACLE   360 raccolti, 274 analizzati, 2 BUY, 267 veto
 04:36:31 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 254 veto
 04:36:08 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 250 veto
-04:35:44 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 264 veto
-04:35:21 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 261 veto
-04:34:58 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 260 veto
-04:34:56 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
-04:34:36 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 263 veto
-04:34:14 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 265 veto
-04:33:51 ORACLE   360 raccolti, 267 analizzati, 3 BUY, 260 veto
-04:33:28 ORACLE   360 raccolti, 271 analizzati, 3 BUY, 262 veto
-04:33:06 ORACLE   360 raccolti, 265 analizzati, 3 BUY, 256 veto
-04:32:43 ORACLE   360 raccolti, 264 analizzati, 3 BUY, 255 veto
-04:32:20 ORACLE   360 raccolti, 270 analizzati, 3 BUY, 261 veto
-04:32:07 SCRIBE   chiuso P-0278 $Tuff -0.0125 SOL (-10.4%)
-04:32:07 CHARON   Time stop $Tuff vendo 100% a -14.7% -> 0.1073 SOL
-04:31:57 ORACLE   360 raccolti, 267 analizzati, 3 BUY, 255 veto
-04:31:34 ORACLE   360 raccolti, 258 analizzati, 3 BUY, 247 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
