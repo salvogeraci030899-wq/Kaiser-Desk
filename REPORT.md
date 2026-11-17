@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 04:59 UTC · in esecuzione da 0.5 giorni · 155 run
+Aggiornato: 2026-11-17 05:04 UTC · in esecuzione da 0.5 giorni · 155 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-17 04:59 UTC · in esecuzione da 0.5 giorni · 155 run
 | Cassa | 5.9224 SOL |
 | Trade chiusi | 64 |
 | Win rate | 36% |
-| P&L realizzato | -0.0776 SOL (~$-5.67) |
+| P&L realizzato | -0.0776 SOL (~$-5.65) |
 | Media vincite / perdite | +49.0% / -28.7% |
 | Profit factor | 0.95 |
 | Circuit breaker | no |
@@ -55,6 +55,21 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+05:04:43 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 245 veto
+05:04:40 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
+05:04:20 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 247 veto
+05:03:58 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 248 veto
+05:03:35 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 241 veto
+05:03:12 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 241 veto
+05:02:49 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 241 veto
+05:02:26 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 237 veto
+05:02:02 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 246 veto
+05:01:40 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 243 veto
+05:01:16 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 239 veto
+05:00:54 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 237 veto
+05:00:31 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 243 veto
+05:00:08 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 241 veto
+04:59:45 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 240 veto
 04:59:23 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 245 veto
 04:58:59 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 241 veto
 04:58:37 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 249 veto
@@ -80,21 +95,6 @@ _nessuna_
 04:50:58 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 242 veto
 04:50:35 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 244 veto
 04:50:12 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 242 veto
-04:49:49 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 235 veto
-04:49:27 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 251 veto
-04:49:03 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 252 veto
-04:48:40 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 240 veto
-04:48:17 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 254 veto
-04:47:54 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 254 veto
-04:47:30 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 250 veto
-04:47:07 SCRIBE   chiuso P-0279 $KLAUDIA -0.0060 SOL (-5.0%)
-04:47:07 CHARON   Time stop $KLAUDIA vendo 100% a 4.5% -> 0.1136 SOL
-04:47:07 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 251 veto
-04:46:44 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 260 veto
-04:46:22 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 257 veto
-04:45:59 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 266 veto
-04:45:36 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 262 veto
-04:45:13 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 242 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
