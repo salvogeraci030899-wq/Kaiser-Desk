@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 21:29 UTC · in esecuzione da 0.2 giorni · 175 run
+Aggiornato: 2026-11-17 21:34 UTC · in esecuzione da 0.2 giorni · 175 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-17 21:29 UTC · in esecuzione da 0.2 giorni · 175 run
 | Cassa | 5.4374 SOL |
 | Trade chiusi | 22 |
 | Win rate | 32% |
-| P&L realizzato | -0.5626 SOL (~$-41.38) |
+| P&L realizzato | -0.5626 SOL (~$-41.56) |
 | Media vincite / perdite | +23.8% / -43.3% |
 | Profit factor | 0.26 |
 | Circuit breaker | no |
@@ -53,6 +53,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+21:34:07 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 246 veto
+21:33:44 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 243 veto
+21:33:21 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 239 veto
+21:32:59 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 238 veto
+21:32:36 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 232 veto
+21:32:14 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 240 veto
+21:31:55 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
+21:31:51 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 239 veto
+21:31:28 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 234 veto
+21:31:04 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 240 veto
+21:30:41 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 235 veto
+21:30:18 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 229 veto
+21:29:54 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 246 veto
+21:29:31 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 241 veto
 21:29:08 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 234 veto
 21:28:44 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 250 veto
 21:28:21 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 243 veto
@@ -79,20 +93,6 @@ _nessuna_
 21:21:20 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 233 veto
 21:20:54 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 240 veto
 21:20:31 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 245 veto
-21:20:08 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 246 veto
-21:19:45 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 246 veto
-21:19:21 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 252 veto
-21:18:59 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 246 veto
-21:18:36 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 249 veto
-21:18:13 QUARTER  $DEED impatto 2.3% oltre slippage: annullato
-21:18:13 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 242 veto
-21:17:49 ORACLE   360 raccolti, 240 analizzati, 2 BUY, 234 veto
-21:17:27 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 255 veto
-21:17:05 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 239 veto
-21:16:41 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 235 veto
-21:16:19 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 241 veto
-21:15:56 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 241 veto
-21:15:33 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 230 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
