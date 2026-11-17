@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 02:58 UTC · in esecuzione da 0.4 giorni · 153 run
+Aggiornato: 2026-11-17 03:03 UTC · in esecuzione da 0.4 giorni · 153 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-17 02:58 UTC · in esecuzione da 0.4 giorni · 153 run
 | Cassa | 6.0579 SOL |
 | Trade chiusi | 54 |
 | Win rate | 33% |
-| P&L realizzato | +0.0579 SOL (~$4.14) |
+| P&L realizzato | +0.0579 SOL (~$4.15) |
 | Media vincite / perdite | +58.2% / -27.4% |
 | Profit factor | 1.05 |
 | Circuit breaker | no |
@@ -55,6 +55,24 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+03:03:19 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 246 veto
+03:02:56 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 244 veto
+03:02:33 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 239 veto
+03:02:10 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 249 veto
+03:01:47 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 249 veto
+03:01:24 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 243 veto
+03:01:00 QUARTER  $MELNOK impatto 3.7% oltre slippage: annullato
+03:01:00 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 248 veto
+03:00:37 QUARTER  $MELNOK impatto 2.3% oltre slippage: annullato
+03:00:37 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 249 veto
+03:00:25 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 243 veto
+02:59:59 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 247 veto
+02:59:36 QUARTER  $MELNOK impatto 2.4% oltre slippage: annullato
+02:59:36 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 238 veto
+02:59:13 QUARTER  $MELNOK impatto 2.2% oltre slippage: annullato
+02:59:13 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 244 veto
+02:59:10 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)
+02:58:50 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 253 veto
 02:58:27 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 255 veto
 02:58:05 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 243 veto
 02:57:42 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 255 veto
@@ -77,24 +95,6 @@ _nessuna_
 02:51:56 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 262 veto
 02:51:33 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 262 veto
 02:51:10 ORACLE   360 raccolti, 266 analizzati, 3 BUY, 254 veto
-02:50:47 ORACLE   360 raccolti, 273 analizzati, 4 BUY, 263 veto
-02:50:24 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 262 veto
-02:50:01 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 251 veto
-02:49:38 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 268 veto
-02:49:15 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 264 veto
-02:48:52 QUARTER  BUY $Nozomi 0.122 SOL score 64 impatto 0.47% (Jupiter)
-02:48:52 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 261 veto
-02:48:29 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 267 veto
-02:48:05 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 263 veto
-02:47:43 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 260 veto
-02:47:19 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 260 veto
-02:46:57 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 259 veto
-02:46:34 ORACLE   356 raccolti, 262 analizzati, 2 BUY, 249 veto
-02:46:11 ORACLE   329 raccolti, 248 analizzati, 2 BUY, 239 veto
-02:45:48 ORACLE   322 raccolti, 244 analizzati, 2 BUY, 234 veto
-02:45:25 ORACLE   313 raccolti, 229 analizzati, 2 BUY, 219 veto
-02:45:12 SCOUT    PumpPortal invia nuovi token (29) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-02:45:02 ORACLE   287 raccolti, 212 analizzati, 2 BUY, 205 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
