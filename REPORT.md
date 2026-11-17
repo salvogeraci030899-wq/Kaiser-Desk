@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 22:44 UTC · in esecuzione da 0.3 giorni · 176 run
+Aggiornato: 2026-11-17 22:48 UTC · in esecuzione da 0.3 giorni · 176 run
 
 | | |
 |---|---|
-| Equity | **5.1825 SOL** (-13.6% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.0370 SOL |
-| Trade chiusi | 29 |
-| Win rate | 28% |
-| P&L realizzato | -0.8592 SOL (~$-63.48) |
-| Media vincite / perdite | +21.3% / -44.3% |
+| Equity | **5.1406 SOL** (-14.3% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.0395 SOL |
+| Trade chiusi | 30 |
+| Win rate | 30% |
+| P&L realizzato | -0.8567 SOL (~$-63.29) |
+| Media vincite / perdite | +19.2% / -44.3% |
 | Profit factor | 0.19 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$BI** P-0347 · 0.103 SOL · +41.5% · resta 100% · [grafico](https://dexscreener.com/solana/5oKPso8yGJ363sDUJVsGk6zNkWP2EChcu9sFA1yPE4So)
+- **$LUCIA** P-0348 · 0.103 SOL · -1.7% · resta 100% · [grafico](https://dexscreener.com/solana/7PyoLmvAumifWXSue5Wwsg5uSPXWNmpXCWRMSi1CKeeG)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -22,12 +22,13 @@ Aggiornato: 2026-11-17 22:44 UTC · in esecuzione da 0.3 giorni · 176 run
 | Chiusura manuale (app) | 8 | -0.0904 |
 | RUG-EXIT liquidità | 5 | -0.4476 |
 | Time stop | 8 | -0.0519 |
-| TP1 | 1 | +0.0568 |
+| TP1 | 2 | +0.0594 |
 | Stop loss | 7 | -0.3261 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $BI | 79 | +2.4% | +0.0025 | +113% | +113% | TP1 | 0m |
 | $GTA | 80 | -96.5% | -0.1021 | +17% | -95% | RUG-EXIT liquidità | 6m |
 | $hamster | 73 | -7.8% | -0.0083 | +0% | -13% | Time stop | 5m |
 | $ADR | 66 | -48.4% | -0.0518 | +9% | -48% | Stop loss | 2m |
@@ -52,10 +53,26 @@ Aggiornato: 2026-11-17 22:44 UTC · in esecuzione da 0.3 giorni · 176 run
 | $Scout | 75 | -90.2% | -0.1080 | +0% | -6% | Chiusura manuale (app) | 1m |
 | $Rex | 77 | -54.4% | -0.0658 | +35% | -50% | RUG-EXIT liquidità | 1m |
 | $SSL | 79 | +13.0% | +0.0157 | +29% | +29% | Chiusura manuale (app) | 3m |
-| $ACRUX | 70 | -42.4% | -0.0516 | +1% | +1% | Chiusura manuale (app) | 1m |
 
 ## Ultimi eventi
 ```
+22:48:51 SCRIBE   fine run · trade 30 · win 30% · P&L -0.8567 SOL · equity 5.1406 SOL
+22:48:41 ORACLE   360 raccolti, 247 analizzati, 4 BUY, 237 veto
+22:48:17 ORACLE   360 raccolti, 253 analizzati, 3 BUY, 245 veto
+22:47:53 ORACLE   360 raccolti, 252 analizzati, 3 BUY, 244 veto
+22:47:40 ORACLE   360 raccolti, 242 analizzati, 3 BUY, 234 veto
+22:47:11 ORACLE   360 raccolti, 246 analizzati, 4 BUY, 238 veto
+22:46:48 ORACLE   360 raccolti, 238 analizzati, 4 BUY, 230 veto
+22:46:34 ORACLE   360 raccolti, 246 analizzati, 4 BUY, 239 veto
+22:46:18 KAISER   limite 1 ingresso/i per scan: $INU rimandato
+22:46:18 QUARTER  BUY $LUCIA 0.103 SOL score 74 impatto 1.06% (Jupiter)
+22:46:18 ORACLE   360 raccolti, 233 analizzati, 4 BUY, 226 veto
+22:45:48 ORACLE   360 raccolti, 262 analizzati, 3 BUY, 256 veto
+22:45:26 ORACLE   360 raccolti, 251 analizzati, 3 BUY, 244 veto
+22:45:03 ORACLE   360 raccolti, 240 analizzati, 3 BUY, 232 veto
+22:44:39 SCRIBE   chiuso P-0347 $BI 0.0025 SOL (2.4%)
+22:44:39 CHARON   TP1 $BI vendo 100% a 113.5% -> 0.1063 SOL
+22:44:39 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 252 veto
 22:44:16 QUARTER  BUY $BI 0.103 SOL score 79 impatto 1.98% (Jupiter)
 22:44:15 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 254 veto
 22:43:52 ORACLE   360 raccolti, 250 analizzati, 3 BUY, 239 veto
@@ -79,23 +96,6 @@ Aggiornato: 2026-11-17 22:44 UTC · in esecuzione da 0.3 giorni · 176 run
 22:37:49 ORACLE   360 raccolti, 249 analizzati, 5 BUY, 241 veto
 22:37:26 ORACLE   360 raccolti, 264 analizzati, 5 BUY, 256 veto
 22:37:03 ORACLE   360 raccolti, 249 analizzati, 5 BUY, 240 veto
-22:36:39 ORACLE   360 raccolti, 264 analizzati, 5 BUY, 254 veto
-22:36:16 ORACLE   360 raccolti, 261 analizzati, 5 BUY, 250 veto
-22:35:52 SCRIBE   chiuso P-0345 $hamster -0.0083 SOL (-7.8%)
-22:35:52 CHARON   Time stop $hamster vendo 100% a -13.1% -> 0.0977 SOL
-22:35:52 ORACLE   360 raccolti, 254 analizzati, 6 BUY, 244 veto
-22:35:28 ORACLE   360 raccolti, 263 analizzati, 5 BUY, 250 veto
-22:35:05 ORACLE   360 raccolti, 269 analizzati, 4 BUY, 256 veto
-22:34:42 ORACLE   360 raccolti, 267 analizzati, 4 BUY, 251 veto
-22:34:18 ORACLE   360 raccolti, 267 analizzati, 3 BUY, 251 veto
-22:33:55 ORACLE   360 raccolti, 272 analizzati, 3 BUY, 254 veto
-22:33:32 ORACLE   360 raccolti, 271 analizzati, 3 BUY, 254 veto
-22:33:19 KAISER   limite 1 ingresso/i per scan: $hamster rimandato
-22:33:18 QUARTER  BUY $GTA 0.105 SOL score 80 impatto 1.68% (Jupiter)
-22:33:18 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 231 veto
-22:33:16 SCOUT    DexScreener errore: This operation was aborted
-22:32:39 ORACLE   360 raccolti, 260 analizzati, 4 BUY, 246 veto
-22:32:17 ORACLE   360 raccolti, 260 analizzati, 4 BUY, 248 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
