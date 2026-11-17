@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 07:59 UTC · in esecuzione da 0.6 giorni · 159 run
+Aggiornato: 2026-11-17 08:05 UTC · in esecuzione da 0.6 giorni · 159 run
 
 | | |
 |---|---|
@@ -55,6 +55,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+08:05:08 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 230 veto
+08:04:45 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 239 veto
+08:04:22 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 232 veto
+08:03:59 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 240 veto
+08:03:36 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 247 veto
+08:03:13 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 249 veto
+08:02:50 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 241 veto
+08:02:27 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 247 veto
+08:02:04 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 253 veto
+08:01:42 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 247 veto
+08:01:18 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 259 veto
+08:00:55 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 256 veto
+08:00:32 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 257 veto
+08:00:09 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 266 veto
 07:59:46 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 260 veto
 07:59:22 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 245 veto
 07:59:00 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 261 veto
@@ -81,20 +95,6 @@ _nessuna_
 07:51:18 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)
 07:50:57 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 243 veto
 07:50:34 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 244 veto
-07:50:12 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 236 veto
-07:49:49 ORACLE   346 raccolti, 238 analizzati, 1 BUY, 228 veto
-07:49:35 SCRIBE   chiuso P-0284 $SUPERPLUMB -0.0050 SOL (-4.1%)
-07:49:35 CHARON   Time stop $SUPERPLUMB vendo 100% a -3.2% -> 0.1169 SOL
-07:49:25 ORACLE   333 raccolti, 233 analizzati, 1 BUY, 223 veto
-07:49:02 ORACLE   327 raccolti, 224 analizzati, 1 BUY, 214 veto
-07:48:39 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-07:48:39 ORACLE   308 raccolti, 216 analizzati, 1 BUY, 207 veto
-07:48:16 ORACLE   305 raccolti, 205 analizzati, 1 BUY, 196 veto
-07:47:54 ORACLE   300 raccolti, 195 analizzati, 1 BUY, 186 veto
-07:47:31 ORACLE   277 raccolti, 188 analizzati, 2 BUY, 180 veto
-07:47:08 ORACLE   271 raccolti, 174 analizzati, 2 BUY, 166 veto
-07:46:45 ORACLE   266 raccolti, 172 analizzati, 2 BUY, 164 veto
-07:46:23 ORACLE   245 raccolti, 162 analizzati, 2 BUY, 154 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
