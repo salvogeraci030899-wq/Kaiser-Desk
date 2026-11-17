@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 10:55 UTC · in esecuzione da 0.7 giorni · 162 run
+Aggiornato: 2026-11-17 11:00 UTC · in esecuzione da 0.7 giorni · 162 run
 
 | | |
 |---|---|
-| Equity | **5.9280 SOL** (-1.2% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.9280 SOL |
+| Equity | **5.9404 SOL** (-1.0% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.8084 SOL |
 | Trade chiusi | 73 |
 | Win rate | 37% |
-| P&L realizzato | -0.0720 SOL (~$-5.20) |
+| P&L realizzato | -0.0720 SOL (~$-5.19) |
 | Media vincite / perdite | +51.1% / -30.9% |
 | Profit factor | 0.96 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$BUDDY** P-0289 · 0.119 SOL · +11.3% · resta 100% · [grafico](https://dexscreener.com/solana/4q3EQc2HdJ2QgVFkpeKr54pMFqczXxnV7KruVVognyXq)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,23 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+11:00:57 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 246 veto
+11:00:33 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 256 veto
+11:00:09 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 252 veto
+10:59:55 ORACLE   360 raccolti, 240 analizzati, 2 BUY, 231 veto
+10:59:52 SCOUT    DexScreener errore: This operation was aborted
+10:59:16 QUARTER  BUY $BUDDY 0.119 SOL score 72 impatto 0.25% (Jupiter)
+10:59:16 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 256 veto
+10:58:52 QUARTER  $BUDDY impatto 2.2% oltre slippage: annullato
+10:58:52 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 256 veto
+10:58:29 QUARTER  $BUDDY impatto 2.3% oltre slippage: annullato
+10:58:29 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 245 veto
+10:58:06 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 257 veto
+10:57:42 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 252 veto
+10:57:18 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 247 veto
+10:56:55 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 259 veto
+10:56:31 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 256 veto
+10:56:08 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 247 veto
 10:55:44 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 257 veto
 10:55:21 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 249 veto
 10:54:58 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 252 veto
@@ -78,23 +95,6 @@ _nessuna_
 10:49:06 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 245 veto
 10:48:42 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 254 veto
 10:48:19 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 247 veto
-10:47:56 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 244 veto
-10:47:33 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 251 veto
-10:47:10 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 250 veto
-10:46:46 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 251 veto
-10:46:21 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 251 veto
-10:45:57 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 247 veto
-10:45:33 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 244 veto
-10:45:08 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 254 veto
-10:44:46 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 252 veto
-10:44:22 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 246 veto
-10:43:58 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 252 veto
-10:43:35 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 251 veto
-10:43:12 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 250 veto
-10:42:49 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 256 veto
-10:42:26 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 258 veto
-10:42:12 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 238 veto
-10:42:09 SCOUT    DexScreener errore: This operation was aborted
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
