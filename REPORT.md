@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 16:12 UTC · in esecuzione da 0.9 giorni · 169 run
+Aggiornato: 2026-11-17 16:17 UTC · in esecuzione da 0.9 giorni · 169 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-17 16:12 UTC · in esecuzione da 0.9 giorni · 169 run
 | Cassa | 5.8136 SOL |
 | Trade chiusi | 101 |
 | Win rate | 36% |
-| P&L realizzato | -0.1864 SOL (~$-13.50) |
+| P&L realizzato | -0.1864 SOL (~$-13.49) |
 | Media vincite / perdite | +49.7% / -29.6% |
 | Profit factor | 0.92 |
 | Circuit breaker | no |
@@ -55,6 +55,21 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+16:17:13 QUARTER  $Cyber impatto 2.1% oltre slippage: annullato
+16:17:12 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 256 veto
+16:16:49 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 253 veto
+16:16:26 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 235 veto
+16:16:23 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
+16:16:03 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 254 veto
+16:15:39 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 254 veto
+16:15:17 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 246 veto
+16:14:53 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 259 veto
+16:14:31 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 255 veto
+16:14:07 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 234 veto
+16:13:44 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 245 veto
+16:13:21 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 252 veto
+16:12:57 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 249 veto
+16:12:34 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 251 veto
 16:12:10 SCRIBE   chiuso P-0316 $攀豹豹 -0.0084 SOL (-7.1%)
 16:12:10 CHARON   Time stop $攀豹豹 vendo 100% a 1.9% -> 0.1091 SOL
 16:12:10 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 244 veto
@@ -80,21 +95,6 @@ _nessuna_
 16:07:00 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
 16:07:00 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
 16:07:00 SCOUT    Laboratorio: collegato a PumpPortal
-16:07:00 KAISER   run #169 · 1 posizioni · equity 5.8317 SOL · GMGN spenta (nessuna chiave) · Grok off
-16:06:48 SCRIBE   fine run · trade 100 · win 36% · P&L -0.1780 SOL · equity 5.8317 SOL
-16:06:48 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 246 veto
-16:06:33 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 251 veto
-16:06:09 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 255 veto
-16:05:46 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 243 veto
-16:05:23 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 244 veto
-16:05:10 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 232 veto
-16:04:42 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 234 veto
-16:04:19 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 250 veto
-16:03:56 QUARTER  BUY $攀豹豹 0.116 SOL score 70 impatto 1.06% (Jupiter)
-16:03:56 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 247 veto
-16:03:33 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 242 veto
-16:03:10 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 247 veto
-16:02:47 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 243 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
