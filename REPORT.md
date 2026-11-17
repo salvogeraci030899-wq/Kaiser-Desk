@@ -1,11 +1,11 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 01:58 UTC · in esecuzione da 0.4 giorni · 152 run
+Aggiornato: 2026-11-17 02:03 UTC · in esecuzione da 0.4 giorni · 152 run
 
 | | |
 |---|---|
-| Equity | **5.9982 SOL** (-0.0% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.9982 SOL |
+| Equity | **6.0055 SOL** (+0.1% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.8772 SOL |
 | Trade chiusi | 48 |
 | Win rate | 31% |
 | P&L realizzato | -0.0018 SOL (~$-0.13) |
@@ -14,7 +14,7 @@ Aggiornato: 2026-11-17 01:58 UTC · in esecuzione da 0.4 giorni · 152 run
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$CAT** P-0264 · 0.120 SOL · +6.9% · resta 100% · [grafico](https://dexscreener.com/solana/DAdZNHPLKiygAi7Y7gkKhdRroraVTPquiHXytyR9PbeZ)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+02:02:55 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 232 veto
+02:02:31 QUARTER  BUY $CAT 0.120 SOL score 77 impatto 0.36% (Jupiter)
+02:02:31 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 228 veto
+02:02:09 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 229 veto
+02:01:45 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 238 veto
+02:01:22 ORACLE   360 raccolti, 235 analizzati, 2 BUY, 227 veto
+02:00:58 ORACLE   360 raccolti, 235 analizzati, 2 BUY, 224 veto
+02:00:35 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 231 veto
+02:00:11 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 233 veto
+01:59:49 ORACLE   360 raccolti, 230 analizzati, 1 BUY, 218 veto
+01:59:25 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 230 veto
+01:59:02 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 230 veto
+01:58:39 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 230 veto
+01:58:16 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 233 veto
 01:57:53 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 244 veto
 01:57:31 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 233 veto
 01:57:17 SCRIBE   chiuso P-0263 $XDOGE -0.0086 SOL (-7.1%)
@@ -81,20 +95,6 @@ _nessuna_
 01:52:56 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
 01:52:56 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
 01:52:56 SCOUT    Laboratorio: collegato a PumpPortal
-01:52:56 KAISER   run #152 · 0 posizioni · equity 6.0068 SOL · GMGN spenta (nessuna chiave) · Grok off
-01:52:44 SCRIBE   fine run · trade 47 · win 32% · P&L 0.0068 SOL · equity 6.0068 SOL
-01:52:44 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 227 veto
-01:52:20 ORACLE   360 raccolti, 228 analizzati, 0 BUY, 221 veto
-01:51:57 ORACLE   360 raccolti, 225 analizzati, 0 BUY, 217 veto
-01:51:32 ORACLE   360 raccolti, 232 analizzati, 0 BUY, 223 veto
-01:51:08 ORACLE   360 raccolti, 229 analizzati, 0 BUY, 219 veto
-01:50:44 ORACLE   360 raccolti, 220 analizzati, 0 BUY, 210 veto
-01:50:20 ORACLE   360 raccolti, 226 analizzati, 0 BUY, 217 veto
-01:49:56 ORACLE   360 raccolti, 228 analizzati, 1 BUY, 218 veto
-01:49:32 ORACLE   360 raccolti, 220 analizzati, 2 BUY, 210 veto
-01:49:08 ORACLE   360 raccolti, 225 analizzati, 2 BUY, 213 veto
-01:48:44 QUARTER  $CAT impatto 2.2% oltre slippage: annullato
-01:48:44 ORACLE   360 raccolti, 222 analizzati, 2 BUY, 212 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
