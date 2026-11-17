@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 01:43 UTC · in esecuzione da 0.3 giorni · 151 run
+Aggiornato: 2026-11-17 01:48 UTC · in esecuzione da 0.3 giorni · 151 run
 
 | | |
 |---|---|
@@ -55,6 +55,21 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+01:48:44 QUARTER  $CAT impatto 2.2% oltre slippage: annullato
+01:48:44 ORACLE   360 raccolti, 222 analizzati, 2 BUY, 212 veto
+01:48:19 QUARTER  $CAT impatto 18.1% oltre slippage: annullato
+01:48:19 ORACLE   360 raccolti, 214 analizzati, 2 BUY, 205 veto
+01:47:55 ORACLE   360 raccolti, 224 analizzati, 2 BUY, 216 veto
+01:47:31 ORACLE   360 raccolti, 222 analizzati, 2 BUY, 214 veto
+01:47:07 ORACLE   360 raccolti, 225 analizzati, 2 BUY, 218 veto
+01:46:43 ORACLE   360 raccolti, 229 analizzati, 1 BUY, 220 veto
+01:46:18 ORACLE   360 raccolti, 230 analizzati, 1 BUY, 222 veto
+01:45:54 ORACLE   360 raccolti, 218 analizzati, 1 BUY, 208 veto
+01:45:29 ORACLE   360 raccolti, 231 analizzati, 1 BUY, 220 veto
+01:45:05 ORACLE   360 raccolti, 233 analizzati, 1 BUY, 222 veto
+01:44:42 ORACLE   360 raccolti, 225 analizzati, 1 BUY, 215 veto
+01:44:18 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 241 veto
+01:43:53 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 241 veto
 01:43:30 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 237 veto
 01:43:05 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 244 veto
 01:42:42 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 237 veto
@@ -80,21 +95,6 @@ _nessuna_
 01:35:50 ORACLE   360 raccolti, 251 analizzati, 3 BUY, 244 veto
 01:35:27 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 249 veto
 01:35:03 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 241 veto
-01:34:38 QUARTER  BUY $Jojo 0.118 SOL score 69 impatto 1.34% (Jupiter)
-01:34:38 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 252 veto
-01:34:14 QUARTER  $Jojo impatto 2.2% oltre slippage: annullato
-01:34:14 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 246 veto
-01:33:50 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 241 veto
-01:33:26 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 235 veto
-01:33:02 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 245 veto
-01:32:38 ORACLE   360 raccolti, 236 analizzati, 2 BUY, 231 veto
-01:32:14 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 240 veto
-01:31:51 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 236 veto
-01:31:47 KAISER   parametri dall'app: srcGmgnTrenches false→true, srcGmgnTrending false→true
-01:31:26 ORACLE   360 raccolti, 240 analizzati, 2 BUY, 231 veto
-01:31:02 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 246 veto
-01:30:38 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 247 veto
-01:30:14 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 233 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
