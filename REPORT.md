@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 21:13 UTC · in esecuzione da 0.2 giorni · 175 run
+Aggiornato: 2026-11-17 21:18 UTC · in esecuzione da 0.2 giorni · 175 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-17 21:13 UTC · in esecuzione da 0.2 giorni · 175 run
 | Cassa | 5.4374 SOL |
 | Trade chiusi | 22 |
 | Win rate | 32% |
-| P&L realizzato | -0.5626 SOL (~$-41.14) |
+| P&L realizzato | -0.5626 SOL (~$-41.03) |
 | Media vincite / perdite | +23.8% / -43.3% |
 | Profit factor | 0.26 |
 | Circuit breaker | no |
@@ -53,6 +53,21 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+21:18:59 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 246 veto
+21:18:36 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 249 veto
+21:18:13 QUARTER  $DEED impatto 2.3% oltre slippage: annullato
+21:18:13 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 242 veto
+21:17:49 ORACLE   360 raccolti, 240 analizzati, 2 BUY, 234 veto
+21:17:27 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 255 veto
+21:17:05 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 239 veto
+21:16:41 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 235 veto
+21:16:19 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 241 veto
+21:15:56 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 241 veto
+21:15:33 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 230 veto
+21:15:10 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 232 veto
+21:14:46 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 243 veto
+21:14:23 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 233 veto
+21:14:00 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 225 veto
 21:13:46 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 238 veto
 21:13:21 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 234 veto
 21:13:07 SCRIBE   chiuso P-0339 $AI -0.0746 SOL (-67.1%)
@@ -78,21 +93,6 @@ _nessuna_
 21:08:39 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→40, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120
 21:08:39 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
 21:08:38 SCOUT    Laboratorio: collegato a PumpPortal
-21:08:38 KAISER   run #175 · 0 posizioni · equity 5.5121 SOL · GMGN spenta (nessuna chiave) · Grok off
-21:08:23 SCRIBE   fine run · trade 21 · win 33% · P&L -0.4879 SOL · equity 5.5121 SOL
-21:08:13 ORACLE   360 raccolti, 257 analizzati, 3 BUY, 244 veto
-21:07:48 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 231 veto
-21:07:24 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 234 veto
-21:07:00 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 229 veto
-21:06:36 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 227 veto
-21:06:13 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 236 veto
-21:05:48 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 250 veto
-21:05:24 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 245 veto
-21:05:11 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 240 veto
-21:04:55 SCRIBE   chiuso P-0338 $GodsEye -0.0434 SOL (-38.7%)
-21:04:55 CHARON   Stop loss $GodsEye vendo 100% a -42.3% -> 0.0687 SOL
-21:04:55 ORACLE   360 raccolti, 229 analizzati, 1 BUY, 221 veto
-21:04:30 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 231 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
