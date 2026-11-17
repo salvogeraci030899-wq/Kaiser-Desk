@@ -1,20 +1,21 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 03:03 UTC · in esecuzione da 0.4 giorni · 153 run
+Aggiornato: 2026-11-17 03:08 UTC · in esecuzione da 0.4 giorni · 153 run
 
 | | |
 |---|---|
-| Equity | **6.0579 SOL** (+1.0% dal capitale iniziale di 6 SOL) |
-| Cassa | 6.0579 SOL |
+| Equity | **6.0405 SOL** (+0.7% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.8138 SOL |
 | Trade chiusi | 54 |
 | Win rate | 33% |
-| P&L realizzato | +0.0579 SOL (~$4.15) |
+| P&L realizzato | +0.0579 SOL (~$4.17) |
 | Media vincite / perdite | +58.2% / -27.4% |
 | Profit factor | 1.05 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$FLYWHEEL** P-0270 · 0.121 SOL · -10.2% · resta 100% · [grafico](https://dexscreener.com/solana/9Qrsk31oqsL25TeZ6SUKzUT2DNGgFxeW1kLgyxHHBqpw)
+- **$XDOGE** P-0271 · 0.121 SOL · -2.6% · resta 100% · [grafico](https://dexscreener.com/solana/7c7evZvkyXgJqSgEU56CrAqvSYtaeUBKMrGLja7Ngx2D)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +56,26 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+03:08:23 KAISER   limite 1 ingresso/i per scan: $CHAR rimandato
+03:08:22 QUARTER  BUY $XDOGE 0.121 SOL score 72 impatto 1.63% (Jupiter)
+03:08:22 ORACLE   360 raccolti, 276 analizzati, 3 BUY, 257 veto
+03:07:59 ORACLE   360 raccolti, 283 analizzati, 3 BUY, 266 veto
+03:07:36 ORACLE   360 raccolti, 282 analizzati, 3 BUY, 264 veto
+03:07:12 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 248 veto
+03:06:49 ORACLE   360 raccolti, 275 analizzati, 3 BUY, 261 veto
+03:06:26 ORACLE   360 raccolti, 273 analizzati, 3 BUY, 260 veto
+03:06:02 KAISER   limite 1 ingresso/i per scan: $WORLDCRAFT rimandato
+03:06:02 KAISER   limite 1 ingresso/i per scan: $CHAR rimandato
+03:06:02 KAISER   limite 1 ingresso/i per scan: $XDOGE rimandato
+03:06:02 QUARTER  BUY $FLYWHEEL 0.121 SOL score 76 impatto 1.11% (Jupiter)
+03:06:02 ORACLE   360 raccolti, 261 analizzati, 4 BUY, 250 veto
+03:05:38 QUARTER  $FLYWHEEL impatto 2.6% oltre slippage: annullato
+03:05:38 ORACLE   360 raccolti, 272 analizzati, 3 BUY, 263 veto
+03:05:15 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 260 veto
+03:04:51 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 255 veto
+03:04:28 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 255 veto
+03:04:05 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 260 veto
+03:03:42 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 245 veto
 03:03:19 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 246 veto
 03:02:56 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 244 veto
 03:02:33 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 239 veto
@@ -75,26 +96,6 @@ _nessuna_
 02:58:50 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 253 veto
 02:58:27 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 255 veto
 02:58:05 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 243 veto
-02:57:42 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 255 veto
-02:57:19 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 258 veto
-02:56:57 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 259 veto
-02:56:34 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 265 veto
-02:56:11 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 260 veto
-02:55:48 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 256 veto
-02:55:24 ORACLE   360 raccolti, 279 analizzati, 2 BUY, 268 veto
-02:55:02 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 266 veto
-02:54:39 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 262 veto
-02:54:15 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 264 veto
-02:53:52 SCRIBE   chiuso P-0269 $Nozomi -0.0586 SOL (-47.5%)
-02:53:52 CHARON   Time stop $Nozomi vendo 100% a -28.8% -> 0.0648 SOL
-02:53:52 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 263 veto
-02:53:29 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 255 veto
-02:53:06 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 258 veto
-02:52:43 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 261 veto
-02:52:20 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 255 veto
-02:51:56 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 262 veto
-02:51:33 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 262 veto
-02:51:10 ORACLE   360 raccolti, 266 analizzati, 3 BUY, 254 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
