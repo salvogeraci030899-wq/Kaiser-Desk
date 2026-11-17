@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 11:31 UTC · in esecuzione da 0.8 giorni · 163 run
+Aggiornato: 2026-11-17 11:36 UTC · in esecuzione da 0.8 giorni · 163 run
 
 | | |
 |---|---|
-| Equity | **5.9697 SOL** (-0.5% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.9697 SOL |
+| Equity | **6.0179 SOL** (+0.3% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.8493 SOL |
 | Trade chiusi | 75 |
 | Win rate | 37% |
-| P&L realizzato | -0.0303 SOL (~$-2.21) |
+| P&L realizzato | -0.0303 SOL (~$-2.22) |
 | Media vincite / perdite | +51.1% / -30.6% |
 | Profit factor | 0.98 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$SOYOUARE** P-0291 · 0.119 SOL · +41.2% · resta 100% · [grafico](https://dexscreener.com/solana/4u2gqY81DT2bChgiFXdVqxRWbrK7P6rD5F8ACLgE8AzR)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+11:35:59 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 258 veto
+11:35:35 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 257 veto
+11:35:12 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 254 veto
+11:34:48 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 248 veto
+11:34:24 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 253 veto
+11:34:00 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 253 veto
+11:33:36 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 251 veto
+11:33:13 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 255 veto
+11:32:48 QUARTER  BUY $SOYOUARE 0.119 SOL score 77 impatto 0.00% (Jupiter)
+11:32:48 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 252 veto
+11:32:25 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 247 veto
+11:32:01 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 255 veto
+11:31:37 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 253 veto
+11:31:14 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 251 veto
 11:30:51 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 255 veto
 11:30:27 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 256 veto
 11:30:04 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 252 veto
@@ -81,20 +95,6 @@ _nessuna_
 11:21:51 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 255 veto
 11:21:28 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 257 veto
 11:21:04 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 253 veto
-11:20:40 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 244 veto
-11:20:17 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 256 veto
-11:19:54 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 254 veto
-11:19:30 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 247 veto
-11:19:06 SCRIBE   chiuso P-0290 $RYANAIR 0.0608 SOL (51.0%)
-11:19:06 CHARON   TP1 $RYANAIR vendo 100% a 74.9% -> 0.1799 SOL
-11:19:06 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 247 veto
-11:18:42 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 248 veto
-11:18:19 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 247 veto
-11:17:55 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 252 veto
-11:17:32 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 258 veto
-11:17:09 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 259 veto
-11:16:45 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 259 veto
-11:16:22 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 257 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
