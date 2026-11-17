@@ -1,11 +1,11 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 00:22 UTC · in esecuzione da 0.3 giorni · 150 run
+Aggiornato: 2026-11-17 00:27 UTC · in esecuzione da 0.3 giorni · 150 run
 
 | | |
 |---|---|
-| Equity | **6.0436 SOL** (+0.7% dal capitale iniziale di 6 SOL) |
-| Cassa | 6.0436 SOL |
+| Equity | **6.0428 SOL** (+0.7% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.9217 SOL |
 | Trade chiusi | 40 |
 | Win rate | 33% |
 | P&L realizzato | +0.0436 SOL (~$3.11) |
@@ -14,7 +14,7 @@ Aggiornato: 2026-11-17 00:22 UTC · in esecuzione da 0.3 giorni · 150 run
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$GTAMARKET** P-0256 · 0.121 SOL · +0.1% · resta 100% · [grafico](https://dexscreener.com/solana/5HmQp8vZY1Tjo2QnKHMEYs7EwQnrtsGe85r83xqCdiUk)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+00:27:43 ORACLE   360 raccolti, 274 analizzati, 3 BUY, 265 veto
+00:27:20 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 256 veto
+00:26:56 QUARTER  BUY $GTAMARKET 0.121 SOL score 64 impatto 1.33% (Jupiter)
+00:26:56 ORACLE   360 raccolti, 272 analizzati, 3 BUY, 264 veto
+00:26:32 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 261 veto
+00:26:09 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 252 veto
+00:25:45 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 256 veto
+00:25:22 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 251 veto
+00:24:58 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 249 veto
+00:24:35 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 256 veto
+00:24:11 ORACLE   360 raccolti, 264 analizzati, 3 BUY, 256 veto
+00:23:48 ORACLE   360 raccolti, 260 analizzati, 3 BUY, 252 veto
+00:23:24 ORACLE   360 raccolti, 258 analizzati, 3 BUY, 250 veto
+00:23:01 ORACLE   360 raccolti, 259 analizzati, 3 BUY, 249 veto
 00:22:37 ORACLE   360 raccolti, 254 analizzati, 3 BUY, 245 veto
 00:22:13 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 257 veto
 00:21:50 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 253 veto
@@ -81,20 +95,6 @@ _nessuna_
 00:16:20 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 265 veto
 00:15:57 ORACLE   358 raccolti, 264 analizzati, 0 BUY, 258 veto
 00:15:44 ORACLE   355 raccolti, 256 analizzati, 0 BUY, 249 veto
-00:15:18 ORACLE   324 raccolti, 239 analizzati, 0 BUY, 233 veto
-00:15:05 ORACLE   313 raccolti, 219 analizzati, 0 BUY, 211 veto
-00:14:40 ORACLE   302 raccolti, 208 analizzati, 1 BUY, 203 veto
-00:14:26 SCOUT    PumpPortal invia nuovi token (27) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-00:14:16 ORACLE   273 raccolti, 194 analizzati, 1 BUY, 190 veto
-00:13:54 ORACLE   261 raccolti, 165 analizzati, 1 BUY, 162 veto
-00:13:32 ORACLE   252 raccolti, 161 analizzati, 1 BUY, 158 veto
-00:13:09 ORACLE   220 raccolti, 143 analizzati, 1 BUY, 141 veto
-00:12:47 ORACLE   211 raccolti, 138 analizzati, 1 BUY, 136 veto
-00:12:28 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-00:12:27 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-00:12:27 SCOUT    fabbrica: 7879 percorsi, 768 configurazioni, 0 passano, 1056 ms
-00:12:26 ORACLE   207 raccolti, 130 analizzati, 1 BUY, 128 veto
-00:12:24 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
