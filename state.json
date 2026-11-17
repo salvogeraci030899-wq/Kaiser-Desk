@@ -1,7 +1,7 @@
 {
  "startedAt": 1794850176657,
- "runs": 151,
- "cash": 6.006838510682737,
+ "runs": 152,
+ "cash": 5.998207741209082,
  "positions": [],
  "journal": [
   {
@@ -2178,30 +2178,56 @@
    },
    "maePct": -24.31090006108324,
    "age": 4
+  },
+  {
+   "id": "P-0263",
+   "mint": "EdKkbgeDm4QWEhiVjPVzYgQdaSVTjH9aDjWxcauQpump",
+   "sym": "XDOGE",
+   "openedAt": 1794880625212,
+   "closedAt": 1794880637664,
+   "cost": 0.12113677021365474,
+   "back": 0.11250600074,
+   "pnl": -0.008630769473654737,
+   "pct": -7.1248139259716385,
+   "mode": "paper",
+   "reason": "Stop loss",
+   "score": 79,
+   "solUsd": 71.72420846980775,
+   "peakPct": 0,
+   "trigPct": -47.52196148817377,
+   "entryInfo": {
+    "srcs": [
+     "nuovo"
+    ],
+    "notes": [
+     "giovane 2m · -67% dal picco",
+     "nessun social"
+    ],
+    "plus": [
+     "pressione in acquisto"
+    ],
+    "m": {
+     "liq": 20210.61,
+     "mc": 89902,
+     "ageMin": 1.8887333333333334,
+     "v1": 44448.92,
+     "tx1": 454,
+     "br1": 4.772151898734177,
+     "br5": 4.772151898734177,
+     "c5": 127,
+     "c1": 127,
+     "c6": 127,
+     "turn": 2.1992864144130233,
+     "price": 0.0000899,
+     "priceNative": 0.000001253
+    },
+    "grok": null
+   },
+   "maePct": -47.52196148817377,
+   "age": 2
   }
  ],
  "signals": [
-  {
-   "t": 1794865151926,
-   "mint": "4La95NEVJdYK9kr375SfKPXnLA8ef8GtsjfVfW27pump",
-   "sym": "BAWSAQ",
-   "score": 63,
-   "priceNative": 3.637e-7
-  },
-  {
-   "t": 1794865175519,
-   "mint": "4La95NEVJdYK9kr375SfKPXnLA8ef8GtsjfVfW27pump",
-   "sym": "BAWSAQ",
-   "score": 71,
-   "priceNative": 4.376e-7
-  },
-  {
-   "t": 1794865175519,
-   "mint": "Byepzy6JPMqNADb9LwRE5nQ5WxAb154tTbegH3TUpump",
-   "sym": "GROYPERS",
-   "score": 64,
-   "priceNative": 5.086e-7
-  },
   {
    "t": 1794865198820,
    "mint": "4La95NEVJdYK9kr375SfKPXnLA8ef8GtsjfVfW27pump",
@@ -9180,16 +9206,64 @@
    "sym": "Jojo",
    "score": 63,
    "priceNative": 9.674e-7
+  },
+  {
+   "t": 1794880625190,
+   "mint": "EdKkbgeDm4QWEhiVjPVzYgQdaSVTjH9aDjWxcauQpump",
+   "sym": "XDOGE",
+   "score": 79,
+   "priceNative": 0.000001253
+  },
+  {
+   "t": 1794880651211,
+   "mint": "EdKkbgeDm4QWEhiVjPVzYgQdaSVTjH9aDjWxcauQpump",
+   "sym": "XDOGE",
+   "score": 82,
+   "priceNative": 6.647e-7
+  },
+  {
+   "t": 1794880673965,
+   "mint": "EdKkbgeDm4QWEhiVjPVzYgQdaSVTjH9aDjWxcauQpump",
+   "sym": "XDOGE",
+   "score": 82,
+   "priceNative": 6.225e-7
   }
  ],
  "day": {
   "date": "2026-11-17",
   "startEq": 6.125840421630286
  },
- "cooldownUntil": 1794878892833,
+ "cooldownUntil": 1794880937665,
  "halted": null,
- "seq": 262,
+ "seq": 263,
  "events": [
+  "01:57:53 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 244 veto",
+  "01:57:31 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 233 veto",
+  "01:57:17 SCRIBE   chiuso P-0263 $XDOGE -0.0086 SOL (-7.1%)",
+  "01:57:17 CHARON   Stop loss $XDOGE vendo 100% a -47.5% -> 0.1125 SOL",
+  "01:57:05 QUARTER  BUY $XDOGE 0.120 SOL score 79 impatto 0.09% (Jupiter)",
+  "01:57:05 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 236 veto",
+  "01:56:42 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 239 veto",
+  "01:56:19 ORACLE   359 raccolti, 235 analizzati, 0 BUY, 227 veto",
+  "01:56:17 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)",
+  "01:55:57 ORACLE   334 raccolti, 229 analizzati, 0 BUY, 221 veto",
+  "01:55:34 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena",
+  "01:55:34 ORACLE   325 raccolti, 219 analizzati, 0 BUY, 211 veto",
+  "01:55:11 ORACLE   321 raccolti, 216 analizzati, 0 BUY, 209 veto",
+  "01:54:48 ORACLE   287 raccolti, 191 analizzati, 0 BUY, 186 veto",
+  "01:54:26 ORACLE   277 raccolti, 182 analizzati, 0 BUY, 178 veto",
+  "01:54:02 ORACLE   275 raccolti, 180 analizzati, 0 BUY, 177 veto",
+  "01:53:40 ORACLE   244 raccolti, 154 analizzati, 0 BUY, 151 veto",
+  "01:53:19 ORACLE   233 raccolti, 139 analizzati, 0 BUY, 138 veto",
+  "01:53:02 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an",
+  "01:53:00 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an",
+  "01:52:59 SCOUT    fabbrica: 8288 percorsi, 768 configurazioni, 0 passano, 1285 ms",
+  "01:52:58 ORACLE   231 raccolti, 139 analizzati, 0 BUY, 138 veto",
+  "01:52:56 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→40, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120",
+  "01:52:56 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com",
+  "01:52:56 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.",
+  "01:52:56 SCOUT    Laboratorio: collegato a PumpPortal",
+  "01:52:56 KAISER   run #152 · 0 posizioni · equity 6.0068 SOL · GMGN spenta (nessuna chiave) · Grok off",
   "01:52:44 SCRIBE   fine run · trade 47 · win 32% · P&L 0.0068 SOL · equity 6.0068 SOL",
   "01:52:44 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 227 veto",
   "01:52:20 ORACLE   360 raccolti, 228 analizzati, 0 BUY, 221 veto",
@@ -9462,39 +9536,12 @@
   "00:26:32 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 261 veto",
   "00:26:09 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 252 veto",
   "00:25:45 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 256 veto",
-  "00:25:22 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 251 veto",
-  "00:24:58 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 249 veto",
-  "00:24:35 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 256 veto",
-  "00:24:11 ORACLE   360 raccolti, 264 analizzati, 3 BUY, 256 veto",
-  "00:23:48 ORACLE   360 raccolti, 260 analizzati, 3 BUY, 252 veto",
-  "00:23:24 ORACLE   360 raccolti, 258 analizzati, 3 BUY, 250 veto",
-  "00:23:01 ORACLE   360 raccolti, 259 analizzati, 3 BUY, 249 veto",
-  "00:22:37 ORACLE   360 raccolti, 254 analizzati, 3 BUY, 245 veto",
-  "00:22:13 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 257 veto",
-  "00:21:50 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 253 veto",
-  "00:21:27 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 246 veto",
-  "00:21:03 SCRIBE   chiuso P-0255 $LUCIA -0.0261 SOL (-21.2%)",
-  "00:21:03 CHARON   Stop loss $LUCIA vendo 100% a -43.6% -> 0.0971 SOL",
-  "00:21:02 SCRIBE   chiuso P-0254 $Epstein -0.0561 SOL (-45.5%)",
-  "00:21:02 CHARON   RUG-EXIT liquidità $Epstein vendo 100% a -54.0% -> 0.0674 SOL",
-  "00:21:02 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 256 veto",
-  "00:20:39 KAISER   limite 1 ingresso/i per scan: $Epstein rimandato",
-  "00:20:39 QUARTER  BUY $LUCIA 0.122 SOL score 82 impatto 1.07% (Jupiter)",
-  "00:20:38 ORACLE   360 raccolti, 267 analizzati, 3 BUY, 259 veto",
-  "00:20:15 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 259 veto",
-  "00:19:51 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 258 veto",
-  "00:19:28 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 252 veto",
-  "00:19:05 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 252 veto",
-  "00:18:42 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 256 veto",
-  "00:18:19 ORACLE   360 raccolti, 267 analizzati, 3 BUY, 259 veto",
-  "00:17:55 ORACLE   360 raccolti, 260 analizzati, 3 BUY, 254 veto",
-  "00:17:31 QUARTER  BUY $Epstein 0.123 SOL score 75 impatto 0.46% (Jupiter)",
-  "00:17:31 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 265 veto"
+  "00:25:22 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 251 veto"
  ],
  "capital": 6,
  "resetId": "C-0082",
  "realTried": {},
- "lastEntryAt": 1794879278106,
+ "lastEntryAt": 1794880625212,
  "lab": {
   "done": [
    {
@@ -20517,10 +20564,6 @@
  "lastDaily": "2026-11-16",
  "cal": [
   {
-   "t": 1794793424369,
-   "g": -21.9
-  },
-  {
    "t": 1794794759084,
    "g": -13.3
   },
@@ -20915,6 +20958,10 @@
   {
    "t": 1794879519491,
    "g": 14.8
+  },
+  {
+   "t": 1794880637663,
+   "g": 83.3
   }
  ]
 }
