@@ -1,10 +1,10 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 00:27 UTC · in esecuzione da 0.3 giorni · 150 run
+Aggiornato: 2026-11-17 00:32 UTC · in esecuzione da 0.3 giorni · 150 run
 
 | | |
 |---|---|
-| Equity | **6.0428 SOL** (+0.7% dal capitale iniziale di 6 SOL) |
+| Equity | **6.0718 SOL** (+1.2% dal capitale iniziale di 6 SOL) |
 | Cassa | 5.9217 SOL |
 | Trade chiusi | 40 |
 | Win rate | 33% |
@@ -14,7 +14,7 @@ Aggiornato: 2026-11-17 00:27 UTC · in esecuzione da 0.3 giorni · 150 run
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$GTAMARKET** P-0256 · 0.121 SOL · +0.1% · resta 100% · [grafico](https://dexscreener.com/solana/5HmQp8vZY1Tjo2QnKHMEYs7EwQnrtsGe85r83xqCdiUk)
+- **$GTAMARKET** P-0256 · 0.121 SOL · +24.2% · resta 100% · [grafico](https://dexscreener.com/solana/5HmQp8vZY1Tjo2QnKHMEYs7EwQnrtsGe85r83xqCdiUk)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,21 @@ Aggiornato: 2026-11-17 00:27 UTC · in esecuzione da 0.3 giorni · 150 run
 
 ## Ultimi eventi
 ```
+00:32:53 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 247 veto
+00:32:29 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 254 veto
+00:32:05 QUARTER  $scat impatto 2.3% oltre slippage: annullato
+00:32:05 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 250 veto
+00:31:41 QUARTER  $scat impatto 2.0% oltre slippage: annullato
+00:31:41 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 255 veto
+00:31:17 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 256 veto
+00:30:54 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 246 veto
+00:30:30 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 263 veto
+00:30:06 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 262 veto
+00:29:43 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 250 veto
+00:29:19 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 263 veto
+00:28:55 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 264 veto
+00:28:31 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 252 veto
+00:28:07 ORACLE   360 raccolti, 271 analizzati, 3 BUY, 265 veto
 00:27:43 ORACLE   360 raccolti, 274 analizzati, 3 BUY, 265 veto
 00:27:20 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 256 veto
 00:26:56 QUARTER  BUY $GTAMARKET 0.121 SOL score 64 impatto 1.33% (Jupiter)
@@ -80,21 +95,6 @@ Aggiornato: 2026-11-17 00:27 UTC · in esecuzione da 0.3 giorni · 150 run
 00:21:02 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 256 veto
 00:20:39 KAISER   limite 1 ingresso/i per scan: $Epstein rimandato
 00:20:39 QUARTER  BUY $LUCIA 0.122 SOL score 82 impatto 1.07% (Jupiter)
-00:20:38 ORACLE   360 raccolti, 267 analizzati, 3 BUY, 259 veto
-00:20:15 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 259 veto
-00:19:51 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 258 veto
-00:19:28 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 252 veto
-00:19:05 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 252 veto
-00:18:42 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 256 veto
-00:18:19 ORACLE   360 raccolti, 267 analizzati, 3 BUY, 259 veto
-00:17:55 ORACLE   360 raccolti, 260 analizzati, 3 BUY, 254 veto
-00:17:31 QUARTER  BUY $Epstein 0.123 SOL score 75 impatto 0.46% (Jupiter)
-00:17:31 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 265 veto
-00:17:08 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 259 veto
-00:16:44 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 258 veto
-00:16:20 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 265 veto
-00:15:57 ORACLE   358 raccolti, 264 analizzati, 0 BUY, 258 veto
-00:15:44 ORACLE   355 raccolti, 256 analizzati, 0 BUY, 249 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
