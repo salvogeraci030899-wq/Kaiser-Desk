@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 02:28 UTC · in esecuzione da 0.4 giorni · 152 run
+Aggiornato: 2026-11-17 02:33 UTC · in esecuzione da 0.4 giorni · 152 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-17 02:28 UTC · in esecuzione da 0.4 giorni · 152 run
 | Cassa | 6.1245 SOL |
 | Trade chiusi | 52 |
 | Win rate | 35% |
-| P&L realizzato | +0.1245 SOL (~$8.91) |
+| P&L realizzato | +0.1245 SOL (~$8.92) |
 | Media vincite / perdite | +58.2% / -27.4% |
 | Profit factor | 1.11 |
 | Circuit breaker | no |
@@ -55,6 +55,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+02:33:38 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 253 veto
+02:33:13 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 250 veto
+02:32:49 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 250 veto
+02:32:27 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 259 veto
+02:32:03 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 256 veto
+02:31:40 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 246 veto
+02:31:17 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 249 veto
+02:30:55 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 258 veto
+02:30:32 ORACLE   360 raccolti, 243 analizzati, 2 BUY, 235 veto
+02:30:09 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 249 veto
+02:29:46 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 250 veto
+02:29:23 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 244 veto
+02:29:00 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 259 veto
 02:28:38 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 251 veto
 02:28:15 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 247 veto
 02:27:52 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 257 veto
@@ -82,19 +95,6 @@ _nessuna_
 02:20:12 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 246 veto
 02:19:58 SCRIBE   chiuso P-0266 $CHAR 0.0416 SOL (34.6%)
 02:19:58 CHARON   TP1 $CHAR vendo 100% a 71.8% -> 0.1618 SOL
-02:19:58 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 243 veto
-02:19:33 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 249 veto
-02:19:10 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 236 veto
-02:18:47 QUARTER  BUY $Jojo 0.120 SOL score 63 impatto 0.32% (Jupiter)
-02:18:47 ORACLE   360 raccolti, 265 analizzati, 3 BUY, 255 veto
-02:18:34 QUARTER  $Jojo impatto 2.1% oltre slippage: annullato
-02:18:34 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 253 veto
-02:18:09 QUARTER  $Jojo impatto 2.5% oltre slippage: annullato
-02:18:09 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 243 veto
-02:17:46 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 256 veto
-02:17:23 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 255 veto
-02:17:00 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 248 veto
-02:16:37 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 253 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
