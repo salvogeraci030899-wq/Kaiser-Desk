@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 09:29 UTC · in esecuzione da 0.7 giorni · 161 run
+Aggiornato: 2026-11-17 09:34 UTC · in esecuzione da 0.7 giorni · 161 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-17 09:29 UTC · in esecuzione da 0.7 giorni · 161 run
 | Cassa | 5.9313 SOL |
 | Trade chiusi | 71 |
 | Win rate | 37% |
-| P&L realizzato | -0.0687 SOL (~$-4.96) |
+| P&L realizzato | -0.0687 SOL (~$-4.97) |
 | Media vincite / perdite | +50.5% / -30.1% |
 | Profit factor | 0.96 |
 | Circuit breaker | no |
@@ -55,6 +55,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+09:34:47 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 254 veto
+09:34:24 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 259 veto
+09:34:00 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 255 veto
+09:33:37 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 265 veto
+09:33:13 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 266 veto
+09:32:50 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 259 veto
+09:32:27 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 267 veto
+09:32:04 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 270 veto
+09:31:41 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 257 veto
+09:31:18 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 260 veto
+09:30:55 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 261 veto
+09:30:32 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 256 veto
+09:30:08 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 259 veto
 09:29:45 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 253 veto
 09:29:22 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 250 veto
 09:28:59 ORACLE   347 raccolti, 256 analizzati, 0 BUY, 250 veto
@@ -82,19 +95,6 @@ _nessuna_
 09:24:31 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 263 veto
 09:24:07 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 268 veto
 09:23:44 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 267 veto
-09:23:21 SCRIBE   chiuso P-0286 $GEKKO -0.0879 SOL (-72.4%)
-09:23:21 CHARON   Stop loss $GEKKO vendo 100% a -49.0% -> 0.0335 SOL
-09:23:21 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 262 veto
-09:22:58 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 265 veto
-09:22:35 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 262 veto
-09:22:13 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 259 veto
-09:21:50 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 262 veto
-09:21:27 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 263 veto
-09:21:05 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 258 veto
-09:20:41 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 267 veto
-09:20:18 ORACLE   360 raccolti, 283 analizzati, 0 BUY, 272 veto
-09:19:55 QUARTER  BUY $GEKKO 0.120 SOL score 63 impatto 1.25% (Jupiter)
-09:19:55 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 268 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
