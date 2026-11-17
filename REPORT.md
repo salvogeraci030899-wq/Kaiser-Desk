@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 03:29 UTC · in esecuzione da 0.4 giorni · 153 run
+Aggiornato: 2026-11-17 03:33 UTC · in esecuzione da 0.4 giorni · 153 run
 
 | | |
 |---|---|
-| Equity | **6.0190 SOL** (+0.3% dal capitale iniziale di 6 SOL) |
-| Cassa | 6.0190 SOL |
-| Trade chiusi | 57 |
-| Win rate | 35% |
-| P&L realizzato | +0.0190 SOL (~$1.37) |
-| Media vincite / perdite | +55.6% / -29.2% |
-| Profit factor | 1.01 |
+| Equity | **5.9560 SOL** (-0.7% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.9560 SOL |
+| Trade chiusi | 58 |
+| Win rate | 34% |
+| P&L realizzato | -0.0440 SOL (~$-3.19) |
+| Media vincite / perdite | +55.6% / -29.8% |
+| Profit factor | 0.97 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -22,11 +22,12 @@ _nessuna_
 | RUG-EXIT liquidità | 9 | -0.5693 |
 | Time stop | 23 | -0.3062 |
 | TP1 | 15 | +1.1701 |
-| Stop loss | 10 | -0.2756 |
+| Stop loss | 11 | -0.3386 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $XDOGE | 74 | -51.9% | -0.0630 | +0% | -46% | Stop loss | 1m |
 | $RizzGivin | 73 | +64.1% | +0.0768 | +74% | +74% | TP1 | 4m |
 | $FLYWHEEL | 76 | +1.8% | +0.0022 | +29% | +4% | Time stop | 5m |
 | $XDOGE | 72 | -96.8% | -0.1180 | +1% | -96% | RUG-EXIT liquidità | 1m |
@@ -51,10 +52,24 @@ _nessuna_
 | $BLACKOUT | 63 | +105.2% | +0.1294 | +75% | +75% | TP1 | 28m |
 | $LUCIA | 88 | -30.2% | -0.0376 | +0% | -52% | RUG-EXIT liquidità | 2m |
 | $GTA | 69 | -6.4% | -0.0079 | +42% | +0% | Time stop | 9m |
-| $DOME | 70 | +11.8% | +0.0146 | +14% | -9% | Time stop | 5m |
 
 ## Ultimi eventi
 ```
+03:33:07 SCRIBE   fine run · trade 58 · win 34% · P&L -0.0440 SOL · equity 5.9560 SOL
+03:33:03 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 255 veto
+03:32:40 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 252 veto
+03:32:17 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 259 veto
+03:31:54 SCRIBE   chiuso P-0273 $XDOGE -0.0630 SOL (-51.9%)
+03:31:54 CHARON   Stop loss $XDOGE vendo 100% a -45.6% -> 0.0584 SOL
+03:31:54 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 263 veto
+03:31:31 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 262 veto
+03:31:08 QUARTER  BUY $XDOGE 0.120 SOL score 74 impatto 1.30% (Jupiter)
+03:31:08 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 264 veto
+03:30:45 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 261 veto
+03:30:22 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 267 veto
+03:29:59 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 255 veto
+03:29:36 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 252 veto
+03:29:13 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 257 veto
 03:28:50 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 259 veto
 03:28:27 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 253 veto
 03:28:04 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 259 veto
@@ -80,21 +95,6 @@ _nessuna_
 03:20:53 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 266 veto
 03:20:31 ORACLE   360 raccolti, 273 analizzati, 3 BUY, 263 veto
 03:20:06 ORACLE   360 raccolti, 261 analizzati, 3 BUY, 253 veto
-03:19:43 ORACLE   360 raccolti, 266 analizzati, 3 BUY, 258 veto
-03:19:20 ORACLE   360 raccolti, 270 analizzati, 3 BUY, 259 veto
-03:18:57 SCRIBE   chiuso P-0272 $RizzGivin 0.0768 SOL (64.1%)
-03:18:57 CHARON   TP1 $RizzGivin vendo 100% a 74.1% -> 0.1967 SOL
-03:18:57 ORACLE   360 raccolti, 257 analizzati, 3 BUY, 247 veto
-03:18:33 ORACLE   360 raccolti, 267 analizzati, 3 BUY, 256 veto
-03:18:11 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 244 veto
-03:17:47 ORACLE   360 raccolti, 251 analizzati, 3 BUY, 241 veto
-03:17:24 ORACLE   360 raccolti, 256 analizzati, 3 BUY, 246 veto
-03:17:00 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 244 veto
-03:16:37 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 240 veto
-03:16:13 ORACLE   360 raccolti, 257 analizzati, 3 BUY, 247 veto
-03:15:50 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 246 veto
-03:15:27 ORACLE   360 raccolti, 249 analizzati, 3 BUY, 240 veto
-03:15:03 ORACLE   360 raccolti, 259 analizzati, 3 BUY, 252 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
