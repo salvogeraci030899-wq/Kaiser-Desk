@@ -1,33 +1,34 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 03:08 UTC · in esecuzione da 0.4 giorni · 153 run
+Aggiornato: 2026-11-17 03:13 UTC · in esecuzione da 0.4 giorni · 153 run
 
 | | |
 |---|---|
-| Equity | **6.0405 SOL** (+0.7% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.8138 SOL |
-| Trade chiusi | 54 |
-| Win rate | 33% |
-| P&L realizzato | +0.0579 SOL (~$4.17) |
-| Media vincite / perdite | +58.2% / -27.4% |
-| Profit factor | 1.05 |
+| Equity | **5.9421 SOL** (-1.0% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.9421 SOL |
+| Trade chiusi | 56 |
+| Win rate | 34% |
+| P&L realizzato | -0.0579 SOL (~$-4.17) |
+| Media vincite / perdite | +55.2% / -29.2% |
+| Profit factor | 0.96 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$FLYWHEEL** P-0270 · 0.121 SOL · -10.2% · resta 100% · [grafico](https://dexscreener.com/solana/9Qrsk31oqsL25TeZ6SUKzUT2DNGgFxeW1kLgyxHHBqpw)
-- **$XDOGE** P-0271 · 0.121 SOL · -2.6% · resta 100% · [grafico](https://dexscreener.com/solana/7c7evZvkyXgJqSgEU56CrAqvSYtaeUBKMrGLja7Ngx2D)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| RUG-EXIT liquidità | 8 | -0.4513 |
-| Time stop | 22 | -0.3084 |
+| RUG-EXIT liquidità | 9 | -0.5693 |
+| Time stop | 23 | -0.3062 |
 | TP1 | 14 | +1.0933 |
 | Stop loss | 10 | -0.2756 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $FLYWHEEL | 76 | +1.8% | +0.0022 | +29% | +4% | Time stop | 5m |
+| $XDOGE | 72 | -96.8% | -0.1180 | +1% | -96% | RUG-EXIT liquidità | 1m |
 | $Nozomi | 64 | -47.5% | -0.0586 | +9% | -29% | Time stop | 5m |
 | $XDOGE | 79 | -6.5% | -0.0080 | +0% | -72% | RUG-EXIT liquidità | 0m |
 | $Jojo | 63 | +100.9% | +0.1219 | +60% | +60% | TP1 | 3m |
@@ -51,11 +52,27 @@ Aggiornato: 2026-11-17 03:08 UTC · in esecuzione da 0.4 giorni · 153 run
 | $GTA | 69 | -6.4% | -0.0079 | +42% | +0% | Time stop | 9m |
 | $DOME | 70 | +11.8% | +0.0146 | +14% | -9% | Time stop | 5m |
 | $LEOSTAR | 82 | +62.1% | +0.0758 | +71% | +71% | TP1 | 3m |
-| $LULU | 67 | -17.4% | -0.0212 | +29% | -24% | Time stop | 5m |
-| $mimic | 64 | -38.6% | -0.0483 | +40% | +4% | Time stop | 5m |
 
 ## Ultimi eventi
 ```
+03:13:40 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 247 veto
+03:13:16 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 247 veto
+03:12:53 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 243 veto
+03:12:30 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 258 veto
+03:12:07 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 261 veto
+03:11:44 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 248 veto
+03:11:20 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 260 veto
+03:11:07 SCRIBE   chiuso P-0270 $FLYWHEEL 0.0022 SOL (1.8%)
+03:11:07 CHARON   Time stop $FLYWHEEL vendo 100% a 4.0% -> 0.1244 SOL
+03:10:56 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 253 veto
+03:10:33 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 247 veto
+03:10:20 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 260 veto
+03:09:55 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 261 veto
+03:09:32 SCRIBE   chiuso P-0271 $XDOGE -0.1180 SOL (-96.8%)
+03:09:32 CHARON   RUG-EXIT liquidità $XDOGE vendo 100% a -95.9% -> 0.0039 SOL
+03:09:32 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 254 veto
+03:09:08 ORACLE   360 raccolti, 279 analizzati, 2 BUY, 261 veto
+03:08:46 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 261 veto
 03:08:23 KAISER   limite 1 ingresso/i per scan: $CHAR rimandato
 03:08:22 QUARTER  BUY $XDOGE 0.121 SOL score 72 impatto 1.63% (Jupiter)
 03:08:22 ORACLE   360 raccolti, 276 analizzati, 3 BUY, 257 veto
@@ -78,24 +95,6 @@ Aggiornato: 2026-11-17 03:08 UTC · in esecuzione da 0.4 giorni · 153 run
 03:03:42 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 245 veto
 03:03:19 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 246 veto
 03:02:56 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 244 veto
-03:02:33 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 239 veto
-03:02:10 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 249 veto
-03:01:47 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 249 veto
-03:01:24 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 243 veto
-03:01:00 QUARTER  $MELNOK impatto 3.7% oltre slippage: annullato
-03:01:00 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 248 veto
-03:00:37 QUARTER  $MELNOK impatto 2.3% oltre slippage: annullato
-03:00:37 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 249 veto
-03:00:25 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 243 veto
-02:59:59 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 247 veto
-02:59:36 QUARTER  $MELNOK impatto 2.4% oltre slippage: annullato
-02:59:36 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 238 veto
-02:59:13 QUARTER  $MELNOK impatto 2.2% oltre slippage: annullato
-02:59:13 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 244 veto
-02:59:10 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)
-02:58:50 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 253 veto
-02:58:27 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 255 veto
-02:58:05 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 243 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
