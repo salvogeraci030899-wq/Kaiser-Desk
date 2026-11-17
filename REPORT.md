@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 09:20 UTC · in esecuzione da 0.7 giorni · 160 run
+Aggiornato: 2026-11-17 09:24 UTC · in esecuzione da 0.7 giorni · 160 run
 
 | | |
 |---|---|
-| Equity | **5.9961 SOL** (-0.1% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.8979 SOL |
-| Trade chiusi | 70 |
+| Equity | **5.9313 SOL** (-1.1% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.9313 SOL |
+| Trade chiusi | 71 |
 | Win rate | 37% |
-| P&L realizzato | +0.0192 SOL (~$1.39) |
-| Media vincite / perdite | +50.5% / -29.1% |
-| Profit factor | 1.01 |
+| P&L realizzato | -0.0687 SOL (~$-4.95) |
+| Media vincite / perdite | +50.5% / -30.1% |
+| Profit factor | 0.96 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$GEKKO** P-0286 · 0.120 SOL · -18.4% · resta 100% · [grafico](https://dexscreener.com/solana/8fn8y2pcEVtMPyXuKtUmTPTFnDu1yTugDzpM1bDdcATy)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -22,11 +22,12 @@ Aggiornato: 2026-11-17 09:20 UTC · in esecuzione da 0.7 giorni · 160 run
 | RUG-EXIT liquidità | 11 | -0.7032 |
 | Time stop | 29 | -0.3122 |
 | TP1 | 18 | +1.3913 |
-| Stop loss | 12 | -0.3567 |
+| Stop loss | 13 | -0.4446 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $GEKKO | 63 | -72.4% | -0.0879 | +2% | -49% | Stop loss | 3m |
 | $PTA | 65 | -14.9% | -0.0181 | +0% | -44% | Stop loss | 2m |
 | $SUPERPLUMB | 93 | -4.1% | -0.0050 | +1% | -3% | Time stop | 5m |
 | $SACK | 64 | +57.6% | +0.0694 | +61% | +61% | TP1 | 6m |
@@ -51,10 +52,22 @@ Aggiornato: 2026-11-17 09:20 UTC · in esecuzione da 0.7 giorni · 160 run
 | $CAT | 77 | +52.1% | +0.0631 | +63% | +63% | TP1 | 6m |
 | $XDOGE | 79 | -7.1% | -0.0086 | +0% | -48% | Stop loss | 0m |
 | $Jojo | 69 | +86.2% | +0.1026 | +66% | +66% | TP1 | 4m |
-| $SHARE | 63 | -5.3% | -0.0065 | +23% | +3% | Time stop | 5m |
 
 ## Ultimi eventi
 ```
+09:24:40 SCRIBE   fine run · trade 71 · win 37% · P&L -0.0687 SOL · equity 5.9313 SOL
+09:24:31 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 263 veto
+09:24:07 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 268 veto
+09:23:44 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 267 veto
+09:23:21 SCRIBE   chiuso P-0286 $GEKKO -0.0879 SOL (-72.4%)
+09:23:21 CHARON   Stop loss $GEKKO vendo 100% a -49.0% -> 0.0335 SOL
+09:23:21 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 262 veto
+09:22:58 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 265 veto
+09:22:35 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 262 veto
+09:22:13 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 259 veto
+09:21:50 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 262 veto
+09:21:27 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 263 veto
+09:21:05 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 258 veto
 09:20:41 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 267 veto
 09:20:18 ORACLE   360 raccolti, 283 analizzati, 0 BUY, 272 veto
 09:19:55 QUARTER  BUY $GEKKO 0.120 SOL score 63 impatto 1.25% (Jupiter)
@@ -82,19 +95,6 @@ Aggiornato: 2026-11-17 09:20 UTC · in esecuzione da 0.7 giorni · 160 run
 09:12:18 ORACLE   360 raccolti, 282 analizzati, 0 BUY, 271 veto
 09:11:55 ORACLE   360 raccolti, 282 analizzati, 0 BUY, 272 veto
 09:11:32 ORACLE   360 raccolti, 287 analizzati, 0 BUY, 279 veto
-09:11:10 ORACLE   360 raccolti, 290 analizzati, 0 BUY, 282 veto
-09:10:47 ORACLE   360 raccolti, 286 analizzati, 0 BUY, 277 veto
-09:10:24 ORACLE   360 raccolti, 288 analizzati, 0 BUY, 280 veto
-09:10:01 ORACLE   360 raccolti, 289 analizzati, 0 BUY, 280 veto
-09:09:39 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 270 veto
-09:09:15 ORACLE   360 raccolti, 283 analizzati, 0 BUY, 277 veto
-09:08:53 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 273 veto
-09:08:30 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 267 veto
-09:08:08 ORACLE   360 raccolti, 284 analizzati, 0 BUY, 282 veto
-09:07:47 ORACLE   360 raccolti, 284 analizzati, 0 BUY, 282 veto
-09:07:26 ORACLE   360 raccolti, 282 analizzati, 0 BUY, 280 veto
-09:07:04 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 272 veto
-09:06:42 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 273 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
