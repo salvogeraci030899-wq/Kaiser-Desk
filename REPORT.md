@@ -1,11 +1,11 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 16:02 UTC · in esecuzione da 0.9 giorni · 168 run
+Aggiornato: 2026-11-17 16:06 UTC · in esecuzione da 0.9 giorni · 168 run
 
 | | |
 |---|---|
-| Equity | **5.8220 SOL** (-3.0% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.8220 SOL |
+| Equity | **5.8317 SOL** (-2.8% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.7046 SOL |
 | Trade chiusi | 100 |
 | Win rate | 36% |
 | P&L realizzato | -0.1780 SOL (~$-12.92) |
@@ -14,7 +14,7 @@ Aggiornato: 2026-11-17 16:02 UTC · in esecuzione da 0.9 giorni · 168 run
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$攀豹豹** P-0316 · 0.116 SOL · +9.2% · resta 100% · [grafico](https://dexscreener.com/solana/Bsvc6Nu5XGn2bFCmMmaD5DutPCP3mxCTpBzyrKZhr53A)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+16:06:48 SCRIBE   fine run · trade 100 · win 36% · P&L -0.1780 SOL · equity 5.8317 SOL
+16:06:48 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 246 veto
+16:06:33 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 251 veto
+16:06:09 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 255 veto
+16:05:46 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 243 veto
+16:05:23 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 244 veto
+16:05:10 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 232 veto
+16:04:42 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 234 veto
+16:04:19 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 250 veto
+16:03:56 QUARTER  BUY $攀豹豹 0.116 SOL score 70 impatto 1.06% (Jupiter)
+16:03:56 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 247 veto
+16:03:33 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 242 veto
+16:03:10 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 247 veto
 16:02:47 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 243 veto
 16:02:24 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 230 veto
 16:02:11 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 234 veto
@@ -82,19 +95,6 @@ _nessuna_
 15:55:01 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 247 veto
 15:54:39 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 233 veto
 15:54:16 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 232 veto
-15:53:53 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 233 veto
-15:53:30 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 247 veto
-15:53:07 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 234 veto
-15:52:53 SCRIBE   chiuso P-0314 $VIBESTACK -0.0292 SOL (-24.6%)
-15:52:53 CHARON   Time stop $VIBESTACK vendo 100% a -6.0% -> 0.0892 SOL
-15:52:43 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 239 veto
-15:52:20 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 238 veto
-15:51:57 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 236 veto
-15:51:34 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 249 veto
-15:51:11 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 252 veto
-15:50:48 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 233 veto
-15:50:25 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 243 veto
-15:50:11 SCRIBE   chiuso P-0313 $GM 0.0365 SOL (31.1%)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
