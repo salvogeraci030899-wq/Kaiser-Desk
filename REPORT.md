@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 05:49 UTC · in esecuzione da 0.5 giorni · 156 run
+Aggiornato: 2026-11-17 05:54 UTC · in esecuzione da 0.5 giorni · 156 run
 
 | | |
 |---|---|
-| Equity | **5.9510 SOL** (-0.8% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.7754 SOL |
-| Trade chiusi | 66 |
-| Win rate | 36% |
-| P&L realizzato | -0.1057 SOL (~$-7.70) |
-| Media vincite / perdite | +49.6% / -30.0% |
-| Profit factor | 0.93 |
+| Equity | **5.9729 SOL** (-0.5% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.9729 SOL |
+| Trade chiusi | 67 |
+| Win rate | 37% |
+| P&L realizzato | -0.0271 SOL (~$-1.97) |
+| Media vincite / perdite | +50.2% / -30.0% |
+| Profit factor | 0.98 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$GIMME** P-0282 · 0.118 SOL · +49.0% · resta 100% · [grafico](https://dexscreener.com/solana/EmNU7t5LR4UaJNEch3jJjHG1gE39pJ4vLwP54yVHWPM8)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | RUG-EXIT liquidità | 11 | -0.7032 |
 | Time stop | 28 | -0.3072 |
-| TP1 | 16 | +1.2432 |
+| TP1 | 17 | +1.3219 |
 | Stop loss | 11 | -0.3386 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $GIMME | 63 | +66.1% | +0.0786 | +67% | +67% | TP1 | 15m |
 | $DUCK | 70 | +62.3% | +0.0732 | +66% | +66% | TP1 | 3m |
 | $ACTB | 67 | -84.8% | -0.1013 | +0% | -81% | RUG-EXIT liquidità | 2m |
 | $KLAUDIA | 81 | -5.0% | -0.0060 | +17% | +4% | Time stop | 6m |
@@ -51,10 +52,24 @@ Aggiornato: 2026-11-17 05:49 UTC · in esecuzione da 0.5 giorni · 156 run
 | $smowl | 63 | -92.1% | -0.1121 | +0% | -92% | RUG-EXIT liquidità | 1m |
 | $LUCIA | 88 | -12.7% | -0.0155 | +26% | -46% | Stop loss | 4m |
 | $BIGP | 63 | -26.7% | -0.0328 | +22% | -10% | Time stop | 6m |
-| $BINDER | 69 | +30.3% | +0.0369 | +49% | +5% | Time stop | 6m |
 
 ## Ultimi eventi
 ```
+05:54:47 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 258 veto
+05:54:33 SCRIBE   chiuso P-0282 $GIMME 0.0786 SOL (66.1%)
+05:54:33 CHARON   TP1 $GIMME vendo 100% a 67.3% -> 0.1975 SOL
+05:54:23 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 259 veto
+05:53:59 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 255 veto
+05:53:34 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 260 veto
+05:53:09 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 261 veto
+05:52:46 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 254 veto
+05:52:21 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 260 veto
+05:51:58 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 262 veto
+05:51:34 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 254 veto
+05:51:11 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 260 veto
+05:50:47 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 265 veto
+05:50:23 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 252 veto
+05:49:59 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 264 veto
 05:49:35 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 260 veto
 05:49:11 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 254 veto
 05:48:48 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 261 veto
@@ -80,21 +95,6 @@ Aggiornato: 2026-11-17 05:49 UTC · in esecuzione da 0.5 giorni · 156 run
 05:40:51 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 267 veto
 05:40:28 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 271 veto
 05:40:05 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 269 veto
-05:39:51 QUARTER  BUY $GIMME 0.118 SOL score 63 impatto 1.15% (Jupiter)
-05:39:51 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 270 veto
-05:39:26 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 279 veto
-05:39:04 ORACLE   360 raccolti, 286 analizzati, 1 BUY, 281 veto
-05:38:41 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 273 veto
-05:38:17 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 273 veto
-05:37:54 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 267 veto
-05:37:31 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 258 veto
-05:37:07 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 267 veto
-05:36:44 ORACLE   360 raccolti, 281 analizzati, 0 BUY, 269 veto
-05:36:20 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 260 veto
-05:35:56 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 265 veto
-05:35:32 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 263 veto
-05:35:08 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 254 veto
-05:34:43 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 265 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
