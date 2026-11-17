@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 20:38 UTC · in esecuzione da 0.2 giorni · 174 run
+Aggiornato: 2026-11-17 20:43 UTC · in esecuzione da 0.2 giorni · 174 run
 
 | | |
 |---|---|
-| Equity | **5.5406 SOL** (-7.7% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.5406 SOL |
+| Equity | **5.5657 SOL** (-7.2% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.4288 SOL |
 | Trade chiusi | 19 |
 | Win rate | 32% |
-| P&L realizzato | -0.4594 SOL (~$-33.60) |
+| P&L realizzato | -0.4594 SOL (~$-33.52) |
 | Media vincite / perdite | +25.6% / -41.9% |
 | Profit factor | 0.28 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$LUCIASS** P-0337 · 0.111 SOL · +23.5% · resta 100% · [grafico](https://dexscreener.com/solana/29VnaTQNmdMMmo3h955hS9zVnRYkCiDczduV18zTvnVP)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -50,6 +50,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+20:43:42 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 248 veto
+20:43:18 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 257 veto
+20:42:54 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 241 veto
+20:42:29 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 254 veto
+20:42:06 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 258 veto
+20:41:41 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 250 veto
+20:41:17 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 267 veto
+20:40:54 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 239 veto
+20:40:31 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 241 veto
+20:40:07 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 261 veto
+20:39:42 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 257 veto
+20:39:29 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 247 veto
+20:39:03 QUARTER  BUY $LUCIASS 0.111 SOL score 69 impatto 1.02% (Jupiter)
+20:39:03 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 257 veto
 20:38:39 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 261 veto
 20:38:15 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 247 veto
 20:37:52 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 239 veto
@@ -76,20 +90,6 @@ _nessuna_
 20:29:46 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 251 veto
 20:29:23 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 247 veto
 20:29:00 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 230 veto
-20:28:36 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 243 veto
-20:28:12 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 237 veto
-20:27:48 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 241 veto
-20:27:23 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 247 veto
-20:26:59 ORACLE   360 raccolti, 229 analizzati, 1 BUY, 224 veto
-20:26:36 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 231 veto
-20:26:12 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 264 veto
-20:25:49 SCRIBE   chiuso P-0336 $LUCIA -0.0458 SOL (-40.7%)
-20:25:49 CHARON   Stop loss $LUCIA vendo 100% a -49.0% -> 0.0669 SOL
-20:25:49 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 270 veto
-20:25:25 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 264 veto
-20:25:01 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 270 veto
-20:24:38 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 252 veto
-20:24:16 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 236 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
