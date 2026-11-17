@@ -1,32 +1,34 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 15:12 UTC · in esecuzione da 0.9 giorni · 167 run
+Aggiornato: 2026-11-17 15:16 UTC · in esecuzione da 0.9 giorni · 167 run
 
 | | |
 |---|---|
-| Equity | **5.9811 SOL** (-0.3% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.8879 SOL |
-| Trade chiusi | 92 |
-| Win rate | 37% |
-| P&L realizzato | +0.0091 SOL (~$0.67) |
-| Media vincite / perdite | +51.4% / -29.6% |
-| Profit factor | 1.00 |
+| Equity | **5.8959 SOL** (-1.7% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.8959 SOL |
+| Trade chiusi | 94 |
+| Win rate | 36% |
+| P&L realizzato | -0.1041 SOL (~$-7.60) |
+| Media vincite / perdite | +51.4% / -30.2% |
+| Profit factor | 0.95 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$SIM** P-0308 · 0.120 SOL · -22.5% · resta 100% · [grafico](https://dexscreener.com/solana/3mEGe9yzo5bqswbqtMLadUwcdurs9yNzsiDYVkzoUKkH)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| RUG-EXIT liquidità | 14 | -0.9471 |
-| Time stop | 38 | -0.4415 |
+| RUG-EXIT liquidità | 15 | -1.0069 |
+| Time stop | 39 | -0.4949 |
 | TP1 | 26 | +1.8913 |
 | Stop loss | 14 | -0.4935 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $SIM | 69 | -44.1% | -0.0534 | +20% | -34% | Time stop | 5m |
+| $Rex | 82 | -49.4% | -0.0598 | +0% | -60% | RUG-EXIT liquidità | 1m |
 | $KIM | 67 | +54.7% | +0.0656 | +67% | +67% | TP1 | 3m |
 | $JESTER | 64 | -2.2% | -0.0026 | +2% | +2% | Time stop | 5m |
 | $Rex | 66 | -29.4% | -0.0355 | +0% | -38% | Time stop | 5m |
@@ -50,11 +52,29 @@ Aggiornato: 2026-11-17 15:12 UTC · in esecuzione da 0.9 giorni · 167 run
 | $JOB | 68 | -67.4% | -0.0807 | +10% | -60% | RUG-EXIT liquidità | 3m |
 | $GEKKO | 63 | -72.4% | -0.0879 | +2% | -49% | Stop loss | 3m |
 | $PTA | 65 | -14.9% | -0.0181 | +0% | -44% | Stop loss | 2m |
-| $SUPERPLUMB | 93 | -4.1% | -0.0050 | +1% | -3% | Time stop | 5m |
-| $SACK | 64 | +57.6% | +0.0694 | +61% | +61% | TP1 | 6m |
 
 ## Ultimi eventi
 ```
+15:16:25 SCRIBE   fine run · trade 94 · win 36% · P&L -0.1041 SOL · equity 5.8959 SOL
+15:16:06 ORACLE   360 raccolti, 233 analizzati, 3 BUY, 221 veto
+15:15:40 SCRIBE   chiuso P-0308 $SIM -0.0534 SOL (-44.1%)
+15:15:40 CHARON   Time stop $SIM vendo 100% a -34.4% -> 0.0678 SOL
+15:15:40 ORACLE   360 raccolti, 233 analizzati, 2 BUY, 217 veto
+15:15:17 ORACLE   360 raccolti, 231 analizzati, 2 BUY, 216 veto
+15:14:53 ORACLE   360 raccolti, 231 analizzati, 3 BUY, 216 veto
+15:14:30 ORACLE   360 raccolti, 244 analizzati, 3 BUY, 229 veto
+15:14:05 ORACLE   360 raccolti, 241 analizzati, 4 BUY, 226 veto
+15:13:52 SCRIBE   chiuso P-0309 $Rex -0.0598 SOL (-49.4%)
+15:13:52 CHARON   RUG-EXIT liquidità $Rex vendo 100% a -59.7% -> 0.0612 SOL
+15:13:42 ORACLE   360 raccolti, 233 analizzati, 5 BUY, 222 veto
+15:13:19 ORACLE   360 raccolti, 236 analizzati, 5 BUY, 224 veto
+15:12:55 KAISER   limite 1 ingresso/i per scan: $JESTER rimandato
+15:12:55 KAISER   limite 1 ingresso/i per scan: $SIM rimandato
+15:12:55 KAISER   limite 1 ingresso/i per scan: $KIM rimandato
+15:12:55 KAISER   limite 1 ingresso/i per scan: $KIM rimandato
+15:12:55 QUARTER  BUY $Rex 0.120 SOL score 82 impatto 1.28% (Jupiter)
+15:12:55 ORACLE   360 raccolti, 249 analizzati, 5 BUY, 237 veto
+15:12:31 ORACLE   360 raccolti, 241 analizzati, 5 BUY, 231 veto
 15:12:08 ORACLE   360 raccolti, 247 analizzati, 5 BUY, 237 veto
 15:11:44 ORACLE   360 raccolti, 254 analizzati, 5 BUY, 244 veto
 15:11:20 ORACLE   360 raccolti, 238 analizzati, 6 BUY, 228 veto
@@ -75,26 +95,6 @@ Aggiornato: 2026-11-17 15:12 UTC · in esecuzione da 0.9 giorni · 167 run
 15:06:54 ORACLE   360 raccolti, 241 analizzati, 3 BUY, 231 veto
 15:06:31 KAISER   limite 1 ingresso/i per scan: $KIM rimandato
 15:06:31 QUARTER  BUY $KIM 0.119 SOL score 67 impatto 0.03% (Jupiter)
-15:06:31 ORACLE   360 raccolti, 242 analizzati, 3 BUY, 232 veto
-15:06:07 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 244 veto
-15:05:44 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 240 veto
-15:05:20 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 241 veto
-15:04:57 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 244 veto
-15:04:34 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 234 veto
-15:04:10 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 244 veto
-15:03:47 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 242 veto
-15:03:24 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 239 veto
-15:03:00 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 244 veto
-15:02:36 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 236 veto
-15:02:13 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 242 veto
-15:01:49 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 250 veto
-15:01:36 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 247 veto
-15:01:10 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 242 veto
-15:00:57 SCRIBE   chiuso P-0306 $JESTER -0.0026 SOL (-2.2%)
-15:00:57 CHARON   Time stop $JESTER vendo 100% a 2.4% -> 0.1174 SOL
-15:00:46 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 241 veto
-15:00:23 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 246 veto
-15:00:00 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 233 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
