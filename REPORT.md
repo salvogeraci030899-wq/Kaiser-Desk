@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 23:54 UTC · in esecuzione da 0.0 giorni · 178 run
+Aggiornato: 2026-11-17 23:59 UTC · in esecuzione da 0.0 giorni · 178 run
 
 | | |
 |---|---|
@@ -33,6 +33,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+23:59:40 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 255 veto
+23:59:17 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 252 veto
+23:58:53 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 255 veto
+23:58:29 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 254 veto
+23:58:06 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 247 veto
+23:57:42 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 235 veto
+23:57:19 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 245 veto
+23:56:55 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 243 veto
+23:56:31 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 233 veto
+23:56:07 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 230 veto
+23:55:43 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 234 veto
+23:55:28 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 230 veto
+23:55:03 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 238 veto
 23:54:40 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 242 veto
 23:54:16 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 229 veto
 23:54:12 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
@@ -60,19 +73,6 @@ _nessuna_
 23:48:16 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 244 veto
 23:47:53 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 243 veto
 23:47:29 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 237 veto
-23:47:05 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 248 veto
-23:46:41 QUARTER  BUY $GrokChan 0.118 SOL score 63 impatto 0.42% (Jupiter)
-23:46:40 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 240 veto
-23:46:17 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 239 veto
-23:45:53 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 253 veto
-23:45:31 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 253 veto
-23:45:07 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 246 veto
-23:44:43 ORACLE   352 raccolti, 256 analizzati, 0 BUY, 250 veto
-23:44:19 ORACLE   344 raccolti, 247 analizzati, 0 BUY, 241 veto
-23:43:56 ORACLE   344 raccolti, 235 analizzati, 0 BUY, 229 veto
-23:43:53 KAISER   parametri dall'app: minScore 73→63
-23:43:32 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-23:43:32 ORACLE   327 raccolti, 223 analizzati, 0 BUY, 217 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
