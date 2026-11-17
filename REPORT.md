@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 05:29 UTC · in esecuzione da 0.5 giorni · 156 run
+Aggiornato: 2026-11-17 05:34 UTC · in esecuzione da 0.5 giorni · 156 run
 
 | | |
 |---|---|
-| Equity | **5.8211 SOL** (-3.0% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.8211 SOL |
-| Trade chiusi | 65 |
-| Win rate | 35% |
-| P&L realizzato | -0.1789 SOL (~$-13.04) |
-| Media vincite / perdite | +49.0% / -30.0% |
-| Profit factor | 0.88 |
+| Equity | **5.8943 SOL** (-1.8% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.8943 SOL |
+| Trade chiusi | 66 |
+| Win rate | 36% |
+| P&L realizzato | -0.1057 SOL (~$-7.71) |
+| Media vincite / perdite | +49.6% / -30.0% |
+| Profit factor | 0.93 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -21,12 +21,13 @@ _nessuna_
 |---|---|---|
 | RUG-EXIT liquidità | 11 | -0.7032 |
 | Time stop | 28 | -0.3072 |
-| TP1 | 15 | +1.1701 |
+| TP1 | 16 | +1.2432 |
 | Stop loss | 11 | -0.3386 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $DUCK | 70 | +62.3% | +0.0732 | +66% | +66% | TP1 | 3m |
 | $ACTB | 67 | -84.8% | -0.1013 | +0% | -81% | RUG-EXIT liquidità | 2m |
 | $KLAUDIA | 81 | -5.0% | -0.0060 | +17% | +4% | Time stop | 6m |
 | $Tuff | 66 | -10.4% | -0.0125 | +0% | -15% | Time stop | 5m |
@@ -51,10 +52,25 @@ _nessuna_
 | $LUCIA | 88 | -12.7% | -0.0155 | +26% | -46% | Stop loss | 4m |
 | $BIGP | 63 | -26.7% | -0.0328 | +22% | -10% | Time stop | 6m |
 | $BINDER | 69 | +30.3% | +0.0369 | +49% | +5% | Time stop | 6m |
-| $GTAMARKET | 64 | -7.6% | -0.0092 | +30% | -6% | Time stop | 11m |
 
 ## Ultimi eventi
 ```
+05:34:20 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 260 veto
+05:33:55 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 257 veto
+05:33:31 SCRIBE   chiuso P-0281 $DUCK 0.0732 SOL (62.3%)
+05:33:31 CHARON   TP1 $DUCK vendo 100% a 65.9% -> 0.1906 SOL
+05:33:31 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 260 veto
+05:33:07 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 260 veto
+05:32:43 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 253 veto
+05:32:19 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 257 veto
+05:31:56 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 257 veto
+05:31:31 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 252 veto
+05:31:07 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 257 veto
+05:30:43 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 261 veto
+05:30:29 QUARTER  BUY $DUCK 0.116 SOL score 70 impatto 1.24% (Jupiter)
+05:30:29 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 256 veto
+05:30:02 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 260 veto
+05:29:39 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 266 veto
 05:29:15 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 263 veto
 05:28:51 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 267 veto
 05:28:27 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 267 veto
@@ -79,22 +95,6 @@ _nessuna_
 05:20:55 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 248 veto
 05:20:31 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 246 veto
 05:20:07 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 247 veto
-05:19:43 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 239 veto
-05:19:19 QUARTER  $DUCK impatto 2.8% oltre slippage: annullato
-05:19:19 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 250 veto
-05:18:55 QUARTER  $DUCK impatto 2.6% oltre slippage: annullato
-05:18:55 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 242 veto
-05:18:31 QUARTER  $DUCK impatto 2.5% oltre slippage: annullato
-05:18:31 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 243 veto
-05:18:06 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 252 veto
-05:17:42 ORACLE   357 raccolti, 250 analizzati, 0 BUY, 241 veto
-05:17:19 ORACLE   349 raccolti, 241 analizzati, 0 BUY, 230 veto
-05:16:55 ORACLE   328 raccolti, 226 analizzati, 0 BUY, 216 veto
-05:16:32 SCOUT    PumpPortal invia nuovi token (22) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-05:16:32 ORACLE   310 raccolti, 218 analizzati, 0 BUY, 208 veto
-05:16:08 ORACLE   302 raccolti, 209 analizzati, 0 BUY, 199 veto
-05:15:44 ORACLE   276 raccolti, 197 analizzati, 0 BUY, 187 veto
-05:15:24 SCOUT    sonda scambi: PumpPortal 0 scambi, programma RPC 2434 eventi, curve RPC 649
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
