@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 03:38 UTC · in esecuzione da 0.4 giorni · 154 run
+Aggiornato: 2026-11-17 03:43 UTC · in esecuzione da 0.4 giorni · 154 run
 
 | | |
 |---|---|
-| Equity | **5.9560 SOL** (-0.7% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.9560 SOL |
+| Equity | **5.9949 SOL** (-0.1% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.8359 SOL |
 | Trade chiusi | 58 |
 | Win rate | 34% |
-| P&L realizzato | -0.0440 SOL (~$-3.20) |
+| P&L realizzato | -0.0440 SOL (~$-3.19) |
 | Media vincite / perdite | +55.6% / -29.8% |
 | Profit factor | 0.97 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$Mihaomas** P-0274 · 0.119 SOL · +33.6% · resta 100% · [grafico](https://dexscreener.com/solana/Et8VgcoxcFVYZT9pekPuwgBahBPBQquN8J2eg6E1Xkjb)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,22 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+03:43:17 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 247 veto
+03:42:55 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 253 veto
+03:42:32 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 250 veto
+03:42:09 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 252 veto
+03:41:46 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 253 veto
+03:41:23 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 247 veto
+03:41:00 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 253 veto
+03:40:37 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 251 veto
+03:40:14 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 251 veto
+03:39:51 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 248 veto
+03:39:28 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 252 veto
+03:39:06 KAISER   limite 1 ingresso/i per scan: $DRILL rimandato
+03:39:05 QUARTER  BUY $Mihaomas 0.119 SOL score 72 impatto 1.33% (Jupiter)
+03:39:05 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 245 veto
+03:38:42 QUARTER  $DRILL impatto 2.3% oltre slippage: annullato
+03:38:42 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 261 veto
 03:38:19 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 257 veto
 03:37:57 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 257 veto
 03:37:34 QUARTER  $DRILL impatto 3.9% oltre slippage: annullato
@@ -79,22 +95,6 @@ _nessuna_
 03:33:20 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
 03:33:19 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
 03:33:19 SCOUT    Laboratorio: collegato a PumpPortal
-03:33:19 KAISER   run #154 · 0 posizioni · equity 5.9560 SOL · GMGN spenta (nessuna chiave) · Grok off
-03:33:07 SCRIBE   fine run · trade 58 · win 34% · P&L -0.0440 SOL · equity 5.9560 SOL
-03:33:03 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 255 veto
-03:32:40 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 252 veto
-03:32:17 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 259 veto
-03:31:54 SCRIBE   chiuso P-0273 $XDOGE -0.0630 SOL (-51.9%)
-03:31:54 CHARON   Stop loss $XDOGE vendo 100% a -45.6% -> 0.0584 SOL
-03:31:54 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 263 veto
-03:31:31 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 262 veto
-03:31:08 QUARTER  BUY $XDOGE 0.120 SOL score 74 impatto 1.30% (Jupiter)
-03:31:08 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 264 veto
-03:30:45 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 261 veto
-03:30:22 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 267 veto
-03:29:59 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 255 veto
-03:29:36 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 252 veto
-03:29:13 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 257 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
