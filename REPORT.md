@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 17:02 UTC · in esecuzione da 0.0 giorni · 170 run
+Aggiornato: 2026-11-17 17:07 UTC · in esecuzione da 0.0 giorni · 170 run
 
 | | |
 |---|---|
-| Equity | **6.0233 SOL** (+0.4% dal capitale iniziale di 6 SOL) |
-| Cassa | 6.0233 SOL |
+| Equity | **6.0694 SOL** (+1.2% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.9018 SOL |
 | Trade chiusi | 2 |
 | Win rate | 50% |
-| P&L realizzato | +0.0233 SOL (~$1.67) |
+| P&L realizzato | +0.0233 SOL (~$1.69) |
 | Media vincite / perdite | +29.9% / -10.6% |
 | Profit factor | 2.80 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$blackhole** P-0320 · 0.120 SOL · +39.1% · resta 100% · [grafico](https://dexscreener.com/solana/RWYuKvYpNEpHN7PZx9yvetvHkwRG9fQdtpVYLyrVYEk)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -29,6 +29,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+17:07:35 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 234 veto
+17:07:12 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 251 veto
+17:06:50 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 236 veto
+17:06:26 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 234 veto
+17:06:03 QUARTER  BUY $blackhole 0.120 SOL score 67 impatto 1.80% (Jupiter)
+17:06:03 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 250 veto
+17:05:40 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 245 veto
+17:05:18 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 239 veto
+17:04:55 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 250 veto
+17:04:32 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 259 veto
+17:04:09 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 240 veto
+17:03:45 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 252 veto
+17:03:23 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 262 veto
+17:03:00 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 252 veto
 17:02:37 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 257 veto
 17:02:14 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 255 veto
 17:01:51 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 241 veto
@@ -55,20 +69,6 @@ _nessuna_
 16:57:25 SCOUT    Laboratorio: collegato a PumpPortal
 16:57:25 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→40, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120
 16:57:24 KAISER   run #170 · 0 posizioni · equity 6.0233 SOL · GMGN spenta (nessuna chiave) · Grok off
-16:57:00 SCRIBE   fine run · trade 2 · win 50% · P&L 0.0233 SOL · equity 6.0233 SOL
-16:56:55 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 235 veto
-16:56:52 SCRIBE   chiuso P-0319 $FWACK -0.0129 SOL (-10.6%)
-16:56:52 CHARON   Chiusura manuale (app) $FWACK vendo 100% a -10.9% -> 0.1088 SOL
-16:56:52 KAISER   chiusura manuale dall'app: P-0319 FWACK
-16:56:32 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 258 veto
-16:56:08 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 260 veto
-16:55:45 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 247 veto
-16:55:21 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 254 veto
-16:54:58 QUARTER  BUY $FWACK 0.121 SOL score 64 impatto 0.00% (Jupiter)
-16:54:58 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 250 veto
-16:54:35 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 248 veto
-16:54:11 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 250 veto
-16:53:48 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 250 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
