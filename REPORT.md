@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 13:16 UTC · in esecuzione da 0.8 giorni · 165 run
+Aggiornato: 2026-11-17 13:22 UTC · in esecuzione da 0.8 giorni · 165 run
 
 | | |
 |---|---|
-| Equity | **5.8159 SOL** (-3.1% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.8159 SOL |
+| Equity | **5.8760 SOL** (-2.1% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.6986 SOL |
 | Trade chiusi | 83 |
 | Win rate | 36% |
-| P&L realizzato | -0.1841 SOL (~$-13.60) |
+| P&L realizzato | -0.1841 SOL (~$-13.61) |
 | Media vincite / perdite | +49.9% / -30.8% |
 | Profit factor | 0.91 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$NIGGA** P-0299 · 0.116 SOL · +52.5% · resta 100% · [grafico](https://dexscreener.com/solana/74GF17Htag7TwGLv5CxSHMfwFMk9tvHAvkoAQHLDnVym)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,22 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+13:22:03 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 263 veto
+13:21:39 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 263 veto
+13:21:15 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 269 veto
+13:20:52 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 272 veto
+13:20:28 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 255 veto
+13:20:04 KAISER   limite 1 ingresso/i per scan: $Grokia rimandato
+13:20:03 QUARTER  BUY $NIGGA 0.116 SOL score 67 impatto 1.39% (Jupiter)
+13:20:03 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 268 veto
+13:19:39 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 262 veto
+13:19:17 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 266 veto
+13:19:14 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)
+13:18:54 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 261 veto
+13:18:31 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 260 veto
+13:18:08 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 253 veto
+13:17:44 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 260 veto
+13:17:19 ORACLE   360 raccolti, 274 analizzati, 2 BUY, 263 veto
 13:16:55 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 252 veto
 13:16:32 ORACLE   360 raccolti, 282 analizzati, 2 BUY, 269 veto
 13:16:08 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 266 veto
@@ -79,22 +95,6 @@ _nessuna_
 13:09:23 KAISER   limite 1 ingresso/i per scan: $NIGGA rimandato
 13:09:22 QUARTER  BUY $Grokia 0.117 SOL score 68 impatto 0.00% (Jupiter)
 13:09:22 ORACLE   360 raccolti, 287 analizzati, 2 BUY, 279 veto
-13:08:59 QUARTER  $Grokia impatto 2.5% oltre slippage: annullato
-13:08:59 ORACLE   360 raccolti, 282 analizzati, 2 BUY, 273 veto
-13:08:35 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 271 veto
-13:08:12 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 266 veto
-13:07:59 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 267 veto
-13:07:33 QUARTER  $Grokia impatto 2.4% oltre slippage: annullato
-13:07:33 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 267 veto
-13:07:09 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 272 veto
-13:06:45 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 269 veto
-13:06:22 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 264 veto
-13:05:58 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 271 veto
-13:05:35 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 270 veto
-13:05:13 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 261 veto
-13:05:09 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
-13:04:49 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 269 veto
-13:04:26 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 271 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
