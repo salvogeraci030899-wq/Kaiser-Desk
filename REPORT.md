@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 09:00 UTC · in esecuzione da 0.6 giorni · 160 run
+Aggiornato: 2026-11-17 09:05 UTC · in esecuzione da 0.6 giorni · 160 run
 
 | | |
 |---|---|
@@ -55,6 +55,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+09:05:12 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 265 veto
+09:04:49 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 271 veto
+09:04:27 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 271 veto
+09:04:05 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 262 veto
+09:03:43 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 264 veto
+09:03:21 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 267 veto
+09:02:59 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 261 veto
+09:02:36 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 265 veto
+09:02:14 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 265 veto
+09:01:51 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 258 veto
+09:01:28 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 259 veto
+09:01:06 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 260 veto
+09:00:43 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 251 veto
+09:00:20 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 258 veto
 08:59:57 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 261 veto
 08:59:35 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 251 veto
 08:59:12 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 262 veto
@@ -81,20 +95,6 @@ _nessuna_
 08:51:20 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 265 veto
 08:50:58 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 270 veto
 08:50:36 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 263 veto
-08:50:13 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 268 veto
-08:49:51 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 265 veto
-08:49:29 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 267 veto
-08:49:06 SCRIBE   chiuso P-0285 $PTA -0.0181 SOL (-14.9%)
-08:49:06 CHARON   Stop loss $PTA vendo 100% a -44.3% -> 0.1036 SOL
-08:49:06 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 267 veto
-08:48:43 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 258 veto
-08:48:21 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 250 veto
-08:47:58 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 260 veto
-08:47:35 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 258 veto
-08:47:12 QUARTER  BUY $PTA 0.121 SOL score 65 impatto 1.63% (Jupiter)
-08:47:12 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 252 veto
-08:46:49 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 260 veto
-08:46:27 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 254 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
