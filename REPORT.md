@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 03:18 UTC · in esecuzione da 0.4 giorni · 153 run
+Aggiornato: 2026-11-17 03:24 UTC · in esecuzione da 0.4 giorni · 153 run
 
 | | |
 |---|---|
-| Equity | **6.0102 SOL** (+0.2% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.8223 SOL |
-| Trade chiusi | 56 |
-| Win rate | 34% |
-| P&L realizzato | -0.0579 SOL (~$-4.17) |
-| Media vincite / perdite | +55.2% / -29.2% |
-| Profit factor | 0.96 |
+| Equity | **6.0190 SOL** (+0.3% dal capitale iniziale di 6 SOL) |
+| Cassa | 6.0190 SOL |
+| Trade chiusi | 57 |
+| Win rate | 35% |
+| P&L realizzato | +0.0190 SOL (~$1.37) |
+| Media vincite / perdite | +55.6% / -29.2% |
+| Profit factor | 1.01 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$RizzGivin** P-0272 · 0.119 SOL · +58.1% · resta 100% · [grafico](https://dexscreener.com/solana/BWo6BEaYipfotRcWvsnXFnGShG9MgSeyjbEp5fCBJXht)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | RUG-EXIT liquidità | 9 | -0.5693 |
 | Time stop | 23 | -0.3062 |
-| TP1 | 14 | +1.0933 |
+| TP1 | 15 | +1.1701 |
 | Stop loss | 10 | -0.2756 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $RizzGivin | 73 | +64.1% | +0.0768 | +74% | +74% | TP1 | 4m |
 | $FLYWHEEL | 76 | +1.8% | +0.0022 | +29% | +4% | Time stop | 5m |
 | $XDOGE | 72 | -96.8% | -0.1180 | +1% | -96% | RUG-EXIT liquidità | 1m |
 | $Nozomi | 64 | -47.5% | -0.0586 | +9% | -29% | Time stop | 5m |
@@ -51,10 +52,25 @@ Aggiornato: 2026-11-17 03:18 UTC · in esecuzione da 0.4 giorni · 153 run
 | $LUCIA | 88 | -30.2% | -0.0376 | +0% | -52% | RUG-EXIT liquidità | 2m |
 | $GTA | 69 | -6.4% | -0.0079 | +42% | +0% | Time stop | 9m |
 | $DOME | 70 | +11.8% | +0.0146 | +14% | -9% | Time stop | 5m |
-| $LEOSTAR | 82 | +62.1% | +0.0758 | +71% | +71% | TP1 | 3m |
 
 ## Ultimi eventi
 ```
+03:24:00 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 247 veto
+03:23:41 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 244 veto
+03:23:12 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 252 veto
+03:22:49 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 262 veto
+03:22:26 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 258 veto
+03:22:03 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 267 veto
+03:21:40 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 265 veto
+03:21:16 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 247 veto
+03:20:53 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 266 veto
+03:20:31 ORACLE   360 raccolti, 273 analizzati, 3 BUY, 263 veto
+03:20:06 ORACLE   360 raccolti, 261 analizzati, 3 BUY, 253 veto
+03:19:43 ORACLE   360 raccolti, 266 analizzati, 3 BUY, 258 veto
+03:19:20 ORACLE   360 raccolti, 270 analizzati, 3 BUY, 259 veto
+03:18:57 SCRIBE   chiuso P-0272 $RizzGivin 0.0768 SOL (64.1%)
+03:18:57 CHARON   TP1 $RizzGivin vendo 100% a 74.1% -> 0.1967 SOL
+03:18:57 ORACLE   360 raccolti, 257 analizzati, 3 BUY, 247 veto
 03:18:33 ORACLE   360 raccolti, 267 analizzati, 3 BUY, 256 veto
 03:18:11 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 244 veto
 03:17:47 ORACLE   360 raccolti, 251 analizzati, 3 BUY, 241 veto
@@ -79,22 +95,6 @@ Aggiornato: 2026-11-17 03:18 UTC · in esecuzione da 0.4 giorni · 153 run
 03:11:20 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 260 veto
 03:11:07 SCRIBE   chiuso P-0270 $FLYWHEEL 0.0022 SOL (1.8%)
 03:11:07 CHARON   Time stop $FLYWHEEL vendo 100% a 4.0% -> 0.1244 SOL
-03:10:56 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 253 veto
-03:10:33 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 247 veto
-03:10:20 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 260 veto
-03:09:55 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 261 veto
-03:09:32 SCRIBE   chiuso P-0271 $XDOGE -0.1180 SOL (-96.8%)
-03:09:32 CHARON   RUG-EXIT liquidità $XDOGE vendo 100% a -95.9% -> 0.0039 SOL
-03:09:32 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 254 veto
-03:09:08 ORACLE   360 raccolti, 279 analizzati, 2 BUY, 261 veto
-03:08:46 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 261 veto
-03:08:23 KAISER   limite 1 ingresso/i per scan: $CHAR rimandato
-03:08:22 QUARTER  BUY $XDOGE 0.121 SOL score 72 impatto 1.63% (Jupiter)
-03:08:22 ORACLE   360 raccolti, 276 analizzati, 3 BUY, 257 veto
-03:07:59 ORACLE   360 raccolti, 283 analizzati, 3 BUY, 266 veto
-03:07:36 ORACLE   360 raccolti, 282 analizzati, 3 BUY, 264 veto
-03:07:12 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 248 veto
-03:06:49 ORACLE   360 raccolti, 275 analizzati, 3 BUY, 261 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
