@@ -1,6 +1,6 @@
 {
  "startedAt": 1794850176657,
- "runs": 155,
+ "runs": 156,
  "cash": 5.821100471246678,
  "positions": [],
  "journal": [
@@ -3011,20 +3011,6 @@
   }
  ],
  "signals": [
-  {
-   "t": 1794876878943,
-   "mint": "Q9kYktMbrdEt7oXwC4AqK9Jqyqjqax2VE6j5wwjpump",
-   "sym": "BINDER",
-   "score": 72,
-   "priceNative": 3.48e-7
-  },
-  {
-   "t": 1794876902494,
-   "mint": "Q9kYktMbrdEt7oXwC4AqK9Jqyqjqax2VE6j5wwjpump",
-   "sym": "BINDER",
-   "score": 72,
-   "priceNative": 3.48e-7
-  },
   {
    "t": 1794876902494,
    "mint": "D3g7TDE64JvXDQkoVnswXPEv1i28kovsDYCvBs89pump",
@@ -10010,6 +9996,20 @@
    "sym": "TRADITION",
    "score": 64,
    "priceNative": 2.478e-7
+  },
+  {
+   "t": 1794892711528,
+   "mint": "J2jAd1XYQp9v3SiyC1EvfR2NiC6CH46FViGoJeUtpump",
+   "sym": "DUCK",
+   "score": 63,
+   "priceNative": 4.341e-7
+  },
+  {
+   "t": 1794892735695,
+   "mint": "J2jAd1XYQp9v3SiyC1EvfR2NiC6CH46FViGoJeUtpump",
+   "sym": "DUCK",
+   "score": 63,
+   "priceNative": 4.57e-7
   }
  ],
  "day": {
@@ -10020,6 +10020,32 @@
  "halted": null,
  "seq": 280,
  "events": [
+  "05:18:55 QUARTER  $DUCK impatto 2.6% oltre slippage: annullato",
+  "05:18:55 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 242 veto",
+  "05:18:31 QUARTER  $DUCK impatto 2.5% oltre slippage: annullato",
+  "05:18:31 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 243 veto",
+  "05:18:06 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 252 veto",
+  "05:17:42 ORACLE   357 raccolti, 250 analizzati, 0 BUY, 241 veto",
+  "05:17:19 ORACLE   349 raccolti, 241 analizzati, 0 BUY, 230 veto",
+  "05:16:55 ORACLE   328 raccolti, 226 analizzati, 0 BUY, 216 veto",
+  "05:16:32 SCOUT    PumpPortal invia nuovi token (22) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena",
+  "05:16:32 ORACLE   310 raccolti, 218 analizzati, 0 BUY, 208 veto",
+  "05:16:08 ORACLE   302 raccolti, 209 analizzati, 0 BUY, 199 veto",
+  "05:15:44 ORACLE   276 raccolti, 197 analizzati, 0 BUY, 187 veto",
+  "05:15:24 SCOUT    sonda scambi: PumpPortal 0 scambi, programma RPC 2434 eventi, curve RPC 649",
+  "05:15:21 ORACLE   265 raccolti, 186 analizzati, 0 BUY, 178 veto",
+  "05:14:58 ORACLE   257 raccolti, 177 analizzati, 0 BUY, 169 veto",
+  "05:14:34 ORACLE   233 raccolti, 166 analizzati, 0 BUY, 160 veto",
+  "05:14:11 ORACLE   224 raccolti, 151 analizzati, 0 BUY, 148 veto",
+  "05:13:51 SCOUT    fabbrica: 9073 percorsi, 768 configurazioni, 0 passano, 1000 ms",
+  "05:13:50 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an",
+  "05:13:50 ORACLE   221 raccolti, 151 analizzati, 0 BUY, 148 veto",
+  "05:13:47 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an",
+  "05:13:47 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com",
+  "05:13:47 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→40, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120",
+  "05:13:47 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.",
+  "05:13:46 SCOUT    Laboratorio: collegato a PumpPortal",
+  "05:13:46 KAISER   run #156 · 0 posizioni · equity 5.8211 SOL · GMGN spenta (nessuna chiave) · Grok off",
   "05:13:36 SCRIBE   fine run · trade 65 · win 35% · P&L -0.1789 SOL · equity 5.8211 SOL",
   "05:13:28 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 256 veto",
   "05:13:06 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 251 veto",
@@ -10293,33 +10319,7 @@
   "03:46:01 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 257 veto",
   "03:45:37 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 262 veto",
   "03:45:14 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 265 veto",
-  "03:44:51 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 258 veto",
-  "03:44:27 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 262 veto",
-  "03:44:13 SCRIBE   chiuso P-0274 $Mihaomas 0.0007 SOL (0.5%)",
-  "03:44:13 CHARON   Time stop $Mihaomas vendo 100% a -9.0% -> 0.1208 SOL",
-  "03:44:03 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 258 veto",
-  "03:43:40 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 244 veto",
-  "03:43:17 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 247 veto",
-  "03:42:55 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 253 veto",
-  "03:42:32 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 250 veto",
-  "03:42:09 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 252 veto",
-  "03:41:46 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 253 veto",
-  "03:41:23 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 247 veto",
-  "03:41:00 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 253 veto",
-  "03:40:37 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 251 veto",
-  "03:40:14 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 251 veto",
-  "03:39:51 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 248 veto",
-  "03:39:28 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 252 veto",
-  "03:39:06 KAISER   limite 1 ingresso/i per scan: $DRILL rimandato",
-  "03:39:05 QUARTER  BUY $Mihaomas 0.119 SOL score 72 impatto 1.33% (Jupiter)",
-  "03:39:05 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 245 veto",
-  "03:38:42 QUARTER  $DRILL impatto 2.3% oltre slippage: annullato",
-  "03:38:42 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 261 veto",
-  "03:38:19 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 257 veto",
-  "03:37:57 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 257 veto",
-  "03:37:34 QUARTER  $DRILL impatto 3.9% oltre slippage: annullato",
-  "03:37:34 ORACLE   347 raccolti, 258 analizzati, 1 BUY, 248 veto",
-  "03:37:11 QUARTER  $DRILL impatto 3.3% oltre slippage: annullato"
+  "03:44:51 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 258 veto"
  ],
  "capital": 6,
  "resetId": "C-0082",
