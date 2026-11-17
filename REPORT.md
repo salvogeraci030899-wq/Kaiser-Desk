@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 12:21 UTC · in esecuzione da 0.8 giorni · 164 run
+Aggiornato: 2026-11-17 12:26 UTC · in esecuzione da 0.8 giorni · 164 run
 
 | | |
 |---|---|
-| Equity | **5.9540 SOL** (-0.8% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.8089 SOL |
-| Trade chiusi | 79 |
+| Equity | **5.8893 SOL** (-1.8% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.8893 SOL |
+| Trade chiusi | 80 |
 | Win rate | 38% |
-| P&L realizzato | -0.0715 SOL (~$-5.23) |
-| Media vincite / perdite | +49.9% / -31.3% |
-| Profit factor | 0.96 |
+| P&L realizzato | -0.1107 SOL (~$-8.11) |
+| Media vincite / perdite | +49.9% / -31.4% |
+| Profit factor | 0.94 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$DPRF** P-0295 · 0.119 SOL · +22.3% · resta 100% · [grafico](https://dexscreener.com/solana/HM7kjaZeUzh8iSiPngdTPtFJWgHb9bmB1GsmQiAh4dGM)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | RUG-EXIT liquidità | 13 | -0.9013 |
-| Time stop | 32 | -0.3298 |
+| Time stop | 33 | -0.3690 |
 | TP1 | 21 | +1.6042 |
 | Stop loss | 13 | -0.4446 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $DPRF | 78 | -32.8% | -0.0392 | +36% | -13% | Time stop | 11m |
 | $SOYOUARE | 71 | +63.4% | +0.0748 | +74% | +74% | TP1 | 2m |
 | $OGS | 72 | +3.3% | +0.0039 | +14% | +4% | Time stop | 6m |
 | $Google | 63 | -97.6% | -0.1174 | +48% | -78% | RUG-EXIT liquidità | 9m |
@@ -51,10 +52,24 @@ Aggiornato: 2026-11-17 12:21 UTC · in esecuzione da 0.8 giorni · 164 run
 | $XDOGE | 74 | -51.9% | -0.0630 | +0% | -46% | Stop loss | 1m |
 | $RizzGivin | 73 | +64.1% | +0.0768 | +74% | +74% | TP1 | 4m |
 | $FLYWHEEL | 76 | +1.8% | +0.0022 | +29% | +4% | Time stop | 5m |
-| $XDOGE | 72 | -96.8% | -0.1180 | +1% | -96% | RUG-EXIT liquidità | 1m |
 
 ## Ultimi eventi
 ```
+12:26:06 ORACLE   360 raccolti, 281 analizzati, 2 BUY, 266 veto
+12:25:44 ORACLE   360 raccolti, 283 analizzati, 2 BUY, 268 veto
+12:25:21 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 254 veto
+12:24:58 ORACLE   360 raccolti, 284 analizzati, 2 BUY, 267 veto
+12:24:36 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 258 veto
+12:24:13 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 256 veto
+12:23:50 ORACLE   360 raccolti, 275 analizzati, 3 BUY, 260 veto
+12:23:27 ORACLE   360 raccolti, 274 analizzati, 3 BUY, 258 veto
+12:23:05 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 252 veto
+12:22:41 SCRIBE   chiuso P-0295 $DPRF -0.0392 SOL (-32.8%)
+12:22:41 CHARON   Time stop $DPRF vendo 100% a -13.4% -> 0.0804 SOL
+12:22:41 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 252 veto
+12:22:18 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 243 veto
+12:21:55 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 239 veto
+12:21:32 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 262 veto
 12:21:08 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 259 veto
 12:20:45 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 253 veto
 12:20:23 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 260 veto
@@ -80,21 +95,6 @@ Aggiornato: 2026-11-17 12:21 UTC · in esecuzione da 0.8 giorni · 164 run
 12:13:06 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 261 veto
 12:12:43 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 260 veto
 12:12:21 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 264 veto
-12:11:58 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 266 veto
-12:11:35 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 258 veto
-12:11:11 QUARTER  BUY $DPRF 0.119 SOL score 78 impatto 0.62% (Jupiter)
-12:11:11 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 263 veto
-12:10:49 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 260 veto
-12:10:25 QUARTER  $DPRF impatto 5.5% oltre slippage: annullato
-12:10:25 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 260 veto
-12:10:02 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 264 veto
-12:09:40 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 262 veto
-12:09:17 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 260 veto
-12:08:53 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 257 veto
-12:08:30 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 257 veto
-12:08:08 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 250 veto
-12:08:05 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)
-12:08:05 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
