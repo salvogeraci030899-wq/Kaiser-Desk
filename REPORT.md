@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 18:42 UTC · in esecuzione da 0.1 giorni · 172 run
+Aggiornato: 2026-11-17 18:47 UTC · in esecuzione da 0.1 giorni · 172 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-17 18:42 UTC · in esecuzione da 0.1 giorni · 172 run
 | Cassa | 5.7105 SOL |
 | Trade chiusi | 11 |
 | Win rate | 27% |
-| P&L realizzato | -0.2895 SOL (~$-20.93) |
+| P&L realizzato | -0.2895 SOL (~$-20.90) |
 | Media vincite / perdite | +24.1% / -39.4% |
 | Profit factor | 0.23 |
 | Circuit breaker | no |
@@ -40,6 +40,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+18:47:47 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 240 veto
+18:47:24 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 239 veto
+18:47:01 ORACLE   360 raccolti, 228 analizzati, 0 BUY, 223 veto
+18:46:37 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 239 veto
+18:46:15 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 236 veto
+18:45:51 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 237 veto
+18:45:28 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 240 veto
+18:45:07 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 242 veto
+18:44:44 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 235 veto
+18:44:21 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 230 veto
+18:43:57 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 233 veto
+18:43:34 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 224 veto
+18:43:10 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 235 veto
 18:42:46 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 236 veto
 18:42:22 ORACLE   360 raccolti, 230 analizzati, 0 BUY, 216 veto
 18:41:57 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 229 veto
@@ -67,19 +80,6 @@ _nessuna_
 18:37:41 SCRIBE   fine run · trade 11 · win 27% · P&L -0.2895 SOL · equity 5.7105 SOL
 18:37:33 ORACLE   360 raccolti, 231 analizzati, 2 BUY, 224 veto
 18:37:09 SCRIBE   chiuso P-0326 $GTA6 -0.0008 SOL (-0.6%)
-18:37:09 CHARON   Time stop $GTA6 vendo 100% a 3.8% -> 0.1168 SOL
-18:37:09 ORACLE   360 raccolti, 218 analizzati, 1 BUY, 213 veto
-18:36:46 ORACLE   360 raccolti, 229 analizzati, 1 BUY, 224 veto
-18:36:23 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 232 veto
-18:36:09 SCRIBE   chiuso P-0328 $GTA -0.0202 SOL (-17.1%)
-18:36:09 CHARON   Time stop $GTA vendo 100% a -6.5% -> 0.0978 SOL
-18:36:09 ORACLE   360 raccolti, 231 analizzati, 1 BUY, 225 veto
-18:35:43 ORACLE   360 raccolti, 221 analizzati, 1 BUY, 214 veto
-18:35:30 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 225 veto
-18:35:04 ORACLE   360 raccolti, 222 analizzati, 2 BUY, 217 veto
-18:34:41 ORACLE   360 raccolti, 216 analizzati, 1 BUY, 210 veto
-18:34:29 ORACLE   360 raccolti, 228 analizzati, 1 BUY, 222 veto
-18:34:03 ORACLE   360 raccolti, 218 analizzati, 1 BUY, 213 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
