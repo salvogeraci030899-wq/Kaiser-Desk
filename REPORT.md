@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 11:00 UTC · in esecuzione da 0.7 giorni · 162 run
+Aggiornato: 2026-11-17 11:05 UTC · in esecuzione da 0.7 giorni · 162 run
 
 | | |
 |---|---|
-| Equity | **5.9404 SOL** (-1.0% dal capitale iniziale di 6 SOL) |
+| Equity | **5.9363 SOL** (-1.1% dal capitale iniziale di 6 SOL) |
 | Cassa | 5.8084 SOL |
 | Trade chiusi | 73 |
 | Win rate | 37% |
-| P&L realizzato | -0.0720 SOL (~$-5.19) |
+| P&L realizzato | -0.0720 SOL (~$-5.20) |
 | Media vincite / perdite | +51.1% / -30.9% |
 | Profit factor | 0.96 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$BUDDY** P-0289 · 0.119 SOL · +11.3% · resta 100% · [grafico](https://dexscreener.com/solana/4q3EQc2HdJ2QgVFkpeKr54pMFqczXxnV7KruVVognyXq)
+- **$BUDDY** P-0289 · 0.119 SOL · +7.9% · resta 100% · [grafico](https://dexscreener.com/solana/4q3EQc2HdJ2QgVFkpeKr54pMFqczXxnV7KruVVognyXq)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,18 @@ Aggiornato: 2026-11-17 11:00 UTC · in esecuzione da 0.7 giorni · 162 run
 
 ## Ultimi eventi
 ```
+11:05:12 SCRIBE   fine run · trade 73 · win 37% · P&L -0.0720 SOL · equity 5.9363 SOL
+11:05:12 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 259 veto
+11:04:51 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 252 veto
+11:04:28 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 256 veto
+11:04:04 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 258 veto
+11:03:41 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 257 veto
+11:03:17 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 256 veto
+11:02:54 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 254 veto
+11:02:30 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 248 veto
+11:02:07 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 247 veto
+11:01:43 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 252 veto
+11:01:20 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 256 veto
 11:00:57 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 246 veto
 11:00:33 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 256 veto
 11:00:09 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 252 veto
@@ -83,18 +95,6 @@ Aggiornato: 2026-11-17 11:00 UTC · in esecuzione da 0.7 giorni · 162 run
 10:53:25 QUARTER  $BUDDY impatto 2.4% oltre slippage: annullato
 10:53:25 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 258 veto
 10:53:01 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 252 veto
-10:52:37 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 245 veto
-10:52:14 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 255 veto
-10:51:50 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 252 veto
-10:51:27 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 244 veto
-10:51:04 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 252 veto
-10:50:40 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 251 veto
-10:50:17 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 245 veto
-10:49:53 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 251 veto
-10:49:29 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 252 veto
-10:49:06 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 245 veto
-10:48:42 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 254 veto
-10:48:19 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 247 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
