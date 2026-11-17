@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 15:52 UTC · in esecuzione da 0.9 giorni · 168 run
+Aggiornato: 2026-11-17 15:57 UTC · in esecuzione da 0.9 giorni · 168 run
 
 | | |
 |---|---|
-| Equity | **5.8465 SOL** (-2.6% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.7361 SOL |
-| Trade chiusi | 98 |
-| Win rate | 37% |
-| P&L realizzato | -0.1455 SOL (~$-10.34) |
+| Equity | **5.8254 SOL** (-2.9% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.8254 SOL |
+| Trade chiusi | 99 |
+| Win rate | 36% |
+| P&L realizzato | -0.1746 SOL (~$-12.55) |
 | Media vincite / perdite | +49.7% / -30.4% |
-| Profit factor | 0.94 |
+| Profit factor | 0.92 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$VIBESTACK** P-0314 · 0.117 SOL · -6.0% · resta 100% · [grafico](https://dexscreener.com/solana/5aZitMTszfRF98rFiRXKrxkduCP2TBa9bDp4sYy78bsq)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | RUG-EXIT liquidità | 16 | -1.0665 |
-| Time stop | 41 | -0.5132 |
+| Time stop | 42 | -0.5424 |
 | TP1 | 27 | +1.9278 |
 | Stop loss | 14 | -0.4935 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $VIBESTACK | 66 | -24.6% | -0.0292 | +15% | -6% | Time stop | 5m |
 | $GM | 77 | +31.1% | +0.0365 | +66% | +66% | TP1 | 6m |
 | $CIGRAT | 73 | -50.2% | -0.0596 | +6% | -50% | RUG-EXIT liquidità | 4m |
 | $Maya | 67 | -27.4% | -0.0326 | +3% | -9% | Time stop | 5m |
@@ -51,10 +52,25 @@ Aggiornato: 2026-11-17 15:52 UTC · in esecuzione da 0.9 giorni · 168 run
 | $Google | 63 | -97.6% | -0.1174 | +48% | -78% | RUG-EXIT liquidità | 9m |
 | $SOYOUARE | 77 | -2.1% | -0.0026 | +48% | -3% | Time stop | 6m |
 | $RYANAIR | 72 | +51.0% | +0.0608 | +75% | +75% | TP1 | 7m |
-| $BUDDY | 72 | -15.9% | -0.0190 | +18% | -1% | Time stop | 6m |
 
 ## Ultimi eventi
 ```
+15:57:36 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 248 veto
+15:57:13 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 242 veto
+15:56:50 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 250 veto
+15:56:27 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 248 veto
+15:56:13 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 244 veto
+15:55:47 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 260 veto
+15:55:24 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 252 veto
+15:55:01 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 247 veto
+15:54:39 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 233 veto
+15:54:16 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 232 veto
+15:53:53 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 233 veto
+15:53:30 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 247 veto
+15:53:07 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 234 veto
+15:52:53 SCRIBE   chiuso P-0314 $VIBESTACK -0.0292 SOL (-24.6%)
+15:52:53 CHARON   Time stop $VIBESTACK vendo 100% a -6.0% -> 0.0892 SOL
+15:52:43 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 239 veto
 15:52:20 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 238 veto
 15:51:57 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 236 veto
 15:51:34 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 249 veto
@@ -79,22 +95,6 @@ Aggiornato: 2026-11-17 15:52 UTC · in esecuzione da 0.9 giorni · 168 run
 15:45:29 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 239 veto
 15:45:06 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 224 veto
 15:44:43 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 245 veto
-15:44:20 KAISER   limite 1 ingresso/i per scan: $VIBESTACK rimandato
-15:44:19 QUARTER  BUY $GM 0.116 SOL score 77 impatto 1.64% (Jupiter)
-15:44:19 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 248 veto
-15:43:56 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 243 veto
-15:43:33 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 248 veto
-15:43:10 ORACLE   360 raccolti, 234 analizzati, 2 BUY, 227 veto
-15:42:47 ORACLE   360 raccolti, 235 analizzati, 2 BUY, 228 veto
-15:42:24 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 253 veto
-15:42:02 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 251 veto
-15:41:39 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 246 veto
-15:41:17 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 237 veto
-15:40:53 ORACLE   360 raccolti, 252 analizzati, 4 BUY, 243 veto
-15:40:31 ORACLE   360 raccolti, 247 analizzati, 3 BUY, 238 veto
-15:40:28 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
-15:40:08 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 246 veto
-15:39:44 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 238 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
