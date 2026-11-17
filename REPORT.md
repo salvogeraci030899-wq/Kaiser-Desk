@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 17:57 UTC · in esecuzione da 0.1 giorni · 171 run
+Aggiornato: 2026-11-17 18:03 UTC · in esecuzione da 0.1 giorni · 171 run
 
 | | |
 |---|---|
@@ -35,6 +35,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+18:02:51 ORACLE   360 raccolti, 231 analizzati, 4 BUY, 222 veto
+18:02:27 ORACLE   360 raccolti, 239 analizzati, 3 BUY, 228 veto
+18:02:04 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 235 veto
+18:01:40 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 232 veto
+18:01:17 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 228 veto
+18:00:53 ORACLE   360 raccolti, 235 analizzati, 3 BUY, 228 veto
+18:00:28 ORACLE   360 raccolti, 222 analizzati, 3 BUY, 216 veto
+18:00:05 ORACLE   360 raccolti, 240 analizzati, 3 BUY, 233 veto
+17:59:41 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 236 veto
+17:59:19 ORACLE   360 raccolti, 231 analizzati, 2 BUY, 225 veto
+17:58:56 ORACLE   360 raccolti, 245 analizzati, 3 BUY, 239 veto
+17:58:32 ORACLE   360 raccolti, 230 analizzati, 2 BUY, 224 veto
+17:58:10 ORACLE   360 raccolti, 227 analizzati, 2 BUY, 222 veto
 17:57:56 SCRIBE   chiuso P-0324 $Rex -0.0658 SOL (-54.4%)
 17:57:56 CHARON   RUG-EXIT liquidità $Rex vendo 100% a -50.0% -> 0.0552 SOL
 17:57:46 ORACLE   360 raccolti, 234 analizzati, 2 BUY, 229 veto
@@ -62,19 +75,6 @@ _nessuna_
 17:50:58 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 241 veto
 17:50:34 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 253 veto
 17:50:10 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 242 veto
-17:50:07 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
-17:50:07 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
-17:49:47 SCOUT    PumpPortal invia nuovi token (22) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-17:49:47 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 250 veto
-17:49:25 ORACLE   355 raccolti, 220 analizzati, 2 BUY, 218 veto
-17:49:03 QUARTER  BUY $SSL 0.120 SOL score 79 impatto 1.17% (Jupiter)
-17:49:03 ORACLE   339 raccolti, 185 analizzati, 2 BUY, 183 veto
-17:48:48 SCOUT    sonda scambi: PumpPortal 0 scambi, programma RPC 3048 eventi, curve RPC 458
-17:48:40 ORACLE   248 raccolti, 152 analizzati, 1 BUY, 151 veto
-17:48:19 ORACLE   231 raccolti, 139 analizzati, 1 BUY, 138 veto
-17:47:58 ORACLE   210 raccolti, 108 analizzati, 1 BUY, 107 veto
-17:47:49 SCOUT    fabbrica: 11551 percorsi, 768 configurazioni, 0 passano, 2362 ms
-17:47:47 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
