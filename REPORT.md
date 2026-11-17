@@ -1,29 +1,50 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 16:42 UTC · in esecuzione da 0.0 giorni · 169 run
+Aggiornato: 2026-11-17 16:47 UTC · in esecuzione da 0.0 giorni · 169 run
 
 | | |
 |---|---|
-| Equity | **5.9781 SOL** (-0.4% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.8790 SOL |
-| Trade chiusi | 0 |
-| Win rate | 0% |
-| P&L realizzato | +0.0000 SOL (~$0.00) |
-| Media vincite / perdite | +0.0% / +0.0% |
-| Profit factor | 0.00 |
+| Equity | **6.0362 SOL** (+0.6% dal capitale iniziale di 6 SOL) |
+| Cassa | 6.0362 SOL |
+| Trade chiusi | 1 |
+| Win rate | 100% |
+| P&L realizzato | +0.0362 SOL (~$2.61) |
+| Media vincite / perdite | +29.9% / +0.0% |
+| Profit factor | ∞ |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$0MRR** P-0318 · 0.120 SOL · -17.4% · resta 100% · [grafico](https://dexscreener.com/solana/AQMvadsqSzbCdb5RqfZb3hbBPXAVc52Yt7jJCjVZyarJ)
+_nessuna_
 
 ## Uscite per motivo
-_ancora nessuna_
+| Motivo | Trade | P&L SOL |
+|---|---|---|
+| Chiusura manuale (app) | 1 | +0.0362 |
 
 ## Ultimi 25 trade
-_ancora nessuno_
+| Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
+|---|---|---|---|---|---|---|---|
+| $0MRR | 64 | +29.9% | +0.0362 | +0% | -17% | Chiusura manuale (app) | 1m |
 
 ## Ultimi eventi
 ```
+16:47:46 ORACLE   360 raccolti, 218 analizzati, 1 BUY, 214 veto
+16:47:23 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 238 veto
+16:46:59 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 234 veto
+16:46:36 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 228 veto
+16:46:13 ORACLE   360 raccolti, 225 analizzati, 1 BUY, 217 veto
+16:45:50 ORACLE   360 raccolti, 217 analizzati, 0 BUY, 210 veto
+16:45:27 ORACLE   360 raccolti, 217 analizzati, 0 BUY, 210 veto
+16:45:04 QUARTER  $Fiona impatto 2.5% oltre slippage: annullato
+16:45:04 ORACLE   360 raccolti, 229 analizzati, 1 BUY, 222 veto
+16:44:41 ORACLE   360 raccolti, 220 analizzati, 0 BUY, 213 veto
+16:44:18 ORACLE   360 raccolti, 228 analizzati, 0 BUY, 221 veto
+16:43:54 ORACLE   360 raccolti, 231 analizzati, 0 BUY, 224 veto
+16:43:32 ORACLE   360 raccolti, 230 analizzati, 0 BUY, 223 veto
+16:43:09 ORACLE   360 raccolti, 202 analizzati, 0 BUY, 195 veto
+16:43:05 SCRIBE   chiuso P-0318 $0MRR 0.0362 SOL (29.9%)
+16:43:05 CHARON   Chiusura manuale (app) $0MRR vendo 100% a -17.4% -> 0.1572 SOL
+16:43:05 KAISER   chiusura manuale dall'app: P-0318 0MRR
 16:42:44 ORACLE   360 raccolti, 220 analizzati, 0 BUY, 214 veto
 16:42:21 QUARTER  BUY $0MRR 0.120 SOL score 64 impatto 1.04% (Jupiter)
 16:42:21 ORACLE   360 raccolti, 226 analizzati, 1 BUY, 219 veto
@@ -47,23 +68,6 @@ _ancora nessuno_
 16:36:06 ORACLE   360 raccolti, 233 analizzati, 1 BUY, 226 veto
 16:35:43 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 236 veto
 16:35:19 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 241 veto
-16:35:06 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 242 veto
-16:34:41 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 233 veto
-16:34:18 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 233 veto
-16:33:54 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 230 veto
-16:33:31 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 232 veto
-16:33:06 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 234 veto
-16:32:42 ORACLE   360 raccolti, 235 analizzati, 0 BUY, 223 veto
-16:32:19 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 237 veto
-16:31:55 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 240 veto
-16:31:32 ORACLE   360 raccolti, 236 analizzati, 0 BUY, 227 veto
-16:31:08 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 243 veto
-16:30:45 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 248 veto
-16:30:21 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 238 veto
-16:29:58 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 243 veto
-16:29:33 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 235 veto
-16:29:09 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 241 veto
-16:28:45 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 230 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
