@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 22:54 UTC · in esecuzione da 0.3 giorni · 177 run
+Aggiornato: 2026-11-17 22:59 UTC · in esecuzione da 0.3 giorni · 177 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-17 22:54 UTC · in esecuzione da 0.3 giorni · 177 run
 | Cassa | 5.1380 SOL |
 | Trade chiusi | 31 |
 | Win rate | 29% |
-| P&L realizzato | -0.8620 SOL (~$-63.73) |
+| P&L realizzato | -0.8620 SOL (~$-63.76) |
 | Media vincite / perdite | +19.2% / -42.5% |
 | Profit factor | 0.19 |
 | Circuit breaker | no |
@@ -56,6 +56,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+22:59:14 QUARTER  $Bunk impatto 4.7% oltre slippage: annullato
+22:59:14 ORACLE   360 raccolti, 254 analizzati, 3 BUY, 243 veto
+22:58:51 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 243 veto
+22:58:27 ORACLE   360 raccolti, 249 analizzati, 3 BUY, 238 veto
+22:58:04 ORACLE   360 raccolti, 257 analizzati, 4 BUY, 246 veto
+22:57:40 ORACLE   360 raccolti, 263 analizzati, 4 BUY, 253 veto
+22:57:16 ORACLE   360 raccolti, 249 analizzati, 4 BUY, 240 veto
+22:56:53 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 244 veto
+22:56:29 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 252 veto
+22:56:05 ORACLE   360 raccolti, 240 analizzati, 2 BUY, 233 veto
+22:55:41 ORACLE   360 raccolti, 259 analizzati, 3 BUY, 250 veto
+22:55:18 ORACLE   360 raccolti, 257 analizzati, 5 BUY, 248 veto
+22:54:55 ORACLE   360 raccolti, 212 analizzati, 5 BUY, 204 veto
+22:54:31 ORACLE   360 raccolti, 250 analizzati, 5 BUY, 240 veto
 22:54:06 ORACLE   360 raccolti, 257 analizzati, 4 BUY, 247 veto
 22:53:42 ORACLE   360 raccolti, 239 analizzati, 4 BUY, 230 veto
 22:53:18 ORACLE   360 raccolti, 250 analizzati, 5 BUY, 242 veto
@@ -82,20 +96,6 @@ _nessuna_
 22:49:05 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
 22:49:05 SCOUT    Laboratorio: collegato a PumpPortal
 22:49:05 KAISER   run #177 · 1 posizioni · equity 5.1406 SOL · GMGN spenta (nessuna chiave) · Grok off
-22:48:51 SCRIBE   fine run · trade 30 · win 30% · P&L -0.8567 SOL · equity 5.1406 SOL
-22:48:41 ORACLE   360 raccolti, 247 analizzati, 4 BUY, 237 veto
-22:48:17 ORACLE   360 raccolti, 253 analizzati, 3 BUY, 245 veto
-22:47:53 ORACLE   360 raccolti, 252 analizzati, 3 BUY, 244 veto
-22:47:40 ORACLE   360 raccolti, 242 analizzati, 3 BUY, 234 veto
-22:47:11 ORACLE   360 raccolti, 246 analizzati, 4 BUY, 238 veto
-22:46:48 ORACLE   360 raccolti, 238 analizzati, 4 BUY, 230 veto
-22:46:34 ORACLE   360 raccolti, 246 analizzati, 4 BUY, 239 veto
-22:46:18 KAISER   limite 1 ingresso/i per scan: $INU rimandato
-22:46:18 QUARTER  BUY $LUCIA 0.103 SOL score 74 impatto 1.06% (Jupiter)
-22:46:18 ORACLE   360 raccolti, 233 analizzati, 4 BUY, 226 veto
-22:45:48 ORACLE   360 raccolti, 262 analizzati, 3 BUY, 256 veto
-22:45:26 ORACLE   360 raccolti, 251 analizzati, 3 BUY, 244 veto
-22:45:03 ORACLE   360 raccolti, 240 analizzati, 3 BUY, 232 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
