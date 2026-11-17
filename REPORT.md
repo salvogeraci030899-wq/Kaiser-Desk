@@ -1,32 +1,34 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 02:18 UTC · in esecuzione da 0.4 giorni · 152 run
+Aggiornato: 2026-11-17 02:23 UTC · in esecuzione da 0.4 giorni · 152 run
 
 | | |
 |---|---|
-| Equity | **5.9599 SOL** (-0.7% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.8408 SOL |
-| Trade chiusi | 50 |
-| Win rate | 32% |
-| P&L realizzato | -0.0390 SOL (~$-2.79) |
-| Media vincite / perdite | +57.0% / -27.4% |
-| Profit factor | 0.97 |
+| Equity | **6.1245 SOL** (+2.1% dal capitale iniziale di 6 SOL) |
+| Cassa | 6.1245 SOL |
+| Trade chiusi | 52 |
+| Win rate | 35% |
+| P&L realizzato | +0.1245 SOL (~$8.92) |
+| Media vincite / perdite | +58.2% / -27.4% |
+| Profit factor | 1.11 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$CHAR** P-0266 · 0.119 SOL · -0.1% · resta 100% · [grafico](https://dexscreener.com/solana/J5JQhQtLcLU24ZTbJ85oqgX2rSkv1BgS7Kteo8fLHtGU)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | RUG-EXIT liquidità | 7 | -0.4433 |
 | Time stop | 21 | -0.2499 |
-| TP1 | 12 | +0.9298 |
+| TP1 | 14 | +1.0933 |
 | Stop loss | 10 | -0.2756 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $Jojo | 63 | +100.9% | +0.1219 | +60% | +60% | TP1 | 3m |
+| $CHAR | 76 | +34.6% | +0.0416 | +72% | +72% | TP1 | 4m |
 | $Santa | 66 | -82.7% | -0.1003 | +15% | -71% | RUG-EXIT liquidità | 3m |
 | $CAT | 77 | +52.1% | +0.0631 | +63% | +63% | TP1 | 6m |
 | $XDOGE | 79 | -7.1% | -0.0086 | +0% | -48% | Stop loss | 0m |
@@ -50,11 +52,28 @@ Aggiornato: 2026-11-17 02:18 UTC · in esecuzione da 0.4 giorni · 152 run
 | $mimic | 64 | -38.6% | -0.0483 | +40% | +4% | Time stop | 5m |
 | $LUCIA | 74 | -97.0% | -0.1220 | +13% | -96% | RUG-EXIT liquidità | 3m |
 | $Zoo | 70 | -9.5% | -0.0120 | +0% | -43% | Stop loss | 1m |
-| $SIX | 65 | +77.6% | +0.0959 | +82% | +82% | TP1 | 4m |
-| $WASTED | 69 | -60.2% | -0.0753 | +0% | -44% | Stop loss | 2m |
 
 ## Ultimi eventi
 ```
+02:23:39 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 261 veto
+02:23:16 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 267 veto
+02:22:53 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 263 veto
+02:22:30 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 255 veto
+02:22:07 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 259 veto
+02:21:44 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 254 veto
+02:21:21 SCRIBE   chiuso P-0267 $Jojo 0.1219 SOL (100.9%)
+02:21:21 CHARON   TP1 $Jojo vendo 100% a 60.2% -> 0.2427 SOL
+02:21:21 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 251 veto
+02:20:58 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 255 veto
+02:20:35 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 250 veto
+02:20:12 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 246 veto
+02:19:58 SCRIBE   chiuso P-0266 $CHAR 0.0416 SOL (34.6%)
+02:19:58 CHARON   TP1 $CHAR vendo 100% a 71.8% -> 0.1618 SOL
+02:19:58 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 243 veto
+02:19:33 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 249 veto
+02:19:10 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 236 veto
+02:18:47 QUARTER  BUY $Jojo 0.120 SOL score 63 impatto 0.32% (Jupiter)
+02:18:47 ORACLE   360 raccolti, 265 analizzati, 3 BUY, 255 veto
 02:18:34 QUARTER  $Jojo impatto 2.1% oltre slippage: annullato
 02:18:34 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 253 veto
 02:18:09 QUARTER  $Jojo impatto 2.5% oltre slippage: annullato
@@ -76,25 +95,6 @@ Aggiornato: 2026-11-17 02:18 UTC · in esecuzione da 0.4 giorni · 152 run
 02:13:34 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 245 veto
 02:13:11 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 243 veto
 02:12:48 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 244 veto
-02:12:25 ORACLE   360 raccolti, 228 analizzati, 1 BUY, 222 veto
-02:12:02 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 239 veto
-02:11:40 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 240 veto
-02:11:17 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 237 veto
-02:10:54 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 238 veto
-02:10:32 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 230 veto
-02:10:09 ORACLE   360 raccolti, 231 analizzati, 1 BUY, 222 veto
-02:09:45 SCRIBE   chiuso P-0265 $Santa -0.1003 SOL (-82.7%)
-02:09:45 CHARON   RUG-EXIT liquidità $Santa vendo 100% a -71.5% -> 0.0209 SOL
-02:09:45 ORACLE   360 raccolti, 228 analizzati, 1 BUY, 222 veto
-02:09:23 ORACLE   360 raccolti, 230 analizzati, 1 BUY, 223 veto
-02:09:00 SCRIBE   chiuso P-0264 $CAT 0.0631 SOL (52.1%)
-02:09:00 CHARON   TP1 $CAT vendo 100% a 62.9% -> 0.1840 SOL
-02:09:00 ORACLE   360 raccolti, 217 analizzati, 1 BUY, 211 veto
-02:08:38 ORACLE   360 raccolti, 236 analizzati, 2 BUY, 228 veto
-02:08:15 ORACLE   360 raccolti, 238 analizzati, 2 BUY, 231 veto
-02:07:52 ORACLE   360 raccolti, 232 analizzati, 2 BUY, 225 veto
-02:07:29 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 231 veto
-02:07:06 ORACLE   360 raccolti, 231 analizzati, 2 BUY, 221 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
