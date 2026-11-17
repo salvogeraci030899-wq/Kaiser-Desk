@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 02:53 UTC · in esecuzione da 0.4 giorni · 153 run
+Aggiornato: 2026-11-17 02:58 UTC · in esecuzione da 0.4 giorni · 153 run
 
 | | |
 |---|---|
-| Equity | **6.0983 SOL** (+1.6% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.9931 SOL |
-| Trade chiusi | 53 |
-| Win rate | 34% |
-| P&L realizzato | +0.1165 SOL (~$8.35) |
-| Media vincite / perdite | +58.2% / -26.8% |
-| Profit factor | 1.10 |
+| Equity | **6.0579 SOL** (+1.0% dal capitale iniziale di 6 SOL) |
+| Cassa | 6.0579 SOL |
+| Trade chiusi | 54 |
+| Win rate | 33% |
+| P&L realizzato | +0.0579 SOL (~$4.14) |
+| Media vincite / perdite | +58.2% / -27.4% |
+| Profit factor | 1.05 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$Nozomi** P-0269 · 0.122 SOL · -14.1% · resta 100% · [grafico](https://dexscreener.com/solana/Expig3goBHLTkfqNqRMGETmMf4Y1q4zuUF2nK9C1btmv)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | RUG-EXIT liquidità | 8 | -0.4513 |
-| Time stop | 21 | -0.2499 |
+| Time stop | 22 | -0.3084 |
 | TP1 | 14 | +1.0933 |
 | Stop loss | 10 | -0.2756 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $Nozomi | 64 | -47.5% | -0.0586 | +9% | -29% | Time stop | 5m |
 | $XDOGE | 79 | -6.5% | -0.0080 | +0% | -72% | RUG-EXIT liquidità | 0m |
 | $Jojo | 63 | +100.9% | +0.1219 | +60% | +60% | TP1 | 3m |
 | $CHAR | 76 | +34.6% | +0.0416 | +72% | +72% | TP1 | 4m |
@@ -51,10 +52,25 @@ Aggiornato: 2026-11-17 02:53 UTC · in esecuzione da 0.4 giorni · 153 run
 | $LEOSTAR | 82 | +62.1% | +0.0758 | +71% | +71% | TP1 | 3m |
 | $LULU | 67 | -17.4% | -0.0212 | +29% | -24% | Time stop | 5m |
 | $mimic | 64 | -38.6% | -0.0483 | +40% | +4% | Time stop | 5m |
-| $LUCIA | 74 | -97.0% | -0.1220 | +13% | -96% | RUG-EXIT liquidità | 3m |
 
 ## Ultimi eventi
 ```
+02:58:27 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 255 veto
+02:58:05 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 243 veto
+02:57:42 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 255 veto
+02:57:19 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 258 veto
+02:56:57 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 259 veto
+02:56:34 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 265 veto
+02:56:11 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 260 veto
+02:55:48 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 256 veto
+02:55:24 ORACLE   360 raccolti, 279 analizzati, 2 BUY, 268 veto
+02:55:02 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 266 veto
+02:54:39 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 262 veto
+02:54:15 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 264 veto
+02:53:52 SCRIBE   chiuso P-0269 $Nozomi -0.0586 SOL (-47.5%)
+02:53:52 CHARON   Time stop $Nozomi vendo 100% a -28.8% -> 0.0648 SOL
+02:53:52 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 263 veto
+02:53:29 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 255 veto
 02:53:06 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 258 veto
 02:52:43 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 261 veto
 02:52:20 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 255 veto
@@ -79,22 +95,6 @@ Aggiornato: 2026-11-17 02:53 UTC · in esecuzione da 0.4 giorni · 153 run
 02:45:25 ORACLE   313 raccolti, 229 analizzati, 2 BUY, 219 veto
 02:45:12 SCOUT    PumpPortal invia nuovi token (29) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
 02:45:02 ORACLE   287 raccolti, 212 analizzati, 2 BUY, 205 veto
-02:44:40 ORACLE   280 raccolti, 199 analizzati, 2 BUY, 191 veto
-02:44:17 ORACLE   274 raccolti, 193 analizzati, 1 BUY, 186 veto
-02:43:54 ORACLE   242 raccolti, 172 analizzati, 1 BUY, 167 veto
-02:43:32 ORACLE   233 raccolti, 151 analizzati, 1 BUY, 145 veto
-02:43:11 SCOUT    fabbrica: 8492 percorsi, 768 configurazioni, 0 passano, 1136 ms
-02:43:10 ORACLE   228 raccolti, 151 analizzati, 2 BUY, 145 veto
-02:43:10 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-02:43:08 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-02:43:07 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→40, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120
-02:43:07 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
-02:43:07 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
-02:43:07 SCOUT    Laboratorio: collegato a PumpPortal
-02:43:07 KAISER   run #153 · 0 posizioni · equity 6.1165 SOL · GMGN spenta (nessuna chiave) · Grok off
-02:42:56 SCRIBE   fine run · trade 53 · win 34% · P&L 0.1165 SOL · equity 6.1165 SOL
-02:42:46 SCRIBE   chiuso P-0268 $XDOGE -0.0080 SOL (-6.5%)
-02:42:46 CHARON   RUG-EXIT liquidità $XDOGE vendo 100% a -72.2% -> 0.1155 SOL
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
