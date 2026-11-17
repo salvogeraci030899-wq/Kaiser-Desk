@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 12:10 UTC · in esecuzione da 0.8 giorni · 164 run
+Aggiornato: 2026-11-17 12:15 UTC · in esecuzione da 0.8 giorni · 164 run
 
 | | |
 |---|---|
-| Equity | **5.9285 SOL** (-1.2% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.9285 SOL |
+| Equity | **5.9544 SOL** (-0.8% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.8089 SOL |
 | Trade chiusi | 79 |
 | Win rate | 38% |
-| P&L realizzato | -0.0715 SOL (~$-5.23) |
+| P&L realizzato | -0.0715 SOL (~$-5.22) |
 | Media vincite / perdite | +49.9% / -31.3% |
 | Profit factor | 0.96 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$DPRF** P-0295 · 0.119 SOL · +22.6% · resta 100% · [grafico](https://dexscreener.com/solana/HM7kjaZeUzh8iSiPngdTPtFJWgHb9bmB1GsmQiAh4dGM)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,21 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+12:15:47 ORACLE   360 raccolti, 282 analizzati, 2 BUY, 267 veto
+12:15:24 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 267 veto
+12:15:00 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 263 veto
+12:14:38 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 258 veto
+12:14:15 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 259 veto
+12:13:52 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 261 veto
+12:13:37 SCOUT    Laboratorio: collegato a PumpPortal
+12:13:29 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 267 veto
+12:13:06 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 261 veto
+12:12:43 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 260 veto
+12:12:21 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 264 veto
+12:11:58 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 266 veto
+12:11:35 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 258 veto
+12:11:11 QUARTER  BUY $DPRF 0.119 SOL score 78 impatto 0.62% (Jupiter)
+12:11:11 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 263 veto
 12:10:49 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 260 veto
 12:10:25 QUARTER  $DPRF impatto 5.5% oltre slippage: annullato
 12:10:25 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 260 veto
@@ -80,21 +95,6 @@ _nessuna_
 12:03:37 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 253 veto
 12:03:15 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 264 veto
 12:02:52 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 261 veto
-12:02:39 SCRIBE   chiuso P-0294 $SOYOUARE 0.0748 SOL (63.4%)
-12:02:39 CHARON   TP1 $SOYOUARE vendo 100% a 74.3% -> 0.1929 SOL
-12:02:29 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 259 veto
-12:02:06 ORACLE   358 raccolti, 274 analizzati, 3 BUY, 259 veto
-12:01:43 ORACLE   355 raccolti, 267 analizzati, 2 BUY, 251 veto
-12:01:20 ORACLE   350 raccolti, 256 analizzati, 2 BUY, 241 veto
-12:00:57 ORACLE   328 raccolti, 241 analizzati, 2 BUY, 227 veto
-12:00:32 QUARTER  BUY $SOYOUARE 0.117 SOL score 71 impatto 0.75% (Jupiter)
-12:00:32 ORACLE   321 raccolti, 231 analizzati, 3 BUY, 218 veto
-12:00:20 QUARTER  $SOYOUARE impatto 2.5% oltre slippage: annullato
-12:00:20 ORACLE   321 raccolti, 231 analizzati, 3 BUY, 218 veto
-11:59:55 ORACLE   299 raccolti, 220 analizzati, 4 BUY, 209 veto
-11:59:32 ORACLE   291 raccolti, 212 analizzati, 2 BUY, 200 veto
-11:59:09 SCRIBE   chiuso P-0293 $OGS 0.0039 SOL (3.3%)
-11:59:09 CHARON   Time stop $OGS vendo 100% a 4.2% -> 0.1251 SOL
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
