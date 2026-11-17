@@ -1,25 +1,25 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 15:37 UTC · in esecuzione da 0.9 giorni · 168 run
+Aggiornato: 2026-11-17 15:42 UTC · in esecuzione da 0.9 giorni · 168 run
 
 | | |
 |---|---|
-| Equity | **5.8633 SOL** (-2.3% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.7590 SOL |
-| Trade chiusi | 96 |
+| Equity | **5.8180 SOL** (-3.0% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.8180 SOL |
+| Trade chiusi | 97 |
 | Win rate | 36% |
-| P&L realizzato | -0.1224 SOL (~$-8.92) |
-| Media vincite / perdite | +50.3% / -30.1% |
-| Profit factor | 0.95 |
+| P&L realizzato | -0.1820 SOL (~$-13.17) |
+| Media vincite / perdite | +50.3% / -30.4% |
+| Profit factor | 0.92 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$CIGRAT** P-0312 · 0.118 SOL · -11.3% · resta 100% · [grafico](https://dexscreener.com/solana/8zHmU5tnEkXQQM88me8JSfSz1r1q55dnNa8M5NZ4bcxo)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| RUG-EXIT liquidità | 15 | -1.0069 |
+| RUG-EXIT liquidità | 16 | -1.0665 |
 | Time stop | 41 | -0.5132 |
 | TP1 | 26 | +1.8913 |
 | Stop loss | 14 | -0.4935 |
@@ -27,6 +27,7 @@ Aggiornato: 2026-11-17 15:37 UTC · in esecuzione da 0.9 giorni · 168 run
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $CIGRAT | 73 | -50.2% | -0.0596 | +6% | -50% | RUG-EXIT liquidità | 4m |
 | $Maya | 67 | -27.4% | -0.0326 | +3% | -9% | Time stop | 5m |
 | $KIM | 79 | +12.0% | +0.0143 | +20% | +3% | Time stop | 5m |
 | $SIM | 69 | -44.1% | -0.0534 | +20% | -34% | Time stop | 5m |
@@ -51,10 +52,25 @@ Aggiornato: 2026-11-17 15:37 UTC · in esecuzione da 0.9 giorni · 168 run
 | $RYANAIR | 72 | +51.0% | +0.0608 | +75% | +75% | TP1 | 7m |
 | $BUDDY | 72 | -15.9% | -0.0190 | +18% | -1% | Time stop | 6m |
 | $AMAZON | 66 | +65.5% | +0.0773 | +62% | +62% | TP1 | 7m |
-| $JOB | 68 | -67.4% | -0.0807 | +10% | -60% | RUG-EXIT liquidità | 3m |
 
 ## Ultimi eventi
 ```
+15:42:02 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 251 veto
+15:41:39 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 246 veto
+15:41:17 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 237 veto
+15:40:53 ORACLE   360 raccolti, 252 analizzati, 4 BUY, 243 veto
+15:40:31 ORACLE   360 raccolti, 247 analizzati, 3 BUY, 238 veto
+15:40:28 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
+15:40:08 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 246 veto
+15:39:44 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 238 veto
+15:39:21 ORACLE   360 raccolti, 225 analizzati, 2 BUY, 220 veto
+15:38:58 SCRIBE   chiuso P-0312 $CIGRAT -0.0596 SOL (-50.2%)
+15:38:58 CHARON   RUG-EXIT liquidità $CIGRAT vendo 100% a -50.5% -> 0.0590 SOL
+15:38:58 ORACLE   360 raccolti, 238 analizzati, 2 BUY, 234 veto
+15:38:36 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 239 veto
+15:38:14 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 234 veto
+15:37:50 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 241 veto
+15:37:28 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 241 veto
 15:37:06 ORACLE   360 raccolti, 234 analizzati, 2 BUY, 230 veto
 15:36:44 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 244 veto
 15:36:21 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 237 veto
@@ -79,22 +95,6 @@ Aggiornato: 2026-11-17 15:37 UTC · in esecuzione da 0.9 giorni · 168 run
 15:30:31 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 224 veto
 15:30:05 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 225 veto
 15:29:42 ORACLE   360 raccolti, 239 analizzati, 3 BUY, 222 veto
-15:29:19 ORACLE   360 raccolti, 236 analizzati, 3 BUY, 222 veto
-15:28:56 ORACLE   360 raccolti, 245 analizzati, 3 BUY, 231 veto
-15:28:33 SCRIBE   chiuso P-0311 $Maya -0.0326 SOL (-27.4%)
-15:28:33 CHARON   Time stop $Maya vendo 100% a -9.4% -> 0.0864 SOL
-15:28:33 ORACLE   360 raccolti, 243 analizzati, 2 BUY, 230 veto
-15:28:09 ORACLE   360 raccolti, 233 analizzati, 2 BUY, 221 veto
-15:27:46 ORACLE   360 raccolti, 237 analizzati, 3 BUY, 225 veto
-15:27:23 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 229 veto
-15:27:00 ORACLE   360 raccolti, 231 analizzati, 3 BUY, 218 veto
-15:26:36 ORACLE   360 raccolti, 243 analizzati, 3 BUY, 231 veto
-15:26:23 SCRIBE   chiuso P-0310 $KIM 0.0143 SOL (12.0%)
-15:26:23 CHARON   Time stop $KIM vendo 100% a 2.9% -> 0.1332 SOL
-15:26:23 ORACLE   360 raccolti, 240 analizzati, 3 BUY, 229 veto
-15:25:55 ORACLE   360 raccolti, 232 analizzati, 3 BUY, 220 veto
-15:25:32 ORACLE   360 raccolti, 243 analizzati, 3 BUY, 232 veto
-15:25:09 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 230 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
