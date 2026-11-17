@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 22:03 UTC · in esecuzione da 0.2 giorni · 176 run
+Aggiornato: 2026-11-17 22:09 UTC · in esecuzione da 0.2 giorni · 176 run
 
 | | |
 |---|---|
-| Equity | **5.3876 SOL** (-10.2% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.2572 SOL |
-| Trade chiusi | 24 |
-| Win rate | 29% |
-| P&L realizzato | -0.6345 SOL (~$-46.52) |
-| Media vincite / perdite | +23.8% / -42.1% |
-| Profit factor | 0.23 |
+| Equity | **5.2989 SOL** (-11.7% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.2989 SOL |
+| Trade chiusi | 25 |
+| Win rate | 28% |
+| P&L realizzato | -0.7011 SOL (~$-51.45) |
+| Media vincite / perdite | +23.8% / -43.2% |
+| Profit factor | 0.22 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$INU** P-0342 · 0.107 SOL · +21.6% · resta 100% · [grafico](https://dexscreener.com/solana/3i7Ce3UaSgbuumf2Qx5cTWzMfFmied8XBE45JWVRekUR)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -23,11 +23,12 @@ Aggiornato: 2026-11-17 22:03 UTC · in esecuzione da 0.2 giorni · 176 run
 | RUG-EXIT liquidità | 4 | -0.3455 |
 | Time stop | 6 | -0.0477 |
 | TP1 | 1 | +0.0568 |
-| Stop loss | 5 | -0.2077 |
+| Stop loss | 6 | -0.2743 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $INU | 66 | -61.5% | -0.0666 | +43% | -44% | Stop loss | 5m |
 | $INU | 68 | -31.4% | -0.0342 | +0% | -53% | Stop loss | 2m |
 | $NEGRO | 64 | -34.4% | -0.0377 | +0% | -47% | Stop loss | 1m |
 | $AI | 80 | -67.1% | -0.0746 | +3% | -65% | RUG-EXIT liquidità | 3m |
@@ -55,6 +56,22 @@ Aggiornato: 2026-11-17 22:03 UTC · in esecuzione da 0.2 giorni · 176 run
 
 ## Ultimi eventi
 ```
+22:09:09 ORACLE   360 raccolti, 243 analizzati, 3 BUY, 238 veto
+22:08:46 ORACLE   360 raccolti, 244 analizzati, 3 BUY, 239 veto
+22:08:24 ORACLE   360 raccolti, 243 analizzati, 3 BUY, 238 veto
+22:08:11 SCRIBE   chiuso P-0342 $INU -0.0666 SOL (-61.5%)
+22:08:11 CHARON   Stop loss $INU vendo 100% a -44.2% -> 0.0417 SOL
+22:08:01 ORACLE   360 raccolti, 234 analizzati, 3 BUY, 229 veto
+22:07:39 ORACLE   360 raccolti, 229 analizzati, 3 BUY, 222 veto
+22:07:15 ORACLE   360 raccolti, 242 analizzati, 4 BUY, 233 veto
+22:06:51 ORACLE   360 raccolti, 239 analizzati, 4 BUY, 230 veto
+22:06:28 ORACLE   360 raccolti, 235 analizzati, 3 BUY, 226 veto
+22:06:05 ORACLE   360 raccolti, 245 analizzati, 4 BUY, 236 veto
+22:05:41 ORACLE   360 raccolti, 237 analizzati, 3 BUY, 232 veto
+22:05:18 ORACLE   360 raccolti, 233 analizzati, 3 BUY, 228 veto
+22:04:56 ORACLE   360 raccolti, 234 analizzati, 4 BUY, 227 veto
+22:04:33 ORACLE   360 raccolti, 230 analizzati, 4 BUY, 223 veto
+22:04:10 ORACLE   360 raccolti, 249 analizzati, 4 BUY, 242 veto
 22:03:46 ORACLE   360 raccolti, 244 analizzati, 4 BUY, 237 veto
 22:03:23 KAISER   limite 1 ingresso/i per scan: $INU rimandato
 22:03:23 QUARTER  BUY $INU 0.107 SOL score 66 impatto 0.57% (Jupiter)
@@ -79,22 +96,6 @@ Aggiornato: 2026-11-17 22:03 UTC · in esecuzione da 0.2 giorni · 176 run
 21:58:52 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→40, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120
 21:58:51 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
 21:58:51 SCOUT    Laboratorio: collegato a PumpPortal
-21:58:51 KAISER   run #176 · 0 posizioni · equity 5.3655 SOL · GMGN spenta (nessuna chiave) · Grok off
-21:58:38 SCRIBE   fine run · trade 24 · win 29% · P&L -0.6345 SOL · equity 5.3655 SOL
-21:58:37 ORACLE   360 raccolti, 256 analizzati, 3 BUY, 249 veto
-21:58:14 ORACLE   360 raccolti, 254 analizzati, 3 BUY, 247 veto
-21:57:51 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 250 veto
-21:57:28 ORACLE   360 raccolti, 269 analizzati, 3 BUY, 261 veto
-21:57:05 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 245 veto
-21:56:42 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 246 veto
-21:56:29 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 243 veto
-21:56:03 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 242 veto
-21:55:40 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 242 veto
-21:55:28 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 233 veto
-21:55:02 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 250 veto
-21:54:48 SCRIBE   chiuso P-0341 $INU -0.0342 SOL (-31.4%)
-21:54:48 CHARON   Stop loss $INU vendo 100% a -52.6% -> 0.0748 SOL
-21:54:38 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 253 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
