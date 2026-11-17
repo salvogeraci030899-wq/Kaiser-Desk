@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 21:44 UTC · in esecuzione da 0.2 giorni · 175 run
+Aggiornato: 2026-11-17 21:49 UTC · in esecuzione da 0.2 giorni · 175 run
 
 | | |
 |---|---|
-| Equity | **5.4374 SOL** (-9.4% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.4374 SOL |
-| Trade chiusi | 22 |
-| Win rate | 32% |
-| P&L realizzato | -0.5626 SOL (~$-41.29) |
-| Media vincite / perdite | +23.8% / -43.3% |
-| Profit factor | 0.26 |
+| Equity | **5.3997 SOL** (-10.0% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.3997 SOL |
+| Trade chiusi | 23 |
+| Win rate | 30% |
+| P&L realizzato | -0.6003 SOL (~$-44.11) |
+| Media vincite / perdite | +23.8% / -42.8% |
+| Profit factor | 0.24 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -23,11 +23,12 @@ _nessuna_
 | RUG-EXIT liquidità | 4 | -0.3455 |
 | Time stop | 6 | -0.0477 |
 | TP1 | 1 | +0.0568 |
-| Stop loss | 3 | -0.1357 |
+| Stop loss | 4 | -0.1735 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $NEGRO | 64 | -34.4% | -0.0377 | +0% | -47% | Stop loss | 1m |
 | $AI | 80 | -67.1% | -0.0746 | +3% | -65% | RUG-EXIT liquidità | 3m |
 | $GodsEye | 67 | -38.7% | -0.0434 | +2% | -42% | Stop loss | 2m |
 | $LUCIASS | 69 | +13.3% | +0.0148 | +53% | +24% | Chiusura manuale (app) | 13m |
@@ -53,6 +54,23 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+21:49:23 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 257 veto
+21:49:01 ORACLE   360 raccolti, 243 analizzati, 2 BUY, 235 veto
+21:48:38 ORACLE   360 raccolti, 243 analizzati, 2 BUY, 236 veto
+21:48:15 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 243 veto
+21:47:51 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 246 veto
+21:47:28 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 235 veto
+21:47:05 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 234 veto
+21:46:51 SCRIBE   chiuso P-0340 $NEGRO -0.0377 SOL (-34.4%)
+21:46:51 CHARON   Stop loss $NEGRO vendo 100% a -46.6% -> 0.0720 SOL
+21:46:41 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 239 veto
+21:46:17 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 233 veto
+21:45:53 KAISER   limite 1 ingresso/i per scan: $BONK rimandato
+21:45:53 QUARTER  BUY $NEGRO 0.109 SOL score 64 impatto 0.00% (Jupiter)
+21:45:53 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 239 veto
+21:45:29 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 241 veto
+21:45:06 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 235 veto
+21:44:41 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 247 veto
 21:44:18 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 231 veto
 21:43:53 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 240 veto
 21:43:29 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 242 veto
@@ -76,23 +94,6 @@ _nessuna_
 21:36:46 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 255 veto
 21:36:23 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 241 veto
 21:36:01 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 248 veto
-21:35:37 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 257 veto
-21:35:14 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 257 veto
-21:34:52 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 240 veto
-21:34:30 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 238 veto
-21:34:07 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 246 veto
-21:33:44 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 243 veto
-21:33:21 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 239 veto
-21:32:59 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 238 veto
-21:32:36 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 232 veto
-21:32:14 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 240 veto
-21:31:55 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
-21:31:51 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 239 veto
-21:31:28 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 234 veto
-21:31:04 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 240 veto
-21:30:41 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 235 veto
-21:30:18 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 229 veto
-21:29:54 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 246 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
