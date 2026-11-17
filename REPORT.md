@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 03:48 UTC · in esecuzione da 0.4 giorni · 154 run
+Aggiornato: 2026-11-17 03:53 UTC · in esecuzione da 0.4 giorni · 154 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-17 03:48 UTC · in esecuzione da 0.4 giorni · 154 run
 | Cassa | 5.9240 SOL |
 | Trade chiusi | 60 |
 | Win rate | 35% |
-| P&L realizzato | -0.0760 SOL (~$-5.52) |
+| P&L realizzato | -0.0760 SOL (~$-5.51) |
 | Media vincite / perdite | +53.0% / -29.8% |
 | Profit factor | 0.95 |
 | Circuit breaker | no |
@@ -55,6 +55,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+03:53:41 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 251 veto
+03:53:18 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 249 veto
+03:52:55 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 250 veto
+03:52:32 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 257 veto
+03:52:09 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 258 veto
+03:51:47 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 253 veto
+03:51:24 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 255 veto
+03:51:01 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 255 veto
+03:50:38 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 249 veto
+03:50:15 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 259 veto
+03:49:52 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 255 veto
+03:49:29 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 256 veto
+03:49:06 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 268 veto
+03:48:42 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 268 veto
 03:48:19 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 263 veto
 03:47:56 SCRIBE   chiuso P-0275 $XDOGE -0.0326 SOL (-27.2%)
 03:47:56 CHARON   RUG-EXIT liquidità $XDOGE vendo 100% a -75.5% -> 0.0875 SOL
@@ -81,20 +95,6 @@ _nessuna_
 03:41:46 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 253 veto
 03:41:23 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 247 veto
 03:41:00 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 253 veto
-03:40:37 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 251 veto
-03:40:14 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 251 veto
-03:39:51 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 248 veto
-03:39:28 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 252 veto
-03:39:06 KAISER   limite 1 ingresso/i per scan: $DRILL rimandato
-03:39:05 QUARTER  BUY $Mihaomas 0.119 SOL score 72 impatto 1.33% (Jupiter)
-03:39:05 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 245 veto
-03:38:42 QUARTER  $DRILL impatto 2.3% oltre slippage: annullato
-03:38:42 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 261 veto
-03:38:19 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 257 veto
-03:37:57 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 257 veto
-03:37:34 QUARTER  $DRILL impatto 3.9% oltre slippage: annullato
-03:37:34 ORACLE   347 raccolti, 258 analizzati, 1 BUY, 248 veto
-03:37:11 QUARTER  $DRILL impatto 3.3% oltre slippage: annullato
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
