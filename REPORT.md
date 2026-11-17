@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 10:20 UTC · in esecuzione da 0.7 giorni · 162 run
+Aggiornato: 2026-11-17 10:25 UTC · in esecuzione da 0.7 giorni · 162 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-17 10:20 UTC · in esecuzione da 0.7 giorni · 162 run
 | Cassa | 5.8507 SOL |
 | Trade chiusi | 72 |
 | Win rate | 36% |
-| P&L realizzato | -0.1493 SOL (~$-10.81) |
+| P&L realizzato | -0.1493 SOL (~$-10.78) |
 | Media vincite / perdite | +50.5% / -30.9% |
 | Profit factor | 0.91 |
 | Circuit breaker | no |
@@ -55,6 +55,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+10:25:15 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 255 veto
+10:24:52 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 250 veto
+10:24:29 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 248 veto
+10:24:06 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 256 veto
+10:23:43 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 246 veto
+10:23:20 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 254 veto
+10:22:56 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 255 veto
+10:22:33 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 253 veto
+10:22:10 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 249 veto
+10:21:46 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 257 veto
+10:21:23 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 254 veto
+10:20:59 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 249 veto
+10:20:36 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 257 veto
 10:20:12 ORACLE   353 raccolti, 264 analizzati, 0 BUY, 256 veto
 10:19:48 ORACLE   350 raccolti, 253 analizzati, 0 BUY, 244 veto
 10:19:24 ORACLE   329 raccolti, 241 analizzati, 0 BUY, 234 veto
@@ -82,19 +95,6 @@ _nessuna_
 10:14:52 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 248 veto
 10:14:28 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 247 veto
 10:14:04 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 242 veto
-10:13:41 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 233 veto
-10:13:18 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 239 veto
-10:12:54 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 241 veto
-10:12:31 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 236 veto
-10:12:06 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 248 veto
-10:11:43 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 246 veto
-10:11:20 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 243 veto
-10:10:56 SCRIBE   chiuso P-0287 $JOB -0.0807 SOL (-67.4%)
-10:10:56 CHARON   RUG-EXIT liquidità $JOB vendo 100% a -59.9% -> 0.0390 SOL
-10:10:56 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 248 veto
-10:10:31 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 245 veto
-10:10:08 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 232 veto
-10:10:05 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
