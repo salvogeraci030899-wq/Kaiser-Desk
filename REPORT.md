@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 03:24 UTC · in esecuzione da 0.4 giorni · 153 run
+Aggiornato: 2026-11-17 03:29 UTC · in esecuzione da 0.4 giorni · 153 run
 
 | | |
 |---|---|
@@ -55,6 +55,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+03:28:50 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 259 veto
+03:28:27 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 253 veto
+03:28:04 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 259 veto
+03:27:40 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 262 veto
+03:27:17 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 248 veto
+03:27:14 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)
+03:26:54 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 259 veto
+03:26:31 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 253 veto
+03:26:08 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 244 veto
+03:25:45 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 258 veto
+03:25:22 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 242 veto
+03:24:59 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 247 veto
+03:24:36 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 259 veto
+03:24:12 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 255 veto
 03:24:00 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 247 veto
 03:23:41 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 244 veto
 03:23:12 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 252 veto
@@ -81,20 +95,6 @@ _nessuna_
 03:15:50 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 246 veto
 03:15:27 ORACLE   360 raccolti, 249 analizzati, 3 BUY, 240 veto
 03:15:03 ORACLE   360 raccolti, 259 analizzati, 3 BUY, 252 veto
-03:14:40 KAISER   limite 1 ingresso/i per scan: $MELNOK rimandato
-03:14:40 QUARTER  BUY $RizzGivin 0.119 SOL score 73 impatto 1.15% (Jupiter)
-03:14:40 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 245 veto
-03:14:27 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 245 veto
-03:14:08 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 246 veto
-03:13:40 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 247 veto
-03:13:16 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 247 veto
-03:12:53 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 243 veto
-03:12:30 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 258 veto
-03:12:07 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 261 veto
-03:11:44 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 248 veto
-03:11:20 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 260 veto
-03:11:07 SCRIBE   chiuso P-0270 $FLYWHEEL 0.0022 SOL (1.8%)
-03:11:07 CHARON   Time stop $FLYWHEEL vendo 100% a 4.0% -> 0.1244 SOL
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
