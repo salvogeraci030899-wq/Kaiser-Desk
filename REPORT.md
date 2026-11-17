@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 11:05 UTC · in esecuzione da 0.7 giorni · 162 run
+Aggiornato: 2026-11-17 11:10 UTC · in esecuzione da 0.7 giorni · 163 run
 
 | | |
 |---|---|
-| Equity | **5.9363 SOL** (-1.1% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.8084 SOL |
-| Trade chiusi | 73 |
-| Win rate | 37% |
-| P&L realizzato | -0.0720 SOL (~$-5.20) |
-| Media vincite / perdite | +51.1% / -30.9% |
-| Profit factor | 0.96 |
+| Equity | **5.9089 SOL** (-1.5% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.9089 SOL |
+| Trade chiusi | 74 |
+| Win rate | 36% |
+| P&L realizzato | -0.0911 SOL (~$-6.59) |
+| Media vincite / perdite | +51.1% / -30.6% |
+| Profit factor | 0.95 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$BUDDY** P-0289 · 0.119 SOL · +7.9% · resta 100% · [grafico](https://dexscreener.com/solana/4q3EQc2HdJ2QgVFkpeKr54pMFqczXxnV7KruVVognyXq)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | RUG-EXIT liquidità | 12 | -0.7838 |
-| Time stop | 29 | -0.3122 |
+| Time stop | 30 | -0.3312 |
 | TP1 | 19 | +1.4686 |
 | Stop loss | 13 | -0.4446 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $BUDDY | 72 | -15.9% | -0.0190 | +18% | -1% | Time stop | 6m |
 | $AMAZON | 66 | +65.5% | +0.0773 | +62% | +62% | TP1 | 7m |
 | $JOB | 68 | -67.4% | -0.0807 | +10% | -60% | RUG-EXIT liquidità | 3m |
 | $GEKKO | 63 | -72.4% | -0.0879 | +2% | -49% | Stop loss | 3m |
@@ -51,10 +52,33 @@ Aggiornato: 2026-11-17 11:05 UTC · in esecuzione da 0.7 giorni · 162 run
 | $Jojo | 63 | +100.9% | +0.1219 | +60% | +60% | TP1 | 3m |
 | $CHAR | 76 | +34.6% | +0.0416 | +72% | +72% | TP1 | 4m |
 | $Santa | 66 | -82.7% | -0.1003 | +15% | -71% | RUG-EXIT liquidità | 3m |
-| $CAT | 77 | +52.1% | +0.0631 | +63% | +63% | TP1 | 6m |
 
 ## Ultimi eventi
 ```
+11:10:33 ORACLE   338 raccolti, 245 analizzati, 1 BUY, 234 veto
+11:10:09 ORACLE   332 raccolti, 232 analizzati, 1 BUY, 223 veto
+11:09:46 ORACLE   310 raccolti, 220 analizzati, 1 BUY, 211 veto
+11:09:23 ORACLE   304 raccolti, 205 analizzati, 1 BUY, 196 veto
+11:09:00 ORACLE   296 raccolti, 205 analizzati, 1 BUY, 196 veto
+11:08:36 ORACLE   278 raccolti, 193 analizzati, 1 BUY, 185 veto
+11:08:14 ORACLE   270 raccolti, 185 analizzati, 1 BUY, 177 veto
+11:07:51 ORACLE   268 raccolti, 180 analizzati, 1 BUY, 173 veto
+11:07:27 ORACLE   244 raccolti, 165 analizzati, 1 BUY, 158 veto
+11:07:04 ORACLE   239 raccolti, 156 analizzati, 1 BUY, 149 veto
+11:06:42 ORACLE   238 raccolti, 154 analizzati, 1 BUY, 147 veto
+11:06:19 ORACLE   212 raccolti, 138 analizzati, 1 BUY, 132 veto
+11:05:56 ORACLE   208 raccolti, 126 analizzati, 1 BUY, 121 veto
+11:05:39 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
+11:05:36 SCOUT    fabbrica: 9962 percorsi, 768 configurazioni, 0 passano, 1410 ms
+11:05:34 SCRIBE   chiuso P-0289 $BUDDY -0.0190 SOL (-15.9%)
+11:05:34 CHARON   Time stop $BUDDY vendo 100% a -0.9% -> 0.1005 SOL
+11:05:34 ORACLE   206 raccolti, 126 analizzati, 1 BUY, 121 veto
+11:05:33 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
+11:05:31 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
+11:05:31 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
+11:05:31 SCOUT    Laboratorio: collegato a PumpPortal
+11:05:31 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→40, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120
+11:05:31 KAISER   run #163 · 1 posizioni · equity 5.9363 SOL · GMGN spenta (nessuna chiave) · Grok off
 11:05:12 SCRIBE   fine run · trade 73 · win 37% · P&L -0.0720 SOL · equity 5.9363 SOL
 11:05:12 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 259 veto
 11:04:51 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 252 veto
@@ -71,30 +95,6 @@ Aggiornato: 2026-11-17 11:05 UTC · in esecuzione da 0.7 giorni · 162 run
 11:00:33 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 256 veto
 11:00:09 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 252 veto
 10:59:55 ORACLE   360 raccolti, 240 analizzati, 2 BUY, 231 veto
-10:59:52 SCOUT    DexScreener errore: This operation was aborted
-10:59:16 QUARTER  BUY $BUDDY 0.119 SOL score 72 impatto 0.25% (Jupiter)
-10:59:16 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 256 veto
-10:58:52 QUARTER  $BUDDY impatto 2.2% oltre slippage: annullato
-10:58:52 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 256 veto
-10:58:29 QUARTER  $BUDDY impatto 2.3% oltre slippage: annullato
-10:58:29 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 245 veto
-10:58:06 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 257 veto
-10:57:42 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 252 veto
-10:57:18 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 247 veto
-10:56:55 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 259 veto
-10:56:31 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 256 veto
-10:56:08 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 247 veto
-10:55:44 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 257 veto
-10:55:21 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 249 veto
-10:54:58 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 252 veto
-10:54:35 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 254 veto
-10:54:11 QUARTER  $BUDDY impatto 2.0% oltre slippage: annullato
-10:54:11 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 256 veto
-10:53:48 QUARTER  $BUDDY impatto 2.9% oltre slippage: annullato
-10:53:48 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 257 veto
-10:53:25 QUARTER  $BUDDY impatto 2.4% oltre slippage: annullato
-10:53:25 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 258 veto
-10:53:01 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 252 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.

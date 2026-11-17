@@ -1,70 +1,8 @@
 {
  "startedAt": 1794850176657,
- "runs": 162,
- "cash": 5.808422271449881,
- "positions": [
-  {
-   "id": "P-0289",
-   "mint": "9bTaC8F88E2UuZy5bhH9uPrd3pWhXQetcEQFs8DNpump",
-   "sym": "BUDDY",
-   "name": "pbuddy",
-   "pairAddress": "4q3EQc2HdJ2QgVFkpeKr54pMFqczXxnV7KruVVognyXq",
-   "openedAt": 1794913156690,
-   "sizeSOL": 0.11855963819285473,
-   "cost": 0.11955963819285473,
-   "entry": 4.415414775515815e-7,
-   "tokens": 268513.0258889538,
-   "remaining": 1,
-   "rawLeft": "239818193784",
-   "peak": 5.216e-7,
-   "tp1Done": false,
-   "spDone": false,
-   "entryLiq": 11733.87,
-   "realized": 0,
-   "score": 72,
-   "why": "runner",
-   "entryInfo": {
-    "srcs": [
-     "jup organic",
-     "gecko nuovi"
-    ],
-    "notes": [
-     "nessun social"
-    ],
-    "plus": [
-     "turnover 3.6x/h",
-     "pressione in acquisto"
-    ],
-    "m": {
-     "liq": 11733.87,
-     "mc": 31438,
-     "ageMin": 14.7207,
-     "v1": 42556.14,
-     "tx1": 1379,
-     "br1": 1.6304761904761904,
-     "br5": 2.037037037037037,
-     "c5": -36.04,
-     "c1": 4.33,
-     "c6": 4.33,
-     "turn": 3.6267778661260093,
-     "price": 0.00003143,
-     "priceNative": 4.361e-7
-    },
-    "grok": null
-   },
-   "last": {
-    "priceNative": 4.764e-7,
-    "liq": 12059.65,
-    "br5": 1.4778761061946903,
-    "tx5": 278,
-    "t": 1794913512638
-   },
-   "fills": [
-    "BUY 0.119 impatto 0.25% (Jupiter)"
-   ],
-   "trough": 3.921e-7
-  }
- ],
+ "runs": 163,
+ "cash": 5.908945695319882,
+ "positions": [],
  "journal": [
   {
    "id": "P-0216",
@@ -3439,107 +3377,57 @@
    },
    "maePct": null,
    "age": 2
+  },
+  {
+   "id": "P-0289",
+   "mint": "9bTaC8F88E2UuZy5bhH9uPrd3pWhXQetcEQFs8DNpump",
+   "sym": "BUDDY",
+   "openedAt": 1794913156690,
+   "closedAt": 1794913534630,
+   "cost": 0.11955963819285473,
+   "back": 0.10052342387,
+   "pnl": -0.019036214322854725,
+   "pct": -15.921940389405083,
+   "mode": "paper",
+   "reason": "Time stop",
+   "score": 72,
+   "solUsd": 72.19990945091973,
+   "peakPct": 18.131597260659603,
+   "trigPct": -0.870015105462596,
+   "entryInfo": {
+    "srcs": [
+     "jup organic",
+     "gecko nuovi"
+    ],
+    "notes": [
+     "nessun social"
+    ],
+    "plus": [
+     "turnover 3.6x/h",
+     "pressione in acquisto"
+    ],
+    "m": {
+     "liq": 11733.87,
+     "mc": 31438,
+     "ageMin": 14.7207,
+     "v1": 42556.14,
+     "tx1": 1379,
+     "br1": 1.6304761904761904,
+     "br5": 2.037037037037037,
+     "c5": -36.04,
+     "c1": 4.33,
+     "c6": 4.33,
+     "turn": 3.6267778661260093,
+     "price": 0.00003143,
+     "priceNative": 4.361e-7
+    },
+    "grok": null
+   },
+   "maePct": -11.19747069420124,
+   "age": 15
   }
  ],
  "signals": [
-  {
-   "t": 1794882979084,
-   "mint": "2HVqzNisr463WMDpp6Q45ekuVfcjm8kEaiKd4ra8pump",
-   "sym": "CAT",
-   "score": 67,
-   "priceNative": 6.886e-7
-  },
-  {
-   "t": 1794883001277,
-   "mint": "9k2nqjUrSh9p2ZBnWxNE3QRWYiLocrWZfoDm3Vdxpump",
-   "sym": "CHAR",
-   "score": 79,
-   "priceNative": 0.00000129
-  },
-  {
-   "t": 1794883001277,
-   "mint": "2HVqzNisr463WMDpp6Q45ekuVfcjm8kEaiKd4ra8pump",
-   "sym": "CAT",
-   "score": 67,
-   "priceNative": 6.886e-7
-  },
-  {
-   "t": 1794883023415,
-   "mint": "9k2nqjUrSh9p2ZBnWxNE3QRWYiLocrWZfoDm3Vdxpump",
-   "sym": "CHAR",
-   "score": 79,
-   "priceNative": 0.000001149
-  },
-  {
-   "t": 1794883023415,
-   "mint": "2HVqzNisr463WMDpp6Q45ekuVfcjm8kEaiKd4ra8pump",
-   "sym": "CAT",
-   "score": 66,
-   "priceNative": 6.428e-7
-  },
-  {
-   "t": 1794883046003,
-   "mint": "9k2nqjUrSh9p2ZBnWxNE3QRWYiLocrWZfoDm3Vdxpump",
-   "sym": "CHAR",
-   "score": 79,
-   "priceNative": 0.000001228
-  },
-  {
-   "t": 1794883046003,
-   "mint": "2HVqzNisr463WMDpp6Q45ekuVfcjm8kEaiKd4ra8pump",
-   "sym": "CAT",
-   "score": 66,
-   "priceNative": 6.428e-7
-  },
-  {
-   "t": 1794883068530,
-   "mint": "9k2nqjUrSh9p2ZBnWxNE3QRWYiLocrWZfoDm3Vdxpump",
-   "sym": "CHAR",
-   "score": 79,
-   "priceNative": 0.000001228
-  },
-  {
-   "t": 1794883068530,
-   "mint": "2HVqzNisr463WMDpp6Q45ekuVfcjm8kEaiKd4ra8pump",
-   "sym": "CAT",
-   "score": 68,
-   "priceNative": 7.072e-7
-  },
-  {
-   "t": 1794883091190,
-   "mint": "9k2nqjUrSh9p2ZBnWxNE3QRWYiLocrWZfoDm3Vdxpump",
-   "sym": "CHAR",
-   "score": 79,
-   "priceNative": 0.000001036
-  },
-  {
-   "t": 1794883091190,
-   "mint": "2HVqzNisr463WMDpp6Q45ekuVfcjm8kEaiKd4ra8pump",
-   "sym": "CAT",
-   "score": 68,
-   "priceNative": 7.408e-7
-  },
-  {
-   "t": 1794883113612,
-   "mint": "9k2nqjUrSh9p2ZBnWxNE3QRWYiLocrWZfoDm3Vdxpump",
-   "sym": "CHAR",
-   "score": 79,
-   "priceNative": 0.000001173
-  },
-  {
-   "t": 1794883113612,
-   "mint": "2HVqzNisr463WMDpp6Q45ekuVfcjm8kEaiKd4ra8pump",
-   "sym": "CAT",
-   "score": 67,
-   "priceNative": 7.55e-7
-  },
-  {
-   "t": 1794883136147,
-   "mint": "9k2nqjUrSh9p2ZBnWxNE3QRWYiLocrWZfoDm3Vdxpump",
-   "sym": "CHAR",
-   "score": 79,
-   "priceNative": 0.000001173
-  },
   {
    "t": 1794883136147,
    "mint": "2HVqzNisr463WMDpp6Q45ekuVfcjm8kEaiKd4ra8pump",
@@ -10441,16 +10329,138 @@
    "sym": "BUDDY",
    "score": 73,
    "priceNative": 4.764e-7
+  },
+  {
+   "t": 1794913534587,
+   "mint": "9bTaC8F88E2UuZy5bhH9uPrd3pWhXQetcEQFs8DNpump",
+   "sym": "BUDDY",
+   "score": 69,
+   "priceNative": 4.377e-7
+  },
+  {
+   "t": 1794913556921,
+   "mint": "9bTaC8F88E2UuZy5bhH9uPrd3pWhXQetcEQFs8DNpump",
+   "sym": "BUDDY",
+   "score": 69,
+   "priceNative": 4.377e-7
+  },
+  {
+   "t": 1794913579586,
+   "mint": "9bTaC8F88E2UuZy5bhH9uPrd3pWhXQetcEQFs8DNpump",
+   "sym": "BUDDY",
+   "score": 67,
+   "priceNative": 4.346e-7
+  },
+  {
+   "t": 1794913602686,
+   "mint": "9bTaC8F88E2UuZy5bhH9uPrd3pWhXQetcEQFs8DNpump",
+   "sym": "BUDDY",
+   "score": 66,
+   "priceNative": 3.979e-7
+  },
+  {
+   "t": 1794913624796,
+   "mint": "9bTaC8F88E2UuZy5bhH9uPrd3pWhXQetcEQFs8DNpump",
+   "sym": "BUDDY",
+   "score": 66,
+   "priceNative": 3.979e-7
+  },
+  {
+   "t": 1794913647604,
+   "mint": "9bTaC8F88E2UuZy5bhH9uPrd3pWhXQetcEQFs8DNpump",
+   "sym": "BUDDY",
+   "score": 72,
+   "priceNative": 4.395e-7
+  },
+  {
+   "t": 1794913671013,
+   "mint": "9bTaC8F88E2UuZy5bhH9uPrd3pWhXQetcEQFs8DNpump",
+   "sym": "BUDDY",
+   "score": 72,
+   "priceNative": 4.43e-7
+  },
+  {
+   "t": 1794913694366,
+   "mint": "9bTaC8F88E2UuZy5bhH9uPrd3pWhXQetcEQFs8DNpump",
+   "sym": "BUDDY",
+   "score": 67,
+   "priceNative": 4.457e-7
+  },
+  {
+   "t": 1794913716799,
+   "mint": "9bTaC8F88E2UuZy5bhH9uPrd3pWhXQetcEQFs8DNpump",
+   "sym": "BUDDY",
+   "score": 67,
+   "priceNative": 4.457e-7
+  },
+  {
+   "t": 1794913740658,
+   "mint": "9bTaC8F88E2UuZy5bhH9uPrd3pWhXQetcEQFs8DNpump",
+   "sym": "BUDDY",
+   "score": 67,
+   "priceNative": 4.148e-7
+  },
+  {
+   "t": 1794913763256,
+   "mint": "9bTaC8F88E2UuZy5bhH9uPrd3pWhXQetcEQFs8DNpump",
+   "sym": "BUDDY",
+   "score": 68,
+   "priceNative": 4.148e-7
+  },
+  {
+   "t": 1794913786501,
+   "mint": "9bTaC8F88E2UuZy5bhH9uPrd3pWhXQetcEQFs8DNpump",
+   "sym": "BUDDY",
+   "score": 68,
+   "priceNative": 4.139e-7
+  },
+  {
+   "t": 1794913809906,
+   "mint": "9bTaC8F88E2UuZy5bhH9uPrd3pWhXQetcEQFs8DNpump",
+   "sym": "BUDDY",
+   "score": 73,
+   "priceNative": 4.777e-7
+  },
+  {
+   "t": 1794913833119,
+   "mint": "9bTaC8F88E2UuZy5bhH9uPrd3pWhXQetcEQFs8DNpump",
+   "sym": "BUDDY",
+   "score": 73,
+   "priceNative": 4.777e-7
   }
  ],
  "day": {
   "date": "2026-11-17",
   "startEq": 6.125840421630286
  },
- "cooldownUntil": 1794910556164,
+ "cooldownUntil": 1794913834634,
  "halted": null,
  "seq": 289,
  "events": [
+  "11:10:33 ORACLE   338 raccolti, 245 analizzati, 1 BUY, 234 veto",
+  "11:10:09 ORACLE   332 raccolti, 232 analizzati, 1 BUY, 223 veto",
+  "11:09:46 ORACLE   310 raccolti, 220 analizzati, 1 BUY, 211 veto",
+  "11:09:23 ORACLE   304 raccolti, 205 analizzati, 1 BUY, 196 veto",
+  "11:09:00 ORACLE   296 raccolti, 205 analizzati, 1 BUY, 196 veto",
+  "11:08:36 ORACLE   278 raccolti, 193 analizzati, 1 BUY, 185 veto",
+  "11:08:14 ORACLE   270 raccolti, 185 analizzati, 1 BUY, 177 veto",
+  "11:07:51 ORACLE   268 raccolti, 180 analizzati, 1 BUY, 173 veto",
+  "11:07:27 ORACLE   244 raccolti, 165 analizzati, 1 BUY, 158 veto",
+  "11:07:04 ORACLE   239 raccolti, 156 analizzati, 1 BUY, 149 veto",
+  "11:06:42 ORACLE   238 raccolti, 154 analizzati, 1 BUY, 147 veto",
+  "11:06:19 ORACLE   212 raccolti, 138 analizzati, 1 BUY, 132 veto",
+  "11:05:56 ORACLE   208 raccolti, 126 analizzati, 1 BUY, 121 veto",
+  "11:05:39 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an",
+  "11:05:36 SCOUT    fabbrica: 9962 percorsi, 768 configurazioni, 0 passano, 1410 ms",
+  "11:05:34 SCRIBE   chiuso P-0289 $BUDDY -0.0190 SOL (-15.9%)",
+  "11:05:34 CHARON   Time stop $BUDDY vendo 100% a -0.9% -> 0.1005 SOL",
+  "11:05:34 ORACLE   206 raccolti, 126 analizzati, 1 BUY, 121 veto",
+  "11:05:33 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an",
+  "11:05:31 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com",
+  "11:05:31 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.",
+  "11:05:31 SCOUT    Laboratorio: collegato a PumpPortal",
+  "11:05:31 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→40, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120",
+  "11:05:31 KAISER   run #163 · 1 posizioni · equity 5.9363 SOL · GMGN spenta (nessuna chiave) · Grok off",
   "11:05:12 SCRIBE   fine run · trade 73 · win 37% · P&L -0.0720 SOL · equity 5.9363 SOL",
   "11:05:12 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 259 veto",
   "11:04:51 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 252 veto",
@@ -10726,31 +10736,7 @@
   "09:29:22 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 250 veto",
   "09:28:59 ORACLE   347 raccolti, 256 analizzati, 0 BUY, 250 veto",
   "09:28:36 ORACLE   339 raccolti, 248 analizzati, 0 BUY, 244 veto",
-  "09:28:14 ORACLE   335 raccolti, 233 analizzati, 0 BUY, 229 veto",
-  "09:27:51 SCOUT    PumpPortal invia nuovi token (21) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena",
-  "09:27:51 ORACLE   306 raccolti, 222 analizzati, 0 BUY, 218 veto",
-  "09:27:29 ORACLE   295 raccolti, 204 analizzati, 0 BUY, 200 veto",
-  "09:27:07 ORACLE   287 raccolti, 200 analizzati, 0 BUY, 197 veto",
-  "09:26:44 ORACLE   267 raccolti, 189 analizzati, 0 BUY, 186 veto",
-  "09:26:23 ORACLE   263 raccolti, 181 analizzati, 0 BUY, 178 veto",
-  "09:26:01 ORACLE   254 raccolti, 172 analizzati, 0 BUY, 169 veto",
-  "09:25:39 ORACLE   219 raccolti, 145 analizzati, 0 BUY, 144 veto",
-  "09:25:17 ORACLE   204 raccolti, 136 analizzati, 0 BUY, 135 veto",
-  "09:24:58 SCOUT    fabbrica: 9725 percorsi, 768 configurazioni, 0 passano, 1350 ms",
-  "09:24:57 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an",
-  "09:24:57 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an",
-  "09:24:57 ORACLE   198 raccolti, 119 analizzati, 0 BUY, 118 veto",
-  "09:24:55 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com",
-  "09:24:55 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.",
-  "09:24:55 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→40, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120",
-  "09:24:55 SCOUT    Laboratorio: collegato a PumpPortal",
-  "09:24:54 KAISER   run #161 · 0 posizioni · equity 5.9313 SOL · GMGN spenta (nessuna chiave) · Grok off",
-  "09:24:40 SCRIBE   fine run · trade 71 · win 37% · P&L -0.0687 SOL · equity 5.9313 SOL",
-  "09:24:31 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 263 veto",
-  "09:24:07 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 268 veto",
-  "09:23:44 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 267 veto",
-  "09:23:21 SCRIBE   chiuso P-0286 $GEKKO -0.0879 SOL (-72.4%)",
-  "09:23:21 CHARON   Stop loss $GEKKO vendo 100% a -49.0% -> 0.0335 SOL"
+  "09:28:14 ORACLE   335 raccolti, 233 analizzati, 0 BUY, 229 veto"
  ],
  "capital": 6,
  "resetId": "C-0082",
@@ -22157,10 +22143,6 @@
  "lastDaily": "2026-11-16",
  "cal": [
   {
-   "t": 1794826601572,
-   "g": -27
-  },
-  {
    "t": 1794827766467,
    "g": -6.6
   },
@@ -22555,6 +22537,10 @@
   {
    "t": 1794912047041,
    "g": 5
+  },
+  {
+   "t": 1794913534629,
+   "g": -12.7
   }
  ]
 }
