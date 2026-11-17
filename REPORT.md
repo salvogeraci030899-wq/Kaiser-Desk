@@ -1,11 +1,11 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 14:51 UTC · in esecuzione da 0.9 giorni · 167 run
+Aggiornato: 2026-11-17 14:56 UTC · in esecuzione da 0.9 giorni · 167 run
 
 | | |
 |---|---|
-| Equity | **5.9816 SOL** (-0.3% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.9816 SOL |
+| Equity | **5.9352 SOL** (-1.1% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.7409 SOL |
 | Trade chiusi | 89 |
 | Win rate | 37% |
 | P&L realizzato | -0.0184 SOL (~$-1.36) |
@@ -14,7 +14,8 @@ Aggiornato: 2026-11-17 14:51 UTC · in esecuzione da 0.9 giorni · 167 run
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$Rex** P-0305 · 0.120 SOL · -35.7% · resta 100% · [grafico](https://dexscreener.com/solana/5iM3RZzmwNCEzgfCoye3wEkvphSEpXK75fA68vwGx61y)
+- **$JESTER** P-0306 · 0.119 SOL · -1.4% · resta 100% · [grafico](https://dexscreener.com/solana/EJHur4FVts85xqWskjUAoaUBMAvccEDXUTUpPZe9gUEn)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +56,25 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+14:56:58 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 224 veto
+14:56:36 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 225 veto
+14:56:12 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 231 veto
+14:55:49 KAISER   limite 1 ingresso/i per scan: $Rex rimandato
+14:55:48 QUARTER  BUY $JESTER 0.119 SOL score 64 impatto 1.08% (Jupiter)
+14:55:48 ORACLE   360 raccolti, 249 analizzati, 3 BUY, 238 veto
+14:55:25 ORACLE   360 raccolti, 231 analizzati, 3 BUY, 220 veto
+14:55:00 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 230 veto
+14:54:36 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 234 veto
+14:54:24 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 231 veto
+14:53:56 ORACLE   360 raccolti, 256 analizzati, 3 BUY, 245 veto
+14:53:33 QUARTER  BUY $Rex 0.120 SOL score 66 impatto 1.66% (Jupiter)
+14:53:32 ORACLE   360 raccolti, 243 analizzati, 2 BUY, 233 veto
+14:53:09 QUARTER  $Rex impatto 2.6% oltre slippage: annullato
+14:53:09 ORACLE   360 raccolti, 236 analizzati, 2 BUY, 225 veto
+14:52:46 QUARTER  $Rex impatto 2.5% oltre slippage: annullato
+14:52:46 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 240 veto
+14:52:23 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 240 veto
+14:51:59 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 231 veto
 14:51:36 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 236 veto
 14:51:13 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 239 veto
 14:50:49 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 232 veto
@@ -76,25 +96,6 @@ _nessuna_
 14:45:10 CHARON   RUG-EXIT liquidità $STORK vendo 100% a -50.1% -> 0.0759 SOL
 14:45:00 SCRIBE   chiuso P-0304 $JVOLT -0.0103 SOL (-8.5%)
 14:45:00 CHARON   TP1 $JVOLT vendo 100% a 145.5% -> 0.1111 SOL
-14:45:00 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 225 veto
-14:44:35 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 239 veto
-14:44:11 QUARTER  BUY $JVOLT 0.120 SOL score 77 impatto 0.88% (Jupiter)
-14:44:11 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 240 veto
-14:43:48 ORACLE   360 raccolti, 225 analizzati, 3 BUY, 213 veto
-14:43:24 ORACLE   360 raccolti, 238 analizzati, 2 BUY, 223 veto
-14:43:00 ORACLE   360 raccolti, 245 analizzati, 3 BUY, 230 veto
-14:42:37 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 228 veto
-14:42:13 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 235 veto
-14:41:50 QUARTER  BUY $STORK 0.121 SOL score 63 impatto 0.53% (Jupiter)
-14:41:49 ORACLE   360 raccolti, 246 analizzati, 3 BUY, 234 veto
-14:41:26 QUARTER  $STORK impatto 2.3% oltre slippage: annullato
-14:41:26 ORACLE   360 raccolti, 241 analizzati, 3 BUY, 231 veto
-14:41:02 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 239 veto
-14:40:39 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 225 veto
-14:40:26 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 225 veto
-14:40:01 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 227 veto
-14:39:38 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 238 veto
-14:39:14 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 242 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
