@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 02:48 UTC · in esecuzione da 0.4 giorni · 153 run
+Aggiornato: 2026-11-17 02:53 UTC · in esecuzione da 0.4 giorni · 153 run
 
 | | |
 |---|---|
-| Equity | **6.1165 SOL** (+1.9% dal capitale iniziale di 6 SOL) |
-| Cassa | 6.1165 SOL |
+| Equity | **6.0983 SOL** (+1.6% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.9931 SOL |
 | Trade chiusi | 53 |
 | Win rate | 34% |
-| P&L realizzato | +0.1165 SOL (~$8.36) |
+| P&L realizzato | +0.1165 SOL (~$8.35) |
 | Media vincite / perdite | +58.2% / -26.8% |
 | Profit factor | 1.10 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$Nozomi** P-0269 · 0.122 SOL · -14.1% · resta 100% · [grafico](https://dexscreener.com/solana/Expig3goBHLTkfqNqRMGETmMf4Y1q4zuUF2nK9C1btmv)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+02:53:06 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 258 veto
+02:52:43 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 261 veto
+02:52:20 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 255 veto
+02:51:56 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 262 veto
+02:51:33 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 262 veto
+02:51:10 ORACLE   360 raccolti, 266 analizzati, 3 BUY, 254 veto
+02:50:47 ORACLE   360 raccolti, 273 analizzati, 4 BUY, 263 veto
+02:50:24 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 262 veto
+02:50:01 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 251 veto
+02:49:38 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 268 veto
+02:49:15 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 264 veto
+02:48:52 QUARTER  BUY $Nozomi 0.122 SOL score 64 impatto 0.47% (Jupiter)
+02:48:52 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 261 veto
+02:48:29 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 267 veto
 02:48:05 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 263 veto
 02:47:43 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 260 veto
 02:47:19 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 260 veto
@@ -81,20 +95,6 @@ _nessuna_
 02:42:56 SCRIBE   fine run · trade 53 · win 34% · P&L 0.1165 SOL · equity 6.1165 SOL
 02:42:46 SCRIBE   chiuso P-0268 $XDOGE -0.0080 SOL (-6.5%)
 02:42:46 CHARON   RUG-EXIT liquidità $XDOGE vendo 100% a -72.2% -> 0.1155 SOL
-02:42:46 ORACLE   360 raccolti, 266 analizzati, 3 BUY, 254 veto
-02:42:23 KAISER   limite 1 ingresso/i per scan: $CAT rimandato
-02:42:23 KAISER   limite 1 ingresso/i per scan: $CHAR rimandato
-02:42:23 QUARTER  BUY $XDOGE 0.122 SOL score 79 impatto 1.08% (Jupiter)
-02:42:23 ORACLE   360 raccolti, 259 analizzati, 3 BUY, 250 veto
-02:42:00 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 252 veto
-02:41:37 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 257 veto
-02:41:14 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 253 veto
-02:40:52 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 248 veto
-02:40:29 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 254 veto
-02:40:06 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 254 veto
-02:39:42 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 254 veto
-02:39:19 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 263 veto
-02:38:56 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 260 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
