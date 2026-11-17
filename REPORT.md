@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 23:29 UTC · in esecuzione da 0.0 giorni · 177 run
+Aggiornato: 2026-11-17 23:34 UTC · in esecuzione da 0.0 giorni · 177 run
 
 | | |
 |---|---|
@@ -28,6 +28,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+23:34:40 QUARTER  $maxi impatto 4.5% oltre slippage: annullato
+23:34:40 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 240 veto
+23:34:16 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 240 veto
+23:33:53 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 242 veto
+23:33:30 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 255 veto
+23:33:07 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 256 veto
+23:32:44 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 253 veto
+23:32:22 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 240 veto
+23:31:59 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 252 veto
+23:31:37 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 250 veto
+23:31:13 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 241 veto
+23:30:49 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 248 veto
+23:30:26 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 253 veto
+23:30:02 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 247 veto
 23:29:39 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 254 veto
 23:29:16 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 237 veto
 23:29:03 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 239 veto
@@ -54,20 +68,6 @@ _nessuna_
 23:20:50 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 242 veto
 23:20:27 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 244 veto
 23:20:03 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 242 veto
-23:19:39 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 233 veto
-23:19:15 SCRIBE   chiuso P-0349 $hamster -0.0001 SOL (-0.1%)
-23:19:15 CHARON   TP1 $hamster vendo 100% a 60.8% -> 0.1209 SOL
-23:19:15 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 239 veto
-23:18:51 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 238 veto
-23:18:28 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 233 veto
-23:18:04 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 234 veto
-23:17:40 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 232 veto
-23:17:16 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 227 veto
-23:16:52 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 236 veto
-23:16:29 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 233 veto
-23:16:05 ORACLE   360 raccolti, 235 analizzati, 0 BUY, 226 veto
-23:15:40 QUARTER  BUY $hamster 0.120 SOL score 73 impatto 1.69% (Jupiter)
-23:15:40 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 234 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
