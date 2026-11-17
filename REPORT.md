@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 21:04 UTC · in esecuzione da 0.2 giorni · 174 run
+Aggiornato: 2026-11-17 21:08 UTC · in esecuzione da 0.2 giorni · 174 run
 
 | | |
 |---|---|
-| Equity | **5.5568 SOL** (-7.4% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.4433 SOL |
-| Trade chiusi | 20 |
-| Win rate | 35% |
-| P&L realizzato | -0.4446 SOL (~$-32.51) |
-| Media vincite / perdite | +23.8% / -41.9% |
-| Profit factor | 0.30 |
+| Equity | **5.5121 SOL** (-8.1% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.5121 SOL |
+| Trade chiusi | 21 |
+| Win rate | 33% |
+| P&L realizzato | -0.4879 SOL (~$-35.66) |
+| Media vincite / perdite | +23.8% / -41.6% |
+| Profit factor | 0.28 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$GodsEye** P-0338 · 0.111 SOL · +2.2% · resta 100% · [grafico](https://dexscreener.com/solana/CMTxtP44CHMxP92ac6FsfJQoqr7YaTjEc33CvDVrNYMn)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -23,11 +23,12 @@ Aggiornato: 2026-11-17 21:04 UTC · in esecuzione da 0.2 giorni · 174 run
 | RUG-EXIT liquidità | 3 | -0.2709 |
 | Time stop | 6 | -0.0477 |
 | TP1 | 1 | +0.0568 |
-| Stop loss | 2 | -0.0924 |
+| Stop loss | 3 | -0.1357 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $GodsEye | 67 | -38.7% | -0.0434 | +2% | -42% | Stop loss | 2m |
 | $LUCIASS | 69 | +13.3% | +0.0148 | +53% | +24% | Chiusura manuale (app) | 13m |
 | $LUCIA | 88 | -40.7% | -0.0458 | +0% | -49% | Stop loss | 2m |
 | $ViceCat | 74 | +27.5% | +0.0308 | +29% | +4% | Time stop | 10m |
@@ -51,6 +52,20 @@ Aggiornato: 2026-11-17 21:04 UTC · in esecuzione da 0.2 giorni · 174 run
 
 ## Ultimi eventi
 ```
+21:08:23 SCRIBE   fine run · trade 21 · win 33% · P&L -0.4879 SOL · equity 5.5121 SOL
+21:08:13 ORACLE   360 raccolti, 257 analizzati, 3 BUY, 244 veto
+21:07:48 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 231 veto
+21:07:24 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 234 veto
+21:07:00 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 229 veto
+21:06:36 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 227 veto
+21:06:13 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 236 veto
+21:05:48 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 250 veto
+21:05:24 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 245 veto
+21:05:11 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 240 veto
+21:04:55 SCRIBE   chiuso P-0338 $GodsEye -0.0434 SOL (-38.7%)
+21:04:55 CHARON   Stop loss $GodsEye vendo 100% a -42.3% -> 0.0687 SOL
+21:04:55 ORACLE   360 raccolti, 229 analizzati, 1 BUY, 221 veto
+21:04:30 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 231 veto
 21:04:06 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 241 veto
 21:03:41 ORACLE   360 raccolti, 231 analizzati, 2 BUY, 224 veto
 21:03:16 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 232 veto
@@ -77,20 +92,6 @@ Aggiornato: 2026-11-17 21:04 UTC · in esecuzione da 0.2 giorni · 174 run
 20:55:44 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 246 veto
 20:55:19 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 255 veto
 20:54:56 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 259 veto
-20:54:32 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 258 veto
-20:54:08 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 255 veto
-20:53:44 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 247 veto
-20:53:21 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 232 veto
-20:52:57 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 254 veto
-20:52:34 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 260 veto
-20:52:11 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 229 veto
-20:51:47 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 246 veto
-20:51:43 SCRIBE   chiuso P-0337 $LUCIASS 0.0148 SOL (13.3%)
-20:51:43 CHARON   Chiusura manuale (app) $LUCIASS vendo 100% a 23.5% -> 0.1266 SOL
-20:51:43 KAISER   chiusura manuale dall'app: P-0337 LUCIASS
-20:51:22 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 233 veto
-20:50:58 ORACLE   360 raccolti, 231 analizzati, 1 BUY, 224 veto
-20:50:34 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 242 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
