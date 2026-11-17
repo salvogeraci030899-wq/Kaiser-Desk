@@ -1,20 +1,21 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 23:44 UTC · in esecuzione da 0.0 giorni · 178 run
+Aggiornato: 2026-11-17 23:49 UTC · in esecuzione da 0.0 giorni · 178 run
 
 | | |
 |---|---|
-| Equity | **5.9064 SOL** (-1.6% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.9064 SOL |
+| Equity | **5.9155 SOL** (-1.4% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.6679 SOL |
 | Trade chiusi | 2 |
 | Win rate | 0% |
-| P&L realizzato | -0.0936 SOL (~$-7.01) |
+| P&L realizzato | -0.0936 SOL (~$-7.02) |
 | Media vincite / perdite | +0.0% / -38.7% |
 | Profit factor | 0.00 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$GrokChan** P-0351 · 0.118 SOL · +7.0% · resta 100% · [grafico](https://dexscreener.com/solana/7mQbX3hmh4fmNfcZog29qDGfnVa1t6n3vKXFkxsinNK2)
+- **$GTAVI** P-0352 · 0.118 SOL · +2.4% · resta 100% · [grafico](https://dexscreener.com/solana/6Da4qvH8MKUnasgL8KEiLK7S7iBNP5C7Ur32UBGHu4oX)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -30,6 +31,22 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+23:49:20 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 237 veto
+23:49:07 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 241 veto
+23:48:41 KAISER   limite 1 ingresso/i per scan: $GrokChan rimandato
+23:48:41 QUARTER  BUY $GTAVI 0.118 SOL score 88 impatto 1.28% (Jupiter)
+23:48:41 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 236 veto
+23:48:16 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 244 veto
+23:47:53 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 243 veto
+23:47:29 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 237 veto
+23:47:05 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 248 veto
+23:46:41 QUARTER  BUY $GrokChan 0.118 SOL score 63 impatto 0.42% (Jupiter)
+23:46:40 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 240 veto
+23:46:17 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 239 veto
+23:45:53 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 253 veto
+23:45:31 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 253 veto
+23:45:07 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 246 veto
+23:44:43 ORACLE   352 raccolti, 256 analizzati, 0 BUY, 250 veto
 23:44:19 ORACLE   344 raccolti, 247 analizzati, 0 BUY, 241 veto
 23:43:56 ORACLE   344 raccolti, 235 analizzati, 0 BUY, 229 veto
 23:43:53 KAISER   parametri dall'app: minScore 73→63
@@ -54,22 +71,6 @@ _nessuna_
 23:39:19 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
 23:39:19 SCOUT    Laboratorio: collegato a PumpPortal
 23:39:19 KAISER   run #178 · 0 posizioni · equity 5.9064 SOL · GMGN spenta (nessuna chiave) · Grok off
-23:39:05 SCRIBE   fine run · trade 2 · win 0% · P&L -0.0936 SOL · equity 5.9064 SOL
-23:39:00 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 238 veto
-23:38:36 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 243 veto
-23:38:13 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 243 veto
-23:37:58 SCRIBE   chiuso P-0350 $maxi -0.0935 SOL (-77.2%)
-23:37:58 CHARON   RUG-EXIT liquidità $maxi vendo 100% a -69.7% -> 0.0275 SOL
-23:37:48 ORACLE   360 raccolti, 233 analizzati, 1 BUY, 224 veto
-23:37:24 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 229 veto
-23:37:01 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 230 veto
-23:36:37 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 237 veto
-23:36:13 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 229 veto
-23:35:50 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 228 veto
-23:35:26 QUARTER  BUY $maxi 0.120 SOL score 75 impatto 0.59% (Jupiter)
-23:35:26 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 245 veto
-23:35:02 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 248 veto
-23:34:40 QUARTER  $maxi impatto 4.5% oltre slippage: annullato
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
