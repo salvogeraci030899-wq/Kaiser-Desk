@@ -1,20 +1,21 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 18:23 UTC · in esecuzione da 0.1 giorni · 171 run
+Aggiornato: 2026-11-17 18:28 UTC · in esecuzione da 0.1 giorni · 171 run
 
 | | |
 |---|---|
-| Equity | **5.8289 SOL** (-2.9% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.8289 SOL |
+| Equity | **5.8371 SOL** (-2.7% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.5936 SOL |
 | Trade chiusi | 8 |
 | Win rate | 38% |
-| P&L realizzato | -0.1711 SOL (~$-12.37) |
+| P&L realizzato | -0.1711 SOL (~$-12.45) |
 | Media vincite / perdite | +24.1% / -42.9% |
 | Profit factor | 0.34 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$GTA6** P-0326 · 0.117 SOL · +8.8% · resta 100% · [grafico](https://dexscreener.com/solana/7ofKx1GQemKDhRfHTjgceo1a7unod5gpFgkqy21PNegX)
+- **$MINT** P-0327 · 0.117 SOL · n/d · resta 100% · [grafico](https://dexscreener.com/solana/7KtxxzXisAXVYgdnatVmvTdWqTVDEfGXUn3bGkSVYbDD)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -36,6 +37,26 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+18:28:34 KAISER   limite 1 ingresso/i per scan: $GTA6 rimandato
+18:28:34 KAISER   limite 1 ingresso/i per scan: $STARLINK rimandato
+18:28:34 QUARTER  BUY $MINT 0.117 SOL score 72 impatto 0.14% (Jupiter)
+18:28:34 ORACLE   360 raccolti, 271 analizzati, 3 BUY, 260 veto
+18:28:10 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 244 veto
+18:27:47 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 246 veto
+18:27:23 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 227 veto
+18:27:00 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 223 veto
+18:26:46 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 239 veto
+18:26:20 QUARTER  BUY $GTA6 0.117 SOL score 65 impatto 1.54% (Jupiter)
+18:26:20 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 257 veto
+18:25:57 QUARTER  $GTA6 impatto 3.0% oltre slippage: annullato
+18:25:57 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 249 veto
+18:25:33 QUARTER  $GTA6 impatto 3.0% oltre slippage: annullato
+18:25:33 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 257 veto
+18:25:10 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 262 veto
+18:24:46 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 256 veto
+18:24:22 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 238 veto
+18:23:59 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 244 veto
+18:23:36 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 234 veto
 18:23:12 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 235 veto
 18:22:47 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 243 veto
 18:22:22 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 235 veto
@@ -56,26 +77,6 @@ _nessuna_
 18:16:48 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 254 veto
 18:16:25 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 243 veto
 18:16:01 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 245 veto
-18:15:37 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 253 veto
-18:15:12 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 240 veto
-18:14:48 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 241 veto
-18:14:35 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 244 veto
-18:14:09 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 243 veto
-18:13:47 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 264 veto
-18:13:24 ORACLE   360 raccolti, 226 analizzati, 1 BUY, 220 veto
-18:13:11 ORACLE   360 raccolti, 226 analizzati, 1 BUY, 218 veto
-18:12:45 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 234 veto
-18:12:21 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 239 veto
-18:11:58 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 230 veto
-18:11:34 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 247 veto
-18:11:10 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 245 veto
-18:10:46 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 237 veto
-18:10:23 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 247 veto
-18:09:58 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 239 veto
-18:09:35 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 235 veto
-18:09:11 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 249 veto
-18:08:47 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 252 veto
-18:08:24 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 245 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
