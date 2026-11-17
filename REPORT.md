@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 22:39 UTC · in esecuzione da 0.3 giorni · 176 run
+Aggiornato: 2026-11-17 22:44 UTC · in esecuzione da 0.3 giorni · 176 run
 
 | | |
 |---|---|
-| Equity | **5.1408 SOL** (-14.3% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.1408 SOL |
+| Equity | **5.1825 SOL** (-13.6% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.0370 SOL |
 | Trade chiusi | 29 |
 | Win rate | 28% |
-| P&L realizzato | -0.8592 SOL (~$-63.50) |
+| P&L realizzato | -0.8592 SOL (~$-63.48) |
 | Media vincite / perdite | +21.3% / -44.3% |
 | Profit factor | 0.19 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$BI** P-0347 · 0.103 SOL · +41.5% · resta 100% · [grafico](https://dexscreener.com/solana/5oKPso8yGJ363sDUJVsGk6zNkWP2EChcu9sFA1yPE4So)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -56,6 +56,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+22:44:16 QUARTER  BUY $BI 0.103 SOL score 79 impatto 1.98% (Jupiter)
+22:44:15 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 254 veto
+22:43:52 ORACLE   360 raccolti, 250 analizzati, 3 BUY, 239 veto
+22:43:29 ORACLE   360 raccolti, 266 analizzati, 3 BUY, 254 veto
+22:43:06 ORACLE   360 raccolti, 269 analizzati, 4 BUY, 258 veto
+22:42:43 ORACLE   360 raccolti, 250 analizzati, 4 BUY, 239 veto
+22:42:19 ORACLE   360 raccolti, 256 analizzati, 4 BUY, 247 veto
+22:41:55 ORACLE   360 raccolti, 273 analizzati, 5 BUY, 265 veto
+22:41:33 ORACLE   360 raccolti, 267 analizzati, 5 BUY, 259 veto
+22:41:10 ORACLE   360 raccolti, 269 analizzati, 5 BUY, 261 veto
+22:40:47 ORACLE   360 raccolti, 268 analizzati, 5 BUY, 259 veto
+22:40:23 ORACLE   360 raccolti, 258 analizzati, 5 BUY, 250 veto
+22:40:00 ORACLE   360 raccolti, 261 analizzati, 5 BUY, 253 veto
+22:39:36 ORACLE   360 raccolti, 267 analizzati, 5 BUY, 259 veto
 22:39:24 ORACLE   360 raccolti, 263 analizzati, 5 BUY, 255 veto
 22:38:58 SCRIBE   chiuso P-0346 $GTA -0.1021 SOL (-96.5%)
 22:38:58 CHARON   RUG-EXIT liquidità $GTA vendo 100% a -95.0% -> 0.0037 SOL
@@ -82,20 +96,6 @@ _nessuna_
 22:33:16 SCOUT    DexScreener errore: This operation was aborted
 22:32:39 ORACLE   360 raccolti, 260 analizzati, 4 BUY, 246 veto
 22:32:17 ORACLE   360 raccolti, 260 analizzati, 4 BUY, 248 veto
-22:31:54 ORACLE   360 raccolti, 254 analizzati, 4 BUY, 241 veto
-22:31:30 ORACLE   360 raccolti, 264 analizzati, 3 BUY, 251 veto
-22:31:06 ORACLE   360 raccolti, 260 analizzati, 4 BUY, 247 veto
-22:30:43 KAISER   limite 1 ingresso/i per scan: $INU rimandato
-22:30:43 KAISER   limite 1 ingresso/i per scan: $MUNCHKIN rimandato
-22:30:43 KAISER   limite 1 ingresso/i per scan: $GTA rimandato
-22:30:43 QUARTER  BUY $hamster 0.105 SOL score 73 impatto 0.37% (Jupiter)
-22:30:42 ORACLE   360 raccolti, 250 analizzati, 4 BUY, 236 veto
-22:30:19 ORACLE   360 raccolti, 255 analizzati, 4 BUY, 243 veto
-22:30:06 ORACLE   360 raccolti, 252 analizzati, 3 BUY, 239 veto
-22:29:40 ORACLE   360 raccolti, 263 analizzati, 4 BUY, 252 veto
-22:29:16 ORACLE   360 raccolti, 259 analizzati, 4 BUY, 247 veto
-22:28:53 ORACLE   360 raccolti, 257 analizzati, 4 BUY, 247 veto
-22:28:30 ORACLE   360 raccolti, 258 analizzati, 4 BUY, 248 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
