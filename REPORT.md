@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 11:10 UTC · in esecuzione da 0.7 giorni · 163 run
+Aggiornato: 2026-11-17 11:15 UTC · in esecuzione da 0.7 giorni · 163 run
 
 | | |
 |---|---|
-| Equity | **5.9089 SOL** (-1.5% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.9089 SOL |
+| Equity | **5.9252 SOL** (-1.2% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.7898 SOL |
 | Trade chiusi | 74 |
 | Win rate | 36% |
-| P&L realizzato | -0.0911 SOL (~$-6.59) |
+| P&L realizzato | -0.0911 SOL (~$-6.61) |
 | Media vincite / perdite | +51.1% / -30.6% |
 | Profit factor | 0.95 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$RYANAIR** P-0290 · 0.118 SOL · +14.6% · resta 100% · [grafico](https://dexscreener.com/solana/E4ZfcVzcJewadq6VsstE1d5CwUUvvwUm18KC8AkV1frs)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,22 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+11:15:44 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 261 veto
+11:15:17 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 260 veto
+11:14:54 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 259 veto
+11:14:30 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 264 veto
+11:14:07 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 260 veto
+11:13:43 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 257 veto
+11:13:19 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 258 veto
+11:12:55 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 260 veto
+11:12:32 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 252 veto
+11:12:09 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 251 veto
+11:11:45 SCOUT    PumpPortal invia nuovi token (21) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
+11:11:45 KAISER   limite 1 ingresso/i per scan: $BUDDY rimandato
+11:11:45 QUARTER  BUY $RYANAIR 0.118 SOL score 72 impatto 0.96% (Jupiter)
+11:11:44 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 254 veto
+11:11:21 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 247 veto
+11:10:57 ORACLE   343 raccolti, 248 analizzati, 1 BUY, 237 veto
 11:10:33 ORACLE   338 raccolti, 245 analizzati, 1 BUY, 234 veto
 11:10:09 ORACLE   332 raccolti, 232 analizzati, 1 BUY, 223 veto
 11:09:46 ORACLE   310 raccolti, 220 analizzati, 1 BUY, 211 veto
@@ -79,22 +95,6 @@ _nessuna_
 11:05:31 SCOUT    Laboratorio: collegato a PumpPortal
 11:05:31 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→40, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120
 11:05:31 KAISER   run #163 · 1 posizioni · equity 5.9363 SOL · GMGN spenta (nessuna chiave) · Grok off
-11:05:12 SCRIBE   fine run · trade 73 · win 37% · P&L -0.0720 SOL · equity 5.9363 SOL
-11:05:12 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 259 veto
-11:04:51 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 252 veto
-11:04:28 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 256 veto
-11:04:04 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 258 veto
-11:03:41 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 257 veto
-11:03:17 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 256 veto
-11:02:54 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 254 veto
-11:02:30 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 248 veto
-11:02:07 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 247 veto
-11:01:43 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 252 veto
-11:01:20 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 256 veto
-11:00:57 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 246 veto
-11:00:33 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 256 veto
-11:00:09 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 252 veto
-10:59:55 ORACLE   360 raccolti, 240 analizzati, 2 BUY, 231 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
