@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 17:52 UTC · in esecuzione da 0.1 giorni · 171 run
+Aggiornato: 2026-11-17 17:57 UTC · in esecuzione da 0.1 giorni · 171 run
 
 | | |
 |---|---|
-| Equity | **6.0027 SOL** (+0.0% dal capitale iniziale di 6 SOL) |
-| Cassa | 6.0027 SOL |
-| Trade chiusi | 6 |
-| Win rate | 50% |
-| P&L realizzato | +0.0027 SOL (~$0.20) |
-| Media vincite / perdite | +24.1% / -23.3% |
-| Profit factor | 1.03 |
+| Equity | **5.9369 SOL** (-1.1% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.9369 SOL |
+| Trade chiusi | 7 |
+| Win rate | 43% |
+| P&L realizzato | -0.0631 SOL (~$-4.56) |
+| Media vincite / perdite | +24.1% / -31.0% |
+| Profit factor | 0.58 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -20,10 +20,12 @@ _nessuna_
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Chiusura manuale (app) | 6 | +0.0027 |
+| RUG-EXIT liquidità | 1 | -0.0658 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $Rex | 77 | -54.4% | -0.0658 | +35% | -50% | RUG-EXIT liquidità | 1m |
 | $SSL | 79 | +13.0% | +0.0157 | +29% | +29% | Chiusura manuale (app) | 3m |
 | $ACRUX | 70 | -42.4% | -0.0516 | +1% | +1% | Chiusura manuale (app) | 1m |
 | $Inuminati | 71 | -16.8% | -0.0205 | +0% | -11% | Chiusura manuale (app) | 1m |
@@ -33,6 +35,22 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+17:57:56 SCRIBE   chiuso P-0324 $Rex -0.0658 SOL (-54.4%)
+17:57:56 CHARON   RUG-EXIT liquidità $Rex vendo 100% a -50.0% -> 0.0552 SOL
+17:57:46 ORACLE   360 raccolti, 234 analizzati, 2 BUY, 229 veto
+17:57:23 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 231 veto
+17:57:00 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 233 veto
+17:56:37 QUARTER  BUY $Rex 0.120 SOL score 77 impatto 0.85% (Jupiter)
+17:56:37 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 233 veto
+17:56:14 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 238 veto
+17:55:51 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 234 veto
+17:55:28 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 240 veto
+17:55:05 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 237 veto
+17:54:42 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 226 veto
+17:54:20 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 241 veto
+17:53:57 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 247 veto
+17:53:34 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 243 veto
+17:53:12 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 250 veto
 17:52:48 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 255 veto
 17:52:36 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 241 veto
 17:52:30 SCRIBE   chiuso P-0323 $SSL 0.0157 SOL (13.0%)
@@ -57,22 +75,6 @@ _nessuna_
 17:47:58 ORACLE   210 raccolti, 108 analizzati, 1 BUY, 107 veto
 17:47:49 SCOUT    fabbrica: 11551 percorsi, 768 configurazioni, 0 passano, 2362 ms
 17:47:47 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-17:47:47 ORACLE   210 raccolti, 108 analizzati, 1 BUY, 107 veto
-17:47:44 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-17:47:42 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
-17:47:42 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→40, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120
-17:47:42 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
-17:47:42 SCOUT    Laboratorio: collegato a PumpPortal
-17:47:41 KAISER   run #171 · 0 posizioni · equity 5.9870 SOL · GMGN spenta (nessuna chiave) · Grok off
-17:47:24 SCRIBE   fine run · trade 5 · win 40% · P&L -0.0130 SOL · equity 5.9870 SOL
-17:47:19 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 240 veto
-17:46:55 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 237 veto
-17:46:32 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 238 veto
-17:46:09 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 233 veto
-17:45:46 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 249 veto
-17:45:23 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 237 veto
-17:45:00 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 238 veto
-17:44:36 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 245 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
