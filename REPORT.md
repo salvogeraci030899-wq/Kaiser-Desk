@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 13:01 UTC · in esecuzione da 0.8 giorni · 165 run
+Aggiornato: 2026-11-17 13:06 UTC · in esecuzione da 0.8 giorni · 165 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-17 13:01 UTC · in esecuzione da 0.8 giorni · 165 run
 | Cassa | 5.8314 SOL |
 | Trade chiusi | 82 |
 | Win rate | 37% |
-| P&L realizzato | -0.1686 SOL (~$-12.41) |
+| P&L realizzato | -0.1686 SOL (~$-12.46) |
 | Media vincite / perdite | +49.9% / -31.1% |
 | Profit factor | 0.91 |
 | Circuit breaker | no |
@@ -55,6 +55,21 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+13:06:22 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 264 veto
+13:05:58 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 271 veto
+13:05:35 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 270 veto
+13:05:13 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 261 veto
+13:05:09 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
+13:04:49 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 269 veto
+13:04:26 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 271 veto
+13:04:14 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 262 veto
+13:03:48 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 270 veto
+13:03:25 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 245 veto
+13:03:03 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 249 veto
+13:02:40 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 275 veto
+13:02:17 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 271 veto
+13:02:03 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 259 veto
+13:01:37 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 270 veto
 13:01:13 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 269 veto
 13:00:49 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 263 veto
 13:00:25 ORACLE   360 raccolti, 281 analizzati, 0 BUY, 271 veto
@@ -80,21 +95,6 @@ _nessuna_
 12:53:18 CHARON   Time stop $Shrek vendo 100% a -5.9% -> 0.1088 SOL
 12:53:08 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 261 veto
 12:52:44 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 253 veto
-12:52:31 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 261 veto
-12:52:04 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 257 veto
-12:51:41 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 253 veto
-12:51:17 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 251 veto
-12:51:03 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 250 veto
-12:50:37 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 251 veto
-12:50:13 ORACLE   339 raccolti, 250 analizzati, 1 BUY, 237 veto
-12:49:50 ORACLE   329 raccolti, 239 analizzati, 1 BUY, 227 veto
-12:49:27 ORACLE   326 raccolti, 238 analizzati, 1 BUY, 225 veto
-12:49:04 ORACLE   310 raccolti, 227 analizzati, 1 BUY, 214 veto
-12:48:40 ORACLE   299 raccolti, 208 analizzati, 1 BUY, 195 veto
-12:48:28 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-12:48:17 QUARTER  BUY $Shrek 0.117 SOL score 77 impatto 0.00% (Jupiter)
-12:48:17 ORACLE   293 raccolti, 205 analizzati, 1 BUY, 191 veto
-12:47:53 ORACLE   266 raccolti, 196 analizzati, 0 BUY, 185 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
