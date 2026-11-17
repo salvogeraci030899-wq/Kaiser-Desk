@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 13:27 UTC · in esecuzione da 0.8 giorni · 165 run
+Aggiornato: 2026-11-17 13:32 UTC · in esecuzione da 0.8 giorni · 165 run
 
 | | |
 |---|---|
-| Equity | **5.8796 SOL** (-2.0% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.8796 SOL |
+| Equity | **5.9049 SOL** (-1.6% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.7610 SOL |
 | Trade chiusi | 84 |
 | Win rate | 37% |
-| P&L realizzato | -0.1204 SOL (~$-8.90) |
+| P&L realizzato | -0.1204 SOL (~$-8.88) |
 | Media vincite / perdite | +50.0% / -30.8% |
 | Profit factor | 0.94 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$DEEP** P-0300 · 0.118 SOL · +22.4% · resta 100% · [grafico](https://dexscreener.com/solana/4hVgFF5vRkc1dLuXCpfJ4XX1eE5JNYeySPqXAetMssku)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+13:32:22 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 257 veto
+13:31:58 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 255 veto
+13:31:34 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 252 veto
+13:31:11 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 246 veto
+13:30:45 QUARTER  BUY $DEEP 0.118 SOL score 66 impatto 0.00% (Jupiter)
+13:30:45 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 256 veto
+13:30:21 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 249 veto
+13:29:59 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 244 veto
+13:29:35 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 251 veto
+13:29:12 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 254 veto
+13:28:49 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 249 veto
+13:28:24 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 258 veto
+13:27:59 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 251 veto
+13:27:36 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 248 veto
 13:27:13 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 249 veto
 13:26:48 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 241 veto
 13:26:24 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 243 veto
@@ -81,20 +95,6 @@ _nessuna_
 13:19:39 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 262 veto
 13:19:17 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 266 veto
 13:19:14 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)
-13:18:54 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 261 veto
-13:18:31 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 260 veto
-13:18:08 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 253 veto
-13:17:44 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 260 veto
-13:17:19 ORACLE   360 raccolti, 274 analizzati, 2 BUY, 263 veto
-13:16:55 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 252 veto
-13:16:32 ORACLE   360 raccolti, 282 analizzati, 2 BUY, 269 veto
-13:16:08 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 266 veto
-13:15:44 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 256 veto
-13:15:20 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 265 veto
-13:14:57 ORACLE   360 raccolti, 279 analizzati, 2 BUY, 267 veto
-13:14:43 SCRIBE   chiuso P-0298 $Grokia -0.0154 SOL (-13.1%)
-13:14:43 CHARON   Time stop $Grokia vendo 100% a -1.7% -> 0.1022 SOL
-13:14:32 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 264 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
