@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 23:24 UTC · in esecuzione da 0.0 giorni · 177 run
+Aggiornato: 2026-11-17 23:29 UTC · in esecuzione da 0.0 giorni · 177 run
 
 | | |
 |---|---|
@@ -28,6 +28,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+23:29:39 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 254 veto
+23:29:16 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 237 veto
+23:29:03 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 239 veto
+23:28:37 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 248 veto
+23:28:14 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 244 veto
+23:27:51 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 242 veto
+23:27:27 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 245 veto
+23:27:04 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 233 veto
+23:26:40 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 240 veto
+23:26:17 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 251 veto
+23:25:54 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 252 veto
+23:25:31 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 240 veto
+23:25:08 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 247 veto
 23:24:45 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 252 veto
 23:24:22 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 226 veto
 23:23:58 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 237 veto
@@ -55,19 +68,6 @@ _nessuna_
 23:16:05 ORACLE   360 raccolti, 235 analizzati, 0 BUY, 226 veto
 23:15:40 QUARTER  BUY $hamster 0.120 SOL score 73 impatto 1.69% (Jupiter)
 23:15:40 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 234 veto
-23:15:35 KAISER   reset del paper (C-0094): conto azzerato, capitale 6 SOL
-23:15:15 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 238 veto
-23:15:11 KAISER   parametri dall'app: minScore 63→73
-23:14:51 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 226 veto
-23:14:37 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 231 veto
-23:14:09 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 237 veto
-23:13:46 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 237 veto
-23:13:22 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 247 veto
-23:12:57 ORACLE   360 raccolti, 231 analizzati, 2 BUY, 221 veto
-23:12:34 ORACLE   360 raccolti, 233 analizzati, 2 BUY, 222 veto
-23:12:10 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 229 veto
-23:11:45 ORACLE   360 raccolti, 225 analizzati, 2 BUY, 216 veto
-23:11:22 ORACLE   360 raccolti, 230 analizzati, 2 BUY, 222 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
