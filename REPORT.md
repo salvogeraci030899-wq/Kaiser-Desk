@@ -1,25 +1,25 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 11:51 UTC · in esecuzione da 0.8 giorni · 163 run
+Aggiornato: 2026-11-17 11:55 UTC · in esecuzione da 0.8 giorni · 163 run
 
 | | |
 |---|---|
-| Equity | **5.9890 SOL** (-0.2% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.8468 SOL |
-| Trade chiusi | 76 |
-| Win rate | 37% |
-| P&L realizzato | -0.0329 SOL (~$-2.41) |
-| Media vincite / perdite | +51.1% / -30.0% |
-| Profit factor | 0.98 |
+| Equity | **5.8543 SOL** (-2.4% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.7285 SOL |
+| Trade chiusi | 77 |
+| Win rate | 36% |
+| P&L realizzato | -0.1503 SOL (~$-11.02) |
+| Media vincite / perdite | +51.1% / -31.3% |
+| Profit factor | 0.92 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$Google** P-0292 · 0.119 SOL · +19.2% · resta 100% · [grafico](https://dexscreener.com/solana/6PHvKdv5AFZmUPrbgJmwYSaGzadXnKcEg6yU5zFrSZ2C)
+- **$OGS** P-0293 · 0.120 SOL · +4.7% · resta 100% · [grafico](https://dexscreener.com/solana/5QeuZTe45piQgn6fVkDWCqPksb23NGrR4rWHskXvBkmQ)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| RUG-EXIT liquidità | 12 | -0.7838 |
+| RUG-EXIT liquidità | 13 | -0.9013 |
 | Time stop | 31 | -0.3338 |
 | TP1 | 20 | +1.5293 |
 | Stop loss | 13 | -0.4446 |
@@ -27,6 +27,7 @@ Aggiornato: 2026-11-17 11:51 UTC · in esecuzione da 0.8 giorni · 163 run
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $Google | 63 | -97.6% | -0.1174 | +48% | -78% | RUG-EXIT liquidità | 9m |
 | $SOYOUARE | 77 | -2.1% | -0.0026 | +48% | -3% | Time stop | 6m |
 | $RYANAIR | 72 | +51.0% | +0.0608 | +75% | +75% | TP1 | 7m |
 | $BUDDY | 72 | -15.9% | -0.0190 | +18% | -1% | Time stop | 6m |
@@ -51,10 +52,25 @@ Aggiornato: 2026-11-17 11:51 UTC · in esecuzione da 0.8 giorni · 163 run
 | $XDOGE | 72 | -96.8% | -0.1180 | +1% | -96% | RUG-EXIT liquidità | 1m |
 | $Nozomi | 64 | -47.5% | -0.0586 | +9% | -29% | Time stop | 5m |
 | $XDOGE | 79 | -6.5% | -0.0080 | +0% | -72% | RUG-EXIT liquidità | 0m |
-| $Jojo | 63 | +100.9% | +0.1219 | +60% | +60% | TP1 | 3m |
 
 ## Ultimi eventi
 ```
+11:55:31 SCRIBE   fine run · trade 77 · win 36% · P&L -0.1503 SOL · equity 5.8543 SOL
+11:55:28 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 258 veto
+11:55:04 SCRIBE   chiuso P-0292 $Google -0.1174 SOL (-97.6%)
+11:55:04 CHARON   RUG-EXIT liquidità $Google vendo 100% a -77.6% -> 0.0029 SOL
+11:55:04 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 255 veto
+11:54:40 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 253 veto
+11:54:17 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 253 veto
+11:54:04 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 254 veto
+11:53:38 ORACLE   360 raccolti, 270 analizzati, 3 BUY, 249 veto
+11:53:15 KAISER   limite 1 ingresso/i per scan: $SOYOUARE rimandato
+11:53:14 QUARTER  BUY $OGS 0.120 SOL score 72 impatto 0.08% (Jupiter)
+11:53:14 ORACLE   360 raccolti, 275 analizzati, 3 BUY, 255 veto
+11:52:50 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 253 veto
+11:52:27 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 253 veto
+11:52:04 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 253 veto
+11:51:40 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 254 veto
 11:51:16 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 252 veto
 11:50:53 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 260 veto
 11:50:29 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 259 veto
@@ -79,22 +95,6 @@ Aggiornato: 2026-11-17 11:51 UTC · in esecuzione da 0.8 giorni · 163 run
 11:43:22 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 259 veto
 11:42:58 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 246 veto
 11:42:34 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 255 veto
-11:42:11 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 254 veto
-11:41:47 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 245 veto
-11:41:23 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 258 veto
-11:41:00 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 247 veto
-11:40:37 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 250 veto
-11:40:13 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 256 veto
-11:39:49 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 253 veto
-11:39:35 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 251 veto
-11:39:09 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 257 veto
-11:38:46 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 251 veto
-11:38:22 SCRIBE   chiuso P-0291 $SOYOUARE -0.0026 SOL (-2.1%)
-11:38:22 CHARON   Time stop $SOYOUARE vendo 100% a -2.7% -> 0.1178 SOL
-11:38:22 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 247 veto
-11:37:57 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 252 veto
-11:37:33 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 252 veto
-11:37:10 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 248 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
