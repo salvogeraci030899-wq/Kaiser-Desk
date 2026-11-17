@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 02:38 UTC · in esecuzione da 0.4 giorni · 152 run
+Aggiornato: 2026-11-17 02:42 UTC · in esecuzione da 0.4 giorni · 152 run
 
 | | |
 |---|---|
-| Equity | **6.1245 SOL** (+2.1% dal capitale iniziale di 6 SOL) |
-| Cassa | 6.1245 SOL |
-| Trade chiusi | 52 |
-| Win rate | 35% |
-| P&L realizzato | +0.1245 SOL (~$8.93) |
-| Media vincite / perdite | +58.2% / -27.4% |
-| Profit factor | 1.11 |
+| Equity | **6.1165 SOL** (+1.9% dal capitale iniziale di 6 SOL) |
+| Cassa | 6.1165 SOL |
+| Trade chiusi | 53 |
+| Win rate | 34% |
+| P&L realizzato | +0.1165 SOL (~$8.34) |
+| Media vincite / perdite | +58.2% / -26.8% |
+| Profit factor | 1.10 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -19,7 +19,7 @@ _nessuna_
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| RUG-EXIT liquidità | 7 | -0.4433 |
+| RUG-EXIT liquidità | 8 | -0.4513 |
 | Time stop | 21 | -0.2499 |
 | TP1 | 14 | +1.0933 |
 | Stop loss | 10 | -0.2756 |
@@ -27,6 +27,7 @@ _nessuna_
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $XDOGE | 79 | -6.5% | -0.0080 | +0% | -72% | RUG-EXIT liquidità | 0m |
 | $Jojo | 63 | +100.9% | +0.1219 | +60% | +60% | TP1 | 3m |
 | $CHAR | 76 | +34.6% | +0.0416 | +72% | +72% | TP1 | 4m |
 | $Santa | 66 | -82.7% | -0.1003 | +15% | -71% | RUG-EXIT liquidità | 3m |
@@ -51,10 +52,25 @@ _nessuna_
 | $LULU | 67 | -17.4% | -0.0212 | +29% | -24% | Time stop | 5m |
 | $mimic | 64 | -38.6% | -0.0483 | +40% | +4% | Time stop | 5m |
 | $LUCIA | 74 | -97.0% | -0.1220 | +13% | -96% | RUG-EXIT liquidità | 3m |
-| $Zoo | 70 | -9.5% | -0.0120 | +0% | -43% | Stop loss | 1m |
 
 ## Ultimi eventi
 ```
+02:42:56 SCRIBE   fine run · trade 53 · win 34% · P&L 0.1165 SOL · equity 6.1165 SOL
+02:42:46 SCRIBE   chiuso P-0268 $XDOGE -0.0080 SOL (-6.5%)
+02:42:46 CHARON   RUG-EXIT liquidità $XDOGE vendo 100% a -72.2% -> 0.1155 SOL
+02:42:46 ORACLE   360 raccolti, 266 analizzati, 3 BUY, 254 veto
+02:42:23 KAISER   limite 1 ingresso/i per scan: $CAT rimandato
+02:42:23 KAISER   limite 1 ingresso/i per scan: $CHAR rimandato
+02:42:23 QUARTER  BUY $XDOGE 0.122 SOL score 79 impatto 1.08% (Jupiter)
+02:42:23 ORACLE   360 raccolti, 259 analizzati, 3 BUY, 250 veto
+02:42:00 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 252 veto
+02:41:37 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 257 veto
+02:41:14 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 253 veto
+02:40:52 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 248 veto
+02:40:29 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 254 veto
+02:40:06 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 254 veto
+02:39:42 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 254 veto
+02:39:19 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 263 veto
 02:38:56 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 260 veto
 02:38:33 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 253 veto
 02:38:11 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 259 veto
@@ -79,22 +95,6 @@ _nessuna_
 02:30:55 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 258 veto
 02:30:32 ORACLE   360 raccolti, 243 analizzati, 2 BUY, 235 veto
 02:30:09 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 249 veto
-02:29:46 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 250 veto
-02:29:23 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 244 veto
-02:29:00 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 259 veto
-02:28:38 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 251 veto
-02:28:15 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 247 veto
-02:27:52 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 257 veto
-02:27:29 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 258 veto
-02:27:06 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 253 veto
-02:26:43 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 260 veto
-02:26:21 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 261 veto
-02:25:58 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 258 veto
-02:25:35 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 261 veto
-02:25:12 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 259 veto
-02:24:49 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 256 veto
-02:24:26 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 261 veto
-02:24:03 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 268 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
