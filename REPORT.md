@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 12:51 UTC · in esecuzione da 0.8 giorni · 165 run
+Aggiornato: 2026-11-17 12:56 UTC · in esecuzione da 0.8 giorni · 165 run
 
 | | |
 |---|---|
-| Equity | **5.8213 SOL** (-3.0% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.7225 SOL |
-| Trade chiusi | 81 |
+| Equity | **5.8314 SOL** (-2.8% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.8314 SOL |
+| Trade chiusi | 82 |
 | Win rate | 37% |
-| P&L realizzato | -0.1596 SOL (~$-11.76) |
-| Media vincite / perdite | +49.9% / -31.6% |
-| Profit factor | 0.92 |
+| P&L realizzato | -0.1686 SOL (~$-12.39) |
+| Media vincite / perdite | +49.9% / -31.1% |
+| Profit factor | 0.91 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$Shrek** P-0297 · 0.117 SOL · -15.4% · resta 100% · [grafico](https://dexscreener.com/solana/3nNeRduzvuVTKdBAQm7CrH1SB9EQfZqp5NybVqGTAkKw)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | RUG-EXIT liquidità | 13 | -0.9013 |
-| Time stop | 33 | -0.3690 |
+| Time stop | 34 | -0.3780 |
 | TP1 | 21 | +1.6042 |
 | Stop loss | 14 | -0.4935 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $Shrek | 77 | -7.6% | -0.0090 | +13% | -6% | Time stop | 5m |
 | $POS | 71 | -41.2% | -0.0489 | +0% | -45% | Stop loss | 3m |
 | $DPRF | 78 | -32.8% | -0.0392 | +36% | -13% | Time stop | 11m |
 | $SOYOUARE | 71 | +63.4% | +0.0748 | +74% | +74% | TP1 | 2m |
@@ -51,10 +52,25 @@ Aggiornato: 2026-11-17 12:51 UTC · in esecuzione da 0.8 giorni · 165 run
 | $XDOGE | 74 | -27.2% | -0.0326 | +0% | -75% | RUG-EXIT liquidità | 0m |
 | $Mihaomas | 72 | +0.5% | +0.0007 | +38% | -9% | Time stop | 5m |
 | $XDOGE | 74 | -51.9% | -0.0630 | +0% | -46% | Stop loss | 1m |
-| $RizzGivin | 73 | +64.1% | +0.0768 | +74% | +74% | TP1 | 4m |
 
 ## Ultimi eventi
 ```
+12:56:15 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 263 veto
+12:55:44 ORACLE   360 raccolti, 288 analizzati, 2 BUY, 275 veto
+12:55:21 ORACLE   360 raccolti, 285 analizzati, 2 BUY, 273 veto
+12:55:08 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 265 veto
+12:54:43 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 268 veto
+12:54:20 ORACLE   360 raccolti, 279 analizzati, 2 BUY, 269 veto
+12:53:56 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 264 veto
+12:53:32 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 258 veto
+12:53:18 SCRIBE   chiuso P-0297 $Shrek -0.0090 SOL (-7.6%)
+12:53:18 CHARON   Time stop $Shrek vendo 100% a -5.9% -> 0.1088 SOL
+12:53:08 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 261 veto
+12:52:44 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 253 veto
+12:52:31 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 261 veto
+12:52:04 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 257 veto
+12:51:41 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 253 veto
+12:51:17 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 251 veto
 12:51:03 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 250 veto
 12:50:37 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 251 veto
 12:50:13 ORACLE   339 raccolti, 250 analizzati, 1 BUY, 237 veto
@@ -79,22 +95,6 @@ Aggiornato: 2026-11-17 12:51 UTC · in esecuzione da 0.8 giorni · 165 run
 12:45:56 SCOUT    Laboratorio: collegato a PumpPortal
 12:45:56 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→40, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120
 12:45:55 KAISER   run #165 · 0 posizioni · equity 5.8404 SOL · GMGN spenta (nessuna chiave) · Grok off
-12:45:42 SCRIBE   fine run · trade 81 · win 37% · P&L -0.1596 SOL · equity 5.8404 SOL
-12:45:31 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 264 veto
-12:45:09 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 260 veto
-12:44:54 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 256 veto
-12:44:29 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 258 veto
-12:44:06 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 260 veto
-12:43:42 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 254 veto
-12:43:19 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 259 veto
-12:42:56 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 256 veto
-12:42:34 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 254 veto
-12:42:11 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 258 veto
-12:41:48 SCRIBE   chiuso P-0296 $POS -0.0489 SOL (-41.2%)
-12:41:48 CHARON   Stop loss $POS vendo 100% a -45.2% -> 0.0698 SOL
-12:41:48 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 262 veto
-12:41:25 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 252 veto
-12:41:01 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 255 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
