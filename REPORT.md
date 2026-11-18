@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 17:05 UTC · in esecuzione da 0.0 giorni · 198 run
+Aggiornato: 2026-11-18 17:10 UTC · in esecuzione da 0.0 giorni · 198 run
 
 | | |
 |---|---|
@@ -31,6 +31,21 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+17:10:18 ORACLE   360 raccolti, 205 analizzati, 2 BUY, 197 veto
+17:09:54 ORACLE   360 raccolti, 198 analizzati, 1 BUY, 191 veto
+17:09:31 ORACLE   360 raccolti, 199 analizzati, 1 BUY, 188 veto
+17:09:08 ORACLE   360 raccolti, 203 analizzati, 1 BUY, 195 veto
+17:08:43 ORACLE   360 raccolti, 212 analizzati, 1 BUY, 204 veto
+17:08:20 ORACLE   360 raccolti, 201 analizzati, 1 BUY, 190 veto
+17:08:15 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
+17:08:05 ORACLE   360 raccolti, 215 analizzati, 2 BUY, 206 veto
+17:07:40 ORACLE   360 raccolti, 213 analizzati, 1 BUY, 207 veto
+17:07:17 ORACLE   360 raccolti, 193 analizzati, 1 BUY, 188 veto
+17:06:52 ORACLE   360 raccolti, 209 analizzati, 1 BUY, 202 veto
+17:06:29 ORACLE   360 raccolti, 199 analizzati, 1 BUY, 192 veto
+17:06:06 ORACLE   360 raccolti, 199 analizzati, 1 BUY, 193 veto
+17:05:42 ORACLE   360 raccolti, 203 analizzati, 1 BUY, 195 veto
+17:05:27 ORACLE   360 raccolti, 214 analizzati, 0 BUY, 206 veto
 17:05:02 ORACLE   360 raccolti, 208 analizzati, 0 BUY, 203 veto
 17:04:39 ORACLE   360 raccolti, 212 analizzati, 0 BUY, 205 veto
 17:04:14 ORACLE   360 raccolti, 216 analizzati, 0 BUY, 209 veto
@@ -56,21 +71,6 @@ _nessuna_
 16:56:36 ORACLE   360 raccolti, 224 analizzati, 1 BUY, 216 veto
 16:56:13 ORACLE   360 raccolti, 231 analizzati, 0 BUY, 224 veto
 16:55:50 ORACLE   360 raccolti, 221 analizzati, 0 BUY, 214 veto
-16:55:27 ORACLE   360 raccolti, 224 analizzati, 0 BUY, 218 veto
-16:55:04 ORACLE   360 raccolti, 229 analizzati, 1 BUY, 220 veto
-16:54:40 ORACLE   360 raccolti, 226 analizzati, 1 BUY, 218 veto
-16:54:17 ORACLE   360 raccolti, 229 analizzati, 2 BUY, 219 veto
-16:53:53 ORACLE   360 raccolti, 234 analizzati, 2 BUY, 223 veto
-16:53:30 ORACLE   360 raccolti, 227 analizzati, 2 BUY, 216 veto
-16:53:26 SCRIBE   chiuso P-0386 $LEVERAGE 0.0070 SOL (5.7%)
-16:53:26 CHARON   Chiusura manuale (app) $LEVERAGE vendo 100% a 22.6% -> 0.1288 SOL
-16:53:25 KAISER   chiusura manuale dall'app: P-0386 LEVERAGE
-16:53:05 ORACLE   360 raccolti, 228 analizzati, 1 BUY, 218 veto
-16:52:42 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 226 veto
-16:52:18 QUARTER  BUY $LEVERAGE 0.121 SOL score 65 impatto 1.25% (Jupiter)
-16:52:18 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 221 veto
-16:51:54 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 228 veto
-16:51:31 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 223 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
