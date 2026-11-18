@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 21:30 UTC · in esecuzione da 0.2 giorni · 203 run
+Aggiornato: 2026-11-18 21:34 UTC · in esecuzione da 0.2 giorni · 203 run
 
 | | |
 |---|---|
-| Equity | **5.6071 SOL** (-6.5% dal capitale iniziale di 6 SOL) |
+| Equity | **5.6103 SOL** (-6.5% dal capitale iniziale di 6 SOL) |
 | Cassa | 5.4905 SOL |
 | Trade chiusi | 17 |
 | Win rate | 35% |
-| P&L realizzato | -0.3964 SOL (~$-28.91) |
+| P&L realizzato | -0.3964 SOL (~$-28.94) |
 | Media vincite / perdite | +16.6% / -39.6% |
 | Profit factor | 0.23 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$$WISHES** P-0400 · 0.112 SOL · +4.0% · resta 100% · [grafico](https://dexscreener.com/solana/14WLLfLkv1Cm3sN12RdjKDkh6GhLj3zbP9xCfTqiCoec)
+- **$$WISHES** P-0400 · 0.112 SOL · +6.9% · resta 100% · [grafico](https://dexscreener.com/solana/14WLLfLkv1Cm3sN12RdjKDkh6GhLj3zbP9xCfTqiCoec)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -48,6 +48,17 @@ Aggiornato: 2026-11-18 21:30 UTC · in esecuzione da 0.2 giorni · 203 run
 
 ## Ultimi eventi
 ```
+21:34:03 SCRIBE   fine run · trade 17 · win 35% · P&L -0.3964 SOL · equity 5.6103 SOL
+21:33:49 ORACLE   360 raccolti, 192 analizzati, 1 BUY, 186 veto
+21:33:27 ORACLE   360 raccolti, 203 analizzati, 1 BUY, 196 veto
+21:33:03 ORACLE   360 raccolti, 207 analizzati, 0 BUY, 198 veto
+21:32:40 ORACLE   360 raccolti, 204 analizzati, 0 BUY, 195 veto
+21:32:17 ORACLE   360 raccolti, 211 analizzati, 1 BUY, 197 veto
+21:31:54 ORACLE   360 raccolti, 208 analizzati, 1 BUY, 192 veto
+21:31:31 ORACLE   360 raccolti, 206 analizzati, 1 BUY, 191 veto
+21:31:08 ORACLE   360 raccolti, 217 analizzati, 1 BUY, 205 veto
+21:30:45 ORACLE   360 raccolti, 214 analizzati, 1 BUY, 202 veto
+21:30:22 ORACLE   360 raccolti, 205 analizzati, 0 BUY, 192 veto
 21:30:08 ORACLE   360 raccolti, 225 analizzati, 0 BUY, 214 veto
 21:29:42 ORACLE   360 raccolti, 221 analizzati, 0 BUY, 209 veto
 21:29:18 ORACLE   360 raccolti, 215 analizzati, 1 BUY, 206 veto
@@ -77,17 +88,6 @@ Aggiornato: 2026-11-18 21:30 UTC · in esecuzione da 0.2 giorni · 203 run
 21:21:19 ORACLE   360 raccolti, 211 analizzati, 1 BUY, 199 veto
 21:21:06 SCRIBE   chiuso P-0399 $FLAMINGO -0.0539 SOL (-47.2%)
 21:21:06 CHARON   Stop loss $FLAMINGO vendo 100% a -40.6% -> 0.0603 SOL
-21:21:05 ORACLE   360 raccolti, 216 analizzati, 1 BUY, 203 veto
-21:20:41 ORACLE   360 raccolti, 205 analizzati, 1 BUY, 192 veto
-21:20:27 ORACLE   360 raccolti, 204 analizzati, 1 BUY, 191 veto
-21:20:01 ORACLE   360 raccolti, 209 analizzati, 2 BUY, 198 veto
-21:19:37 ORACLE   360 raccolti, 205 analizzati, 1 BUY, 193 veto
-21:19:14 QUARTER  BUY $FLAMINGO 0.113 SOL score 71 impatto 0.52% (Jupiter)
-21:19:14 ORACLE   360 raccolti, 197 analizzati, 1 BUY, 187 veto
-21:18:50 ORACLE   360 raccolti, 200 analizzati, 0 BUY, 190 veto
-21:18:27 ORACLE   360 raccolti, 207 analizzati, 0 BUY, 197 veto
-21:18:04 ORACLE   360 raccolti, 202 analizzati, 0 BUY, 190 veto
-21:17:39 ORACLE   360 raccolti, 202 analizzati, 1 BUY, 193 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
