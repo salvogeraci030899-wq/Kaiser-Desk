@@ -102,13 +102,30 @@ async function fetchJSON(url, opt = {}) {
     return await r.json();
   } finally { clearTimeout(t); }
 }
-async function tg(text) {
+
+// Bottoni inline per un token: pump.fun (primario), DexScreener (con pairAddress se c'è, così apre proprio quella pool),
+// GMGN. Tutti URL statici, nessun callback: niente handler nel bot da gestire.
+function mintKeyboard(mint, pairAddress) {
+  if (!mint) return null;
+  return { inline_keyboard: [[
+    { text: '🟢 pump.fun', url: `https://pump.fun/coin/${mint}` },
+    { text: '📈 DexScreener', url: `https://dexscreener.com/solana/${pairAddress || mint}` },
+    { text: '🦅 GMGN', url: `https://gmgn.ai/sol/token/${mint}` },
+  ]] };
+}
+// tg(text, { mint, pairAddress }) → notifica con i bottoni del token.
+// tg(text, { keyboard: {...} }) → bottoni personalizzati (es. più righe).
+// tg(text) → notifica semplice, come prima.
+async function tg(text, opts = {}) {
   const tok = process.env.TELEGRAM_BOT_TOKEN, chat = process.env.TELEGRAM_CHAT_ID;
   if (!tok || !chat) return;
+  const body = { chat_id: chat, text, parse_mode: 'HTML', disable_web_page_preview: true };
+  const kb = opts.keyboard || (opts.mint ? mintKeyboard(opts.mint, opts.pairAddress) : null);
+  if (kb) body.reply_markup = kb;
   try {
     await fetchJSON(`https://api.telegram.org/bot${tok}/sendMessage`, {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: chat, text, parse_mode: 'HTML', disable_web_page_preview: true }),
+      body: JSON.stringify(body),
     });
   } catch (e) { console.log('telegram:', e.message); }
 }
@@ -256,7 +273,7 @@ async function buy(c) {
   st.positions.push(p); st.lastEntryAt = Date.now();
   pushLive(true).catch(() => {});
   log('QUARTER', `BUY $${c.sym} ${sizeS.toFixed(3)} SOL score ${c.score} impatto ${(impact * 100).toFixed(2)}% (${src})`);
-  await tg(`<b>BUY paper</b> $${esc(c.sym)} ${sizeS.toFixed(3)} SOL · score ${c.score}\nhttps://dexscreener.com/solana/${fresh.pairAddress}`);
+  await tg(`<b>BUY paper</b> $${esc(c.sym)} ${sizeS.toFixed(3)} SOL · score ${c.score}`, { mint: c.mint, pairAddress: fresh.pairAddress });
 }
 function calSummary(c) {
   if (!Array.isArray(c) || !c.length) return null;
@@ -298,7 +315,7 @@ async function sell(p, frac, reason) {
     pushLive(true).catch(() => {});
     if (pnl < 0) st.cooldownUntil = Date.now() + S.cooldownMin * 60000;
     log('SCRIBE', `chiuso ${p.id} $${p.sym} ${pnl.toFixed(4)} SOL (${j.pct.toFixed(1)}%)`);
-    await tg(`<b>CLOSE</b> $${esc(p.sym)} ${pnl.toFixed(4)} SOL (${j.pct.toFixed(1)}%) · ${esc(reason)}\nEquity ${equity().toFixed(3)} SOL`);
+    await tg(`<b>CLOSE</b> $${esc(p.sym)} ${pnl.toFixed(4)} SOL (${j.pct.toFixed(1)}%) · ${esc(reason)}\nEquity ${equity().toFixed(3)} SOL`, { mint: p.mint, pairAddress: p.pairAddress });
   }
 }
 async function manage(pairsIn) {
