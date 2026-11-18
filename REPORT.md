@@ -1,26 +1,26 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 14:54 UTC · in esecuzione da 0.7 giorni · 196 run
+Aggiornato: 2026-11-18 14:59 UTC · in esecuzione da 0.7 giorni · 196 run
 
 | | |
 |---|---|
-| Equity | **5.1620 SOL** (-14.0% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.0412 SOL |
-| Trade chiusi | 33 |
-| Win rate | 27% |
-| P&L realizzato | -0.8539 SOL (~$-63.23) |
-| Media vincite / perdite | +38.2% / -45.6% |
-| Profit factor | 0.32 |
-| Circuit breaker | no |
+| Equity | **5.0439 SOL** (-15.9% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.0439 SOL |
+| Trade chiusi | 34 |
+| Win rate | 26% |
+| P&L realizzato | -0.9561 SOL (~$-70.82) |
+| Media vincite / perdite | +38.2% / -47.7% |
+| Profit factor | 0.29 |
+| Circuit breaker | ATTIVO oggi |
 
 ## Posizioni aperte
-- **$FREEDOM** P-0381 · 0.104 SOL · +16.4% · resta 100% · [grafico](https://dexscreener.com/solana/7JEWGHe44b55fMLP3SuuLhQRUHEDxSfMguug72DwBgr2)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | TP1 | 6 | +0.3159 |
-| RUG-EXIT liquidità | 9 | -0.8054 |
+| RUG-EXIT liquidità | 10 | -0.9075 |
 | Stop loss | 10 | -0.3695 |
 | Time stop | 7 | -0.0025 |
 | Chiusura manuale (app) | 1 | +0.0076 |
@@ -28,6 +28,7 @@ Aggiornato: 2026-11-18 14:54 UTC · in esecuzione da 0.7 giorni · 196 run
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $FREEDOM | 70 | -97.4% | -0.1021 | +43% | -96% | RUG-EXIT liquidità | 12m |
 | $CC | 67 | -44.6% | -0.0469 | +40% | -50% | Stop loss | 3m |
 | $Makenzi | 70 | -26.3% | -0.0277 | +28% | -20% | Time stop | 5m |
 | $WEALTH | 67 | -73.2% | -0.0783 | +7% | -61% | RUG-EXIT liquidità | 4m |
@@ -52,10 +53,25 @@ Aggiornato: 2026-11-18 14:54 UTC · in esecuzione da 0.7 giorni · 196 run
 | $BUFO | 70 | -58.0% | -0.0690 | +48% | -72% | Stop loss | 5m |
 | $NADJA | 70 | +0.1% | +0.0001 | +23% | -22% | Time stop | 5m |
 | $VCN | 72 | -46.4% | -0.0558 | +0% | -45% | Stop loss | 4m |
-| $PATTINSON | 64 | +67.9% | +0.0804 | +79% | +79% | TP1 | 2m |
 
 ## Ultimi eventi
 ```
+14:59:05 ORACLE   360 raccolti, 228 analizzati, 1 BUY, 222 veto
+14:58:42 KAISER   CIRCUIT BREAKER: perdita giornaliera oltre 15%
+14:58:42 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 231 veto
+14:58:29 SCRIBE   chiuso P-0381 $FREEDOM -0.1021 SOL (-97.4%)
+14:58:29 CHARON   RUG-EXIT liquidità $FREEDOM vendo 100% a -96.3% -> 0.0027 SOL
+14:58:19 ORACLE   360 raccolti, 240 analizzati, 2 BUY, 231 veto
+14:57:56 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 231 veto
+14:57:32 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 239 veto
+14:57:09 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 238 veto
+14:56:44 ORACLE   360 raccolti, 244 analizzati, 3 BUY, 235 veto
+14:56:21 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 243 veto
+14:55:58 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 238 veto
+14:55:33 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 230 veto
+14:55:09 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 241 veto
+14:54:46 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 242 veto
+14:54:22 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 234 veto
 14:53:59 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 239 veto
 14:53:36 SCRIBE   chiuso P-0382 $CC -0.0469 SOL (-44.6%)
 14:53:36 CHARON   Stop loss $CC vendo 100% a -49.9% -> 0.0583 SOL
@@ -80,22 +96,6 @@ Aggiornato: 2026-11-18 14:54 UTC · in esecuzione da 0.7 giorni · 196 run
 14:47:23 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 236 veto
 14:47:00 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 246 veto
 14:46:37 ORACLE   360 raccolti, 238 analizzati, 2 BUY, 227 veto
-14:46:25 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 228 veto
-14:46:09 SCOUT    PumpPortal invia nuovi token (30) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-14:45:59 KAISER   limite 1 ingresso/i per scan: $Makenzi rimandato
-14:45:59 QUARTER  BUY $FREEDOM 0.104 SOL score 70 impatto 1.43% (Jupiter)
-14:45:59 ORACLE   344 raccolti, 242 analizzati, 2 BUY, 232 veto
-14:45:36 QUARTER  $FREEDOM impatto 2.9% oltre slippage: annullato
-14:45:36 ORACLE   333 raccolti, 189 analizzati, 2 BUY, 181 veto
-14:45:13 ORACLE   327 raccolti, 186 analizzati, 2 BUY, 180 veto
-14:44:50 ORACLE   240 raccolti, 137 analizzati, 2 BUY, 132 veto
-14:44:28 ORACLE   220 raccolti, 102 analizzati, 2 BUY, 98 veto
-14:44:09 SCOUT    fabbrica: 16265 percorsi, 768 configurazioni, 0 passano, 2693 ms
-14:44:07 ORACLE   211 raccolti, 102 analizzati, 2 BUY, 97 veto
-14:44:06 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-14:44:04 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-14:44:04 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→40, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120
-14:44:04 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
