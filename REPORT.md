@@ -1,11 +1,11 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 09:52 UTC · in esecuzione da 0.4 giorni · 190 run
+Aggiornato: 2026-11-18 09:57 UTC · in esecuzione da 0.4 giorni · 190 run
 
 | | |
 |---|---|
-| Equity | **5.6140 SOL** (-6.4% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.6140 SOL |
+| Equity | **5.5873 SOL** (-6.9% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.5007 SOL |
 | Trade chiusi | 20 |
 | Win rate | 35% |
 | P&L realizzato | -0.3860 SOL (~$-28.95) |
@@ -14,7 +14,7 @@ Aggiornato: 2026-11-18 09:52 UTC · in esecuzione da 0.4 giorni · 190 run
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$SHARK** P-0369 · 0.112 SOL · -22.9% · resta 100% · [grafico](https://dexscreener.com/solana/5zozpvU9Co64pejCPS5nYcC6ZkAZYfYFiGkbRQvdeYcE)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -51,6 +51,21 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+09:57:41 ORACLE   360 raccolti, 222 analizzati, 1 BUY, 208 veto
+09:57:17 QUARTER  BUY $SHARK 0.112 SOL score 76 impatto 0.72% (Jupiter)
+09:57:17 ORACLE   360 raccolti, 220 analizzati, 1 BUY, 207 veto
+09:56:54 ORACLE   360 raccolti, 216 analizzati, 0 BUY, 204 veto
+09:56:30 ORACLE   360 raccolti, 215 analizzati, 1 BUY, 203 veto
+09:56:06 ORACLE   360 raccolti, 217 analizzati, 1 BUY, 201 veto
+09:55:42 QUARTER  $eepy impatto 2.5% oltre slippage: annullato
+09:55:42 ORACLE   360 raccolti, 219 analizzati, 2 BUY, 203 veto
+09:55:18 ORACLE   360 raccolti, 217 analizzati, 1 BUY, 199 veto
+09:54:54 ORACLE   360 raccolti, 216 analizzati, 1 BUY, 201 veto
+09:54:31 ORACLE   360 raccolti, 215 analizzati, 1 BUY, 200 veto
+09:54:07 ORACLE   360 raccolti, 215 analizzati, 0 BUY, 201 veto
+09:53:44 ORACLE   360 raccolti, 214 analizzati, 0 BUY, 199 veto
+09:53:21 ORACLE   360 raccolti, 216 analizzati, 0 BUY, 203 veto
+09:52:57 ORACLE   360 raccolti, 210 analizzati, 0 BUY, 198 veto
 09:52:34 ORACLE   360 raccolti, 213 analizzati, 0 BUY, 199 veto
 09:52:10 ORACLE   360 raccolti, 214 analizzati, 0 BUY, 200 veto
 09:51:46 ORACLE   360 raccolti, 215 analizzati, 0 BUY, 202 veto
@@ -76,21 +91,6 @@ _nessuna_
 09:44:21 ORACLE   239 raccolti, 138 analizzati, 0 BUY, 134 veto
 09:43:59 ORACLE   227 raccolti, 136 analizzati, 0 BUY, 134 veto
 09:43:38 ORACLE   225 raccolti, 126 analizzati, 0 BUY, 124 veto
-09:43:16 ORACLE   207 raccolti, 117 analizzati, 0 BUY, 115 veto
-09:42:55 ORACLE   201 raccolti, 117 analizzati, 0 BUY, 115 veto
-09:42:37 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-09:42:36 SCOUT    fabbrica: 15445 percorsi, 768 configurazioni, 0 passano, 2078 ms
-09:42:34 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-09:42:34 ORACLE   198 raccolti, 113 analizzati, 0 BUY, 111 veto
-09:42:31 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
-09:42:31 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
-09:42:31 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→40, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120
-09:42:31 SCOUT    Laboratorio: collegato a PumpPortal
-09:42:31 KAISER   run #190 · 0 posizioni · equity 5.6140 SOL · GMGN spenta (nessuna chiave) · Grok off
-09:42:17 SCRIBE   fine run · trade 20 · win 35% · P&L -0.3860 SOL · equity 5.6140 SOL
-09:42:04 ORACLE   360 raccolti, 215 analizzati, 0 BUY, 200 veto
-09:41:41 ORACLE   360 raccolti, 206 analizzati, 0 BUY, 191 veto
-09:41:16 ORACLE   360 raccolti, 209 analizzati, 0 BUY, 195 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.

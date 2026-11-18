@@ -1,8 +1,70 @@
 {
  "startedAt": 1794957335860,
  "runs": 190,
- "cash": 5.61396589253798,
- "positions": [],
+ "cash": 5.50068657468722,
+ "positions": [
+  {
+   "id": "P-0369",
+   "mint": "BqjWJEnY85bb7jHzXXzDcoCiLag25WwdBz5BbXQopump",
+   "sym": "SHARK",
+   "name": "Shark Coin",
+   "pairAddress": "5zozpvU9Co64pejCPS5nYcC6ZkAZYfYFiGkbRQvdeYcE",
+   "openedAt": 1794995837437,
+   "sizeSOL": 0.11227931785075959,
+   "cost": 0.11327931785075959,
+   "entry": 0.0000010894918664701605,
+   "tokens": 103056.59115614403,
+   "remaining": 1,
+   "rawLeft": "142625534561",
+   "peak": 0.0000010894918664701605,
+   "tp1Done": false,
+   "spDone": false,
+   "entryLiq": 20095.23,
+   "realized": 0,
+   "score": 76,
+   "why": "runner",
+   "entryInfo": {
+    "srcs": [
+     "nuovo"
+    ],
+    "notes": [
+     "giovane 11m · -26% dal picco",
+     "nessun social"
+    ],
+    "plus": [
+     "turnover 3.1x/h",
+     "pressione in acquisto"
+    ],
+    "m": {
+     "liq": 19993.54,
+     "mc": 80323,
+     "ageMin": 11.0793,
+     "v1": 62680.7,
+     "tx1": 1638,
+     "br1": 2.106060606060606,
+     "br5": 2.159919028340081,
+     "c5": 158,
+     "c1": 153,
+     "c6": 153,
+     "turn": 3.135047620381383,
+     "price": 0.00008038,
+     "priceNative": 0.000001071
+    },
+    "grok": null
+   },
+   "last": {
+    "priceNative": 8.403e-7,
+    "liq": 17767.55,
+    "br5": 2.122448979591837,
+    "tx5": 1681,
+    "t": 1794995872012
+   },
+   "fills": [
+    "BUY 0.112 impatto 0.72% (Jupiter)"
+   ],
+   "trough": 8.403e-7
+  }
+ ],
  "journal": [
   {
    "id": "P-0349",
@@ -4805,6 +4867,69 @@
    "sym": "KATIA",
    "score": 70,
    "priceNative": 4.083e-7
+  },
+  {
+   "t": 1794995671730,
+   "mint": "BqjWJEnY85bb7jHzXXzDcoCiLag25WwdBz5BbXQopump",
+   "sym": "SHARK",
+   "score": 73,
+   "priceNative": 0.000001007
+  },
+  {
+   "t": 1794995694682,
+   "mint": "BqjWJEnY85bb7jHzXXzDcoCiLag25WwdBz5BbXQopump",
+   "sym": "SHARK",
+   "score": 72,
+   "priceNative": 0.000001044
+  },
+  {
+   "t": 1794995718434,
+   "mint": "BqjWJEnY85bb7jHzXXzDcoCiLag25WwdBz5BbXQopump",
+   "sym": "SHARK",
+   "score": 73,
+   "priceNative": 0.000001044
+  },
+  {
+   "t": 1794995742447,
+   "mint": "BqjWJEnY85bb7jHzXXzDcoCiLag25WwdBz5BbXQopump",
+   "sym": "SHARK",
+   "score": 73,
+   "priceNative": 9.602e-7
+  },
+  {
+   "t": 1794995742447,
+   "mint": "HQhr9AHhkjtGbmPZyQkU8Es7DQMezhZBFpFHX7Uqpump",
+   "sym": "eepy",
+   "score": 67,
+   "priceNative": 3.101e-7
+  },
+  {
+   "t": 1794995766583,
+   "mint": "BqjWJEnY85bb7jHzXXzDcoCiLag25WwdBz5BbXQopump",
+   "sym": "SHARK",
+   "score": 72,
+   "priceNative": 9.618e-7
+  },
+  {
+   "t": 1794995790563,
+   "mint": "BqjWJEnY85bb7jHzXXzDcoCiLag25WwdBz5BbXQopump",
+   "sym": "SHARK",
+   "score": 73,
+   "priceNative": 9.402e-7
+  },
+  {
+   "t": 1794995837361,
+   "mint": "BqjWJEnY85bb7jHzXXzDcoCiLag25WwdBz5BbXQopump",
+   "sym": "SHARK",
+   "score": 76,
+   "priceNative": 0.000001071
+  },
+  {
+   "t": 1794995861945,
+   "mint": "BqjWJEnY85bb7jHzXXzDcoCiLag25WwdBz5BbXQopump",
+   "sym": "SHARK",
+   "score": 76,
+   "priceNative": 8.403e-7
   }
  ],
  "day": {
@@ -4813,8 +4938,23 @@
  },
  "cooldownUntil": 1794991307215,
  "halted": null,
- "seq": 368,
+ "seq": 369,
  "events": [
+  "09:57:41 ORACLE   360 raccolti, 222 analizzati, 1 BUY, 208 veto",
+  "09:57:17 QUARTER  BUY $SHARK 0.112 SOL score 76 impatto 0.72% (Jupiter)",
+  "09:57:17 ORACLE   360 raccolti, 220 analizzati, 1 BUY, 207 veto",
+  "09:56:54 ORACLE   360 raccolti, 216 analizzati, 0 BUY, 204 veto",
+  "09:56:30 ORACLE   360 raccolti, 215 analizzati, 1 BUY, 203 veto",
+  "09:56:06 ORACLE   360 raccolti, 217 analizzati, 1 BUY, 201 veto",
+  "09:55:42 QUARTER  $eepy impatto 2.5% oltre slippage: annullato",
+  "09:55:42 ORACLE   360 raccolti, 219 analizzati, 2 BUY, 203 veto",
+  "09:55:18 ORACLE   360 raccolti, 217 analizzati, 1 BUY, 199 veto",
+  "09:54:54 ORACLE   360 raccolti, 216 analizzati, 1 BUY, 201 veto",
+  "09:54:31 ORACLE   360 raccolti, 215 analizzati, 1 BUY, 200 veto",
+  "09:54:07 ORACLE   360 raccolti, 215 analizzati, 0 BUY, 201 veto",
+  "09:53:44 ORACLE   360 raccolti, 214 analizzati, 0 BUY, 199 veto",
+  "09:53:21 ORACLE   360 raccolti, 216 analizzati, 0 BUY, 203 veto",
+  "09:52:57 ORACLE   360 raccolti, 210 analizzati, 0 BUY, 198 veto",
   "09:52:34 ORACLE   360 raccolti, 213 analizzati, 0 BUY, 199 veto",
   "09:52:10 ORACLE   360 raccolti, 214 analizzati, 0 BUY, 200 veto",
   "09:51:46 ORACLE   360 raccolti, 215 analizzati, 0 BUY, 202 veto",
@@ -5099,92 +5239,14 @@
   "08:15:31 ORACLE   360 raccolti, 224 analizzati, 0 BUY, 220 veto",
   "08:15:08 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 229 veto",
   "08:14:46 ORACLE   360 raccolti, 235 analizzati, 0 BUY, 231 veto",
-  "08:14:24 ORACLE   360 raccolti, 224 analizzati, 0 BUY, 220 veto",
-  "08:14:01 ORACLE   360 raccolti, 228 analizzati, 0 BUY, 225 veto",
-  "08:13:38 ORACLE   360 raccolti, 232 analizzati, 0 BUY, 228 veto",
-  "08:13:16 ORACLE   360 raccolti, 220 analizzati, 0 BUY, 216 veto",
-  "08:13:14 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)",
-  "08:13:14 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)",
-  "08:12:53 ORACLE   360 raccolti, 223 analizzati, 0 BUY, 220 veto",
-  "08:12:31 ORACLE   360 raccolti, 219 analizzati, 0 BUY, 215 veto",
-  "08:12:09 ORACLE   360 raccolti, 218 analizzati, 0 BUY, 214 veto",
-  "08:11:46 ORACLE   360 raccolti, 226 analizzati, 0 BUY, 218 veto",
-  "08:11:23 ORACLE   360 raccolti, 229 analizzati, 0 BUY, 220 veto",
-  "08:11:00 ORACLE   360 raccolti, 229 analizzati, 0 BUY, 220 veto",
-  "08:10:37 ORACLE   360 raccolti, 229 analizzati, 0 BUY, 220 veto",
-  "08:10:24 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 224 veto",
-  "08:09:59 ORACLE   360 raccolti, 229 analizzati, 0 BUY, 220 veto",
-  "08:09:36 ORACLE   360 raccolti, 234 analizzati, 0 BUY, 226 veto"
+  "08:14:24 ORACLE   360 raccolti, 224 analizzati, 0 BUY, 220 veto"
  ],
  "capital": 6,
  "resetId": "C-0094",
  "realTried": {},
- "lastEntryAt": 1794990842428,
+ "lastEntryAt": 1794995837437,
  "lab": {
   "done": [
-   {
-    "m": "6yHvLHLRR4PDippvi4qZGM7cU5EnqNtQVkoG4zy5pump",
-    "s": "GTA 6",
-    "at": 1794993080593,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 326,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "4svx6n6xWpRByegoiYKMoj1QTdjFGDWfApA416hXpump",
-    "s": "aris",
-    "at": 1794993086431,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2089,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "AvNSLJHNJ4BF9QJFJYjD5SpyNRwNSio8UrKWQzaYpump",
-    "s": "aris",
-    "at": 1794993086585,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2088,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
    {
     "m": "9djo9p9ggS6SFohor6NoegAVGmeT1sSEv1x1zuZepump",
     "s": "aris",
@@ -15086,6 +15148,69 @@
     },
     "ok": false,
     "hi": 2736,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "3Dg55umieZjaegVFPYrH3xewxCder9NutzFWn5eApump",
+    "s": "NOPLAY",
+    "at": 1794994954462,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 582,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "4bKysyygQVftoinGVhEBJzXLfMRoXjygByoazb6jpump",
+    "s": "GTA VI",
+    "at": 1794994957152,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2471,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "BLfiepVWjjVzBrFZJuHrCfqFPs5VuZRCBn9SNsi2pump",
+    "s": "SIRMEOW",
+    "at": 1794994966026,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 3189,
     "th": {},
     "rx": {},
     "ls": 0,
