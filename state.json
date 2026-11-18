@@ -1,8 +1,67 @@
 {
  "startedAt": 1794957335860,
- "runs": 180,
- "cash": 5.8646802751167595,
- "positions": [],
+ "runs": 181,
+ "cash": 5.746386669614425,
+ "positions": [
+  {
+   "id": "P-0356",
+   "mint": "AQqYJ5XaVCQd2PESVZitmyotD5d3qPjmZoEscEPDpump",
+   "sym": "GTA",
+   "name": "Grand Theft Alleycat",
+   "pairAddress": "Abem5VgeTiFa4LoJgps26WT1MTbvscZeFHvNLw3SD19U",
+   "openedAt": 1794967991251,
+   "sizeSOL": 0.1172936055023352,
+   "cost": 0.1182936055023352,
+   "entry": 0.0000011451483236280863,
+   "tokens": 102426.56176688343,
+   "remaining": 1,
+   "rawLeft": "90031121612",
+   "peak": 0.000001467,
+   "tp1Done": false,
+   "spDone": false,
+   "entryLiq": 20068.53,
+   "realized": 0,
+   "score": 88,
+   "why": "runner",
+   "entryInfo": {
+    "srcs": [
+     "profili"
+    ],
+    "notes": [],
+    "plus": [
+     "turnover 27.3x/h",
+     "pressione in acquisto"
+    ],
+    "m": {
+     "liq": 20068.53,
+     "mc": 82185,
+     "ageMin": 40.506116666666664,
+     "v1": 547558.68,
+     "tx1": 13688,
+     "br1": 3.592418651459242,
+     "br5": 2.8592814371257487,
+     "c5": -34.79,
+     "c1": 121,
+     "c6": 121,
+     "turn": 27.28444385313723,
+     "price": 0.00008267,
+     "priceNative": 0.000001114
+    },
+    "grok": null
+   },
+   "last": {
+    "priceNative": 0.000001467,
+    "liq": 23310.48,
+    "br5": 4.081272084805653,
+    "tx5": 1436,
+    "t": 1794968114856
+   },
+   "fills": [
+    "BUY 0.117 impatto 1.78% (Jupiter)"
+   ],
+   "trough": 0.000001114
+  }
+ ],
  "journal": [
   {
    "id": "P-0349",
@@ -2053,6 +2112,41 @@
    "sym": "Spud",
    "score": 63,
    "priceNative": 0.000001025
+  },
+  {
+   "t": 1794967969121,
+   "mint": "AQqYJ5XaVCQd2PESVZitmyotD5d3qPjmZoEscEPDpump",
+   "sym": "GTA",
+   "score": 88,
+   "priceNative": 0.000001114
+  },
+  {
+   "t": 1794967991169,
+   "mint": "AQqYJ5XaVCQd2PESVZitmyotD5d3qPjmZoEscEPDpump",
+   "sym": "GTA",
+   "score": 88,
+   "priceNative": 0.000001114
+  },
+  {
+   "t": 1794968014650,
+   "mint": "AQqYJ5XaVCQd2PESVZitmyotD5d3qPjmZoEscEPDpump",
+   "sym": "GTA",
+   "score": 88,
+   "priceNative": 0.000001137
+  },
+  {
+   "t": 1794968037005,
+   "mint": "AQqYJ5XaVCQd2PESVZitmyotD5d3qPjmZoEscEPDpump",
+   "sym": "GTA",
+   "score": 88,
+   "priceNative": 0.000001273
+  },
+  {
+   "t": 1794968059881,
+   "mint": "AQqYJ5XaVCQd2PESVZitmyotD5d3qPjmZoEscEPDpump",
+   "sym": "GTA",
+   "score": 88,
+   "priceNative": 0.000001273
   }
  ],
  "day": {
@@ -2061,8 +2155,33 @@
  },
  "cooldownUntil": 1794965522012,
  "halted": null,
- "seq": 355,
+ "seq": 356,
  "events": [
+  "02:15:04 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 244 veto",
+  "02:14:42 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 246 veto",
+  "02:14:19 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 246 veto",
+  "02:13:57 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 248 veto",
+  "02:13:34 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 248 veto",
+  "02:13:11 QUARTER  BUY $GTA 0.117 SOL score 88 impatto 1.78% (Jupiter)",
+  "02:13:11 ORACLE   349 raccolti, 247 analizzati, 1 BUY, 243 veto",
+  "02:12:49 QUARTER  $GTA impatto 4.0% oltre slippage: annullato",
+  "02:12:49 ORACLE   337 raccolti, 232 analizzati, 1 BUY, 228 veto",
+  "02:12:26 SCOUT    PumpPortal invia nuovi token (21) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena",
+  "02:12:26 ORACLE   333 raccolti, 232 analizzati, 0 BUY, 229 veto",
+  "02:12:05 ORACLE   307 raccolti, 198 analizzati, 0 BUY, 195 veto",
+  "02:11:42 ORACLE   292 raccolti, 191 analizzati, 0 BUY, 188 veto",
+  "02:11:21 ORACLE   276 raccolti, 178 analizzati, 0 BUY, 175 veto",
+  "02:10:58 ORACLE   231 raccolti, 159 analizzati, 0 BUY, 157 veto",
+  "02:10:37 ORACLE   223 raccolti, 131 analizzati, 0 BUY, 129 veto",
+  "02:10:18 SCOUT    fabbrica: 14375 percorsi, 768 configurazioni, 0 passano, 1898 ms",
+  "02:10:17 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an",
+  "02:10:16 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an",
+  "02:10:16 ORACLE   218 raccolti, 130 analizzati, 0 BUY, 128 veto",
+  "02:10:13 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com",
+  "02:10:13 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→40, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120",
+  "02:10:12 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.",
+  "02:10:12 SCOUT    Laboratorio: collegato a PumpPortal",
+  "02:10:12 KAISER   run #181 · 0 posizioni · equity 5.8647 SOL · GMGN spenta (nessuna chiave) · Grok off",
   "02:10:01 SCRIBE   fine run · trade 7 · win 29% · P&L -0.1353 SOL · equity 5.8647 SOL",
   "02:10:01 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 249 veto",
   "02:09:38 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 256 veto",
@@ -2337,37 +2456,12 @@
   "00:33:25 ORACLE   360 raccolti, 281 analizzati, 0 BUY, 276 veto",
   "00:33:03 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 265 veto",
   "00:32:39 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena",
-  "00:32:39 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 261 veto",
-  "00:32:17 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 260 veto",
-  "00:31:54 ORACLE   358 raccolti, 263 analizzati, 1 BUY, 257 veto",
-  "00:31:30 ORACLE   312 raccolti, 234 analizzati, 1 BUY, 229 veto",
-  "00:31:08 ORACLE   305 raccolti, 223 analizzati, 1 BUY, 218 veto",
-  "00:30:44 ORACLE   296 raccolti, 214 analizzati, 2 BUY, 209 veto",
-  "00:30:20 ORACLE   236 raccolti, 166 analizzati, 2 BUY, 163 veto",
-  "00:29:58 ORACLE   228 raccolti, 158 analizzati, 2 BUY, 155 veto",
-  "00:29:38 SCOUT    fabbrica: 13943 percorsi, 768 configurazioni, 0 passano, 2118 ms",
-  "00:29:36 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an",
-  "00:29:36 ORACLE   223 raccolti, 154 analizzati, 2 BUY, 151 veto",
-  "00:29:34 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an",
-  "00:29:33 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→40, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120",
-  "00:29:33 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com",
-  "00:29:33 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.",
-  "00:29:33 SCOUT    Laboratorio: collegato a PumpPortal",
-  "00:29:33 KAISER   run #179 · 0 posizioni · equity 5.9962 SOL · GMGN spenta (nessuna chiave) · Grok off",
-  "00:29:19 SCRIBE   fine run · trade 5 · win 40% · P&L -0.0038 SOL · equity 5.9962 SOL",
-  "00:29:18 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 267 veto",
-  "00:28:54 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 272 veto",
-  "00:28:31 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 261 veto",
-  "00:28:07 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 266 veto",
-  "00:27:43 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 274 veto",
-  "00:27:20 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 266 veto",
-  "00:26:56 SCRIBE   chiuso P-0353 $Caracal 0.0131 SOL (10.9%)",
-  "00:26:56 CHARON   TP1 $Caracal vendo 100% a 82.6% -> 0.1338 SOL"
+  "00:32:39 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 261 veto"
  ],
  "capital": 6,
  "resetId": "C-0094",
  "realTried": {},
- "lastEntryAt": 1794964636732,
+ "lastEntryAt": 1794967991251,
  "lab": {
   "done": [
    {
