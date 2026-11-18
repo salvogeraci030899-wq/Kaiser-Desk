@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 12:33 UTC · in esecuzione da 0.6 giorni · 193 run
+Aggiornato: 2026-11-18 12:38 UTC · in esecuzione da 0.6 giorni · 193 run
 
 | | |
 |---|---|
-| Equity | **5.6267 SOL** (-6.2% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.6267 SOL |
-| Trade chiusi | 25 |
-| Win rate | 32% |
-| P&L realizzato | -0.3733 SOL (~$-27.76) |
-| Media vincite / perdite | +42.6% / -38.4% |
-| Profit factor | 0.51 |
+| Equity | **5.5152 SOL** (-8.1% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.5152 SOL |
+| Trade chiusi | 26 |
+| Win rate | 31% |
+| P&L realizzato | -0.4848 SOL (~$-36.01) |
+| Media vincite / perdite | +42.6% / -41.7% |
+| Profit factor | 0.45 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -20,7 +20,7 @@ _nessuna_
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | TP1 | 6 | +0.3159 |
-| RUG-EXIT liquidità | 4 | -0.3964 |
+| RUG-EXIT liquidità | 5 | -0.5079 |
 | Stop loss | 9 | -0.3226 |
 | Time stop | 5 | +0.0222 |
 | Chiusura manuale (app) | 1 | +0.0076 |
@@ -28,6 +28,7 @@ _nessuna_
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $BUCKZ | 72 | -98.2% | -0.1115 | +36% | -96% | RUG-EXIT liquidità | 3m |
 | $GrandPump | 65 | +59.1% | +0.0663 | +65% | +65% | TP1 | 2m |
 | $DACT | 65 | -10.2% | -0.0115 | +0% | -41% | Stop loss | 0m |
 | $VCN | 75 | -13.8% | -0.0155 | +0% | -42% | Stop loss | 2m |
@@ -52,10 +53,25 @@ _nessuna_
 | $GrokChan | 63 | +73.8% | +0.0879 | +94% | +94% | TP1 | 7m |
 | $GTAVI | 88 | -9.4% | -0.0113 | +22% | -46% | Stop loss | 1m |
 | $maxi | 75 | -77.2% | -0.0935 | +6% | -70% | RUG-EXIT liquidità | 3m |
-| $hamster | 73 | -0.1% | -0.0001 | +61% | +61% | TP1 | 4m |
 
 ## Ultimi eventi
 ```
+12:38:32 ORACLE   360 raccolti, 201 analizzati, 0 BUY, 190 veto
+12:38:08 ORACLE   360 raccolti, 191 analizzati, 0 BUY, 178 veto
+12:37:45 ORACLE   360 raccolti, 201 analizzati, 1 BUY, 188 veto
+12:37:22 ORACLE   360 raccolti, 195 analizzati, 1 BUY, 185 veto
+12:36:58 SCRIBE   chiuso P-0374 $BUCKZ -0.1115 SOL (-98.2%)
+12:36:58 CHARON   RUG-EXIT liquidità $BUCKZ vendo 100% a -96.2% -> 0.0021 SOL
+12:36:58 ORACLE   360 raccolti, 201 analizzati, 1 BUY, 190 veto
+12:36:33 ORACLE   360 raccolti, 201 analizzati, 2 BUY, 189 veto
+12:36:10 ORACLE   360 raccolti, 201 analizzati, 2 BUY, 191 veto
+12:35:47 ORACLE   360 raccolti, 205 analizzati, 1 BUY, 196 veto
+12:35:24 ORACLE   360 raccolti, 212 analizzati, 2 BUY, 202 veto
+12:35:11 ORACLE   360 raccolti, 206 analizzati, 2 BUY, 197 veto
+12:34:46 ORACLE   360 raccolti, 219 analizzati, 2 BUY, 208 veto
+12:34:22 ORACLE   360 raccolti, 224 analizzati, 2 BUY, 213 veto
+12:33:59 QUARTER  BUY $BUCKZ 0.113 SOL score 72 impatto 0.62% (Jupiter)
+12:33:59 ORACLE   360 raccolti, 218 analizzati, 2 BUY, 210 veto
 12:33:35 ORACLE   360 raccolti, 231 analizzati, 2 BUY, 223 veto
 12:33:13 ORACLE   360 raccolti, 231 analizzati, 2 BUY, 223 veto
 12:32:49 ORACLE   360 raccolti, 220 analizzati, 2 BUY, 213 veto
@@ -80,22 +96,6 @@ _nessuna_
 12:26:36 ORACLE   360 raccolti, 206 analizzati, 1 BUY, 197 veto
 12:26:23 QUARTER  BUY $GrandPump 0.111 SOL score 65 impatto 1.56% (Jupiter)
 12:26:23 ORACLE   360 raccolti, 210 analizzati, 1 BUY, 198 veto
-12:25:58 QUARTER  $GrandPump impatto 3.5% oltre slippage: annullato
-12:25:57 ORACLE   360 raccolti, 212 analizzati, 1 BUY, 202 veto
-12:25:33 ORACLE   360 raccolti, 228 analizzati, 1 BUY, 216 veto
-12:25:10 ORACLE   360 raccolti, 226 analizzati, 0 BUY, 218 veto
-12:24:46 ORACLE   360 raccolti, 228 analizzati, 0 BUY, 221 veto
-12:24:23 ORACLE   360 raccolti, 227 analizzati, 0 BUY, 222 veto
-12:24:00 ORACLE   360 raccolti, 212 analizzati, 0 BUY, 207 veto
-12:23:38 ORACLE   360 raccolti, 208 analizzati, 0 BUY, 203 veto
-12:23:16 ORACLE   360 raccolti, 220 analizzati, 0 BUY, 215 veto
-12:22:54 ORACLE   360 raccolti, 213 analizzati, 0 BUY, 208 veto
-12:22:32 ORACLE   360 raccolti, 206 analizzati, 0 BUY, 201 veto
-12:22:09 ORACLE   360 raccolti, 215 analizzati, 0 BUY, 207 veto
-12:21:46 ORACLE   360 raccolti, 203 analizzati, 0 BUY, 195 veto
-12:21:22 ORACLE   360 raccolti, 206 analizzati, 0 BUY, 201 veto
-12:21:20 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
-12:21:00 ORACLE   360 raccolti, 201 analizzati, 0 BUY, 195 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
