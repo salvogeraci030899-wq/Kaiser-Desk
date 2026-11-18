@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 17:55 UTC · in esecuzione da 0.1 giorni · 199 run
+Aggiornato: 2026-11-18 18:00 UTC · in esecuzione da 0.1 giorni · 199 run
 
 | | |
 |---|---|
@@ -36,46 +36,46 @@ _nessuna_
 
 ## Ultimi eventi
 ```
-17:55:29 ORACLE   360 raccolti, 220 analizzati, 2 BUY, 214 veto
-17:55:15 SCOUT    Laboratorio: collegato a PumpPortal
-17:55:06 ORACLE   360 raccolti, 205 analizzati, 3 BUY, 196 veto
-17:54:43 ORACLE   360 raccolti, 214 analizzati, 2 BUY, 205 veto
-17:54:20 ORACLE   360 raccolti, 213 analizzati, 2 BUY, 202 veto
-17:53:56 ORACLE   360 raccolti, 202 analizzati, 2 BUY, 191 veto
-17:53:32 SCRIBE   chiuso P-0389 $AI -0.0247 SOL (-20.4%)
-17:53:32 CHARON   RUG-EXIT liquidità $AI vendo 100% a -50.0% -> 0.0960 SOL
-17:53:32 ORACLE   360 raccolti, 212 analizzati, 2 BUY, 200 veto
-17:53:09 QUARTER  BUY $AI 0.120 SOL score 82 impatto 1.38% (Jupiter)
-17:53:08 SCRIBE   chiuso P-0388 $FISH 0.0567 SOL (47.4%)
-17:53:08 CHARON   TP1 $FISH vendo 100% a 79.8% -> 0.1763 SOL
-17:53:08 ORACLE   360 raccolti, 216 analizzati, 1 BUY, 205 veto
-17:52:45 ORACLE   360 raccolti, 207 analizzati, 1 BUY, 198 veto
-17:52:21 ORACLE   360 raccolti, 222 analizzati, 1 BUY, 212 veto
-17:51:58 ORACLE   360 raccolti, 220 analizzati, 1 BUY, 210 veto
-17:51:43 ORACLE   360 raccolti, 224 analizzati, 0 BUY, 215 veto
-17:51:14 ORACLE   360 raccolti, 216 analizzati, 2 BUY, 207 veto
-17:50:50 ORACLE   360 raccolti, 213 analizzati, 2 BUY, 204 veto
-17:50:34 QUARTER  BUY $FISH 0.119 SOL score 65 impatto 0.84% (Jupiter)
-17:50:34 QUARTER  $Founder impatto 5.4% oltre slippage: annullato
-17:50:34 ORACLE   360 raccolti, 209 analizzati, 2 BUY, 203 veto
-17:50:19 ORACLE   360 raccolti, 219 analizzati, 1 BUY, 212 veto
-17:49:48 ORACLE   360 raccolti, 226 analizzati, 1 BUY, 215 veto
-17:49:34 ORACLE   360 raccolti, 214 analizzati, 0 BUY, 204 veto
-17:49:16 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
-17:49:08 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 224 veto
-17:48:56 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 224 veto
-17:48:39 ORACLE   360 raccolti, 148 analizzati, 0 BUY, 143 veto
-17:48:37 SCOUT    DexScreener errore: fetch failed
-17:48:37 SCOUT    DexScreener errore: fetch failed
-17:48:36 SCOUT    DexScreener errore: fetch failed
-17:48:36 SCOUT    DexScreener errore: fetch failed
-17:48:31 SCOUT    DexScreener errore: fetch failed
-17:48:21 SCOUT    jup organic: fetch failed (riuso l'ultimo elenco)
-17:48:21 SCOUT    jup trend: fetch failed (riuso l'ultimo elenco)
-17:48:21 SCOUT    gecko nuovi: fetch failed (riuso l'ultimo elenco)
-17:48:21 SCOUT    gecko nuovi: fetch failed (riuso l'ultimo elenco)
-17:48:21 SCOUT    gecko top: fetch failed (riuso l'ultimo elenco)
-17:48:21 SCOUT    jup nuovi: fetch failed (riuso l'ultimo elenco)
+18:00:42 ORACLE   360 raccolti, 229 analizzati, 1 BUY, 222 veto
+18:00:29 ORACLE   360 raccolti, 186 analizzati, 1 BUY, 181 veto
+18:00:26 SCOUT    DexScreener errore: fetch failed
+18:00:25 SCOUT    DexScreener errore: fetch failed
+18:00:25 SCOUT    DexScreener errore: fetch failed
+18:00:20 SCOUT    jup organic: fetch failed (riuso l'ultimo elenco)
+18:00:20 SCOUT    jup trend: fetch failed (riuso l'ultimo elenco)
+18:00:20 SCOUT    gecko nuovi: fetch failed (riuso l'ultimo elenco)
+18:00:20 SCOUT    gecko nuovi: fetch failed (riuso l'ultimo elenco)
+18:00:20 SCOUT    gecko top: fetch failed (riuso l'ultimo elenco)
+18:00:20 SCOUT    jup nuovi: fetch failed (riuso l'ultimo elenco)
+18:00:10 SCOUT    profili: fetch failed
+18:00:10 SCOUT    prezzo SOL non disponibile: fetch failed
+17:59:49 ORACLE   360 raccolti, 0 analizzati, 0 BUY, 0 veto
+17:59:49 SCOUT    DexScreener errore: fetch failed
+17:59:48 SCOUT    DexScreener errore: fetch failed
+17:59:48 SCOUT    DexScreener errore: fetch failed
+17:59:47 SCOUT    DexScreener errore: fetch failed
+17:59:47 SCOUT    DexScreener errore: fetch failed
+17:59:46 SCOUT    DexScreener errore: fetch failed
+17:59:46 SCOUT    DexScreener errore: fetch failed
+17:59:45 SCOUT    DexScreener errore: fetch failed
+17:59:45 SCOUT    DexScreener errore: fetch failed
+17:59:44 SCOUT    DexScreener errore: fetch failed
+17:59:44 SCOUT    DexScreener errore: fetch failed
+17:59:43 SCOUT    DexScreener errore: fetch failed
+17:59:43 SCOUT    gecko trend: fetch failed (riuso l'ultimo elenco)
+17:59:33 SCOUT    profili: fetch failed
+17:59:32 SCOUT    prezzo SOL non disponibile: fetch failed
+17:59:01 QUARTER  $Founder impatto 3.3% oltre slippage: annullato
+17:59:01 ORACLE   360 raccolti, 223 analizzati, 2 BUY, 214 veto
+17:58:38 QUARTER  $Founder impatto 6.3% oltre slippage: annullato
+17:58:38 ORACLE   360 raccolti, 208 analizzati, 2 BUY, 201 veto
+17:58:14 ORACLE   360 raccolti, 221 analizzati, 2 BUY, 214 veto
+17:58:12 SCOUT    profili: fetch failed
+17:57:50 ORACLE   360 raccolti, 215 analizzati, 1 BUY, 205 veto
+17:57:26 ORACLE   360 raccolti, 213 analizzati, 2 BUY, 204 veto
+17:57:03 ORACLE   360 raccolti, 215 analizzati, 2 BUY, 206 veto
+17:56:40 ORACLE   360 raccolti, 222 analizzati, 2 BUY, 214 veto
+17:56:17 ORACLE   360 raccolti, 209 analizzati, 2 BUY, 201 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
