@@ -1,33 +1,34 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 05:51 UTC · in esecuzione da 0.3 giorni · 185 run
+Aggiornato: 2026-11-18 05:56 UTC · in esecuzione da 0.3 giorni · 185 run
 
 | | |
 |---|---|
-| Equity | **5.7241 SOL** (-4.6% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.6286 SOL |
-| Trade chiusi | 13 |
-| Win rate | 38% |
-| P&L realizzato | -0.2555 SOL (~$-19.19) |
-| Media vincite / perdite | +31.8% / -46.4% |
-| Profit factor | 0.43 |
+| Equity | **5.7193 SOL** (-4.7% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.7193 SOL |
+| Trade chiusi | 14 |
+| Win rate | 36% |
+| P&L realizzato | -0.2807 SOL (~$-21.07) |
+| Media vincite / perdite | +31.8% / -43.7% |
+| Profit factor | 0.40 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$Strawberry** P-0362 · 0.115 SOL · -16.8% · resta 100% · [grafico](https://dexscreener.com/solana/C6WfcwMvDiPkDzK3TDs5JDTZ7Qqp3sDYUNn92Qp1Uxzk)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | TP1 | 4 | +0.1814 |
 | RUG-EXIT liquidità | 3 | -0.2866 |
-| Stop loss | 3 | -0.1360 |
+| Stop loss | 4 | -0.1612 |
 | Time stop | 2 | -0.0220 |
 | Chiusura manuale (app) | 1 | +0.0076 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $Strawberry | 71 | -21.8% | -0.0252 | +0% | -41% | Stop loss | 3m |
 | $Elmo | 66 | -71.2% | -0.0837 | +16% | -66% | RUG-EXIT liquidità | 2m |
 | $BUFO | 70 | -58.0% | -0.0690 | +48% | -72% | Stop loss | 5m |
 | $NADJA | 70 | +0.1% | +0.0001 | +23% | -22% | Time stop | 5m |
@@ -44,6 +45,21 @@ Aggiornato: 2026-11-18 05:51 UTC · in esecuzione da 0.3 giorni · 185 run
 
 ## Ultimi eventi
 ```
+05:56:30 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 242 veto
+05:56:07 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 236 veto
+05:55:43 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 240 veto
+05:55:20 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 241 veto
+05:54:58 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 238 veto
+05:54:35 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 230 veto
+05:54:12 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 239 veto
+05:53:49 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 233 veto
+05:53:26 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 244 veto
+05:53:03 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 241 veto
+05:52:39 SCRIBE   chiuso P-0362 $Strawberry -0.0252 SOL (-21.8%)
+05:52:39 CHARON   Stop loss $Strawberry vendo 100% a -40.9% -> 0.0907 SOL
+05:52:39 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 236 veto
+05:52:15 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 237 veto
+05:51:53 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 231 veto
 05:51:30 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 229 veto
 05:51:07 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 239 veto
 05:50:44 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 237 veto
@@ -69,21 +85,6 @@ Aggiornato: 2026-11-18 05:51 UTC · in esecuzione da 0.3 giorni · 185 run
 05:43:58 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 247 veto
 05:43:35 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 242 veto
 05:43:12 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 239 veto
-05:42:49 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 240 veto
-05:42:27 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 235 veto
-05:42:04 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 241 veto
-05:41:41 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 245 veto
-05:41:18 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 242 veto
-05:41:15 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
-05:40:55 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 237 veto
-05:40:33 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 240 veto
-05:40:10 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 239 veto
-05:39:46 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 244 veto
-05:39:24 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 245 veto
-05:39:01 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 242 veto
-05:38:38 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 245 veto
-05:38:15 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 236 veto
-05:37:52 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 230 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
