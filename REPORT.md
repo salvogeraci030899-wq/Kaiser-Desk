@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 12:23 UTC · in esecuzione da 0.5 giorni · 193 run
+Aggiornato: 2026-11-18 12:28 UTC · in esecuzione da 0.6 giorni · 193 run
 
 | | |
 |---|---|
-| Equity | **5.5604 SOL** (-7.3% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.5604 SOL |
-| Trade chiusi | 24 |
-| Win rate | 29% |
-| P&L realizzato | -0.4396 SOL (~$-32.81) |
-| Media vincite / perdite | +40.2% / -38.4% |
-| Profit factor | 0.43 |
+| Equity | **5.6267 SOL** (-6.2% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.6267 SOL |
+| Trade chiusi | 25 |
+| Win rate | 32% |
+| P&L realizzato | -0.3733 SOL (~$-27.81) |
+| Media vincite / perdite | +42.6% / -38.4% |
+| Profit factor | 0.51 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -19,7 +19,7 @@ _nessuna_
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| TP1 | 5 | +0.2496 |
+| TP1 | 6 | +0.3159 |
 | RUG-EXIT liquidità | 4 | -0.3964 |
 | Stop loss | 9 | -0.3226 |
 | Time stop | 5 | +0.0222 |
@@ -28,6 +28,7 @@ _nessuna_
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $GrandPump | 65 | +59.1% | +0.0663 | +65% | +65% | TP1 | 2m |
 | $DACT | 65 | -10.2% | -0.0115 | +0% | -41% | Stop loss | 0m |
 | $VCN | 75 | -13.8% | -0.0155 | +0% | -42% | Stop loss | 2m |
 | $eepy | 68 | -16.1% | -0.0181 | +2% | -11% | Time stop | 5m |
@@ -55,6 +56,24 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+12:28:29 ORACLE   360 raccolti, 188 analizzati, 1 BUY, 184 veto
+12:28:07 SCRIBE   chiuso P-0373 $GrandPump 0.0663 SOL (59.1%)
+12:28:07 CHARON   TP1 $GrandPump vendo 100% a 64.7% -> 0.1785 SOL
+12:28:07 ORACLE   360 raccolti, 189 analizzati, 1 BUY, 184 veto
+12:27:45 ORACLE   360 raccolti, 190 analizzati, 1 BUY, 184 veto
+12:27:22 ORACLE   360 raccolti, 205 analizzati, 1 BUY, 196 veto
+12:26:59 ORACLE   360 raccolti, 208 analizzati, 1 BUY, 199 veto
+12:26:36 ORACLE   360 raccolti, 206 analizzati, 1 BUY, 197 veto
+12:26:23 QUARTER  BUY $GrandPump 0.111 SOL score 65 impatto 1.56% (Jupiter)
+12:26:23 ORACLE   360 raccolti, 210 analizzati, 1 BUY, 198 veto
+12:25:58 QUARTER  $GrandPump impatto 3.5% oltre slippage: annullato
+12:25:57 ORACLE   360 raccolti, 212 analizzati, 1 BUY, 202 veto
+12:25:33 ORACLE   360 raccolti, 228 analizzati, 1 BUY, 216 veto
+12:25:10 ORACLE   360 raccolti, 226 analizzati, 0 BUY, 218 veto
+12:24:46 ORACLE   360 raccolti, 228 analizzati, 0 BUY, 221 veto
+12:24:23 ORACLE   360 raccolti, 227 analizzati, 0 BUY, 222 veto
+12:24:00 ORACLE   360 raccolti, 212 analizzati, 0 BUY, 207 veto
+12:23:38 ORACLE   360 raccolti, 208 analizzati, 0 BUY, 203 veto
 12:23:16 ORACLE   360 raccolti, 220 analizzati, 0 BUY, 215 veto
 12:22:54 ORACLE   360 raccolti, 213 analizzati, 0 BUY, 208 veto
 12:22:32 ORACLE   360 raccolti, 206 analizzati, 0 BUY, 201 veto
@@ -77,24 +96,6 @@ _nessuna_
 12:16:29 ORACLE   360 raccolti, 236 analizzati, 0 BUY, 228 veto
 12:16:06 ORACLE   357 raccolti, 231 analizzati, 0 BUY, 223 veto
 12:15:42 ORACLE   350 raccolti, 217 analizzati, 0 BUY, 211 veto
-12:15:19 SCOUT    PumpPortal invia nuovi token (52) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-12:15:19 ORACLE   317 raccolti, 195 analizzati, 0 BUY, 190 veto
-12:14:56 ORACLE   287 raccolti, 172 analizzati, 0 BUY, 168 veto
-12:14:34 ORACLE   281 raccolti, 171 analizzati, 0 BUY, 166 veto
-12:14:12 ORACLE   240 raccolti, 157 analizzati, 0 BUY, 153 veto
-12:13:50 ORACLE   230 raccolti, 132 analizzati, 0 BUY, 128 veto
-12:13:28 ORACLE   205 raccolti, 131 analizzati, 0 BUY, 127 veto
-12:13:20 SCOUT    fabbrica: 15814 percorsi, 768 configurazioni, 0 passano, 3023 ms
-12:13:17 ORACLE   204 raccolti, 123 analizzati, 0 BUY, 119 veto
-12:13:13 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-12:13:12 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-12:13:11 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→40, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120
-12:13:11 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
-12:13:11 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
-12:13:11 SCOUT    Laboratorio: collegato a PumpPortal
-12:13:11 KAISER   run #193 · 0 posizioni · equity 5.5604 SOL · GMGN spenta (nessuna chiave) · Grok off
-12:12:58 SCRIBE   fine run · trade 24 · win 29% · P&L -0.4396 SOL · equity 5.5604 SOL
-12:12:48 ORACLE   360 raccolti, 221 analizzati, 0 BUY, 209 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
