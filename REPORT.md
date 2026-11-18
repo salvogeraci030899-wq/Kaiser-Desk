@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 06:01 UTC · in esecuzione da 0.3 giorni · 185 run
+Aggiornato: 2026-11-18 06:07 UTC · in esecuzione da 0.3 giorni · 185 run
 
 | | |
 |---|---|
-| Equity | **5.7193 SOL** (-4.7% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.7193 SOL |
+| Equity | **5.7094 SOL** (-4.8% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.6039 SOL |
 | Trade chiusi | 14 |
 | Win rate | 36% |
-| P&L realizzato | -0.2807 SOL (~$-21.04) |
+| P&L realizzato | -0.2807 SOL (~$-21.03) |
 | Media vincite / perdite | +31.8% / -43.7% |
 | Profit factor | 0.40 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$BLIMBO** P-0363 · 0.114 SOL · -7.8% · resta 100% · [grafico](https://dexscreener.com/solana/9cqzqqRe3KxRDpdYMDKrCatBckznoDhz5mYoa6K3m1QJ)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -45,6 +45,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+06:06:51 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 232 veto
+06:06:29 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 225 veto
+06:06:05 QUARTER  BUY $BLIMBO 0.114 SOL score 64 impatto 1.43% (Jupiter)
+06:06:05 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 230 veto
+06:05:42 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 233 veto
+06:05:19 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 229 veto
+06:04:56 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 235 veto
+06:04:33 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 236 veto
+06:04:11 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 231 veto
+06:03:48 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 234 veto
+06:03:25 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 236 veto
+06:03:02 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 231 veto
+06:02:39 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 239 veto
+06:02:17 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 233 veto
 06:01:53 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 226 veto
 06:01:30 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 229 veto
 06:01:07 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 234 veto
@@ -71,20 +85,6 @@ _nessuna_
 05:53:03 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 241 veto
 05:52:39 SCRIBE   chiuso P-0362 $Strawberry -0.0252 SOL (-21.8%)
 05:52:39 CHARON   Stop loss $Strawberry vendo 100% a -40.9% -> 0.0907 SOL
-05:52:39 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 236 veto
-05:52:15 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 237 veto
-05:51:53 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 231 veto
-05:51:30 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 229 veto
-05:51:07 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 239 veto
-05:50:44 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 237 veto
-05:50:21 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 227 veto
-05:49:58 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 237 veto
-05:49:35 QUARTER  BUY $Strawberry 0.115 SOL score 71 impatto 1.22% (Jupiter)
-05:49:35 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 236 veto
-05:49:12 QUARTER  $Strawberry impatto 2.4% oltre slippage: annullato
-05:49:12 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 223 veto
-05:48:49 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 232 veto
-05:48:26 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 228 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
