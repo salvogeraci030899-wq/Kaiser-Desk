@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 10:13 UTC · in esecuzione da 0.5 giorni · 190 run
+Aggiornato: 2026-11-18 10:18 UTC · in esecuzione da 0.5 giorni · 190 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-18 10:13 UTC · in esecuzione da 0.5 giorni · 190 run
 | Cassa | 5.5874 SOL |
 | Trade chiusi | 22 |
 | Win rate | 32% |
-| P&L realizzato | -0.4126 SOL (~$-30.92) |
+| P&L realizzato | -0.4126 SOL (~$-30.85) |
 | Media vincite / perdite | +40.2% / -41.9% |
 | Profit factor | 0.44 |
 | Circuit breaker | no |
@@ -53,6 +53,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+10:18:14 ORACLE   360 raccolti, 234 analizzati, 0 BUY, 229 veto
+10:17:51 ORACLE   360 raccolti, 230 analizzati, 0 BUY, 223 veto
+10:17:28 ORACLE   360 raccolti, 213 analizzati, 0 BUY, 208 veto
+10:17:06 ORACLE   360 raccolti, 226 analizzati, 0 BUY, 221 veto
+10:16:42 ORACLE   360 raccolti, 232 analizzati, 0 BUY, 226 veto
+10:16:20 ORACLE   360 raccolti, 229 analizzati, 0 BUY, 221 veto
+10:15:56 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 225 veto
+10:15:33 ORACLE   360 raccolti, 230 analizzati, 0 BUY, 222 veto
+10:15:10 ORACLE   360 raccolti, 212 analizzati, 0 BUY, 205 veto
+10:14:46 ORACLE   360 raccolti, 228 analizzati, 0 BUY, 221 veto
+10:14:32 ORACLE   360 raccolti, 231 analizzati, 0 BUY, 223 veto
+10:14:07 ORACLE   360 raccolti, 227 analizzati, 0 BUY, 216 veto
+10:13:43 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 226 veto
 10:13:20 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 227 veto
 10:12:56 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 221 veto
 10:12:32 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 222 veto
@@ -80,19 +93,6 @@ _nessuna_
 10:04:48 ORACLE   360 raccolti, 228 analizzati, 2 BUY, 216 veto
 10:04:24 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 222 veto
 10:04:01 ORACLE   360 raccolti, 230 analizzati, 1 BUY, 218 veto
-10:03:38 ORACLE   360 raccolti, 226 analizzati, 2 BUY, 212 veto
-10:03:14 ORACLE   360 raccolti, 231 analizzati, 2 BUY, 218 veto
-10:02:50 ORACLE   360 raccolti, 231 analizzati, 2 BUY, 218 veto
-10:02:27 ORACLE   360 raccolti, 228 analizzati, 2 BUY, 217 veto
-10:02:03 SCRIBE   chiuso P-0369 $SHARK -0.0085 SOL (-7.5%)
-10:02:03 CHARON   Stop loss $SHARK vendo 100% a -43.4% -> 0.1048 SOL
-10:02:03 ORACLE   360 raccolti, 224 analizzati, 2 BUY, 213 veto
-10:01:38 QUARTER  BUY $eepy 0.111 SOL score 68 impatto 0.57% (Jupiter)
-10:01:38 ORACLE   360 raccolti, 223 analizzati, 2 BUY, 210 veto
-10:01:14 ORACLE   360 raccolti, 214 analizzati, 1 BUY, 201 veto
-10:00:50 ORACLE   360 raccolti, 218 analizzati, 1 BUY, 204 veto
-10:00:27 ORACLE   360 raccolti, 220 analizzati, 1 BUY, 206 veto
-10:00:03 ORACLE   360 raccolti, 208 analizzati, 1 BUY, 196 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
