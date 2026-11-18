@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 17:00 UTC · in esecuzione da 0.0 giorni · 198 run
+Aggiornato: 2026-11-18 17:05 UTC · in esecuzione da 0.0 giorni · 198 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-18 17:00 UTC · in esecuzione da 0.0 giorni · 198 run
 | Cassa | 6.0482 SOL |
 | Trade chiusi | 4 |
 | Win rate | 100% |
-| P&L realizzato | +0.0482 SOL (~$3.51) |
+| P&L realizzato | +0.0482 SOL (~$3.52) |
 | Media vincite / perdite | +9.9% / +0.0% |
 | Profit factor | ∞ |
 | Circuit breaker | no |
@@ -31,6 +31,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+17:05:02 ORACLE   360 raccolti, 208 analizzati, 0 BUY, 203 veto
+17:04:39 ORACLE   360 raccolti, 212 analizzati, 0 BUY, 205 veto
+17:04:14 ORACLE   360 raccolti, 216 analizzati, 0 BUY, 209 veto
+17:03:51 ORACLE   360 raccolti, 210 analizzati, 0 BUY, 203 veto
+17:03:27 ORACLE   360 raccolti, 224 analizzati, 0 BUY, 217 veto
+17:03:04 ORACLE   360 raccolti, 217 analizzati, 0 BUY, 210 veto
+17:02:51 ORACLE   360 raccolti, 213 analizzati, 0 BUY, 207 veto
+17:02:26 ORACLE   360 raccolti, 222 analizzati, 0 BUY, 217 veto
+17:02:02 ORACLE   360 raccolti, 217 analizzati, 1 BUY, 209 veto
+17:01:38 ORACLE   360 raccolti, 215 analizzati, 1 BUY, 207 veto
+17:01:24 ORACLE   360 raccolti, 223 analizzati, 1 BUY, 215 veto
+17:00:59 ORACLE   360 raccolti, 218 analizzati, 1 BUY, 210 veto
+17:00:36 ORACLE   360 raccolti, 217 analizzati, 1 BUY, 208 veto
 17:00:12 ORACLE   360 raccolti, 224 analizzati, 1 BUY, 214 veto
 16:59:47 ORACLE   360 raccolti, 229 analizzati, 1 BUY, 219 veto
 16:59:24 ORACLE   360 raccolti, 209 analizzati, 1 BUY, 203 veto
@@ -58,19 +71,6 @@ _nessuna_
 16:52:18 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 221 veto
 16:51:54 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 228 veto
 16:51:31 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 223 veto
-16:51:18 ORACLE   360 raccolti, 231 analizzati, 1 BUY, 220 veto
-16:50:51 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 226 veto
-16:50:27 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 230 veto
-16:50:23 SCRIBE   chiuso P-0385 $WW 0.0174 SOL (14.4%)
-16:50:23 CHARON   Chiusura manuale (app) $WW vendo 100% a 9.5% -> 0.1389 SOL
-16:50:23 KAISER   chiusura manuale dall'app: P-0385 WW
-16:50:03 ORACLE   360 raccolti, 224 analizzati, 0 BUY, 217 veto
-16:49:40 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 233 veto
-16:49:17 ORACLE   360 raccolti, 220 analizzati, 0 BUY, 215 veto
-16:48:54 ORACLE   360 raccolti, 227 analizzati, 2 BUY, 221 veto
-16:48:26 QUARTER  BUY $WW 0.120 SOL score 63 impatto 0.84% (Jupiter)
-16:48:26 ORACLE   360 raccolti, 230 analizzati, 1 BUY, 225 veto
-16:48:03 ORACLE   360 raccolti, 225 analizzati, 0 BUY, 220 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
