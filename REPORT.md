@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 19:39 UTC · in esecuzione da 0.1 giorni · 201 run
+Aggiornato: 2026-11-18 19:44 UTC · in esecuzione da 0.1 giorni · 201 run
 
 | | |
 |---|---|
@@ -41,6 +41,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+19:44:15 ORACLE   360 raccolti, 212 analizzati, 1 BUY, 204 veto
+19:43:52 ORACLE   360 raccolti, 212 analizzati, 1 BUY, 204 veto
+19:43:27 ORACLE   360 raccolti, 216 analizzati, 1 BUY, 212 veto
+19:43:05 ORACLE   360 raccolti, 212 analizzati, 1 BUY, 207 veto
+19:42:43 ORACLE   360 raccolti, 206 analizzati, 1 BUY, 196 veto
+19:42:19 ORACLE   360 raccolti, 217 analizzati, 1 BUY, 210 veto
+19:41:57 ORACLE   360 raccolti, 210 analizzati, 1 BUY, 202 veto
+19:41:34 ORACLE   360 raccolti, 203 analizzati, 1 BUY, 194 veto
+19:41:10 ORACLE   360 raccolti, 222 analizzati, 1 BUY, 214 veto
+19:40:47 ORACLE   360 raccolti, 216 analizzati, 1 BUY, 208 veto
+19:40:23 ORACLE   360 raccolti, 215 analizzati, 1 BUY, 207 veto
+19:39:59 ORACLE   360 raccolti, 224 analizzati, 1 BUY, 217 veto
+19:39:36 ORACLE   360 raccolti, 226 analizzati, 1 BUY, 219 veto
 19:39:12 ORACLE   360 raccolti, 226 analizzati, 1 BUY, 221 veto
 19:38:49 ORACLE   360 raccolti, 217 analizzati, 1 BUY, 215 veto
 19:38:27 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 230 veto
@@ -68,19 +81,6 @@ _nessuna_
 19:30:19 ORACLE   360 raccolti, 218 analizzati, 0 BUY, 212 veto
 19:29:56 ORACLE   360 raccolti, 225 analizzati, 0 BUY, 220 veto
 19:29:33 ORACLE   360 raccolti, 221 analizzati, 0 BUY, 218 veto
-19:29:10 ORACLE   360 raccolti, 224 analizzati, 0 BUY, 221 veto
-19:28:47 ORACLE   360 raccolti, 229 analizzati, 0 BUY, 225 veto
-19:28:25 ORACLE   360 raccolti, 232 analizzati, 0 BUY, 226 veto
-19:28:02 ORACLE   360 raccolti, 219 analizzati, 0 BUY, 212 veto
-19:27:39 ORACLE   360 raccolti, 229 analizzati, 0 BUY, 223 veto
-19:27:16 ORACLE   360 raccolti, 226 analizzati, 0 BUY, 220 veto
-19:26:52 ORACLE   360 raccolti, 216 analizzati, 0 BUY, 210 veto
-19:26:29 ORACLE   360 raccolti, 222 analizzati, 0 BUY, 217 veto
-19:26:16 SCRIBE   chiuso P-0393 $NGA6 -0.0245 SOL (-20.4%)
-19:26:16 CHARON   Time stop $NGA6 vendo 100% a 2.3% -> 0.0955 SOL
-19:26:06 ORACLE   360 raccolti, 231 analizzati, 0 BUY, 226 veto
-19:25:43 ORACLE   360 raccolti, 225 analizzati, 0 BUY, 221 veto
-19:25:20 ORACLE   360 raccolti, 234 analizzati, 0 BUY, 231 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
