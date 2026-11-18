@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 10:37 UTC · in esecuzione da 0.5 giorni · 191 run
+Aggiornato: 2026-11-18 10:42 UTC · in esecuzione da 0.5 giorni · 191 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-18 10:37 UTC · in esecuzione da 0.5 giorni · 191 run
 | Cassa | 5.5718 SOL |
 | Trade chiusi | 23 |
 | Win rate | 30% |
-| P&L realizzato | -0.4282 SOL (~$-31.83) |
+| P&L realizzato | -0.4282 SOL (~$-31.96) |
 | Media vincite / perdite | +40.2% / -40.2% |
 | Profit factor | 0.43 |
 | Circuit breaker | no |
@@ -54,6 +54,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+10:42:46 ORACLE   360 raccolti, 211 analizzati, 0 BUY, 196 veto
+10:42:23 ORACLE   360 raccolti, 210 analizzati, 0 BUY, 193 veto
+10:42:00 ORACLE   360 raccolti, 210 analizzati, 0 BUY, 196 veto
+10:41:37 ORACLE   360 raccolti, 210 analizzati, 0 BUY, 196 veto
+10:41:14 ORACLE   360 raccolti, 205 analizzati, 0 BUY, 190 veto
+10:40:51 ORACLE   360 raccolti, 199 analizzati, 0 BUY, 185 veto
+10:40:28 ORACLE   360 raccolti, 200 analizzati, 0 BUY, 183 veto
+10:40:04 ORACLE   360 raccolti, 195 analizzati, 0 BUY, 179 veto
+10:39:41 ORACLE   360 raccolti, 189 analizzati, 0 BUY, 173 veto
+10:39:18 ORACLE   360 raccolti, 185 analizzati, 0 BUY, 169 veto
+10:38:55 ORACLE   360 raccolti, 185 analizzati, 0 BUY, 169 veto
+10:38:30 ORACLE   360 raccolti, 181 analizzati, 1 BUY, 168 veto
+10:38:05 ORACLE   360 raccolti, 184 analizzati, 1 BUY, 172 veto
 10:37:41 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
 10:37:41 ORACLE   360 raccolti, 179 analizzati, 1 BUY, 165 veto
 10:37:18 ORACLE   360 raccolti, 180 analizzati, 1 BUY, 167 veto
@@ -81,19 +94,6 @@ _nessuna_
 10:32:22 ORACLE   360 raccolti, 203 analizzati, 1 BUY, 189 veto
 10:31:59 ORACLE   360 raccolti, 200 analizzati, 0 BUY, 186 veto
 10:31:35 ORACLE   360 raccolti, 195 analizzati, 0 BUY, 181 veto
-10:31:11 ORACLE   360 raccolti, 205 analizzati, 0 BUY, 188 veto
-10:30:47 SCRIBE   chiuso P-0371 $VCN -0.0155 SOL (-13.8%)
-10:30:47 CHARON   Stop loss $VCN vendo 100% a -41.9% -> 0.0972 SOL
-10:30:47 ORACLE   360 raccolti, 205 analizzati, 0 BUY, 188 veto
-10:30:24 ORACLE   360 raccolti, 202 analizzati, 0 BUY, 185 veto
-10:30:00 ORACLE   360 raccolti, 209 analizzati, 0 BUY, 191 veto
-10:29:36 ORACLE   360 raccolti, 203 analizzati, 1 BUY, 184 veto
-10:29:13 ORACLE   360 raccolti, 201 analizzati, 1 BUY, 185 veto
-10:28:48 QUARTER  BUY $VCN 0.112 SOL score 75 impatto 1.82% (Jupiter)
-10:28:48 ORACLE   360 raccolti, 209 analizzati, 1 BUY, 194 veto
-10:28:24 QUARTER  $VCN impatto 3.0% oltre slippage: annullato
-10:28:24 ORACLE   360 raccolti, 203 analizzati, 1 BUY, 186 veto
-10:28:00 ORACLE   360 raccolti, 198 analizzati, 0 BUY, 184 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
