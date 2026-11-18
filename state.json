@@ -1,72 +1,8 @@
 {
  "startedAt": 1794957335860,
  "runs": 180,
- "cash": 5.768067761106759,
- "positions": [
-  {
-   "id": "P-0355",
-   "mint": "47mUZNAjSFA3nmxnRa1y7P9Jmi5WPWpVP1ACPQZqpump",
-   "sym": "Spud",
-   "name": "Spud",
-   "pairAddress": "DAiGdmF1yYbQmqfxx4AzXCoPiGPrYita4hVBf52b47K6",
-   "openedAt": 1794964636732,
-   "sizeSOL": 0.1177360767572808,
-   "cost": 0.1187360767572808,
-   "entry": 7.755482717643891e-7,
-   "tokens": 151810.1207155406,
-   "remaining": 1,
-   "rawLeft": "157646251930",
-   "peak": 0.000001021,
-   "tp1Done": false,
-   "spDone": false,
-   "entryLiq": 17392.46,
-   "realized": 0,
-   "score": 67,
-   "why": "runner",
-   "entryInfo": {
-    "srcs": [
-     "nuovo",
-     "jup nuovi",
-     "gecko nuovi",
-     "jup trend",
-     "profili"
-    ],
-    "notes": [
-     "giovane 18m · -22% dal picco"
-    ],
-    "plus": [
-     "turnover 9.6x/h"
-    ],
-    "m": {
-     "liq": 17392.46,
-     "mc": 56436,
-     "ageMin": 13.724116666666667,
-     "v1": 167222.79,
-     "tx1": 5228,
-     "br1": 1.2679965307892453,
-     "br5": 1.2857142857142858,
-     "c5": 1.04,
-     "c1": 76.25,
-     "c6": 76.25,
-     "turn": 9.614671530076828,
-     "price": 0.00005643,
-     "priceNative": 7.554e-7
-    },
-    "grok": null
-   },
-   "last": {
-    "priceNative": 8.791e-7,
-    "liq": 18110.24,
-    "br5": 1.4837662337662338,
-    "tx5": 763,
-    "t": 1794965105825
-   },
-   "fills": [
-    "BUY 0.118 impatto 1.65% (Jupiter)"
-   ],
-   "trough": 7.481e-7
-  }
- ],
+ "cash": 5.8646802751167595,
+ "positions": [],
  "journal": [
   {
    "id": "P-0349",
@@ -343,6 +279,56 @@
    },
    "maePct": -93.17267512842317,
    "age": 2
+  },
+  {
+   "id": "P-0355",
+   "mint": "47mUZNAjSFA3nmxnRa1y7P9Jmi5WPWpVP1ACPQZqpump",
+   "sym": "Spud",
+   "openedAt": 1794964636732,
+   "closedAt": 1794965222009,
+   "cost": 0.1187360767572808,
+   "back": 0.09661251401,
+   "pnl": -0.022123562747280806,
+   "pct": -18.63255326559727,
+   "mode": "paper",
+   "reason": "Time stop",
+   "score": 67,
+   "solUsd": 74.44579084947021,
+   "peakPct": 31.648800876985117,
+   "trigPct": -5.176759877634818,
+   "entryInfo": {
+    "srcs": [
+     "nuovo",
+     "jup nuovi",
+     "gecko nuovi",
+     "jup trend",
+     "profili"
+    ],
+    "notes": [
+     "giovane 18m · -22% dal picco"
+    ],
+    "plus": [
+     "turnover 9.6x/h"
+    ],
+    "m": {
+     "liq": 17392.46,
+     "mc": 56436,
+     "ageMin": 13.724116666666667,
+     "v1": 167222.79,
+     "tx1": 5228,
+     "br1": 1.2679965307892453,
+     "br5": 1.2857142857142858,
+     "c5": 1.04,
+     "c1": 76.25,
+     "c6": 76.25,
+     "turn": 9.614671530076828,
+     "price": 0.00005643,
+     "priceNative": 7.554e-7
+    },
+    "grok": null
+   },
+   "maePct": -5.176759877634818,
+   "age": 14
   }
  ],
  "signals": [
@@ -1716,10 +1702,26 @@
   "date": "2026-11-18",
   "startEq": 5.983093088840941
  },
- "cooldownUntil": 1794964467716,
+ "cooldownUntil": 1794965522012,
  "halted": null,
  "seq": 355,
  "events": [
+  "01:30:05 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 254 veto",
+  "01:29:42 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 255 veto",
+  "01:29:19 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 250 veto",
+  "01:29:16 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)",
+  "01:28:56 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 258 veto",
+  "01:28:33 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 259 veto",
+  "01:28:11 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 256 veto",
+  "01:27:48 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 258 veto",
+  "01:27:25 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 257 veto",
+  "01:27:02 SCRIBE   chiuso P-0355 $Spud -0.0221 SOL (-18.6%)",
+  "01:27:02 CHARON   Time stop $Spud vendo 100% a -5.2% -> 0.0966 SOL",
+  "01:27:01 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 257 veto",
+  "01:26:38 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 259 veto",
+  "01:26:15 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 260 veto",
+  "01:25:52 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 258 veto",
+  "01:25:29 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 256 veto",
   "01:25:05 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 246 veto",
   "01:24:42 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 236 veto",
   "01:24:19 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 252 veto",
@@ -2003,23 +2005,7 @@
   "23:49:20 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 237 veto",
   "23:49:07 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 241 veto",
   "23:48:41 KAISER   limite 1 ingresso/i per scan: $GrokChan rimandato",
-  "23:48:41 QUARTER  BUY $GTAVI 0.118 SOL score 88 impatto 1.28% (Jupiter)",
-  "23:48:41 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 236 veto",
-  "23:48:16 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 244 veto",
-  "23:47:53 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 243 veto",
-  "23:47:29 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 237 veto",
-  "23:47:05 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 248 veto",
-  "23:46:41 QUARTER  BUY $GrokChan 0.118 SOL score 63 impatto 0.42% (Jupiter)",
-  "23:46:40 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 240 veto",
-  "23:46:17 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 239 veto",
-  "23:45:53 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 253 veto",
-  "23:45:31 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 253 veto",
-  "23:45:07 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 246 veto",
-  "23:44:43 ORACLE   352 raccolti, 256 analizzati, 0 BUY, 250 veto",
-  "23:44:19 ORACLE   344 raccolti, 247 analizzati, 0 BUY, 241 veto",
-  "23:43:56 ORACLE   344 raccolti, 235 analizzati, 0 BUY, 229 veto",
-  "23:43:53 KAISER   parametri dall'app: minScore 73→63",
-  "23:43:32 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena"
+  "23:48:41 QUARTER  BUY $GTAVI 0.118 SOL score 88 impatto 1.28% (Jupiter)"
  ],
  "capital": 6,
  "resetId": "C-0094",
@@ -14255,10 +14241,6 @@
  "lastDaily": "2026-11-17",
  "cal": [
   {
-   "t": 1794874863458,
-   "g": 44.4
-  },
-  {
    "t": 1794875882002,
    "g": 1.5
   },
@@ -14653,6 +14635,10 @@
   {
    "t": 1794964167714,
    "g": 61.8
+  },
+  {
+   "t": 1794965222009,
+   "g": -11.7
   }
  ]
 }
