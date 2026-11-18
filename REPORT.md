@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 23:30 UTC · in esecuzione da 0.3 giorni · 206 run
+Aggiornato: 2026-11-18 23:35 UTC · in esecuzione da 0.3 giorni · 206 run
 
 | | |
 |---|---|
-| Equity | **5.7101 SOL** (-4.8% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.7101 SOL |
-| Trade chiusi | 24 |
-| Win rate | 33% |
-| P&L realizzato | -0.2899 SOL (~$-21.25) |
-| Media vincite / perdite | +34.9% / -32.5% |
-| Profit factor | 0.53 |
+| Equity | **5.6626 SOL** (-5.6% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.6626 SOL |
+| Trade chiusi | 25 |
+| Win rate | 32% |
+| P&L realizzato | -0.3374 SOL (~$-24.75) |
+| Media vincite / perdite | +34.9% / -33.0% |
+| Profit factor | 0.49 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -23,11 +23,12 @@ _nessuna_
 | RUG-EXIT liquidità | 4 | -0.3391 |
 | TP1 | 3 | +0.2593 |
 | Time stop | 8 | -0.1086 |
-| Stop loss | 3 | -0.1250 |
+| Stop loss | 4 | -0.1724 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $GTAVI | 75 | -41.2% | -0.0474 | +9% | -36% | Stop loss | 3m |
 | $vicestream | 65 | -8.3% | -0.0096 | +0% | -10% | Time stop | 5m |
 | $Mandy | 82 | -28.6% | -0.0332 | +0% | -42% | Stop loss | 0m |
 | $NASDUCK | 67 | +97.8% | +0.1113 | +82% | +82% | TP1 | 5m |
@@ -55,6 +56,22 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+23:35:07 ORACLE   360 raccolti, 241 analizzati, 3 BUY, 234 veto
+23:34:43 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 240 veto
+23:34:21 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 233 veto
+23:33:57 SCRIBE   chiuso P-0407 $GTAVI -0.0474 SOL (-41.2%)
+23:33:57 CHARON   Stop loss $GTAVI vendo 100% a -36.5% -> 0.0678 SOL
+23:33:57 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 246 veto
+23:33:35 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 245 veto
+23:33:12 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 243 veto
+23:32:48 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 238 veto
+23:32:25 ORACLE   360 raccolti, 233 analizzati, 1 BUY, 227 veto
+23:32:02 ORACLE   360 raccolti, 218 analizzati, 1 BUY, 212 veto
+23:31:39 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 231 veto
+23:31:15 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 236 veto
+23:30:52 QUARTER  BUY $GTAVI 0.114 SOL score 75 impatto 0.28% (Jupiter)
+23:30:52 ORACLE   360 raccolti, 228 analizzati, 2 BUY, 219 veto
+23:30:28 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 223 veto
 23:30:05 ORACLE   360 raccolti, 228 analizzati, 1 BUY, 219 veto
 23:29:42 ORACLE   360 raccolti, 217 analizzati, 1 BUY, 209 veto
 23:29:19 ORACLE   360 raccolti, 223 analizzati, 1 BUY, 215 veto
@@ -79,22 +96,6 @@ _nessuna_
 23:22:53 ORACLE   360 raccolti, 207 analizzati, 0 BUY, 201 veto
 23:22:30 ORACLE   360 raccolti, 217 analizzati, 0 BUY, 213 veto
 23:22:07 ORACLE   360 raccolti, 205 analizzati, 0 BUY, 201 veto
-23:21:45 ORACLE   360 raccolti, 203 analizzati, 0 BUY, 199 veto
-23:21:23 ORACLE   360 raccolti, 211 analizzati, 0 BUY, 207 veto
-23:21:01 ORACLE   360 raccolti, 206 analizzati, 0 BUY, 202 veto
-23:20:38 ORACLE   360 raccolti, 212 analizzati, 0 BUY, 208 veto
-23:20:13 ORACLE   360 raccolti, 209 analizzati, 1 BUY, 201 veto
-23:19:50 ORACLE   360 raccolti, 216 analizzati, 1 BUY, 208 veto
-23:19:26 ORACLE   360 raccolti, 211 analizzati, 1 BUY, 203 veto
-23:19:03 ORACLE   360 raccolti, 221 analizzati, 1 BUY, 211 veto
-23:18:40 ORACLE   360 raccolti, 222 analizzati, 1 BUY, 213 veto
-23:18:16 ORACLE   360 raccolti, 215 analizzati, 1 BUY, 206 veto
-23:17:52 QUARTER  BUY $vicestream 0.114 SOL score 65 impatto 1.38% (Jupiter)
-23:17:52 ORACLE   360 raccolti, 217 analizzati, 1 BUY, 208 veto
-23:17:29 ORACLE   360 raccolti, 220 analizzati, 0 BUY, 211 veto
-23:17:05 ORACLE   352 raccolti, 199 analizzati, 0 BUY, 191 veto
-23:16:52 SCOUT    PumpPortal invia nuovi token (26) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-23:16:42 ORACLE   308 raccolti, 175 analizzati, 0 BUY, 168 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
