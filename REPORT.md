@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 17:30 UTC · in esecuzione da 0.1 giorni · 199 run
+Aggiornato: 2026-11-18 17:35 UTC · in esecuzione da 0.1 giorni · 199 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-18 17:30 UTC · in esecuzione da 0.1 giorni · 199 run
 | Cassa | 6.0482 SOL |
 | Trade chiusi | 4 |
 | Win rate | 100% |
-| P&L realizzato | +0.0482 SOL (~$3.56) |
+| P&L realizzato | +0.0482 SOL (~$3.57) |
 | Media vincite / perdite | +9.9% / +0.0% |
 | Profit factor | ∞ |
 | Circuit breaker | no |
@@ -31,6 +31,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+17:35:20 ORACLE   360 raccolti, 231 analizzati, 1 BUY, 219 veto
+17:34:56 ORACLE   360 raccolti, 217 analizzati, 0 BUY, 206 veto
+17:34:31 ORACLE   360 raccolti, 221 analizzati, 0 BUY, 213 veto
+17:34:07 ORACLE   360 raccolti, 223 analizzati, 1 BUY, 214 veto
+17:33:44 ORACLE   360 raccolti, 214 analizzati, 1 BUY, 205 veto
+17:33:20 ORACLE   360 raccolti, 223 analizzati, 1 BUY, 212 veto
+17:32:56 ORACLE   360 raccolti, 223 analizzati, 1 BUY, 213 veto
+17:32:33 ORACLE   360 raccolti, 214 analizzati, 1 BUY, 204 veto
+17:32:09 ORACLE   360 raccolti, 221 analizzati, 1 BUY, 207 veto
+17:31:45 ORACLE   360 raccolti, 219 analizzati, 1 BUY, 206 veto
+17:31:21 ORACLE   360 raccolti, 214 analizzati, 1 BUY, 204 veto
+17:30:57 ORACLE   360 raccolti, 225 analizzati, 0 BUY, 214 veto
+17:30:32 ORACLE   360 raccolti, 222 analizzati, 0 BUY, 209 veto
 17:30:19 ORACLE   360 raccolti, 223 analizzati, 0 BUY, 211 veto
 17:30:13 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)
 17:29:53 ORACLE   360 raccolti, 223 analizzati, 0 BUY, 213 veto
@@ -58,19 +71,6 @@ _nessuna_
 17:22:22 ORACLE   360 raccolti, 182 analizzati, 0 BUY, 176 veto
 17:22:19 SCOUT    DexScreener errore: fetch failed
 17:22:19 SCOUT    DexScreener errore: fetch failed
-17:22:18 SCOUT    jup organic: fetch failed (riuso l'ultimo elenco)
-17:22:18 SCOUT    jup trend: fetch failed (riuso l'ultimo elenco)
-17:22:18 SCOUT    jup nuovi: fetch failed (riuso l'ultimo elenco)
-17:22:08 SCOUT    gecko top: fetch failed (riuso l'ultimo elenco)
-17:22:08 SCOUT    gecko nuovi: fetch failed (riuso l'ultimo elenco)
-17:22:08 SCOUT    gecko nuovi: fetch failed (riuso l'ultimo elenco)
-17:22:08 SCOUT    gecko trend: fetch failed (riuso l'ultimo elenco)
-17:22:08 SCOUT    profili: fetch failed
-17:22:08 SCOUT    prezzo SOL non disponibile: fetch failed
-17:21:47 ORACLE   360 raccolti, 0 analizzati, 0 BUY, 0 veto
-17:21:47 SCOUT    DexScreener errore: fetch failed
-17:21:46 SCOUT    DexScreener errore: fetch failed
-17:21:46 SCOUT    DexScreener errore: fetch failed
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
