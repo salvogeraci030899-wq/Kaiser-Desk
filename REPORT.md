@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 23:10 UTC · in esecuzione da 0.3 giorni · 205 run
+Aggiornato: 2026-11-18 23:14 UTC · in esecuzione da 0.3 giorni · 205 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-18 23:10 UTC · in esecuzione da 0.3 giorni · 205 run
 | Cassa | 5.7197 SOL |
 | Trade chiusi | 23 |
 | Win rate | 35% |
-| P&L realizzato | -0.2803 SOL (~$-20.50) |
+| P&L realizzato | -0.2803 SOL (~$-20.47) |
 | Media vincite / perdite | +34.9% / -34.1% |
 | Profit factor | 0.54 |
 | Circuit breaker | no |
@@ -54,6 +54,21 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+23:14:33 SCRIBE   fine run · trade 23 · win 35% · P&L -0.2803 SOL · equity 5.7197 SOL
+23:14:26 ORACLE   360 raccolti, 203 analizzati, 0 BUY, 195 veto
+23:14:03 ORACLE   360 raccolti, 206 analizzati, 0 BUY, 198 veto
+23:13:39 ORACLE   360 raccolti, 205 analizzati, 0 BUY, 198 veto
+23:13:17 ORACLE   360 raccolti, 201 analizzati, 0 BUY, 194 veto
+23:12:54 QUARTER  $vicestream impatto 2.6% oltre slippage: annullato
+23:12:54 ORACLE   360 raccolti, 204 analizzati, 1 BUY, 197 veto
+23:12:41 QUARTER  $vicestream impatto 2.1% oltre slippage: annullato
+23:12:41 ORACLE   360 raccolti, 199 analizzati, 1 BUY, 193 veto
+23:12:15 ORACLE   360 raccolti, 202 analizzati, 0 BUY, 199 veto
+23:11:53 ORACLE   360 raccolti, 209 analizzati, 0 BUY, 206 veto
+23:11:32 ORACLE   360 raccolti, 209 analizzati, 0 BUY, 207 veto
+23:11:09 ORACLE   360 raccolti, 220 analizzati, 0 BUY, 218 veto
+23:10:47 ORACLE   360 raccolti, 232 analizzati, 0 BUY, 230 veto
+23:10:26 ORACLE   360 raccolti, 232 analizzati, 0 BUY, 229 veto
 23:10:04 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 238 veto
 23:09:41 ORACLE   360 raccolti, 236 analizzati, 0 BUY, 233 veto
 23:09:19 ORACLE   360 raccolti, 229 analizzati, 0 BUY, 225 veto
@@ -79,21 +94,6 @@ _nessuna_
 23:02:50 ORACLE   360 raccolti, 231 analizzati, 0 BUY, 225 veto
 23:02:27 ORACLE   360 raccolti, 224 analizzati, 0 BUY, 217 veto
 23:02:14 SCRIBE   chiuso P-0404 $NASDUCK 0.1113 SOL (97.8%)
-23:02:14 CHARON   TP1 $NASDUCK vendo 100% a 82.1% -> 0.2252 SOL
-23:02:03 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 237 veto
-23:01:41 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 232 veto
-23:01:18 ORACLE   360 raccolti, 230 analizzati, 0 BUY, 223 veto
-23:00:55 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 235 veto
-23:00:32 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 245 veto
-23:00:19 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 228 veto
-22:59:53 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 247 veto
-22:59:30 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 246 veto
-22:59:07 ORACLE   360 raccolti, 232 analizzati, 0 BUY, 223 veto
-22:58:44 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 234 veto
-22:58:20 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 243 veto
-22:57:57 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 227 veto
-22:57:34 QUARTER  BUY $NASDUCK 0.113 SOL score 67 impatto 0.00% (Jupiter)
-22:57:34 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 239 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
