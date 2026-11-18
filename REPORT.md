@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 18:00 UTC · in esecuzione da 0.1 giorni · 199 run
+Aggiornato: 2026-11-18 18:04 UTC · in esecuzione da 0.1 giorni · 199 run
 
 | | |
 |---|---|
-| Equity | **5.9613 SOL** (-0.6% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.9613 SOL |
-| Trade chiusi | 7 |
-| Win rate | 71% |
-| P&L realizzato | -0.0387 SOL (~$-2.84) |
-| Media vincite / perdite | +17.4% / -59.0% |
-| Profit factor | 0.73 |
+| Equity | **5.9383 SOL** (-1.0% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.9383 SOL |
+| Trade chiusi | 8 |
+| Win rate | 63% |
+| P&L realizzato | -0.0617 SOL (~$-4.54) |
+| Media vincite / perdite | +17.4% / -45.7% |
+| Profit factor | 0.63 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -19,13 +19,14 @@ _nessuna_
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| Chiusura manuale (app) | 4 | +0.0482 |
+| Chiusura manuale (app) | 5 | +0.0252 |
 | RUG-EXIT liquidità | 2 | -0.1436 |
 | TP1 | 1 | +0.0567 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $BATPEPE | 67 | -19.1% | -0.0230 | +9% | +9% | Chiusura manuale (app) | 1m |
 | $AI | 82 | -20.4% | -0.0247 | +0% | -50% | RUG-EXIT liquidità | 0m |
 | $FISH | 65 | +47.4% | +0.0567 | +80% | +80% | TP1 | 3m |
 | $GODS | 65 | -97.5% | -0.1189 | +0% | -96% | RUG-EXIT liquidità | 1m |
@@ -36,6 +37,23 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+18:04:45 SCRIBE   fine run · trade 8 · win 63% · P&L -0.0617 SOL · equity 5.9383 SOL
+18:04:27 ORACLE   360 raccolti, 213 analizzati, 2 BUY, 201 veto
+18:04:14 ORACLE   360 raccolti, 213 analizzati, 2 BUY, 202 veto
+18:04:09 SCRIBE   chiuso P-0390 $BATPEPE -0.0230 SOL (-19.1%)
+18:04:09 CHARON   Chiusura manuale (app) $BATPEPE vendo 100% a 9.0% -> 0.0972 SOL
+18:04:09 KAISER   chiusura manuale dall'app: P-0390 BATPEPE
+18:03:48 ORACLE   360 raccolti, 211 analizzati, 2 BUY, 199 veto
+18:03:24 QUARTER  BUY $BATPEPE 0.119 SOL score 67 impatto 1.91% (Jupiter)
+18:03:24 ORACLE   360 raccolti, 208 analizzati, 2 BUY, 199 veto
+18:03:01 QUARTER  $BATPEPE impatto 2.3% oltre slippage: annullato
+18:03:01 ORACLE   360 raccolti, 212 analizzati, 2 BUY, 204 veto
+18:02:36 ORACLE   360 raccolti, 198 analizzati, 2 BUY, 188 veto
+18:02:22 ORACLE   360 raccolti, 214 analizzati, 3 BUY, 203 veto
+18:01:53 ORACLE   360 raccolti, 213 analizzati, 2 BUY, 202 veto
+18:01:30 ORACLE   360 raccolti, 215 analizzati, 2 BUY, 205 veto
+18:01:05 ORACLE   360 raccolti, 229 analizzati, 1 BUY, 222 veto
+18:01:04 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
 18:00:42 ORACLE   360 raccolti, 229 analizzati, 1 BUY, 222 veto
 18:00:29 ORACLE   360 raccolti, 186 analizzati, 1 BUY, 181 veto
 18:00:26 SCOUT    DexScreener errore: fetch failed
@@ -59,23 +77,6 @@ _nessuna_
 17:59:46 SCOUT    DexScreener errore: fetch failed
 17:59:45 SCOUT    DexScreener errore: fetch failed
 17:59:45 SCOUT    DexScreener errore: fetch failed
-17:59:44 SCOUT    DexScreener errore: fetch failed
-17:59:44 SCOUT    DexScreener errore: fetch failed
-17:59:43 SCOUT    DexScreener errore: fetch failed
-17:59:43 SCOUT    gecko trend: fetch failed (riuso l'ultimo elenco)
-17:59:33 SCOUT    profili: fetch failed
-17:59:32 SCOUT    prezzo SOL non disponibile: fetch failed
-17:59:01 QUARTER  $Founder impatto 3.3% oltre slippage: annullato
-17:59:01 ORACLE   360 raccolti, 223 analizzati, 2 BUY, 214 veto
-17:58:38 QUARTER  $Founder impatto 6.3% oltre slippage: annullato
-17:58:38 ORACLE   360 raccolti, 208 analizzati, 2 BUY, 201 veto
-17:58:14 ORACLE   360 raccolti, 221 analizzati, 2 BUY, 214 veto
-17:58:12 SCOUT    profili: fetch failed
-17:57:50 ORACLE   360 raccolti, 215 analizzati, 1 BUY, 205 veto
-17:57:26 ORACLE   360 raccolti, 213 analizzati, 2 BUY, 204 veto
-17:57:03 ORACLE   360 raccolti, 215 analizzati, 2 BUY, 206 veto
-17:56:40 ORACLE   360 raccolti, 222 analizzati, 2 BUY, 214 veto
-17:56:17 ORACLE   360 raccolti, 209 analizzati, 2 BUY, 201 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
