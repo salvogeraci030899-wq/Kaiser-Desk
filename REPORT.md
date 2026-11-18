@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 03:36 UTC · in esecuzione da 0.2 giorni · 182 run
+Aggiornato: 2026-11-18 03:41 UTC · in esecuzione da 0.2 giorni · 182 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-18 03:36 UTC · in esecuzione da 0.2 giorni · 182 run
 | Cassa | 5.8971 SOL |
 | Trade chiusi | 11 |
 | Win rate | 45% |
-| P&L realizzato | -0.1029 SOL (~$-7.72) |
+| P&L realizzato | -0.1029 SOL (~$-7.71) |
 | Media vincite / perdite | +31.8% / -40.4% |
 | Profit factor | 0.65 |
 | Circuit breaker | no |
@@ -42,6 +42,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+03:41:16 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 234 veto
+03:40:52 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 233 veto
+03:40:28 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 233 veto
+03:40:04 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 248 veto
+03:39:40 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 236 veto
+03:39:16 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 226 veto
+03:38:52 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 242 veto
+03:38:28 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 249 veto
+03:38:04 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 243 veto
+03:37:40 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 256 veto
+03:37:17 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 254 veto
+03:36:54 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 246 veto
+03:36:30 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 250 veto
 03:36:07 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 253 veto
 03:35:44 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 234 veto
 03:35:19 SCRIBE   chiuso P-0359 $NADJA 0.0001 SOL (0.1%)
@@ -69,19 +82,6 @@ _nessuna_
 03:28:56 ORACLE   360 raccolti, 231 analizzati, 2 BUY, 224 veto
 03:28:33 ORACLE   360 raccolti, 227 analizzati, 2 BUY, 221 veto
 03:28:09 ORACLE   360 raccolti, 229 analizzati, 2 BUY, 219 veto
-03:27:44 QUARTER  BUY $VCN 0.119 SOL score 72 impatto 0.30% (Jupiter)
-03:27:44 ORACLE   360 raccolti, 231 analizzati, 2 BUY, 222 veto
-03:27:21 QUARTER  $VCN impatto 2.4% oltre slippage: annullato
-03:27:21 ORACLE   360 raccolti, 231 analizzati, 2 BUY, 222 veto
-03:27:07 QUARTER  $VCN impatto 2.5% oltre slippage: annullato
-03:27:07 ORACLE   360 raccolti, 230 analizzati, 2 BUY, 221 veto
-03:26:41 ORACLE   360 raccolti, 223 analizzati, 1 BUY, 213 veto
-03:26:17 ORACLE   360 raccolti, 222 analizzati, 1 BUY, 211 veto
-03:25:54 ORACLE   360 raccolti, 224 analizzati, 1 BUY, 215 veto
-03:25:30 ORACLE   360 raccolti, 214 analizzati, 1 BUY, 205 veto
-03:25:07 ORACLE   360 raccolti, 208 analizzati, 1 BUY, 200 veto
-03:24:43 ORACLE   360 raccolti, 216 analizzati, 1 BUY, 206 veto
-03:24:19 ORACLE   360 raccolti, 211 analizzati, 0 BUY, 200 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
