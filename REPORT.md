@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 22:20 UTC · in esecuzione da 0.3 giorni · 204 run
+Aggiornato: 2026-11-18 22:24 UTC · in esecuzione da 0.3 giorni · 204 run
 
 | | |
 |---|---|
-| Equity | **5.5503 SOL** (-7.5% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.5503 SOL |
-| Trade chiusi | 20 |
-| Win rate | 30% |
-| P&L realizzato | -0.4497 SOL (~$-32.77) |
-| Media vincite / perdite | +16.6% / -34.5% |
-| Profit factor | 0.21 |
+| Equity | **5.6416 SOL** (-6.0% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.6416 SOL |
+| Trade chiusi | 21 |
+| Win rate | 33% |
+| P&L realizzato | -0.3584 SOL (~$-26.09) |
+| Media vincite / perdite | +25.9% / -34.5% |
+| Profit factor | 0.37 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -21,13 +21,14 @@ _nessuna_
 |---|---|---|
 | Chiusura manuale (app) | 6 | +0.0235 |
 | RUG-EXIT liquidità | 4 | -0.3391 |
-| TP1 | 1 | +0.0567 |
+| TP1 | 2 | +0.1480 |
 | Time stop | 7 | -0.0990 |
 | Stop loss | 2 | -0.0917 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $Streamoor | 73 | +81.5% | +0.0913 | +85% | +85% | TP1 | 2m |
 | $NAP | 68 | -7.2% | -0.0081 | +2% | +1% | Time stop | 5m |
 | $gte7 | 70 | -33.5% | -0.0379 | +0% | -30% | Stop loss | 1m |
 | $$WISHES | 63 | -6.4% | -0.0073 | +9% | +2% | Time stop | 8m |
@@ -51,6 +52,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+22:24:20 SCRIBE   fine run · trade 21 · win 33% · P&L -0.3584 SOL · equity 5.6416 SOL
+22:24:20 ORACLE   360 raccolti, 230 analizzati, 2 BUY, 225 veto
+22:23:56 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 239 veto
+22:23:32 ORACLE   360 raccolti, 243 analizzati, 2 BUY, 238 veto
+22:23:09 SCRIBE   chiuso P-0403 $Streamoor 0.0913 SOL (81.5%)
+22:23:09 CHARON   TP1 $Streamoor vendo 100% a 85.0% -> 0.2033 SOL
+22:23:09 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 240 veto
+22:22:45 ORACLE   360 raccolti, 231 analizzati, 2 BUY, 227 veto
+22:22:22 ORACLE   360 raccolti, 240 analizzati, 2 BUY, 235 veto
+22:21:59 ORACLE   360 raccolti, 213 analizzati, 2 BUY, 208 veto
+22:21:36 ORACLE   360 raccolti, 233 analizzati, 3 BUY, 225 veto
+22:21:11 QUARTER  BUY $Streamoor 0.111 SOL score 73 impatto 1.97% (Jupiter)
+22:21:11 ORACLE   360 raccolti, 230 analizzati, 3 BUY, 222 veto
 22:20:48 QUARTER  $Streamoor impatto 2.3% oltre slippage: annullato
 22:20:48 ORACLE   360 raccolti, 210 analizzati, 3 BUY, 203 veto
 22:20:24 ORACLE   360 raccolti, 226 analizzati, 3 BUY, 215 veto
@@ -78,19 +92,6 @@ _nessuna_
 22:12:24 ORACLE   360 raccolti, 213 analizzati, 2 BUY, 206 veto
 22:12:21 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
 22:12:00 ORACLE   360 raccolti, 222 analizzati, 2 BUY, 212 veto
-22:11:37 ORACLE   360 raccolti, 219 analizzati, 2 BUY, 209 veto
-22:11:12 ORACLE   360 raccolti, 221 analizzati, 3 BUY, 211 veto
-22:10:48 ORACLE   360 raccolti, 215 analizzati, 3 BUY, 205 veto
-22:10:24 QUARTER  BUY $NAP 0.111 SOL score 68 impatto 1.37% (Jupiter)
-22:10:24 ORACLE   360 raccolti, 224 analizzati, 2 BUY, 211 veto
-22:10:00 QUARTER  $NAP impatto 2.4% oltre slippage: annullato
-22:10:00 ORACLE   360 raccolti, 209 analizzati, 2 BUY, 198 veto
-22:09:35 QUARTER  $NAP impatto 2.4% oltre slippage: annullato
-22:09:35 ORACLE   360 raccolti, 228 analizzati, 2 BUY, 220 veto
-22:09:11 ORACLE   360 raccolti, 228 analizzati, 2 BUY, 218 veto
-22:08:48 ORACLE   360 raccolti, 222 analizzati, 2 BUY, 215 veto
-22:08:24 ORACLE   360 raccolti, 224 analizzati, 2 BUY, 218 veto
-22:08:00 ORACLE   360 raccolti, 219 analizzati, 1 BUY, 213 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
