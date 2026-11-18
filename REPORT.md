@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 16:39 UTC · in esecuzione da 0.0 giorni · 198 run
+Aggiornato: 2026-11-18 16:45 UTC · in esecuzione da 0.0 giorni · 198 run
 
 | | |
 |---|---|
@@ -29,6 +29,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+16:45:01 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 236 veto
+16:44:38 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 229 veto
+16:44:14 ORACLE   360 raccolti, 192 analizzati, 1 BUY, 184 veto
+16:43:49 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 220 veto
+16:43:25 ORACLE   360 raccolti, 227 analizzati, 0 BUY, 215 veto
+16:43:02 ORACLE   360 raccolti, 223 analizzati, 0 BUY, 211 veto
+16:42:38 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 225 veto
+16:42:15 ORACLE   360 raccolti, 232 analizzati, 0 BUY, 221 veto
+16:41:51 ORACLE   360 raccolti, 229 analizzati, 0 BUY, 221 veto
+16:41:27 ORACLE   360 raccolti, 235 analizzati, 0 BUY, 229 veto
+16:41:04 ORACLE   360 raccolti, 231 analizzati, 0 BUY, 226 veto
+16:40:41 ORACLE   360 raccolti, 211 analizzati, 0 BUY, 206 veto
+16:40:18 ORACLE   360 raccolti, 232 analizzati, 0 BUY, 226 veto
 16:39:55 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 233 veto
 16:39:32 ORACLE   360 raccolti, 231 analizzati, 0 BUY, 226 veto
 16:39:08 ORACLE   360 raccolti, 224 analizzati, 0 BUY, 219 veto
@@ -56,19 +69,6 @@ _nessuna_
 16:30:38 ORACLE   360 raccolti, 213 analizzati, 0 BUY, 202 veto
 16:30:25 ORACLE   360 raccolti, 212 analizzati, 0 BUY, 201 veto
 16:29:58 ORACLE   360 raccolti, 227 analizzati, 0 BUY, 215 veto
-16:29:35 ORACLE   360 raccolti, 219 analizzati, 0 BUY, 209 veto
-16:29:12 ORACLE   360 raccolti, 218 analizzati, 1 BUY, 208 veto
-16:28:48 ORACLE   360 raccolti, 212 analizzati, 1 BUY, 202 veto
-16:28:25 ORACLE   360 raccolti, 222 analizzati, 1 BUY, 210 veto
-16:28:22 SCRIBE   chiuso P-0384 $DCTY 0.0138 SOL (11.4%)
-16:28:22 CHARON   Chiusura manuale (app) $DCTY vendo 100% a 2.8% -> 0.1350 SOL
-16:28:22 KAISER   chiusura manuale dall'app: P-0384 DCTY
-16:28:11 SCOUT    PumpPortal invia nuovi token (21) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-16:28:01 ORACLE   360 raccolti, 219 analizzati, 1 BUY, 208 veto
-16:27:37 QUARTER  BUY $DCTY 0.120 SOL score 65 impatto 0.00% (Jupiter)
-16:27:37 ORACLE   360 raccolti, 224 analizzati, 1 BUY, 214 veto
-16:27:14 ORACLE   360 raccolti, 215 analizzati, 0 BUY, 205 veto
-16:26:51 ORACLE   360 raccolti, 220 analizzati, 1 BUY, 210 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
