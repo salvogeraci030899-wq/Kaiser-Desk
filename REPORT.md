@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 03:55 UTC · in esecuzione da 0.2 giorni · 183 run
+Aggiornato: 2026-11-18 04:00 UTC · in esecuzione da 0.2 giorni · 183 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-18 03:55 UTC · in esecuzione da 0.2 giorni · 183 run
 | Cassa | 5.8281 SOL |
 | Trade chiusi | 12 |
 | Win rate | 42% |
-| P&L realizzato | -0.1719 SOL (~$-12.86) |
+| P&L realizzato | -0.1719 SOL (~$-12.82) |
 | Media vincite / perdite | +31.8% / -42.9% |
 | Profit factor | 0.52 |
 | Circuit breaker | no |
@@ -43,6 +43,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+04:00:43 ORACLE   360 raccolti, 212 analizzati, 0 BUY, 206 veto
+04:00:20 ORACLE   360 raccolti, 216 analizzati, 0 BUY, 209 veto
+03:59:57 ORACLE   360 raccolti, 209 analizzati, 0 BUY, 201 veto
+03:59:34 ORACLE   360 raccolti, 210 analizzati, 0 BUY, 202 veto
+03:59:11 ORACLE   360 raccolti, 215 analizzati, 0 BUY, 207 veto
+03:58:47 ORACLE   360 raccolti, 207 analizzati, 0 BUY, 198 veto
+03:58:23 ORACLE   360 raccolti, 209 analizzati, 0 BUY, 201 veto
+03:57:59 ORACLE   360 raccolti, 215 analizzati, 0 BUY, 209 veto
+03:57:35 ORACLE   360 raccolti, 210 analizzati, 0 BUY, 204 veto
+03:57:12 ORACLE   360 raccolti, 218 analizzati, 0 BUY, 213 veto
+03:56:50 ORACLE   360 raccolti, 215 analizzati, 0 BUY, 209 veto
+03:56:27 ORACLE   360 raccolti, 215 analizzati, 0 BUY, 209 veto
+03:56:04 ORACLE   360 raccolti, 220 analizzati, 0 BUY, 214 veto
 03:55:41 ORACLE   360 raccolti, 223 analizzati, 0 BUY, 216 veto
 03:55:18 ORACLE   360 raccolti, 216 analizzati, 0 BUY, 208 veto
 03:54:55 ORACLE   359 raccolti, 217 analizzati, 0 BUY, 210 veto
@@ -70,19 +83,6 @@ _nessuna_
 03:50:32 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 233 veto
 03:50:18 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 231 veto
 03:49:53 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 227 veto
-03:49:29 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 228 veto
-03:49:06 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 228 veto
-03:48:51 SCRIBE   chiuso P-0360 $BUFO -0.0690 SOL (-58.0%)
-03:48:51 CHARON   Stop loss $BUFO vendo 100% a -71.6% -> 0.0500 SOL
-03:48:51 ORACLE   360 raccolti, 236 analizzati, 0 BUY, 224 veto
-03:48:27 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 225 veto
-03:48:03 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 221 veto
-03:47:39 ORACLE   360 raccolti, 228 analizzati, 1 BUY, 218 veto
-03:47:15 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 226 veto
-03:46:51 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 235 veto
-03:46:27 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 230 veto
-03:46:03 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 227 veto
-03:45:39 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 227 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
