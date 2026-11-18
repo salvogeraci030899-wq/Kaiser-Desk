@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 00:25 UTC · in esecuzione da 0.0 giorni · 178 run
+Aggiornato: 2026-11-18 00:29 UTC · in esecuzione da 0.1 giorni · 178 run
 
 | | |
 |---|---|
-| Equity | **5.9831 SOL** (-0.3% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.9831 SOL |
-| Trade chiusi | 4 |
-| Win rate | 25% |
-| P&L realizzato | -0.0169 SOL (~$-1.27) |
-| Media vincite / perdite | +73.8% / -28.9% |
-| Profit factor | 0.84 |
+| Equity | **5.9962 SOL** (-0.1% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.9962 SOL |
+| Trade chiusi | 5 |
+| Win rate | 40% |
+| P&L realizzato | -0.0038 SOL (~$-0.28) |
+| Media vincite / perdite | +42.4% / -28.9% |
+| Profit factor | 0.96 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -19,13 +19,14 @@ _nessuna_
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| TP1 | 2 | +0.0878 |
+| TP1 | 3 | +0.1010 |
 | RUG-EXIT liquidità | 1 | -0.0935 |
 | Stop loss | 1 | -0.0113 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $Caracal | 66 | +10.9% | +0.0131 | +83% | +83% | TP1 | 1m |
 | $GrokChan | 63 | +73.8% | +0.0879 | +94% | +94% | TP1 | 7m |
 | $GTAVI | 88 | -9.4% | -0.0113 | +22% | -46% | Stop loss | 1m |
 | $maxi | 75 | -77.2% | -0.0935 | +6% | -70% | RUG-EXIT liquidità | 3m |
@@ -33,6 +34,21 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+00:29:19 SCRIBE   fine run · trade 5 · win 40% · P&L -0.0038 SOL · equity 5.9962 SOL
+00:29:18 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 267 veto
+00:28:54 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 272 veto
+00:28:31 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 261 veto
+00:28:07 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 266 veto
+00:27:43 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 274 veto
+00:27:20 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 266 veto
+00:26:56 SCRIBE   chiuso P-0353 $Caracal 0.0131 SOL (10.9%)
+00:26:56 CHARON   TP1 $Caracal vendo 100% a 82.6% -> 0.1338 SOL
+00:26:56 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 255 veto
+00:26:33 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 269 veto
+00:26:10 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 268 veto
+00:25:46 QUARTER  BUY $Caracal 0.120 SOL score 66 impatto 0.00% (Jupiter)
+00:25:46 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 265 veto
+00:25:22 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 262 veto
 00:24:59 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 256 veto
 00:24:36 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 259 veto
 00:24:12 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 254 veto
@@ -58,21 +74,6 @@ _nessuna_
 00:16:40 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 253 veto
 00:16:15 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 254 veto
 00:15:50 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 263 veto
-00:15:27 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 247 veto
-00:15:02 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 262 veto
-00:14:38 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 261 veto
-00:14:15 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 254 veto
-00:13:50 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 262 veto
-00:13:26 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 260 veto
-00:13:02 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 253 veto
-00:12:39 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 262 veto
-00:12:15 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 250 veto
-00:11:52 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 248 veto
-00:11:28 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 253 veto
-00:11:06 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 254 veto
-00:10:42 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 243 veto
-00:10:19 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 247 veto
-00:09:56 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 252 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
