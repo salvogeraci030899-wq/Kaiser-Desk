@@ -1,61 +1,45 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 16:10 UTC · in esecuzione da 0.7 giorni · 197 run
+Aggiornato: 2026-11-18 16:15 UTC · in esecuzione da 0.0 giorni · 197 run
 
 | | |
 |---|---|
-| Equity | **5.0439 SOL** (-15.9% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.0439 SOL |
-| Trade chiusi | 34 |
-| Win rate | 26% |
-| P&L realizzato | -0.9561 SOL (~$-70.20) |
-| Media vincite / perdite | +38.2% / -47.7% |
-| Profit factor | 0.29 |
-| Circuit breaker | ATTIVO oggi |
+| Equity | **6.0000 SOL** (+0.0% dal capitale iniziale di 6 SOL) |
+| Cassa | 6.0000 SOL |
+| Trade chiusi | 0 |
+| Win rate | 0% |
+| P&L realizzato | +0.0000 SOL (~$0.00) |
+| Media vincite / perdite | +0.0% / +0.0% |
+| Profit factor | 0.00 |
+| Circuit breaker | no |
 
 ## Posizioni aperte
 _nessuna_
 
 ## Uscite per motivo
-| Motivo | Trade | P&L SOL |
-|---|---|---|
-| TP1 | 6 | +0.3159 |
-| RUG-EXIT liquidità | 10 | -0.9075 |
-| Stop loss | 10 | -0.3695 |
-| Time stop | 7 | -0.0025 |
-| Chiusura manuale (app) | 1 | +0.0076 |
+_ancora nessuna_
 
 ## Ultimi 25 trade
-| Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
-|---|---|---|---|---|---|---|---|
-| $FREEDOM | 70 | -97.4% | -0.1021 | +43% | -96% | RUG-EXIT liquidità | 12m |
-| $CC | 67 | -44.6% | -0.0469 | +40% | -50% | Stop loss | 3m |
-| $Makenzi | 70 | -26.3% | -0.0277 | +28% | -20% | Time stop | 5m |
-| $WEALTH | 67 | -73.2% | -0.0783 | +7% | -61% | RUG-EXIT liquidità | 4m |
-| $GTI6 | 70 | -9.5% | -0.0102 | +14% | -4% | RUG-EXIT liquidità | 2m |
-| $Mandy | 65 | -97.7% | -0.1069 | +0% | -97% | RUG-EXIT liquidità | 2m |
-| $Boobie | 77 | -91.7% | -0.1022 | +12% | -84% | RUG-EXIT liquidità | 1m |
-| $BUCKZ | 79 | +2.7% | +0.0030 | +6% | -1% | Time stop | 5m |
-| $BUCKZ | 72 | -98.2% | -0.1115 | +36% | -96% | RUG-EXIT liquidità | 3m |
-| $GrandPump | 65 | +59.1% | +0.0663 | +65% | +65% | TP1 | 2m |
-| $DACT | 65 | -10.2% | -0.0115 | +0% | -41% | Stop loss | 0m |
-| $VCN | 75 | -13.8% | -0.0155 | +0% | -42% | Stop loss | 2m |
-| $eepy | 68 | -16.1% | -0.0181 | +2% | -11% | Time stop | 5m |
-| $SHARK | 76 | -7.5% | -0.0085 | +4% | -43% | Stop loss | 5m |
-| $KATIA | 69 | -68.6% | -0.0788 | +0% | -41% | Stop loss | 3m |
-| $PurpleRabbit | 66 | -40.6% | -0.0470 | +13% | -49% | Stop loss | 4m |
-| $Human | 73 | -7.7% | -0.0089 | +13% | +0% | Time stop | 5m |
-| $FI | 66 | +59.5% | +0.0681 | +68% | +68% | TP1 | 8m |
-| $Calypso | 70 | +62.9% | +0.0712 | +14% | -21% | Time stop | 5m |
-| $BLIMBO | 64 | -95.2% | -0.1099 | +0% | -62% | RUG-EXIT liquidità | 4m |
-| $Strawberry | 71 | -21.8% | -0.0252 | +0% | -41% | Stop loss | 3m |
-| $Elmo | 66 | -71.2% | -0.0837 | +16% | -66% | RUG-EXIT liquidità | 2m |
-| $BUFO | 70 | -58.0% | -0.0690 | +48% | -72% | Stop loss | 5m |
-| $NADJA | 70 | +0.1% | +0.0001 | +23% | -22% | Time stop | 5m |
-| $VCN | 72 | -46.4% | -0.0558 | +0% | -45% | Stop loss | 4m |
+_ancora nessuno_
 
 ## Ultimi eventi
 ```
+16:14:58 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 232 veto
+16:14:36 ORACLE   360 raccolti, 235 analizzati, 0 BUY, 230 veto
+16:14:14 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 234 veto
+16:13:49 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 239 veto
+16:13:46 KAISER   reset del paper (C-0099): conto azzerato, capitale 6 SOL
+16:13:26 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 236 veto
+16:13:24 KAISER   parametri dall'app: maxPos 3→1
+16:13:04 ORACLE   360 raccolti, 215 analizzati, 0 BUY, 212 veto
+16:12:42 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 238 veto
+16:12:19 ORACLE   360 raccolti, 195 analizzati, 0 BUY, 192 veto
+16:11:57 ORACLE   360 raccolti, 221 analizzati, 0 BUY, 218 veto
+16:11:35 ORACLE   360 raccolti, 235 analizzati, 0 BUY, 233 veto
+16:11:33 KAISER   parametri dall'app: sl 40→30
+16:11:13 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 232 veto
+16:10:51 ORACLE   360 raccolti, 231 analizzati, 0 BUY, 228 veto
+16:10:29 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 237 veto
 16:10:07 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 234 veto
 16:09:45 ORACLE   360 raccolti, 186 analizzati, 0 BUY, 185 veto
 16:09:23 ORACLE   360 raccolti, 224 analizzati, 0 BUY, 223 veto
@@ -80,22 +64,6 @@ _nessuna_
 16:02:42 ORACLE   360 raccolti, 222 analizzati, 0 BUY, 217 veto
 16:02:19 ORACLE   360 raccolti, 219 analizzati, 0 BUY, 213 veto
 16:01:56 ORACLE   360 raccolti, 215 analizzati, 0 BUY, 209 veto
-16:01:32 ORACLE   360 raccolti, 227 analizzati, 0 BUY, 221 veto
-16:01:09 ORACLE   360 raccolti, 218 analizzati, 0 BUY, 213 veto
-16:00:46 ORACLE   360 raccolti, 220 analizzati, 0 BUY, 214 veto
-16:00:23 ORACLE   360 raccolti, 219 analizzati, 0 BUY, 214 veto
-16:00:00 ORACLE   360 raccolti, 223 analizzati, 0 BUY, 213 veto
-15:59:37 ORACLE   360 raccolti, 216 analizzati, 0 BUY, 206 veto
-15:59:13 ORACLE   360 raccolti, 228 analizzati, 0 BUY, 218 veto
-15:58:49 ORACLE   360 raccolti, 220 analizzati, 0 BUY, 204 veto
-15:58:26 ORACLE   360 raccolti, 207 analizzati, 0 BUY, 192 veto
-15:58:02 ORACLE   360 raccolti, 211 analizzati, 0 BUY, 192 veto
-15:57:39 ORACLE   360 raccolti, 224 analizzati, 0 BUY, 206 veto
-15:57:16 ORACLE   360 raccolti, 215 analizzati, 0 BUY, 197 veto
-15:56:52 ORACLE   360 raccolti, 221 analizzati, 0 BUY, 205 veto
-15:56:29 ORACLE   360 raccolti, 220 analizzati, 0 BUY, 205 veto
-15:56:06 ORACLE   360 raccolti, 217 analizzati, 0 BUY, 204 veto
-15:55:43 ORACLE   360 raccolti, 219 analizzati, 0 BUY, 206 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
