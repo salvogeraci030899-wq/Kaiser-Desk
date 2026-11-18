@@ -1,68 +1,8 @@
 {
  "startedAt": 1794957335860,
  "runs": 186,
- "cash": 5.565945036174823,
- "positions": [
-  {
-   "id": "P-0365",
-   "mint": "EoC8TA2wiSgFzAXpYvczPQ7fwx8hHCdZwE4arHbupump",
-   "sym": "FI",
-   "name": "Final Inu",
-   "pairAddress": "4PVSkUDzmdKdus5CFv8dCWcQF5vPeCzvPbSSq6WBFv1p",
-   "openedAt": 1794982906189,
-   "sizeSOL": 0.11361112318724129,
-   "cost": 0.11461112318724129,
-   "entry": 9.922093733221487e-7,
-   "tokens": 114503.17467455957,
-   "remaining": 1,
-   "rawLeft": "115196589219",
-   "peak": 0.000001281,
-   "tp1Done": false,
-   "spDone": false,
-   "entryLiq": 18886.2,
-   "realized": 0,
-   "score": 66,
-   "why": "runner",
-   "entryInfo": {
-    "srcs": [
-     "profili",
-     "jup trend",
-     "jup organic"
-    ],
-    "notes": [],
-    "plus": [
-     "turnover 9.1x/h"
-    ],
-    "m": {
-     "liq": 18752.72,
-     "mc": 72431,
-     "ageMin": 25.684366666666666,
-     "v1": 171116.92,
-     "tx1": 6083,
-     "br1": 1.269675494218575,
-     "br5": 1.4820936639118458,
-     "c5": 5.62,
-     "c1": 138,
-     "c6": 138,
-     "turn": 9.124912012764016,
-     "price": 0.00007243,
-     "priceNative": 9.666e-7
-    },
-    "grok": null
-   },
-   "last": {
-    "priceNative": 0.000001211,
-    "liq": 21508.53,
-    "br5": 1.3674832962138084,
-    "tx5": 1061,
-    "t": 1794983189559
-   },
-   "fills": [
-    "BUY 0.114 impatto 0.34% (Jupiter)"
-   ],
-   "trough": 9.181e-7
-  }
- ],
+ "cash": 5.748696778964823,
+ "positions": [],
  "journal": [
   {
    "id": "P-0349",
@@ -797,6 +737,52 @@
    },
    "maePct": -36.0579698165656,
    "age": 10
+  },
+  {
+   "id": "P-0365",
+   "mint": "EoC8TA2wiSgFzAXpYvczPQ7fwx8hHCdZwE4arHbupump",
+   "sym": "FI",
+   "openedAt": 1794982906189,
+   "closedAt": 1794983388468,
+   "cost": 0.11461112318724129,
+   "back": 0.18275174279,
+   "pnl": 0.06814061960275872,
+   "pct": 59.45375780973434,
+   "mode": "paper",
+   "reason": "TP1",
+   "score": 66,
+   "solUsd": 74.94073848315436,
+   "peakPct": 67.50496867765277,
+   "trigPct": 67.50496867765277,
+   "entryInfo": {
+    "srcs": [
+     "profili",
+     "jup trend",
+     "jup organic"
+    ],
+    "notes": [],
+    "plus": [
+     "turnover 9.1x/h"
+    ],
+    "m": {
+     "liq": 18752.72,
+     "mc": 72431,
+     "ageMin": 25.684366666666666,
+     "v1": 171116.92,
+     "tx1": 6083,
+     "br1": 1.269675494218575,
+     "br5": 1.4820936639118458,
+     "c5": 5.62,
+     "c1": 138,
+     "c6": 138,
+     "turn": 9.124912012764016,
+     "price": 0.00007243,
+     "priceNative": 9.666e-7
+    },
+    "grok": null
+   },
+   "maePct": -7.4691265084518506,
+   "age": 26
   }
  ],
  "signals": [
@@ -4152,6 +4138,27 @@
    "sym": "FI",
    "score": 66,
    "priceNative": 0.000001281
+  },
+  {
+   "t": 1794983203144,
+   "mint": "EoC8TA2wiSgFzAXpYvczPQ7fwx8hHCdZwE4arHbupump",
+   "sym": "FI",
+   "score": 65,
+   "priceNative": 0.000001211
+  },
+  {
+   "t": 1794983226502,
+   "mint": "EoC8TA2wiSgFzAXpYvczPQ7fwx8hHCdZwE4arHbupump",
+   "sym": "FI",
+   "score": 66,
+   "priceNative": 0.000001303
+  },
+  {
+   "t": 1794983249384,
+   "mint": "EoC8TA2wiSgFzAXpYvczPQ7fwx8hHCdZwE4arHbupump",
+   "sym": "FI",
+   "score": 66,
+   "priceNative": 0.000001303
   }
  ],
  "day": {
@@ -4162,6 +4169,22 @@
  "halted": null,
  "seq": 365,
  "events": [
+  "06:31:41 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 238 veto",
+  "06:31:18 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 250 veto",
+  "06:30:56 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 248 veto",
+  "06:30:33 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 241 veto",
+  "06:30:10 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 230 veto",
+  "06:29:48 SCRIBE   chiuso P-0365 $FI 0.0681 SOL (59.5%)",
+  "06:29:48 CHARON   TP1 $FI vendo 100% a 67.5% -> 0.1828 SOL",
+  "06:29:48 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 240 veto",
+  "06:29:25 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 247 veto",
+  "06:29:01 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 256 veto",
+  "06:28:39 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 251 veto",
+  "06:28:17 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 245 veto",
+  "06:27:52 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 244 veto",
+  "06:27:29 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 246 veto",
+  "06:27:06 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 238 veto",
+  "06:26:43 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 242 veto",
   "06:26:19 ORACLE   354 raccolti, 256 analizzati, 1 BUY, 236 veto",
   "06:26:06 SCOUT    PumpPortal invia nuovi token (22) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena",
   "06:25:56 ORACLE   351 raccolti, 244 analizzati, 1 BUY, 224 veto",
@@ -4445,23 +4468,7 @@
   "04:53:51 ORACLE   360 raccolti, 225 analizzati, 0 BUY, 219 veto",
   "04:53:28 ORACLE   360 raccolti, 234 analizzati, 0 BUY, 226 veto",
   "04:53:04 ORACLE   360 raccolti, 229 analizzati, 0 BUY, 221 veto",
-  "04:52:41 ORACLE   360 raccolti, 226 analizzati, 0 BUY, 218 veto",
-  "04:52:17 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 232 veto",
-  "04:51:54 ORACLE   360 raccolti, 234 analizzati, 0 BUY, 225 veto",
-  "04:51:30 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 229 veto",
-  "04:51:06 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 230 veto",
-  "04:50:41 ORACLE   360 raccolti, 234 analizzati, 0 BUY, 221 veto",
-  "04:50:18 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 222 veto",
-  "04:50:05 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 231 veto",
-  "04:49:39 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 231 veto",
-  "04:49:15 ORACLE   360 raccolti, 226 analizzati, 0 BUY, 212 veto",
-  "04:48:50 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 223 veto",
-  "04:48:27 ORACLE   360 raccolti, 236 analizzati, 0 BUY, 217 veto",
-  "04:48:03 ORACLE   360 raccolti, 235 analizzati, 0 BUY, 218 veto",
-  "04:47:39 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 224 veto",
-  "04:47:15 ORACLE   360 raccolti, 234 analizzati, 0 BUY, 219 veto",
-  "04:46:52 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 218 veto",
-  "04:46:28 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 229 veto"
+  "04:52:41 ORACLE   360 raccolti, 226 analizzati, 0 BUY, 218 veto"
  ],
  "capital": 6,
  "resetId": "C-0094",
@@ -16170,10 +16177,6 @@
  "lastDaily": "2026-11-17",
  "cal": [
   {
-   "t": 1794881385892,
-   "g": -36.4
-  },
-  {
    "t": 1794881998565,
    "g": -19.7
   },
@@ -16568,6 +16571,10 @@
   {
    "t": 1794982893262,
    "g": 112.7
+  },
+  {
+   "t": 1794983388468,
+   "g": -2.4
   }
  ]
 }
