@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 14:34 UTC · in esecuzione da 0.6 giorni · 195 run
+Aggiornato: 2026-11-18 14:39 UTC · in esecuzione da 0.6 giorni · 195 run
 
 | | |
 |---|---|
-| Equity | **5.2207 SOL** (-13.0% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.2207 SOL |
+| Equity | **5.2305 SOL** (-12.8% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.1153 SOL |
 | Trade chiusi | 31 |
 | Win rate | 29% |
-| P&L realizzato | -0.7793 SOL (~$-57.89) |
+| P&L realizzato | -0.7793 SOL (~$-57.45) |
 | Media vincite / perdite | +38.2% / -46.5% |
 | Profit factor | 0.34 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$Makenzi** P-0380 · 0.104 SOL · +10.3% · resta 100% · [grafico](https://dexscreener.com/solana/2k1ZK65m6aWB7zwzFkvuoSZb6uJmoWgGvrCKXbTPBGrZ)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -56,6 +56,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+14:39:28 ORACLE   360 raccolti, 224 analizzati, 1 BUY, 214 veto
+14:39:04 ORACLE   360 raccolti, 222 analizzati, 1 BUY, 212 veto
+14:38:41 ORACLE   360 raccolti, 210 analizzati, 1 BUY, 201 veto
+14:38:18 ORACLE   360 raccolti, 221 analizzati, 1 BUY, 212 veto
+14:37:55 ORACLE   360 raccolti, 212 analizzati, 1 BUY, 204 veto
+14:37:32 ORACLE   360 raccolti, 217 analizzati, 1 BUY, 210 veto
+14:37:08 ORACLE   360 raccolti, 213 analizzati, 1 BUY, 206 veto
+14:36:45 ORACLE   360 raccolti, 224 analizzati, 2 BUY, 215 veto
+14:36:23 ORACLE   360 raccolti, 224 analizzati, 2 BUY, 214 veto
+14:36:00 ORACLE   360 raccolti, 221 analizzati, 2 BUY, 210 veto
+14:35:35 ORACLE   360 raccolti, 223 analizzati, 1 BUY, 211 veto
+14:35:13 QUARTER  BUY $Makenzi 0.104 SOL score 70 impatto 1.15% (Jupiter)
+14:35:12 ORACLE   360 raccolti, 210 analizzati, 1 BUY, 198 veto
+14:34:49 ORACLE   360 raccolti, 205 analizzati, 0 BUY, 190 veto
 14:34:25 ORACLE   360 raccolti, 215 analizzati, 0 BUY, 200 veto
 14:34:00 ORACLE   360 raccolti, 214 analizzati, 0 BUY, 199 veto
 14:33:37 ORACLE   360 raccolti, 229 analizzati, 0 BUY, 215 veto
@@ -82,20 +96,6 @@ _nessuna_
 14:25:48 SCRIBE   chiuso P-0379 $WEALTH -0.0783 SOL (-73.2%)
 14:25:48 CHARON   RUG-EXIT liquidità $WEALTH vendo 100% a -61.3% -> 0.0287 SOL
 14:25:48 ORACLE   360 raccolti, 216 analizzati, 0 BUY, 212 veto
-14:25:26 ORACLE   360 raccolti, 222 analizzati, 0 BUY, 212 veto
-14:25:03 ORACLE   360 raccolti, 216 analizzati, 0 BUY, 206 veto
-14:24:39 ORACLE   360 raccolti, 220 analizzati, 0 BUY, 208 veto
-14:24:16 ORACLE   360 raccolti, 225 analizzati, 0 BUY, 213 veto
-14:23:52 ORACLE   360 raccolti, 223 analizzati, 1 BUY, 210 veto
-14:23:29 ORACLE   360 raccolti, 218 analizzati, 0 BUY, 205 veto
-14:23:06 ORACLE   360 raccolti, 218 analizzati, 1 BUY, 204 veto
-14:22:43 ORACLE   360 raccolti, 215 analizzati, 1 BUY, 204 veto
-14:22:19 ORACLE   360 raccolti, 226 analizzati, 1 BUY, 218 veto
-14:22:06 QUARTER  BUY $WEALTH 0.106 SOL score 67 impatto 0.00% (Jupiter)
-14:22:06 ORACLE   360 raccolti, 229 analizzati, 1 BUY, 221 veto
-14:21:47 ORACLE   360 raccolti, 234 analizzati, 0 BUY, 227 veto
-14:21:19 ORACLE   360 raccolti, 225 analizzati, 0 BUY, 219 veto
-14:20:57 ORACLE   360 raccolti, 227 analizzati, 0 BUY, 221 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
