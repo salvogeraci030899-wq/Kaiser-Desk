@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-17 23:59 UTC · in esecuzione da 0.0 giorni · 178 run
+Aggiornato: 2026-11-18 00:04 UTC · in esecuzione da 0.0 giorni · 178 run
 
 | | |
 |---|---|
@@ -33,6 +33,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+00:04:46 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 245 veto
+00:04:22 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 253 veto
+00:03:58 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 256 veto
+00:03:35 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 256 veto
+00:03:10 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 257 veto
+00:02:45 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 257 veto
+00:02:22 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 251 veto
+00:01:58 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 251 veto
+00:01:34 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 256 veto
+00:01:10 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 240 veto
+00:00:46 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 251 veto
+00:00:32 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 245 veto
+00:00:05 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 245 veto
 23:59:40 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 255 veto
 23:59:17 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 252 veto
 23:58:53 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 255 veto
@@ -60,19 +73,6 @@ _nessuna_
 23:51:36 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 235 veto
 23:51:12 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 235 veto
 23:50:48 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 233 veto
-23:50:24 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 237 veto
-23:50:10 SCRIBE   chiuso P-0352 $GTAVI -0.0113 SOL (-9.4%)
-23:50:10 CHARON   Stop loss $GTAVI vendo 100% a -46.4% -> 0.1082 SOL
-23:49:59 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 236 veto
-23:49:46 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 233 veto
-23:49:20 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 237 veto
-23:49:07 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 241 veto
-23:48:41 KAISER   limite 1 ingresso/i per scan: $GrokChan rimandato
-23:48:41 QUARTER  BUY $GTAVI 0.118 SOL score 88 impatto 1.28% (Jupiter)
-23:48:41 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 236 veto
-23:48:16 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 244 veto
-23:47:53 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 243 veto
-23:47:29 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 237 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
