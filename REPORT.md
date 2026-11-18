@@ -1,33 +1,34 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 03:46 UTC · in esecuzione da 0.2 giorni · 182 run
+Aggiornato: 2026-11-18 03:50 UTC · in esecuzione da 0.2 giorni · 182 run
 
 | | |
 |---|---|
-| Equity | **5.9509 SOL** (-0.8% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.7782 SOL |
-| Trade chiusi | 11 |
-| Win rate | 45% |
-| P&L realizzato | -0.1029 SOL (~$-7.71) |
-| Media vincite / perdite | +31.8% / -40.4% |
-| Profit factor | 0.65 |
+| Equity | **5.8281 SOL** (-2.9% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.8281 SOL |
+| Trade chiusi | 12 |
+| Win rate | 42% |
+| P&L realizzato | -0.1719 SOL (~$-12.85) |
+| Media vincite / perdite | +31.8% / -42.9% |
+| Profit factor | 0.52 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$BUFO** P-0360 · 0.118 SOL · +46.4% · resta 100% · [grafico](https://dexscreener.com/solana/3Gvi6BDUhNEa47dqh9fbUy6Vqn4zn6QMQ1Gba7YUxk7m)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | TP1 | 4 | +0.1814 |
 | RUG-EXIT liquidità | 2 | -0.2029 |
-| Stop loss | 2 | -0.0670 |
+| Stop loss | 3 | -0.1360 |
 | Time stop | 2 | -0.0220 |
 | Chiusura manuale (app) | 1 | +0.0076 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $BUFO | 70 | -58.0% | -0.0690 | +48% | -72% | Stop loss | 5m |
 | $NADJA | 70 | +0.1% | +0.0001 | +23% | -22% | Time stop | 5m |
 | $VCN | 72 | -46.4% | -0.0558 | +0% | -45% | Stop loss | 4m |
 | $PATTINSON | 64 | +67.9% | +0.0804 | +79% | +79% | TP1 | 2m |
@@ -42,6 +43,20 @@ Aggiornato: 2026-11-18 03:46 UTC · in esecuzione da 0.2 giorni · 182 run
 
 ## Ultimi eventi
 ```
+03:50:32 SCRIBE   fine run · trade 12 · win 42% · P&L -0.1719 SOL · equity 5.8281 SOL
+03:50:32 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 233 veto
+03:50:18 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 231 veto
+03:49:53 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 227 veto
+03:49:29 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 228 veto
+03:49:06 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 228 veto
+03:48:51 SCRIBE   chiuso P-0360 $BUFO -0.0690 SOL (-58.0%)
+03:48:51 CHARON   Stop loss $BUFO vendo 100% a -71.6% -> 0.0500 SOL
+03:48:51 ORACLE   360 raccolti, 236 analizzati, 0 BUY, 224 veto
+03:48:27 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 225 veto
+03:48:03 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 221 veto
+03:47:39 ORACLE   360 raccolti, 228 analizzati, 1 BUY, 218 veto
+03:47:15 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 226 veto
+03:46:51 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 235 veto
 03:46:27 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 230 veto
 03:46:03 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 227 veto
 03:45:39 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 227 veto
@@ -68,20 +83,6 @@ Aggiornato: 2026-11-18 03:46 UTC · in esecuzione da 0.2 giorni · 182 run
 03:37:40 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 256 veto
 03:37:17 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 254 veto
 03:36:54 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 246 veto
-03:36:30 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 250 veto
-03:36:07 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 253 veto
-03:35:44 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 234 veto
-03:35:19 SCRIBE   chiuso P-0359 $NADJA 0.0001 SOL (0.1%)
-03:35:19 CHARON   Time stop $NADJA vendo 100% a -21.7% -> 0.1194 SOL
-03:35:19 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 251 veto
-03:34:55 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 255 veto
-03:34:31 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 249 veto
-03:34:07 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 249 veto
-03:33:44 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 243 veto
-03:33:21 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 236 veto
-03:32:57 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 232 veto
-03:32:33 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 229 veto
-03:32:09 ORACLE   360 raccolti, 225 analizzati, 2 BUY, 217 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
