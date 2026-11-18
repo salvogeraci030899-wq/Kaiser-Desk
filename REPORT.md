@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 06:17 UTC · in esecuzione da 0.3 giorni · 185 run
+Aggiornato: 2026-11-18 06:21 UTC · in esecuzione da 0.3 giorni · 185 run
 
 | | |
 |---|---|
-| Equity | **5.5705 SOL** (-7.2% dal capitale iniziale di 6 SOL) |
+| Equity | **5.6039 SOL** (-6.6% dal capitale iniziale di 6 SOL) |
 | Cassa | 5.4962 SOL |
 | Trade chiusi | 15 |
 | Win rate | 33% |
-| P&L realizzato | -0.3906 SOL (~$-29.27) |
+| P&L realizzato | -0.3906 SOL (~$-29.29) |
 | Media vincite / perdite | +31.8% / -48.8% |
 | Profit factor | 0.33 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$Calypso** P-0364 · 0.112 SOL · -33.8% · resta 100% · [grafico](https://dexscreener.com/solana/5rsUy8URQsBLU2FKNLr5pLtafL6S6LWjyb1cxfbyutqC)
+- **$Calypso** P-0364 · 0.112 SOL · -3.9% · resta 100% · [grafico](https://dexscreener.com/solana/5rsUy8URQsBLU2FKNLr5pLtafL6S6LWjyb1cxfbyutqC)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -46,6 +46,17 @@ Aggiornato: 2026-11-18 06:17 UTC · in esecuzione da 0.3 giorni · 185 run
 
 ## Ultimi eventi
 ```
+06:21:09 SCRIBE   fine run · trade 15 · win 33% · P&L -0.3906 SOL · equity 5.6039 SOL
+06:20:56 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 241 veto
+06:20:33 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 233 veto
+06:20:10 ORACLE   360 raccolti, 238 analizzati, 2 BUY, 226 veto
+06:19:47 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 229 veto
+06:19:24 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 225 veto
+06:19:01 ORACLE   360 raccolti, 238 analizzati, 2 BUY, 222 veto
+06:18:38 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 227 veto
+06:18:25 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 228 veto
+06:17:57 ORACLE   360 raccolti, 234 analizzati, 2 BUY, 220 veto
+06:17:33 ORACLE   360 raccolti, 242 analizzati, 3 BUY, 233 veto
 06:17:10 ORACLE   360 raccolti, 243 analizzati, 2 BUY, 233 veto
 06:16:48 ORACLE   360 raccolti, 238 analizzati, 2 BUY, 227 veto
 06:16:25 KAISER   limite 1 ingresso/i per scan: $DCI rimandato
@@ -75,17 +86,6 @@ Aggiornato: 2026-11-18 06:17 UTC · in esecuzione da 0.3 giorni · 185 run
 06:08:46 ORACLE   360 raccolti, 230 analizzati, 3 BUY, 221 veto
 06:08:23 ORACLE   360 raccolti, 237 analizzati, 3 BUY, 227 veto
 06:08:00 ORACLE   360 raccolti, 236 analizzati, 3 BUY, 226 veto
-06:07:37 ORACLE   360 raccolti, 233 analizzati, 2 BUY, 223 veto
-06:07:14 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 231 veto
-06:06:51 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 232 veto
-06:06:29 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 225 veto
-06:06:05 QUARTER  BUY $BLIMBO 0.114 SOL score 64 impatto 1.43% (Jupiter)
-06:06:05 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 230 veto
-06:05:42 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 233 veto
-06:05:19 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 229 veto
-06:04:56 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 235 veto
-06:04:33 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 236 veto
-06:04:11 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 231 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
