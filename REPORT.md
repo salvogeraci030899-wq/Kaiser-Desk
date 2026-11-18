@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 14:39 UTC · in esecuzione da 0.6 giorni · 195 run
+Aggiornato: 2026-11-18 14:43 UTC · in esecuzione da 0.6 giorni · 195 run
 
 | | |
 |---|---|
-| Equity | **5.2305 SOL** (-12.8% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.1153 SOL |
-| Trade chiusi | 31 |
-| Win rate | 29% |
-| P&L realizzato | -0.7793 SOL (~$-57.45) |
-| Media vincite / perdite | +38.2% / -46.5% |
-| Profit factor | 0.34 |
+| Equity | **5.1930 SOL** (-13.4% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.1930 SOL |
+| Trade chiusi | 32 |
+| Win rate | 28% |
+| P&L realizzato | -0.8070 SOL (~$-59.41) |
+| Media vincite / perdite | +38.2% / -45.6% |
+| Profit factor | 0.33 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$Makenzi** P-0380 · 0.104 SOL · +10.3% · resta 100% · [grafico](https://dexscreener.com/solana/2k1ZK65m6aWB7zwzFkvuoSZb6uJmoWgGvrCKXbTPBGrZ)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -22,12 +22,13 @@ Aggiornato: 2026-11-18 14:39 UTC · in esecuzione da 0.6 giorni · 195 run
 | TP1 | 6 | +0.3159 |
 | RUG-EXIT liquidità | 9 | -0.8054 |
 | Stop loss | 9 | -0.3226 |
-| Time stop | 6 | +0.0252 |
+| Time stop | 7 | -0.0025 |
 | Chiusura manuale (app) | 1 | +0.0076 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $Makenzi | 70 | -26.3% | -0.0277 | +28% | -20% | Time stop | 5m |
 | $WEALTH | 67 | -73.2% | -0.0783 | +7% | -61% | RUG-EXIT liquidità | 4m |
 | $GTI6 | 70 | -9.5% | -0.0102 | +14% | -4% | RUG-EXIT liquidità | 2m |
 | $Mandy | 65 | -97.7% | -0.1069 | +0% | -97% | RUG-EXIT liquidità | 2m |
@@ -52,10 +53,23 @@ Aggiornato: 2026-11-18 14:39 UTC · in esecuzione da 0.6 giorni · 195 run
 | $VCN | 72 | -46.4% | -0.0558 | +0% | -45% | Stop loss | 4m |
 | $PATTINSON | 64 | +67.9% | +0.0804 | +79% | +79% | TP1 | 2m |
 | $GTA | 88 | +6.4% | +0.0076 | +28% | +28% | Chiusura manuale (app) | 3m |
-| $Spud | 67 | -18.6% | -0.0221 | +32% | -5% | Time stop | 10m |
 
 ## Ultimi eventi
 ```
+14:43:50 SCRIBE   fine run · trade 32 · win 28% · P&L -0.8070 SOL · equity 5.1930 SOL
+14:43:33 ORACLE   360 raccolti, 228 analizzati, 2 BUY, 216 veto
+14:43:11 ORACLE   360 raccolti, 226 analizzati, 2 BUY, 214 veto
+14:42:48 ORACLE   360 raccolti, 232 analizzati, 2 BUY, 220 veto
+14:42:25 ORACLE   360 raccolti, 227 analizzati, 2 BUY, 217 veto
+14:42:02 ORACLE   360 raccolti, 210 analizzati, 2 BUY, 202 veto
+14:41:39 ORACLE   360 raccolti, 227 analizzati, 1 BUY, 217 veto
+14:41:16 ORACLE   360 raccolti, 233 analizzati, 1 BUY, 225 veto
+14:40:54 ORACLE   360 raccolti, 224 analizzati, 1 BUY, 216 veto
+14:40:39 ORACLE   360 raccolti, 226 analizzati, 1 BUY, 217 veto
+14:40:20 SCRIBE   chiuso P-0380 $Makenzi -0.0277 SOL (-26.3%)
+14:40:20 CHARON   Time stop $Makenzi vendo 100% a -19.6% -> 0.0777 SOL
+14:40:20 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 226 veto
+14:39:52 ORACLE   360 raccolti, 215 analizzati, 1 BUY, 207 veto
 14:39:28 ORACLE   360 raccolti, 224 analizzati, 1 BUY, 214 veto
 14:39:04 ORACLE   360 raccolti, 222 analizzati, 1 BUY, 212 veto
 14:38:41 ORACLE   360 raccolti, 210 analizzati, 1 BUY, 201 veto
@@ -82,20 +96,6 @@ Aggiornato: 2026-11-18 14:39 UTC · in esecuzione da 0.6 giorni · 195 run
 14:31:14 ORACLE   360 raccolti, 234 analizzati, 0 BUY, 224 veto
 14:30:48 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 224 veto
 14:30:24 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 233 veto
-14:30:00 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 230 veto
-14:29:38 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 230 veto
-14:29:15 ORACLE   360 raccolti, 208 analizzati, 0 BUY, 198 veto
-14:28:52 ORACLE   360 raccolti, 230 analizzati, 0 BUY, 220 veto
-14:28:29 ORACLE   360 raccolti, 218 analizzati, 0 BUY, 209 veto
-14:28:06 ORACLE   360 raccolti, 231 analizzati, 0 BUY, 222 veto
-14:27:43 ORACLE   360 raccolti, 229 analizzati, 0 BUY, 222 veto
-14:27:19 ORACLE   360 raccolti, 222 analizzati, 0 BUY, 218 veto
-14:26:57 ORACLE   360 raccolti, 230 analizzati, 0 BUY, 225 veto
-14:26:35 ORACLE   360 raccolti, 223 analizzati, 0 BUY, 217 veto
-14:26:11 ORACLE   360 raccolti, 219 analizzati, 0 BUY, 215 veto
-14:25:48 SCRIBE   chiuso P-0379 $WEALTH -0.0783 SOL (-73.2%)
-14:25:48 CHARON   RUG-EXIT liquidità $WEALTH vendo 100% a -61.3% -> 0.0287 SOL
-14:25:48 ORACLE   360 raccolti, 216 analizzati, 0 BUY, 212 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
