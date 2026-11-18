@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 00:34 UTC · in esecuzione da 0.1 giorni · 179 run
+Aggiornato: 2026-11-18 00:39 UTC · in esecuzione da 0.1 giorni · 179 run
 
 | | |
 |---|---|
@@ -34,6 +34,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+00:39:38 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 267 veto
+00:39:14 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 268 veto
+00:38:50 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 258 veto
+00:38:27 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 261 veto
+00:38:03 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 269 veto
+00:37:41 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 263 veto
+00:37:18 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 262 veto
+00:36:54 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 266 veto
+00:36:31 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 266 veto
+00:36:07 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 256 veto
+00:35:43 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 265 veto
+00:35:21 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 269 veto
+00:34:58 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 273 veto
 00:34:34 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 257 veto
 00:34:11 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 253 veto
 00:34:09 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
@@ -61,19 +74,6 @@ _nessuna_
 00:29:19 SCRIBE   fine run · trade 5 · win 40% · P&L -0.0038 SOL · equity 5.9962 SOL
 00:29:18 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 267 veto
 00:28:54 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 272 veto
-00:28:31 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 261 veto
-00:28:07 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 266 veto
-00:27:43 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 274 veto
-00:27:20 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 266 veto
-00:26:56 SCRIBE   chiuso P-0353 $Caracal 0.0131 SOL (10.9%)
-00:26:56 CHARON   TP1 $Caracal vendo 100% a 82.6% -> 0.1338 SOL
-00:26:56 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 255 veto
-00:26:33 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 269 veto
-00:26:10 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 268 veto
-00:25:46 QUARTER  BUY $Caracal 0.120 SOL score 66 impatto 0.00% (Jupiter)
-00:25:46 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 265 veto
-00:25:22 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 262 veto
-00:24:59 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 256 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
