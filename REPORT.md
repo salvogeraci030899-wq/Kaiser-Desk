@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 10:28 UTC · in esecuzione da 0.5 giorni · 190 run
+Aggiornato: 2026-11-18 10:32 UTC · in esecuzione da 0.5 giorni · 190 run
 
 | | |
 |---|---|
-| Equity | **5.5874 SOL** (-6.9% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.5874 SOL |
-| Trade chiusi | 22 |
-| Win rate | 32% |
-| P&L realizzato | -0.4126 SOL (~$-30.81) |
-| Media vincite / perdite | +40.2% / -41.9% |
-| Profit factor | 0.44 |
+| Equity | **5.5718 SOL** (-7.1% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.5718 SOL |
+| Trade chiusi | 23 |
+| Win rate | 30% |
+| P&L realizzato | -0.4282 SOL (~$-31.85) |
+| Media vincite / perdite | +40.2% / -40.2% |
+| Profit factor | 0.43 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -21,13 +21,14 @@ _nessuna_
 |---|---|---|
 | TP1 | 5 | +0.2496 |
 | RUG-EXIT liquidità | 4 | -0.3964 |
-| Stop loss | 7 | -0.2956 |
+| Stop loss | 8 | -0.3111 |
 | Time stop | 5 | +0.0222 |
 | Chiusura manuale (app) | 1 | +0.0076 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $VCN | 75 | -13.8% | -0.0155 | +0% | -42% | Stop loss | 2m |
 | $eepy | 68 | -16.1% | -0.0181 | +2% | -11% | Time stop | 5m |
 | $SHARK | 76 | -7.5% | -0.0085 | +4% | -43% | Stop loss | 5m |
 | $KATIA | 69 | -68.6% | -0.0788 | +0% | -41% | Stop loss | 3m |
@@ -53,6 +54,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+10:32:31 SCRIBE   fine run · trade 23 · win 30% · P&L -0.4282 SOL · equity 5.5718 SOL
+10:32:22 ORACLE   360 raccolti, 203 analizzati, 1 BUY, 189 veto
+10:31:59 ORACLE   360 raccolti, 200 analizzati, 0 BUY, 186 veto
+10:31:35 ORACLE   360 raccolti, 195 analizzati, 0 BUY, 181 veto
+10:31:11 ORACLE   360 raccolti, 205 analizzati, 0 BUY, 188 veto
+10:30:47 SCRIBE   chiuso P-0371 $VCN -0.0155 SOL (-13.8%)
+10:30:47 CHARON   Stop loss $VCN vendo 100% a -41.9% -> 0.0972 SOL
+10:30:47 ORACLE   360 raccolti, 205 analizzati, 0 BUY, 188 veto
+10:30:24 ORACLE   360 raccolti, 202 analizzati, 0 BUY, 185 veto
+10:30:00 ORACLE   360 raccolti, 209 analizzati, 0 BUY, 191 veto
+10:29:36 ORACLE   360 raccolti, 203 analizzati, 1 BUY, 184 veto
+10:29:13 ORACLE   360 raccolti, 201 analizzati, 1 BUY, 185 veto
+10:28:48 QUARTER  BUY $VCN 0.112 SOL score 75 impatto 1.82% (Jupiter)
+10:28:48 ORACLE   360 raccolti, 209 analizzati, 1 BUY, 194 veto
 10:28:24 QUARTER  $VCN impatto 3.0% oltre slippage: annullato
 10:28:24 ORACLE   360 raccolti, 203 analizzati, 1 BUY, 186 veto
 10:28:00 ORACLE   360 raccolti, 198 analizzati, 0 BUY, 184 veto
@@ -79,20 +94,6 @@ _nessuna_
 10:19:48 ORACLE   360 raccolti, 224 analizzati, 0 BUY, 213 veto
 10:19:24 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 224 veto
 10:19:01 ORACLE   360 raccolti, 230 analizzati, 1 BUY, 221 veto
-10:18:38 ORACLE   360 raccolti, 225 analizzati, 1 BUY, 218 veto
-10:18:14 ORACLE   360 raccolti, 234 analizzati, 0 BUY, 229 veto
-10:17:51 ORACLE   360 raccolti, 230 analizzati, 0 BUY, 223 veto
-10:17:28 ORACLE   360 raccolti, 213 analizzati, 0 BUY, 208 veto
-10:17:06 ORACLE   360 raccolti, 226 analizzati, 0 BUY, 221 veto
-10:16:42 ORACLE   360 raccolti, 232 analizzati, 0 BUY, 226 veto
-10:16:20 ORACLE   360 raccolti, 229 analizzati, 0 BUY, 221 veto
-10:15:56 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 225 veto
-10:15:33 ORACLE   360 raccolti, 230 analizzati, 0 BUY, 222 veto
-10:15:10 ORACLE   360 raccolti, 212 analizzati, 0 BUY, 205 veto
-10:14:46 ORACLE   360 raccolti, 228 analizzati, 0 BUY, 221 veto
-10:14:32 ORACLE   360 raccolti, 231 analizzati, 0 BUY, 223 veto
-10:14:07 ORACLE   360 raccolti, 227 analizzati, 0 BUY, 216 veto
-10:13:43 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 226 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
