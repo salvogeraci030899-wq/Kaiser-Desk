@@ -1,26 +1,26 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 14:24 UTC · in esecuzione da 0.6 giorni · 195 run
+Aggiornato: 2026-11-18 14:29 UTC · in esecuzione da 0.6 giorni · 195 run
 
 | | |
 |---|---|
-| Equity | **5.2841 SOL** (-11.9% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.1921 SOL |
-| Trade chiusi | 30 |
-| Win rate | 30% |
-| P&L realizzato | -0.7009 SOL (~$-52.07) |
-| Media vincite / perdite | +38.2% / -45.2% |
-| Profit factor | 0.36 |
+| Equity | **5.2207 SOL** (-13.0% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.2207 SOL |
+| Trade chiusi | 31 |
+| Win rate | 29% |
+| P&L realizzato | -0.7793 SOL (~$-58.02) |
+| Media vincite / perdite | +38.2% / -46.5% |
+| Profit factor | 0.34 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$WEALTH** P-0379 · 0.106 SOL · -13.2% · resta 100% · [grafico](https://dexscreener.com/solana/VqT1BUHJNrDEG7oib5E8ojyaa48uFSiGw1pURz1sE8i)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | TP1 | 6 | +0.3159 |
-| RUG-EXIT liquidità | 8 | -0.7271 |
+| RUG-EXIT liquidità | 9 | -0.8054 |
 | Stop loss | 9 | -0.3226 |
 | Time stop | 6 | +0.0252 |
 | Chiusura manuale (app) | 1 | +0.0076 |
@@ -28,6 +28,7 @@ Aggiornato: 2026-11-18 14:24 UTC · in esecuzione da 0.6 giorni · 195 run
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $WEALTH | 67 | -73.2% | -0.0783 | +7% | -61% | RUG-EXIT liquidità | 4m |
 | $GTI6 | 70 | -9.5% | -0.0102 | +14% | -4% | RUG-EXIT liquidità | 2m |
 | $Mandy | 65 | -97.7% | -0.1069 | +0% | -97% | RUG-EXIT liquidità | 2m |
 | $Boobie | 77 | -91.7% | -0.1022 | +12% | -84% | RUG-EXIT liquidità | 1m |
@@ -52,10 +53,24 @@ Aggiornato: 2026-11-18 14:24 UTC · in esecuzione da 0.6 giorni · 195 run
 | $PATTINSON | 64 | +67.9% | +0.0804 | +79% | +79% | TP1 | 2m |
 | $GTA | 88 | +6.4% | +0.0076 | +28% | +28% | Chiusura manuale (app) | 3m |
 | $Spud | 67 | -18.6% | -0.0221 | +32% | -5% | Time stop | 10m |
-| $°_° | 64 | -90.5% | -0.1094 | +13% | -93% | RUG-EXIT liquidità | 4m |
 
 ## Ultimi eventi
 ```
+14:29:15 ORACLE   360 raccolti, 208 analizzati, 0 BUY, 198 veto
+14:28:52 ORACLE   360 raccolti, 230 analizzati, 0 BUY, 220 veto
+14:28:29 ORACLE   360 raccolti, 218 analizzati, 0 BUY, 209 veto
+14:28:06 ORACLE   360 raccolti, 231 analizzati, 0 BUY, 222 veto
+14:27:43 ORACLE   360 raccolti, 229 analizzati, 0 BUY, 222 veto
+14:27:19 ORACLE   360 raccolti, 222 analizzati, 0 BUY, 218 veto
+14:26:57 ORACLE   360 raccolti, 230 analizzati, 0 BUY, 225 veto
+14:26:35 ORACLE   360 raccolti, 223 analizzati, 0 BUY, 217 veto
+14:26:11 ORACLE   360 raccolti, 219 analizzati, 0 BUY, 215 veto
+14:25:48 SCRIBE   chiuso P-0379 $WEALTH -0.0783 SOL (-73.2%)
+14:25:48 CHARON   RUG-EXIT liquidità $WEALTH vendo 100% a -61.3% -> 0.0287 SOL
+14:25:48 ORACLE   360 raccolti, 216 analizzati, 0 BUY, 212 veto
+14:25:26 ORACLE   360 raccolti, 222 analizzati, 0 BUY, 212 veto
+14:25:03 ORACLE   360 raccolti, 216 analizzati, 0 BUY, 206 veto
+14:24:39 ORACLE   360 raccolti, 220 analizzati, 0 BUY, 208 veto
 14:24:16 ORACLE   360 raccolti, 225 analizzati, 0 BUY, 213 veto
 14:23:52 ORACLE   360 raccolti, 223 analizzati, 1 BUY, 210 veto
 14:23:29 ORACLE   360 raccolti, 218 analizzati, 0 BUY, 205 veto
@@ -81,21 +96,6 @@ Aggiornato: 2026-11-18 14:24 UTC · in esecuzione da 0.6 giorni · 195 run
 14:16:44 ORACLE   360 raccolti, 218 analizzati, 0 BUY, 208 veto
 14:16:18 ORACLE   360 raccolti, 219 analizzati, 0 BUY, 205 veto
 14:15:55 ORACLE   360 raccolti, 222 analizzati, 0 BUY, 207 veto
-14:15:33 ORACLE   360 raccolti, 223 analizzati, 0 BUY, 209 veto
-14:15:10 ORACLE   360 raccolti, 223 analizzati, 0 BUY, 211 veto
-14:14:47 ORACLE   360 raccolti, 214 analizzati, 0 BUY, 203 veto
-14:14:24 ORACLE   360 raccolti, 199 analizzati, 0 BUY, 188 veto
-14:14:01 ORACLE   360 raccolti, 215 analizzati, 0 BUY, 204 veto
-14:13:38 ORACLE   360 raccolti, 217 analizzati, 0 BUY, 210 veto
-14:13:15 ORACLE   360 raccolti, 218 analizzati, 0 BUY, 212 veto
-14:12:51 ORACLE   360 raccolti, 223 analizzati, 0 BUY, 218 veto
-14:12:29 ORACLE   360 raccolti, 202 analizzati, 0 BUY, 196 veto
-14:12:07 ORACLE   360 raccolti, 212 analizzati, 0 BUY, 205 veto
-14:11:44 ORACLE   360 raccolti, 213 analizzati, 0 BUY, 207 veto
-14:11:22 ORACLE   360 raccolti, 211 analizzati, 0 BUY, 205 veto
-14:11:00 ORACLE   360 raccolti, 208 analizzati, 0 BUY, 202 veto
-14:10:36 ORACLE   360 raccolti, 207 analizzati, 0 BUY, 203 veto
-14:10:13 ORACLE   360 raccolti, 219 analizzati, 0 BUY, 214 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
