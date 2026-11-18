@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 22:29 UTC · in esecuzione da 0.3 giorni · 205 run
+Aggiornato: 2026-11-18 22:34 UTC · in esecuzione da 0.3 giorni · 205 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-18 22:29 UTC · in esecuzione da 0.3 giorni · 205 run
 | Cassa | 5.6416 SOL |
 | Trade chiusi | 21 |
 | Win rate | 33% |
-| P&L realizzato | -0.3584 SOL (~$-26.09) |
+| P&L realizzato | -0.3584 SOL (~$-26.11) |
 | Media vincite / perdite | +25.9% / -34.5% |
 | Profit factor | 0.37 |
 | Circuit breaker | no |
@@ -52,6 +52,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+22:34:27 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 237 veto
+22:34:03 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 232 veto
+22:33:40 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 227 veto
+22:33:17 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 231 veto
+22:32:54 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 233 veto
+22:32:30 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 234 veto
+22:32:07 ORACLE   360 raccolti, 235 analizzati, 2 BUY, 227 veto
+22:31:44 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 229 veto
+22:31:22 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 225 veto
+22:30:59 ORACLE   360 raccolti, 233 analizzati, 1 BUY, 222 veto
+22:30:35 ORACLE   360 raccolti, 231 analizzati, 1 BUY, 220 veto
+22:30:12 ORACLE   360 raccolti, 219 analizzati, 1 BUY, 209 veto
+22:29:48 ORACLE   360 raccolti, 225 analizzati, 1 BUY, 215 veto
 22:29:25 ORACLE   360 raccolti, 231 analizzati, 2 BUY, 221 veto
 22:29:02 ORACLE   360 raccolti, 222 analizzati, 2 BUY, 212 veto
 22:28:38 ORACLE   360 raccolti, 220 analizzati, 2 BUY, 213 veto
@@ -79,19 +92,6 @@ _nessuna_
 22:24:20 ORACLE   360 raccolti, 230 analizzati, 2 BUY, 225 veto
 22:23:56 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 239 veto
 22:23:32 ORACLE   360 raccolti, 243 analizzati, 2 BUY, 238 veto
-22:23:09 SCRIBE   chiuso P-0403 $Streamoor 0.0913 SOL (81.5%)
-22:23:09 CHARON   TP1 $Streamoor vendo 100% a 85.0% -> 0.2033 SOL
-22:23:09 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 240 veto
-22:22:45 ORACLE   360 raccolti, 231 analizzati, 2 BUY, 227 veto
-22:22:22 ORACLE   360 raccolti, 240 analizzati, 2 BUY, 235 veto
-22:21:59 ORACLE   360 raccolti, 213 analizzati, 2 BUY, 208 veto
-22:21:36 ORACLE   360 raccolti, 233 analizzati, 3 BUY, 225 veto
-22:21:11 QUARTER  BUY $Streamoor 0.111 SOL score 73 impatto 1.97% (Jupiter)
-22:21:11 ORACLE   360 raccolti, 230 analizzati, 3 BUY, 222 veto
-22:20:48 QUARTER  $Streamoor impatto 2.3% oltre slippage: annullato
-22:20:48 ORACLE   360 raccolti, 210 analizzati, 3 BUY, 203 veto
-22:20:24 ORACLE   360 raccolti, 226 analizzati, 3 BUY, 215 veto
-22:20:00 ORACLE   360 raccolti, 227 analizzati, 3 BUY, 216 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
