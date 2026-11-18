@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 05:11 UTC · in esecuzione da 0.2 giorni · 184 run
+Aggiornato: 2026-11-18 05:16 UTC · in esecuzione da 0.3 giorni · 184 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-18 05:11 UTC · in esecuzione da 0.2 giorni · 184 run
 | Cassa | 5.7445 SOL |
 | Trade chiusi | 13 |
 | Win rate | 38% |
-| P&L realizzato | -0.2555 SOL (~$-19.11) |
+| P&L realizzato | -0.2555 SOL (~$-19.18) |
 | Media vincite / perdite | +31.8% / -46.4% |
 | Profit factor | 0.43 |
 | Circuit breaker | no |
@@ -44,6 +44,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+05:16:38 ORACLE   360 raccolti, 209 analizzati, 1 BUY, 198 veto
+05:16:14 ORACLE   360 raccolti, 196 analizzati, 1 BUY, 188 veto
+05:16:00 ORACLE   360 raccolti, 199 analizzati, 1 BUY, 190 veto
+05:15:34 ORACLE   360 raccolti, 197 analizzati, 1 BUY, 186 veto
+05:15:11 ORACLE   360 raccolti, 186 analizzati, 1 BUY, 175 veto
+05:14:46 ORACLE   360 raccolti, 199 analizzati, 0 BUY, 189 veto
+05:14:22 ORACLE   360 raccolti, 191 analizzati, 0 BUY, 182 veto
+05:13:58 ORACLE   360 raccolti, 195 analizzati, 0 BUY, 183 veto
+05:13:34 ORACLE   360 raccolti, 213 analizzati, 0 BUY, 202 veto
+05:13:10 ORACLE   360 raccolti, 212 analizzati, 0 BUY, 203 veto
+05:12:46 ORACLE   360 raccolti, 206 analizzati, 0 BUY, 197 veto
+05:12:22 ORACLE   360 raccolti, 232 analizzati, 0 BUY, 222 veto
+05:11:58 ORACLE   360 raccolti, 227 analizzati, 0 BUY, 218 veto
 05:11:35 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 229 veto
 05:11:10 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 241 veto
 05:10:46 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 236 veto
@@ -71,19 +84,6 @@ _nessuna_
 05:02:01 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 241 veto
 05:01:36 SCRIBE   chiuso P-0361 $Elmo -0.0837 SOL (-71.2%)
 05:01:36 CHARON   RUG-EXIT liquidità $Elmo vendo 100% a -66.4% -> 0.0339 SOL
-05:01:36 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 241 veto
-05:01:12 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 247 veto
-05:00:48 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 236 veto
-05:00:25 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 240 veto
-05:00:00 QUARTER  BUY $Elmo 0.117 SOL score 66 impatto 1.38% (Jupiter)
-05:00:00 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 242 veto
-04:59:36 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 238 veto
-04:59:12 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 248 veto
-04:58:49 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 238 veto
-04:58:25 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 240 veto
-04:58:01 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 246 veto
-04:57:37 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 242 veto
-04:57:14 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 239 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
