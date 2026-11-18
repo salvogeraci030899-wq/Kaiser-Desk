@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 02:55 UTC · in esecuzione da 0.2 giorni · 181 run
+Aggiornato: 2026-11-18 03:00 UTC · in esecuzione da 0.2 giorni · 181 run
 
 | | |
 |---|---|
-| Equity | **5.8723 SOL** (-2.1% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.8723 SOL |
+| Equity | **5.8749 SOL** (-2.1% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.7539 SOL |
 | Trade chiusi | 8 |
 | Win rate | 38% |
-| P&L realizzato | -0.1277 SOL (~$-9.49) |
+| P&L realizzato | -0.1277 SOL (~$-9.51) |
 | Media vincite / perdite | +30.4% / -39.2% |
 | Profit factor | 0.46 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$PATTINSON** P-0357 · 0.117 SOL · +3.1% · resta 100% · [grafico](https://dexscreener.com/solana/EX5UC2pheVNVZfw6FKpHEFduHkSt1fwMYMHnZXGuY3rp)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -39,6 +39,25 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+03:00:12 SCRIBE   fine run · trade 8 · win 38% · P&L -0.1277 SOL · equity 5.8749 SOL
+03:00:08 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 235 veto
+02:59:45 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 236 veto
+02:59:22 QUARTER  BUY $PATTINSON 0.117 SOL score 64 impatto 0.97% (Jupiter)
+02:59:22 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 234 veto
+02:58:59 QUARTER  $PATTINSON impatto 2.1% oltre slippage: annullato
+02:58:59 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 239 veto
+02:58:36 QUARTER  $PATTINSON impatto 2.2% oltre slippage: annullato
+02:58:36 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 240 veto
+02:58:13 QUARTER  $PATTINSON impatto 2.0% oltre slippage: annullato
+02:58:13 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 243 veto
+02:57:49 QUARTER  $PATTINSON impatto 2.2% oltre slippage: annullato
+02:57:49 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 245 veto
+02:57:27 QUARTER  $PATTINSON impatto 2.2% oltre slippage: annullato
+02:57:27 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 252 veto
+02:57:04 QUARTER  $PATTINSON impatto 2.7% oltre slippage: annullato
+02:57:04 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 249 veto
+02:56:40 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 247 veto
+02:56:17 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 248 veto
 02:55:54 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 247 veto
 02:55:31 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 249 veto
 02:55:08 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 245 veto
@@ -60,25 +79,6 @@ _nessuna_
 02:49:08 ORACLE   360 raccolti, 210 analizzati, 0 BUY, 206 veto
 02:48:46 ORACLE   360 raccolti, 223 analizzati, 0 BUY, 219 veto
 02:48:24 ORACLE   360 raccolti, 225 analizzati, 0 BUY, 218 veto
-02:48:02 ORACLE   360 raccolti, 214 analizzati, 0 BUY, 207 veto
-02:47:39 ORACLE   360 raccolti, 215 analizzati, 0 BUY, 209 veto
-02:47:16 ORACLE   360 raccolti, 207 analizzati, 0 BUY, 200 veto
-02:46:53 ORACLE   360 raccolti, 213 analizzati, 0 BUY, 207 veto
-02:46:29 ORACLE   360 raccolti, 222 analizzati, 0 BUY, 217 veto
-02:46:07 ORACLE   360 raccolti, 224 analizzati, 0 BUY, 219 veto
-02:45:45 ORACLE   360 raccolti, 222 analizzati, 0 BUY, 217 veto
-02:45:20 ORACLE   360 raccolti, 232 analizzati, 0 BUY, 228 veto
-02:44:58 ORACLE   360 raccolti, 229 analizzati, 0 BUY, 224 veto
-02:44:36 ORACLE   360 raccolti, 230 analizzati, 0 BUY, 224 veto
-02:44:13 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 234 veto
-02:43:50 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 237 veto
-02:43:28 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 234 veto
-02:43:05 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 241 veto
-02:42:43 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 242 veto
-02:42:21 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 241 veto
-02:41:59 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 243 veto
-02:41:36 ORACLE   360 raccolti, 235 analizzati, 0 BUY, 230 veto
-02:41:14 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 235 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
