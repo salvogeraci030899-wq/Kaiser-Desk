@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 23:50 UTC · in esecuzione da 0.3 giorni · 206 run
+Aggiornato: 2026-11-18 23:55 UTC · in esecuzione da 0.3 giorni · 206 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-18 23:50 UTC · in esecuzione da 0.3 giorni · 206 run
 | Cassa | 5.5504 SOL |
 | Trade chiusi | 26 |
 | Win rate | 31% |
-| P&L realizzato | -0.4496 SOL (~$-33.18) |
+| P&L realizzato | -0.4496 SOL (~$-33.12) |
 | Media vincite / perdite | +34.9% / -36.6% |
 | Profit factor | 0.42 |
 | Circuit breaker | no |
@@ -56,6 +56,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+23:55:37 ORACLE   360 raccolti, 236 analizzati, 2 BUY, 228 veto
+23:55:14 ORACLE   360 raccolti, 222 analizzati, 1 BUY, 214 veto
+23:54:51 ORACLE   360 raccolti, 222 analizzati, 1 BUY, 212 veto
+23:54:27 ORACLE   360 raccolti, 233 analizzati, 1 BUY, 224 veto
+23:54:04 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 227 veto
+23:53:41 ORACLE   360 raccolti, 233 analizzati, 1 BUY, 224 veto
+23:53:18 ORACLE   360 raccolti, 233 analizzati, 1 BUY, 222 veto
+23:52:55 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 225 veto
+23:52:32 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 225 veto
+23:52:08 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 225 veto
+23:51:44 ORACLE   360 raccolti, 236 analizzati, 0 BUY, 224 veto
+23:51:21 ORACLE   360 raccolti, 218 analizzati, 0 BUY, 207 veto
+23:50:57 ORACLE   360 raccolti, 228 analizzati, 0 BUY, 217 veto
 23:50:34 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 223 veto
 23:50:10 ORACLE   360 raccolti, 218 analizzati, 0 BUY, 209 veto
 23:49:45 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 233 veto
@@ -83,19 +96,6 @@ _nessuna_
 23:41:37 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 236 veto
 23:41:14 SCRIBE   chiuso P-0408 $Mandy -0.1123 SOL (-98.3%)
 23:41:14 CHARON   RUG-EXIT liquidità $Mandy vendo 100% a -97.5% -> 0.0020 SOL
-23:41:14 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 232 veto
-23:40:50 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 232 veto
-23:40:28 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 231 veto
-23:40:05 ORACLE   360 raccolti, 236 analizzati, 2 BUY, 230 veto
-23:39:42 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 228 veto
-23:39:19 QUARTER  BUY $Mandy 0.113 SOL score 88 impatto 1.12% (Jupiter)
-23:39:19 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 235 veto
-23:38:55 ORACLE   360 raccolti, 231 analizzati, 2 BUY, 224 veto
-23:38:32 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 228 veto
-23:38:09 ORACLE   360 raccolti, 233 analizzati, 1 BUY, 227 veto
-23:37:46 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 228 veto
-23:37:22 ORACLE   360 raccolti, 227 analizzati, 2 BUY, 221 veto
-23:36:59 ORACLE   360 raccolti, 229 analizzati, 1 BUY, 224 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
