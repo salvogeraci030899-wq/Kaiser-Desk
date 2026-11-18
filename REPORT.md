@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 08:47 UTC · in esecuzione da 0.4 giorni · 188 run
+Aggiornato: 2026-11-18 08:51 UTC · in esecuzione da 0.4 giorni · 188 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-18 08:47 UTC · in esecuzione da 0.4 giorni · 188 run
 | Cassa | 5.6140 SOL |
 | Trade chiusi | 20 |
 | Win rate | 35% |
-| P&L realizzato | -0.3860 SOL (~$-28.85) |
+| P&L realizzato | -0.3860 SOL (~$-28.84) |
 | Media vincite / perdite | +40.2% / -46.6% |
 | Profit factor | 0.46 |
 | Circuit breaker | no |
@@ -51,6 +51,18 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+08:51:55 SCRIBE   fine run · trade 20 · win 35% · P&L -0.3860 SOL · equity 5.6140 SOL
+08:51:43 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 227 veto
+08:51:19 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 234 veto
+08:50:57 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 237 veto
+08:50:34 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 229 veto
+08:50:10 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 231 veto
+08:49:47 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 234 veto
+08:49:24 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 231 veto
+08:49:01 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 228 veto
+08:48:37 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 242 veto
+08:48:14 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 240 veto
+08:47:51 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 239 veto
 08:47:28 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 245 veto
 08:47:05 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 241 veto
 08:46:42 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 232 veto
@@ -79,18 +91,6 @@ _nessuna_
 08:37:56 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 226 veto
 08:37:33 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 227 veto
 08:37:10 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 231 veto
-08:36:47 SCRIBE   chiuso P-0368 $KATIA -0.0788 SOL (-68.6%)
-08:36:47 CHARON   Stop loss $KATIA vendo 100% a -40.7% -> 0.0360 SOL
-08:36:47 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 227 veto
-08:36:24 ORACLE   360 raccolti, 236 analizzati, 0 BUY, 224 veto
-08:36:00 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 227 veto
-08:35:37 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 226 veto
-08:35:13 ORACLE   360 raccolti, 231 analizzati, 1 BUY, 221 veto
-08:34:49 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 224 veto
-08:34:26 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 220 veto
-08:34:02 QUARTER  BUY $KATIA 0.114 SOL score 69 impatto 0.00% (Jupiter)
-08:34:02 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 223 veto
-08:33:39 ORACLE   360 raccolti, 230 analizzati, 0 BUY, 220 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
