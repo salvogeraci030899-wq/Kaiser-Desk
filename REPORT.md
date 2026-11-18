@@ -1,26 +1,26 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 05:01 UTC · in esecuzione da 0.2 giorni · 184 run
+Aggiornato: 2026-11-18 05:06 UTC · in esecuzione da 0.2 giorni · 184 run
 
 | | |
 |---|---|
-| Equity | **5.8205 SOL** (-3.0% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.7106 SOL |
-| Trade chiusi | 12 |
-| Win rate | 42% |
-| P&L realizzato | -0.1719 SOL (~$-12.84) |
-| Media vincite / perdite | +31.8% / -42.9% |
-| Profit factor | 0.52 |
+| Equity | **5.7445 SOL** (-4.3% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.7445 SOL |
+| Trade chiusi | 13 |
+| Win rate | 38% |
+| P&L realizzato | -0.2555 SOL (~$-19.11) |
+| Media vincite / perdite | +31.8% / -46.4% |
+| Profit factor | 0.43 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$Elmo** P-0361 · 0.117 SOL · -5.7% · resta 100% · [grafico](https://dexscreener.com/solana/3vnxyY99ETkRDAkfJ51FZdqtxADpTYGrcbiWEcKShKg7)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | TP1 | 4 | +0.1814 |
-| RUG-EXIT liquidità | 2 | -0.2029 |
+| RUG-EXIT liquidità | 3 | -0.2866 |
 | Stop loss | 3 | -0.1360 |
 | Time stop | 2 | -0.0220 |
 | Chiusura manuale (app) | 1 | +0.0076 |
@@ -28,6 +28,7 @@ Aggiornato: 2026-11-18 05:01 UTC · in esecuzione da 0.2 giorni · 184 run
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $Elmo | 66 | -71.2% | -0.0837 | +16% | -66% | RUG-EXIT liquidità | 2m |
 | $BUFO | 70 | -58.0% | -0.0690 | +48% | -72% | Stop loss | 5m |
 | $NADJA | 70 | +0.1% | +0.0001 | +23% | -22% | Time stop | 5m |
 | $VCN | 72 | -46.4% | -0.0558 | +0% | -45% | Stop loss | 4m |
@@ -43,6 +44,21 @@ Aggiornato: 2026-11-18 05:01 UTC · in esecuzione da 0.2 giorni · 184 run
 
 ## Ultimi eventi
 ```
+05:06:24 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 239 veto
+05:06:00 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 240 veto
+05:05:36 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 241 veto
+05:05:13 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 248 veto
+05:04:48 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 247 veto
+05:04:25 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 243 veto
+05:04:00 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 240 veto
+05:03:36 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 241 veto
+05:03:12 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 240 veto
+05:02:48 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 244 veto
+05:02:24 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 243 veto
+05:02:01 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 241 veto
+05:01:36 SCRIBE   chiuso P-0361 $Elmo -0.0837 SOL (-71.2%)
+05:01:36 CHARON   RUG-EXIT liquidità $Elmo vendo 100% a -66.4% -> 0.0339 SOL
+05:01:36 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 241 veto
 05:01:12 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 247 veto
 05:00:48 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 236 veto
 05:00:25 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 240 veto
@@ -68,21 +84,6 @@ Aggiornato: 2026-11-18 05:01 UTC · in esecuzione da 0.2 giorni · 184 run
 04:53:04 ORACLE   360 raccolti, 229 analizzati, 0 BUY, 221 veto
 04:52:41 ORACLE   360 raccolti, 226 analizzati, 0 BUY, 218 veto
 04:52:17 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 232 veto
-04:51:54 ORACLE   360 raccolti, 234 analizzati, 0 BUY, 225 veto
-04:51:30 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 229 veto
-04:51:06 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 230 veto
-04:50:41 ORACLE   360 raccolti, 234 analizzati, 0 BUY, 221 veto
-04:50:18 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 222 veto
-04:50:05 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 231 veto
-04:49:39 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 231 veto
-04:49:15 ORACLE   360 raccolti, 226 analizzati, 0 BUY, 212 veto
-04:48:50 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 223 veto
-04:48:27 ORACLE   360 raccolti, 236 analizzati, 0 BUY, 217 veto
-04:48:03 ORACLE   360 raccolti, 235 analizzati, 0 BUY, 218 veto
-04:47:39 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 224 veto
-04:47:15 ORACLE   360 raccolti, 234 analizzati, 0 BUY, 219 veto
-04:46:52 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 218 veto
-04:46:28 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 229 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
