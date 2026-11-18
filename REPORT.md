@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 21:09 UTC · in esecuzione da 0.2 giorni · 203 run
+Aggiornato: 2026-11-18 21:14 UTC · in esecuzione da 0.2 giorni · 203 run
 
 | | |
 |---|---|
-| Equity | **5.7171 SOL** (-4.7% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.5799 SOL |
-| Trade chiusi | 15 |
-| Win rate | 40% |
-| P&L realizzato | -0.3052 SOL (~$-22.29) |
-| Media vincite / perdite | +16.6% / -39.5% |
-| Profit factor | 0.28 |
+| Equity | **5.6574 SOL** (-5.7% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.6574 SOL |
+| Trade chiusi | 16 |
+| Win rate | 38% |
+| P&L realizzato | -0.3426 SOL (~$-24.99) |
+| Media vincite / perdite | +16.6% / -38.8% |
+| Profit factor | 0.26 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$STM** P-0398 · 0.114 SOL · +20.5% · resta 100% · [grafico](https://dexscreener.com/solana/AeJ1Drt2YkaEJBnsengF8oBJFS6KXBFSjWrckVQQU4Q9)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -22,11 +22,12 @@ Aggiornato: 2026-11-18 21:09 UTC · in esecuzione da 0.2 giorni · 203 run
 | Chiusura manuale (app) | 6 | +0.0235 |
 | RUG-EXIT liquidità | 4 | -0.3391 |
 | TP1 | 1 | +0.0567 |
-| Time stop | 4 | -0.0463 |
+| Time stop | 5 | -0.0836 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $STM | 65 | -32.5% | -0.0373 | +36% | -7% | Time stop | 5m |
 | $AMAZON | 64 | -98.4% | -0.1154 | +8% | -97% | RUG-EXIT liquidità | 1m |
 | $snaps | 72 | -16.5% | -0.0194 | +29% | +3% | Time stop | 6m |
 | $DCTYCAT | 64 | -14.7% | -0.0174 | +18% | -2% | Time stop | 5m |
@@ -45,6 +46,22 @@ Aggiornato: 2026-11-18 21:09 UTC · in esecuzione da 0.2 giorni · 203 run
 
 ## Ultimi eventi
 ```
+21:14:38 ORACLE   360 raccolti, 208 analizzati, 1 BUY, 199 veto
+21:14:15 ORACLE   360 raccolti, 211 analizzati, 1 BUY, 203 veto
+21:13:52 ORACLE   360 raccolti, 218 analizzati, 1 BUY, 211 veto
+21:13:30 ORACLE   360 raccolti, 214 analizzati, 1 BUY, 207 veto
+21:13:07 ORACLE   360 raccolti, 225 analizzati, 0 BUY, 218 veto
+21:12:55 ORACLE   360 raccolti, 227 analizzati, 0 BUY, 218 veto
+21:12:29 ORACLE   360 raccolti, 226 analizzati, 0 BUY, 219 veto
+21:12:06 ORACLE   360 raccolti, 234 analizzati, 0 BUY, 229 veto
+21:11:43 ORACLE   360 raccolti, 225 analizzati, 0 BUY, 219 veto
+21:11:20 ORACLE   360 raccolti, 225 analizzati, 0 BUY, 220 veto
+21:11:07 SCRIBE   chiuso P-0398 $STM -0.0373 SOL (-32.5%)
+21:11:07 CHARON   Time stop $STM vendo 100% a -6.9% -> 0.0776 SOL
+21:10:57 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 233 veto
+21:10:33 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 231 veto
+21:10:11 ORACLE   360 raccolti, 230 analizzati, 1 BUY, 223 veto
+21:09:48 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 230 veto
 21:09:24 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 235 veto
 21:09:02 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 226 veto
 21:08:38 ORACLE   360 raccolti, 221 analizzati, 0 BUY, 214 veto
@@ -69,22 +86,6 @@ Aggiornato: 2026-11-18 21:09 UTC · in esecuzione da 0.2 giorni · 203 run
 21:02:05 ORACLE   360 raccolti, 229 analizzati, 1 BUY, 224 veto
 21:01:42 ORACLE   360 raccolti, 230 analizzati, 0 BUY, 224 veto
 21:01:29 ORACLE   360 raccolti, 230 analizzati, 0 BUY, 223 veto
-21:01:01 ORACLE   360 raccolti, 219 analizzati, 0 BUY, 215 veto
-21:00:38 ORACLE   360 raccolti, 226 analizzati, 1 BUY, 222 veto
-21:00:16 ORACLE   360 raccolti, 223 analizzati, 0 BUY, 218 veto
-20:59:53 ORACLE   360 raccolti, 213 analizzati, 1 BUY, 208 veto
-20:59:31 ORACLE   360 raccolti, 221 analizzati, 1 BUY, 215 veto
-20:59:08 ORACLE   360 raccolti, 218 analizzati, 1 BUY, 211 veto
-20:58:46 ORACLE   360 raccolti, 214 analizzati, 1 BUY, 207 veto
-20:58:23 ORACLE   360 raccolti, 221 analizzati, 1 BUY, 212 veto
-20:57:59 ORACLE   360 raccolti, 224 analizzati, 1 BUY, 216 veto
-20:57:36 ORACLE   360 raccolti, 217 analizzati, 1 BUY, 210 veto
-20:57:23 ORACLE   360 raccolti, 222 analizzati, 1 BUY, 215 veto
-20:56:57 SCRIBE   chiuso P-0397 $AMAZON -0.1154 SOL (-98.4%)
-20:56:57 CHARON   RUG-EXIT liquidità $AMAZON vendo 100% a -97.2% -> 0.0019 SOL
-20:56:57 ORACLE   360 raccolti, 226 analizzati, 1 BUY, 219 veto
-20:56:34 ORACLE   360 raccolti, 221 analizzati, 2 BUY, 215 veto
-20:56:11 QUARTER  BUY $AMAZON 0.116 SOL score 64 impatto 1.48% (Jupiter)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
