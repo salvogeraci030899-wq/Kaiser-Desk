@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 06:31 UTC · in esecuzione da 0.3 giorni · 186 run
+Aggiornato: 2026-11-18 06:36 UTC · in esecuzione da 0.3 giorni · 186 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-18 06:31 UTC · in esecuzione da 0.3 giorni · 186 run
 | Cassa | 5.7487 SOL |
 | Trade chiusi | 17 |
 | Win rate | 41% |
-| P&L realizzato | -0.2513 SOL (~$-18.81) |
+| P&L realizzato | -0.2513 SOL (~$-18.79) |
 | Media vincite / perdite | +40.2% / -48.8% |
 | Profit factor | 0.57 |
 | Circuit breaker | no |
@@ -48,6 +48,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+06:36:40 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 242 veto
+06:36:17 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 239 veto
+06:35:54 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 236 veto
+06:35:31 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 242 veto
+06:35:08 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 239 veto
+06:34:45 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 239 veto
+06:34:20 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 237 veto
+06:33:58 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 237 veto
+06:33:35 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 241 veto
+06:33:12 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 246 veto
+06:32:49 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 241 veto
+06:32:26 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 246 veto
+06:32:03 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 246 veto
 06:31:41 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 238 veto
 06:31:18 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 250 veto
 06:30:56 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 248 veto
@@ -75,19 +88,6 @@ _nessuna_
 06:23:41 ORACLE   291 raccolti, 191 analizzati, 1 BUY, 178 veto
 06:23:19 ORACLE   268 raccolti, 181 analizzati, 2 BUY, 170 veto
 06:22:59 SCOUT    sonda scambi: PumpPortal 0 scambi, programma RPC 1802 eventi, curve RPC 727
-06:22:56 ORACLE   261 raccolti, 173 analizzati, 2 BUY, 162 veto
-06:22:33 ORACLE   256 raccolti, 168 analizzati, 2 BUY, 159 veto
-06:22:09 ORACLE   237 raccolti, 154 analizzati, 2 BUY, 147 veto
-06:21:46 KAISER   limite 1 ingresso/i per scan: $Calypso rimandato
-06:21:46 QUARTER  BUY $FI 0.114 SOL score 66 impatto 0.34% (Jupiter)
-06:21:46 ORACLE   229 raccolti, 149 analizzati, 2 BUY, 143 veto
-06:21:33 SCRIBE   chiuso P-0364 $Calypso 0.0712 SOL (62.9%)
-06:21:33 CHARON   Time stop $Calypso vendo 100% a -21.0% -> 0.1844 SOL
-06:21:25 SCOUT    fabbrica: 15031 percorsi, 768 configurazioni, 0 passano, 2041 ms
-06:21:22 QUARTER  $FI impatto 2.5% oltre slippage: annullato
-06:21:22 ORACLE   224 raccolti, 148 analizzati, 2 BUY, 143 veto
-06:21:22 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-06:21:21 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
