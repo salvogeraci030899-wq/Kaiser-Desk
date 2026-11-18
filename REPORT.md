@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 21:49 UTC · in esecuzione da 0.2 giorni · 204 run
+Aggiornato: 2026-11-18 21:54 UTC · in esecuzione da 0.2 giorni · 204 run
 
 | | |
 |---|---|
-| Equity | **5.5963 SOL** (-6.7% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.5963 SOL |
-| Trade chiusi | 18 |
-| Win rate | 33% |
-| P&L realizzato | -0.4037 SOL (~$-29.46) |
-| Media vincite / perdite | +16.6% / -36.8% |
-| Profit factor | 0.23 |
+| Equity | **5.5584 SOL** (-7.4% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.5584 SOL |
+| Trade chiusi | 19 |
+| Win rate | 32% |
+| P&L realizzato | -0.4416 SOL (~$-32.18) |
+| Media vincite / perdite | +16.6% / -36.6% |
+| Profit factor | 0.21 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -23,11 +23,12 @@ _nessuna_
 | RUG-EXIT liquidità | 4 | -0.3391 |
 | TP1 | 1 | +0.0567 |
 | Time stop | 6 | -0.0909 |
-| Stop loss | 1 | -0.0539 |
+| Stop loss | 2 | -0.0917 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $gte7 | 70 | -33.5% | -0.0379 | +0% | -30% | Stop loss | 1m |
 | $$WISHES | 63 | -6.4% | -0.0073 | +9% | +2% | Time stop | 8m |
 | $FLAMINGO | 71 | -47.2% | -0.0539 | +12% | -41% | Stop loss | 2m |
 | $STM | 65 | -32.5% | -0.0373 | +36% | -7% | Time stop | 5m |
@@ -49,6 +50,22 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+21:54:51 ORACLE   360 raccolti, 213 analizzati, 0 BUY, 202 veto
+21:54:27 ORACLE   360 raccolti, 213 analizzati, 0 BUY, 206 veto
+21:54:02 ORACLE   360 raccolti, 227 analizzati, 0 BUY, 222 veto
+21:53:38 ORACLE   360 raccolti, 231 analizzati, 2 BUY, 223 veto
+21:53:14 ORACLE   360 raccolti, 224 analizzati, 2 BUY, 216 veto
+21:52:50 ORACLE   360 raccolti, 228 analizzati, 2 BUY, 219 veto
+21:52:26 ORACLE   360 raccolti, 236 analizzati, 2 BUY, 226 veto
+21:52:02 ORACLE   360 raccolti, 226 analizzati, 2 BUY, 217 veto
+21:51:38 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 228 veto
+21:51:14 SCRIBE   chiuso P-0401 $gte7 -0.0379 SOL (-33.5%)
+21:51:14 CHARON   Stop loss $gte7 vendo 100% a -30.5% -> 0.0750 SOL
+21:51:14 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 230 veto
+21:50:50 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 221 veto
+21:50:26 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 224 veto
+21:50:01 QUARTER  BUY $gte7 0.112 SOL score 70 impatto 1.64% (Jupiter)
+21:50:01 ORACLE   360 raccolti, 233 analizzati, 1 BUY, 222 veto
 21:49:37 ORACLE   360 raccolti, 232 analizzati, 0 BUY, 217 veto
 21:49:13 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 219 veto
 21:48:49 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 220 veto
@@ -73,22 +90,6 @@ _nessuna_
 21:41:16 ORACLE   360 raccolti, 221 analizzati, 1 BUY, 214 veto
 21:40:52 ORACLE   360 raccolti, 222 analizzati, 0 BUY, 217 veto
 21:40:29 ORACLE   360 raccolti, 220 analizzati, 1 BUY, 212 veto
-21:40:15 ORACLE   360 raccolti, 217 analizzati, 1 BUY, 211 veto
-21:39:48 ORACLE   360 raccolti, 221 analizzati, 0 BUY, 216 veto
-21:39:24 ORACLE   360 raccolti, 213 analizzati, 0 BUY, 209 veto
-21:39:01 ORACLE   360 raccolti, 212 analizzati, 2 BUY, 208 veto
-21:38:37 ORACLE   360 raccolti, 230 analizzati, 2 BUY, 226 veto
-21:38:14 ORACLE   360 raccolti, 222 analizzati, 1 BUY, 218 veto
-21:37:51 ORACLE   360 raccolti, 214 analizzati, 1 BUY, 209 veto
-21:37:27 ORACLE   349 raccolti, 214 analizzati, 0 BUY, 209 veto
-21:37:04 ORACLE   338 raccolti, 207 analizzati, 0 BUY, 202 veto
-21:36:40 SCRIBE   chiuso P-0400 $$WISHES -0.0073 SOL (-6.4%)
-21:36:40 CHARON   Time stop $$WISHES vendo 100% a 2.2% -> 0.1058 SOL
-21:36:40 ORACLE   332 raccolti, 179 analizzati, 0 BUY, 175 veto
-21:36:27 SCOUT    PumpPortal invia nuovi token (22) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-21:36:17 ORACLE   275 raccolti, 154 analizzati, 1 BUY, 149 veto
-21:35:54 ORACLE   264 raccolti, 138 analizzati, 1 BUY, 132 veto
-21:35:32 ORACLE   258 raccolti, 128 analizzati, 1 BUY, 122 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
