@@ -10,7 +10,7 @@ const FIELDS = {
   thr: { min: 3000, max: 60000, def: 10000 }, delay: { min: 0, max: 120, def: 10 }, tp: { min: 2, max: 1000, def: 20 }, sl: { min: 2, max: 99, def: 15 }, hold: { min: 0, max: 1260, def: 120 },
   trail: { min: 0, max: 90, def: 0 }, cost: { min: 0, max: 20, def: 7 }, days: { min: 0, max: 14, def: 0 }, tMin: { min: 0, max: 1260, def: 0 }, tMax: { min: 0, max: 1260, def: 0 },
 };
-const FILTER_FEATS = ['t', 'gap', 'speed', 'dd', 'act', 'vol', 'top1', 'top3', 'top10', 'cre'], SWEEP = ['thr', 'delay', 'tp', 'sl', 'hold', 'trail', 'cost', 'tMin', 'tMax'], MAX_POINTS = 25;
+const FILTER_FEATS = ['t', 'gap', 'speed', 'dd', 'act', 'vol', 'top1', 'top3', 'top10', 'cre', 'crN', 'crHit', 'crMed'], SWEEP = ['thr', 'delay', 'tp', 'sl', 'hold', 'trail', 'cost', 'tMin', 'tMax'], MAX_POINTS = 25;
 const r4 = (x) => +Number(x).toFixed(4), isNum = (v) => typeof v === 'number' && Number.isFinite(v);
 
 function validate(spec) {
@@ -50,13 +50,14 @@ function sim(p, i, spec) {
   }
   return fin(p[p.length - 1] / e, 'fine', p.length - 1 - j);
 }
-function evalOne(recs, holders, spec, now) {
+function evalOne(recs, holders, spec, now, cidx) {
   const cut = spec.days ? now - spec.days * 86400000 : 0, trades = [];
   for (const r of recs) {
     if (r.at < cut) continue; const i = Farm.crossIdx(r.p, spec.thr / r.u); if (i < 1) continue;
     const t = i * Farm.BIN; if (t < spec.tMin || (spec.tMax > 0 && t > spec.tMax)) continue;
     if (spec.filters.length) {
       const f = Rug.feats(r.p, i), h = holders.get(r.m); if (h) for (const k of Rug.HOLD_FEATS) if (Number.isFinite(h[k])) f[k] = h[k];
+      if (cidx) Object.assign(f, Rug.creatorFeats(cidx, r.cr, r.m, r.at));
       let ok = true; for (const x of spec.filters) { const v = f[x.f]; if (!Number.isFinite(v) || !(x.op === '<=' ? v <= x.v : v > x.v)) { ok = false; break; } }
       if (!ok) continue;
     }
@@ -86,8 +87,8 @@ function run(recs, holders, spec, o) {
   if (spec.mode === 'sweep') {
     const w = spec.sweep, pts = []; res.points = [];
     for (let v = w.from, k = 0; v <= w.to + 1e-9 && k < MAX_POINTS; v += w.step, k++) pts.push(r4(v));
-    for (const v of pts) { const d = detail(evalOne(recs, holders, { ...spec, [w.p]: v }, now), now); res.points.push({ v, n: d.all.n, ev: d.all.ev, win: d.all.win, pf: d.all.pf, trEv: d.train.n ? d.train.ev : null, teEv: d.test.n ? d.test.ev : null, trN: d.train.n, teN: d.test.n }); }
-  } else Object.assign(res, detail(evalOne(recs, holders, spec, now), now));
+    for (const v of pts) { const d = detail(evalOne(recs, holders, { ...spec, [w.p]: v }, now, o && o.cidx), now); res.points.push({ v, n: d.all.n, ev: d.all.ev, win: d.all.win, pf: d.all.pf, trEv: d.train.n ? d.train.ev : null, teEv: d.test.n ? d.test.ev : null, trN: d.train.n, teN: d.test.n }); }
+  } else Object.assign(res, detail(evalOne(recs, holders, spec, now, o && o.cidx), now));
   res.meta.ms = Date.now() - t0; return res;
 }
 
@@ -96,7 +97,8 @@ if (require.main === module) {
   const v = validate((() => { try { return JSON.parse(arg('spec', '{}')); } catch { return {}; } })());
   if (!v.ok) { console.log(JSON.stringify({ error: 'richiesta non valida: ' + v.errors.map((e) => e.key + ' ' + e.msg).join('; ') })); process.exit(0); }
   const recs = Farm.loadAll(arg('in', 'state/lab/paths')), holders = arg('holders', '') ? Farm.loadHolders(arg('holders', '')) : new Map();
-  console.log(JSON.stringify(run(recs, holders, v.spec)));
+  const cr = arg('creators', '') ? Farm.loadCreators(arg('creators', '')) : [];
+  console.log(JSON.stringify(run(recs, holders, v.spec, { cidx: cr.length ? Rug.creatorIndex(cr) : null })));
 }
 
 module.exports = { FIELDS, FILTER_FEATS, SWEEP, MAX_POINTS, validate, sim, evalOne, stats, detail, run };

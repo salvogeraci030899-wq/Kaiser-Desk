@@ -607,7 +607,7 @@ function pumpLabQueries() {
     const q = r && r.query; if (!q) return done();
     const v = LabQ.validate(q.spec); const post = (b) => fetchJSON(url + '/lab/result', { method: 'POST', headers: hdr, body: JSON.stringify({ id: q.id, ...b }), timeout: 8000 }).catch(() => {}).finally(done);
     if (!v.ok) return post({ error: 'richiesta non valida' });
-    require('node:child_process').execFile(process.execPath, [path.join(__dirname, 'labquery.js'), '--spec', JSON.stringify(v.spec), '--in', path.join(STATE_DIR, 'lab', 'paths'), '--holders', path.join(STATE_DIR, 'lab', 'holders')], { timeout: 120000, maxBuffer: 4 * 1024 * 1024 }, (e, so) => {
+    require('node:child_process').execFile(process.execPath, [path.join(__dirname, 'labquery.js'), '--spec', JSON.stringify(v.spec), '--in', path.join(STATE_DIR, 'lab', 'paths'), '--holders', path.join(STATE_DIR, 'lab', 'holders'), '--creators', path.join(STATE_DIR, 'lab', 'creators')], { timeout: 120000, maxBuffer: 4 * 1024 * 1024 }, (e, so) => {
       if (e) return post({ error: 'prova non riuscita: ' + String(e.message).split('\n')[0].slice(0, 120) });
       let res; try { res = JSON.parse(String(so).trim().split('\n').pop()); } catch { return post({ error: 'risultato illeggibile' }); }
       if (res && res.error) return post({ error: res.error }); log('SCOUT', `prova ${q.id} eseguita in ${res.meta && res.meta.ms} ms`); post({ result: res });

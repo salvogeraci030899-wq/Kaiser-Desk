@@ -55,3 +55,14 @@ test('il runner chiede le prove al Worker ogni 10 secondi, le esegue in un proce
   const src = fs.readFileSync(require.resolve('../runner/runner.js'), 'utf8');
   assert.match(src, /function pumpLabQueries\(\)/); assert.match(src, /\/lab\/next/); assert.match(src, /\/lab\/result/); assert.match(src, /labquery\.js'\), '--spec'/); assert.match(src, /pumpLabQueries\(\);/); assert.match(src, /NO_LABQ/); assert.match(src, /LabQ\.validate\(q\.spec\)/);
 });
+
+test('Studio: filtri sul creatore (token gia\' creati, quota arrivata a 7.5K, massimo mediano), senza informazioni dal futuro', () => {
+  const Rug = require('../runner/rug.js'), T0 = 1_700_000_000_000, M = 60000;
+  assert.ok(Q.FILTER_FEATS.includes('crN') && Q.FILTER_FEATS.includes('crHit') && Q.FILTER_FEATS.includes('crMed'));
+  const p = []; for (let k = 0; k < 40; k++) p.push(k < 10 ? 40 : 80); for (let k = 0; k < 40; k++) p.push(80);
+  const recs = [{ m: 'n1', s: 'A', at: T0 + 200 * M, u: 100, p, cr: 'X' }, { m: 'n2', s: 'B', at: T0 + 200 * M, u: 100, p, cr: 'NUOVO' }];
+  const cidx = Rug.creatorIndex([{ m: 'o1', cr: 'X', at: T0, mx: 20000 }, { m: 'o2', cr: 'X', at: T0 + 10 * M, mx: 1000 }]);
+  const spec = Q.validate({ thr: 5000, delay: 0, tp: 20, sl: 15, hold: 0, filters: [{ f: 'crN', op: '>', v: 1 }] }).spec;
+  assert.equal(Q.evalOne(recs, new Map(), spec, T0 + 400 * M, cidx).length, 1, 'solo il creatore con 2 token precedenti');
+  assert.equal(Q.evalOne(recs, new Map(), spec, T0 + 400 * M, null).length, 0, 'senza storico dei creatori nessuno passa');
+});

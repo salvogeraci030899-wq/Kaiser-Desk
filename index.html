@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.44.0">
+<meta name="kz-build" content="2.45.0">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=4" media="(prefers-color-scheme: light)">
@@ -543,7 +543,7 @@ function renderPos() {
 const STU = {
   fields: [['thr', 'Soglia di market cap (USD)', 10000], ['delay', 'Ritardo di ingresso (s)', 10], ['tp', 'Target (%)', 20], ['sl', 'Stop (%)', 15], ['hold', 'Tempo massimo (s, 0 = nessuno)', 120], ['trail', 'Trailing dal massimo (%, 0 = no)', 0],
     ['cost', 'Costi di un giro (%)', 7], ['days', 'Ultimi giorni (0 = tutti)', 0], ['tMin', 'Età minima alla soglia (s)', 0], ['tMax', 'Età massima alla soglia (s, 0 = nessuna)', 0]],
-  feats: [['', 'nessun filtro'], ['t', 'secondi dalla nascita'], ['gap', 'salto alla soglia'], ['speed', 'velocità di salita'], ['dd', 'calo massimo prima'], ['act', 'attività'], ['vol', 'volatilità'], ['top1', 'primo possessore (quota)'], ['top3', 'primi 3 possessori'], ['top10', 'primi 10 possessori'], ['cre', 'quota del creatore']],
+  feats: [['', 'nessun filtro'], ['t', 'secondi dalla nascita'], ['gap', 'salto alla soglia'], ['speed', 'velocità di salita'], ['dd', 'calo massimo prima'], ['act', 'attività'], ['vol', 'volatilità'], ['top1', 'primo possessore (quota)'], ['top3', 'primi 3 possessori'], ['top10', 'primi 10 possessori'], ['cre', 'quota del creatore'], ['crN', 'token già creati dal creatore'], ['crHit', 'quota dei suoi token arrivati a 7.5K'], ['crMed', 'massimo mediano dei suoi token']],
   sweep: [['tp', 'Target'], ['sl', 'Stop'], ['thr', 'Soglia'], ['delay', 'Ritardo'], ['hold', 'Tempo massimo'], ['trail', 'Trailing'], ['cost', 'Costi'], ['tMin', 'Età minima'], ['tMax', 'Età massima']],
   presets: [['Base 10K', { thr: 10000, delay: 10, tp: 20, sl: 15, hold: 120, trail: 0 }], ['Scalping 7.5K', { thr: 7500, delay: 10, tp: 12, sl: 10, hold: 60, trail: 0 }], ['Lasciar correre', { thr: 7500, delay: 10, tp: 100, sl: 25, hold: 0, trail: 25 }], ['Costi dimezzati', { cost: 3.5 }]],
 };
@@ -642,7 +642,7 @@ function renderLab() {
         + (() => {
           const F = run.farm; if (!F) return '<span class="muted small">In attesa dei primi percorsi: servono almeno 100 token con market cap sopra 5K, salvati dal runner nuovo.</span>';
           const lbl = (c) => (c.thr / 1000) + 'K · rit. ' + c.delay + ' s · +' + c.tp + '/−' + c.sl + (c.hold ? ' · ' + c.hold + ' s' : ''), ev = (x) => (x.n ? (x.ev > 0 ? '+' : '') + x.ev + '%' : '—');
-          const head = `<div class="kv">${kvRow('Percorsi · dati vecchi · recenti', F.paths + ' · ' + F.train + ' · ' + F.test)}${kvRow('Configurazioni provate', F.tried)}${kvRow('Positive sui dati vecchi', F.posTrain)}${kvRow('Positive anche sui recenti', F.passed, F.passed ? 'up' : 'warn')}${kvRow('Aggiornato', new Date(F.at).toLocaleString('it-IT', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }))}</div>`;
+          const head = `<div class="kv">${kvRow('Percorsi · dati vecchi · recenti', F.paths + ' · ' + F.train + ' · ' + F.test)}${F.gross ? kvRow('Migliore senza costi (peggiore dei due lati)', (F.gross.score > 0 ? '+' : '') + F.gross.score + '%', F.gross.score > F.cost ? 'up' : F.gross.score > 0 ? 'warn' : 'down') : ''}${F.gross ? kvRow('Costo massimo per pareggiare', Math.max(0, F.gross.score) + '% (oggi ' + F.cost + '%)') : ''}${kvRow('Configurazioni provate', F.tried)}${kvRow('Positive sui dati vecchi', F.posTrain)}${kvRow('Positive anche sui recenti', F.passed, F.passed ? 'up' : 'warn')}${kvRow('Aggiornato', new Date(F.at).toLocaleString('it-IT', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }))}</div>`;
           const top = F.top && F.top.length ? tbl(['Regola', 'Operazioni (vecchi/recenti)', 'Esito vecchi', 'Esito recenti'], F.top.map((x) => [lbl(x.cfg), x.tr.n + ' / ' + x.te.n, ev(x.tr), ev(x.te)])) : '<div class="tiny muted" style="margin-top:6px">Nessuna regola regge: positiva dopo i costi sia sui dati vecchi sia su quelli recenti.</div>';
           const bt = F.bestTrain ? `<div class="tiny muted" style="margin-top:6px">Migliore sui dati vecchi: ${lbl(F.bestTrain.cfg)} ha dato ${ev(F.bestTrain.tr)} sui vecchi e ${ev(F.bestTrain.te)} sui recenti. Se la seconda cifra è molto peggiore, la regola era solo un caso.</div>` : '';
           return head + top + bt + `<div class="tiny muted" style="margin-top:6px">Costo di un giro: ${F.cost}%. Ingresso alla prima volta che la market cap supera la soglia più il ritardo; uscita a target, stop (a parità vince lo stop) o tempo massimo; prezzi letti ogni 10 secondi. Una regola passa solo con almeno 30 operazioni sui dati vecchi e 15 sui recenti.</div>`;
