@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.40.1">
+<meta name="kz-build" content="2.40.2">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=2">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
@@ -170,7 +170,6 @@
     </div>
     <div class="setpage" id="setPaper" hidden><div id="parPendPaper"></div><div class="hub" id="parHubPaper"></div></div>
     <div class="setpage" id="setReal" hidden><div id="parPendReal"></div><div class="hub" id="parHubReal"></div></div>
-    <div class="vfoot"><div class="card small" id="parBarPaper" hidden></div><div class="card small" id="parBarReal" hidden></div></div>
   </section>
 </main>
 
@@ -821,13 +820,12 @@ function renderSystem() {
 // ---------- IMPOSTAZIONI: schede Generale · Paper · Reale ----------
 // I parametri si scelgono qui ma si applicano solo con il tuo tocco su Telegram. Il modulo è generato dall'elenco del Worker
 // (solo numeri, interruttori e scelte): non esiste nessun campo di testo libero. Paper e Reale sono due pagine con parametri indipendenti.
-const PAGES = { paper: { bar: '#parBarPaper', pend: '#parPendPaper', label: 'Paper' }, real: { bar: '#parBarReal', pend: '#parPendReal', label: 'Reale' } };
+const PAGES = { paper: { pend: '#parPendPaper', label: 'Paper' }, real: { pend: '#parPendReal', label: 'Reale' } };
 function showTab(t) {
   rt.setTab = t; prefSet('kz_settab', t);
   for (const x of ['gen', 'paper', 'real']) $('#set' + x[0].toUpperCase() + x.slice(1)).hidden = x !== t;
   document.querySelectorAll('#setTabs button').forEach((b) => b.classList.toggle('on', b.dataset.tab === t));
-  $('#parBarPaper').hidden = t !== 'paper'; $('#parBarReal').hidden = t !== 'real';
-  document.querySelectorAll('.vscroll').forEach((e) => { e.scrollTop = 0; });
+    document.querySelectorAll('.vscroll').forEach((e) => { e.scrollTop = 0; });
 }
 const baseVal = (k) => {
   const s = rt.par.schema[k]; if (s.scope === 'worker') return rt.par.limits[k];
@@ -856,12 +854,7 @@ function parProblems(pg) {
 }
 function updateParBar(pg) {
   if (pg === 'paper' && rt.fullKey === 'presets') refreshFull('presets', presetsHtml());
-  const P = PAGES[pg], bar = $(P.bar); if (!rt.par) { bar.innerHTML = ''; return; }
-  const d = draftFor(pg), n = Object.keys(d).length, bad = parProblems(pg), other = Object.keys(draftFor(pg === 'paper' ? 'real' : 'paper')).length;
-  bar.innerHTML = (n ? `<div class="row between"><b>${n} ${n === 1 ? 'modifica non inserita' : 'modifiche non inserite'}</b><span class="row" style="gap:6px"><button class="btn sm" data-par="discard" data-page="${pg}">Annulla</button><button class="btn gold" data-par="send" data-page="${pg}" ${bad.length ? 'disabled' : ''}>Inserisci su ${P.label}</button></span></div>
-      <div class="tiny" style="margin-top:6px">${Object.entries(d).map(([k, v]) => `${parLabel(k)}: ${parShow(k, baseVal(k))} → <b>${parShow(k, v)}</b>`).join('<br>')}</div>${bad.length ? `<div class="down tiny" style="margin-top:6px">${bad.join('<br>')}</div>` : ''}`
-    : `<button class="btn" disabled style="width:100%">Inserisci su ${P.label}</button>`)
-    + (other ? `<div class="warn tiny" style="margin-top:6px">${other} ${other === 1 ? 'modifica non inserita' : 'modifiche non inserite'} nella scheda ${PAGES[pg === 'paper' ? 'real' : 'paper'].label}.</div>` : '');
+  const gb = $('#grpBar'); if (gb) gb.innerHTML = grpBar(pg);
 }
 // Uscite pronte: riempiono il modulo (poi si invia con «Inserisci su Paper», che passa dall'approvazione su Telegram). Il pareggio è una stima prudente:
 // perdita = stop + ~5% di costi, guadagno = TP1 - ~5%; serve vincere almeno perdita / (perdita + guadagno) dei trade.
@@ -885,7 +878,7 @@ function applyPreset(id) {
 const GSHORT = { auto: 'Autopilota', risk: 'Capitale e rischio', exit: 'Uscite', filt: 'Filtri', real: 'Ordini reali', rexit: 'Uscite reali', shield: 'Scudo', lim: 'Limiti' };
 const groupKeys = (gid) => Object.keys(rt.par.schema).filter((k) => rt.par.schema[k].group === gid);
 const groupHtml = (gid) => groupKeys(gid).map(paramRow).join('');
-const grpBar = (pg) => { const n = Object.keys(draftFor(pg)).length, bad = parProblems(pg).length; return n ? `<button class="btn sm" data-par="discard" data-page="${pg}">Annulla</button><button class="btn gold" data-par="send" data-page="${pg}" ${bad ? 'disabled' : ''}>Inserisci su ${PAGES[pg].label} (${n})</button>` : '<span class="tiny muted">Nessuna modifica da inserire</span>'; };
+const grpBar = (pg) => { const n = Object.keys(draftFor(pg)).length, probs = parProblems(pg), bad = probs.length; return n ? `${bad ? `<div class="down tiny sbnote">${probs.join('<br>')}</div>` : ''}<button class="btn sm" data-par="discard" data-page="${pg}">Annulla</button><button class="btn gold" data-par="send" data-page="${pg}" ${bad ? 'disabled' : ''}>Inserisci su ${PAGES[pg].label} (${n})</button>` : '<span class="tiny muted">Nessuna modifica da inserire</span>'; };
 function renderPageTiles(pg) { const hub = $(pg === 'paper' ? '#parHubPaper' : '#parHubReal'); if (!hub || !rt.par) return; rt.par.groups.filter((g) => g.page === pg).forEach((g) => { const t = hub.querySelector(`[data-grp="${g.id}"]`); if (!t) return; const d = groupKeys(g.id).filter((k) => k in rt.draft).length; t.querySelector('.ts').textContent = d ? `${d} ${d === 1 ? 'modifica' : 'modifiche'} da inserire` : 'parametri'; t.querySelector('.tv').className = 'tv' + (d ? ' warn' : ''); }); }
 function openGroup(gid) {
   const g = rt.par.groups.find((x) => x.id === gid); if (!g) return;
@@ -933,7 +926,7 @@ document.addEventListener('click', (ev) => {
 function renderParams() {
   const p = rt.par;
   if (!p) {
-    for (const pg of ['paper', 'real']) { const P = PAGES[pg]; $(pg === 'paper' ? '#parHubPaper' : '#parHubReal').innerHTML = `<div class="card small muted" style="grid-column:1/-1">Parametri non disponibili${rt.parErr ? ': ' + esc(rt.parErr) : ''}.</div>`; $(P.bar).innerHTML = ''; $(P.pend).innerHTML = ''; }
+    for (const pg of ['paper', 'real']) { const P = PAGES[pg]; $(pg === 'paper' ? '#parHubPaper' : '#parHubReal').innerHTML = `<div class="card small muted" style="grid-column:1/-1">Parametri non disponibili${rt.parErr ? ': ' + esc(rt.parErr) : ''}.</div>`; $(P.pend).innerHTML = ''; }
     return;
   }
   renderPage('paper'); renderPage('real');
