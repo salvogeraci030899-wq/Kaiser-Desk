@@ -253,3 +253,23 @@ Il radar sceglie la Coin, tu entri a mano. Invece di aprire la posizione, il run
 - **Nell'app.** Sul Radar compare il riquadro "Segnali" con gli ultimi due avvisi e il tasto pump.fun di ciascuno. Il tasto apre il sito (o l'app di pump.fun, se il telefono la associa al collegamento): non posso verificare da qui come si comporta sul tuo iPhone.
 - **Limiti.** Al massimo 8 avvisi all'ora; la stessa Coin non viene segnalata di nuovo prima di 3 ore; rispetta l'attesa del calo impostata (`minDipPct`). I filtri e il punteggio sono quelli del radar.
 - **Misura dei segnali.** Per ogni avviso il runner segue il prezzo per 15 minuti e salva la variazione ora, il minimo e quella dopo 5 e dopo 15 minuti. Nel riquadro vedi subito se i segnali recenti erano buoni, anche se non hai comprato. Nota onesta: i segnali sono quelli del radar, e il radar nel paper ha un fattore di profitto sotto 1; il semi-automatico non cambia la qualita' del segnale, evita solo l'esecuzione automatica.
+
+### Tasti nei messaggi Telegram (v2.35.0)
+
+Ogni messaggio che riguarda una Coin ha in evidenza **«Apri su pump.fun»** (collegamento diretto alla Coin), poi DexScreener e GMGN. La tastiera e' la stessa nel runner (`runner/kb.js`) e nel Worker (`worker/src/kb.js`); un test controlla che diano lo stesso risultato.
+
+| Messaggio | Tasti |
+|---|---|
+| Segnale (semi-automatico) | Apri su pump.fun · DexScreener, GMGN |
+| Ticket di acquisto reale | Approva, Rifiuta · Apri su pump.fun · DexScreener, GMGN |
+| Acquisto reale, Scudo, vendita parziale, uscita fallita | Apri su pump.fun · DexScreener, GMGN · Chiudi posizione |
+| Chiusura reale (CHIUSA) e altre notifiche con una Coin | Apri su pump.fun · DexScreener, GMGN |
+| Richiesta di chiusura (conferma) | Chiudi ora, Annulla · Apri su pump.fun · DexScreener, GMGN |
+| BUY paper | Apri su pump.fun · DexScreener, GMGN · Chiudi posizione |
+| CLOSE paper | Apri su pump.fun · DexScreener, GMGN |
+| `/posizioni` | per ogni posizione: pump.fun $SIMBOLO, Chiudi posizione |
+| Circuit breaker, riepilogo, paper azzerato, regole validate o ritirate, ... | Apri Kaiser |
+
+**«Chiudi posizione»** non vende da solo: apre la stessa richiesta di conferma della chiusura dall'app (con «Chiudi ora» e «Annulla»), oppure chiude subito se l'approvazione manuale e' spenta. Vale per le posizioni reali (`R-...`) e per quelle paper (`P-...`). L'indirizzo dell'app per «Apri Kaiser» e' quello di GitHub Pages; si puo' cambiare con la variabile `APP_URL` del runner.
+
+Il Worker si ripubblica da solo quando cambia `worker/` su `main` (workflow «Pubblica esecutore»): i tasti nuovi dei suoi messaggi arrivano dopo quella pubblicazione.

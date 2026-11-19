@@ -368,3 +368,29 @@ test('SLIPPAGE DELLE USCITE: parte dal 2% (come a mano su pump.fun), si regola d
   assert.equal((await ex.propose({ changes: { realExitSlip: 0.1 } })).ok, false, 'fuori intervallo');
   const w2 = world({ EXIT_SLIPPAGE_BPS: '150', EXIT_RETRY_SLIPPAGE_BPS: '400' }), ex2 = w2.ex(); await ex2.refreshOv(); assert.deepEqual(ex2.exitSteps(), [150, 375, 400], 'i tetti del Worker vincono sull\'app');
 });
+
+test('tastiere Telegram: ogni messaggio su una Coin ha "Apri su pump.fun", poi DexScreener e GMGN; le posizioni hanno anche "Chiudi posizione"', async () => {
+  const K = await import('../worker/src/kb.js'), R = require('../runner/kb.js'), flat = (m) => m.reply_markup.inline_keyboard.flat();
+  assert.deepEqual(K.coinRows(MINT, MINT), R.coinRows(MINT, MINT), 'Worker e runner danno la stessa tastiera'); assert.deepEqual(K.kb({ mint: MINT, close: 'R-0001' }), R.kb({ mint: MINT, close: 'R-0001' })); assert.deepEqual(K.kb({ app: true }), R.kb({ app: true }));
+  const k = K.kb({ rows: [[{ text: 'Approva', callback_data: 'ap:T-1' }]], mint: MINT, close: 'R-0007' }).inline_keyboard;
+  assert.equal(k[0][0].text, 'Approva'); assert.equal(k[1][0].text, 'Apri su pump.fun'); assert.equal(k[1][0].url, 'https://pump.fun/coin/' + MINT); assert.deepEqual(k[2].map((b) => b.text), ['DexScreener', 'GMGN']); assert.deepEqual(k[3], [{ text: 'Chiudi posizione', callback_data: 'cl:R-0007' }]);
+  assert.equal(K.kb({}), null); assert.equal(K.kb({ mint: 'no' }), null); assert.equal(K.closeRow('../x'), null); assert.ok(K.kb({ app: true }).inline_keyboard[0][0].url.startsWith('https://'));
+  assert.equal(K.kb({ mint: MINT, app: true }).inline_keyboard.flat().some((b) => b.text === 'Apri Kaiser'), false, 'con una Coin non serve il tasto dell\'app');
+  const w = world(), ex = w.ex(), t = await ex.ticket({ mint: MINT, sym: 'KB1', score: 80, sizeSol: 0.05 }); let m = w.tg.at(-1);
+  assert.deepEqual(m.reply_markup.inline_keyboard[0].map((b) => b.callback_data), ['ap:' + t.ticket.id, 'rj:' + t.ticket.id]); assert.ok(flat(m).some((b) => b.url === 'https://pump.fun/coin/' + MINT && b.text === 'Apri su pump.fun'), 'il ticket ha il collegamento alla Coin');
+  await T.handleUpdate(ex, cbq('ap:' + t.ticket.id)); const pos = (await ex.state()).positions[0]; assert.ok(pos);
+  m = [...w.tg].reverse().find((x) => /^ACQUISTO REALE/.test(x.text)); assert.ok(m, 'messaggio di acquisto reale'); assert.ok(flat(m).some((b) => b.text === 'Apri su pump.fun'), 'acquisto: tasto pump.fun'); assert.ok(flat(m).some((b) => b.callback_data === 'cl:' + pos.id && b.text === 'Chiudi posizione'), 'acquisto: tasto di chiusura');
+  const n = w.tg.length; await T.handleUpdate(ex, cbq('cl:' + pos.id)); assert.equal((await ex.state()).positions.length, 1, 'il tasto non vende da solo: chiede conferma'); const c = w.tg.at(-1); assert.ok(w.tg.length > n && /Chiusura posizione REALE/.test(c.text), 'arriva la richiesta di conferma');
+  assert.ok(c.reply_markup.inline_keyboard[0][0].callback_data.startsWith('pa:'), 'con il tasto Chiudi ora'); assert.ok(flat(c).some((b) => b.text === 'Apri su pump.fun'), 'anche la conferma porta alla Coin');
+  const pid = c.reply_markup.inline_keyboard[0][0].callback_data.slice(3); await T.handleUpdate(ex, cbq('pa:' + pid)); assert.equal((await ex.state()).positions.length, 0, 'dopo la conferma la posizione e\' chiusa');
+  await T.handleUpdate(ex, cbq('cl:R-9999')); assert.match(w.answers.at(-1), /non trovata/); await T.handleUpdate(ex, cbq('cl:../x')); assert.equal(w.answers.at(-1), 'Comando non valido');
+});
+test('tastiere Telegram: chiusura di una posizione paper dal tasto, elenco /posizioni con i tasti per ogni posizione', async () => {
+  const K = await import('../worker/src/kb.js'), w = world(), ex = w.ex();
+  await ex.paperPut({ v: 1, positions: [{ id: 'P-0007', sym: 'PAP', mint: MINT }], journal: [] }); await ex.store.put('lastClose', 0); const n = w.tg.length;
+  await T.handleUpdate(ex, cbq('cl:P-0007')); const c = w.tg.at(-1); assert.ok(w.tg.length > n && /Chiusura posizione paper/.test(c.text), 'paper: conferma richiesta'); assert.ok(c.reply_markup.inline_keyboard.flat().some((b) => b.url === 'https://pump.fun/coin/' + MINT), 'la conferma porta alla Coin');
+  const t = await ex.ticket({ mint: MINT, sym: 'LST', score: 80, sizeSol: 0.05 }); await T.handleUpdate(ex, cbq('ap:' + t.ticket.id)); const pos = (await ex.state()).positions[0];
+  await T.handleUpdate(ex, { message: { chat: { id: CHAT }, text: '/posizioni' } }); const m = w.tg.at(-1), rows = m.reply_markup.inline_keyboard;
+  assert.equal(rows.length, 1); assert.match(rows[0][0].text, /^pump\.fun \$LST/); assert.equal(rows[0][0].url, 'https://pump.fun/coin/' + MINT); assert.deepEqual(rows[0][1], { text: 'Chiudi posizione', callback_data: 'cl:' + pos.id });
+  assert.equal(K.positionRows([{ id: 'R-0001', sym: 'X', mint: 'no' }]).length, 0, 'senza mint valido nessuna riga');
+});
