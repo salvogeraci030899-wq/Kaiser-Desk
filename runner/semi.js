@@ -1,6 +1,7 @@
 // KAISER · modalita' semi-automatica: il radar sceglie la Coin, tu entri a mano. Invece di aprire la posizione, il runner manda un avviso con il collegamento diretto a pump.fun
 // (Telegram e app) e segue il prezzo del segnale per 15 minuti, cosi' si vede se i segnali erano buoni. Non apre ordini.
 'use strict';
+const Kb = require('./kb.js');
 
 const MAX_PER_HOUR = 8;          // avvisi al massimo in un'ora: sono scelte da fare a mano, non una raffica
 const REPEAT_H = 3;              // la stessa Coin non si segnala di nuovo prima di 3 ore
@@ -31,9 +32,7 @@ function text(a) {
   const bits = [a.mc ? 'market cap $' + k(a.mc) : '', a.ageMin != null ? 'età ' + Math.round(a.ageMin) + ' min' : '', a.liq ? 'liquidità $' + k(a.liq) : ''].filter(Boolean).join(' · ');
   return `<b>SEGNALE</b> $${esc(a.sym || a.mint.slice(0, 6))} · score ${a.score}\n${bits}${a.why.length ? '\nMotivi: ' + a.why.map(esc).join('; ') : ''}\nEntra a mano da pump.fun: decidi tu taglia e uscita. Se non ti convince, ignora.`;
 }
-function keyboard(a) {
-  return { inline_keyboard: [[{ text: 'Apri su pump.fun', url: pumpUrl(a) }], [{ text: 'DexScreener', url: `https://dexscreener.com/solana/${a.pair || a.mint}` }, { text: 'GMGN', url: `https://gmgn.ai/sol/token/${a.mint}` }]] };
-}
+function keyboard(a) { return Kb.kb({ mint: a.mint, pair: a.pair }); }
 // Segnali ancora da seguire (meno di 17 minuti, senza ancora entrambe le misure)
 const open = (alerts, now) => alerts.filter((a) => now - a.t < TRACK_MS && (a.p5 == null || a.p15 == null));
 // Registra il prezzo corrente rispetto a quello del segnale: variazione ora, minimo, dopo 5 e dopo 15 minuti

@@ -6,23 +6,10 @@ import E from '../../engine.js';
 import { walletAddress, num, limitsFrom } from './lib.js';
 import { parseTx, guardTx, signTx, b64enc, b64dec } from './solana.js';
 import { SCHEMA, GROUPS, validate, diffText, defaults as paramDefaults } from './params.js';
+import { kb as buildKb } from './kb.js';
 
 export const SOL = 'So11111111111111111111111111111111111111112';
 const MINT_RE = /^[1-9A-HJ-NP-Za-km-z]{32,44}$/;
-// Stessa tastiera del runner e di telegram.js: pump.fun in evidenza, poi DexScreener (con pairAddress se c'è, così apre proprio quella pool), GMGN.
-// extraRows (opzionale): righe di pulsanti in testa (es. Approva/Rifiuta, Chiudi ora/Annulla) per i messaggi che hanno già una callback.
-function mintKeyboard(mint, pairAddress, extraRows) {
-  const rows = [...(extraRows || [])];
-  if (MINT_RE.test(mint || '')) {
-    const pair = MINT_RE.test(pairAddress || '') ? pairAddress : mint;
-    rows.push([
-      { text: 'pump.fun', url: `https://pump.fun/coin/${mint}` },
-      { text: 'DexScreener', url: `https://dexscreener.com/solana/${pair}` },
-      { text: 'GMGN', url: `https://gmgn.ai/sol/token/${mint}` },
-    ]);
-  }
-  return rows.length ? { inline_keyboard: rows } : null;
-}
 const RESERVE = 10_000_000;            // 0,01 SOL: margine per commissioni e rent degli account
 // Pannello di emergenza: azioni dell'app. 'confirm' = anche con l'approvazione disattivata passa sempre dal tasto su Telegram (accende il reale).
 const PANEL = {
@@ -122,7 +109,7 @@ export class Executor {
       const pos = { id: 'R-' + String(seq).padStart(4, '0'), source: 'scudo', mint: t.mint, sym, openedAt: now, costSol: value, tokensRaw: String(t.raw), decimals: t.decimals, entry, peak: entry,
         tp1Done: false, spDone: false, entryLiq: m.liq, params, realized: 0, sigs: [], fails: 0, persistedAt: now };
       const ps = await this.store.get('positions', []); ps.push(pos); await this.store.put('positions', ps); delete wait[t.mint]; changed = true;
-      await this.notify(`SCUDO: protetto ${sym} (${pos.id}) · ${value.toFixed(4)} SOL a ${entry.toPrecision(4)}\nStop −${params.sl}% (${lv(-params.sl)}) · TP1 +${params.tp1}% (${lv(params.tp1)}) vendendo ${params.tp1Sell}%, poi trailing −${params.trail}%\nL'ingresso è il prezzo di quando l'ho visto (circa 10 secondi dopo il tuo acquisto).`, { mint: t.mint });
+      await this.notify(`SCUDO: protetto ${sym} (${pos.id}) · ${value.toFixed(4)} SOL a ${entry.toPrecision(4)}\nStop −${params.sl}% (${lv(-params.sl)}) · TP1 +${params.tp1}% (${lv(params.tp1)}) vendendo ${params.tp1Sell}%, poi trailing −${params.trail}%\nL'ingresso è il prezzo di quando l'ho visto (circa 10 secondi dopo il tuo acquisto).`, { mint: t.mint, closeId: pos.id });
     }
     if (changed) { await this.store.put('shieldNoted', Object.fromEntries(Object.entries(noted).slice(-60))); await this.store.put('shieldWait', wait); }
   }
@@ -171,7 +158,7 @@ export class Executor {
   }
   // Notifiche Telegram. `opts` accetta, in ordine di precedenza:
   //   { keyboard }                 markup già pronto (inline_keyboard), usato com'è
-  //   { mint, pairAddress?, extraRows? }  costruisce i 3 bottoni (pump.fun/DexScreener/GMGN); extraRows sono righe di pulsanti in testa
+  //   { mint, pairAddress?, extraRows?, closeId?, app? }  costruisce i tasti (Apri su pump.fun, DexScreener, GMGN; con closeId anche Chiudi posizione; con app, se non c'e' una Coin, Apri Kaiser); extraRows sono righe di pulsanti in testa
   //   { inline_keyboard }          vecchio stile (compatibilità)
   //   undefined                    nessun bottone
   async notify(text, opts) {
@@ -179,7 +166,7 @@ export class Executor {
     let kb = null;
     if (opts) {
       if (opts.keyboard) kb = opts.keyboard;
-      else if (opts.mint || opts.extraRows) kb = mintKeyboard(opts.mint, opts.pairAddress, opts.extraRows);
+      else if (opts.mint || opts.extraRows || opts.closeId || opts.app) kb = buildKb({ mint: opts.mint, pair: opts.pairAddress, rows: opts.extraRows, close: opts.closeId, app: opts.app });
       else if (Array.isArray(opts.inline_keyboard)) kb = opts;
     }
     try { await this.f(`https://api.telegram.org/bot${t}/sendMessage`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ chat_id: c, text, disable_web_page_preview: true, ...(kb ? { reply_markup: kb } : {}) }) }); } catch { /* i messaggi non devono mai bloccare un ordine */ }
@@ -266,7 +253,7 @@ export class Executor {
     const pos = { id: 'R-' + String(seq).padStart(4, '0'), mint: ctx.mint, sym: ctx.sym, openedAt: ctx.at, costSol, tokensRaw: String(raw), decimals: tb.decimals, entry, peak: entry,
       tp1Done: false, spDone: false, entryLiq: ctx.entryLiq, params: ctx.params, realized: 0, sigs: [ctx.sig], fails: 0, persistedAt: this.now() };
     const positions = await this.store.get('positions', []); positions.push(pos); await this.store.put('positions', positions);
-    await this.notify(`ACQUISTO REALE $${pos.sym || pos.mint.slice(0, 6)} ${costSol.toFixed(4)} SOL\n${pos.id} · stop −${pos.params.sl}% · TP1 +${pos.params.tp1}%\nhttps://solscan.io/tx/${ctx.sig}`, { mint: pos.mint });
+    await this.notify(`ACQUISTO REALE $${pos.sym || pos.mint.slice(0, 6)} ${costSol.toFixed(4)} SOL\n${pos.id} · stop −${pos.params.sl}% · TP1 +${pos.params.tp1}%\nhttps://solscan.io/tx/${ctx.sig}`, { mint: pos.mint, closeId: pos.id });
     return pos;
   }
 
@@ -315,7 +302,7 @@ export class Executor {
     }
     p.fails = num(p.fails) + 1; this.fastRetry = true;
     const ps = await this.store.get('positions', []); await this.store.put('positions', ps.map((x) => (x.id === p.id ? p : x)));
-    if (p.fails === 1 || p.fails % 5 === 0) await this.notify(`USCITA REALE FALLITA (${p.fails}) ${p.id} $${p.sym}: ${last && last.message}\nHo già riprovato subito con slippage fino a ${top / 100}%. Riprovo di nuovo tra pochi secondi. Se persiste, vendi a mano dal wallet.`, { mint: p.mint });
+    if (p.fails === 1 || p.fails % 5 === 0) await this.notify(`USCITA REALE FALLITA (${p.fails}) ${p.id} $${p.sym}: ${last && last.message}\nHo già riprovato subito con slippage fino a ${top / 100}%. Riprovo di nuovo tra pochi secondi. Se persiste, vendi a mano dal wallet.`, { mint: p.mint, closeId: p.id });
     return { ok: false, error: last && last.message };
   }
   async _sellOnce(p, frac, reason, slippageBps, ctx) {
@@ -343,7 +330,7 @@ export class Executor {
       if (frac >= 0.999 || left.raw === 0n) return this.closePosition(p, reason, sent.sig);
       p.tokensRaw = left.raw.toString();
       const ps = await this.store.get('positions', []); await this.store.put('positions', ps.map((x) => (x.id === p.id ? p : x)));
-      await this.notify(`${reason}: venduta una parte di ${p.id} $${p.sym}\nhttps://solscan.io/tx/${sent.sig}`, { mint: p.mint });
+      await this.notify(`${reason}: venduta una parte di ${p.id} $${p.sym}\nhttps://solscan.io/tx/${sent.sig}`, { mint: p.mint, closeId: p.id });
       return { ok: true, partial: true, signature: sent.sig };
     }
   }

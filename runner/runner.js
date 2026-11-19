@@ -14,6 +14,7 @@ const Probe = require('./probe.js');
 const Strat = require('./strategies.js');
 const Holders = require('./holders.js');
 const Semi = require('./semi.js');
+const Kb = require('./kb.js');
 
 const STATE_DIR = process.env.STATE_DIR || path.join(__dirname, '..', 'state');
 const LOOP_MIN = Number(process.env.LOOP_MIN || 4.5);
@@ -272,7 +273,7 @@ async function buy(c) {
   st.positions.push(p); st.lastEntryAt = Date.now();
   pushLive(true).catch(() => {});
   log('QUARTER', `BUY $${c.sym} ${sizeS.toFixed(3)} SOL score ${c.score} impatto ${(impact * 100).toFixed(2)}% (${src})`);
-  await tg(`<b>BUY paper</b> $${esc(c.sym)} ${sizeS.toFixed(3)} SOL · score ${c.score}\nhttps://dexscreener.com/solana/${fresh.pairAddress}`);
+  await tg(`<b>BUY paper</b> $${esc(c.sym)} ${sizeS.toFixed(3)} SOL · score ${c.score}\n${p.id} · il paper ha comprato al posto tuo; per entrare a mano apri la Coin su pump.fun`, Kb.kb({ mint: c.mint, pair: fresh.pairAddress, close: p.id }));
 }
 function calSummary(c) {
   if (!Array.isArray(c) || !c.length) return null;
@@ -314,7 +315,7 @@ async function sell(p, frac, reason) {
     pushLive(true).catch(() => {});
     if (pnl < 0) st.cooldownUntil = Date.now() + S.cooldownMin * 60000;
     log('SCRIBE', `chiuso ${p.id} $${p.sym} ${pnl.toFixed(4)} SOL (${j.pct.toFixed(1)}%)`);
-    await tg(`<b>CLOSE</b> $${esc(p.sym)} ${pnl.toFixed(4)} SOL (${j.pct.toFixed(1)}%) · ${esc(reason)}\nEquity ${equity().toFixed(3)} SOL`);
+    await tg(`<b>CLOSE</b> $${esc(p.sym)} ${pnl.toFixed(4)} SOL (${j.pct.toFixed(1)}%) · ${esc(reason)}\nEquity ${equity().toFixed(3)} SOL`, Kb.kb({ mint: p.mint, pair: p.pairAddress }));
   }
 }
 async function manage(pairsIn) {
@@ -359,7 +360,7 @@ async function resetPaper(rp) {
   Object.assign(st, { cash: cap, positions: [], journal: [], signals: [], alerts: [], day: null, halted: null, cooldownUntil: 0, startedAt: Date.now(), capital: cap, resetId: rp.id, realTried: {} });
   S.capitalSOL = cap; BASE_S.capitalSOL = cap;
   log('KAISER', `reset del paper (${rp.id}): conto azzerato, capitale ${cap} SOL`);
-  await tg(`<b>KAISER</b> paper azzerato (${esc(rp.id)}): riparto con ${cap} SOL`);
+  await tg(`<b>KAISER</b> paper azzerato (${esc(rp.id)}): riparto con ${cap} SOL`, Kb.kb({ app: true }));
   save(); await pushLive(true); await ackReset(rp.id);
 }
 async function pullParams() {
@@ -472,7 +473,7 @@ async function scan() {
   if (st.day && !st.halted && equity() < st.day.startEq * (1 - S.dailyLossPct / 100)) {
     st.halted = Date.now();
     log('KAISER', `CIRCUIT BREAKER: perdita giornaliera oltre ${S.dailyLossPct}%`);
-    await tg(`<b>KAISER</b> circuit breaker: stop ingressi fino a domani`);
+    await tg(`<b>KAISER</b> circuit breaker: stop ingressi fino a domani`, Kb.kb({ app: true }));
   }
   // modalita' semi-automatica: avviso con il collegamento a pump.fun, entri tu a mano (funziona anche con l'autopilota spento)
   st.alerts = st.alerts || [];
@@ -558,7 +559,7 @@ function flushPaths(final) {
     if (n || final) Farm.prune(dir, Date.now(), Farm.KEEP_DAYS);
     const hdir = path.join(STATE_DIR, 'lab', 'holders'); if (rt.holdBuf.length) Farm.writeBatch(hdir, rt.holdBuf.splice(0), Date.now()); if (n || final) Farm.prune(hdir, Date.now(), Farm.KEEP_DAYS);
     const before = rt.strat.log.length, ch = Strat.review(rt.strat, Date.now()); if (ch) rt.stratDirty = true;
-    if (ch) for (const e of rt.strat.log.slice(-ch)) { log('SCOUT', `regola ${e.id}: ${e.to} (${e.why})`); if (e.to !== 'prova') tg(`<b>Regola ${esc(e.id)}</b> ${esc(e.to)}\n${esc(e.why)}`).catch(() => {}); }
+    if (ch) for (const e of rt.strat.log.slice(-ch)) { log('SCOUT', `regola ${e.id}: ${e.to} (${e.why})`); if (e.to !== 'prova') tg(`<b>Regola ${esc(e.id)}</b> ${esc(e.to)}\n${esc(e.why)}`, Kb.kb({ app: true })).catch(() => {}); }
     if (rt.stratDirty || final) { Strat.save(STRAT_FILE(), rt.strat); rt.stratDirty = false; }
   } catch (e) { log('KAISER', 'salvataggio percorsi non riuscito: ' + String(e.message).split('\n')[0]); }
 }
@@ -650,7 +651,7 @@ async function main() {
     st.lastDaily = dkey;
     const today = st.journal.filter((j) => new Date(j.closedAt + 3600000).toISOString().slice(0, 10) === dkey);
     const pd = today.reduce((a, j) => a + j.pnl, 0);
-    await tg(`<b>KAISER</b> riepilogo ${dkey}\nOggi: ${today.length} trade, ${pd >= 0 ? '+' : ''}${pd.toFixed(4)} SOL\nTotale: ${s.n} trade, win ${s.wr.toFixed(0)}%, P&L ${s.pnl.toFixed(4)} SOL\nEquity ${equity().toFixed(4)} SOL`);
+    await tg(`<b>KAISER</b> riepilogo ${dkey}\nOggi: ${today.length} trade, ${pd >= 0 ? '+' : ''}${pd.toFixed(4)} SOL\nTotale: ${s.n} trade, win ${s.wr.toFixed(0)}%, P&L ${s.pnl.toFixed(4)} SOL\nEquity ${equity().toFixed(4)} SOL`, Kb.kb({ app: true }));
   }
   if (rt.feed) rt.feed.stop();
   if (rt.trades) rt.trades.stop();

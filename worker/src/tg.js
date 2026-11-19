@@ -1,6 +1,7 @@
 // KAISER · comandi da Telegram. È il canale di controllo del conto reale: l'app non contiene token né chiavi e non può dare comandi.
 // Sicurezza: la richiesta deve portare il segreto del webhook (derivato da EXEC_TOKEN) E arrivare dalla chat autorizzata (TELEGRAM_CHAT_ID).
 import { num } from './lib.js';
+import { kb as buildKb, positionRows } from './kb.js';
 
 export async function webhookSecret(env) {
   const key = await crypto.subtle.importKey('raw', new TextEncoder().encode(String(env.EXEC_TOKEN || '')), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
@@ -48,6 +49,10 @@ export async function handleUpdate(ex, update) {
       await answer(ex, cb.id, r.ok ? (r.dryRun ? 'Prova riuscita: nessun ordine inviato' : r.pending ? 'Inviato, in attesa di conferma' : 'Eseguito') : (r.error || 'Errore').slice(0, 150));
       if (!r.ok) await reply(ex, chat, `${id}: ${r.error}${r.reasons ? '\n' + r.reasons.join('\n') : ''}`); else if (r.dryRun) await reply(ex, chat, dryText(id, r.report));
     }
+    else if (kind === 'cl' && /^[PR]-\d{1,6}$/.test(id)) {              // "Chiudi posizione" sotto i messaggi delle posizioni: stessa conferma della chiusura dall'app
+      const r = await ex.propose({ close: { mode: id.startsWith('R-') ? 'real' : 'paper', id } });
+      await answer(ex, cb.id, r.ok ? (r.direct ? 'Chiusura avviata' : 'Conferma nel messaggio qui sotto') : (r.error || 'Errore').slice(0, 150));
+    }
     else if (kind === 'rj' && /^T-\d+$/.test(id)) { await ex.reject(id); await answer(ex, cb.id, 'Scartato'); }
     else if (kind === 'pa' && /^C-\d+$/.test(id)) { const r = await ex.applyProposal(id); await answer(ex, cb.id, r.ok ? (r.emergency ? 'EMERGENZA eseguita' : r.close ? 'Chiusura avviata' : r.panel ? 'Eseguito' : r.reset ? 'Reset approvato' : 'Parametri applicati') : (r.error || 'Errore').slice(0, 150)); }
     else if (kind === 'pr' && /^C-\d+$/.test(id)) { await ex.rejectProposal(id); await answer(ex, cb.id, 'Richiesta rifiutata'); await reply(ex, chat, `${id} rifiutata.`); }
@@ -67,7 +72,7 @@ export async function handleUpdate(ex, update) {
       const s = await ex.state();
       if (!s.positions.length) { await reply(ex, chat, 'Nessuna posizione reale aperta.'); break; }
       const px = await ex.prices(s.positions.map((p) => p.mint));
-      await reply(ex, chat, s.positions.map((p) => { const m = px.get(p.mint), pnl = m && p.entry > 0 ? (m.priceNative / p.entry - 1) * 100 : null; return `${p.id} $${p.sym} · costo ${fmt(p.costSol)} SOL · ${pnl == null ? 'prezzo n/d' : (pnl >= 0 ? '+' : '') + pnl.toFixed(1) + '%'}${p.tp1Done ? ' · TP1 fatto' : ''}`; }).join('\n'));
+      await reply(ex, chat, s.positions.map((p) => { const m = px.get(p.mint), pnl = m && p.entry > 0 ? (m.priceNative / p.entry - 1) * 100 : null; return `${p.id} $${p.sym} · costo ${fmt(p.costSol)} SOL · ${pnl == null ? 'prezzo n/d' : (pnl >= 0 ? '+' : '') + pnl.toFixed(1) + '%'}${p.tp1Done ? ' · TP1 fatto' : ''}`; }).join('\n'), buildKb({ rows: positionRows(s.positions) }));
       break; }
     case '/wallet': {
       const h = await ex.health();
