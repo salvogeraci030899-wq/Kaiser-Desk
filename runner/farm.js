@@ -99,7 +99,8 @@ function run(recs, o) {
   const want = ((o && o.watch) || []).map((c) => [c.thr, c.delay, c.tp, c.sl, c.hold].join('/')), watch = res.filter((x) => want.includes([x.cfg.thr, x.cfg.delay, x.cfg.tp, x.cfg.sl, x.cfg.hold].join('/'))).map((x) => ({ cfg: x.cfg, tr: x.tr, te: x.te, score: score(x) }));
   // Al lordo dei costi: quanto renderebbe la migliore se i costi fossero zero. Se e' vicino a zero non c'e' un vantaggio da cui partire, qualunque siano i costi.
   const gross = top1 && { cfg: top1.cfg, score: +(score(top1) + COST).toFixed(2), cost: COST };
-  return { at: (o && o.now) || Date.now(), gross, best: top1 && { cfg: top1.cfg, tr: top1.tr, te: top1.te, score: score(top1) }, watch, paths: recs.length, train: train.length, test: test.length, tried, posTrain, passed: passed.length, top: passed.slice(0, 8), bestTrain, bestTest, cost: COST,
+  const ranked = elig.slice(0, 12).map((x) => ({ cfg: x.cfg, tr: x.tr, te: x.te, score: score(x) }));
+  return { at: (o && o.now) || Date.now(), gross, ranked, best: top1 && { cfg: top1.cfg, tr: top1.tr, te: top1.te, score: score(top1) }, watch, paths: recs.length, train: train.length, test: test.length, tried, posTrain, passed: passed.length, top: passed.slice(0, 8), bestTrain, bestTest, cost: COST,
     span: sorted.length ? { from: sorted[0].at, to: sorted[sorted.length - 1].at } : null };
 }
 
