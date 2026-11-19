@@ -145,3 +145,11 @@ test('ricarica automatica del conto della strategia: dichiarata, con storico e s
   const src = fs.readFileSync(path.join(__dirname, '..', 'runner', 'runner.js'), 'utf8'); assert.match(src, /RICARICA AUTOMATICA paper/); assert.match(src, /S\.refillBelowPct > 0 && !st\.positions\.length/); assert.match(src, /flushStratNotes\(\)/);
   const P = require('../worker/src/params.js'); assert.equal(P.SCHEMA.refillBelowPct.t, 'num'); assert.equal(P.SCHEMA.refillBelowPct.scope, 'runner');
 });
+
+test('il conto della strategia conta tutte le operazioni, non solo le ultime 100 in elenco', () => {
+  const T0 = 1_700_000_000_000, reg = S.create(), win = [], los = []; for (let k = 0; k < 120; k++) { win.push(k < 10 ? 40 : k < 20 ? 50 : k < 30 ? 50 + (k - 20) * 4 : 100); los.push(k < 10 ? 40 : k < 20 ? 50 : k < 30 ? 50 - (k - 20) * 4 : 20); }
+  S.adoptBest(reg, { at: T0, best: { cfg: { thr: 5000, delay: 0, tp: 30, sl: 20, hold: 0 }, tr: { n: 50, ev: 0 }, te: { n: 50, ev: 0 } }, watch: [] }, T0);
+  for (let i = 0; i < 130; i++) S.record(reg, { m: 'm' + i, s: 'S' + i, at: T0 + 10 + i, u: 100, p: i % 3 === 0 ? win : los }, T0 + 100 + i, { holders: new Map(), cidx: null, refillPct: 0 });
+  const a = S.summary(reg, T0 + 1000).acct; assert.equal(a.n, 130); assert.equal(a.trades.length, 100, 'l\'elenco resta di 100'); assert.equal(a.win, Math.round(100 * 44 / 130)); assert.ok(a.aw > 0 && a.al < 0);
+  const src = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8'); assert.match(src, /n: SA\.n, wr: SA\.win/);
+});
