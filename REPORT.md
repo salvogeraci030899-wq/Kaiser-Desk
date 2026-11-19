@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 00:20 UTC · in esecuzione da 0.3 giorni · 207 run
+Aggiornato: 2026-11-19 00:25 UTC · in esecuzione da 0.3 giorni · 207 run
 
 | | |
 |---|---|
-| Equity | **5.5549 SOL** (-7.4% dal capitale iniziale di 6 SOL) |
+| Equity | **5.5661 SOL** (-7.2% dal capitale iniziale di 6 SOL) |
 | Cassa | 5.4405 SOL |
 | Trade chiusi | 27 |
 | Win rate | 33% |
-| P&L realizzato | -0.4475 SOL (~$-32.77) |
+| P&L realizzato | -0.4475 SOL (~$-32.72) |
 | Media vincite / perdite | +31.2% / -36.6% |
 | Profit factor | 0.42 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$VICECITY** P-0410 · 0.111 SOL · +3.0% · resta 100% · [grafico](https://dexscreener.com/solana/2tmtwU7rL9pFK7Rk7hwQmPfdHszLD6Qk9RwcykrwzSLY)
+- **$VICECITY** P-0410 · 0.111 SOL · +13.2% · resta 100% · [grafico](https://dexscreener.com/solana/2tmtwU7rL9pFK7Rk7hwQmPfdHszLD6Qk9RwcykrwzSLY)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -56,6 +56,19 @@ Aggiornato: 2026-11-19 00:20 UTC · in esecuzione da 0.3 giorni · 207 run
 
 ## Ultimi eventi
 ```
+00:25:09 ORACLE   360 raccolti, 222 analizzati, 1 BUY, 212 veto
+00:24:56 ORACLE   360 raccolti, 209 analizzati, 1 BUY, 198 veto
+00:24:30 ORACLE   360 raccolti, 197 analizzati, 1 BUY, 187 veto
+00:24:06 ORACLE   360 raccolti, 204 analizzati, 1 BUY, 194 veto
+00:23:43 ORACLE   360 raccolti, 199 analizzati, 0 BUY, 190 veto
+00:23:20 ORACLE   360 raccolti, 198 analizzati, 1 BUY, 188 veto
+00:22:57 ORACLE   360 raccolti, 195 analizzati, 0 BUY, 186 veto
+00:22:33 ORACLE   360 raccolti, 189 analizzati, 1 BUY, 178 veto
+00:22:10 ORACLE   360 raccolti, 194 analizzati, 1 BUY, 183 veto
+00:21:46 ORACLE   360 raccolti, 194 analizzati, 1 BUY, 185 veto
+00:21:23 ORACLE   360 raccolti, 195 analizzati, 0 BUY, 188 veto
+00:20:59 ORACLE   360 raccolti, 196 analizzati, 0 BUY, 190 veto
+00:20:36 ORACLE   360 raccolti, 197 analizzati, 0 BUY, 191 veto
 00:20:13 ORACLE   360 raccolti, 201 analizzati, 0 BUY, 194 veto
 00:19:48 ORACLE   360 raccolti, 195 analizzati, 0 BUY, 188 veto
 00:19:24 QUARTER  BUY $VICECITY 0.111 SOL score 65 impatto 0.01% (Jupiter)
@@ -83,19 +96,6 @@ Aggiornato: 2026-11-19 00:20 UTC · in esecuzione da 0.3 giorni · 207 run
 00:11:31 ORACLE   360 raccolti, 223 analizzati, 0 BUY, 212 veto
 00:11:07 ORACLE   360 raccolti, 213 analizzati, 0 BUY, 195 veto
 00:10:44 ORACLE   360 raccolti, 212 analizzati, 0 BUY, 195 veto
-00:10:19 ORACLE   360 raccolti, 205 analizzati, 0 BUY, 189 veto
-00:09:54 ORACLE   360 raccolti, 205 analizzati, 0 BUY, 188 veto
-00:09:31 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-00:09:31 ORACLE   360 raccolti, 207 analizzati, 0 BUY, 189 veto
-00:09:08 ORACLE   353 raccolti, 196 analizzati, 0 BUY, 182 veto
-00:08:45 ORACLE   346 raccolti, 187 analizzati, 0 BUY, 174 veto
-00:08:22 ORACLE   342 raccolti, 186 analizzati, 0 BUY, 172 veto
-00:07:59 ORACLE   316 raccolti, 172 analizzati, 0 BUY, 165 veto
-00:07:36 ORACLE   306 raccolti, 161 analizzati, 0 BUY, 153 veto
-00:07:14 ORACLE   305 raccolti, 159 analizzati, 0 BUY, 151 veto
-00:06:50 ORACLE   279 raccolti, 154 analizzati, 0 BUY, 147 veto
-00:06:27 ORACLE   267 raccolti, 127 analizzati, 0 BUY, 123 veto
-00:06:05 ORACLE   263 raccolti, 124 analizzati, 0 BUY, 123 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
