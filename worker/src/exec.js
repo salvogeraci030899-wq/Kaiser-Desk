@@ -16,9 +16,9 @@ function mintKeyboard(mint, pairAddress, extraRows) {
   if (MINT_RE.test(mint || '')) {
     const pair = MINT_RE.test(pairAddress || '') ? pairAddress : mint;
     rows.push([
-      { text: '🟢 pump.fun', url: `https://pump.fun/coin/${mint}` },
-      { text: '📈 DexScreener', url: `https://dexscreener.com/solana/${pair}` },
-      { text: '🦅 GMGN', url: `https://gmgn.ai/sol/token/${mint}` },
+      { text: 'pump.fun', url: `https://pump.fun/coin/${mint}` },
+      { text: 'DexScreener', url: `https://dexscreener.com/solana/${pair}` },
+      { text: 'GMGN', url: `https://gmgn.ai/sol/token/${mint}` },
     ]);
   }
   return rows.length ? { inline_keyboard: rows } : null;

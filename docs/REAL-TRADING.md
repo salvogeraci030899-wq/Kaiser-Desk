@@ -231,3 +231,15 @@ Solo prova, nessun ordine. La fabbrica propone, il registro mette alla prova, il
 - **Telegram.** Ogni validazione e ogni ritiro arriva come messaggio.
 - **Nessun ordine.** Una regola validata puo' solo essere proposta per l'uso; il passaggio al paper o al reale richiede la tua approvazione su Telegram, come per ogni altro parametro. L'uso delle regole nel radar e' la tappa successiva.
 - Il registro e' in `strategies.json` sul ramo `data`; la pagina Lab mostra stato, operazioni in avanti, esito medio e le ultime variazioni.
+
+### Rug: analisi e misure dei possessori (v2.33.0)
+
+Dai dati del paper (46 operazioni) 8 uscite per rug valgono circa il 68% della perdita. La fabbrica ora misura i rug e cerca come anticiparli (solo misura, nessun ordine).
+
+- **Definizione.** Rug = entro 5 minuti dalla soglia di market cap (7.5K e 10K) il prezzo scende al 25% o meno del prezzo d'ingresso; crollo = al 50% o meno. Servono almeno 2 minuti di storia dopo la soglia.
+- **Segnali dal percorso** (noti al momento della soglia): secondi dalla nascita, salto alla soglia, velocita' di salita, calo massimo prima, attivita' (quota di intervalli con una variazione), volatilita'.
+- **Segnali dai possessori.** Quando un token supera 7.5K il runner legge, con 3 chiamate RPC (`getTokenLargestAccounts`, `getTokenSupply`, `getMultipleAccounts`), quanta offerta hanno il primo, i primi 3 e i primi 10 possessori (la curva di pump.fun e' esclusa) e quanta ne ha ancora il creatore. Le misure sono salvate in `lab/holders/` (7 giorni) e entrano nell'analisi quando ci sono almeno 200 token misurati. Si spegne con `NO_HOLDERS=1`.
+- **Filtri.** Per ogni segnale si divide in quartili sui dati vecchi, si scelgono i filtri che abbassano di piu' il tasso di rug tenendo almeno il 25% dei token, e si controllano sui dati recenti. Dopo ogni filtro la fabbrica prova di nuovo le 768 configurazioni: serve almeno una regola positiva anche sui recenti, altrimenti togliere i rug non basta a coprire i costi.
+- Il rapporto e' in `rug.json` sul ramo `data` ed e' mostrato nella pagina Lab, sezione "Rug: si possono evitare?".
+- **Altre correzioni.** Il Laboratorio ignora i token di altre piattaforme (campo `pool` diverso da `pump`), che davano letture scartate; il registro delle regole tiene una sola regola per gruppo (soglia + ritardo) e le ultime 40 ritirate.
+- **Notifiche Telegram.** I messaggi del Worker hanno ora i collegamenti a pump.fun, DexScreener e GMGN (modifica fatta direttamente su `main`); i test controllano che non ci siano tasti di conferma, non che non ci sia nessuna tastiera, e le etichette dei collegamenti sono senza emoji.
