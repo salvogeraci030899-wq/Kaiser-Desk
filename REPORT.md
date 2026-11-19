@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 05:52 UTC · in esecuzione da 0.6 giorni · 213 run
+Aggiornato: 2026-11-19 05:56 UTC · in esecuzione da 0.6 giorni · 213 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-19 05:52 UTC · in esecuzione da 0.6 giorni · 213 run
 | Cassa | 5.3207 SOL |
 | Trade chiusi | 43 |
 | Win rate | 28% |
-| P&L realizzato | -0.6793 SOL (~$-50.58) |
+| P&L realizzato | -0.6793 SOL (~$-50.61) |
 | Media vincite / perdite | +38.0% / -33.6% |
 | Profit factor | 0.43 |
 | Circuit breaker | no |
@@ -56,6 +56,17 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+05:56:30 SCRIBE   fine run · trade 43 · win 28% · P&L -0.6793 SOL · equity 5.3207 SOL
+05:56:24 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 251 veto
+05:56:01 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 242 veto
+05:55:37 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 246 veto
+05:55:14 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 253 veto
+05:54:50 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 238 veto
+05:54:27 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 243 veto
+05:54:03 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 244 veto
+05:53:40 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 230 veto
+05:53:16 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 237 veto
+05:52:53 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 236 veto
 05:52:30 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 232 veto
 05:52:26 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
 05:52:06 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 243 veto
@@ -85,17 +96,6 @@ _nessuna_
 05:43:58 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 229 veto
 05:43:35 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 234 veto
 05:43:12 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 233 veto
-05:42:49 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 227 veto
-05:42:25 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 232 veto
-05:42:00 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 227 veto
-05:41:36 ORACLE   360 raccolti, 235 analizzati, 0 BUY, 226 veto
-05:41:13 ORACLE   360 raccolti, 235 analizzati, 0 BUY, 226 veto
-05:40:59 SCRIBE   chiuso P-0424 $AFTERGTA6 -0.0198 SOL (-18.3%)
-05:40:59 CHARON   Time stop $AFTERGTA6 vendo 100% a -23.9% -> 0.0881 SOL
-05:40:49 ORACLE   360 raccolti, 227 analizzati, 1 BUY, 220 veto
-05:40:24 ORACLE   360 raccolti, 229 analizzati, 1 BUY, 223 veto
-05:40:01 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 225 veto
-05:39:38 ORACLE   360 raccolti, 229 analizzati, 0 BUY, 221 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
