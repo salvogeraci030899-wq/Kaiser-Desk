@@ -2,7 +2,7 @@
    Token iOS (scuro/chiaro/automatico), angoli concentrici, barra a capsula, Vetro (Liquid Glass) fermo o animato.
    I nomi delle classi sono quelli di Kaiser: cambia l'aspetto, non la struttura. */
 :root {
-  --kz-css: 58;
+  --kz-css: 59;
   color-scheme: dark;
   --bg: #000000;
   --surface: #0a0a0a;
@@ -487,6 +487,6 @@ html, body { overflow: hidden !important; overscroll-behavior: none; }
 
 /* Journal reale: banner comprimibile; aperto, non supera il 34% dello schermo e scorre al suo interno */
 .jnote { cursor: pointer; overflow-wrap: anywhere; -webkit-tap-highlight-color: transparent; }
-#realNoteJ .jnote { max-height: 34vh; overflow-y: auto; overscroll-behavior: contain; margin-bottom: 4px; padding: 6px 10px; }
+#realNote .jnote, #realNoteJ .jnote { margin-bottom: 4px; padding: 6px 10px; }
 #realNoteJ .jnote .mono { word-break: break-all; }
 nav button { justify-content: center; }
