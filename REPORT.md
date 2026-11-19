@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 20:26 UTC · in esecuzione da 0.3 giorni · 231 run
+Aggiornato: 2026-11-19 20:31 UTC · in esecuzione da 0.3 giorni · 231 run
 
 | | |
 |---|---|
-| Equity | **5.6589 SOL** (-5.7% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.5571 SOL |
-| Trade chiusi | 27 |
-| Win rate | 33% |
-| P&L realizzato | -0.3285 SOL (~$-24.05) |
-| Media vincite / perdite | +26.6% / -28.6% |
-| Profit factor | 0.46 |
+| Equity | **5.6635 SOL** (-5.6% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.6635 SOL |
+| Trade chiusi | 28 |
+| Win rate | 32% |
+| P&L realizzato | -0.3365 SOL (~$-24.39) |
+| Media vincite / perdite | +26.6% / -27.5% |
+| Profit factor | 0.45 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$LUCIA** P-0464 · 0.113 SOL · -10.2% · resta 100% · [grafico](https://dexscreener.com/solana/2JWVb3bPJnEmrMEwppwbL86StcNs1Y4RnijruCSTiG3u)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 9 | -0.3215 |
-| Time stop | 10 | -0.0590 |
+| Time stop | 11 | -0.0670 |
 | TP1 | 5 | +0.1432 |
 | RUG-EXIT liquidità | 3 | -0.0913 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $LUCIA | 88 | -7.0% | -0.0080 | +0% | -10% | Time stop | 5m |
 | $PCVI | 83 | -36.0% | -0.0415 | +0% | -34% | Stop loss | 3m |
 | $ONI | 66 | -41.3% | -0.0480 | +7% | -26% | Time stop | 5m |
 | $CAT | 71 | -52.5% | -0.0617 | +7% | -34% | Stop loss | 1m |
@@ -51,10 +52,25 @@ Aggiornato: 2026-11-19 20:26 UTC · in esecuzione da 0.3 giorni · 231 run
 | $NNCAT | 67 | -28.9% | -0.0347 | +0% | -31% | Stop loss | 3m |
 | $SC | 67 | +13.3% | +0.0159 | +63% | +63% | TP1 | 2m |
 | $HOLM | 66 | +1.8% | +0.0022 | +0% | -33% | Stop loss | 2m |
-| $CORNER | 63 | -17.6% | -0.0211 | +14% | -37% | Stop loss | 4m |
 
 ## Ultimi eventi
 ```
+20:31:35 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 235 veto
+20:31:12 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 232 veto
+20:31:09 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
+20:30:58 SCRIBE   chiuso P-0464 $LUCIA -0.0080 SOL (-7.0%)
+20:30:58 CHARON   Time stop $LUCIA vendo 100% a -9.5% -> 0.1064 SOL
+20:30:58 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 230 veto
+20:30:32 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 241 veto
+20:30:09 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 234 veto
+20:29:45 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 232 veto
+20:29:21 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 235 veto
+20:28:58 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 231 veto
+20:28:33 ORACLE   360 raccolti, 240 analizzati, 2 BUY, 232 veto
+20:28:10 ORACLE   360 raccolti, 233 analizzati, 2 BUY, 225 veto
+20:27:45 ORACLE   360 raccolti, 221 analizzati, 2 BUY, 214 veto
+20:27:21 ORACLE   360 raccolti, 225 analizzati, 2 BUY, 218 veto
+20:26:58 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 225 veto
 20:26:35 ORACLE   360 raccolti, 218 analizzati, 1 BUY, 211 veto
 20:26:11 ORACLE   360 raccolti, 230 analizzati, 2 BUY, 224 veto
 20:25:46 QUARTER  BUY $LUCIA 0.113 SOL score 88 impatto 1.09% (Jupiter)
@@ -79,22 +95,6 @@ Aggiornato: 2026-11-19 20:26 UTC · in esecuzione da 0.3 giorni · 231 run
 20:19:29 SCRIBE   chiuso P-0463 $PCVI -0.0415 SOL (-36.0%)
 20:19:29 CHARON   Stop loss $PCVI vendo 100% a -33.5% -> 0.0738 SOL
 20:19:29 ORACLE   360 raccolti, 236 analizzati, 2 BUY, 222 veto
-20:19:06 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 236 veto
-20:18:52 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 239 veto
-20:18:27 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 236 veto
-20:18:03 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 244 veto
-20:17:39 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 246 veto
-20:17:15 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 245 veto
-20:16:51 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 256 veto
-20:16:27 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 255 veto
-20:16:01 QUARTER  BUY $PCVI 0.114 SOL score 83 impatto 0.00% (Jupiter)
-20:16:01 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 247 veto
-20:15:47 QUARTER  $PCVI impatto 4.1% oltre slippage: annullato
-20:15:47 ORACLE   355 raccolti, 251 analizzati, 2 BUY, 242 veto
-20:15:22 QUARTER  $PCVI impatto 2.7% oltre slippage: annullato
-20:15:22 ORACLE   343 raccolti, 246 analizzati, 1 BUY, 240 veto
-20:14:58 ORACLE   340 raccolti, 227 analizzati, 1 BUY, 221 veto
-20:14:44 SCOUT    PumpPortal invia nuovi token (25) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
