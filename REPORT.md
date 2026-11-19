@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 16:35 UTC · in esecuzione da 0.1 giorni · 226 run
+Aggiornato: 2026-11-19 16:40 UTC · in esecuzione da 0.1 giorni · 226 run
 
 | | |
 |---|---|
-| Equity | **5.9392 SOL** (-1.0% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.8088 SOL |
-| Trade chiusi | 9 |
-| Win rate | 44% |
-| P&L realizzato | -0.0717 SOL (~$-5.27) |
-| Media vincite / perdite | +13.8% / -22.9% |
-| Profit factor | 0.48 |
+| Equity | **5.9034 SOL** (-1.6% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.9034 SOL |
+| Trade chiusi | 10 |
+| Win rate | 40% |
+| P&L realizzato | -0.0966 SOL (~$-7.13) |
+| Media vincite / perdite | +13.8% / -22.5% |
+| Profit factor | 0.41 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$TESLA** P-0446 · 0.119 SOL · +10.0% · resta 100% · [grafico](https://dexscreener.com/solana/63wzBRV561yhRN585y25fivuWpqxPoxaDXvQbyfkFSMP)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 5 | -0.1201 |
-| Time stop | 2 | +0.0154 |
+| Time stop | 3 | -0.0095 |
 | TP1 | 1 | +0.0159 |
 | RUG-EXIT liquidità | 1 | +0.0171 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $TESLA | 69 | -20.8% | -0.0249 | +22% | -14% | Time stop | 5m |
 | $airdrop | 79 | -27.6% | -0.0331 | +0% | -38% | Stop loss | 4m |
 | $MORALS | 63 | +25.7% | +0.0308 | +4% | +4% | Time stop | 5m |
 | $ZGTA | 78 | +14.4% | +0.0171 | +0% | -52% | RUG-EXIT liquidità | 0m |
@@ -39,6 +40,30 @@ Aggiornato: 2026-11-19 16:35 UTC · in esecuzione da 0.1 giorni · 226 run
 
 ## Ultimi eventi
 ```
+16:40:39 ORACLE   360 raccolti, 215 analizzati, 0 BUY, 210 veto
+16:40:15 ORACLE   360 raccolti, 212 analizzati, 0 BUY, 207 veto
+16:39:52 ORACLE   360 raccolti, 210 analizzati, 0 BUY, 205 veto
+16:39:29 ORACLE   360 raccolti, 221 analizzati, 1 BUY, 215 veto
+16:39:05 ORACLE   360 raccolti, 211 analizzati, 1 BUY, 206 veto
+16:38:41 ORACLE   360 raccolti, 217 analizzati, 1 BUY, 212 veto
+16:38:27 SCRIBE   chiuso P-0446 $TESLA -0.0249 SOL (-20.8%)
+16:38:27 CHARON   Time stop $TESLA vendo 100% a -13.7% -> 0.0947 SOL
+16:38:17 ORACLE   360 raccolti, 211 analizzati, 2 BUY, 205 veto
+16:38:15 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
+16:38:15 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
+16:37:55 ORACLE   360 raccolti, 198 analizzati, 2 BUY, 191 veto
+16:37:31 ORACLE   360 raccolti, 204 analizzati, 1 BUY, 197 veto
+16:37:08 ORACLE   360 raccolti, 213 analizzati, 1 BUY, 206 veto
+16:36:44 ORACLE   360 raccolti, 208 analizzati, 1 BUY, 201 veto
+16:36:42 SCOUT    jup nuovi: HTTP 429 (riuso l'ultimo elenco)
+16:36:42 SCOUT    jup organic: HTTP 429 (riuso l'ultimo elenco)
+16:36:42 SCOUT    jup trend: HTTP 429 (riuso l'ultimo elenco)
+16:36:42 SCOUT    prezzo SOL non disponibile: HTTP 429
+16:36:22 ORACLE   360 raccolti, 218 analizzati, 1 BUY, 210 veto
+16:36:17 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
+16:36:17 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)
+16:36:07 ORACLE   360 raccolti, 220 analizzati, 2 BUY, 210 veto
+16:35:42 ORACLE   360 raccolti, 217 analizzati, 2 BUY, 210 veto
 16:35:17 ORACLE   360 raccolti, 208 analizzati, 2 BUY, 202 veto
 16:35:04 ORACLE   360 raccolti, 206 analizzati, 2 BUY, 198 veto
 16:34:38 ORACLE   360 raccolti, 199 analizzati, 2 BUY, 191 veto
@@ -55,30 +80,6 @@ Aggiornato: 2026-11-19 16:35 UTC · in esecuzione da 0.1 giorni · 226 run
 16:31:58 SCOUT    prezzo SOL non disponibile: HTTP 429
 16:31:38 ORACLE   360 raccolti, 232 analizzati, 2 BUY, 224 veto
 16:31:14 ORACLE   360 raccolti, 224 analizzati, 2 BUY, 216 veto
-16:30:50 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 243 veto
-16:30:27 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 236 veto
-16:30:02 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 240 veto
-16:29:37 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 237 veto
-16:29:34 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
-16:29:34 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
-16:29:14 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 247 veto
-16:28:49 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 236 veto
-16:28:26 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 244 veto
-16:28:02 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 244 veto
-16:27:39 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 233 veto
-16:27:24 SCRIBE   chiuso P-0445 $airdrop -0.0331 SOL (-27.6%)
-16:27:24 CHARON   Stop loss $airdrop vendo 100% a -38.4% -> 0.0871 SOL
-16:27:14 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 243 veto
-16:26:50 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 245 veto
-16:26:37 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 245 veto
-16:26:21 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 248 veto
-16:25:56 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 263 veto
-16:25:41 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 264 veto
-16:25:16 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 260 veto
-16:24:52 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 266 veto
-16:24:29 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 259 veto
-16:24:07 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 263 veto
-16:23:43 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 260 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
