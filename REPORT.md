@@ -1,25 +1,25 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 16:25 UTC · in esecuzione da 0.1 giorni · 226 run
+Aggiornato: 2026-11-19 16:30 UTC · in esecuzione da 0.1 giorni · 226 run
 
 | | |
 |---|---|
-| Equity | **5.9544 SOL** (-0.8% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.8412 SOL |
-| Trade chiusi | 8 |
-| Win rate | 50% |
-| P&L realizzato | -0.0385 SOL (~$-2.83) |
-| Media vincite / perdite | +13.8% / -21.7% |
-| Profit factor | 0.63 |
+| Equity | **5.9283 SOL** (-1.2% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.9283 SOL |
+| Trade chiusi | 9 |
+| Win rate | 44% |
+| P&L realizzato | -0.0717 SOL (~$-5.28) |
+| Media vincite / perdite | +13.8% / -22.9% |
+| Profit factor | 0.48 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$airdrop** P-0445 · 0.119 SOL · -5.1% · resta 100% · [grafico](https://dexscreener.com/solana/H63p3cLYZywqdXaMeqDmrVdGH1sNae68bmi3P7kFvP9s)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| Stop loss | 4 | -0.0870 |
+| Stop loss | 5 | -0.1201 |
 | Time stop | 2 | +0.0154 |
 | TP1 | 1 | +0.0159 |
 | RUG-EXIT liquidità | 1 | +0.0171 |
@@ -27,6 +27,7 @@ Aggiornato: 2026-11-19 16:25 UTC · in esecuzione da 0.1 giorni · 226 run
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $airdrop | 79 | -27.6% | -0.0331 | +0% | -38% | Stop loss | 4m |
 | $MORALS | 63 | +25.7% | +0.0308 | +4% | +4% | Time stop | 5m |
 | $ZGTA | 78 | +14.4% | +0.0171 | +0% | -52% | RUG-EXIT liquidità | 0m |
 | $NNCAT | 67 | -28.9% | -0.0347 | +0% | -31% | Stop loss | 3m |
@@ -38,6 +39,24 @@ Aggiornato: 2026-11-19 16:25 UTC · in esecuzione da 0.1 giorni · 226 run
 
 ## Ultimi eventi
 ```
+16:30:27 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 236 veto
+16:30:02 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 240 veto
+16:29:37 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 237 veto
+16:29:34 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
+16:29:34 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
+16:29:14 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 247 veto
+16:28:49 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 236 veto
+16:28:26 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 244 veto
+16:28:02 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 244 veto
+16:27:39 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 233 veto
+16:27:24 SCRIBE   chiuso P-0445 $airdrop -0.0331 SOL (-27.6%)
+16:27:24 CHARON   Stop loss $airdrop vendo 100% a -38.4% -> 0.0871 SOL
+16:27:14 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 243 veto
+16:26:50 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 245 veto
+16:26:37 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 245 veto
+16:26:21 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 248 veto
+16:25:56 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 263 veto
+16:25:41 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 264 veto
 16:25:16 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 260 veto
 16:24:52 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 266 veto
 16:24:29 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 259 veto
@@ -60,24 +79,6 @@ Aggiornato: 2026-11-19 16:25 UTC · in esecuzione da 0.1 giorni · 226 run
 16:21:13 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 246 veto
 16:20:45 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 244 veto
 16:20:41 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)
-16:20:41 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
-16:20:21 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 241 veto
-16:19:56 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 246 veto
-16:19:33 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 245 veto
-16:19:09 ORACLE   360 raccolti, 245 analizzati, 3 BUY, 237 veto
-16:18:44 ORACLE   360 raccolti, 249 analizzati, 3 BUY, 239 veto
-16:18:20 QUARTER  BUY $MORALS 0.119 SOL score 63 impatto 0.00% (Jupiter)
-16:18:20 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 230 veto
-16:17:55 ORACLE   360 raccolti, 243 analizzati, 3 BUY, 230 veto
-16:17:31 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 229 veto
-16:17:18 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 226 veto
-16:16:53 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 221 veto
-16:16:29 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 216 veto
-16:16:13 SCOUT    Laboratorio: collegato a PumpPortal
-16:16:05 ORACLE   360 raccolti, 226 analizzati, 1 BUY, 212 veto
-16:16:01 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
-16:15:41 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 218 veto
-16:15:27 ORACLE   360 raccolti, 230 analizzati, 1 BUY, 216 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
