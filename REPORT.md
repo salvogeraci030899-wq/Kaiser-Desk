@@ -1,15 +1,15 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 09:48 UTC · in esecuzione da 0.7 giorni · 218 run
+Aggiornato: 2026-11-19 09:53 UTC · in esecuzione da 0.7 giorni · 218 run
 
 | | |
 |---|---|
-| Equity | **5.1504 SOL** (-14.2% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.1504 SOL |
-| Trade chiusi | 49 |
-| Win rate | 29% |
-| P&L realizzato | -0.8496 SOL (~$-63.25) |
-| Media vincite / perdite | +35.3% / -35.4% |
+| Equity | **5.1435 SOL** (-14.3% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.1435 SOL |
+| Trade chiusi | 50 |
+| Win rate | 28% |
+| P&L realizzato | -0.8565 SOL (~$-63.84) |
+| Media vincite / perdite | +35.3% / -34.6% |
 | Profit factor | 0.39 |
 | Circuit breaker | no |
 
@@ -21,13 +21,14 @@ _nessuna_
 |---|---|---|
 | Chiusura manuale (app) | 8 | +0.0627 |
 | RUG-EXIT liquidità | 8 | -0.5936 |
-| TP1 | 5 | +0.4440 |
+| TP1 | 6 | +0.4371 |
 | Time stop | 15 | -0.2313 |
 | Stop loss | 13 | -0.5314 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $DCTY | 80 | -6.6% | -0.0069 | +64% | +64% | TP1 | 1m |
 | $APOCRYCOIN | 80 | +28.2% | +0.0291 | +54% | +31% | Chiusura manuale (app) | 13m |
 | $jingyu | 84 | +9.7% | +0.0101 | +34% | +22% | Chiusura manuale (app) | 41m |
 | $Dacitytard | 72 | -17.5% | -0.0181 | +40% | +4% | Time stop | 9m |
@@ -52,10 +53,26 @@ _nessuna_
 | $VICECITY | 65 | -40.6% | -0.0455 | +20% | -12% | Time stop | 7m |
 | $DUMBGTA6 | 72 | +1.9% | +0.0022 | +0% | -35% | Stop loss | 1m |
 | $Mandy | 88 | -98.3% | -0.1123 | +0% | -97% | RUG-EXIT liquidità | 2m |
-| $GTAVI | 75 | -41.2% | -0.0474 | +9% | -36% | Stop loss | 3m |
 
 ## Ultimi eventi
 ```
+09:53:25 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 224 veto
+09:53:02 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 232 veto
+09:52:40 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 229 veto
+09:52:16 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 224 veto
+09:51:53 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 221 veto
+09:51:30 SCRIBE   chiuso P-0432 $DCTY -0.0069 SOL (-6.6%)
+09:51:30 CHARON   TP1 $DCTY vendo 100% a 64.4% -> 0.0971 SOL
+09:51:30 ORACLE   360 raccolti, 238 analizzati, 2 BUY, 217 veto
+09:51:06 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 221 veto
+09:50:42 QUARTER  BUY $DCTY 0.103 SOL score 80 impatto 0.44% (Jupiter)
+09:50:42 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 220 veto
+09:50:19 QUARTER  $DCTY impatto 2.6% oltre slippage: annullato
+09:50:19 ORACLE   360 raccolti, 243 analizzati, 2 BUY, 223 veto
+09:49:56 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 221 veto
+09:49:32 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 224 veto
+09:49:09 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 220 veto
+09:48:46 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 224 veto
 09:48:23 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 226 veto
 09:47:59 ORACLE   360 raccolti, 233 analizzati, 1 BUY, 217 veto
 09:47:46 SCOUT    prova Q-0005 eseguita in 31 ms
@@ -79,23 +96,6 @@ _nessuna_
 09:42:09 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 234 veto
 09:41:45 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 236 veto
 09:41:22 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 239 veto
-09:40:59 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 228 veto
-09:40:36 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 236 veto
-09:40:13 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 237 veto
-09:39:50 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 227 veto
-09:39:46 SCRIBE   chiuso P-0431 $APOCRYCOIN 0.0291 SOL (28.2%)
-09:39:46 CHARON   Chiusura manuale (app) $APOCRYCOIN vendo 100% a 30.9% -> 0.1326 SOL
-09:39:46 KAISER   chiusura manuale dall'app: P-0431 APOCRYCOIN
-09:39:26 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 231 veto
-09:39:02 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 229 veto
-09:38:39 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 233 veto
-09:38:16 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 228 veto
-09:37:52 ORACLE   360 raccolti, 235 analizzati, 0 BUY, 222 veto
-09:37:29 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 227 veto
-09:37:06 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 230 veto
-09:36:41 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 231 veto
-09:36:18 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 227 veto
-09:35:54 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 234 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
