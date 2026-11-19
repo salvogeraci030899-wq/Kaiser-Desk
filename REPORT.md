@@ -1,30 +1,32 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 15:40 UTC · in esecuzione da 0.1 giorni · 225 run
+Aggiornato: 2026-11-19 15:45 UTC · in esecuzione da 0.1 giorni · 225 run
 
 | | |
 |---|---|
-| Equity | **5.9323 SOL** (-1.1% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.9323 SOL |
-| Trade chiusi | 4 |
-| Win rate | 25% |
-| P&L realizzato | -0.0677 SOL (~$-5.00) |
-| Media vincite / perdite | +1.8% / -19.3% |
-| Profit factor | 0.03 |
+| Equity | **5.9461 SOL** (-0.9% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.8283 SOL |
+| Trade chiusi | 5 |
+| Win rate | 40% |
+| P&L realizzato | -0.0518 SOL (~$-3.81) |
+| Media vincite / perdite | +7.6% / -19.3% |
+| Profit factor | 0.26 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$NNCAT** P-0442 · 0.119 SOL · -1.0% · resta 100% · [grafico](https://dexscreener.com/solana/6wsgiRnfPhYBAMkhB4aTCaw9xsRDmSpeB8cenuTgVuQy)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 3 | -0.0523 |
 | Time stop | 1 | -0.0154 |
+| TP1 | 1 | +0.0159 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $SC | 67 | +13.3% | +0.0159 | +63% | +63% | TP1 | 2m |
 | $HOLM | 66 | +1.8% | +0.0022 | +0% | -33% | Stop loss | 2m |
 | $CORNER | 63 | -17.6% | -0.0211 | +14% | -37% | Stop loss | 4m |
 | $JETSKI | 66 | -12.8% | -0.0154 | +11% | +2% | Time stop | 5m |
@@ -32,6 +34,24 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+15:45:20 QUARTER  BUY $NNCAT 0.119 SOL score 67 impatto 0.00% (Jupiter)
+15:45:20 ORACLE   360 raccolti, 247 analizzati, 3 BUY, 229 veto
+15:44:57 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 237 veto
+15:44:33 QUARTER  $NNCAT impatto 2.4% oltre slippage: annullato
+15:44:33 ORACLE   360 raccolti, 247 analizzati, 3 BUY, 227 veto
+15:44:10 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 241 veto
+15:43:47 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 237 veto
+15:43:24 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 230 veto
+15:43:11 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 247 veto
+15:42:55 SCRIBE   chiuso P-0441 $SC 0.0159 SOL (13.3%)
+15:42:55 CHARON   TP1 $SC vendo 100% a 63.0% -> 0.1356 SOL
+15:42:45 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 235 veto
+15:42:21 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 232 veto
+15:41:57 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 248 veto
+15:41:34 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 237 veto
+15:41:10 QUARTER  BUY $SC 0.119 SOL score 67 impatto 1.34% (Jupiter)
+15:41:10 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 244 veto
+15:40:46 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 242 veto
 15:40:22 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 247 veto
 15:39:59 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 239 veto
 15:39:36 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 236 veto
@@ -54,24 +74,6 @@ _nessuna_
 15:33:05 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 226 veto
 15:32:41 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 229 veto
 15:32:16 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 234 veto
-15:32:02 ORACLE   360 raccolti, 224 analizzati, 1 BUY, 216 veto
-15:31:36 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 226 veto
-15:31:21 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 227 veto
-15:30:55 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 220 veto
-15:30:31 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 228 veto
-15:30:18 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 230 veto
-15:29:53 ORACLE   360 raccolti, 233 analizzati, 1 BUY, 222 veto
-15:29:29 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 231 veto
-15:29:05 SCRIBE   chiuso P-0440 $HOLM 0.0022 SOL (1.8%)
-15:29:05 CHARON   Stop loss $HOLM vendo 100% a -32.8% -> 0.1218 SOL
-15:29:05 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 224 veto
-15:28:42 ORACLE   360 raccolti, 227 analizzati, 2 BUY, 214 veto
-15:28:19 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 230 veto
-15:27:55 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 225 veto
-15:27:32 ORACLE   360 raccolti, 243 analizzati, 3 BUY, 231 veto
-15:27:08 ORACLE   360 raccolti, 244 analizzati, 3 BUY, 234 veto
-15:26:55 QUARTER  BUY $HOLM 0.119 SOL score 66 impatto 1.21% (Jupiter)
-15:26:55 ORACLE   360 raccolti, 241 analizzati, 3 BUY, 231 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
