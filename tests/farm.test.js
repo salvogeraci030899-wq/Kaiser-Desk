@@ -55,6 +55,14 @@ test('il Laboratorio consegna il percorso solo dei token che superano la soglia 
   assert.equal(got.length, 1); assert.equal(got[0].m, hi); assert.equal(got[0].usd, 100); assert.ok(got[0].p.length > 24 && Math.max(...got[0].p) === 60);
   const rec = Farm.pack(got[0]); assert.deepEqual(Farm.unpack(rec).p.slice(0, 3), [30, 30, 30]);
 });
+test('ogni token concluso lascia (creatore, massimo raggiunto), anche se non supera mai la soglia', () => {
+  const got = [], paths = [], B58 = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz', feed = new Lab.TradeFeed({ now: () => T, log: () => {}, solUsd: () => 100, onCreator: (x) => got.push(x), onPath: (x) => paths.push(x) });
+  const mint = (i) => { let s = ''; for (let k = 0; k < 44; k++) s += B58[(i * 7 + k * 13 + (k % 5) * i) % 58]; return s; };
+  const lo = mint(62), cre = mint(80); feed.adopt({ mint: lo, symbol: 'L', curve: mint(72), creator: cre }, T);
+  for (let i = 0; i < 40; i++) feed.book.curveMc(feed.book.toks.get(lo), T + i * 5000 + 10, { mcSol: 30 });
+  feed.finish(feed.book.toks.get(lo), T + 22 * 60000);
+  assert.equal(paths.length, 0, 'sotto soglia: nessun percorso'); assert.equal(got.length, 1); assert.equal(got[0].m, lo); assert.equal(got[0].cr, cre); assert.equal(got[0].mx, 3000);
+});
 test('il runner salva i percorsi, avvia la fabbrica in un processo separato e ne pubblica il rapporto', () => {
   const src = fs.readFileSync(require.resolve('../runner/runner.js'), 'utf8');
   assert.match(src, /require\('\.\/farm\.js'\)/); assert.match(src, /onPath: \(x\) => \{ rt\.pathBuf\.push\(Farm\.pack\(x\)\)/); assert.match(src, /flushPaths\(false\)/); assert.match(src, /flushPaths\(true\)/);

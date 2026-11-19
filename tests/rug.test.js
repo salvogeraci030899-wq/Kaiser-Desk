@@ -75,3 +75,21 @@ test('riga di comando della fabbrica: l\'analisi dei rug non esce vuota (dipende
   const rug = JSON.parse(fs.readFileSync(path.join(dir, 'rug.json'), 'utf8')); assert.ok(rug.results[0].n > 0, 'token analizzati: ' + rug.results[0].n);
   assert.ok(!/circular dependency/.test(r.stderr), r.stderr);
 });
+
+test('segnali sul creatore: contano solo i token creati prima e conclusi da almeno 30 minuti', () => {
+  const M = 60000, list = [
+    { m: 'a', cr: 'X', at: T, mx: 3000 }, { m: 'b', cr: 'X', at: T + 10 * M, mx: 9000 }, { m: 'c', cr: 'X', at: T + 100 * M, mx: 20000 },   // c e' dopo
+    { m: 'd', cr: 'X', at: T + 70 * M, mx: 50000 },                                                                                      // d e' troppo recente (30 minuti non passati)
+    { m: 'z', cr: 'Y', at: T, mx: 100000 }];
+  const idx = Rug.creatorIndex(list), f = Rug.creatorFeats(idx, 'X', 'q', T + 90 * M);
+  assert.equal(f.crN, 2); assert.equal(f.crHit, 0.5); assert.equal(f.crMed, 9000);
+  assert.deepEqual(Rug.creatorFeats(idx, 'NUOVO', 'q', T + 90 * M), { crN: 0 });
+  assert.deepEqual(Rug.creatorFeats(idx, '', 'q', T), {});
+  assert.deepEqual(Rug.creatorFeats(idx, 'X', 'q', T + 5 * M), { crN: 0 }, 'nessun precedente ancora concluso');
+});
+test('i percorsi salvati portano il creatore, e lo storico dei creatori si rilegge', () => {
+  const u = Farm.unpack(Farm.pack({ m: 'M', s: 'S', at: T, usd: 100, p: [1, 2, 3], cr: 'CREATORE' })); assert.equal(u.cr, 'CREATORE');
+  assert.equal(Farm.unpack(Farm.pack({ m: 'M', s: 'S', at: T, usd: 100, p: [1] })).cr, '');
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'kz-cr-')); Farm.writeBatch(dir, [{ m: 'a', cr: 'X', at: T, mx: 5 }, { m: 'b', at: T }], T);
+  assert.deepEqual(Farm.loadCreators(dir).map((x) => x.m), ['a']);
+});

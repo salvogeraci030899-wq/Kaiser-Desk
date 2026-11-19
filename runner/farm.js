@@ -15,12 +15,12 @@ const GRID = { thr: [7500, 10000, 12000, 15000], delay: [0, 10, 20], tp: [10, 15
 function pack(r) {
   const p = r.p || [], c = []; let last = null;
   for (let i = 0; i < p.length; i++) { const v = Math.round(p[i] * 10); if (v !== last) { c.push(i, v); last = v; } }
-  return { m: r.m, s: r.s, at: r.at, u: +(+r.usd || 0).toFixed(2), n: p.length, c };
+  const o = { m: r.m, s: r.s, at: r.at, u: +(+r.usd || 0).toFixed(2), n: p.length, c }; if (r.cr) o.cr = r.cr; return o;
 }
 function unpack(rec) {
   const n = rec.n | 0, p = new Array(n); let v = 0, k = 0; const c = rec.c || [];
   for (let i = 0; i < n; i++) { while (k < c.length && c[k] === i) { v = c[k + 1] / 10; k += 2; } p[i] = v; }
-  return { m: rec.m, s: rec.s, at: rec.at, u: rec.u, p };
+  return { m: rec.m, s: rec.s, at: rec.at, u: rec.u, p, cr: rec.cr || '' };
 }
 const stamp = (t) => new Date(t).toISOString().replace(/[-:T]/g, '').slice(0, 14);   // AAAAMMGGhhmmss
 function writeBatch(dir, recs, now) {
@@ -73,6 +73,12 @@ function loadHolders(dir) {
   for (const n of names) { let t; try { t = zlib.gunzipSync(fs.readFileSync(path.join(dir, n))).toString('utf8'); } catch { continue; } for (const l of t.split('\n')) { if (!l) continue; try { const r = JSON.parse(l); if (r && r.m && !m.has(r.m)) m.set(r.m, r); } catch { /* riga rovinata */ } } }
   return m;
 }
+// Storico dei creatori (un record per ogni token concluso, anche quelli che non hanno mai superato 5K): { m, cr, at, mx } con mx = massimo raggiunto in dollari
+function loadCreators(dir) {
+  const out = []; let names = []; try { names = fs.readdirSync(dir).filter((x) => x.endsWith('.jsonl.gz')).sort(); } catch { return out; }
+  for (const n of names) { let t; try { t = zlib.gunzipSync(fs.readFileSync(path.join(dir, n))).toString('utf8'); } catch { continue; } for (const l of t.split('\n')) { if (!l) continue; try { const r = JSON.parse(l); if (r && r.cr && r.m && Number.isFinite(r.at)) out.push(r); } catch { /* riga rovinata */ } } }
+  return out;
+}
 // ---------- esecuzione ----------
 function run(recs, o) {
   const grid = (o && o.grid) || GRID, sorted = [...recs].sort((a, b) => a.at - b.at), cut = Math.floor(sorted.length * SPLIT), train = sorted.slice(0, cut), test = sorted.slice(cut);
@@ -92,7 +98,7 @@ function run(recs, o) {
 }
 
 // Le esportazioni stanno prima della riga di comando: rug.js richiama questo file e lo trova gia' completo (prima l'analisi dei rug usciva sempre vuota)
-module.exports = { loadHolders, BIN, COST, GRID, MIN_TRAIN, MIN_TEST, KEEP_DAYS, crossIdx, pack, unpack, writeBatch, prune, loadAll, simulate, stats, configs, run };
+module.exports = { loadCreators, loadHolders, BIN, COST, GRID, MIN_TRAIN, MIN_TEST, KEEP_DAYS, crossIdx, pack, unpack, writeBatch, prune, loadAll, simulate, stats, configs, run };
 
 if (require.main === module) {
   const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
@@ -100,7 +106,7 @@ if (require.main === module) {
   rep.ms = Date.now() - t0; fs.mkdirSync(path.dirname(out), { recursive: true }); fs.writeFileSync(out, JSON.stringify(rep));
   // analisi dei rug sugli stessi percorsi (e sulle misure dei possessori, se ci sono)
   try {
-    const Rug = require('./rug.js'), hd = arg('holders', ''), holders = hd ? loadHolders(hd) : new Map(), ru = { at: Date.now(), holders: holders.size, results: [Rug.analyze(recs, 7500, { holders }), Rug.analyze(recs, 10000, { holders })] };
+    const Rug = require('./rug.js'), hd = arg('holders', ''), holders = hd ? loadHolders(hd) : new Map(), creators = arg('creators', '') ? loadCreators(arg('creators', '')) : [], ru = { at: Date.now(), holders: holders.size, results: [Rug.analyze(recs, 7500, { holders, creators }), Rug.analyze(recs, 10000, { holders, creators })] };
     fs.writeFileSync(arg('rug', path.join(path.dirname(out), 'rug.json')), JSON.stringify(ru)); console.log(`rug: ${ru.results[0].n} token oltre 7.5K, ${ru.results[0].base.all.rug}% rug, ${holders.size} con possessori`);
   } catch (e) { console.log('analisi rug non riuscita: ' + String(e.message).split('\n')[0]); }
   console.log(`fabbrica: ${rep.paths} percorsi, ${rep.tried} configurazioni, ${rep.passed} passano, ${rep.ms} ms`);

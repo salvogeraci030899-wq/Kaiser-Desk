@@ -211,7 +211,7 @@ class TradeBook {
 class TradeFeed {
   constructor(o) {
     this.o = o || {}; this.WS = this.o.WebSocketImpl || globalThis.WebSocket; this.now = this.o.now || Date.now; this.schedule = this.o.schedule || ((fn, ms) => setTimeout(fn, ms));
-    this.solUsd = this.o.solUsd || (() => 0); this.log = this.o.log || (() => {}); this.onCreate = this.o.onCreate || (() => {}); this.onDone = this.o.onDone || (() => {}); this.onPath = this.o.onPath || null; this.keepUsd = this.o.keepUsd == null ? 5000 : this.o.keepUsd; this.url = this.o.url || PORTAL_URL;
+    this.solUsd = this.o.solUsd || (() => 0); this.log = this.o.log || (() => {}); this.onCreate = this.o.onCreate || (() => {}); this.onDone = this.o.onDone || (() => {}); this.onPath = this.o.onPath || null; this.onCreator = this.o.onCreator || null; this.keepUsd = this.o.keepUsd == null ? 5000 : this.o.keepUsd; this.url = this.o.url || PORTAL_URL;
     this.book = new TradeBook({ max: this.o.max }); this.stats = { create: 0, trade: 0, other: 0 }; this.warned = false; this.openedAt = 0;
     this.poller = this.o.rpcHttp ? new CurvePoller({ url: this.o.rpcHttp, book: this.book, now: this.now, log: this.log, fetch: this.o.fetch, everyMs: this.o.pollMs, onCross: this.o.onCross, usd: () => (this.solUsd() > 0 ? this.solUsd() : 150) }) : null; this.state = 'off'; this.backoff = 2000; this.retrying = false; this.stopped = false; this.ws = null; this.unsub = [];
   }
@@ -254,7 +254,8 @@ class TradeFeed {
   finish(t, now) {
     this.book.drop(t.mint); this.unsub.push(t.mint); const usd = this.solUsd() > 0 ? this.solUsd() : 150;
     this.onDone(summarize(t, now, usd));
-    if (this.onPath) { const p = paddedPath(t, now); if (p.length > 24 && Math.max(...p) * usd >= this.keepUsd) { try { this.onPath({ m: t.mint, s: t.sym, at: t.createdAt, p, usd }); } catch { /* il salvataggio non deve fermare il Laboratorio */ } } }   // solo i token che superano circa 5K: il resto non serve alla fabbrica
+    if (this.onCreator && t.dev) { try { const mx = Math.max(...paddedPath(t, now), 0) * usd; this.onCreator({ m: t.mint, cr: t.dev, at: t.createdAt, mx: Math.round(mx) }); } catch { /* facoltativo */ } }
+    if (this.onPath) { const p = paddedPath(t, now); if (p.length > 24 && Math.max(...p) * usd >= this.keepUsd) { try { this.onPath({ m: t.mint, s: t.sym, at: t.createdAt, p, usd, cr: t.dev || '' }); } catch { /* il salvataggio non deve fermare il Laboratorio */ } } }   // solo i token che superano circa 5K: il resto non serve alla fabbrica
   }
   // da chiamare ogni pochi secondi: chiude i token osservati abbastanza a lungo e annulla le iscrizioni
   tick() {

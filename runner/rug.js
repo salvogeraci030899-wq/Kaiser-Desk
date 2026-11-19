@@ -8,8 +8,8 @@ const Farm = require('./farm.js');
 
 const RUG_AT = 0.25, DUMP_AT = 0.5, WIN_BINS = 60, MIN_BINS = 24;      // finestra di 5 minuti (60 intervalli), almeno 2 minuti di storia
 const MIN_KEEP_N = 100, MIN_KEEP_SHARE = 0.25;
-const NAMES = { t: 'secondi dalla nascita', gap: 'salto alla soglia', speed: 'velocita\' di salita', dd: 'calo massimo prima', act: 'attivita\'', vol: 'volatilita\'', top1: 'primo possessore', top3: 'primi 3 possessori', top10: 'primi 10 possessori', cre: 'quota del creatore' };
-const PATH_FEATS = ['t', 'gap', 'speed', 'dd', 'act', 'vol'], HOLD_FEATS = ['top1', 'top3', 'top10', 'cre'];
+const NAMES = { crN: 'token gia\' creati dal creatore', crHit: 'quota dei suoi token arrivati a 7.5K', crMed: 'massimo mediano dei suoi token', t: 'secondi dalla nascita', gap: 'salto alla soglia', speed: 'velocita\' di salita', dd: 'calo massimo prima', act: 'attivita\'', vol: 'volatilita\'', top1: 'primo possessore', top3: 'primi 3 possessori', top10: 'primi 10 possessori', cre: 'quota del creatore' };
+const PATH_FEATS = ['t', 'gap', 'speed', 'dd', 'act', 'vol'], HOLD_FEATS = ['top1', 'top3', 'top10', 'cre'], CRE_FEATS = ['crN', 'crHit', 'crMed'], SETTLE_MS = 30 * 60000, HIT_USD = 7500;
 
 // Misure sul percorso fino all'intervallo i della soglia (niente informazioni dal futuro)
 function feats(p, i) {
@@ -28,17 +28,28 @@ const quant = (xs, q) => { const s = [...xs].sort((a, b) => a - b); return s.len
 const fmt = (v) => (Math.abs(v) >= 100 ? Math.round(v) : +v.toFixed(Math.abs(v) < 1 ? 3 : 2));
 function rate(rows) { let rug = 0, dump = 0; for (const r of rows) { if (r.lab.rug) rug++; if (r.lab.dump) dump++; } return { n: rows.length, rug: pct(rug, rows.length), dump: pct(dump, rows.length) }; }
 
+// Storico del creatore al momento della soglia: solo token creati prima e conclusi da almeno 30 minuti (nessuna informazione dal futuro)
+function creatorIndex(list) {
+  const by = new Map(); for (const r of list || []) { if (!by.has(r.cr)) by.set(r.cr, []); by.get(r.cr).push(r); }
+  for (const a of by.values()) a.sort((x, y) => x.at - y.at); return by;
+}
+function creatorFeats(by, cr, m, at) {
+  const a = cr && by.get(cr); if (!a) return cr ? { crN: 0 } : {};
+  const prior = a.filter((x) => x.m !== m && x.at < at && at - x.at >= SETTLE_MS); if (!prior.length) return { crN: 0 };
+  const mx = prior.map((x) => x.mx).sort((x, y) => x - y);
+  return { crN: prior.length, crHit: prior.filter((x) => x.mx >= HIT_USD).length / prior.length, crMed: mx[mx.length >> 1] };
+}
 // holders: mappa mint -> { top1, top3, top10, cre } (opzionale)
 function analyze(recs, thr, o) {
-  const holders = (o && o.holders) || new Map(), sorted = [...recs].sort((a, b) => a.at - b.at), cutAt = sorted.length ? sorted[Math.floor(sorted.length * 0.6)].at : 0, rows = [];
+  const holders = (o && o.holders) || new Map(), cidx = creatorIndex(o && o.creators), sorted = [...recs].sort((a, b) => a.at - b.at), cutAt = sorted.length ? sorted[Math.floor(sorted.length * 0.6)].at : 0, rows = [];
   for (const r of sorted) {
     const i = Farm.crossIdx ? Farm.crossIdx(r.p, thr / r.u) : -1; if (i < 1) continue; const lab = label(r.p, i); if (!lab) continue;
-    const f = feats(r.p, i), h = holders.get(r.m); if (h) for (const k of HOLD_FEATS) if (Number.isFinite(h[k])) f[k] = h[k];
+    const f = feats(r.p, i), h = holders.get(r.m); Object.assign(f, creatorFeats(cidx, r.cr, r.m, r.at)); if (h) for (const k of HOLD_FEATS) if (Number.isFinite(h[k])) f[k] = h[k];
     rows.push({ rec: r, f, lab, train: r.at < cutAt });
   }
   const train = rows.filter((x) => x.train), test = rows.filter((x) => !x.train), out = { thr, n: rows.length, base: { all: rate(rows), train: rate(train), test: rate(test) }, feats: {}, filters: [] };
   if (rows.length < 50) return out;
-  const names = [...PATH_FEATS, ...HOLD_FEATS].filter((k) => rows.filter((x) => Number.isFinite(x.f[k])).length >= 200);
+  const names = [...PATH_FEATS, ...HOLD_FEATS, ...CRE_FEATS].filter((k) => rows.filter((x) => Number.isFinite(x.f[k])).length >= 200);
   const cand = [];
   for (const k of names) {
     const vals = train.filter((x) => Number.isFinite(x.f[k])).map((x) => x.f[k]); if (vals.length < 60) continue;
@@ -61,4 +72,4 @@ function analyze(recs, thr, o) {
   return out;
 }
 
-module.exports = { RUG_AT, DUMP_AT, WIN_BINS, MIN_BINS, NAMES, PATH_FEATS, HOLD_FEATS, feats, label, analyze };
+module.exports = { creatorFeats, creatorIndex, RUG_AT, DUMP_AT, WIN_BINS, MIN_BINS, NAMES, PATH_FEATS, HOLD_FEATS, feats, label, analyze };
