@@ -524,3 +524,8 @@ nav button { justify-content: center; }
 @media (max-height: 640px) { .jbody .jrow .tiny { display: none; } .jrow { padding: 5px 0; } }
 
 .sheetbar { flex-wrap: wrap; } .sbnote { flex: 1 1 100%; text-align: right; }
+
+/* Distanza dalla navbar uguale in tutte le pagine (4px del margine della barra + 6px = 10px, come tra le schede) */
+#v-radar.active { padding-bottom: 6px; }
+.vscroll:has(> .poslist) { padding-bottom: 6px; }
+#v-journal .vfoot { padding-bottom: 4px; }
