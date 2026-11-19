@@ -629,9 +629,29 @@ function pumpLabQueries() {
     });
   }).catch(() => done());
 }
+// Righe della strategia corrente e della ricerca per il riepilogo giornaliero
+function strategyDaily() {
+  try {
+    const S0 = Strat.summary(rt.strat, Date.now()), c = S0.current, a = S0.acct, co = rt.combo; let t = '';
+    if (c) t += `\nStrategia ${c.id}: ${c.cfg.thr / 1000}K rit. ${c.cfg.delay}s +${c.cfg.tp}/-${c.cfg.sl}, in avanti ${c.fwd.n} op. ${c.fwd.n ? (c.fwd.ev > 0 ? '+' : '') + c.fwd.ev + '%' : '-'}`;
+    if (a) t += `\nConto strategia: ${a.eq.toFixed(3)} SOL (${a.pct > 0 ? '+' : ''}${a.pct}%), ${a.n} op.`;
+    if (co && co.best) t += `\nRicerca filtri: migliore ${co.best.score > 0 ? '+' : ''}${co.best.score}%, il caso fa uguale nel ${co.perm.p == null ? '-' : Math.round(co.perm.p * 100) + '%'}`;
+    return t;
+  } catch { return ''; }
+}
+// Appena la ricerca trova un segnale credibile (esito positivo su dati vecchi e recenti, caso sotto il 5%) arriva un avviso su Telegram, una volta per ogni segnale distinto
+function comboAlert() {
+  try {
+    const Combo = require('./combo.js'), co = rt.combo; if (!Combo.credible(co)) return; const k = Combo.comboKey(co); st.comboSeen = st.comboSeen || []; if (st.comboSeen.includes(k)) return;
+    st.comboSeen.push(k); st.comboSeen = st.comboSeen.slice(-20); const b = co.best;
+    log('SCOUT', `segnale credibile: ${b.name} ${b.dir === 'basso' ? '<=' : '>'} ${b.cut}`);
+    tg(`<b>Segnale credibile trovato</b>\n${esc(b.name)} ${b.dir === 'basso' ? '≤' : '>'} ${esc(b.cut)} · regola rit. ${b.rule.delay} s +${b.rule.tp}/−${b.rule.sl} ${b.rule.hold} s\nDati vecchi ${b.tr.ev}% (${b.tr.n} op.) · recenti ${b.te.ev}% (${b.te.n} op.)\nIl caso fa altrettanto bene nel ${Math.round(co.perm.p * 100)}% delle ricerche.\nNon e' ancora una prova: serve la conferma in avanti sui token nuovi. Nessun ordine aperto.`, Kb.kb({ app: true })).catch(() => {});
+  } catch { /* facoltativo */ }
+}
 function loadFarm() {
   try { rt.rug = JSON.parse(fs.readFileSync(path.join(STATE_DIR, 'rug.json'), 'utf8')); } catch { /* ancora nessuna analisi */ }
   try { rt.combo = JSON.parse(fs.readFileSync(path.join(STATE_DIR, 'combo.json'), 'utf8')); } catch { /* ancora nessuna ricerca combinata */ }
+  comboAlert();
   try { rt.farm = JSON.parse(fs.readFileSync(path.join(STATE_DIR, 'farm.json'), 'utf8')); } catch { /* ancora nessun rapporto */ }
   if (rt.farm && Strat.ingest(rt.strat, rt.farm, Date.now())) rt.stratDirty = true;   // nuove regole candidate: entrano in prova in avanti
   if (rt.farm) { const m = Strat.adoptBest(rt.strat, rt.farm, Date.now()); if (m) { rt.stratDirty = true; log('SCOUT', `strategia corrente ${m.id}: ${m.why}`); tg(`<b>Strategia corrente ${esc(m.id)}</b>\n${esc(m.why)}\nGira in ombra (nessun ordine).`, Kb.kb({ app: true })).catch(() => {}); } }   // la migliore disponibile, anche se non profittevole
@@ -704,7 +724,7 @@ async function main() {
     st.lastDaily = dkey;
     const today = st.journal.filter((j) => new Date(j.closedAt + 3600000).toISOString().slice(0, 10) === dkey);
     const pd = today.reduce((a, j) => a + j.pnl, 0);
-    await tg(`<b>KAISER</b> riepilogo ${dkey}\nOggi: ${today.length} trade, ${pd >= 0 ? '+' : ''}${pd.toFixed(4)} SOL\nTotale: ${s.n} trade, win ${s.wr.toFixed(0)}%, P&L ${s.pnl.toFixed(4)} SOL\nEquity ${equity().toFixed(4)} SOL`, Kb.kb({ app: true }));
+    await tg(`<b>KAISER</b> riepilogo ${dkey}\nOggi: ${today.length} trade, ${pd >= 0 ? '+' : ''}${pd.toFixed(4)} SOL\nTotale: ${s.n} trade, win ${s.wr.toFixed(0)}%, P&L ${s.pnl.toFixed(4)} SOL\nEquity ${equity().toFixed(4)} SOL${strategyDaily()}`, Kb.kb({ app: true }));
   }
   if (rt.feed) rt.feed.stop();
   if (rt.trades) rt.trades.stop();
