@@ -65,12 +65,23 @@
     if (!hist.length || hist[hist.length - 1][1] !== h) hist.push([now, h, Math.round(window.outerHeight || 0)]);
     if (h !== lastH) { lastH = h; root.style.setProperty('--app-h', h + 'px'); }
     if (window.scrollY || document.documentElement.scrollTop) window.scrollTo(0, 0);
+    // Se iOS ha dato una finestra più bassa dello schermo (outerHeight è quello vero) la si fa ricalcolare: succede a caso all'apertura
+    if (window.outerHeight - h > 60 && kicks < 12 && Date.now() - lastKick > 600) kick();
+  }
+  var kicks = 0, lastKick = 0;
+  function kick() {
+    kicks++; lastKick = Date.now(); window.__kzKicks = kicks;
+    var m = document.querySelector('meta[name=viewport]'); if (!m) return; var c0 = m.getAttribute('content');
+    m.setAttribute('content', c0.replace('maximum-scale=1', 'maximum-scale=1.01'));
+    setTimeout(function () { m.setAttribute('content', c0); window.scrollTo(0, 0); fitHeight(); }, 80);
+    setTimeout(fitHeight, 400);
   }
   if (pwa) {
     ['resize', 'orientationchange', 'pageshow', 'focus', 'load', 'scroll'].forEach(function (ev) { window.addEventListener(ev, fitHeight, { passive: true }); });
     if (window.visualViewport) window.visualViewport.addEventListener('resize', fitHeight);
     document.addEventListener('visibilitychange', fitHeight);
     document.addEventListener('focusout', function () { setTimeout(fitHeight, 50); setTimeout(fitHeight, 400); });
+    ['touchstart', 'pointerdown'].forEach(function (ev) { document.addEventListener(ev, function () { if (window.outerHeight - lastH > 60) { kicks = Math.min(kicks, 8); kick(); } }, { passive: true }); });
     fitHeight(); var n = 0, tick = function () { fitHeight(); if (++n < 40) requestAnimationFrame(tick); }; requestAnimationFrame(tick);   // primo secondo, a ogni frame
     var slow = 0, iv = setInterval(function () { fitHeight(); if (++slow > 20) clearInterval(iv); }, 500);                                  // poi ogni mezzo secondo per 10 s
     setInterval(fitHeight, 3000);
