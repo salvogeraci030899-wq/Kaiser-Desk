@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.40.6">
+<meta name="kz-build" content="2.40.7">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=4" media="(prefers-color-scheme: light)">
@@ -989,7 +989,7 @@ $('#opsBar').onclick = openLog;
 $('#ver').onclick = () => {
   const pr = document.createElement('div'); pr.style.cssText = 'position:absolute;visibility:hidden;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)'; document.body.appendChild(pr);
   const cs = getComputedStyle(pr), vv = window.visualViewport, r = (s) => { const e = document.querySelector(s); if (!e) return '—'; const b = e.getBoundingClientRect(); return `top ${Math.round(b.top)} · bottom ${Math.round(b.bottom)} · h ${Math.round(b.height)}`; };
-  const rows = [['innerHeight', window.innerHeight], ['clientHeight', document.documentElement.clientHeight], ['visualViewport', vv ? `${Math.round(vv.height)} (offsetTop ${Math.round(vv.offsetTop)})` : '—'], ['screen.height', screen.height], ['outerHeight', window.outerHeight],
+  const rows = [['innerHeight', window.innerHeight], ['clientHeight', document.documentElement.clientHeight], ['visualViewport', vv ? `${Math.round(vv.height)} (offsetTop ${Math.round(vv.offsetTop)})` : '—'], ['screen.height', screen.height], ['outerHeight', window.outerHeight], ['--app-h', getComputedStyle(document.documentElement).getPropertyValue('--app-h')],
     ['safe top/bottom', cs.paddingTop + ' / ' + cs.paddingBottom], ['standalone', navigator.standalone + ' · pwa-mode ' + document.documentElement.classList.contains('pwa-mode')], ['tema', document.documentElement.dataset.theme + ' · barra ' + (document.getElementById('metaStatusBar') || {}).content],
     ['#app', r('#app')], ['header', r('header')], ['main', r('main')], ['nav', r('nav')], ['body', r('body')]];
   pr.remove();

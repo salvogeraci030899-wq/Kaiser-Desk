@@ -61,6 +61,10 @@
   function fitHeight() {
     if (!pwa) return;
     var h = Math.round(window.innerHeight); if (!(h > 300)) return;
+    // Su alcuni iPhone la finestra installata ha innerHeight molto più basso dello schermo (barra di stato non trasparente) mentre
+    // outerHeight è quello vero: in quel caso si usa outerHeight.
+    var oh = Math.round(window.outerHeight || 0);
+    if (oh > h + 60 && oh <= Math.round(screen.height || oh)) h = oh;
     if (h !== lastH) { lastH = h; root.style.setProperty('--app-h', h + 'px'); }
     if (window.scrollY || document.documentElement.scrollTop) window.scrollTo(0, 0);
   }
