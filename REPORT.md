@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 07:12 UTC · in esecuzione da 0.6 giorni · 215 run
+Aggiornato: 2026-11-19 07:17 UTC · in esecuzione da 0.6 giorni · 215 run
 
 | | |
 |---|---|
-| Equity | **5.1808 SOL** (-13.7% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.1808 SOL |
-| Trade chiusi | 45 |
-| Win rate | 27% |
-| P&L realizzato | -0.8192 SOL (~$-61.39) |
-| Media vincite / perdite | +38.0% / -35.6% |
-| Profit factor | 0.38 |
+| Equity | **5.1293 SOL** (-14.5% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.1293 SOL |
+| Trade chiusi | 46 |
+| Win rate | 26% |
+| P&L realizzato | -0.8707 SOL (~$-65.23) |
+| Media vincite / perdite | +38.0% / -36.0% |
+| Profit factor | 0.37 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -23,11 +23,12 @@ _nessuna_
 | RUG-EXIT liquidità | 8 | -0.5936 |
 | TP1 | 5 | +0.4440 |
 | Time stop | 14 | -0.2132 |
-| Stop loss | 12 | -0.4799 |
+| Stop loss | 13 | -0.5314 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $VIBECAT | 67 | -49.2% | -0.0515 | +0% | -32% | Stop loss | 1m |
 | $にくまる | 66 | -33.0% | -0.0347 | +15% | -35% | Stop loss | 5m |
 | $CDOG | 65 | -97.9% | -0.1051 | +0% | -34% | Stop loss | 2m |
 | $Anthropic | 64 | -1.6% | -0.0017 | +0% | -40% | Stop loss | 0m |
@@ -52,10 +53,25 @@ _nessuna_
 | $vicestream | 65 | -8.3% | -0.0096 | +0% | -10% | Time stop | 5m |
 | $Mandy | 82 | -28.6% | -0.0332 | +0% | -42% | Stop loss | 0m |
 | $NASDUCK | 67 | +97.8% | +0.1113 | +82% | +82% | TP1 | 5m |
-| $Streamoor | 73 | +81.5% | +0.0913 | +85% | +85% | TP1 | 2m |
 
 ## Ultimi eventi
 ```
+07:17:31 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 248 veto
+07:17:06 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 250 veto
+07:16:44 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 246 veto
+07:16:20 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 244 veto
+07:15:57 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 246 veto
+07:15:34 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 245 veto
+07:15:10 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 243 veto
+07:14:47 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 243 veto
+07:14:24 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 231 veto
+07:14:01 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 244 veto
+07:13:48 SCRIBE   chiuso P-0428 $VIBECAT -0.0515 SOL (-49.2%)
+07:13:48 CHARON   Stop loss $VIBECAT vendo 100% a -31.8% -> 0.0531 SOL
+07:13:38 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 245 veto
+07:13:15 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 235 veto
+07:12:52 QUARTER  BUY $VIBECAT 0.104 SOL score 67 impatto 1.81% (Jupiter)
+07:12:52 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 238 veto
 07:12:28 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 241 veto
 07:12:05 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 238 veto
 07:11:41 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 239 veto
@@ -80,22 +96,6 @@ _nessuna_
 07:04:24 ORACLE   360 raccolti, 228 analizzati, 0 BUY, 214 veto
 07:04:02 ORACLE   360 raccolti, 226 analizzati, 0 BUY, 213 veto
 07:03:38 ORACLE   360 raccolti, 230 analizzati, 0 BUY, 214 veto
-07:03:15 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 217 veto
-07:02:52 ORACLE   360 raccolti, 231 analizzati, 0 BUY, 216 veto
-07:02:29 ORACLE   360 raccolti, 230 analizzati, 0 BUY, 216 veto
-07:02:05 ORACLE   360 raccolti, 235 analizzati, 0 BUY, 221 veto
-07:01:42 ORACLE   360 raccolti, 232 analizzati, 0 BUY, 219 veto
-07:01:19 ORACLE   360 raccolti, 232 analizzati, 0 BUY, 216 veto
-07:00:54 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 223 veto
-07:00:41 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 220 veto
-07:00:15 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 229 veto
-06:59:52 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 227 veto
-06:59:29 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 227 veto
-06:59:06 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 231 veto
-06:58:43 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 237 veto
-06:58:21 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 230 veto
-06:57:58 QUARTER  $VIBECAT impatto 2.7% oltre slippage: annullato
-06:57:58 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 231 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
