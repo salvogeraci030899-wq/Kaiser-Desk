@@ -1,33 +1,34 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 05:21 UTC · in esecuzione da 0.5 giorni · 213 run
+Aggiornato: 2026-11-19 05:26 UTC · in esecuzione da 0.6 giorni · 213 run
 
 | | |
 |---|---|
-| Equity | **5.2781 SOL** (-12.0% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.1313 SOL |
-| Trade chiusi | 40 |
-| Win rate | 28% |
-| P&L realizzato | -0.7629 SOL (~$-56.81) |
-| Media vincite / perdite | +32.5% / -35.3% |
-| Profit factor | 0.35 |
+| Equity | **5.3422 SOL** (-11.0% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.3422 SOL |
+| Trade chiusi | 41 |
+| Win rate | 29% |
+| P&L realizzato | -0.6578 SOL (~$-49.01) |
+| Media vincite / perdite | +38.0% / -35.3% |
+| Profit factor | 0.44 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$MANDY** P-0423 · 0.105 SOL · +40.2% · resta 100% · [grafico](https://dexscreener.com/solana/7wguEXUJbiZRD3aW5jTTbSjRMdEZwrzdFPZEGiMrPqFi)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Chiusura manuale (app) | 6 | +0.0235 |
 | RUG-EXIT liquidità | 8 | -0.5936 |
-| TP1 | 4 | +0.3389 |
+| TP1 | 5 | +0.4440 |
 | Time stop | 13 | -0.1934 |
 | Stop loss | 9 | -0.3383 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $MANDY | 86 | +99.4% | +0.1051 | +69% | +69% | TP1 | 9m |
 | $HNYDRIP | 63 | +2.9% | +0.0031 | +29% | -4% | Time stop | 5m |
 | $GMGM | 63 | -17.1% | -0.0181 | +11% | -1% | Time stop | 6m |
 | $Everglades | 82 | -10.5% | -0.0111 | +0% | -31% | Stop loss | 1m |
@@ -52,10 +53,25 @@ Aggiornato: 2026-11-19 05:21 UTC · in esecuzione da 0.5 giorni · 213 run
 | $gte7 | 70 | -33.5% | -0.0379 | +0% | -30% | Stop loss | 1m |
 | $$WISHES | 63 | -6.4% | -0.0073 | +9% | +2% | Time stop | 8m |
 | $FLAMINGO | 71 | -47.2% | -0.0539 | +12% | -41% | Stop loss | 2m |
-| $STM | 65 | -32.5% | -0.0373 | +36% | -7% | Time stop | 5m |
 
 ## Ultimi eventi
 ```
+05:26:46 QUARTER  $GTA impatto 3.4% oltre slippage: annullato
+05:26:46 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 233 veto
+05:26:31 SCRIBE   chiuso P-0423 $MANDY 0.1051 SOL (99.4%)
+05:26:31 CHARON   TP1 $MANDY vendo 100% a 68.8% -> 0.2108 SOL
+05:26:21 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 233 veto
+05:25:57 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 240 veto
+05:25:33 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 228 veto
+05:25:09 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 243 veto
+05:24:46 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 242 veto
+05:24:22 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 238 veto
+05:23:58 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 240 veto
+05:23:34 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 242 veto
+05:23:11 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 238 veto
+05:22:47 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 245 veto
+05:22:24 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 245 veto
+05:22:00 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 246 veto
 05:21:37 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 248 veto
 05:21:13 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 248 veto
 05:20:50 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 247 veto
@@ -80,22 +96,6 @@ Aggiornato: 2026-11-19 05:21 UTC · in esecuzione da 0.5 giorni · 213 run
 05:13:39 ORACLE   360 raccolti, 234 analizzati, 0 BUY, 221 veto
 05:13:16 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 224 veto
 05:12:52 ORACLE   360 raccolti, 235 analizzati, 0 BUY, 218 veto
-05:12:28 SCOUT    PumpPortal invia nuovi token (21) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-05:12:28 QUARTER  $MANDY impatto 2.2% oltre slippage: annullato
-05:12:28 ORACLE   360 raccolti, 227 analizzati, 1 BUY, 210 veto
-05:12:04 ORACLE   349 raccolti, 224 analizzati, 0 BUY, 208 veto
-05:11:51 ORACLE   343 raccolti, 220 analizzati, 0 BUY, 205 veto
-05:11:26 ORACLE   341 raccolti, 219 analizzati, 0 BUY, 204 veto
-05:11:02 ORACLE   325 raccolti, 206 analizzati, 0 BUY, 193 veto
-05:10:38 ORACLE   318 raccolti, 202 analizzati, 0 BUY, 190 veto
-05:10:16 ORACLE   314 raccolti, 201 analizzati, 0 BUY, 189 veto
-05:09:52 ORACLE   303 raccolti, 188 analizzati, 0 BUY, 179 veto
-05:09:29 ORACLE   294 raccolti, 183 analizzati, 0 BUY, 174 veto
-05:09:07 ORACLE   290 raccolti, 177 analizzati, 0 BUY, 167 veto
-05:08:42 ORACLE   259 raccolti, 158 analizzati, 0 BUY, 150 veto
-05:08:19 ORACLE   252 raccolti, 151 analizzati, 0 BUY, 143 veto
-05:07:56 ORACLE   250 raccolti, 150 analizzati, 0 BUY, 143 veto
-05:07:31 ORACLE   228 raccolti, 141 analizzati, 0 BUY, 135 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
