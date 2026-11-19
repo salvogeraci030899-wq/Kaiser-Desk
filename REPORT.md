@@ -1,25 +1,25 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 09:38 UTC · in esecuzione da 0.7 giorni · 218 run
+Aggiornato: 2026-11-19 09:43 UTC · in esecuzione da 0.7 giorni · 218 run
 
 | | |
 |---|---|
-| Equity | **5.1695 SOL** (-13.8% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.0179 SOL |
-| Trade chiusi | 48 |
-| Win rate | 27% |
-| P&L realizzato | -0.8787 SOL (~$-65.40) |
-| Media vincite / perdite | +35.9% / -35.4% |
-| Profit factor | 0.37 |
+| Equity | **5.1504 SOL** (-14.2% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.1504 SOL |
+| Trade chiusi | 49 |
+| Win rate | 29% |
+| P&L realizzato | -0.8496 SOL (~$-63.23) |
+| Media vincite / perdite | +35.3% / -35.4% |
+| Profit factor | 0.39 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$APOCRYCOIN** P-0431 · 0.102 SOL · +48.1% · resta 100% · [grafico](https://dexscreener.com/solana/6JNJ1jmSmp919bhgwRPz21aXZhEPFweAmhvtxzd4aKUz)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| Chiusura manuale (app) | 7 | +0.0335 |
+| Chiusura manuale (app) | 8 | +0.0627 |
 | RUG-EXIT liquidità | 8 | -0.5936 |
 | TP1 | 5 | +0.4440 |
 | Time stop | 15 | -0.2313 |
@@ -28,6 +28,7 @@ Aggiornato: 2026-11-19 09:38 UTC · in esecuzione da 0.7 giorni · 218 run
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $APOCRYCOIN | 80 | +28.2% | +0.0291 | +54% | +31% | Chiusura manuale (app) | 13m |
 | $jingyu | 84 | +9.7% | +0.0101 | +34% | +22% | Chiusura manuale (app) | 41m |
 | $Dacitytard | 72 | -17.5% | -0.0181 | +40% | +4% | Time stop | 9m |
 | $VIBECAT | 67 | -49.2% | -0.0515 | +0% | -32% | Stop loss | 1m |
@@ -52,10 +53,25 @@ Aggiornato: 2026-11-19 09:38 UTC · in esecuzione da 0.7 giorni · 218 run
 | $DUMBGTA6 | 72 | +1.9% | +0.0022 | +0% | -35% | Stop loss | 1m |
 | $Mandy | 88 | -98.3% | -0.1123 | +0% | -97% | RUG-EXIT liquidità | 2m |
 | $GTAVI | 75 | -41.2% | -0.0474 | +9% | -36% | Stop loss | 3m |
-| $vicestream | 65 | -8.3% | -0.0096 | +0% | -10% | Time stop | 5m |
 
 ## Ultimi eventi
 ```
+09:43:17 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 239 veto
+09:42:55 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 239 veto
+09:42:32 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 234 veto
+09:42:09 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 234 veto
+09:41:45 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 236 veto
+09:41:22 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 239 veto
+09:40:59 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 228 veto
+09:40:36 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 236 veto
+09:40:13 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 237 veto
+09:39:50 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 227 veto
+09:39:46 SCRIBE   chiuso P-0431 $APOCRYCOIN 0.0291 SOL (28.2%)
+09:39:46 CHARON   Chiusura manuale (app) $APOCRYCOIN vendo 100% a 30.9% -> 0.1326 SOL
+09:39:46 KAISER   chiusura manuale dall'app: P-0431 APOCRYCOIN
+09:39:26 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 231 veto
+09:39:02 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 229 veto
+09:38:39 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 233 veto
 09:38:16 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 228 veto
 09:37:52 ORACLE   360 raccolti, 235 analizzati, 0 BUY, 222 veto
 09:37:29 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 227 veto
@@ -80,22 +96,6 @@ Aggiornato: 2026-11-19 09:38 UTC · in esecuzione da 0.7 giorni · 218 run
 09:30:52 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 236 veto
 09:30:27 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 228 veto
 09:30:04 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 234 veto
-09:29:41 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 228 veto
-09:29:18 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 231 veto
-09:28:55 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 230 veto
-09:28:31 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 235 veto
-09:28:08 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 236 veto
-09:27:44 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 231 veto
-09:27:20 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 230 veto
-09:26:56 QUARTER  BUY $APOCRYCOIN 0.102 SOL score 80 impatto 1.86% (Jupiter)
-09:26:56 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 227 veto
-09:26:33 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 226 veto
-09:26:09 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 222 veto
-09:25:46 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 221 veto
-09:25:22 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 222 veto
-09:25:09 SCOUT    PumpPortal invia nuovi token (21) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-09:24:59 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 230 veto
-09:24:36 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 225 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
