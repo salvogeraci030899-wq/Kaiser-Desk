@@ -87,6 +87,13 @@ test('segnale credibile: positivo su vecchi e recenti, abbastanza operazioni e c
   assert.equal(Combo.credible(mk({ tr: { n: 10, ev: 3 } })), false, 'poche operazioni');
   const c = mk(); c.perm.p = 0.2; assert.equal(Combo.credible(c), false, 'il caso fa uguale');
   const d = mk(); d.perm = { B: 10, p: 0.01 }; assert.equal(Combo.credible(d), false, 'poche permutazioni');
-  assert.equal(Combo.credible({ best: { feat: null } }), false); assert.equal(Combo.comboKey(mk()), 'top1/basso/0.1/0/10/10/60');
+  assert.equal(Combo.credible({ best: { feat: null } }), false); assert.equal(Combo.comboKey(mk()), '/top1/basso/0.1/0/10/10/60');
   const src = fs.readFileSync(path.join(__dirname, '..', 'runner', 'runner.js'), 'utf8'); assert.match(src, /st\.comboSeen\.includes\(k\)/); assert.match(src, /\$\{strategyDaily\(\)\}/);
+});
+
+test('ricerca su piu\' soglie: tiene la migliore e corregge il p per il numero di soglie', () => {
+  const Combo = require('../runner/combo.js'); let seed = 7; const rnd = () => { seed = (seed * 1664525 + 1013904223) % 4294967296; return seed / 4294967296; };
+  const recs = []; const hol = new Map(); for (let i = 0; i < 600; i++) { const p = []; for (let k = 0; k < 10; k++) p.push(40 + k * 7); p.push(150); for (let k = 1; k <= 80; k++) p.push(rnd() < 0.5 ? 150 + k : 150 - k * 2); recs.push({ m: 'm' + i, s: 'S', at: T + i * 1000, u: 100, p, cr: '' }); hol.set('m' + i, { top1: rnd() }); }
+  const r = Combo.runMany(recs, [7500, 10000], { holders: hol, creators: [], perms: 20, rng: rnd });
+  assert.equal(r.thrsTried, 2); assert.equal(r.byThr.length, 2); assert.ok(r.perm.raw != null && r.perm.p >= r.perm.raw && r.perm.p <= 1); assert.ok(r.tests > 0);
 });
