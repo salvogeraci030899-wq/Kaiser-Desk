@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 08:37 UTC · in esecuzione da 0.7 giorni · 217 run
+Aggiornato: 2026-11-19 08:42 UTC · in esecuzione da 0.7 giorni · 217 run
 
 | | |
 |---|---|
-| Equity | **5.1318 SOL** (-14.5% dal capitale iniziale di 6 SOL) |
+| Equity | **5.1332 SOL** (-14.4% dal capitale iniziale di 6 SOL) |
 | Cassa | 5.0080 SOL |
 | Trade chiusi | 47 |
 | Win rate | 26% |
-| P&L realizzato | -0.8888 SOL (~$-66.14) |
+| P&L realizzato | -0.8888 SOL (~$-66.05) |
 | Media vincite / perdite | +38.0% / -35.4% |
 | Profit factor | 0.37 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$jingyu** P-0430 · 0.102 SOL · +21.1% · resta 100% · [grafico](https://dexscreener.com/solana/3d4SzgvyhhwDo3dnDzkQNppdqp1ffNvrZFVLRN94j1bP)
+- **$jingyu** P-0430 · 0.102 SOL · +22.5% · resta 100% · [grafico](https://dexscreener.com/solana/3d4SzgvyhhwDo3dnDzkQNppdqp1ffNvrZFVLRN94j1bP)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -56,6 +56,19 @@ Aggiornato: 2026-11-19 08:37 UTC · in esecuzione da 0.7 giorni · 217 run
 
 ## Ultimi eventi
 ```
+08:42:50 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 228 veto
+08:42:27 ORACLE   360 raccolti, 235 analizzati, 0 BUY, 223 veto
+08:42:04 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 231 veto
+08:41:41 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 227 veto
+08:41:17 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 225 veto
+08:40:52 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 226 veto
+08:40:29 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 226 veto
+08:40:06 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 219 veto
+08:39:43 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 222 veto
+08:39:19 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 221 veto
+08:38:57 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 220 veto
+08:38:34 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 218 veto
+08:38:11 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 224 veto
 08:37:48 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 220 veto
 08:37:24 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 225 veto
 08:37:01 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 221 veto
@@ -83,19 +96,6 @@ Aggiornato: 2026-11-19 08:37 UTC · in esecuzione da 0.7 giorni · 217 run
 08:29:26 ORACLE   234 raccolti, 155 analizzati, 0 BUY, 147 veto
 08:29:04 ORACLE   227 raccolti, 146 analizzati, 0 BUY, 139 veto
 08:28:42 ORACLE   225 raccolti, 144 analizzati, 0 BUY, 137 veto
-08:28:19 ORACLE   209 raccolti, 134 analizzati, 0 BUY, 128 veto
-08:27:57 ORACLE   203 raccolti, 119 analizzati, 0 BUY, 113 veto
-08:27:38 SCOUT    fabbrica non riuscita: stderr maxBuffer length exceeded
-08:27:35 ORACLE   197 raccolti, 119 analizzati, 0 BUY, 113 veto
-08:27:33 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-08:27:32 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-08:27:32 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120
-08:27:32 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
-08:27:31 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
-08:27:31 SCOUT    Laboratorio: collegato a PumpPortal
-08:27:31 KAISER   run #217 · 0 posizioni · equity 5.1112 SOL · GMGN spenta (nessuna chiave) · Grok off
-08:27:19 SCRIBE   fine run · trade 47 · win 26% · P&L -0.8888 SOL · equity 5.1112 SOL
-08:27:05 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 230 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
