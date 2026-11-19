@@ -76,6 +76,7 @@ export async function labScreen(ex) {
 export async function rulesScreen(ex) {
   const d = await snap(ex), S = d && d.strat; if (!S || !S.items) return { text: 'Regole: nessun registro ancora. La fabbrica propone le candidate quando una regola regge sui dati vecchi e su quelli recenti.', markup: buildKb({ app: true }) };
   const lines = [`KAISER · regole (in prova ${num(S.count.prova)} · validate ${num(S.count.validata)} · ritirate ${num(S.count.ritirata)})`];
+  if (S.current) { const c = S.current; lines.push(`Strategia corrente ${c.id}: ${cfgLabel(c.cfg)} · in avanti ${c.fwd.n} op. ${c.fwd.n ? sg(c.fwd.ev) + '%' : '—'} · dati ${sg(c.farm.tr.ev)}% / ${sg(c.farm.te.ev)}%${c.profitable === false ? ' · non profittevole' : ''}`); }
   for (const x of S.items.slice(0, 8)) lines.push(`${x.id} ${cfgLabel(x.cfg)} · ${x.status} · ${x.fwd.n} op. · ${x.fwd.n ? sg(x.fwd.ev) + '%' : '—'}`);
   if (!S.items.length) lines.push('Nessuna regola in corso.');
   lines.push('Una regola validata puo\' solo essere proposta: non apre ordini.');

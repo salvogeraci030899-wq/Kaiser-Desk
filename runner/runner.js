@@ -585,7 +585,7 @@ function flushPaths(final) {
 function maybeFarm() {
   const now = Date.now(); if (rt.farmBusy || now - (rt.farmAt || 0) < 3600000 || process.env.NO_FARM === '1') return; rt.farmAt = now; rt.farmBusy = true;
   const out = path.join(STATE_DIR, 'farm.json');
-  require('node:child_process').execFile(process.execPath, [path.join(__dirname, 'farm.js'), '--in', path.join(STATE_DIR, 'lab', 'paths'), '--out', out, '--holders', path.join(STATE_DIR, 'lab', 'holders'), '--creators', path.join(STATE_DIR, 'lab', 'creators'), '--rug', path.join(STATE_DIR, 'rug.json')], { timeout: 240000 }, (e, so) => {
+  require('node:child_process').execFile(process.execPath, [path.join(__dirname, 'farm.js'), '--in', path.join(STATE_DIR, 'lab', 'paths'), '--out', out, '--holders', path.join(STATE_DIR, 'lab', 'holders'), '--creators', path.join(STATE_DIR, 'lab', 'creators'), '--strat', STRAT_FILE(), '--rug', path.join(STATE_DIR, 'rug.json')], { timeout: 240000 }, (e, so) => {
     rt.farmBusy = false; if (e) { log('SCOUT', 'fabbrica non riuscita: ' + String(e.message).split('\n')[0]); return; }
     log('SCOUT', String(so || '').trim()); loadFarm();
   });
@@ -618,6 +618,7 @@ function loadFarm() {
   try { rt.rug = JSON.parse(fs.readFileSync(path.join(STATE_DIR, 'rug.json'), 'utf8')); } catch { /* ancora nessuna analisi */ }
   try { rt.farm = JSON.parse(fs.readFileSync(path.join(STATE_DIR, 'farm.json'), 'utf8')); } catch { /* ancora nessun rapporto */ }
   if (rt.farm && Strat.ingest(rt.strat, rt.farm, Date.now())) rt.stratDirty = true;   // nuove regole candidate: entrano in prova in avanti
+  if (rt.farm) { const m = Strat.adoptBest(rt.strat, rt.farm, Date.now()); if (m) { rt.stratDirty = true; log('SCOUT', `strategia corrente ${m.id}: ${m.why}`); tg(`<b>Strategia corrente ${esc(m.id)}</b>\n${esc(m.why)}\nGira in ombra (nessun ordine).`, Kb.kb({ app: true })).catch(() => {}); } }   // la migliore disponibile, anche se non profittevole
 }
 const STRAT_FILE = () => path.join(STATE_DIR, 'strategies.json');
 // Sonda delle fonti per gli scambi: una volta ogni 12 ore, per 40 secondi, quando ci sono abbastanza token seguiti. Solo lettura; il rapporto non contiene l'indirizzo RPC.
