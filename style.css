@@ -306,7 +306,6 @@ html, body { position: fixed; inset: 0; width: 100%; height: auto; margin: 0; ov
 html.pwa-mode, html.pwa-mode body { position: static; height: 100%; }
 html.pwa-mode #app { position: relative; inset: auto; width: 100%; height: var(--app-h, 100%); }
 .view.active { animation: none; }
-main { scrollbar-gutter: stable; }
 /* Le pagine non scorrono per intero: in alto restano fissi selettori e riepiloghi (.vfix), scorre solo il resto (.vscroll); in basso i tasti d'azione (.vfoot). */
 main { overflow: hidden; display: flex; flex-direction: column; padding-bottom: 0; }
 .view.active { flex: 1 1 0; min-height: 0; flex-direction: column; }
@@ -510,3 +509,16 @@ nav button { justify-content: center; }
 
 .syscard { display: block; width: 100%; text-align: left; font: inherit; color: var(--text); align-self: start; cursor: pointer; -webkit-tap-highlight-color: transparent; } .syscard .tt { font-size: 12px; font-weight: 600; color: var(--text-secondary); margin-bottom: 8px; }
 #fullBody { padding-bottom: 8px; }
+
+/* Rifinitura grafica */
+.empty::before { content: '◎'; display: block; font-size: 30px; line-height: 1; opacity: 0.3; margin-bottom: 10px; }
+.poslist:has(> .empty), #radarList:has(> .empty) { display: flex; align-items: center; justify-content: center; min-height: 38vh; }
+/* telefoni bassi: i riquadri si compattano invece di tagliare il testo */
+@media (max-height: 640px) {
+  .tile { padding: 5px 10px; gap: 1px; } .tile .tv { font-size: 15px; } .tile .ts { -webkit-line-clamp: 1; font-size: 10.5px; } .tile .tt { font-size: 11px; }
+  #jReasons { height: 78px; } #jReasons .kv { gap: 2px 10px; font-size: 12px; }
+  .jcard { min-height: 118px; }
+  #v-journal .stat .m span { font-size: 9.5px; } #v-journal .stat .m b { font-size: 11.5px; } #v-journal .stat { gap: 3px; } #v-journal .stat .m { padding: 2px 6px; }
+  #v-journal .modeSeg { margin-bottom: 4px !important; }
+}
+@media (max-height: 640px) { .jbody .jrow .tiny { display: none; } .jrow { padding: 5px 0; } }

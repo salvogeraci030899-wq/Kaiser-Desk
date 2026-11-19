@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.40.0">
+<meta name="kz-build" content="2.40.1">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=2">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
@@ -382,7 +382,12 @@ function fitRadar() {
 
 // Posizioni: tre schede intere per volta (altezza = un terzo della lista, con un minimo perché la scheda resti leggibile)
 // Journal: nell'elenco in pagina si vedono solo trade interi (almeno l'ultimo), mai a metà
+function fitJR() {
+  const b = $('#jReasons'), k = b && b.querySelector('.kv'); if (!k || !b.clientHeight) return; const ch = [...k.children]; ch.forEach((x) => { x.style.visibility = ''; });
+  for (let i = 0; i < ch.length; i += 2) if (i > 0 && ch[i].offsetTop + ch[i].offsetHeight > b.clientHeight - 8 + (k.offsetTop || 0)) { ch[i].style.visibility = 'hidden'; if (ch[i + 1]) ch[i + 1].style.visibility = 'hidden'; }
+}
 function fitJ() {
+  fitJR();
   const b = $('#jRows'); if (!b || !b.clientHeight) return; const rows = [...b.children]; rows.forEach((x) => { x.style.visibility = ''; });
   rows.forEach((x, i) => { if (i > 0 && x.offsetTop + x.offsetHeight > b.clientHeight + 1) x.style.visibility = 'hidden'; });
 }
@@ -706,15 +711,15 @@ function renderLab() {
     }
   // Sezioni: ognuna è un riquadro fisso nella pagina e si apre a schermo intero
   const MAP = [['Ingresso 60', 'in'], ['Ingresso alla prima', 'in'], ['Entrata con ritardo', 'in'], ['Dopo un acquisto', 'fl'], ['Vendite grosse', 'fl'], ['Realismo', 'cal'], ['Fabbrica', 'farm'], ['Rug', 'rug'], ['Regole', 'strat'], ['Grok', 'grok'], ['Fonti', 'src']];
-  const TITLES = { obs: 'Osservazione', in: 'Ingressi', fl: 'Acquisti e vendite', cal: 'Realismo del paper', farm: 'Fabbrica di strategie', rug: 'Rug', strat: 'Regole e prova in avanti', grok: 'Grok', src: 'Fonti per gli scambi' };
+  const TITLES = { obs: 'Osservazione', in: 'Ingressi', fl: 'Acquisti e vendite', cal: 'Realismo del paper', farm: 'Fabbrica', rug: 'Rug', strat: 'Regole', grok: 'Grok', src: 'Fonti' };
   const parts = {}, segs = body.split('\u0001'); parts.obs = segs[0];
   for (const s of segs.slice(1)) { const [t, hh] = s.split('\u0002'), m = MAP.find(([p]) => t.startsWith(p)), id = m ? m[1] : 'obs'; parts[id] = (parts[id] || '') + `<div class="tiny muted" style="margin:10px 0 6px"><b>${t}</b></div>` + hh; }
   rt.labParts = Object.fromEntries(Object.entries(parts).map(([id, v]) => [id, { title: TITLES[id], html: `<div class="card labcard">${v}</div>` }]));
   const sm = (v, f) => { try { const x = f(v); return x == null ? { v: '—', s: '' } : x; } catch (e) { return { v: '—', s: '' }; } };
   const th = ((run && run.lab && run.lab.th) || []).filter((x) => x.n), F = run && run.farm, G = run && run.rug && run.rug.results && run.rug.results[0], R = run && run.strat, Gk = run && run.grok, cal = run && run.cal, fl = (run && run.lab && run.lab.flow) || {};
   const T = {
-    obs: sm(L, (l) => (l ? { v: String(l.observed), s: `Coin osservate · ${l.valid} con scambi` } : null)),
-    in: sm(th, (t) => (t.length ? { v: t.map((x) => x.key + 'K').join(' · '), s: 'soglie · coorti · ritardo' } : null)),
+    obs: sm(L, (l) => (l ? { v: String(l.observed), s: `Coin · ${l.valid} con scambi` } : null)),
+    in: sm(th, (t) => (t.length ? { v: t.length + ' soglie', s: t.map((x) => x.key + 'K').join(' · ') } : null)),
     fl: sm(fl, (f) => (f.lsShare != null ? { v: f.lsShare + '%', s: 'Coin con vendite grosse' } : null)),
     cal: sm(cal, (x) => (x ? { v: (x.med > 0 ? '+' : '') + x.med + '%', s: `${x.n} vendite confrontate`, cls: x.med < -3 ? 'down' : '' } : null)),
     farm: sm(F, (x) => (x ? { v: `${x.passed} su ${x.tried}`, s: 'regole che reggono', cls: x.passed ? 'up' : 'warn' } : null)),
