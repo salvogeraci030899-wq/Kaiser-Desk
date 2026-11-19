@@ -8,8 +8,8 @@ const Farm = require('./farm.js');
 
 const RUG_AT = 0.25, DUMP_AT = 0.5, WIN_BINS = 60, MIN_BINS = 24;      // finestra di 5 minuti (60 intervalli), almeno 2 minuti di storia
 const MIN_KEEP_N = 100, MIN_KEEP_SHARE = 0.25;
-const NAMES = { crN: 'token gia\' creati dal creatore', crHit: 'quota dei suoi token arrivati a 7.5K', crMed: 'massimo mediano dei suoi token', t: 'secondi dalla nascita', gap: 'salto alla soglia', speed: 'velocita\' di salita', dd: 'calo massimo prima', act: 'attivita\'', vol: 'volatilita\'', top1: 'primo possessore', top3: 'primi 3 possessori', top10: 'primi 10 possessori', cre: 'quota del creatore' };
-const PATH_FEATS = ['t', 'gap', 'speed', 'dd', 'act', 'vol'], HOLD_FEATS = ['top1', 'top3', 'top10', 'cre'], CRE_FEATS = ['crN', 'crHit', 'crMed'], SETTLE_MS = 30 * 60000, HIT_USD = 7500;
+const NAMES = { soc: 'social dichiarati (0-3)', tw: 'ha twitter', tg: 'ha telegram', web: 'ha un sito', s0: 'acquisti nei primi 2 blocchi (cecchini)', n60: 'operazioni nel primo minuto', fail: 'quota di operazioni fallite all\'inizio', devBuy: 'acquisto iniziale del creatore (SOL)', gs: 'sentimento di Grok', gh: 'hype secondo Grok', go: 'organicità secondo Grok', gk: 'callout di KOL (Grok)', gm: 'menzioni su X (Grok)', gf: 'allarmi di Grok', crN: 'token gia\' creati dal creatore', crHit: 'quota dei suoi token arrivati a 7.5K', crMed: 'massimo mediano dei suoi token', t: 'secondi dalla nascita', gap: 'salto alla soglia', speed: 'velocita\' di salita', dd: 'calo massimo prima', act: 'attivita\'', vol: 'volatilita\'', top1: 'primo possessore', top3: 'primi 3 possessori', top10: 'primi 10 possessori', cre: 'quota del creatore' };
+const PATH_FEATS = ['t', 'gap', 'speed', 'dd', 'act', 'vol'], HOLD_FEATS = ['top1', 'top3', 'top10', 'cre', 'soc', 'tw', 'tg', 'web', 's0', 'n60', 'fail', 'devBuy', 'gs', 'gh', 'go', 'gk', 'gm', 'gf'], CRE_FEATS = ['crN', 'crHit', 'crMed'], SETTLE_MS = 30 * 60000, HIT_USD = 7500;
 
 // Misure sul percorso fino all'intervallo i della soglia (niente informazioni dal futuro)
 function feats(p, i) {

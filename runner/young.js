@@ -32,7 +32,7 @@ function parseCreateEvent(b64) {
   for (let i = 0; i < 3; i++) { const r = readStr(b, o); if (!r) return null; f.push(r[0]); o = r[1]; }
   if (o + 32 > b.length) return null;
   const mint = b58(b.subarray(o, o + 32)); if (!MINT_RE.test(mint)) return null;
-  const out = { mint, name: f[0].slice(0, 40), symbol: f[1].slice(0, 20) };
+  const out = { mint, name: f[0].slice(0, 40), symbol: f[1].slice(0, 20), uri: String(f[2] || '').slice(0, 200) };
   if (o + 64 <= b.length) { const curve = b58(b.subarray(o + 32, o + 64)); if (MINT_RE.test(curve)) out.curve = curve; }
   if (o + 96 <= b.length) { const cr = b58(b.subarray(o + 64, o + 96)); if (MINT_RE.test(cr)) out.creator = cr; }   // il creatore (dev): serve a misurare quanto ne possiede ancora   // bonding curve: il conto che contiene le riserve da cui si ricava il prezzo
   return out;

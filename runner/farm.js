@@ -70,7 +70,7 @@ function* configs(grid) { const g = grid || GRID; for (const thr of g.thr) for (
 // Misure dei possessori salvate dal runner (stesso formato a file piccoli compressi dei percorsi): mint -> { top1, top3, top10, cre }
 function loadHolders(dir) {
   const m = new Map(); let names = []; try { names = fs.readdirSync(dir).filter((x) => x.endsWith('.jsonl.gz')).sort(); } catch { return m; }
-  for (const n of names) { let t; try { t = zlib.gunzipSync(fs.readFileSync(path.join(dir, n))).toString('utf8'); } catch { continue; } for (const l of t.split('\n')) { if (!l) continue; try { const r = JSON.parse(l); if (r && r.m && !m.has(r.m)) m.set(r.m, r); } catch { /* riga rovinata */ } } }
+  for (const n of names) { let t; try { t = zlib.gunzipSync(fs.readFileSync(path.join(dir, n))).toString('utf8'); } catch { continue; } for (const l of t.split('\n')) { if (!l) continue; try { const r = JSON.parse(l); if (r && r.m) m.set(r.m, Object.assign({}, r, m.get(r.m) || {}));   /* la prima lettura vale; le righe successive aggiungono solo campi nuovi */ } catch { /* riga rovinata */ } } }
   return m;
 }
 // Storico dei creatori (un record per ogni token concluso, anche quelli che non hanno mai superato 5K): { m, cr, at, mx } con mx = massimo raggiunto in dollari

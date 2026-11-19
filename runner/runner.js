@@ -48,6 +48,7 @@ if (!fs.existsSync(F.config)) {
 const S = { ...E.DEFAULTS, ...RUNNER_DEFAULTS, ...readJSON(F.config, {}) };
 S.useGrok = S.useGrok && !!process.env.XAI_API_KEY;
 S.grokTest = S.grokTest && !!process.env.XAI_API_KEY;
+S.socialTest = S.socialTest && !!process.env.XAI_API_KEY;
 // Il runner non ha chiavi né firma nulla. Il reale è un conto separato gestito dall'esecutore (vedi realEntries).
 
 const st = Object.assign({
@@ -56,7 +57,7 @@ const st = Object.assign({
 }, readJSON(F.state, {}));
 st.runs++;
 if (st.capital > 0) S.capitalSOL = st.capital;   // capitale scelto con un reset dall'app: resta valido ai run successivi
-const rt = { crBuf: [], solUsd: 0, sec: new Map(), grok: new Map(), gmgn: new Map(), cands: new Map(), gmgnCache: {}, gcache: {}, seen: new Map(), young: new Map(), youngQ: new Set(), feed: null, trades: null, pathBuf: [], farm: null, farmAt: 0, farmBusy: false, probe: null, probeBusy: false, probeDone: false, strat: Strat.create(), stratDirty: false, grokQ: [], grokBusy: false, grokDay: { d: '', n: 0 }, grokErr: 0, grokErrMsg: '', rug: null, holdQ: [], holdBuf: [], holdBusy: 0, holdOk: 0, holdFail: 0, holdErr: '' };
+const rt = { socQ: [], socDay: { d: '', n: 0 }, socBusy: false, socErr: 0, crBuf: [], solUsd: 0, sec: new Map(), grok: new Map(), gmgn: new Map(), cands: new Map(), gmgnCache: {}, gcache: {}, seen: new Map(), young: new Map(), youngQ: new Set(), feed: null, trades: null, pathBuf: [], farm: null, farmAt: 0, farmBusy: false, probe: null, probeBusy: false, probeDone: false, strat: Strat.create(), stratDirty: false, grokQ: [], grokBusy: false, grokDay: { d: '', n: 0 }, grokErr: 0, grokErrMsg: '', rug: null, holdQ: [], holdBuf: [], holdBusy: 0, holdOk: 0, holdFail: 0, holdErr: '' };
 
 function log(agent, msg) {
   const line = `${new Date().toISOString().slice(11, 19)} ${agent.padEnd(8)} ${msg}`;
@@ -252,6 +253,19 @@ async function semiAlerts(buys) {
 }
 // Test di Grok: un giudizio per segnale, uno alla volta, al massimo 120 al giorno; il risultato si confronta con l'esito a 15 minuti (grokstat.js)
 const GROK_DAY_MAX = 120;
+// Callout social dei token del Laboratorio: alla soglia di market cap Grok conta menzioni su X, callout di account grandi e allarmi. Solo misura (nessun ordine):
+// il risultato va nella stessa riga dei possessori e l'analisi dei rug lo confronta con l'esito. Al massimo 150 richieste al giorno; giudizi in ritardo di oltre 3 minuti si scartano.
+const SOC_DAY_MAX = 150;
+function pumpSocial() {
+  if (!S.socialTest || !grokAnalyze || rt.socBusy || !rt.socQ.length) return;
+  const day = new Date().toISOString().slice(0, 10); if (rt.socDay.d !== day) rt.socDay = { d: day, n: 0 };
+  if (rt.socDay.n >= SOC_DAY_MAX) { rt.socQ.length = 0; return; }
+  const a = rt.socQ.shift(); if (!a || Date.now() - a.at > 3 * 60000) return;
+  rt.socBusy = true; rt.socDay.n++;
+  grokAnalyze({ address: a.mint, symbol: a.sym, name: a.name }).then((v) => {
+    if (v && v.ok) rt.holdBuf.push({ m: a.mint, at: Date.now(), gs: Number(v.sentiment) || 0, gh: Number(v.hype) || 0, go: Number(v.organic) || 0, gk: (v.kols || []).length, gm: Number(v.mentions) || 0, gf: (v.redFlags || []).length }); else rt.socErr++;
+  }).catch(() => { rt.socErr++; }).finally(() => { rt.socBusy = false; });
+}
 function pumpGrok() {
   if (!S.grokTest || !grokAnalyze || rt.grokBusy || !rt.grokQ.length) return;
   const day = new Date().toISOString().slice(0, 10); if (rt.grokDay.d !== day) rt.grokDay = { d: day, n: 0 };
@@ -392,6 +406,7 @@ async function pullParams() {
   const changed = [];
   for (const k of new Set([...appliedKeys, ...Object.keys(next)])) {
     let nv = k in next ? next[k] : BASE_S[k]; if (k === 'useGrok' || k === 'grokTest') nv = !!nv && !!process.env.XAI_API_KEY;
+    if (k === 'socialTest') nv = !!nv && !!process.env.XAI_API_KEY;
     if (S[k] !== nv) { changed.push(`${k} ${S[k]}→${nv}`); S[k] = nv; }
   }
   appliedKeys = new Set(Object.keys(next));
@@ -649,7 +664,7 @@ function checkpoint() {
 function startYoung() {
   const onToken = (t) => { if (S.srcYoung !== false) Y.addYoung(rt.young, t, Date.now(), 800); };
   if (S.srcLab !== false) {                                     // Laboratorio: una sola connessione a PumpPortal per nuovi token e scambi (osservazione, nessun ordine)
-    rt.trades = new Lab.TradeFeed({ log: (m) => log('SCOUT', m), solUsd: () => rt.solUsd, rpcHttp: process.env.RPC_URL || '', onCross: (t) => { if (rt.holdQ.length < 200) rt.holdQ.push({ mint: t.mint, curve: t.curve, creator: t.dev, at: Date.now() }); }, onCreator: (x) => { if (rt.crBuf.length < 5000) rt.crBuf.push(x); }, onPath: (x) => { rt.pathBuf.push(Farm.pack(x)); if (Strat.record(rt.strat, x, Date.now())) rt.stratDirty = true; }, onCreate: onToken, onDone: (s) => { st.lab = st.lab || { done: [] }; st.lab.done.push(s); st.lab.done = st.lab.done.slice(-400); } });
+    rt.trades = new Lab.TradeFeed({ log: (m) => log('SCOUT', m), solUsd: () => rt.solUsd, rpcHttp: process.env.RPC_URL || '', onCross: (t) => { if (rt.holdQ.length < 200) rt.holdQ.push({ mint: t.mint, curve: t.curve, creator: t.dev, at: Date.now(), uri: t.uri, devBuy: t.devBuy, sym: t.sym, name: t.name }); if (S.socialTest && rt.socQ.length < 20) rt.socQ.push({ mint: t.mint, sym: t.sym, name: t.name, at: Date.now() }); }, onCreator: (x) => { if (rt.crBuf.length < 5000) rt.crBuf.push(x); }, onPath: (x) => { rt.pathBuf.push(Farm.pack(x)); if (Strat.record(rt.strat, x, Date.now())) rt.stratDirty = true; }, onCreate: onToken, onDone: (s) => { st.lab = st.lab || { done: [] }; st.lab.done.push(s); st.lab.done = st.lab.done.slice(-400); } });
     rt.trades.start();
   }
   if (S.srcYoung === false) return;
@@ -672,7 +687,7 @@ async function main() {
     maybeProbe();
     pumpHolders();
     pumpLabQueries();
-    pumpGrok();
+    pumpGrok(); pumpSocial();
     save();
     if (Date.now() - lastCp >= CHECKPOINT_MS) { lastCp = Date.now(); flushPaths(false); checkpoint(); }
     const left = end - Date.now();

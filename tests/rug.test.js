@@ -35,7 +35,8 @@ test('lettura dei possessori via RPC: 3 chiamate, esclude la curva', async () =>
   const calls = []; const f = async (url, o) => { const b = JSON.parse(o.body); calls.push(b.method);
     const res = b.method === 'getTokenLargestAccounts' ? { value: [{ address: 'A', amount: '700000000' }, { address: 'B', amount: '100000000' }] } : b.method === 'getTokenSupply' ? { value: { amount: '1000000000' } } : { value: [{ data: { parsed: { info: { owner: 'CURVA' } } } }, { data: { parsed: { info: { owner: 'CRE' } } } }] };
     return { json: async () => ({ result: res }) }; };
-  const x = await Holders.snapshot({ url: 'wss://rpc.example/KEY', fetch: f, mint: 'MINT', curve: 'CURVA', creator: 'CRE', at: T }); assert.deepEqual(calls, ['getTokenLargestAccounts', 'getTokenSupply', 'getMultipleAccounts']);
+  const x = await Holders.snapshot({ url: 'wss://rpc.example/KEY', fetch: f, mint: 'MINT', curve: 'CURVA', creator: 'CRE', at: T }); assert.deepEqual(calls, ['getTokenLargestAccounts', 'getTokenSupply', 'getMultipleAccounts', 'getSignaturesForAddress']);   // l'ultima serve all'attivita' iniziale; se la risposta non e' leggibile si ignora
+  assert.equal(x.s0, undefined);
   assert.equal(x.m, 'MINT'); assert.equal(x.top1, 0.1); assert.equal(x.cre, 0.1); assert.equal(x.at, T);
   assert.equal(await Holders.snapshot({ url: '', fetch: f, mint: 'M' }), null);
 });
@@ -92,4 +93,24 @@ test('i percorsi salvati portano il creatore, e lo storico dei creatori si rileg
   assert.equal(Farm.unpack(Farm.pack({ m: 'M', s: 'S', at: T, usd: 100, p: [1] })).cr, '');
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'kz-cr-')); Farm.writeBatch(dir, [{ m: 'a', cr: 'X', at: T, mx: 5 }, { m: 'b', at: T }], T);
   assert.deepEqual(Farm.loadCreators(dir).map((x) => x.m), ['a']);
+});
+
+test('social dichiarati e attivita\' dei primi istanti: misure note alla soglia, senza altre chiamate', async () => {
+  assert.deepEqual(Holders.socialFrom({ twitter: 'https://x.com/a', telegram: '', website: 'https://sito.it' }), { tw: 1, tg: 0, web: 1, soc: 2 });
+  assert.equal(Holders.socialFrom(null), null);
+  const sigs = [{ slot: 100, err: null }, { slot: 100, err: null }, { slot: 101, err: { x: 1 } }, { slot: 140, err: null }, { slot: 400, err: null }];
+  const e = Holders.earlyFrom(sigs); assert.equal(e.s0, 2, 'operazioni nei primi 2 blocchi oltre alla creazione'); assert.equal(e.n60, 3); assert.equal(e.fail, 0.2); assert.equal(e.total, 5);
+  assert.equal(Holders.earlyFrom([{ slot: 1 }]), null);
+  // snapshot completo: metadati letti da IPFS e firme della curva
+  const f = async (url, o) => {
+    if (typeof url === 'string' && url.startsWith('https://ipfs.io/ipfs/')) return { ok: true, text: async () => JSON.stringify({ twitter: 'https://x.com/t', website: 'https://w.it' }) };
+    const b = JSON.parse(o.body); const res = b.method === 'getTokenLargestAccounts' ? { value: [{ address: 'A', amount: '100' }] } : b.method === 'getTokenSupply' ? { value: { amount: '1000' } } : b.method === 'getSignaturesForAddress' ? sigs.map((x, i) => ({ ...x, signature: 's' + i })) : { value: [{ data: { parsed: { info: { owner: 'X' } } } }] };
+    return { json: async () => ({ result: res }) };
+  };
+  const x = await Holders.snapshot({ url: 'https://rpc', fetch: f, mint: 'M', curve: 'C', creator: 'K', uri: 'ipfs://QmABC', devBuy: 1.5, at: T });
+  assert.equal(x.soc, 2); assert.equal(x.tw, 1); assert.equal(x.s0, 2); assert.equal(x.n60, 3); assert.equal(x.devBuy, 1.5);
+});
+test('le misure nuove entrano nell\'analisi dei rug e nello Studio', () => {
+  for (const k of ['soc', 's0', 'n60', 'devBuy', 'gk', 'gm']) assert.ok(Rug.HOLD_FEATS.includes(k), k);
+  const Q = require('../runner/labquery.js'); for (const k of ['soc', 's0', 'devBuy', 'gk']) assert.ok(Q.FILTER_FEATS.includes(k), k);
 });
