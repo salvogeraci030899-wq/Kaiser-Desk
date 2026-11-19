@@ -3,7 +3,7 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs'), os = require('node:os'), path = require('node:path');
-const S = require('../runner/strategies.js');
+const S = require('../runner/strategies.js'), Farm = require('../runner/farm.js');
 
 const T = 1_700_000_000_000, H = 3600000, cfg = { thr: 7500, delay: 0, tp: 20, sl: 10, hold: 0 };
 // percorso (u = 100 $/SOL): sale a 76 (soglia superata) e poi +30% (esito netto +17) oppure -20% (esito netto -19)
@@ -56,4 +56,29 @@ test('il runner carica il registro, valuta i token conclusi, pubblica il riassun
 test('il registro non cresce senza limite: si tengono le ultime 40 regole ritirate', () => {
   const reg = S.create(); for (let i = 1; i <= 55; i++) reg.items.push({ id: 'R-' + i, cfg: { ...cfg, tp: i }, status: 'ritirata', since: T, endedAt: T + i, fwd: { n: 0, sum: 0, win: 0, gain: 0, loss: 0, cum: 0, peak: 0, dd: 0, first: 0, last: 0, recent: [] }, history: [] });
   S.review(reg, T + 100); assert.equal(reg.items.length, 40); assert.ok(reg.items.some((x) => x.id === 'R-55') && !reg.items.some((x) => x.id === 'R-1'), 'restano le piu\' recenti');
+});
+
+test('strategia corrente: esiste sempre la migliore trovata, anche se non profittevole; cambia solo con margine e dopo 6 ore', () => {
+  const T0 = 1_700_000_000_000, H = 3600000, reg = S.create();
+  const best = (thr, trEv, teEv, at) => ({ at, best: { cfg: { thr, delay: 10, tp: 20, sl: 15, hold: 120 }, tr: { n: 300, ev: trEv }, te: { n: 200, ev: teEv } }, top: [], watch: [] });
+  const m1 = S.adoptBest(reg, best(10000, -7, -6, T0), T0); assert.ok(m1 && reg.current); assert.equal(reg.current.cfg.thr, 10000); assert.equal(S.summary(reg, T0).current.farm.score, -7);
+  // stesso rapporto: niente di nuovo; una migliore ma prima di 6 ore: resta la corrente
+  assert.equal(S.adoptBest(reg, best(10000, -7, -6, T0), T0), null);
+  assert.equal(S.adoptBest(reg, best(12000, -3, -2, T0 + 1000), T0 + 2 * H), null);
+  // dopo 6 ore ma migliore di soli 0.5 punti: resta
+  assert.equal(S.adoptBest(reg, best(12000, -6.5, -6.5, T0 + 2000), T0 + 7 * H), null);
+  // dopo 6 ore e migliore di piu' di 1 punto: cambia, e la vecchia finisce nello storico
+  const m2 = S.adoptBest(reg, best(12000, -3, -2, T0 + 3000), T0 + 8 * H); assert.ok(m2); assert.equal(reg.current.cfg.thr, 12000); assert.equal(reg.current.prev.length, 1); assert.equal(reg.current.prev[0].cfg.thr, 10000);
+});
+test('la corrente si valuta in avanti solo sui token nati dopo l\'adozione', () => {
+  const T0 = 1_700_000_000_000, reg = S.create(), p = []; for (let k = 0; k < 40; k++) p.push(k < 20 ? 30 : 60); for (let k = 0; k < 40; k++) p.push(60);
+  S.adoptBest(reg, { at: T0, best: { cfg: { thr: 5000, delay: 0, tp: 20, sl: 15, hold: 0 }, tr: { n: 50, ev: -1 }, te: { n: 50, ev: -1 } }, watch: [] }, T0);
+  S.record(reg, { m: 'old', at: T0 - 1000, u: 100, p }, T0 + 1); assert.equal(reg.current.fwd.n, 0, 'nato prima: non conta');
+  S.record(reg, { m: 'new', at: T0 + 1000, u: 100, p }, T0 + 2); assert.equal(reg.current.fwd.n, 1);
+});
+test('la fabbrica indica sempre la migliore disponibile e rilegge la corrente', () => {
+  const recs = []; const mkp = (i) => { const p = []; for (let k = 0; k < 120; k++) p.push(k < 30 ? 50 + k : 80 - (i % 3) * 5); return { m: 'm' + i, s: 'S', at: 1_700_000_000_000 + i * 1000, u: 100, p }; };
+  for (let i = 0; i < 400; i++) recs.push(mkp(i));
+  const rep = Farm.run(recs, { watch: [{ thr: 7500, delay: 0, tp: 10, sl: 10, hold: 60 }] });
+  assert.ok(rep.best && rep.best.cfg && Number.isFinite(rep.best.score)); assert.ok(rep.watch.length === 1 && rep.watch[0].cfg.thr === 7500);
 });

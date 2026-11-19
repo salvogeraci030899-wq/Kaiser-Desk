@@ -93,7 +93,11 @@ function run(recs, o) {
   const ok = (x) => x.tr.n >= MIN_TRAIN && x.te.n >= MIN_TEST && x.tr.ev > 0 && x.te.ev > 0, passed = res.filter(ok).sort((x, y) => Math.min(y.tr.ev, y.te.ev) - Math.min(x.tr.ev, x.te.ev));
   const eligible = res.filter((x) => x.tr.n >= MIN_TRAIN), bestTrain = [...eligible].sort((x, y) => y.tr.ev - x.tr.ev)[0] || null;
   const bestTest = [...res.filter((x) => x.te.n >= MIN_TEST)].sort((x, y) => y.te.ev - x.te.ev)[0] || null;
-  return { at: (o && o.now) || Date.now(), paths: recs.length, train: train.length, test: test.length, tried, posTrain, passed: passed.length, top: passed.slice(0, 8), bestTrain, bestTest, cost: COST,
+  // La migliore disponibile: tra le configurazioni con abbastanza operazioni su dati vecchi E recenti, quella col peggiore dei due esiti piu' alto
+  // (prudente: non premia chi va bene solo su un lato). Esiste sempre, anche se negativa: serve a sapere dove guardare.
+  const score = (x) => Math.min(x.tr.ev, x.te.ev), elig = res.filter((x) => x.tr.n >= MIN_TRAIN && x.te.n >= MIN_TEST).sort((x, y) => score(y) - score(x)), top1 = elig[0] || null;
+  const want = ((o && o.watch) || []).map((c) => [c.thr, c.delay, c.tp, c.sl, c.hold].join('/')), watch = res.filter((x) => want.includes([x.cfg.thr, x.cfg.delay, x.cfg.tp, x.cfg.sl, x.cfg.hold].join('/'))).map((x) => ({ cfg: x.cfg, tr: x.tr, te: x.te, score: score(x) }));
+  return { at: (o && o.now) || Date.now(), best: top1 && { cfg: top1.cfg, tr: top1.tr, te: top1.te, score: score(top1) }, watch, paths: recs.length, train: train.length, test: test.length, tried, posTrain, passed: passed.length, top: passed.slice(0, 8), bestTrain, bestTest, cost: COST,
     span: sorted.length ? { from: sorted[0].at, to: sorted[sorted.length - 1].at } : null };
 }
 
@@ -102,7 +106,9 @@ module.exports = { loadCreators, loadHolders, BIN, COST, GRID, MIN_TRAIN, MIN_TE
 
 if (require.main === module) {
   const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
-  const dir = arg('in', 'state/lab/paths'), out = arg('out', 'state/farm.json'), t0 = Date.now(), recs = loadAll(dir), rep = run(recs);
+  const dir = arg('in', 'state/lab/paths'), out = arg('out', 'state/farm.json'), t0 = Date.now(), recs = loadAll(dir);
+  let watch = []; try { const sf = arg('strat', ''), rg = sf ? JSON.parse(fs.readFileSync(sf, 'utf8')) : null; if (rg && rg.current && rg.current.cfg) watch = [rg.current.cfg]; } catch { /* nessuna strategia corrente ancora */ }
+  const rep = run(recs, { watch });
   rep.ms = Date.now() - t0; fs.mkdirSync(path.dirname(out), { recursive: true }); fs.writeFileSync(out, JSON.stringify(rep));
   // analisi dei rug sugli stessi percorsi (e sulle misure dei possessori, se ci sono)
   try {
