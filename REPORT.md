@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 19:06 UTC · in esecuzione da 0.2 giorni · 229 run
+Aggiornato: 2026-11-19 19:11 UTC · in esecuzione da 0.2 giorni · 229 run
 
 | | |
 |---|---|
-| Equity | **5.8503 SOL** (-2.5% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.7482 SOL |
-| Trade chiusi | 21 |
-| Win rate | 33% |
-| P&L realizzato | -0.1335 SOL (~$-9.84) |
-| Media vincite / perdite | +26.9% / -21.3% |
-| Profit factor | 0.62 |
+| Equity | **5.8731 SOL** (-2.1% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.8731 SOL |
+| Trade chiusi | 22 |
+| Win rate | 36% |
+| P&L realizzato | -0.1269 SOL (~$-9.37) |
+| Media vincite / perdite | +24.2% / -21.3% |
+| Profit factor | 0.64 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$DCTYCAT** P-0458 · 0.117 SOL · -13.0% · resta 100% · [grafico](https://dexscreener.com/solana/FMs6iHei8osfXaCqEk5Z5TzS6Q8TEJrsJSjXdSc2CbEC)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 7 | -0.2183 |
-| Time stop | 7 | -0.0706 |
+| Time stop | 8 | -0.0640 |
 | TP1 | 5 | +0.1432 |
 | RUG-EXIT liquidità | 2 | +0.0121 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $DCTYCAT | 74 | +5.6% | +0.0066 | +31% | +2% | Time stop | 5m |
 | $FNUT | 73 | +69.1% | +0.0807 | +77% | +77% | TP1 | 8m |
 | $SIM | 64 | -24.0% | -0.0282 | +27% | -10% | Time stop | 14m |
 | $KFC | 88 | +55.0% | +0.0638 | +72% | +72% | TP1 | 18m |
@@ -51,6 +52,21 @@ Aggiornato: 2026-11-19 19:06 UTC · in esecuzione da 0.2 giorni · 229 run
 
 ## Ultimi eventi
 ```
+19:11:52 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 227 veto
+19:11:28 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 240 veto
+19:11:04 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 226 veto
+19:10:40 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 230 veto
+19:10:15 SCRIBE   chiuso P-0458 $DCTYCAT 0.0066 SOL (5.6%)
+19:10:15 CHARON   Time stop $DCTYCAT vendo 100% a 2.4% -> 0.1249 SOL
+19:10:15 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 247 veto
+19:09:51 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 248 veto
+19:09:28 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 241 veto
+19:09:05 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 239 veto
+19:08:41 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 239 veto
+19:08:27 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 239 veto
+19:08:02 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 235 veto
+19:07:37 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 243 veto
+19:07:14 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 223 veto
 19:06:50 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 231 veto
 19:06:26 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 247 veto
 19:06:01 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 243 veto
@@ -76,21 +92,6 @@ Aggiornato: 2026-11-19 19:06 UTC · in esecuzione da 0.2 giorni · 229 run
 18:59:24 ORACLE   360 raccolti, 266 analizzati, 3 BUY, 256 veto
 18:59:11 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 263 veto
 18:58:56 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 250 veto
-18:58:30 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 258 veto
-18:58:07 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 260 veto
-18:57:54 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 257 veto
-18:57:28 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 260 veto
-18:57:04 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 240 veto
-18:56:51 ORACLE   360 raccolti, 249 analizzati, 3 BUY, 240 veto
-18:56:26 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 250 veto
-18:56:11 ORACLE   360 raccolti, 262 analizzati, 3 BUY, 249 veto
-18:55:45 QUARTER  BUY $FNUT 0.116 SOL score 73 impatto 0.49% (Jupiter)
-18:55:45 ORACLE   360 raccolti, 244 analizzati, 3 BUY, 229 veto
-18:55:21 ORACLE   360 raccolti, 259 analizzati, 3 BUY, 243 veto
-18:54:58 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 238 veto
-18:54:34 ORACLE   360 raccolti, 254 analizzati, 3 BUY, 238 veto
-18:54:10 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 239 veto
-18:53:45 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 238 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
