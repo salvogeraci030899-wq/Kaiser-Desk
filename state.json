@@ -1,6 +1,6 @@
 {
  "startedAt": 1795097825371,
- "runs": 231,
+ "runs": 232,
  "cash": 5.6552413739697815,
  "positions": [],
  "journal": [
@@ -1348,41 +1348,6 @@
   }
  ],
  "signals": [
-  {
-   "t": 1795104989271,
-   "mint": "6VKQ6GKiTkwiEtaXbaJ68PmTK1oS6y6NAkkbMBUjpump",
-   "sym": "VI",
-   "score": 79,
-   "priceNative": 6.064e-7
-  },
-  {
-   "t": 1795105013168,
-   "mint": "6VKQ6GKiTkwiEtaXbaJ68PmTK1oS6y6NAkkbMBUjpump",
-   "sym": "VI",
-   "score": 80,
-   "priceNative": 5.082e-7
-  },
-  {
-   "t": 1795105038220,
-   "mint": "6VKQ6GKiTkwiEtaXbaJ68PmTK1oS6y6NAkkbMBUjpump",
-   "sym": "VI",
-   "score": 74,
-   "priceNative": 5.125e-7
-  },
-  {
-   "t": 1795105051771,
-   "mint": "6VKQ6GKiTkwiEtaXbaJ68PmTK1oS6y6NAkkbMBUjpump",
-   "sym": "VI",
-   "score": 74,
-   "priceNative": 5.125e-7
-  },
-  {
-   "t": 1795105075907,
-   "mint": "9TsAGdHpGsaoo3SjUtYpBvFu6p3qZHd9aUTyGNZUpump",
-   "sym": "KFC",
-   "score": 71,
-   "priceNative": 4.35e-7
-  },
   {
    "t": 1795105075907,
    "mint": "6VKQ6GKiTkwiEtaXbaJ68PmTK1oS6y6NAkkbMBUjpump",
@@ -8347,6 +8312,41 @@
    "sym": "FIONA",
    "score": 63,
    "priceNative": 6.217e-7
+  },
+  {
+   "t": 1795122112070,
+   "mint": "22Rh3HSAmmdLwr5qP7ULgXEDD86zpd3w8zZ8SMzrpump",
+   "sym": "LUCIA",
+   "score": 88,
+   "priceNative": 0.000001143
+  },
+  {
+   "t": 1795122123304,
+   "mint": "22Rh3HSAmmdLwr5qP7ULgXEDD86zpd3w8zZ8SMzrpump",
+   "sym": "LUCIA",
+   "score": 88,
+   "priceNative": 0.000001143
+  },
+  {
+   "t": 1795122145946,
+   "mint": "22Rh3HSAmmdLwr5qP7ULgXEDD86zpd3w8zZ8SMzrpump",
+   "sym": "LUCIA",
+   "score": 88,
+   "priceNative": 8.358e-7
+  },
+  {
+   "t": 1795122167453,
+   "mint": "22Rh3HSAmmdLwr5qP7ULgXEDD86zpd3w8zZ8SMzrpump",
+   "sym": "LUCIA",
+   "score": 88,
+   "priceNative": 8.358e-7
+  },
+  {
+   "t": 1795122192533,
+   "mint": "22Rh3HSAmmdLwr5qP7ULgXEDD86zpd3w8zZ8SMzrpump",
+   "sym": "LUCIA",
+   "score": 88,
+   "priceNative": 6.901e-7
   }
  ],
  "alerts": [],
@@ -8359,6 +8359,30 @@
  "halted": null,
  "seq": 465,
  "events": [
+  "21:06:54 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 260 veto",
+  "21:06:30 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 256 veto",
+  "21:06:06 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 243 veto",
+  "21:05:42 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 244 veto",
+  "21:05:19 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 259 veto",
+  "21:04:55 ORACLE   354 raccolti, 254 analizzati, 0 BUY, 245 veto",
+  "21:04:32 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena",
+  "21:04:32 ORACLE   348 raccolti, 250 analizzati, 0 BUY, 244 veto",
+  "21:04:08 ORACLE   308 raccolti, 204 analizzati, 0 BUY, 200 veto",
+  "21:03:46 ORACLE   296 raccolti, 204 analizzati, 0 BUY, 200 veto",
+  "21:03:24 ORACLE   282 raccolti, 196 analizzati, 0 BUY, 190 veto",
+  "21:03:12 ORACLE   281 raccolti, 196 analizzati, 1 BUY, 189 veto",
+  "21:02:47 ORACLE   239 raccolti, 166 analizzati, 1 BUY, 161 veto",
+  "21:02:25 ORACLE   230 raccolti, 151 analizzati, 1 BUY, 146 veto",
+  "21:02:11 SCOUT    rug: 7974 token oltre 7.5K, 35.8% rug, 1968 con possessori\ncombinazioni: 3552 prove, migliore -5.37%, p 1\nfabbrica: 22556 percorsi, 768 configurazioni, 0 passano, 3654 ms",
+  "21:02:03 ORACLE   213 raccolti, 121 analizzati, 1 BUY, 117 veto",
+  "21:01:52 ORACLE   213 raccolti, 121 analizzati, 1 BUY, 117 veto",
+  "21:01:49 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an",
+  "21:01:48 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an",
+  "21:01:47 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com",
+  "21:01:47 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.",
+  "21:01:47 SCOUT    Laboratorio: collegato a PumpPortal",
+  "21:01:47 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120",
+  "21:01:47 KAISER   run #232 · 0 posizioni · equity 5.6552 SOL · GMGN spenta (nessuna chiave) · Grok off",
   "21:01:31 SCRIBE   fine run · trade 29 · win 31% · P&L -0.3448 SOL · equity 5.6552 SOL",
   "21:01:25 ORACLE   360 raccolti, 279 analizzati, 3 BUY, 269 veto",
   "21:01:01 ORACLE   360 raccolti, 273 analizzati, 3 BUY, 261 veto",
@@ -8634,31 +8658,7 @@
   "19:31:16 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 239 veto",
   "19:30:57 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 236 veto",
   "19:30:40 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 243 veto",
-  "19:30:08 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 257 veto",
-  "19:29:44 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 243 veto",
-  "19:29:19 SCRIBE   chiuso P-0459 $vicechain -0.1034 SOL (-87.3%)",
-  "19:29:19 CHARON   RUG-EXIT liquidità $vicechain vendo 100% a -68.5% -> 0.0150 SOL",
-  "19:29:19 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 249 veto",
-  "19:29:00 SCOUT    Laboratorio: collegato a PumpPortal",
-  "19:28:54 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 256 veto",
-  "19:28:30 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 249 veto",
-  "19:28:06 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 253 veto",
-  "19:27:42 QUARTER  BUY $vicechain 0.117 SOL score 67 impatto 0.97% (Jupiter)",
-  "19:27:42 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 260 veto",
-  "19:27:17 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 245 veto",
-  "19:26:53 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 257 veto",
-  "19:26:29 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 247 veto",
-  "19:26:15 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 243 veto",
-  "19:26:11 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)",
-  "19:26:11 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)",
-  "19:26:00 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 248 veto",
-  "19:25:35 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 241 veto",
-  "19:25:11 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 235 veto",
-  "19:24:47 ORACLE   342 raccolti, 237 analizzati, 1 BUY, 223 veto",
-  "19:24:23 ORACLE   325 raccolti, 224 analizzati, 1 BUY, 210 veto",
-  "19:23:59 SCOUT    PumpPortal invia nuovi token (22) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena",
-  "19:23:59 ORACLE   315 raccolti, 221 analizzati, 1 BUY, 207 veto",
-  "19:23:35 ORACLE   280 raccolti, 183 analizzati, 1 BUY, 170 veto"
+  "19:30:08 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 257 veto"
  ],
  "capital": 6,
  "resetId": "C-0110",
