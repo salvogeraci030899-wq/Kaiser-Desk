@@ -487,3 +487,26 @@ html, body { overflow: hidden !important; overscroll-behavior: none; }
 
 /* Journal reale: banner comprimibile; aperto, non supera il 34% dello schermo e scorre al suo interno */
 nav button { justify-content: center; }
+
+/* Laboratorio e Sistema: riquadri fissi che riempiono la pagina, dettagli in schermata intera (niente scorrimento in pagina) */
+.hub { flex: 1 1 0; min-height: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: minmax(0, 1fr); gap: 8px; padding-bottom: 6px; }
+#v-lab .hub { grid-template-rows: repeat(5, minmax(0, 1fr)); }
+.hub1 { grid-template-columns: 1fr; }
+.tile { display: flex; flex-direction: column; justify-content: center; gap: 2px; min-width: 0; padding: 8px 12px; text-align: left; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-card, 18px); cursor: pointer; -webkit-tap-highlight-color: transparent; font: inherit; overflow: hidden; }
+.tile.span2 { grid-column: 1 / -1; }
+.tile:active { background: var(--surface-hover); }
+.tile .tt { font-size: 12px; font-weight: 600; color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tile .tv { font: 700 18px var(--mono); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tile .ts { font-size: 11px; color: var(--text-secondary); line-height: 1.25; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.setpage { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; }
+.setpage[hidden] { display: none; }
+.setcard { flex: 0 0 auto; margin-bottom: 8px; }
+.pendline { display: block; width: 100%; text-align: left; margin: 0 0 8px; padding: 8px 12px; cursor: pointer; }
+.fullhead { margin-bottom: 10px; }
+.sheetbar { position: sticky; bottom: -6px; display: flex; justify-content: flex-end; align-items: center; gap: 8px; padding: 10px 0 4px; background: var(--bg); }
+.sheetbar .btn { min-height: 44px; }
+
+.hub > .card { align-self: start; }
+
+.syscard { display: block; width: 100%; text-align: left; font: inherit; color: var(--text); align-self: start; cursor: pointer; -webkit-tap-highlight-color: transparent; } .syscard .tt { font-size: 12px; font-weight: 600; color: var(--text-secondary); margin-bottom: 8px; }
+#fullBody { padding-bottom: 8px; }
