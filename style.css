@@ -2,7 +2,7 @@
    Token iOS (scuro/chiaro/automatico), angoli concentrici, barra a capsula, Vetro (Liquid Glass) fermo o animato.
    I nomi delle classi sono quelli di Kaiser: cambia l'aspetto, non la struttura. */
 :root {
-  --kz-css: 54;
+  --kz-css: 55;
   color-scheme: dark;
   --bg: #000000;
   --surface: #0a0a0a;
@@ -314,7 +314,7 @@ main { overflow: hidden; display: flex; flex-direction: column; padding-bottom: 
 .vfix, .vfoot { flex: 0 0 auto; }
 .vscroll { flex: 1 1 0; min-height: 0; overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; touch-action: pan-y; padding-bottom: 14px; }
 .vfoot { padding: 6px 0 8px; }
-#jReasons { height: 104px; overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain; } .jcard::after { content: '↗'; position: absolute; right: 10px; bottom: 6px; font-size: 12px; color: var(--muted); } .jcard { position: relative; cursor: pointer; } .jbody { padding-bottom: 4px; } .jcard::after { display: none; } .vfoot .card { margin-bottom: 0; }
+#jReasons { height: 104px; overflow: hidden; } .jcard::after { content: '↗'; position: absolute; right: 10px; bottom: 6px; font-size: 12px; color: var(--muted); } .jcard { position: relative; cursor: pointer; } .jbody { padding-bottom: 4px; } .jcard::after { display: none; } .vfoot .card { margin-bottom: 0; }
 .vfoot .card[hidden] { display: none; }
 
 header { height: calc(env(safe-area-inset-top, 0px) + 12px + 44px + 8px + 28px + 8px); padding-bottom: 0; overflow: hidden; }
@@ -430,10 +430,12 @@ nav { height: 62px; margin-top: 4px; }
 .panel-close { width: 100%; margin-top: 8px; min-height: 42px; }
 
 /* Journal: riepilogo a 9 riquadri compatti */
-#v-journal .stat { gap: 5px; }
-#v-journal .stat .m { padding: 4px 8px; }
-#v-journal .stat .m b { font-size: 13px; }
-#v-journal .vfix > .card { padding: 8px 12px; margin-bottom: 6px; }
+#v-journal .stat { gap: 4px; }
+#v-journal .stat .m { padding: 3px 7px; line-height: 1.15; }
+#v-journal .stat .m span { display: block; font-size: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#v-journal .stat .m b { font-size: 12px; display: block; white-space: nowrap; }
+#v-journal .modeSeg { margin-bottom: 6px !important; }
+#v-journal .vfix > .card { padding: 6px 8px; margin-bottom: 4px; }
 
 #jTabs { margin: 6px 0 6px; } #jTabs button { min-height: 26px; font-size: 11px; padding: 0 6px; }
 
