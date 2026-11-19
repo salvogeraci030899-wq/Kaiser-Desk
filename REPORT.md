@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 23:18 UTC · in esecuzione da 0.4 giorni · 234 run
+Aggiornato: 2026-11-19 23:23 UTC · in esecuzione da 0.4 giorni · 234 run
 
 | | |
 |---|---|
-| Equity | **5.3627 SOL** (-10.6% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.3627 SOL |
-| Trade chiusi | 41 |
-| Win rate | 27% |
-| P&L realizzato | -0.6373 SOL (~$-46.65) |
-| Media vincite / perdite | +29.0% / -29.0% |
-| Profit factor | 0.37 |
+| Equity | **5.3985 SOL** (-10.0% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.3985 SOL |
+| Trade chiusi | 42 |
+| Win rate | 29% |
+| P&L realizzato | -0.6015 SOL (~$-43.93) |
+| Media vincite / perdite | +29.3% / -29.0% |
+| Profit factor | 0.40 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -19,7 +19,7 @@ _nessuna_
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| Stop loss | 14 | -0.4297 |
+| Stop loss | 15 | -0.3939 |
 | Time stop | 15 | -0.1413 |
 | TP1 | 7 | +0.2299 |
 | RUG-EXIT liquidità | 5 | -0.2963 |
@@ -27,6 +27,7 @@ _nessuna_
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $BIAOQING | 65 | +33.1% | +0.0358 | +0% | -37% | Stop loss | 0m |
 | $LUCIA | 74 | -17.9% | -0.0194 | +0% | -46% | Stop loss | 1m |
 | $\nu | 77 | +25.7% | +0.0278 | +63% | +63% | TP1 | 0m |
 | $HIPPO | 65 | -86.0% | -0.0946 | +10% | -75% | RUG-EXIT liquidità | 2m |
@@ -51,10 +52,26 @@ _nessuna_
 | $SIM | 64 | -24.0% | -0.0282 | +27% | -10% | Time stop | 14m |
 | $KFC | 88 | +55.0% | +0.0638 | +72% | +72% | TP1 | 18m |
 | $LDS | 68 | -7.9% | -0.0092 | +1% | -1% | Time stop | 5m |
-| $NEKOMARIO | 63 | -55.3% | -0.0650 | +18% | -31% | Stop loss | 4m |
 
 ## Ultimi eventi
 ```
+23:23:18 ORACLE   360 raccolti, 226 analizzati, 0 BUY, 212 veto
+23:22:55 SCRIBE   chiuso P-0478 $BIAOQING 0.0358 SOL (33.1%)
+23:22:55 CHARON   Stop loss $BIAOQING vendo 100% a -37.1% -> 0.1441 SOL
+23:22:55 ORACLE   360 raccolti, 222 analizzati, 1 BUY, 206 veto
+23:22:32 QUARTER  BUY $BIAOQING 0.107 SOL score 65 impatto 1.99% (Jupiter)
+23:22:32 ORACLE   360 raccolti, 219 analizzati, 2 BUY, 203 veto
+23:22:09 ORACLE   360 raccolti, 219 analizzati, 1 BUY, 203 veto
+23:21:46 ORACLE   360 raccolti, 219 analizzati, 1 BUY, 202 veto
+23:21:23 ORACLE   360 raccolti, 213 analizzati, 1 BUY, 194 veto
+23:21:00 ORACLE   360 raccolti, 220 analizzati, 1 BUY, 202 veto
+23:20:37 ORACLE   360 raccolti, 223 analizzati, 1 BUY, 207 veto
+23:20:14 ORACLE   360 raccolti, 219 analizzati, 2 BUY, 202 veto
+23:19:51 ORACLE   360 raccolti, 220 analizzati, 1 BUY, 205 veto
+23:19:28 ORACLE   360 raccolti, 224 analizzati, 1 BUY, 210 veto
+23:19:06 ORACLE   360 raccolti, 224 analizzati, 1 BUY, 210 veto
+23:18:43 ORACLE   360 raccolti, 228 analizzati, 1 BUY, 213 veto
+23:18:20 ORACLE   360 raccolti, 221 analizzati, 1 BUY, 210 veto
 23:17:57 ORACLE   360 raccolti, 218 analizzati, 1 BUY, 212 veto
 23:17:34 ORACLE   360 raccolti, 226 analizzati, 1 BUY, 219 veto
 23:17:11 ORACLE   360 raccolti, 220 analizzati, 1 BUY, 211 veto
@@ -78,23 +95,6 @@ _nessuna_
 23:10:48 CHARON   Stop loss $LUCIA vendo 100% a -46.0% -> 0.0892 SOL
 23:10:38 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 247 veto
 23:10:15 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 248 veto
-23:09:52 QUARTER  BUY $LUCIA 0.108 SOL score 74 impatto 1.69% (Jupiter)
-23:09:52 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 239 veto
-23:09:29 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 249 veto
-23:09:06 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 239 veto
-23:08:43 ORACLE   360 raccolti, 231 analizzati, 0 BUY, 222 veto
-23:08:20 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 237 veto
-23:07:57 ORACLE   360 raccolti, 236 analizzati, 0 BUY, 231 veto
-23:07:35 ORACLE   360 raccolti, 216 analizzati, 0 BUY, 211 veto
-23:07:13 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 235 veto
-23:06:50 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 227 veto
-23:06:28 ORACLE   360 raccolti, 233 analizzati, 1 BUY, 227 veto
-23:06:05 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 243 veto
-23:05:41 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 246 veto
-23:05:18 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 240 veto
-23:04:54 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 247 veto
-23:04:32 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 243 veto
-23:04:07 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 237 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
