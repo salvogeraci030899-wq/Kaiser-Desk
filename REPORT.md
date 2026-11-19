@@ -1,25 +1,25 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 19:57 UTC · in esecuzione da 0.2 giorni · 230 run
+Aggiornato: 2026-11-19 20:02 UTC · in esecuzione da 0.2 giorni · 230 run
 
 | | |
 |---|---|
-| Equity | **5.8217 SOL** (-3.0% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.7052 SOL |
-| Trade chiusi | 24 |
-| Win rate | 38% |
-| P&L realizzato | -0.1773 SOL (~$-13.03) |
-| Media vincite / perdite | +26.6% / -25.7% |
-| Profit factor | 0.61 |
+| Equity | **5.7610 SOL** (-4.0% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.7610 SOL |
+| Trade chiusi | 25 |
+| Win rate | 36% |
+| P&L realizzato | -0.2390 SOL (~$-17.53) |
+| Media vincite / perdite | +26.6% / -27.4% |
+| Profit factor | 0.54 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$CAT** P-0461 · 0.116 SOL · n/d · resta 100% · [grafico](https://dexscreener.com/solana/3DBzDGDT9Ze89cecz7r25PWiWSpuxjmmKyK72bFRWdT7)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| Stop loss | 7 | -0.2183 |
+| Stop loss | 8 | -0.2800 |
 | Time stop | 9 | -0.0110 |
 | TP1 | 5 | +0.1432 |
 | RUG-EXIT liquidità | 3 | -0.0913 |
@@ -27,6 +27,7 @@ Aggiornato: 2026-11-19 19:57 UTC · in esecuzione da 0.2 giorni · 230 run
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $CAT | 71 | -52.5% | -0.0617 | +7% | -34% | Stop loss | 1m |
 | $JACK | 67 | +45.5% | +0.0530 | +36% | -2% | Time stop | 6m |
 | $vicechain | 67 | -87.3% | -0.1034 | +0% | -69% | RUG-EXIT liquidità | 2m |
 | $DCTYCAT | 74 | +5.6% | +0.0066 | +31% | +2% | Time stop | 5m |
@@ -54,6 +55,21 @@ Aggiornato: 2026-11-19 19:57 UTC · in esecuzione da 0.2 giorni · 230 run
 
 ## Ultimi eventi
 ```
+20:02:06 ORACLE   360 raccolti, 230 analizzati, 1 BUY, 222 veto
+20:01:41 ORACLE   360 raccolti, 222 analizzati, 2 BUY, 212 veto
+20:01:19 ORACLE   360 raccolti, 217 analizzati, 2 BUY, 207 veto
+20:00:54 ORACLE   360 raccolti, 230 analizzati, 2 BUY, 220 veto
+20:00:30 ORACLE   360 raccolti, 236 analizzati, 2 BUY, 224 veto
+20:00:06 ORACLE   360 raccolti, 240 analizzati, 2 BUY, 227 veto
+19:59:43 ORACLE   360 raccolti, 238 analizzati, 2 BUY, 226 veto
+19:59:18 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 228 veto
+19:59:05 ORACLE   360 raccolti, 229 analizzati, 1 BUY, 219 veto
+19:58:39 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 226 veto
+19:58:24 SCRIBE   chiuso P-0461 $CAT -0.0617 SOL (-52.5%)
+19:58:24 CHARON   Stop loss $CAT vendo 100% a -34.5% -> 0.0557 SOL
+19:58:14 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 221 veto
+19:57:50 ORACLE   360 raccolti, 229 analizzati, 0 BUY, 215 veto
+19:57:26 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 238 veto
 19:57:11 QUARTER  BUY $CAT 0.116 SOL score 71 impatto 1.39% (Jupiter)
 19:57:11 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 239 veto
 19:56:47 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 224 veto
@@ -79,21 +95,6 @@ Aggiornato: 2026-11-19 19:57 UTC · in esecuzione da 0.2 giorni · 230 run
 19:49:38 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 239 veto
 19:49:14 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 249 veto
 19:48:50 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 238 veto
-19:48:26 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 232 veto
-19:48:02 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 236 veto
-19:47:38 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 237 veto
-19:47:14 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 232 veto
-19:47:01 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 243 veto
-19:46:35 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 243 veto
-19:46:11 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 239 veto
-19:45:48 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 244 veto
-19:45:23 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 241 veto
-19:45:00 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 237 veto
-19:44:36 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 244 veto
-19:44:12 ORACLE   360 raccolti, 243 analizzati, 2 BUY, 233 veto
-19:43:48 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 229 veto
-19:43:23 QUARTER  BUY $JACK 0.115 SOL score 67 impatto 1.24% (Jupiter)
-19:43:23 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 244 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
