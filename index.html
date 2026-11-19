@@ -9,28 +9,28 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.39.4">
+<meta name="kz-build" content="2.39.5">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=2">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
 <title>KAISER · Solana Meme Desk</title>
 <script>
-// Tema, Vetro, barra di stato e blocco applicati prima del disegno, senza lampi (la logica completa è in theme.js e lock.js)
+// Tema, Vetro e blocco applicati prima del disegno, senza lampi (la logica completa è in theme.js e lock.js)
 (function () {
   var root = document.documentElement;
   try { if (navigator.standalone === true || window.matchMedia('(display-mode: standalone)').matches) root.classList.add('pwa-mode'); } catch (e) {}
-  var pref = 'auto', bar = 'integrated', g = 'off';
-  try { pref = localStorage.getItem('kz_theme') || 'auto'; bar = localStorage.getItem('kz_statusbar') || 'integrated'; g = localStorage.getItem('kz_glass') || 'off'; } catch (e) {}
+  var pref = 'auto', g = 'off';
+  try { pref = localStorage.getItem('kz_theme') || 'auto'; g = localStorage.getItem('kz_glass') || 'off'; } catch (e) {}
   var light = pref === 'light' || (pref === 'auto' && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches);
   root.setAttribute('data-theme', light ? 'light' : 'dark');
   if (g === 'on' || g === 'anim') root.classList.add('glass');
   if (g === 'anim') root.classList.add('glass-anim');
   if (light) document.getElementById('metaThemeColor').setAttribute('content', '#f2f2f7');
   try { var l = JSON.parse(localStorage.getItem('kz_lock') || 'null'); if (l && l.hash) root.classList.add('app-locked'); } catch (e) {}
-  document.getElementById('metaStatusBar').setAttribute('content', light ? 'default' : (bar === 'separate' ? 'black' : 'black-translucent'));
+  document.getElementById('metaStatusBar').setAttribute('content', light ? 'default' : 'black-translucent');
 })();
 </script>
-<link rel="stylesheet" href="style.css?v=55">
+<link rel="stylesheet" href="style.css?v=56">
 <script src="version.js"></script>
 <script src="theme.js"></script>
 <script src="lock.js"></script>
@@ -170,8 +170,6 @@
           <div class="theme-toggle"><button data-pref="theme" data-val="auto">Auto</button><button data-pref="theme" data-val="light">Chiaro</button><button data-pref="theme" data-val="dark">Scuro</button></div></div>
         <div class="set wide"><label>Vetro<small>Liquid Glass; Animato = luci sullo sfondo</small></label>
           <div class="theme-toggle"><button data-pref="glass" data-val="off">No</button><button data-pref="glass" data-val="on">Fermo</button><button data-pref="glass" data-val="anim">Animato</button></div></div>
-        <div class="set wide"><label>Barra di stato<small>Si applica alla prossima apertura</small></label>
-          <div class="theme-toggle"><button data-pref="bar" data-val="integrated">Integrata</button><button data-pref="bar" data-val="separate">Separata</button></div></div>
         <div class="set lockrow" id="lockSettingsBody"></div>
       </div>
       <h2>Stato del sistema</h2>
