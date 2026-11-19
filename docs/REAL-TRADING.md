@@ -304,3 +304,6 @@ Serve a sapere, con i dati, se Grok vale il suo costo. Solo misura: il giudizio 
 - **Tastiera fissa (`/tastiera`, `/tastiera off`).** Menu, Stato, Paper, Segnali, Laboratorio, Posizioni sempre visibili sotto il campo di testo; anche le parole scritte a mano funzionano.
 - **Diagnosi.** Se il bot e' gia' collegato a un altro servizio (webhook altrove), il menu lo dice: i collegamenti a pump.fun funzionano comunque, i tasti con azione e i comandi no finche' non si usa un bot dedicato a Kaiser.
 - I tasti compaiono sui **messaggi nuovi**: quelli gia' inviati non cambiano.
+
+## Storico dei creatori (da v2.42.0)
+Il runner registra per ogni token concluso il creatore e il massimo raggiunto (`state/lab/creators`, anche per i token che non superano mai 5K) e salva il creatore nei percorsi. L'analisi dei rug aggiunge tre segnali noti PRIMA della soglia: quanti token ha già creato, quanti sono arrivati a 7.5K e il loro massimo mediano. Contano solo i token creati prima e conclusi da almeno 30 minuti. Servono alcuni giorni di dati prima che i segnali compaiano nel Laboratorio (riquadro Rug). Solo misura: non cambia nessuna operazione.
