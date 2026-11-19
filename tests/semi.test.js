@@ -42,5 +42,5 @@ test('runner e app: l\'avviso parte prima dell\'ingresso, con la modalità «sol
   const src = fs.readFileSync(require.resolve('../runner/runner.js'), 'utf8'), html = fs.readFileSync(require.resolve('../index.html'), 'utf8');
   const i1 = src.indexOf("if (S.semiAuto && S.semiAuto !== 'spento') await semiAlerts(buys);"), i2 = src.indexOf("if (S.semiAuto === 'solo avvisi') return;"), i3 = src.indexOf('if (!S.autopilot) return;\n  await realEntries(buys);');
   assert.ok(i1 > 0 && i2 > i1 && i3 > i2, 'avviso, poi uscita anticipata, poi gli ingressi'); assert.match(src, /await tg\(Semi\.text\(a\), Semi\.keyboard\(a\)\)/); assert.match(src, /async function tg\(text, markup\)/); assert.match(src, /alerts: Semi\.view\(st\.alerts \|\| \[\], 20\)/);
-  assert.match(html, /id="semiBox"/); assert.match(html, /function renderSemi\(\)/); assert.match(html, /https:\/\/pump\.fun\/coin\/\$\{encodeURIComponent\(a\.mint\)\}/); assert.match(html, /renderLab\(\); renderSemi\(\);/);
+  assert.match(html, /id="semiBox"/); assert.match(html, /function renderSemi\(\)/); assert.match(html, /https:\/\/pump\.fun\/coin\/\$\{encodeURIComponent\(a\.mint\)\}/); assert.match(html, /renderLab\(\); initStudio\(\); renderSemi\(\);/);
 });

@@ -394,3 +394,22 @@ test('tastiere Telegram: chiusura di una posizione paper dal tasto, elenco /posi
   assert.equal(rows.length, 1); assert.match(rows[0][0].text, /^pump\.fun \$LST/); assert.equal(rows[0][0].url, 'https://pump.fun/coin/' + MINT); assert.deepEqual(rows[0][1], { text: 'Chiudi posizione', callback_data: 'cl:' + pos.id });
   assert.equal(K.positionRows([{ id: 'R-0001', sym: 'X', mint: 'no' }]).length, 0, 'senza mint valido nessuna riga');
 });
+
+test('Studio del Laboratorio: richiesta dall\'app con limiti, coda, esecuzione dal runner, risultato pubblico', async () => {
+  const w = world(), ex = w.ex(), spec = { thr: 10000, delay: 10, tp: 20, sl: 15, hold: 120, trail: 0, cost: 7, filters: [{ f: 'dd', op: '<=', v: 0.2 }] };
+  assert.equal((await ex.labSubmit({ spec: { thr: 5 } })).ok, false); assert.equal((await ex.labSubmit({ spec: { filters: [{ f: 'mint', op: '<=', v: 1 }] } })).ok, false);
+  const a = await ex.labSubmit({ spec }); assert.equal(a.ok, true); assert.equal(a.id, 'Q-0001'); assert.match((await ex.labSubmit({ spec })).error, /troppo presto/);
+  let l = await ex.labList(); assert.equal(l.items[0].status, 'in coda'); assert.equal(l.items[0].spec.filters[0].f, 'dd'); assert.equal(l.items[0].spec.thr, 10000);
+  w.now += 20000; const b = await ex.labSubmit({ spec }); assert.equal(b.id, 'Q-0002'); w.now += 20000; await ex.labSubmit({ spec }); w.now += 20000; await ex.labSubmit({ spec });
+  w.now += 20000; assert.match((await ex.labSubmit({ spec })).error, /prove in corso/, 'al massimo 4 prove in coda o in corso');
+  const n1 = await ex.labNext(); assert.equal(n1.query.id, 'Q-0001'); assert.equal(n1.query.spec.hold, 120); assert.equal((await ex.labList()).items.find((x) => x.id === 'Q-0001').status, 'in corso');
+  assert.equal((await ex.labResult({ id: 'Q-0001', result: { mode: 'single', all: { n: 12, ev: -3.2 } } })).ok, true); l = await ex.labList(); const it = l.items.find((x) => x.id === 'Q-0001'); assert.equal(it.status, 'finita'); assert.equal(it.result.all.n, 12);
+  assert.equal((await ex.labResult({ id: '../x', result: {} })).ok, false); assert.equal((await ex.labResult({ id: 'Q-0099', result: {} })).ok, false);
+  assert.equal((await ex.labResult({ id: 'Q-0002', error: 'prova non riuscita' })).ok, true); assert.equal((await ex.labList()).items.find((x) => x.id === 'Q-0002').status, 'errore');
+  assert.equal((await ex.labResult({ id: 'Q-0003', result: { big: 'x'.repeat(31000) } })).ok, true); assert.equal((await ex.labList()).items.find((x) => x.id === 'Q-0003').status, 'errore', 'risultato troppo grande');
+  const n4 = await ex.labNext(); assert.equal(n4.query.id, 'Q-0004'); w.now += 400000; assert.equal((await ex.labList()).items.find((x) => x.id === 'Q-0004').status, 'errore', 'una prova senza risposta del runner scade');
+  assert.equal((await ex.labNext()).query, null, 'niente in coda');
+  const off = world({ LAB_QUERIES: '0' }).ex(); assert.match((await off.labSubmit({ spec })).error, /disattivate/);
+  const src = require('node:fs').readFileSync(require.resolve('../worker/src/index.js'), 'utf8');
+  assert.match(src, /'\/lab\/next': 'POST', '\/lab\/result': 'POST'/, 'i due percorsi del runner richiedono il token'); assert.match(src, /url\.pathname === '\/lab\/query' && req\.method === 'POST'/); assert.match(src, /allowed\.includes\(origin\)/);
+});

@@ -13,7 +13,7 @@ import { Executor } from './exec.js';
 import { handleUpdate, webhookSecret } from './tg.js';
 
 const json = (obj, status, extra) => new Response(JSON.stringify(obj), { status: status || 200, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...extra } });
-const ROUTES = { '/health': 'GET', '/state': 'GET', '/runner': 'POST', '/paper': 'POST', '/order': 'POST', '/ticket': 'POST', '/approve': 'POST', '/reject': 'POST', '/sell': 'POST', '/kill': 'POST', '/resume': 'POST', '/tick': 'POST' };
+const ROUTES = { '/lab/next': 'POST', '/lab/result': 'POST', '/health': 'GET', '/state': 'GET', '/runner': 'POST', '/paper': 'POST', '/order': 'POST', '/ticket': 'POST', '/approve': 'POST', '/reject': 'POST', '/sell': 'POST', '/kill': 'POST', '/resume': 'POST', '/tick': 'POST' };
 
 // Il Durable Object tiene tutto lo stato reale e serializza le operazioni: un ordine e un giro di Charon non si pestano mai i piedi.
 const ALARM_MS = 10000;                       // con posizioni reali aperte Charon controlla ogni 10 secondi (il cron di Cloudflare scende solo a 1 minuto)
@@ -48,6 +48,10 @@ export class Ledger {
       if (path === '/tg') return json(await handleUpdate(this.ex, body));
       if (path === '/params') return json(await this.ex.paramsView());
       if (path === '/propose') return json(await this.ex.propose(body));
+      if (path === '/lab/query') return json(await this.ex.labSubmit(body));
+      if (path === '/lab/queries') return json(await this.ex.labList());
+      if (path === '/lab/next') return json(await this.ex.labNext());
+      if (path === '/lab/result') return json(await this.ex.labResult(body));
       if (path === '/runner') return json(await this.ex.reportRunner(body.config, body.resetAck, body.closeAck));
       if (path === '/paper' && req.method === 'POST') return json(await this.ex.paperPut(body.data));
       if (path === '/paper') return json(await this.ex.paperGet());
@@ -133,6 +137,17 @@ export default {
     if (url.pathname === '/paper' && req.method === 'GET') {                                    // paper in diretta (lettura pubblica)
       if (env.PUBLIC_VIEW === '0') return json({ ok: false, error: 'vista pubblica disattivata' }, 403, cors);
       try { return json(await (await stub(env).fetch('https://ledger/paper')).json(), 200, cors); } catch (e) { return json({ ok: false, error: e.message }, 500, cors); }
+    }
+    // Studio del Laboratorio: lettura pubblica delle prove; la richiesta e' solo analisi (numeri entro limiti fissi), con limiti di frequenza nel Durable Object
+    if (url.pathname === '/lab/queries' && req.method === 'GET') {
+      if (env.PUBLIC_VIEW === '0') return json({ ok: false, error: 'vista pubblica disattivata' }, 403, cors);
+      try { return json(await (await stub(env).fetch('https://ledger/lab/queries')).json(), 200, cors); } catch (e) { return json({ ok: false, error: e.message }, 500, cors); }
+    }
+    if (url.pathname === '/lab/query' && req.method === 'POST') {
+      const origin = req.headers.get('Origin') || '', allowed = String(env.ALLOWED_ORIGINS || '').split(',').map((s) => s.trim()).filter(Boolean);
+      if (!allowed.includes(origin)) return json({ ok: false, error: 'origine non ammessa' }, 403, cors);
+      const body = await req.text(); if (body.length > 3000) return json({ ok: false, error: 'richiesta troppo grande' }, 413, cors);
+      try { return json(await (await stub(env).fetch('https://ledger/lab/query', { method: 'POST', body })).json(), 200, cors); } catch (e) { return json({ ok: false, error: e.message }, 500, cors); }
     }
     if (url.pathname === '/propose' && req.method === 'POST') {
       const origin = req.headers.get('Origin') || '', allowed = String(env.ALLOWED_ORIGINS || '').split(',').map((s) => s.trim()).filter(Boolean);

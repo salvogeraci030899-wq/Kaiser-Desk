@@ -273,3 +273,14 @@ Ogni messaggio che riguarda una Coin ha in evidenza **«Apri su pump.fun»** (co
 **«Chiudi posizione»** non vende da solo: apre la stessa richiesta di conferma della chiusura dall'app (con «Chiudi ora» e «Annulla»), oppure chiude subito se l'approvazione manuale e' spenta. Vale per le posizioni reali (`R-...`) e per quelle paper (`P-...`). L'indirizzo dell'app per «Apri Kaiser» e' quello di GitHub Pages; si puo' cambiare con la variabile `APP_URL` del runner.
 
 Il Worker si ripubblica da solo quando cambia `worker/` su `main` (workflow «Pubblica esecutore»): i tasti nuovi dei suoi messaggi arrivano dopo quella pubblicazione.
+
+### Studio del Laboratorio: prove su richiesta (v2.36.0)
+
+Dalla pagina Lab si puo' impostare quasi ogni aspetto del contesto e rifare la prova sui percorsi registrati, senza aspettare l'analisi automatica. Solo analisi: non apre ordini e non cambia la configurazione.
+
+- **Cosa si imposta.** Soglia di market cap (3K-60K USD), ritardo di ingresso (0-120 s), target (2-1000%), stop (2-99%), tempo massimo (0-1260 s, 0 = nessuno), trailing dal massimo (0-90%), costi di un giro (0-20%, di base 7), ultimi giorni (0-14, 0 = tutti), eta' minima e massima alla soglia (secondi dalla nascita) e fino a 3 filtri sui segnali noti alla soglia: salto, velocita' di salita, calo massimo prima, attivita', volatilita' e, quando ci sono le misure, primo possessore, primi 3 e 10, quota del creatore.
+- **Variazione di un parametro.** Si sceglie un parametro (target, stop, soglia, ritardo, tempo, trailing, costi, eta') e un intervallo con passo, fino a 25 punti: il risultato e' la tabella esito per valore, separata tra dati vecchi e recenti.
+- **Risultato.** Operazioni, esito medio con l'errore, vinte, fattore di profitto, mediana, peggiore e migliore, perdita cumulata massima, dati vecchi (60%) contro recenti (40%) per data, curva cumulata, distribuzione degli esiti, motivi di uscita e giorno per giorno. Sotto 30 operazioni l'app avverte che non e' affidabile.
+- **Come gira.** L'app manda la richiesta al Worker (`POST /lab/query`, solo origini ammesse, al massimo 80 al giorno, una ogni 15 secondi, massimo 4 in coda); il runner la prende ogni 10 secondi (`/lab/next`), la esegue in un processo separato (`runner/labquery.js`) sui file di `lab/paths` e `lab/holders`, e riporta il risultato (`/lab/result`, massimo 30 KB). L'app lo legge da `GET /lab/queries`. Di solito pochi secondi. Una prova senza risposta del runner scade dopo 5 minuti.
+- **Limiti di sicurezza.** Tutti i valori sono numeri entro limiti fissi o scelte da un elenco: nessun indirizzo, nessun testo libero; il Worker ripete la validazione (identica a quella del runner, un test lo verifica). Si spegne con `LAB_QUERIES=0` nel Worker e `NO_LABQ=1` nel runner.
+- **Attenzione.** Provare tante combinazioni su pochi dati produce regole buone per caso: contano solo i risultati positivi sia sui dati vecchi sia sui recenti, e giorno per giorno.

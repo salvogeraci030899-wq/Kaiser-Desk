@@ -15,6 +15,7 @@ const Strat = require('./strategies.js');
 const Holders = require('./holders.js');
 const Semi = require('./semi.js');
 const Kb = require('./kb.js');
+const LabQ = require('./labquery.js');
 
 const STATE_DIR = process.env.STATE_DIR || path.join(__dirname, '..', 'state');
 const LOOP_MIN = Number(process.env.LOOP_MIN || 4.5);
@@ -580,6 +581,22 @@ function pumpHolders() {
     Holders.snapshot({ url, ...j }).then((x) => { if (x) { rt.holdBuf.push(x); rt.holdOk++; } else rt.holdFail++; }).catch((e) => { rt.holdFail++; rt.holdErr = String(e.message).slice(0, 80); }).finally(() => { rt.holdBusy--; });
   }
 }
+// Studio del Laboratorio: ogni 10 secondi si chiede al Worker se c'e' una prova richiesta dall'app; si esegue in un processo separato e si riporta il risultato
+function pumpLabQueries() {
+  const tok = process.env.EXEC_TOKEN, url = execUrl(); if (!tok || !url || rt.labqBusy || process.env.NO_LABQ === '1') return;
+  const now = Date.now(); if (now - (rt.labqAt || 0) < 10000) return; rt.labqAt = now; rt.labqBusy = true;
+  const hdr = { 'Content-Type': 'application/json', 'x-app-token': tok }, done = () => { rt.labqBusy = false; };
+  fetchJSON(url + '/lab/next', { method: 'POST', headers: hdr, body: '{}', timeout: 6000 }).then((r) => {
+    const q = r && r.query; if (!q) return done();
+    const v = LabQ.validate(q.spec); const post = (b) => fetchJSON(url + '/lab/result', { method: 'POST', headers: hdr, body: JSON.stringify({ id: q.id, ...b }), timeout: 8000 }).catch(() => {}).finally(done);
+    if (!v.ok) return post({ error: 'richiesta non valida' });
+    require('node:child_process').execFile(process.execPath, [path.join(__dirname, 'labquery.js'), '--spec', JSON.stringify(v.spec), '--in', path.join(STATE_DIR, 'lab', 'paths'), '--holders', path.join(STATE_DIR, 'lab', 'holders')], { timeout: 120000, maxBuffer: 4 * 1024 * 1024 }, (e, so) => {
+      if (e) return post({ error: 'prova non riuscita: ' + String(e.message).split('\n')[0].slice(0, 120) });
+      let res; try { res = JSON.parse(String(so).trim().split('\n').pop()); } catch { return post({ error: 'risultato illeggibile' }); }
+      if (res && res.error) return post({ error: res.error }); log('SCOUT', `prova ${q.id} eseguita in ${res.meta && res.meta.ms} ms`); post({ result: res });
+    });
+  }).catch(() => done());
+}
 function loadFarm() {
   try { rt.rug = JSON.parse(fs.readFileSync(path.join(STATE_DIR, 'rug.json'), 'utf8')); } catch { /* ancora nessuna analisi */ }
   try { rt.farm = JSON.parse(fs.readFileSync(path.join(STATE_DIR, 'farm.json'), 'utf8')); } catch { /* ancora nessun rapporto */ }
@@ -636,6 +653,7 @@ async function main() {
     maybeFarm();
     maybeProbe();
     pumpHolders();
+    pumpLabQueries();
     save();
     if (Date.now() - lastCp >= CHECKPOINT_MS) { lastCp = Date.now(); flushPaths(false); checkpoint(); }
     const left = end - Date.now();

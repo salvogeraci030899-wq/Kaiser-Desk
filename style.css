@@ -2,7 +2,7 @@
    Token iOS (scuro/chiaro/automatico), angoli concentrici, barra a capsula, Vetro (Liquid Glass) fermo o animato.
    I nomi delle classi sono quelli di Kaiser: cambia l'aspetto, non la struttura. */
 :root {
-  --kz-css: 49;
+  --kz-css: 50;
   color-scheme: dark;
   --bg: #000000;
   --surface: #0a0a0a;
@@ -457,3 +457,13 @@ nav { height: 62px; margin-top: 4px; }
 .semi { margin: 0 0 8px; padding: 8px 12px; } .semihead { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
 .semirow { display: flex; gap: 8px; align-items: center; justify-content: space-between; padding: 6px 0; border-top: 1px solid var(--border); } .semitxt { min-width: 0; } .semirow .btn { flex: 0 0 auto; }
 #v-radar.active.semi-on { grid-template-rows: 40px auto 38px minmax(0, 1fr); } #semiBox:empty { display: none; } #semiBox .semi { margin: 0; }
+
+/* Studio del Laboratorio */
+#stuBox > summary { cursor: pointer; list-style: none; } #stuBox > summary::-webkit-details-marker { display: none; }
+.stufields { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 10px; } .stufields label { display: flex; flex-direction: column; gap: 2px; font-size: 11px; color: var(--text-secondary); }
+.stufields input, .stufilt input, .stufilt select { width: 100%; min-height: 36px; font: 16px var(--mono); padding: 4px 8px; border: 1px solid var(--border); border-radius: var(--r-ctl-sm); background: var(--surface); color: var(--text); box-sizing: border-box; }
+.stufilt { display: grid; grid-template-columns: 1.3fr 1fr 0.8fr; gap: 6px; margin-bottom: 6px; } .stufilt select { font-size: 13px; padding: 4px 4px; text-overflow: ellipsis; } .stufields[hidden] { display: none; }
+.stupre { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 10px; } .stulist { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 2px; }
+.chipb { min-height: 30px; padding: 0 10px; border-radius: var(--r-pill); border: 1px solid var(--border); background: var(--surface); color: var(--text); font: 600 12px var(--font); } .chipb.on { background: var(--surface-hover); border-color: var(--ui); }
+.spark { width: 100%; height: 56px; display: block; } .spark .zero { stroke: var(--border); stroke-width: 1; stroke-dasharray: 3 3; }
+.sbar { display: grid; grid-template-columns: 96px 1fr 34px; gap: 6px; align-items: center; font-size: 12px; margin: 3px 0; } .sbar i { display: block; height: 8px; border-radius: 4px; background: var(--ui); min-width: 2px; } .sbar b { text-align: right; font: 600 12px var(--mono); }
