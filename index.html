@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.39.1">
+<meta name="kz-build" content="2.39.2">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=2">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
@@ -30,7 +30,7 @@
   document.getElementById('metaStatusBar').setAttribute('content', light ? 'default' : (bar === 'separate' ? 'black' : 'black-translucent'));
 })();
 </script>
-<link rel="stylesheet" href="style.css?v=52">
+<link rel="stylesheet" href="style.css?v=53">
 <script src="version.js"></script>
 <script src="theme.js"></script>
 <script src="lock.js"></script>
@@ -149,9 +149,9 @@
     </div></div>
     </div>
     <div class="vscroll jfix">
-    <div class="card jcard"><div class="jrow jhead"><span>Token</span><span>Esito</span><span>P&amp;L</span><span>Motivo</span></div><div class="jbody" id="jRows"></div></div>
+    <div class="card jcard" role="button" aria-label="Espandi i trade chiusi"><div class="jrow jhead"><span>Token</span><span>Esito</span><span>P&amp;L</span><span>Motivo</span></div><div class="jbody" id="jRows"></div></div>
     </div>
-    <div class="vfoot"><div class="seg jseg" id="jTabs"><button data-jt="mot" class="on">Motivi di uscita</button><button data-jt="age">Per età</button><button data-jt="dip">Discese</button></div><div class="card" id="jReasons"></div></div>
+    <div class="vfoot"><div class="seg jseg" id="jTabs"><button data-jt="mot" class="on">Motivi di uscita</button><button data-jt="age">Per età</button><button data-jt="dip">Discese</button></div><div class="card" id="jReasons" role="button" aria-label="Espandi l'elenco"></div></div>
   </section>
 
   <!-- LABORATORIO -->
@@ -465,7 +465,7 @@ function askDialog(o) {
   });
 }
 function openSheet() { const s = $('#sheet'), i = $('#sheetInner'); i.classList.remove('drag', 'snap'); i.style.transform = ''; s.classList.add('open'); i.scrollTop = 0; requestAnimationFrame(() => { i.scrollTop = 0; }); }
-function closeSheet() { const i = $('#sheetInner'); $('#sheet').classList.remove('open'); i.innerHTML = ''; i.style.transform = ''; i.scrollTop = 0; }
+function closeSheet() { const i = $('#sheetInner'); $('#sheet').classList.remove('open', 'full'); i.innerHTML = ''; i.style.transform = ''; i.scrollTop = 0; }
 // Trascinando la scheda verso il basso (quando è in cima) la si chiude, oltre al tasto Chiudi
 (() => {
   const i = $('#sheetInner'); let y0 = null, dy = 0;
@@ -771,6 +771,14 @@ function renderJournal() {
     body = Object.keys(by).length ? `<div class="kv">${Object.entries(by).map(([k, v]) => kvRow(`${esc(k)} (${v.n})`, v.pnl.toFixed(4) + '◎', cls(v.pnl))).join('')}</div>` : '<span class="muted small">Ancora nessuna uscita.</span>';
   }
   $('#jReasons').innerHTML = body;
+  rt.jFull = { rows: $('#jRows').innerHTML, body, tab };
+}
+// Journal: la vista in pagina ha misure fisse; toccando un riquadro si apre l'elenco completo a schermo intero
+function openJFull(which) {
+  const f = rt.jFull; if (!f) return; const t = which === 'rows' ? 'Trade chiusi' : { mot: 'Motivi di uscita', age: 'Per età', dip: 'Discese' }[f.tab];
+  $('#sheet').classList.add('full');
+  $('#sheetInner').innerHTML = `<div class="grab"></div><div class="row between" style="margin-bottom:8px"><h2 style="margin:0">${t}</h2><button class="btn sm" data-jclose>Chiudi</button></div><div class="card jfull${which === 'rows' ? ' jcard2' : ''}">${which === 'rows' ? '<div class="jrow jhead"><span>Token</span><span>Esito</span><span>P&amp;L</span><span>Motivo</span></div>' + f.rows : f.body}</div>`;
+  openSheet();
 }
 function renderSystem() {
   const run = rt.run, e = rt.exec, clock = e && e.clock;
@@ -1003,6 +1011,9 @@ $('#panel').addEventListener('click', (e) => {
 });
 $('#pMode').onclick = () => setMode(st.mode === 'real' ? 'paper' : 'real');
 document.addEventListener('click', (e) => { const b = e.target.closest('[data-preset]'); if (b) applyPreset(b.dataset.preset); });
+$('#jRows').parentElement.addEventListener('click', () => openJFull('rows'));
+$('#jReasons').addEventListener('click', () => openJFull('tab'));
+$('#sheetInner').addEventListener('click', (e) => { if (e.target.closest('[data-jclose]')) closeSheet(); });
 $('#jTabs').addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) { rt.jtab = b.dataset.jt; renderJournal(); } });
 document.querySelectorAll('.modeSeg').forEach((g) => g.addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) setMode(b.dataset.mode); }));
 $('#sheet').onclick = (e) => { if (e.target.id === 'sheet') closeSheet(); };
