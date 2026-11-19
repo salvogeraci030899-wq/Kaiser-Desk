@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 21:47 UTC · in esecuzione da 0.3 giorni · 232 run
+Aggiornato: 2026-11-19 21:51 UTC · in esecuzione da 0.3 giorni · 232 run
 
 | | |
 |---|---|
-| Equity | **5.5448 SOL** (-7.6% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.5448 SOL |
-| Trade chiusi | 33 |
-| Win rate | 27% |
-| P&L realizzato | -0.4552 SOL (~$-32.81) |
-| Media vincite / perdite | +26.6% / -26.1% |
-| Profit factor | 0.38 |
+| Equity | **5.4345 SOL** (-9.4% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.4345 SOL |
+| Trade chiusi | 34 |
+| Win rate | 26% |
+| P&L realizzato | -0.5655 SOL (~$-40.75) |
+| Media vincite / perdite | +26.6% / -29.0% |
+| Profit factor | 0.33 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -22,11 +22,12 @@ _nessuna_
 | Stop loss | 13 | -0.4103 |
 | Time stop | 12 | -0.0968 |
 | TP1 | 5 | +0.1432 |
-| RUG-EXIT liquidità | 3 | -0.0913 |
+| RUG-EXIT liquidità | 4 | -0.2016 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $mihao | 64 | -98.6% | -0.1103 | +4% | -97% | RUG-EXIT liquidità | 2m |
 | $FIONA | 73 | -4.4% | -0.0049 | +0% | -31% | Stop loss | 2m |
 | $\nu | 77 | -17.7% | -0.0199 | +0% | -30% | Stop loss | 1m |
 | $FIONA | 65 | -26.4% | -0.0299 | +2% | -25% | Time stop | 5m |
@@ -51,10 +52,24 @@ _nessuna_
 | $LUCIA | 69 | -2.4% | -0.0028 | +10% | -4% | Time stop | 5m |
 | $TYO | 65 | -4.2% | -0.0050 | +0% | -75% | RUG-EXIT liquidità | 0m |
 | $TESLA | 69 | -20.8% | -0.0249 | +22% | -14% | Time stop | 5m |
-| $airdrop | 79 | -27.6% | -0.0331 | +0% | -38% | Stop loss | 4m |
 
 ## Ultimi eventi
 ```
+21:51:51 SCRIBE   fine run · trade 34 · win 26% · P&L -0.5655 SOL · equity 5.4345 SOL
+21:51:51 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 255 veto
+21:51:34 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 255 veto
+21:51:20 SCRIBE   chiuso P-0470 $mihao -0.1103 SOL (-98.6%)
+21:51:20 CHARON   RUG-EXIT liquidità $mihao vendo 100% a -97.5% -> 0.0016 SOL
+21:51:09 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 259 veto
+21:50:46 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 249 veto
+21:50:22 ORACLE   360 raccolti, 274 analizzati, 3 BUY, 263 veto
+21:50:08 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 267 veto
+21:49:42 QUARTER  BUY $mihao 0.111 SOL score 64 impatto 0.98% (Jupiter)
+21:49:42 ORACLE   360 raccolti, 264 analizzati, 3 BUY, 253 veto
+21:49:17 ORACLE   360 raccolti, 275 analizzati, 3 BUY, 265 veto
+21:49:04 ORACLE   360 raccolti, 269 analizzati, 3 BUY, 258 veto
+21:48:42 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 241 veto
+21:48:17 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 240 veto
 21:47:53 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 254 veto
 21:47:30 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 250 veto
 21:47:06 ORACLE   360 raccolti, 264 analizzati, 3 BUY, 249 veto
@@ -80,21 +95,6 @@ _nessuna_
 21:40:56 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 240 veto
 21:40:33 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 242 veto
 21:40:20 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 247 veto
-21:39:54 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 246 veto
-21:39:30 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 243 veto
-21:39:07 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 249 veto
-21:38:43 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 256 veto
-21:38:19 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 252 veto
-21:37:55 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 256 veto
-21:37:32 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 249 veto
-21:37:08 SCRIBE   chiuso P-0468 $\nu -0.0199 SOL (-17.7%)
-21:37:08 CHARON   Stop loss $\nu vendo 100% a -30.2% -> 0.0925 SOL
-21:37:08 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 243 veto
-21:36:55 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 252 veto
-21:36:28 QUARTER  BUY $\nu 0.111 SOL score 77 impatto 1.02% (Jupiter)
-21:36:28 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 247 veto
-21:36:05 QUARTER  $\nu impatto 2.4% oltre slippage: annullato
-21:36:05 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 241 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
