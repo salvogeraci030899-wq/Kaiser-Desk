@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 18:46 UTC · in esecuzione da 0.2 giorni · 229 run
+Aggiornato: 2026-11-19 18:51 UTC · in esecuzione da 0.2 giorni · 229 run
 
 | | |
 |---|---|
-| Equity | **5.8401 SOL** (-2.7% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.6968 SOL |
-| Trade chiusi | 19 |
-| Win rate | 32% |
-| P&L realizzato | -0.1860 SOL (~$-13.82) |
-| Media vincite / perdite | +19.9% / -21.1% |
-| Profit factor | 0.43 |
+| Equity | **5.7858 SOL** (-3.6% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.7858 SOL |
+| Trade chiusi | 20 |
+| Win rate | 30% |
+| P&L realizzato | -0.2142 SOL (~$-15.86) |
+| Media vincite / perdite | +19.9% / -21.3% |
+| Profit factor | 0.40 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$SIM** P-0456 · 0.116 SOL · +23.3% · resta 100% · [grafico](https://dexscreener.com/solana/Are3C4uea7s61tdWCF9M81FRZbMLmGv4RqdVez2t6jA4)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 7 | -0.2183 |
-| Time stop | 6 | -0.0424 |
+| Time stop | 7 | -0.0706 |
 | TP1 | 4 | +0.0626 |
 | RUG-EXIT liquidità | 2 | +0.0121 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $SIM | 64 | -24.0% | -0.0282 | +27% | -10% | Time stop | 14m |
 | $KFC | 88 | +55.0% | +0.0638 | +72% | +72% | TP1 | 18m |
 | $LDS | 68 | -7.9% | -0.0092 | +1% | -1% | Time stop | 5m |
 | $NEKOMARIO | 63 | -55.3% | -0.0650 | +18% | -31% | Stop loss | 4m |
@@ -49,6 +50,21 @@ Aggiornato: 2026-11-19 18:46 UTC · in esecuzione da 0.2 giorni · 229 run
 
 ## Ultimi eventi
 ```
+18:51:22 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 246 veto
+18:50:58 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 249 veto
+18:50:34 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 254 veto
+18:50:10 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 253 veto
+18:49:45 SCRIBE   chiuso P-0456 $SIM -0.0282 SOL (-24.0%)
+18:49:45 CHARON   Time stop $SIM vendo 100% a -9.9% -> 0.0891 SOL
+18:49:45 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 245 veto
+18:49:21 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 254 veto
+18:48:58 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 251 veto
+18:48:35 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 251 veto
+18:48:11 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 256 veto
+18:47:48 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 251 veto
+18:47:24 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 247 veto
+18:47:00 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 256 veto
+18:46:36 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 250 veto
 18:46:13 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 249 veto
 18:46:09 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
 18:46:09 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)
@@ -74,21 +90,6 @@ Aggiornato: 2026-11-19 18:46 UTC · in esecuzione da 0.2 giorni · 229 run
 18:38:26 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 234 veto
 18:38:03 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 239 veto
 18:37:39 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 237 veto
-18:37:16 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 245 veto
-18:36:52 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 234 veto
-18:36:29 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 243 veto
-18:36:05 QUARTER  BUY $SIM 0.116 SOL score 64 impatto 1.71% (Jupiter)
-18:36:04 SCRIBE   chiuso P-0455 $KFC 0.0638 SOL (55.0%)
-18:36:04 CHARON   TP1 $KFC vendo 100% a 72.1% -> 0.1798 SOL
-18:36:04 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 227 veto
-18:35:50 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 229 veto
-18:35:35 ORACLE   360 raccolti, 236 analizzati, 0 BUY, 228 veto
-18:35:10 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 235 veto
-18:34:46 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 235 veto
-18:34:33 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 229 veto
-18:34:07 ORACLE   351 raccolti, 232 analizzati, 1 BUY, 224 veto
-18:33:44 ORACLE   335 raccolti, 220 analizzati, 1 BUY, 213 veto
-18:33:32 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
