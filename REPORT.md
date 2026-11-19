@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 02:21 UTC · in esecuzione da 0.4 giorni · 209 run
+Aggiornato: 2026-11-19 02:26 UTC · in esecuzione da 0.4 giorni · 209 run
 
 | | |
 |---|---|
-| Equity | **5.3401 SOL** (-11.0% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.3401 SOL |
-| Trade chiusi | 35 |
-| Win rate | 29% |
-| P&L realizzato | -0.6599 SOL (~$-48.39) |
-| Media vincite / perdite | +35.4% / -36.9% |
-| Profit factor | 0.38 |
+| Equity | **5.2730 SOL** (-12.1% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.2730 SOL |
+| Trade chiusi | 36 |
+| Win rate | 28% |
+| P&L realizzato | -0.7270 SOL (~$-53.34) |
+| Media vincite / perdite | +35.4% / -37.9% |
+| Profit factor | 0.36 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -23,11 +23,12 @@ _nessuna_
 | RUG-EXIT liquidità | 8 | -0.5936 |
 | TP1 | 4 | +0.3389 |
 | Time stop | 10 | -0.1686 |
-| Stop loss | 7 | -0.2600 |
+| Stop loss | 8 | -0.3272 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $MANDY | 88 | -62.3% | -0.0671 | +30% | -49% | Stop loss | 2m |
 | $Mabel | 65 | -46.0% | -0.0500 | +20% | -56% | RUG-EXIT liquidità | 3m |
 | $COGITO | 74 | -37.0% | -0.0405 | +0% | -34% | Stop loss | 3m |
 | $RETARDGTA6 | 72 | -37.9% | -0.0418 | +59% | -97% | RUG-EXIT liquidità | 18m |
@@ -52,10 +53,25 @@ _nessuna_
 | $snaps | 72 | -16.5% | -0.0194 | +29% | +3% | Time stop | 6m |
 | $DCTYCAT | 64 | -14.7% | -0.0174 | +18% | -2% | Time stop | 5m |
 | $Levelpad | 65 | -67.1% | -0.0802 | +0% | -56% | RUG-EXIT liquidità | 2m |
-| $NGA6 | 65 | -20.4% | -0.0245 | +37% | +2% | Time stop | 5m |
 
 ## Ultimi eventi
 ```
+02:26:15 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 240 veto
+02:25:51 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 239 veto
+02:25:26 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 237 veto
+02:25:01 SCRIBE   chiuso P-0418 $MANDY -0.0671 SOL (-62.3%)
+02:25:01 CHARON   Stop loss $MANDY vendo 100% a -48.7% -> 0.0407 SOL
+02:25:01 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 230 veto
+02:24:37 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 235 veto
+02:24:13 ORACLE   360 raccolti, 240 analizzati, 2 BUY, 226 veto
+02:23:49 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 239 veto
+02:23:25 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 238 veto
+02:23:11 QUARTER  BUY $MANDY 0.107 SOL score 88 impatto 1.34% (Jupiter)
+02:23:11 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 230 veto
+02:22:46 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 236 veto
+02:22:22 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 224 veto
+02:21:58 ORACLE   360 raccolti, 228 analizzati, 1 BUY, 216 veto
+02:21:34 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 233 veto
 02:21:10 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 233 veto
 02:20:45 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 227 veto
 02:20:20 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 237 veto
@@ -80,22 +96,6 @@ _nessuna_
 02:13:24 ORACLE   360 raccolti, 232 analizzati, 0 BUY, 218 veto
 02:13:09 SCRIBE   chiuso P-0417 $Mabel -0.0500 SOL (-46.0%)
 02:13:09 CHARON   RUG-EXIT liquidità $Mabel vendo 100% a -55.5% -> 0.0588 SOL
-02:13:09 ORACLE   360 raccolti, 236 analizzati, 0 BUY, 221 veto
-02:12:44 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 221 veto
-02:12:20 ORACLE   360 raccolti, 224 analizzati, 1 BUY, 213 veto
-02:11:56 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 220 veto
-02:11:31 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 219 veto
-02:11:08 ORACLE   360 raccolti, 233 analizzati, 1 BUY, 218 veto
-02:10:44 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 214 veto
-02:10:20 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 222 veto
-02:10:06 QUARTER  BUY $Mabel 0.108 SOL score 65 impatto 1.92% (Jupiter)
-02:10:06 ORACLE   360 raccolti, 231 analizzati, 1 BUY, 214 veto
-02:09:41 QUARTER  $Mabel impatto 2.5% oltre slippage: annullato
-02:09:41 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 220 veto
-02:09:17 QUARTER  $Mabel impatto 7.0% oltre slippage: annullato
-02:09:17 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 219 veto
-02:08:53 QUARTER  $Mabel impatto 2.1% oltre slippage: annullato
-02:08:53 ORACLE   360 raccolti, 230 analizzati, 1 BUY, 215 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
