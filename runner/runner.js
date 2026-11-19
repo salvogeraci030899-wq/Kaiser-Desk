@@ -253,6 +253,13 @@ async function semiAlerts(buys) {
 }
 // Test di Grok: un giudizio per segnale, uno alla volta, al massimo 120 al giorno; il risultato si confronta con l'esito a 15 minuti (grokstat.js)
 const GROK_DAY_MAX = 120;
+// Contesto per valutare in avanti le regole con filtro: misure dei possessori/social/attivita' (in memoria, dal disco all'avvio) e storico dei creatori
+function holdMapSet(x) { rt.holdMap = rt.holdMap || new Map(); rt.holdMap.set(x.m, Object.assign({}, x, rt.holdMap.get(x.m) || {})); if (rt.holdMap.size > 30000) rt.holdMap.delete(rt.holdMap.keys().next().value); }
+function stratCtx() {
+  if (!rt.holdMap) { try { rt.holdMap = Farm.loadHolders(path.join(STATE_DIR, 'lab', 'holders')); } catch { rt.holdMap = new Map(); } }
+  if (!rt.cidx || Date.now() - (rt.cidxAt || 0) > 600000) { try { rt.cidx = require('./rug.js').creatorIndex([...Farm.loadCreators(path.join(STATE_DIR, 'lab', 'creators')), ...rt.crBuf]); rt.cidxAt = Date.now(); } catch { rt.cidx = rt.cidx || null; } }
+  return { holders: rt.holdMap, cidx: rt.cidx };
+}
 // Callout social dei token del Laboratorio: alla soglia di market cap Grok conta menzioni su X, callout di account grandi e allarmi. Solo misura (nessun ordine):
 // il risultato va nella stessa riga dei possessori e l'analisi dei rug lo confronta con l'esito. Al massimo 150 richieste al giorno; giudizi in ritardo di oltre 3 minuti si scartano.
 const SOC_DAY_MAX = 150;
@@ -263,7 +270,7 @@ function pumpSocial() {
   const a = rt.socQ.shift(); if (!a || Date.now() - a.at > 3 * 60000) return;
   rt.socBusy = true; rt.socDay.n++;
   grokAnalyze({ address: a.mint, symbol: a.sym, name: a.name }).then((v) => {
-    if (v && v.ok) rt.holdBuf.push({ m: a.mint, at: Date.now(), gs: Number(v.sentiment) || 0, gh: Number(v.hype) || 0, go: Number(v.organic) || 0, gk: (v.kols || []).length, gm: Number(v.mentions) || 0, gf: (v.redFlags || []).length }); else rt.socErr++;
+    if (v && v.ok) { const x = { m: a.mint, at: Date.now(), gs: Number(v.sentiment) || 0, gh: Number(v.hype) || 0, go: Number(v.organic) || 0, gk: (v.kols || []).length, gm: Number(v.mentions) || 0, gf: (v.redFlags || []).length }; rt.holdBuf.push(x); holdMapSet(x); } else rt.socErr++;
   }).catch(() => { rt.socErr++; }).finally(() => { rt.socBusy = false; });
 }
 function pumpGrok() {
@@ -610,7 +617,7 @@ function pumpHolders() {
   const url = process.env.RPC_URL; if (!url || process.env.NO_HOLDERS === '1') return;
   while (rt.holdBusy < 2 && rt.holdQ.length) {
     const j = rt.holdQ.shift(); rt.holdBusy++;
-    Holders.snapshot({ url, ...j }).then((x) => { if (x) { rt.holdBuf.push(x); rt.holdOk++; } else rt.holdFail++; }).catch((e) => { rt.holdFail++; rt.holdErr = String(e.message).slice(0, 80); }).finally(() => { rt.holdBusy--; });
+    Holders.snapshot({ url, ...j }).then((x) => { if (x) { rt.holdBuf.push(x); holdMapSet(x); rt.holdOk++; } else rt.holdFail++; }).catch((e) => { rt.holdFail++; rt.holdErr = String(e.message).slice(0, 80); }).finally(() => { rt.holdBusy--; });
   }
 }
 // Studio del Laboratorio: ogni 10 secondi si chiede al Worker se c'e' una prova richiesta dall'app; si esegue in un processo separato e si riporta il risultato
@@ -654,6 +661,7 @@ function loadFarm() {
   comboAlert();
   try { rt.farm = JSON.parse(fs.readFileSync(path.join(STATE_DIR, 'farm.json'), 'utf8')); } catch { /* ancora nessun rapporto */ }
   if (rt.farm && Strat.ingest(rt.strat, rt.farm, Date.now())) rt.stratDirty = true;   // nuove regole candidate: entrano in prova in avanti
+  if (rt.combo) { const m = Strat.adoptCombo(rt.strat, rt.combo, Date.now()); if (m) { rt.stratDirty = true; log('SCOUT', `strategia corrente ${m.id}: ${m.why}`); tg(`<b>Strategia corrente ${esc(m.id)}</b>\n${esc(m.why)}\nGira in ombra (nessun ordine).`, Kb.kb({ app: true })).catch(() => {}); } }
   if (rt.farm) { const m = Strat.adoptBest(rt.strat, rt.farm, Date.now()); if (m) { rt.stratDirty = true; log('SCOUT', `strategia corrente ${m.id}: ${m.why}`); tg(`<b>Strategia corrente ${esc(m.id)}</b>\n${esc(m.why)}\nGira in ombra (nessun ordine).`, Kb.kb({ app: true })).catch(() => {}); } }   // la migliore disponibile, anche se non profittevole
 }
 const STRAT_FILE = () => path.join(STATE_DIR, 'strategies.json');
@@ -685,7 +693,7 @@ function checkpoint() {
 function startYoung() {
   const onToken = (t) => { if (S.srcYoung !== false) Y.addYoung(rt.young, t, Date.now(), 800); };
   if (S.srcLab !== false) {                                     // Laboratorio: una sola connessione a PumpPortal per nuovi token e scambi (osservazione, nessun ordine)
-    rt.trades = new Lab.TradeFeed({ log: (m) => log('SCOUT', m), solUsd: () => rt.solUsd, rpcHttp: process.env.RPC_URL || '', onCross: (t) => { if (rt.holdQ.length < 200) rt.holdQ.push({ mint: t.mint, curve: t.curve, creator: t.dev, at: Date.now(), uri: t.uri, devBuy: t.devBuy, sym: t.sym, name: t.name }); if (S.socialTest && rt.socQ.length < 20) rt.socQ.push({ mint: t.mint, sym: t.sym, name: t.name, at: Date.now() }); }, onCreator: (x) => { if (rt.crBuf.length < 5000) rt.crBuf.push(x); }, onPath: (x) => { rt.pathBuf.push(Farm.pack(x)); if (Strat.record(rt.strat, x, Date.now())) rt.stratDirty = true; }, onCreate: onToken, onDone: (s) => { st.lab = st.lab || { done: [] }; st.lab.done.push(s); st.lab.done = st.lab.done.slice(-400); } });
+    rt.trades = new Lab.TradeFeed({ log: (m) => log('SCOUT', m), solUsd: () => rt.solUsd, rpcHttp: process.env.RPC_URL || '', onCross: (t) => { if (rt.holdQ.length < 200) rt.holdQ.push({ mint: t.mint, curve: t.curve, creator: t.dev, at: Date.now(), uri: t.uri, devBuy: t.devBuy, sym: t.sym, name: t.name }); if (S.socialTest && rt.socQ.length < 20) rt.socQ.push({ mint: t.mint, sym: t.sym, name: t.name, at: Date.now() }); }, onCreator: (x) => { if (rt.crBuf.length < 5000) rt.crBuf.push(x); }, onPath: (x) => { rt.pathBuf.push(Farm.pack(x)); if (Strat.record(rt.strat, x, Date.now(), stratCtx())) rt.stratDirty = true; }, onCreate: onToken, onDone: (s) => { st.lab = st.lab || { done: [] }; st.lab.done.push(s); st.lab.done = st.lab.done.slice(-400); } });
     rt.trades.start();
   }
   if (S.srcYoung === false) return;
