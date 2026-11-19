@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 23:52 UTC · in esecuzione da 0.4 giorni · 235 run
+Aggiornato: 2026-11-19 23:57 UTC · in esecuzione da 0.4 giorni · 235 run
 
 | | |
 |---|---|
-| Equity | **5.3809 SOL** (-10.3% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.3809 SOL |
+| Equity | **5.3788 SOL** (-10.4% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.2723 SOL |
 | Trade chiusi | 45 |
 | Win rate | 27% |
-| P&L realizzato | -0.6191 SOL (~$-45.16) |
+| P&L realizzato | -0.6191 SOL (~$-45.23) |
 | Media vincite / perdite | +29.3% / -26.8% |
 | Profit factor | 0.39 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$AUDACITY** P-0482 · 0.108 SOL · -1.0% · resta 100% · [grafico](https://dexscreener.com/solana/8iBRrqgWiqafTBRaLki14rVAWLZygS4C2AHH2fNzDW7i)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,21 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+23:57:39 ORACLE   360 raccolti, 240 analizzati, 2 BUY, 234 veto
+23:57:17 SCOUT    Laboratorio: collegato a PumpPortal
+23:57:16 QUARTER  BUY $AUDACITY 0.108 SOL score 69 impatto 0.22% (Jupiter)
+23:57:16 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 257 veto
+23:56:54 ORACLE   360 raccolti, 265 analizzati, 3 BUY, 259 veto
+23:56:32 ORACLE   360 raccolti, 259 analizzati, 3 BUY, 253 veto
+23:56:09 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 252 veto
+23:55:47 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 253 veto
+23:55:25 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 254 veto
+23:55:03 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 251 veto
+23:54:40 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 254 veto
+23:54:18 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 237 veto
+23:53:56 ORACLE   360 raccolti, 250 analizzati, 3 BUY, 243 veto
+23:53:33 ORACLE   360 raccolti, 254 analizzati, 4 BUY, 246 veto
+23:53:10 ORACLE   360 raccolti, 248 analizzati, 4 BUY, 240 veto
 23:52:47 ORACLE   360 raccolti, 252 analizzati, 3 BUY, 242 veto
 23:52:24 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 245 veto
 23:52:01 SCRIBE   chiuso P-0481 $WIFGTA6 -0.0003 SOL (-0.3%)
@@ -80,21 +95,6 @@ _nessuna_
 23:45:28 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 248 veto
 23:45:05 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 241 veto
 23:44:41 QUARTER  BUY $WIFGTA6 0.108 SOL score 70 impatto 1.55% (Jupiter)
-23:44:41 ORACLE   360 raccolti, 258 analizzati, 3 BUY, 244 veto
-23:44:18 QUARTER  $WIFGTA6 impatto 3.9% oltre slippage: annullato
-23:44:18 ORACLE   360 raccolti, 254 analizzati, 3 BUY, 239 veto
-23:43:56 QUARTER  $WIFGTA6 impatto 2.1% oltre slippage: annullato
-23:43:56 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 240 veto
-23:43:33 QUARTER  $WIFGTA6 impatto 2.3% oltre slippage: annullato
-23:43:33 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 232 veto
-23:43:10 QUARTER  $WIFGTA6 impatto 2.1% oltre slippage: annullato
-23:43:10 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 239 veto
-23:42:47 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 232 veto
-23:42:23 ORACLE   360 raccolti, 243 analizzati, 2 BUY, 236 veto
-23:42:01 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 230 veto
-23:41:38 ORACLE   360 raccolti, 236 analizzati, 2 BUY, 229 veto
-23:41:16 ORACLE   360 raccolti, 236 analizzati, 2 BUY, 227 veto
-23:40:53 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 229 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
