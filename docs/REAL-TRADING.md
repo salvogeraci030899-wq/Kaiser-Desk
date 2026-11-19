@@ -319,3 +319,6 @@ Se la ricerca con filtri trova un segnale credibile (esito positivo su dati vecc
 
 ## Ricarica automatica dei conti simulati (da v2.52.0)
 Il parametro «Ricarica automatica sotto (% del capitale)» (predefinito 30, 0 = mai) vale per il paper del radar e per il conto della strategia. Quando l'equity scende sotto quella quota del capitale iniziale (e, per il paper, non ci sono posizioni aperte) il saldo torna al capitale: arriva un avviso su Telegram con equity prima della ricarica, importo e numero della ricarica, Journal e statistiche restano, il P&L esclude le ricariche. Non vale per il reale: lì i tetti del Worker restano.
+
+## Ritiro della strategia corrente (da v2.53.0)
+Dopo almeno 100 operazioni in avanti, se l'esito medio della strategia corrente è negativo con certezza del 95% (media + 1,65 errori standard sotto zero), la strategia si ritira: resta nello storico con il suo risultato, non rientra per 3 giorni, e al suo posto va la migliore tra le altre della classifica della fabbrica, anche se ancora in perdita. Avviso su Telegram. Il conto della strategia prosegue senza interruzioni.

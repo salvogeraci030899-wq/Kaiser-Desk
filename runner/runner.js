@@ -619,7 +619,8 @@ function flushPaths(final) {
     if (n || final) Farm.prune(dir, Date.now(), Farm.KEEP_DAYS);
     const cdir = path.join(STATE_DIR, 'lab', 'creators'); if (rt.crBuf.length) Farm.writeBatch(cdir, rt.crBuf.splice(0), Date.now()); if (n || final) Farm.prune(cdir, Date.now(), Farm.KEEP_DAYS);
     const hdir = path.join(STATE_DIR, 'lab', 'holders'); if (rt.holdBuf.length) Farm.writeBatch(hdir, rt.holdBuf.splice(0), Date.now()); if (n || final) Farm.prune(hdir, Date.now(), Farm.KEEP_DAYS);
-    const before = rt.strat.log.length, ch = Strat.review(rt.strat, Date.now()); if (ch) rt.stratDirty = true;
+    const before = rt.strat.log.length, ch = Strat.review(rt.strat, Date.now(), rt.farm); if (ch) rt.stratDirty = true;
+    for (const m of rt.strat.retireMsgs || []) { log('SCOUT', `strategia ${m.id}: ${m.to}: ${m.why}`); tg(`<b>Strategia ${esc(m.id)}</b> ${esc(m.to)}\n${esc(m.why)}${m.to === 'ritirata' ? '\nNon rientra per 3 giorni: al suo posto va la migliore tra le altre (anche se ancora in perdita).' : '\nGira in ombra (nessun ordine).'}`, Kb.kb({ app: true })).catch(() => {}); } rt.strat.retireMsgs = [];
     if (ch) for (const e of rt.strat.log.slice(-ch)) { log('SCOUT', `regola ${e.id}: ${e.to} (${e.why})`); if (e.to !== 'prova') tg(`<b>Regola ${esc(e.id)}</b> ${esc(e.to)}\n${esc(e.why)}`, Kb.kb({ app: true })).catch(() => {}); }
     if (rt.stratDirty || final) { Strat.save(STRAT_FILE(), rt.strat); rt.stratDirty = false; }
   } catch (e) { log('KAISER', 'salvataggio percorsi non riuscito: ' + String(e.message).split('\n')[0]); }

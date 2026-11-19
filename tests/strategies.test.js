@@ -153,3 +153,28 @@ test('il conto della strategia conta tutte le operazioni, non solo le ultime 100
   const a = S.summary(reg, T0 + 1000).acct; assert.equal(a.n, 130); assert.equal(a.trades.length, 100, 'l\'elenco resta di 100'); assert.equal(a.win, Math.round(100 * 44 / 130)); assert.ok(a.aw > 0 && a.al < 0);
   const src = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8'); assert.match(src, /n: SA\.n, wr: SA\.win/);
 });
+
+test('la strategia corrente si ritira se in avanti e\' chiaramente negativa e passa alla migliore tra le altre', () => {
+  const T0 = 1_700_000_000_000, H = 3600000, reg = S.create(), cfgOf = (thr) => ({ thr, delay: 10, tp: 15, sl: 10, hold: 60 });
+  const farm = (at) => ({ at, best: { cfg: cfgOf(10000), tr: { n: 300, ev: -6 }, te: { n: 200, ev: -6 } }, ranked: [{ cfg: cfgOf(10000), tr: { n: 300, ev: -6 }, te: { n: 200, ev: -6 }, score: -6 }, { cfg: cfgOf(12000), tr: { n: 300, ev: -7 }, te: { n: 200, ev: -7 }, score: -7 }, { cfg: cfgOf(15000), tr: { n: 300, ev: -8 }, te: { n: 200, ev: -8 }, score: -8 }], watch: [] });
+  S.adoptBest(reg, farm(T0), T0); assert.equal(reg.current.cfg.thr, 10000);
+  const f = reg.current.fwd; for (let i = 0; i < 99; i++) { const x = i % 3 === 0 ? 30 : -30; f.n++; f.sum += x; f.sq += x * x; }
+  assert.equal(S.retireCurrent(reg, farm(T0 + 1), T0 + 1), null, 'meno di 100 operazioni: non si ritira');
+  f.n++; f.sum += -30; f.sq += 900;     // 100 operazioni, esito medio negativo con certezza
+  const msgs = S.retireCurrent(reg, farm(T0 + 2), T0 + 2 * H); assert.ok(msgs && msgs.length === 2); assert.equal(msgs[0].to, 'ritirata'); assert.match(msgs[0].why, /100 operazioni in avanti/);
+  assert.equal(reg.current.cfg.thr, 12000, 'passa alla successiva in classifica'); assert.match(msgs[1].why, /^nuova strategia/);
+  const cur = S.summary(reg, T0 + 3 * H).current; assert.equal(cur.prev.length, 1); assert.equal(cur.prev[0].cfg.thr, 10000); assert.equal(S.retired(reg, cfgOf(10000), T0 + 3 * H), true);
+  // la ritirata non rientra per 3 giorni, nemmeno se torna la migliore del rapporto
+  reg.lastBest = 0; S.adoptBest(reg, farm(T0 + 4 * H), T0 + 10 * H); assert.equal(reg.current.cfg.thr, 12000);
+  assert.equal(S.retired(reg, cfgOf(10000), T0 + 4 * 86400000), false, 'dopo 3 giorni puo\' rientrare');
+  // una strategia in avanti buona non si ritira
+  const g = S.create(); S.adoptBest(g, farm(T0), T0); for (let i = 0; i < 120; i++) { const x = i % 2 ? 10 : -4; g.current.fwd.n++; g.current.fwd.sum += x; g.current.fwd.sq += x * x; }
+  assert.equal(S.retireCurrent(g, farm(T0), T0 + H), null);
+});
+
+test('il ritiro funziona anche per i conti nati prima che si salvasse la somma dei quadrati (stima dalle ultime 30)', () => {
+  const T0 = 1_700_000_000_000, reg = S.create();
+  S.adoptBest(reg, { at: T0, best: { cfg: { thr: 10000, delay: 10, tp: 15, sl: 10, hold: 60 }, tr: { n: 300, ev: -6 }, te: { n: 200, ev: -6 } }, ranked: [], watch: [] }, T0);
+  const f = reg.current.fwd; f.n = 555; f.sum = 555 * -9.9; f.sq = 0; f.recent = Array.from({ length: 30 }, (_, i) => (i % 3 === 0 ? 40 : -30));
+  const m = S.retireCurrent(reg, { at: T0 + 1, best: { cfg: { thr: 12000, delay: 10, tp: 15, sl: 10, hold: 60 }, tr: { n: 300, ev: -7 }, te: { n: 200, ev: -7 } }, ranked: [], watch: [] }, T0 + 1); assert.ok(m && m[0].to === 'ritirata');
+});

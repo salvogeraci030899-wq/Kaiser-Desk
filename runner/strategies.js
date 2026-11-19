@@ -17,18 +17,19 @@ const COOL_MS = 7 * 86400000;                // una configurazione ritirata non 
 const DD_MAX = 60;                           // perdita cumulata (punti %) oltre il massimo di una validata: ritirata
 const RECENT = 30;
 const ACCT_START = 1, ACCT_SIZE = 0.1, ACCT_KEEP = 100, ACCT_CURVE = 150;   // conto paper della strategia corrente: 1 SOL, 10% dell'equity per operazione
+const RETIRE_MIN_N = 100, RETIRE_Z = 1.65, RETIRE_COOL_MS = 3 * 86400000;   // la corrente si ritira dopo 100 operazioni in avanti se l'esito medio e' negativo con certezza (95%); non rientra per 3 giorni
 const SWITCH_MARGIN = 1;                      // una nuova migliore sostituisce la corrente solo se la batte di almeno 1 punto percentuale (peggiore dei due esiti)
 const MIN_HOLD_MS = 6 * 3600000;              // e non prima di 6 ore dall'adozione: niente cambi a raffica                           // finestra mobile per controllare che una validata non peggiori
 
 const key = (c) => [c.thr, c.delay, c.tp, c.sl, c.hold].concat(c.flt ? [c.flt.k, c.flt.dir, c.flt.cut] : []).join('/');
-const blank = () => ({ n: 0, sum: 0, win: 0, gain: 0, loss: 0, cum: 0, peak: 0, dd: 0, first: 0, last: 0, recent: [] });
+const blank = () => ({ sq: 0, n: 0, sum: 0, win: 0, gain: 0, loss: 0, cum: 0, peak: 0, dd: 0, first: 0, last: 0, recent: [] });
 const stats = (f) => { const n = f.n; return { n, ev: n ? +(f.sum / n).toFixed(2) : 0, win: n ? Math.round(100 * f.win / n) : 0, pf: f.loss > 0 ? +(f.gain / f.loss).toFixed(2) : (f.gain > 0 ? 99 : 0), dd: +f.dd.toFixed(1), span: f.n ? f.last - f.first : 0 }; };
 
 function acctBlank(now) { return { start: ACCT_START, since: now || 0, eq: ACCT_START, n: 0, win: 0, gain: 0, loss: 0, peak: ACCT_START, dd: 0, trades: [], curve: [] }; }
 function create() { return { v: 1, seq: 0, lastFarm: 0, items: [], log: [] }; }
 function normalize(o) {
   const r = create(); if (!o || typeof o !== 'object' || !Array.isArray(o.items)) return r;
-  r.seq = Number(o.seq) || 0; if (o.settled && typeof o.settled === 'object') r.settled = o.settled; if (Array.isArray(o.notes)) r.notes = o.notes.slice(-5);
+  r.seq = Number(o.seq) || 0; if (o.settled && typeof o.settled === 'object') r.settled = o.settled; if (o.retired && typeof o.retired === 'object') r.retired = o.retired; if (Array.isArray(o.notes)) r.notes = o.notes.slice(-5);
   if (o.acct && Number.isFinite(o.acct.eq)) r.acct = { ...acctBlank(), ...o.acct, trades: Array.isArray(o.acct.trades) ? o.acct.trades.slice(-ACCT_KEEP) : [], curve: Array.isArray(o.acct.curve) ? o.acct.curve.slice(-ACCT_CURVE) : [] };
   if (o.current && o.current.cfg) r.current = { ...o.current, fwd: { ...blank(), ...(o.current.fwd || {}) }, prev: Array.isArray(o.current.prev) ? o.current.prev.slice(-10) : [] }; r.lastFarm = Number(o.lastFarm) || 0; r.log = Array.isArray(o.log) ? o.log.slice(-40) : [];
   for (const s of o.items) if (s && s.cfg && s.status) r.items.push({ ...s, fwd: { ...blank(), ...(s.fwd || {}) }, history: Array.isArray(s.history) ? s.history : [] });
@@ -56,11 +57,32 @@ function ingest(reg, farm, now) {
 }
 // La strategia corrente: e' SEMPRE la migliore trovata finora (anche se non profittevole) e gira in ombra sui token nati dopo l'adozione.
 // Passa a una nuova migliore solo se la batte con margine; la vecchia resta nello storico con il suo risultato in avanti.
+function retired(reg, c, now) { const t = reg.retired && reg.retired[key(c)]; return t != null && now - t < RETIRE_COOL_MS; }
 function adoptBest(reg, farm, now) {
   if (!farm || !farm.best || !farm.at || !farm.best.cfg || farm.at <= (reg.lastBest || 0)) return null;
   reg.lastBest = farm.at; const cur = reg.current, w = cur && !cur.cfg.flt && (farm.watch || []).find((x) => key(x.cfg) === key(cur.cfg));
   if (w) cur.farm = { at: farm.at, tr: { n: w.tr.n, ev: w.tr.ev }, te: { n: w.te.n, ev: w.te.ev }, score: Math.min(w.tr.ev, w.te.ev) };
-  return promote(reg, farm.best, farm.at, now);
+  // la migliore che non sia stata ritirata da poco (se sono tutte ritirate, la migliore in assoluto)
+  const cand = [farm.best, ...(farm.ranked || [])].find((c) => c && c.cfg && !retired(reg, c.cfg, now)) || farm.best;
+  return promote(reg, cand, farm.at, now);
+}
+// Una strategia corrente con abbastanza operazioni in avanti e un esito medio chiaramente negativo (media + 1.65 errori standard < 0) non e' la migliore da tenere:
+// si ritira, resta nello storico con il suo risultato e non rientra per 3 giorni; al suo posto va la migliore tra le altre.
+function retireCurrent(reg, farm, now) {
+  const c = reg.current; if (!c) return null; const f = c.fwd, n = f.n; if (n < RETIRE_MIN_N) return null;
+  const mean = f.sum / n; let v;
+  if (f.sq > 0) v = Math.max(0, f.sq / n - mean * mean) * n / Math.max(1, n - 1);
+  else if (f.recent && f.recent.length >= 20) { const r = f.recent, m = r.reduce((x, y) => x + y, 0) / r.length; v = r.reduce((x, y) => x + (y - m) ** 2, 0) / (r.length - 1); }      // conti nati prima che si salvasse la somma dei quadrati: si stima dalle ultime 30
+  else return null;
+  const se = Math.sqrt(v / n); if (!(mean + RETIRE_Z * se < 0)) return null;
+  reg.retired = reg.retired || {}; reg.retired[key(c.cfg)] = now;
+  const why = `${n} operazioni in avanti, esito medio ${mean.toFixed(1)}% (±${se.toFixed(1)}): non regge`;
+  const old = { id: c.id, cfg: c.cfg, since: c.since, until: now, fwd: stats(f), farm: c.farm, retired: why };
+  const msgs = [{ at: now, id: c.id, to: 'ritirata', why }]; reg.log.push(msgs[0]);
+  reg.current = null; reg.lastBest = 0; reg.pendingPrev = [...(c.prev || []), old].slice(-10);
+  const m = farm ? adoptBest(reg, farm, now) : null; if (m) msgs.push(m);
+  if (reg.current) { reg.current.prev = reg.pendingPrev; }
+  reg.pendingPrev = null; return msgs;
 }
 // Una ricerca con filtri credibile (esito positivo su vecchi e recenti, caso sotto il 5%) puo' diventare la strategia corrente, con le stesse regole di cambio
 function adoptCombo(reg, co, now) {
@@ -71,8 +93,8 @@ function adoptCombo(reg, co, now) {
 }
 function promote(reg, b, at, now) {
   const cur = reg.current, sc = (x) => Math.min(x.tr.ev, x.te.ev);
-  const fresh = () => ({ id: 'C-' + String(++reg.seq).padStart(3, '0'), cfg: b.cfg, since: now, farm: { at, tr: { n: b.tr.n, ev: b.tr.ev }, te: { n: b.te.n, ev: b.te.ev }, score: sc(b) }, fwd: blank(), prev: cur ? [...(cur.prev || []), { id: cur.id, cfg: cur.cfg, since: cur.since, until: now, fwd: stats(cur.fwd), farm: cur.farm }].slice(-10) : [] });
-  if (!cur) { reg.current = fresh(); if (!reg.acct) reg.acct = acctBlank(now); const m = { at: now, id: reg.current.id, to: 'corrente', why: 'prima strategia: ' + describe(b) }; reg.log.push(m); reg.log = reg.log.slice(-40); return m; }
+  const fresh = () => ({ id: 'C-' + String(++reg.seq).padStart(3, '0'), cfg: b.cfg, since: now, farm: { at, tr: { n: b.tr.n, ev: b.tr.ev }, te: { n: b.te.n, ev: b.te.ev }, score: sc(b) }, fwd: blank(), prev: cur ? [...(cur.prev || []), { id: cur.id, cfg: cur.cfg, since: cur.since, until: now, fwd: stats(cur.fwd), farm: cur.farm }].slice(-10) : (reg.pendingPrev || []) });
+  if (!cur) { reg.current = fresh(); if (!reg.acct) reg.acct = acctBlank(now); const m = { at: now, id: reg.current.id, to: 'corrente', why: (reg.pendingPrev && reg.pendingPrev.length ? 'nuova strategia: ' : 'prima strategia: ') + describe(b) }; reg.log.push(m); reg.log = reg.log.slice(-40); return m; }
   if (key(b.cfg) === key(cur.cfg)) return null;
   if (now - cur.since < MIN_HOLD_MS) return null;
   if (!(sc(b) > ((cur.farm && cur.farm.score) == null ? -Infinity : cur.farm.score) + SWITCH_MARGIN)) return null;
@@ -122,7 +144,7 @@ function live(rec, cfg, ctx) {
 }
 // Un token concluso: ogni regola non ritirata lo valuta solo se e' nato dopo la sua ammissione
 function settle(reg, s, rec, x, now, ctx) {
-  const f = s.fwd; f.n++; f.sum += x.net; if (x.net > 0) { f.win++; f.gain += x.net; } else f.loss -= x.net;
+  const f = s.fwd; f.n++; f.sum += x.net; f.sq = (f.sq || 0) + x.net * x.net; if (x.net > 0) { f.win++; f.gain += x.net; } else f.loss -= x.net;
   f.cum += x.net; f.peak = Math.max(f.peak, f.cum); f.dd = Math.max(f.dd, f.peak - f.cum); if (!f.first) f.first = rec.at; f.last = rec.at;
   f.recent.push(+x.net.toFixed(2)); if (f.recent.length > RECENT) f.recent.shift();
   if (s === reg.current) acctApply(reg, rec, s, x, now, ctx);
@@ -150,8 +172,8 @@ function liveTick(reg, recs, now, ctx) {
   return { open: open.sort((a, b) => b.at - a.at).slice(0, 12), closed };
 }
 // Promozioni e ritiri; restituisce il numero di cambi di stato
-function review(reg, now) {
-  let n = 0; const dead = reg.items.filter((x) => x.status === 'ritirata'); if (dead.length > 40) { const keep = new Set(dead.sort((a, b) => (b.endedAt || 0) - (a.endedAt || 0)).slice(0, 40).map((x) => x.id)); reg.items = reg.items.filter((x) => x.status !== 'ritirata' || keep.has(x.id)); }      // il registro non cresce senza limite
+function review(reg, now, farm) {
+  let n = 0; const rc = retireCurrent(reg, farm, now); if (rc) { n += rc.length; reg.retireMsgs = (reg.retireMsgs || []).concat(rc).slice(-6); } const dead = reg.items.filter((x) => x.status === 'ritirata'); if (dead.length > 40) { const keep = new Set(dead.sort((a, b) => (b.endedAt || 0) - (a.endedAt || 0)).slice(0, 40).map((x) => x.id)); reg.items = reg.items.filter((x) => x.status !== 'ritirata' || keep.has(x.id)); }      // il registro non cresce senza limite
   for (const s of reg.items) {
     const f = s.fwd, st = stats(f);
     if (s.status === 'prova') {
@@ -177,4 +199,4 @@ function summary(reg, now) {
   return { at: now, count, acct: acct || null, current: cur || null, items: [...live, ...dead].slice(0, 20).map(pick), log: reg.log.slice(-6) };
 }
 
-module.exports = { live, liveTick, evalRec, adoptCombo, ACCT_START, ACCT_SIZE, SWITCH_MARGIN, MIN_HOLD_MS, adoptBest, describe, MAX_TEST, MIN_FWD, MIN_SPAN_MS, MIN_PF, EARLY_N, GIVE_UP_N, STALE_MS, COOL_MS, DD_MAX, key, create, normalize, load, save, ingest, record, review, summary, stats };
+module.exports = { retireCurrent, RETIRE_MIN_N, retired, live, liveTick, evalRec, adoptCombo, ACCT_START, ACCT_SIZE, SWITCH_MARGIN, MIN_HOLD_MS, adoptBest, describe, MAX_TEST, MIN_FWD, MIN_SPAN_MS, MIN_PF, EARLY_N, GIVE_UP_N, STALE_MS, COOL_MS, DD_MAX, key, create, normalize, load, save, ingest, record, review, summary, stats };
