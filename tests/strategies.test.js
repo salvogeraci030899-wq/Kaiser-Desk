@@ -49,7 +49,7 @@ test('persistenza e riassunto: il registro si salva e si ricarica, dati rovinati
 test('il runner carica il registro, valuta i token conclusi, pubblica il riassunto e avvisa su Telegram di validazioni e ritiri', () => {
   const src = fs.readFileSync(require.resolve('../runner/runner.js'), 'utf8'), html = fs.readFileSync(require.resolve('../index.html'), 'utf8');
   assert.match(src, /require\('\.\/strategies\.js'\)/); assert.match(src, /Strat\.record\(rt\.strat, x, Date\.now\(\), stratCtx\(\)\)/); assert.match(src, /Strat\.ingest\(rt\.strat, rt\.farm/); assert.match(src, /Strat\.review\(rt\.strat/);
-  assert.match(src, /strat: Strat\.summary\(rt\.strat/); assert.match(src, /Strat\.load\(STRAT_FILE\(\)\)/); assert.match(src, /Regola \$\{esc\(e\.id\)\}/); assert.ok(html.includes('Regole e prova in avanti'));
+  assert.match(src, /strat: Object\.assign\(Strat\.summary\(rt\.strat/); assert.match(src, /Strat\.load\(STRAT_FILE\(\)\)/); assert.match(src, /Regola \$\{esc\(e\.id\)\}/); assert.ok(html.includes('Regole e prova in avanti'));
   assert.ok(!/\bordini?\b.*apre da sola/.test(src), 'nessuna apertura automatica di ordini');
 });
 
@@ -111,4 +111,22 @@ test('regola con filtro: passa solo il token col segnale dalla parte giusta; la 
   assert.equal(S.adoptCombo(reg, { ...co, at: T0 + 3, perm: { B: 100, p: 0.4 } }, T0 + 20 * 3600000), null, 'non credibile: non cambia');
   // la valutazione in avanti applica il filtro
   const before = reg.current.fwd.n; S.record(reg, { m: 'b', at: reg.current.since + 1, u: 100, p, cr: '' }, T0 + 8 * 3600000, { holders: new Map([['b', { top1: 0.9 }]]), cidx: null }); assert.equal(reg.current.fwd.n, before);
+});
+
+test('strategia dal vivo: posizione aperta, chiusura appena scatta l\'uscita, nessun doppio conto alla fine del token', () => {
+  const T0 = 1_700_000_000_000, reg = S.create();
+  S.adoptBest(reg, { at: T0, best: { cfg: { thr: 5000, delay: 0, tp: 20, sl: 15, hold: 0 }, tr: { n: 50, ev: 0 }, te: { n: 50, ev: 0 } }, watch: [] }, T0);
+  const part = []; for (let k = 0; k < 10; k++) part.push(40); for (let k = 0; k < 4; k++) part.push(55 + k);       // soglia 50 (5000 a 100 $/SOL) superata, prezzo +10%
+  let r = S.liveTick(reg, [{ m: 'x', s: 'X', at: T0 + 10, u: 100, p: part }], T0 + 1000, null);
+  assert.equal(r.open.length, 1); assert.equal(r.closed, 0); assert.equal(r.open[0].sym, 'X'); assert.ok(r.open[0].pct > 0 && r.open[0].pct < 20); assert.equal(S.summary(reg, T0).acct.n, 0);
+  const full = part.concat([70, 72, 72, 72]);      // target +20% raggiunto
+  r = S.liveTick(reg, [{ m: 'x', s: 'X', at: T0 + 10, u: 100, p: full }], T0 + 2000, null);
+  assert.equal(r.closed, 1); assert.equal(r.open.length, 0); const a = S.summary(reg, T0).acct; assert.equal(a.n, 1); assert.equal(a.trades[0].why, 'tp'); assert.ok(a.trades[0].mc0 > 0);
+  // il token si conclude: non si conta due volte; e non si riapre
+  S.record(reg, { m: 'x', s: 'X', at: T0 + 10, u: 100, p: full.concat(new Array(80).fill(72)) }, T0 + 3000, null); assert.equal(S.summary(reg, T0).acct.n, 1);
+  r = S.liveTick(reg, [{ m: 'x', s: 'X', at: T0 + 10, u: 100, p: full }], T0 + 4000, null); assert.equal(r.open.length, 0);
+  // nato prima dell'adozione: non entra; stop dal vivo
+  assert.equal(S.liveTick(reg, [{ m: 'old', s: 'O', at: T0 - 5, u: 100, p: part }], T0 + 5000, null).open.length, 0);
+  const down = part.slice(0, 11).concat([40, 40]); assert.equal(S.liveTick(reg, [{ m: 'y', s: 'Y', at: T0 + 20, u: 100, p: down }], T0 + 6000, null).closed, 1);
+  const rs = S.load((() => { const f = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'kz-set-')), 's.json'); S.save(f, reg); return f; })()); assert.ok(rs.settled && rs.settled.x, 'la lista dei gia\' chiusi sopravvive al salvataggio');
 });
