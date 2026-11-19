@@ -2,7 +2,7 @@
    Token iOS (scuro/chiaro/automatico), angoli concentrici, barra a capsula, Vetro (Liquid Glass) fermo o animato.
    I nomi delle classi sono quelli di Kaiser: cambia l'aspetto, non la struttura. */
 :root {
-  --kz-css: 53;
+  --kz-css: 54;
   color-scheme: dark;
   --bg: #000000;
   --surface: #0a0a0a;
@@ -314,7 +314,7 @@ main { overflow: hidden; display: flex; flex-direction: column; padding-bottom: 
 .vfix, .vfoot { flex: 0 0 auto; }
 .vscroll { flex: 1 1 0; min-height: 0; overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; touch-action: pan-y; padding-bottom: 14px; }
 .vfoot { padding: 6px 0 8px; }
-#jReasons { height: 104px; overflow: hidden; position: relative; cursor: pointer; } #jReasons::after, .jcard::after { content: '↗'; position: absolute; right: 10px; bottom: 6px; font-size: 12px; color: var(--muted); } .jcard { position: relative; cursor: pointer; } .vfoot .card { margin-bottom: 0; }
+#jReasons { height: 104px; overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain; } .jcard::after { content: '↗'; position: absolute; right: 10px; bottom: 6px; font-size: 12px; color: var(--muted); } .jcard { position: relative; cursor: pointer; } .jbody { padding-bottom: 4px; } .jcard::after { display: none; } .vfoot .card { margin-bottom: 0; }
 .vfoot .card[hidden] { display: none; }
 
 header { height: calc(env(safe-area-inset-top, 0px) + 12px + 44px + 8px + 28px + 8px); padding-bottom: 0; overflow: hidden; }
