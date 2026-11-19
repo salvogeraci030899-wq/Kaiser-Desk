@@ -2,7 +2,7 @@
    Token iOS (scuro/chiaro/automatico), angoli concentrici, barra a capsula, Vetro (Liquid Glass) fermo o animato.
    I nomi delle classi sono quelli di Kaiser: cambia l'aspetto, non la struttura. */
 :root {
-  --kz-css: 72;
+  --kz-css: 73;
   color-scheme: dark;
   --bg: #000000;
   --surface: #0a0a0a;
@@ -548,3 +548,12 @@ html.mode-real .logo { box-shadow: none; }
 
 /* Schede Coin: nessuna barra colorata laterale */
 .tcard::before { display: none; }
+
+/* Pannello di emergenza: un solo interruttore per conto, che mostra lo stato e fa l'azione opposta */
+#panelToggles { grid-template-columns: 1fr 1fr; }
+.ptog { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: 10px 12px; min-height: 74px; text-align: left; font: inherit; color: var(--text); background: var(--surface); border: 2px solid var(--border); border-radius: var(--r-card-sm, 16px); cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.ptog .pn { font-size: 12px; font-weight: 600; color: var(--text-secondary); } .ptog .pv { font: 800 17px var(--mono); } .ptog .pa { font-size: 11px; color: var(--text-secondary); }
+.ptog.on { border-color: var(--accent); } .ptog.on .pv { color: var(--accent); } .ptog.off .pv { color: var(--danger); } .ptog.off { border-color: var(--danger); }
+.ptog:active { background: var(--surface-hover); }
+.panel-all { width: 100%; margin-top: 8px; min-height: 44px; } .panel-all:disabled { opacity: 0.45; }
+.ptog.off { border-color: var(--border); } .ptog.off .pv { color: var(--text-secondary); }
