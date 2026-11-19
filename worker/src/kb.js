@@ -10,7 +10,7 @@ export function coinRows(mint, pair) {
   return [[{ text: 'Apri su pump.fun', url: `https://pump.fun/coin/${mint}` }], [{ text: 'DexScreener', url: `https://dexscreener.com/solana/${p}` }, { text: 'GMGN', url: `https://gmgn.ai/sol/token/${mint}` }]];
 }
 export const closeRow = (id) => (/^[PR]-\d{1,6}$/.test(id || '') ? [{ text: 'Chiudi posizione', callback_data: 'cl:' + id }] : null);
-export const appRow = (url) => [{ text: 'Apri Kaiser', url: /^https:\/\//.test(url || '') ? url : APP_URL }];
+export const appRow = (url) => [{ text: 'Apri Kaiser', url: /^https:\/\//.test(url || '') ? url : APP_URL }, { text: 'Menu', callback_data: 'mn:menu' }];
 // rows: righe in testa (es. Approva/Rifiuta); mint/pair: la Coin; close: id della posizione; app: true o l'indirizzo dell'app per i messaggi senza Coin
 export function kb(o) {
   const rows = [...((o && o.rows) || [])];

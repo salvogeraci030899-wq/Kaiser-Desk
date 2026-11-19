@@ -294,3 +294,13 @@ Serve a sapere, con i dati, se Grok vale il suo costo. Solo misura: il giudizio 
 - **Verdetto.** Sotto 100 segnali giudicati e conclusi: «pochi dati». Poi: «legame positivo» (sentimento o organicita' con correlazione di almeno 0.12 e p sotto 0.02), «utile come allarme» (i segnali con allarmi finiscono a -30% o peggio almeno 15 punti piu' spesso), «legame inverso» (da ignorare) oppure «nessun legame misurabile» (non vale il costo).
 - **Dove si vede.** Pagina Lab, sezione «Grok: serve davvero?»; nel riquadro Segnali del Radar compare il giudizio di Grok accanto a ogni segnale giudicato.
 - **Costo.** Una chiamata xAI per segnale: con al massimo 8 segnali all'ora sono al piu' circa 190 al giorno, limitati a 120. Il parametro e' spento di base.
+
+### Bot Telegram: menu e nuove schermate (v2.38.0)
+
+- **Menu dei comandi.** Il Worker registra da solo (una volta per versione, solo per la tua chat) l'elenco dei comandi del bot: il tasto «Menu» accanto al campo di testo mostra menu, stato, paper, segnali, lab, regole, posizioni, scudo, parametri, emergenza, aiuto. Alla prima registrazione manda un messaggio «bot aggiornato» con il menu a tasti.
+- **Menu a tasti (`/menu`, `/start`).** Stato in testa (ordini, kill switch, Scudo, semi-automatico, Test Grok, paper) e tasti per: Stato, Paper, Segnali, Laboratorio, Regole, Posizioni, Scudo, Modifiche, Aiuto, Semi-automatico, Test Grok, Apri Kaiser, EMERGENZA. I messaggi senza Coin (riepilogo, circuito di sicurezza, regole) hanno «Apri Kaiser» e «Menu».
+- **Schermate nuove.** `/paper` (equity, risultati, posizioni con pump.fun e Chiudi, ultime chiuse), `/segnali` (ultimi 5 segnali con esito a 5 e 15 minuti e il tasto «Apri su pump.fun» di ciascuno), `/lab` (riepilogo: Coin osservate, fabbrica, rug, regole, Grok), `/regole`.
+- **Interruttori con conferma.** `/semi` e `/grok` (o i tasti del menu) non cambiano nulla da soli: mandano la richiesta con Applica/Rifiuta, come dall'app. Il tasto EMERGENZA del menu chiede prima la conferma («CONFERMA EMERGENZA»).
+- **Tastiera fissa (`/tastiera`, `/tastiera off`).** Menu, Stato, Paper, Segnali, Laboratorio, Posizioni sempre visibili sotto il campo di testo; anche le parole scritte a mano funzionano.
+- **Diagnosi.** Se il bot e' gia' collegato a un altro servizio (webhook altrove), il menu lo dice: i collegamenti a pump.fun funzionano comunque, i tasti con azione e i comandi no finche' non si usa un bot dedicato a Kaiser.
+- I tasti compaiono sui **messaggi nuovi**: quelli gia' inviati non cambiano.
