@@ -267,4 +267,4 @@ class TradeFeed {
   status() { const p = this.poller; return { state: this.state, active: this.book.toks.size, trades: this.book.nTrades, creates: this.book.nCreate, msgs: { ...this.stats }, poll: p ? { ok: p.ok, fail: p.fail, bad: p.bad, why: p.why, gone: p.gone, sample: p.sample, off: p.off, err: p.err } : null }; }
 }
 
-module.exports = { curveWhy, parseCurve, CurvePoller, PORTAL_URL, RACES, ENTRY_MS, WATCH_MS, features, botScore, race, summarize, labSummary, TradeBook, TradeFeed };
+module.exports = { paddedPath, curveWhy, parseCurve, CurvePoller, PORTAL_URL, RACES, ENTRY_MS, WATCH_MS, features, botScore, race, summarize, labSummary, TradeBook, TradeFeed };

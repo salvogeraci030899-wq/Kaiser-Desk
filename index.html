@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.49.0">
+<meta name="kz-build" content="2.50.0">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=4" media="(prefers-color-scheme: light)">
@@ -108,7 +108,7 @@
   <!-- POSIZIONI -->
   <section class="view" id="v-pos">
     <div class="vfix">
-    <div class="seg modeSeg" style="margin-bottom:10px"><button data-mode="paper">Paper</button><button data-mode="real">Reale</button></div>
+    <div class="seg modeSeg" style="margin-bottom:10px"><button data-mode="paper">Paper</button><button data-mode="real">Reale</button><button data-mode="strat">Strategia</button></div>
     <div class="card"><div class="stat">
       <div class="m"><span id="sLab1">Cassa</span><b id="sCash">—</b></div>
       <div class="m"><span id="sLab2">Equity</span><b id="sEq">—</b></div>
@@ -121,7 +121,7 @@
   <!-- JOURNAL -->
   <section class="view" id="v-journal">
     <div class="vfix">
-    <div class="seg modeSeg" style="margin-bottom:10px"><button data-mode="paper">Paper</button><button data-mode="real">Reale</button></div>
+    <div class="seg modeSeg" style="margin-bottom:10px"><button data-mode="paper">Paper</button><button data-mode="real">Reale</button><button data-mode="strat">Strategia</button></div>
     <div class="card"><div class="stat">
       <div class="m"><span>Trade</span><b id="jN">0</b></div>
       <div class="m"><span>Win rate</span><b id="jWR">—</b></div>
@@ -211,7 +211,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const prefGet = (k, d) => { try { return localStorage.getItem(k) || d; } catch { return d; } };
 const prefSet = (k, v) => { try { localStorage.setItem(k, v); } catch { /* memoria non disponibile */ } };
 
-const st = { mode: prefGet('kz_mode', 'paper') === 'real' ? 'real' : 'paper' };
+const st = { mode: ['real', 'strat'].includes(prefGet('kz_mode', 'paper')) ? prefGet('kz_mode', 'paper') : 'paper' };
 const rt = { gcache: {}, seen: new Map(), imgs: new Map(), cands: new Map(), sec: new Map(), run: null, runErr: '', exec: null, execErr: '', par: null, parErr: '', draft: {}, prices: new Map(), solUsd: 0, scanning: false, lastScan: 0, filter: 'all', logs: [] };
 const S = () => ({ ...DEFAULTS, ...((rt.run && rt.run.config) || {}) });   // stesse regole e filtri del runner
 
@@ -366,7 +366,7 @@ function fitJR() {
 function fitJ() {
   fitJR();
   const b = $('#jRows'); if (!b || !b.clientHeight) return; const rows = [...b.children]; rows.forEach((x) => { x.style.visibility = ''; });
-  rows.forEach((x, i) => { if (i > 0 && x.offsetTop + x.offsetHeight > b.clientHeight + 1) x.style.visibility = 'hidden'; });
+  const bt = b.getBoundingClientRect().top; rows.forEach((x, i) => { if (i > 0 && x.getBoundingClientRect().bottom - bt > b.clientHeight + 1) x.style.visibility = 'hidden'; });
 }
 function fitPos() {
   const el = $('#posList'), box = el && el.parentElement, h = box && box.clientHeight; if (!h) return;
@@ -496,7 +496,7 @@ function execLine() {
 // ---------- RENDER ----------
 function render(fast) {
   const real = st.mode === 'real', run = rt.run, e = rt.exec;
-  $('#pMode').textContent = real ? 'REALE' : 'PAPER'; $('#pMode').className = 'pill ' + (real ? 'real' : 'gold');
+  $('#pMode').textContent = real ? 'REALE' : st.mode === 'strat' ? 'STRATEGIA' : 'PAPER'; $('#pMode').className = 'pill ' + (real ? 'real' : 'gold');
   $('#brandSub').textContent = real ? 'Solana Meme Desk · REALE' : 'Solana Meme Desk';
   // stato del runner: verde se ha lavorato negli ultimi 15 minuti
   const age = run ? Date.now() - run.updatedAt : null, pr = $('#pRun');
@@ -519,6 +519,23 @@ function posCard(p, o) {
     <div class="row between posfoot"><span class="tiny muted">Tocca la scheda per aprire pump.fun</span><button class="btn sm red closebtn" data-close="${esc(p.id)}" data-cmode="${o.real ? 'real' : 'paper'}" data-sym="${esc(p.sym)}" data-pnl="${pnl.toFixed(1)}">Chiudi</button></div>
     ${o.sigs && o.sigs.length ? `<div class="tiny muted mono sigs">${o.sigs.map((g) => `<a href="https://solscan.io/tx/${esc(g)}" target="_blank" rel="noopener">${esc(String(g).slice(0, 8))}…</a>`).join(' · ')}</div>` : ''}</div>`;
 }
+// Posizioni della strategia corrente del Laboratorio, dal vivo (simulate: nessun ordine). Si chiudono da sole quando scatta l'uscita e vanno nel Journal della strategia.
+function renderStratPos() {
+  const R = rt.run && rt.run.strat, A = R && R.acct, C = R && R.current, live = (R && R.live) || [];
+  $('#sLab1').textContent = 'Capitale'; $('#sLab2').textContent = 'Equity'; $('#sLab3').textContent = 'vs capitale';
+  $('#sCash').textContent = A ? fmtSol(A.start) : '—'; $('#sEq').textContent = A ? fmtSol(A.eq) : '—'; $('#sDay').innerHTML = A ? `<span class="${cls(A.pnl)}">${fmtSol(A.pnl, 4)}</span>` : '—';
+  if (!rt.run) { $('#posList').innerHTML = `<div class="empty">Dati del runner non disponibili${rt.runErr ? ': ' + esc(rt.runErr) : ''}.</div>`; return; }
+  if (!C) { $('#posList').innerHTML = '<div class="empty">La strategia corrente non c\'è ancora: la sceglie il Laboratorio dopo il primo calcolo della fabbrica.</div>'; return; }
+  const label = (c) => (c.thr / 1000) + 'K · rit. ' + c.delay + ' s · +' + c.tp + '/−' + c.sl + (c.hold ? ' · ' + c.hold + ' s' : '') + (c.flt ? ' · filtro ' + c.flt.name : '');
+  $('#posList').innerHTML = live.length ? live.map((p) => {
+    const w = clamp((p.pct + p.sl) / (p.tp + p.sl) * 100, 0, 100);
+    return `<div class="card poscard" data-mint="${esc(p.m)}"><div class="tok"><span class="timg"><div class="ph"></div></span>
+      <div><div class="row"><span class="sym">$${esc(p.sym)}</span><span class="muted tiny">${esc(p.id)} · ${ago(Date.now() - p.at)}</span></div>
+      <div class="nm">mcap ${fmtUsd(p.mc0)} → ${fmtUsd(p.mc1)} · target +${p.tp}% · stop −${p.sl}%${p.left != null ? ' · ancora ' + Math.round(p.left) + ' s' : ''}</div></div><div class="score ${cls(p.net)}">${fmtPct(p.net, 1)}</div></div>
+      <div class="bar" style="margin-top:8px"><i style="width:${w}%;background:${p.pct >= 0 ? 'var(--green)' : 'var(--red)'}"></i></div>
+      <div class="row between posfoot"><span class="tiny muted">Esito netto dei costi · ${esc(label(C.cfg))}</span></div></div>`;
+  }).join('') : `<div class="empty">Nessuna posizione aperta della strategia ${esc(C.id)}.<br><span class="tiny">${esc(label(C.cfg))}<br>Entra quando un token supera la soglia${C.cfg.flt ? ' e passa il filtro' : ''}.</span></div>`;
+}
 function renderPos() {
   const real = st.mode === 'real', run = rt.run, e = rt.exec, s = S();
   $('#sLab1').textContent = real ? 'Saldo' : 'Cassa'; $('#sLab3').textContent = 'P&L oggi';
@@ -531,6 +548,7 @@ function renderPos() {
     }).join('') : '<div class="empty">Nessuna posizione reale aperta.</div>') + pend.map((p) => `<div class="card real-note small">In attesa di conferma: $${esc(p.sym)} ${esc(p.sizeSol)}◎ · <a href="https://solscan.io/tx/${esc(p.sig)}" target="_blank" rel="noopener">transazione</a></div>`).join('');
     return;
   }
+  if (st.mode === 'strat') return renderStratPos();
   if (!run) { $('#sCash').textContent = '—'; $('#sEq').textContent = '—'; $('#sDay').textContent = '—'; $('#posList').innerHTML = `<div class="empty">Dati del runner non disponibili${rt.runErr ? ': ' + esc(rt.runErr) : ''}.</div>`; return; }
   $('#sCash').textContent = fmtSol(run.cash); $('#sEq').textContent = fmtSol(run.equity); const d = run.equity - run.capital;
   $('#sLab3').textContent = 'vs capitale'; $('#sDay').innerHTML = `<span class="${cls(d)}">${fmtSol(d)}</span>`;
@@ -726,10 +744,11 @@ const TITLES_LAB = (id) => (rt.labParts && rt.labParts[id] ? rt.labParts[id].tit
 
 function renderJournal() {
   const real = st.mode === 'real', run = rt.run, e = rt.exec;
-  const J = real ? ((e && e.journal) || []) : ((run && run.journal) || []);
+  const strat = st.mode === 'strat', SA = strat && run && run.strat && run.strat.acct;
+  const J = real ? ((e && e.journal) || []) : strat ? (SA ? [...SA.trades].reverse().map((t) => ({ sym: t.sym, closedAt: t.at, pct: t.pct, pnl: t.pnl, reason: t.why, trigPct: null })) : []) : ((run && run.journal) || []);
   const wins = J.filter((j) => j.pnl > 0), losses = J.filter((j) => j.pnl <= 0), tot = J.reduce((a, j) => a + j.pnl, 0);
   const gw = wins.reduce((a, j) => a + j.pnl, 0), gl = -losses.reduce((a, j) => a + j.pnl, 0);
-  const st0 = !real && run && run.stats ? run.stats : null;                        // il runner conta anche i trade oltre gli ultimi 100
+  const st0 = !real && !strat && run && run.stats ? run.stats : null;                        // il runner conta anche i trade oltre gli ultimi 100
   $('#jN').textContent = st0 ? st0.n : J.length;
   $('#jWR').textContent = (st0 ? st0.n : J.length) ? (st0 ? st0.wr : wins.length / J.length * 100).toFixed(0) + '%' : '—';
   const P = st0 ? st0.pnl : tot; $('#jPnl').innerHTML = `<span class="${cls(P)}">${fmtSol(P)}</span>`;

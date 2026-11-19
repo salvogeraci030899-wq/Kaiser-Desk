@@ -28,7 +28,7 @@ function acctBlank(now) { return { start: ACCT_START, since: now || 0, eq: ACCT_
 function create() { return { v: 1, seq: 0, lastFarm: 0, items: [], log: [] }; }
 function normalize(o) {
   const r = create(); if (!o || typeof o !== 'object' || !Array.isArray(o.items)) return r;
-  r.seq = Number(o.seq) || 0; if (o.acct && Number.isFinite(o.acct.eq)) r.acct = { ...acctBlank(), ...o.acct, trades: Array.isArray(o.acct.trades) ? o.acct.trades.slice(-ACCT_KEEP) : [], curve: Array.isArray(o.acct.curve) ? o.acct.curve.slice(-ACCT_CURVE) : [] };
+  r.seq = Number(o.seq) || 0; if (o.settled && typeof o.settled === 'object') r.settled = o.settled; if (o.acct && Number.isFinite(o.acct.eq)) r.acct = { ...acctBlank(), ...o.acct, trades: Array.isArray(o.acct.trades) ? o.acct.trades.slice(-ACCT_KEEP) : [], curve: Array.isArray(o.acct.curve) ? o.acct.curve.slice(-ACCT_CURVE) : [] };
   if (o.current && o.current.cfg) r.current = { ...o.current, fwd: { ...blank(), ...(o.current.fwd || {}) }, prev: Array.isArray(o.current.prev) ? o.current.prev.slice(-10) : [] }; r.lastFarm = Number(o.lastFarm) || 0; r.log = Array.isArray(o.log) ? o.log.slice(-40) : [];
   for (const s of o.items) if (s && s.cfg && s.status) r.items.push({ ...s, fwd: { ...blank(), ...(s.fwd || {}) }, history: Array.isArray(s.history) ? s.history : [] });
   return r;
@@ -84,31 +84,63 @@ const describe = (b) => `${b.cfg.thr / 1000}K rit. ${b.cfg.delay}s +${b.cfg.tp}/
 function acctApply(reg, rec, s, x, now) {
   const a = reg.acct || (reg.acct = acctBlank(now)), size = a.eq * ACCT_SIZE, pnl = size * x.net / 100; a.eq += pnl; a.n++; if (pnl > 0) { a.win++; a.gain += pnl; } else a.loss -= pnl;
   a.peak = Math.max(a.peak, a.eq); a.dd = Math.max(a.dd, a.peak - a.eq);
-  a.trades.push({ id: s.id, m: rec.m, sym: String(rec.s || '').slice(0, 20), at: now, pct: +x.net.toFixed(1), pnl: +pnl.toFixed(5), why: x.why, held: x.held, eq: +a.eq.toFixed(5) }); if (a.trades.length > ACCT_KEEP) a.trades.shift();
+  a.trades.push({ id: s.id, m: rec.m, sym: String(rec.s || '').slice(0, 20), at: now, pct: +x.net.toFixed(1), pnl: +pnl.toFixed(5), why: x.why, held: x.held, eq: +a.eq.toFixed(5), mc0: x.mc0 || null, mc1: x.mc1 || null }); if (a.trades.length > ACCT_KEEP) a.trades.shift();
   a.curve.push(+a.eq.toFixed(4)); if (a.curve.length > ACCT_CURVE) a.curve.shift();
 }
 // Una regola puo' avere un filtro sui segnali noti alla soglia (percorso, possessori, creatore, social...): cfg.flt = { k, name, dir, cut }.
 // Il token passa solo se il segnale c'e' ed e' dalla parte giusta del taglio (come nella ricerca che l'ha trovato).
-function evalRec(rec, cfg, ctx) {
-  const u = rec.u || rec.usd; if (!cfg.flt) return Farm.simulate(rec.p, u, cfg);
-  const i = Farm.crossIdx(rec.p, cfg.thr / u); if (i < 1) return null;
+function passes(rec, cfg, i, ctx) {
+  if (!cfg.flt) return true;
   const f = Rug.feats(rec.p, i), h = ctx && ctx.holders && ctx.holders.get(rec.m); if (h) for (const k of Rug.HOLD_FEATS) if (Number.isFinite(h[k])) f[k] = h[k];
   if (ctx && ctx.cidx) Object.assign(f, Rug.creatorFeats(ctx.cidx, rec.cr, rec.m, rec.at));
-  const v = f[cfg.flt.k]; if (!Number.isFinite(v) || !(cfg.flt.dir === 'basso' ? v <= cfg.flt.cut : v > cfg.flt.cut)) return null;
+  const v = f[cfg.flt.k]; return Number.isFinite(v) && (cfg.flt.dir === 'basso' ? v <= cfg.flt.cut : v > cfg.flt.cut);
+}
+function evalRec(rec, cfg, ctx) {
+  const u = rec.u || rec.usd; if (!cfg.flt) return Farm.simulate(rec.p, u, cfg);
+  const i = Farm.crossIdx(rec.p, cfg.thr / u); if (i < 1 || !passes(rec, cfg, i, ctx)) return null;
   return Farm.simulate(rec.p, u, cfg);
 }
+// Posizione "dal vivo" della strategia su un token ancora in corso (percorso parziale): ingresso alla soglia piu' il ritardo, uscita a stop, target o tempo massimo,
+// con le stesse regole della simulazione. Restituisce { state: 'none' | 'open' | 'closed', ... }; 'closed' porta l'esito netto e il motivo.
+function live(rec, cfg, ctx) {
+  const p = rec.p, u = rec.u || rec.usd, BIN = Farm.BIN, i = Farm.crossIdx(p, cfg.thr / u); if (i < 1 || !passes(rec, cfg, i, ctx)) return { state: 'none' };
+  const j = i + Math.round((cfg.delay || 0) / BIN); if (j >= p.length || !(p[j] > 0)) return { state: 'none' };
+  const e = p[j], maxB = cfg.hold ? Math.round(cfg.hold / BIN) : Infinity, base = { j, entry: e, mc0: Math.round(e * u) };
+  for (let k = j + 1; k < p.length; k++) {
+    const r = p[k] / e, fin = (why) => ({ state: 'closed', ...base, net: (r - 1) * 100 - Farm.COST, why, held: (k - j) * BIN, mc1: Math.round(p[k] * u) });
+    if (r <= 1 - cfg.sl / 100) return fin('sl'); if (r >= 1 + cfg.tp / 100) return fin('tp'); if (k - j >= maxB) return fin('tempo');
+  }
+  const last = p[p.length - 1], held = (p.length - 1 - j) * BIN;
+  return { state: 'open', ...base, last, mc1: Math.round(last * u), pct: (last / e - 1) * 100, net: (last / e - 1) * 100 - Farm.COST, held, left: cfg.hold ? Math.max(0, cfg.hold - held) : null };
+}
 // Un token concluso: ogni regola non ritirata lo valuta solo se e' nato dopo la sua ammissione
+function settle(reg, s, rec, x, now) {
+  const f = s.fwd; f.n++; f.sum += x.net; if (x.net > 0) { f.win++; f.gain += x.net; } else f.loss -= x.net;
+  f.cum += x.net; f.peak = Math.max(f.peak, f.cum); f.dd = Math.max(f.dd, f.peak - f.cum); if (!f.first) f.first = rec.at; f.last = rec.at;
+  f.recent.push(+x.net.toFixed(2)); if (f.recent.length > RECENT) f.recent.shift();
+  if (s === reg.current) acctApply(reg, rec, s, x, now);
+}
+// La strategia corrente si chiude dal vivo appena scatta l'uscita (liveTick): il token non si conta una seconda volta quando si conclude
+function markSettled(reg, m, now) { reg.settled = reg.settled || {}; reg.settled[m] = now; const ks = Object.keys(reg.settled); if (ks.length > 600) for (const k of ks.sort((a, b) => reg.settled[a] - reg.settled[b]).slice(0, ks.length - 400)) delete reg.settled[k]; }
 function record(reg, rec, now, ctx) {
-  let changed = false; const u = rec.u || rec.usd;
+  let changed = false;
   for (const s of [...reg.items, ...(reg.current ? [reg.current] : [])]) {
     if (s.status === 'ritirata' || !(rec.at >= s.since)) continue;
+    if (s === reg.current && reg.settled && reg.settled[rec.m]) continue;
     const x = evalRec(rec, s.cfg, ctx); if (!x) continue;
-    const f = s.fwd; f.n++; f.sum += x.net; if (x.net > 0) { f.win++; f.gain += x.net; } else f.loss -= x.net;
-    f.cum += x.net; f.peak = Math.max(f.peak, f.cum); f.dd = Math.max(f.dd, f.peak - f.cum); if (!f.first) f.first = rec.at; f.last = rec.at;
-    f.recent.push(+x.net.toFixed(2)); if (f.recent.length > RECENT) f.recent.shift(); changed = true;
-    if (s === reg.current) acctApply(reg, rec, s, x, now);
+    settle(reg, s, rec, x, now); changed = true;
   }
   return changed;
+}
+// Controllo dal vivo della strategia corrente sui token ancora in corso: chiude subito le posizioni a cui e' scattata l'uscita e restituisce quelle aperte
+function liveTick(reg, recs, now, ctx) {
+  const c = reg.current, open = []; if (!c) return { open, closed: 0 }; let closed = 0;
+  for (const rec of recs) {
+    if (!(rec.at >= c.since) || (reg.settled && reg.settled[rec.m])) continue;
+    const L = live(rec, c.cfg, ctx); if (L.state === 'closed') { settle(reg, c, rec, { net: L.net, why: L.why, held: L.held, mc0: L.mc0, mc1: L.mc1 }, now); markSettled(reg, rec.m, now); closed++; }
+    else if (L.state === 'open') open.push({ id: c.id, m: rec.m, sym: String(rec.s || '').slice(0, 20), at: rec.at + L.j * Farm.BIN * 1000, mc0: L.mc0, mc1: L.mc1, pct: +L.pct.toFixed(1), net: +L.net.toFixed(1), held: L.held, left: L.left, tp: c.cfg.tp, sl: c.cfg.sl });
+  }
+  return { open: open.sort((a, b) => b.at - a.at).slice(0, 12), closed };
 }
 // Promozioni e ritiri; restituisce il numero di cambi di stato
 function review(reg, now) {
@@ -133,9 +165,9 @@ function summary(reg, now) {
   const count = { prova: 0, validata: 0, ritirata: 0 }; for (const s of reg.items) count[s.status] = (count[s.status] || 0) + 1;
   const live = reg.items.filter((s) => s.status !== 'ritirata'), dead = reg.items.filter((s) => s.status === 'ritirata').sort((a, b) => (b.endedAt || 0) - (a.endedAt || 0)).slice(0, 5);
   const pick = (s) => ({ id: s.id, cfg: s.cfg, status: s.status, since: s.since, farm: s.farm, fwd: stats(s.fwd), why: (s.history[s.history.length - 1] || {}).why || '' });
-  const A = reg.acct, acct = A && { start: A.start, eq: +A.eq.toFixed(4), pnl: +(A.eq - A.start).toFixed(4), pct: +((A.eq / A.start - 1) * 100).toFixed(1), n: A.n, win: A.n ? Math.round(100 * A.win / A.n) : 0, pf: A.loss > 0 ? +(A.gain / A.loss).toFixed(2) : (A.gain > 0 ? 99 : 0), dd: +A.dd.toFixed(4), since: A.since, curve: A.curve, trades: A.trades.slice(-15).reverse() };
+  const A = reg.acct, acct = A && { start: A.start, eq: +A.eq.toFixed(4), pnl: +(A.eq - A.start).toFixed(4), pct: +((A.eq / A.start - 1) * 100).toFixed(1), n: A.n, win: A.n ? Math.round(100 * A.win / A.n) : 0, pf: A.loss > 0 ? +(A.gain / A.loss).toFixed(2) : (A.gain > 0 ? 99 : 0), dd: +A.dd.toFixed(4), since: A.since, curve: A.curve, aw: (() => { const w = A.trades.filter((t) => t.pct > 0); return w.length ? +(w.reduce((s, t) => s + t.pct, 0) / w.length).toFixed(1) : 0; })(), al: (() => { const l = A.trades.filter((t) => t.pct <= 0); return l.length ? +(l.reduce((s, t) => s + t.pct, 0) / l.length).toFixed(1) : 0; })(), trades: A.trades.slice(-100).reverse() };
   const c = reg.current, cur = c && { id: c.id, cfg: c.cfg, since: c.since, farm: c.farm, fwd: stats(c.fwd), cum: +c.fwd.cum.toFixed(1), profitable: c.fwd.n >= 20 ? stats(c.fwd).ev > 0 : null, prev: (c.prev || []).slice(-3).map((p) => ({ id: p.id, cfg: p.cfg, fwd: p.fwd })) };
   return { at: now, count, acct: acct || null, current: cur || null, items: [...live, ...dead].slice(0, 20).map(pick), log: reg.log.slice(-6) };
 }
 
-module.exports = { evalRec, adoptCombo, ACCT_START, ACCT_SIZE, SWITCH_MARGIN, MIN_HOLD_MS, adoptBest, describe, MAX_TEST, MIN_FWD, MIN_SPAN_MS, MIN_PF, EARLY_N, GIVE_UP_N, STALE_MS, COOL_MS, DD_MAX, key, create, normalize, load, save, ingest, record, review, summary, stats };
+module.exports = { live, liveTick, evalRec, adoptCombo, ACCT_START, ACCT_SIZE, SWITCH_MARGIN, MIN_HOLD_MS, adoptBest, describe, MAX_TEST, MIN_FWD, MIN_SPAN_MS, MIN_PF, EARLY_N, GIVE_UP_N, STALE_MS, COOL_MS, DD_MAX, key, create, normalize, load, save, ingest, record, review, summary, stats };

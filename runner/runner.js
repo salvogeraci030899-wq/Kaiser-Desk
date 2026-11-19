@@ -95,7 +95,7 @@ function publicSummary() {
     journal: st.journal.slice(-100).map((j) => ({ id: j.id, mint: j.mint, sym: j.sym, openedAt: j.openedAt, closedAt: j.closedAt, cost: j.cost, back: j.back, pnl: j.pnl, pct: j.pct, reason: j.reason, score: j.score, peakPct: j.peakPct, trigPct: j.trigPct, maePct: j.maePct == null ? null : j.maePct, age: j.age == null ? null : j.age })),
     events: st.events.slice(0, 40), config: cfg,
     young: Y.youngSummary(rt.young, Date.now(), 80, (m) => (rt.trades ? rt.trades.botNow(m) : null)),
-    cal: calSummary(st.cal), semi: S.semiAuto || 'spento', alerts: Semi.view(st.alerts || [], 20), grok: { on: !!S.grokTest, key: !!process.env.XAI_API_KEY, used: rt.grokDay.n, err: rt.grokErr, errMsg: rt.grokErrMsg, queued: rt.grokQ.length, stat: Grokstat.summary(st.grokLog || []) }, farm: rt.farm || null, rug: rt.rug || null, combo: rt.combo || null, hold: { ok: rt.holdOk, fail: rt.holdFail, queued: rt.holdQ.length, err: rt.holdErr }, probe: rt.probe || null, strat: Strat.summary(rt.strat, Date.now()),
+    cal: calSummary(st.cal), semi: S.semiAuto || 'spento', alerts: Semi.view(st.alerts || [], 20), grok: { on: !!S.grokTest, key: !!process.env.XAI_API_KEY, used: rt.grokDay.n, err: rt.grokErr, errMsg: rt.grokErrMsg, queued: rt.grokQ.length, stat: Grokstat.summary(st.grokLog || []) }, farm: rt.farm || null, rug: rt.rug || null, combo: rt.combo || null, hold: { ok: rt.holdOk, fail: rt.holdFail, queued: rt.holdQ.length, err: rt.holdErr }, probe: rt.probe || null, strat: Object.assign(Strat.summary(rt.strat, Date.now()), { live: rt.shadowOpen || [] }),
     lab: rt.trades || (st.lab && st.lab.done.length) ? { info: rt.trades ? rt.trades.status() : null, ...Lab.labSummary((st.lab && st.lab.done) || [], Date.now()) } : null, youngInfo: rt.feed ? { ...rt.feed.status(), tracked: [...rt.young.values()].filter((y) => y.tracked).length } : null,
   };
 }
@@ -259,6 +259,16 @@ function stratCtx() {
   if (!rt.holdMap) { try { rt.holdMap = Farm.loadHolders(path.join(STATE_DIR, 'lab', 'holders')); } catch { rt.holdMap = new Map(); } }
   if (!rt.cidx || Date.now() - (rt.cidxAt || 0) > 600000) { try { rt.cidx = require('./rug.js').creatorIndex([...Farm.loadCreators(path.join(STATE_DIR, 'lab', 'creators')), ...rt.crBuf]); rt.cidxAt = Date.now(); } catch { rt.cidx = rt.cidx || null; } }
   return { holders: rt.holdMap, cidx: rt.cidx };
+}
+// La strategia corrente dal vivo: ogni tick si guardano i token ancora in corso; se la regola e' entrata e a un token e' scattata l'uscita, la posizione in ombra si chiude subito
+// (e va nel conto a parte); quelle ancora aperte si pubblicano per l'app. Nessun ordine.
+function shadowTick() {
+  try {
+    if (!rt.trades || !rt.strat.current) { rt.shadowOpen = []; return; }
+    const now = Date.now(), u = rt.solUsd > 0 ? rt.solUsd : 150, recs = [];
+    for (const t of rt.trades.book.toks.values()) { const p = Lab.paddedPath(t, now); if (p.length > 4) recs.push({ m: t.mint, s: t.sym, at: t.createdAt, p, u, cr: t.dev || '' }); }
+    const r = Strat.liveTick(rt.strat, recs, now, stratCtx()); rt.shadowOpen = r.open; if (r.closed) rt.stratDirty = true;
+  } catch (e) { rt.shadowErr = String(e.message).slice(0, 80); }
 }
 // Callout social dei token del Laboratorio: alla soglia di market cap Grok conta menzioni su X, callout di account grandi e allarmi. Solo misura (nessun ordine):
 // il risultato va nella stessa riga dei possessori e l'analisi dei rug lo confronta con l'esito. Al massimo 150 richieste al giorno; giudizi in ritardo di oltre 3 minuti si scartano.
@@ -712,6 +722,7 @@ async function main() {
       else await manage();
     } catch (e) { log('KAISER', 'errore: ' + (e.stack || e.message).split('\n')[0]); }
     if (rt.trades) rt.trades.tick();
+    shadowTick();
     maybeFarm();
     maybeProbe();
     pumpHolders();
