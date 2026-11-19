@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 16:05 UTC · in esecuzione da 0.1 giorni · 226 run
+Aggiornato: 2026-11-19 16:10 UTC · in esecuzione da 0.1 giorni · 226 run
 
 | | |
 |---|---|
@@ -37,6 +37,21 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+16:10:07 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 239 veto
+16:09:52 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 240 veto
+16:09:24 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 234 veto
+16:09:20 SCOUT    prezzo SOL non disponibile: HTTP 429
+16:09:10 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 229 veto
+16:08:45 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 229 veto
+16:08:21 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 231 veto
+16:07:58 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 229 veto
+16:07:33 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 235 veto
+16:07:10 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 234 veto
+16:06:46 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 234 veto
+16:06:21 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 232 veto
+16:05:57 ORACLE   360 raccolti, 231 analizzati, 0 BUY, 221 veto
+16:05:33 ORACLE   360 raccolti, 231 analizzati, 0 BUY, 222 veto
+16:05:18 ORACLE   360 raccolti, 230 analizzati, 0 BUY, 223 veto
 16:04:53 ORACLE   360 raccolti, 235 analizzati, 0 BUY, 229 veto
 16:04:30 ORACLE   360 raccolti, 234 analizzati, 0 BUY, 227 veto
 16:04:05 ORACLE   360 raccolti, 230 analizzati, 0 BUY, 223 veto
@@ -64,21 +79,6 @@ fabbrica: 21494 percorsi, 768 configurazioni, 0 passano, 3398 ms
 16:00:00 SCOUT    Laboratorio: collegato a PumpPortal
 16:00:00 KAISER   run #226 · 0 posizioni · equity 5.9307 SOL · GMGN spenta (nessuna chiave) · Grok off
 15:59:40 SCRIBE   fine run · trade 7 · win 43% · P&L -0.0693 SOL · equity 5.9307 SOL
-15:59:40 ORACLE   360 raccolti, 226 analizzati, 0 BUY, 212 veto
-15:59:17 ORACLE   360 raccolti, 222 analizzati, 0 BUY, 211 veto
-15:58:54 ORACLE   360 raccolti, 225 analizzati, 0 BUY, 213 veto
-15:58:31 ORACLE   360 raccolti, 234 analizzati, 0 BUY, 222 veto
-15:58:06 ORACLE   360 raccolti, 227 analizzati, 0 BUY, 217 veto
-15:57:43 ORACLE   360 raccolti, 229 analizzati, 0 BUY, 217 veto
-15:57:20 ORACLE   360 raccolti, 224 analizzati, 0 BUY, 212 veto
-15:56:57 ORACLE   360 raccolti, 219 analizzati, 0 BUY, 204 veto
-15:56:33 ORACLE   360 raccolti, 232 analizzati, 0 BUY, 217 veto
-15:56:10 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 222 veto
-15:55:47 ORACLE   360 raccolti, 232 analizzati, 0 BUY, 216 veto
-15:55:23 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 234 veto
-15:54:59 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 236 veto
-15:54:35 SCRIBE   chiuso P-0443 $ZGTA 0.0171 SOL (14.4%)
-15:54:35 CHARON   RUG-EXIT liquidità $ZGTA vendo 100% a -52.2% -> 0.1364 SOL
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
