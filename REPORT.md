@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 15:05 UTC · in esecuzione da 0.0 giorni · 224 run
+Aggiornato: 2026-11-19 15:09 UTC · in esecuzione da 0.0 giorni · 224 run
 
 | | |
 |---|---|
@@ -30,6 +30,18 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+15:09:25 SCRIBE   fine run · trade 2 · win 0% · P&L -0.0488 SOL · equity 5.9512 SOL
+15:09:24 ORACLE   360 raccolti, 227 analizzati, 1 BUY, 211 veto
+15:09:00 ORACLE   360 raccolti, 230 analizzati, 1 BUY, 216 veto
+15:08:37 ORACLE   360 raccolti, 230 analizzati, 1 BUY, 216 veto
+15:08:13 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 218 veto
+15:07:48 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 216 veto
+15:07:24 ORACLE   360 raccolti, 219 analizzati, 1 BUY, 203 veto
+15:07:11 ORACLE   360 raccolti, 229 analizzati, 1 BUY, 212 veto
+15:06:55 ORACLE   360 raccolti, 233 analizzati, 1 BUY, 217 veto
+15:06:29 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 220 veto
+15:06:16 ORACLE   360 raccolti, 227 analizzati, 1 BUY, 212 veto
+15:05:50 ORACLE   360 raccolti, 236 analizzati, 2 BUY, 221 veto
 15:05:26 ORACLE   360 raccolti, 238 analizzati, 3 BUY, 222 veto
 15:05:12 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 223 veto
 15:04:47 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 224 veto
@@ -58,18 +70,6 @@ _nessuna_
 14:57:18 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 217 veto
 14:56:54 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 222 veto
 14:56:30 ORACLE   360 raccolti, 223 analizzati, 2 BUY, 208 veto
-14:56:07 ORACLE   360 raccolti, 217 analizzati, 2 BUY, 202 veto
-14:55:43 ORACLE   360 raccolti, 228 analizzati, 1 BUY, 215 veto
-14:55:20 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 225 veto
-14:55:06 ORACLE   360 raccolti, 229 analizzati, 2 BUY, 219 veto
-14:54:40 ORACLE   360 raccolti, 227 analizzati, 2 BUY, 215 veto
-14:54:16 ORACLE   360 raccolti, 216 analizzati, 1 BUY, 205 veto
-14:53:53 ORACLE   360 raccolti, 221 analizzati, 1 BUY, 211 veto
-14:53:29 ORACLE   360 raccolti, 214 analizzati, 1 BUY, 207 veto
-14:53:17 ORACLE   360 raccolti, 221 analizzati, 1 BUY, 213 veto
-14:52:51 ORACLE   360 raccolti, 211 analizzati, 1 BUY, 206 veto
-14:52:28 ORACLE   360 raccolti, 220 analizzati, 1 BUY, 209 veto
-14:52:04 SCRIBE   chiuso P-0437 $MEVS -0.0334 SOL (-27.6%)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
