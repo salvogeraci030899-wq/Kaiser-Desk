@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.40.5">
+<meta name="kz-build" content="2.40.6">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=4" media="(prefers-color-scheme: light)">
@@ -985,6 +985,16 @@ document.addEventListener('click', (e) => {
 async function refreshAll() { if (rt.refreshing) return; rt.refreshing = true; $('#btnLogo').classList.add('busy'); try { await Promise.allSettled([scan(), loadAll()]); } finally { rt.refreshing = false; $('#btnLogo').classList.remove('busy'); } }
 $('#btnLogo').onclick = refreshAll;
 $('#opsBar').onclick = openLog;
+// Diagnostica dello schermo (tocca la versione accanto al titolo): serve a capire come iOS misura la finestra dell'app installata
+$('#ver').onclick = () => {
+  const pr = document.createElement('div'); pr.style.cssText = 'position:absolute;visibility:hidden;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)'; document.body.appendChild(pr);
+  const cs = getComputedStyle(pr), vv = window.visualViewport, r = (s) => { const e = document.querySelector(s); if (!e) return '—'; const b = e.getBoundingClientRect(); return `top ${Math.round(b.top)} · bottom ${Math.round(b.bottom)} · h ${Math.round(b.height)}`; };
+  const rows = [['innerHeight', window.innerHeight], ['clientHeight', document.documentElement.clientHeight], ['visualViewport', vv ? `${Math.round(vv.height)} (offsetTop ${Math.round(vv.offsetTop)})` : '—'], ['screen.height', screen.height], ['outerHeight', window.outerHeight],
+    ['safe top/bottom', cs.paddingTop + ' / ' + cs.paddingBottom], ['standalone', navigator.standalone + ' · pwa-mode ' + document.documentElement.classList.contains('pwa-mode')], ['tema', document.documentElement.dataset.theme + ' · barra ' + (document.getElementById('metaStatusBar') || {}).content],
+    ['#app', r('#app')], ['header', r('header')], ['main', r('main')], ['nav', r('nav')], ['body', r('body')]];
+  pr.remove();
+  openFull('Diagnostica schermo', '<div class="card small"><div class="kv">' + rows.map(([k, v]) => `<span>${k}</span><span class="mono" style="text-align:right">${esc(String(v))}</span>`).join('') + '</div></div>', 'diag');
+};
 // ---------- PANNELLO DI EMERGENZA ----------
 // Ogni azione ha la sua conferma. Dall'app (senza segreti) l'azione parte subito solo se nelle impostazioni l'approvazione manuale è spenta
 // (Attiva Reale chiede sempre Telegram); altrimenti arriva su Telegram il tasto di conferma.
