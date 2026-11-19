@@ -1,66 +1,8 @@
 {
  "startedAt": 1795097825371,
  "runs": 231,
- "cash": 5.5977306152522965,
- "positions": [
-  {
-   "id": "P-0463",
-   "mint": "Fz2mPmkdJGj7eBmUvYcuNLVBXsGNtGUBuSkxbQ7Lpump",
-   "sym": "PCVI",
-   "name": "Pepe City VI",
-   "pairAddress": "4AyGqcNNASdiebQ8nVMQyxrnGxcNbX2KCwn78CKzEdp9",
-   "openedAt": 1795119361839,
-   "sizeSOL": 0.11425980847453668,
-   "cost": 0.11525980847453668,
-   "entry": 9.1203e-7,
-   "tokens": 125280.75663578685,
-   "remaining": 1,
-   "rawLeft": "127408638538",
-   "peak": 9.1203e-7,
-   "tp1Done": false,
-   "spDone": false,
-   "entryLiq": 20268.11,
-   "realized": 0,
-   "score": 83,
-   "why": "runner",
-   "entryInfo": {
-    "srcs": [
-     "profili"
-    ],
-    "notes": [],
-    "plus": [
-     "turnover 7.7x/h"
-    ],
-    "m": {
-     "liq": 20268.11,
-     "mc": 65896,
-     "ageMin": 11.41195,
-     "v1": 156948.11,
-     "tx1": 2576,
-     "br1": 1.5651741293532337,
-     "br5": 1.3633540372670807,
-     "c5": 36.01,
-     "c1": 102,
-     "c6": 102,
-     "turn": 7.743598687790819,
-     "price": 0.00006596,
-     "priceNative": 9.03e-7
-    },
-    "grok": null
-   },
-   "last": {
-    "priceNative": 8.2e-7,
-    "liq": 19270.38,
-    "br5": 1.3472222222222223,
-    "tx5": 843,
-    "t": 1795119397534
-   },
-   "fills": [
-    "BUY 0.114 impatto 0.00% (Jupiter)"
-   ],
-   "trough": 8.2e-7
-  }
- ],
+ "cash": 5.671494406442297,
+ "positions": [],
  "journal": [
   {
    "id": "P-0437",
@@ -1265,142 +1207,53 @@
    },
    "maePct": -26.34703166111573,
    "age": 17
+  },
+  {
+   "id": "P-0463",
+   "mint": "Fz2mPmkdJGj7eBmUvYcuNLVBXsGNtGUBuSkxbQ7Lpump",
+   "sym": "PCVI",
+   "openedAt": 1795119361839,
+   "closedAt": 1795119569892,
+   "cost": 0.11525980847453668,
+   "back": 0.07376379119,
+   "pnl": -0.04149601728453668,
+   "pct": -36.00215706909145,
+   "mode": "paper",
+   "reason": "Stop loss",
+   "score": 83,
+   "solUsd": 73.30517937807934,
+   "peakPct": 0,
+   "trigPct": -33.521923620933514,
+   "entryInfo": {
+    "srcs": [
+     "profili"
+    ],
+    "notes": [],
+    "plus": [
+     "turnover 7.7x/h"
+    ],
+    "m": {
+     "liq": 20268.11,
+     "mc": 65896,
+     "ageMin": 11.41195,
+     "v1": 156948.11,
+     "tx1": 2576,
+     "br1": 1.5651741293532337,
+     "br5": 1.3633540372670807,
+     "c5": 36.01,
+     "c1": 102,
+     "c6": 102,
+     "turn": 7.743598687790819,
+     "price": 0.00006596,
+     "priceNative": 9.03e-7
+    },
+    "grok": null
+   },
+   "maePct": -33.521923620933514,
+   "age": 11
   }
  ],
  "signals": [
-  {
-   "t": 1795100056833,
-   "mint": "wKMvAVG9XwZz2XgV6vqXZudx8sjHtmfgLBoCA4Epump",
-   "sym": "MEVS",
-   "score": 69,
-   "priceNative": 0.000001231
-  },
-  {
-   "t": 1795100080338,
-   "mint": "wKMvAVG9XwZz2XgV6vqXZudx8sjHtmfgLBoCA4Epump",
-   "sym": "MEVS",
-   "score": 69,
-   "priceNative": 0.000001274
-  },
-  {
-   "t": 1795100080338,
-   "mint": "HsPduS4tdAHErKFimcuUKRxc67d6gDECCL9GA2yZpump",
-   "sym": "TRENCHCAT",
-   "score": 64,
-   "priceNative": 4.514e-7
-  },
-  {
-   "t": 1795100106156,
-   "mint": "wKMvAVG9XwZz2XgV6vqXZudx8sjHtmfgLBoCA4Epump",
-   "sym": "MEVS",
-   "score": 69,
-   "priceNative": 0.000001082
-  },
-  {
-   "t": 1795100106156,
-   "mint": "HsPduS4tdAHErKFimcuUKRxc67d6gDECCL9GA2yZpump",
-   "sym": "TRENCHCAT",
-   "score": 66,
-   "priceNative": 4.483e-7
-  },
-  {
-   "t": 1795100120111,
-   "mint": "wKMvAVG9XwZz2XgV6vqXZudx8sjHtmfgLBoCA4Epump",
-   "sym": "MEVS",
-   "score": 69,
-   "priceNative": 0.000001082
-  },
-  {
-   "t": 1795100120111,
-   "mint": "HsPduS4tdAHErKFimcuUKRxc67d6gDECCL9GA2yZpump",
-   "sym": "TRENCHCAT",
-   "score": 66,
-   "priceNative": 4.483e-7
-  },
-  {
-   "t": 1795100143999,
-   "mint": "HsPduS4tdAHErKFimcuUKRxc67d6gDECCL9GA2yZpump",
-   "sym": "TRENCHCAT",
-   "score": 67,
-   "priceNative": 4.507e-7
-  },
-  {
-   "t": 1795100167869,
-   "mint": "J8JjZXF6XE3zDp3zVQPYxkC9SNDuejGh8Eh6hjKgpump",
-   "sym": "JETSKI",
-   "score": 72,
-   "priceNative": 4.554e-7
-  },
-  {
-   "t": 1795100167869,
-   "mint": "HsPduS4tdAHErKFimcuUKRxc67d6gDECCL9GA2yZpump",
-   "sym": "TRENCHCAT",
-   "score": 67,
-   "priceNative": 4.314e-7
-  },
-  {
-   "t": 1795100190903,
-   "mint": "J8JjZXF6XE3zDp3zVQPYxkC9SNDuejGh8Eh6hjKgpump",
-   "sym": "JETSKI",
-   "score": 69,
-   "priceNative": 4.591e-7
-  },
-  {
-   "t": 1795100190903,
-   "mint": "HsPduS4tdAHErKFimcuUKRxc67d6gDECCL9GA2yZpump",
-   "sym": "TRENCHCAT",
-   "score": 67,
-   "priceNative": 4.314e-7
-  },
-  {
-   "t": 1795100214437,
-   "mint": "J8JjZXF6XE3zDp3zVQPYxkC9SNDuejGh8Eh6hjKgpump",
-   "sym": "JETSKI",
-   "score": 70,
-   "priceNative": 5.37e-7
-  },
-  {
-   "t": 1795100214437,
-   "mint": "HsPduS4tdAHErKFimcuUKRxc67d6gDECCL9GA2yZpump",
-   "sym": "TRENCHCAT",
-   "score": 65,
-   "priceNative": 4.66e-7
-  },
-  {
-   "t": 1795100238383,
-   "mint": "HsPduS4tdAHErKFimcuUKRxc67d6gDECCL9GA2yZpump",
-   "sym": "TRENCHCAT",
-   "score": 68,
-   "priceNative": 4.439e-7
-  },
-  {
-   "t": 1795100238383,
-   "mint": "J8JjZXF6XE3zDp3zVQPYxkC9SNDuejGh8Eh6hjKgpump",
-   "sym": "JETSKI",
-   "score": 66,
-   "priceNative": 5.907e-7
-  },
-  {
-   "t": 1795100262891,
-   "mint": "J8JjZXF6XE3zDp3zVQPYxkC9SNDuejGh8Eh6hjKgpump",
-   "sym": "JETSKI",
-   "score": 70,
-   "priceNative": 6.083e-7
-  },
-  {
-   "t": 1795100262891,
-   "mint": "88nxG48x7yazFrdnn4RVjL5V49xRabRJZc3bZdwipump",
-   "sym": "WhatUp",
-   "score": 64,
-   "priceNative": 5.712e-7
-  },
-  {
-   "t": 1795100286938,
-   "mint": "J8JjZXF6XE3zDp3zVQPYxkC9SNDuejGh8Eh6hjKgpump",
-   "sym": "JETSKI",
-   "score": 69,
-   "priceNative": 5.897e-7
-  },
   {
    "t": 1795100286938,
    "mint": "88nxG48x7yazFrdnn4RVjL5V49xRabRJZc3bZdwipump",
@@ -8267,6 +8120,139 @@
    "sym": "ONI",
    "score": 67,
    "priceNative": 7.269e-7
+  },
+  {
+   "t": 1795119411424,
+   "mint": "Fz2mPmkdJGj7eBmUvYcuNLVBXsGNtGUBuSkxbQ7Lpump",
+   "sym": "PCVI",
+   "score": 82,
+   "priceNative": 7.66e-7
+  },
+  {
+   "t": 1795119411424,
+   "mint": "FSfZuwaRFVcTtVBsiJ45NYK7Mwi3ANRcVT8kpbevtPGj",
+   "sym": "ONI",
+   "score": 67,
+   "priceNative": 7.269e-7
+  },
+  {
+   "t": 1795119435384,
+   "mint": "Fz2mPmkdJGj7eBmUvYcuNLVBXsGNtGUBuSkxbQ7Lpump",
+   "sym": "PCVI",
+   "score": 82,
+   "priceNative": 7.66e-7
+  },
+  {
+   "t": 1795119435384,
+   "mint": "FSfZuwaRFVcTtVBsiJ45NYK7Mwi3ANRcVT8kpbevtPGj",
+   "sym": "ONI",
+   "score": 67,
+   "priceNative": 7.757e-7
+  },
+  {
+   "t": 1795119459414,
+   "mint": "Fz2mPmkdJGj7eBmUvYcuNLVBXsGNtGUBuSkxbQ7Lpump",
+   "sym": "PCVI",
+   "score": 76,
+   "priceNative": 7.377e-7
+  },
+  {
+   "t": 1795119459414,
+   "mint": "FSfZuwaRFVcTtVBsiJ45NYK7Mwi3ANRcVT8kpbevtPGj",
+   "sym": "ONI",
+   "score": 67,
+   "priceNative": 7.757e-7
+  },
+  {
+   "t": 1795119483118,
+   "mint": "Fz2mPmkdJGj7eBmUvYcuNLVBXsGNtGUBuSkxbQ7Lpump",
+   "sym": "PCVI",
+   "score": 76,
+   "priceNative": 8.256e-7
+  },
+  {
+   "t": 1795119483118,
+   "mint": "FSfZuwaRFVcTtVBsiJ45NYK7Mwi3ANRcVT8kpbevtPGj",
+   "sym": "ONI",
+   "score": 66,
+   "priceNative": 7.997e-7
+  },
+  {
+   "t": 1795119507050,
+   "mint": "Fz2mPmkdJGj7eBmUvYcuNLVBXsGNtGUBuSkxbQ7Lpump",
+   "sym": "PCVI",
+   "score": 76,
+   "priceNative": 8.12e-7
+  },
+  {
+   "t": 1795119507050,
+   "mint": "FSfZuwaRFVcTtVBsiJ45NYK7Mwi3ANRcVT8kpbevtPGj",
+   "sym": "ONI",
+   "score": 66,
+   "priceNative": 7.997e-7
+  },
+  {
+   "t": 1795119532915,
+   "mint": "Fz2mPmkdJGj7eBmUvYcuNLVBXsGNtGUBuSkxbQ7Lpump",
+   "sym": "PCVI",
+   "score": 76,
+   "priceNative": 7.332e-7
+  },
+  {
+   "t": 1795119546260,
+   "mint": "Fz2mPmkdJGj7eBmUvYcuNLVBXsGNtGUBuSkxbQ7Lpump",
+   "sym": "PCVI",
+   "score": 75,
+   "priceNative": 6.639e-7
+  },
+  {
+   "t": 1795119569850,
+   "mint": "Fz2mPmkdJGj7eBmUvYcuNLVBXsGNtGUBuSkxbQ7Lpump",
+   "sym": "PCVI",
+   "score": 75,
+   "priceNative": 6.063e-7
+  },
+  {
+   "t": 1795119569850,
+   "mint": "FSfZuwaRFVcTtVBsiJ45NYK7Mwi3ANRcVT8kpbevtPGj",
+   "sym": "ONI",
+   "score": 68,
+   "priceNative": 7.079e-7
+  },
+  {
+   "t": 1795119593574,
+   "mint": "Fz2mPmkdJGj7eBmUvYcuNLVBXsGNtGUBuSkxbQ7Lpump",
+   "sym": "PCVI",
+   "score": 75,
+   "priceNative": 6.063e-7
+  },
+  {
+   "t": 1795119593574,
+   "mint": "FSfZuwaRFVcTtVBsiJ45NYK7Mwi3ANRcVT8kpbevtPGj",
+   "sym": "ONI",
+   "score": 68,
+   "priceNative": 7.079e-7
+  },
+  {
+   "t": 1795119617762,
+   "mint": "Fz2mPmkdJGj7eBmUvYcuNLVBXsGNtGUBuSkxbQ7Lpump",
+   "sym": "PCVI",
+   "score": 74,
+   "priceNative": 6.047e-7
+  },
+  {
+   "t": 1795119617762,
+   "mint": "FSfZuwaRFVcTtVBsiJ45NYK7Mwi3ANRcVT8kpbevtPGj",
+   "sym": "ONI",
+   "score": 66,
+   "priceNative": 6.764e-7
+  },
+  {
+   "t": 1795119641488,
+   "mint": "FSfZuwaRFVcTtVBsiJ45NYK7Mwi3ANRcVT8kpbevtPGj",
+   "sym": "ONI",
+   "score": 66,
+   "priceNative": 6.764e-7
   }
  ],
  "alerts": [],
@@ -8275,10 +8261,25 @@
   "date": "2026-11-19",
   "startEq": 6
  },
- "cooldownUntil": 1795119257556,
+ "cooldownUntil": 1795119869895,
  "halted": null,
  "seq": 463,
  "events": [
+  "20:21:28 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 227 veto",
+  "20:21:05 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 233 veto",
+  "20:20:41 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 226 veto",
+  "20:20:17 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 222 veto",
+  "20:19:53 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 231 veto",
+  "20:19:29 SCRIBE   chiuso P-0463 $PCVI -0.0415 SOL (-36.0%)",
+  "20:19:29 CHARON   Stop loss $PCVI vendo 100% a -33.5% -> 0.0738 SOL",
+  "20:19:29 ORACLE   360 raccolti, 236 analizzati, 2 BUY, 222 veto",
+  "20:19:06 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 236 veto",
+  "20:18:52 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 239 veto",
+  "20:18:27 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 236 veto",
+  "20:18:03 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 244 veto",
+  "20:17:39 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 246 veto",
+  "20:17:15 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 245 veto",
+  "20:16:51 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 256 veto",
   "20:16:27 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 255 veto",
   "20:16:01 QUARTER  BUY $PCVI 0.114 SOL score 83 impatto 0.00% (Jupiter)",
   "20:16:01 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 247 veto",
@@ -8563,22 +8564,7 @@
   "18:47:24 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 247 veto",
   "18:47:00 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 256 veto",
   "18:46:36 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 250 veto",
-  "18:46:13 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 249 veto",
-  "18:46:09 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)",
-  "18:46:09 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)",
-  "18:45:48 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 254 veto",
-  "18:45:35 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 242 veto",
-  "18:45:09 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 251 veto",
-  "18:44:45 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 257 veto",
-  "18:44:21 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 256 veto",
-  "18:43:58 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 255 veto",
-  "18:43:34 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 263 veto",
-  "18:43:11 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 259 veto",
-  "18:42:48 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 259 veto",
-  "18:42:23 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 268 veto",
-  "18:42:00 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 263 veto",
-  "18:41:36 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 255 veto",
-  "18:41:13 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 267 veto"
+  "18:46:13 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 249 veto"
  ],
  "capital": 6,
  "resetId": "C-0110",
@@ -19211,10 +19197,6 @@
  "lastDaily": "2026-11-19",
  "cal": [
   {
-   "t": 1794982893262,
-   "g": 112.7
-  },
-  {
    "t": 1794983388468,
    "g": -2.4
   },
@@ -19609,6 +19591,10 @@
   {
    "t": 1795118957554,
    "g": -17.7
+  },
+  {
+   "t": 1795119569892,
+   "g": -0.5
   }
  ]
 }

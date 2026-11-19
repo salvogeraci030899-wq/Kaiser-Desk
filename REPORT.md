@@ -1,25 +1,25 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 20:16 UTC · in esecuzione da 0.2 giorni · 231 run
+Aggiornato: 2026-11-19 20:21 UTC · in esecuzione da 0.3 giorni · 231 run
 
 | | |
 |---|---|
-| Equity | **5.7005 SOL** (-5.0% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.5977 SOL |
-| Trade chiusi | 26 |
-| Win rate | 35% |
-| P&L realizzato | -0.2870 SOL (~$-21.00) |
-| Media vincite / perdite | +26.6% / -28.2% |
-| Profit factor | 0.49 |
+| Equity | **5.6715 SOL** (-5.5% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.6715 SOL |
+| Trade chiusi | 27 |
+| Win rate | 33% |
+| P&L realizzato | -0.3285 SOL (~$-24.01) |
+| Media vincite / perdite | +26.6% / -28.6% |
+| Profit factor | 0.46 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$PCVI** P-0463 · 0.114 SOL · -10.1% · resta 100% · [grafico](https://dexscreener.com/solana/4AyGqcNNASdiebQ8nVMQyxrnGxcNbX2KCwn78CKzEdp9)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| Stop loss | 8 | -0.2800 |
+| Stop loss | 9 | -0.3215 |
 | Time stop | 10 | -0.0590 |
 | TP1 | 5 | +0.1432 |
 | RUG-EXIT liquidità | 3 | -0.0913 |
@@ -27,6 +27,7 @@ Aggiornato: 2026-11-19 20:16 UTC · in esecuzione da 0.2 giorni · 231 run
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $PCVI | 83 | -36.0% | -0.0415 | +0% | -34% | Stop loss | 3m |
 | $ONI | 66 | -41.3% | -0.0480 | +7% | -26% | Time stop | 5m |
 | $CAT | 71 | -52.5% | -0.0617 | +7% | -34% | Stop loss | 1m |
 | $JACK | 67 | +45.5% | +0.0530 | +36% | -2% | Time stop | 6m |
@@ -51,10 +52,24 @@ Aggiornato: 2026-11-19 20:16 UTC · in esecuzione da 0.2 giorni · 231 run
 | $SC | 67 | +13.3% | +0.0159 | +63% | +63% | TP1 | 2m |
 | $HOLM | 66 | +1.8% | +0.0022 | +0% | -33% | Stop loss | 2m |
 | $CORNER | 63 | -17.6% | -0.0211 | +14% | -37% | Stop loss | 4m |
-| $JETSKI | 66 | -12.8% | -0.0154 | +11% | +2% | Time stop | 5m |
 
 ## Ultimi eventi
 ```
+20:21:28 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 227 veto
+20:21:05 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 233 veto
+20:20:41 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 226 veto
+20:20:17 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 222 veto
+20:19:53 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 231 veto
+20:19:29 SCRIBE   chiuso P-0463 $PCVI -0.0415 SOL (-36.0%)
+20:19:29 CHARON   Stop loss $PCVI vendo 100% a -33.5% -> 0.0738 SOL
+20:19:29 ORACLE   360 raccolti, 236 analizzati, 2 BUY, 222 veto
+20:19:06 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 236 veto
+20:18:52 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 239 veto
+20:18:27 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 236 veto
+20:18:03 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 244 veto
+20:17:39 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 246 veto
+20:17:15 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 245 veto
+20:16:51 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 256 veto
 20:16:27 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 255 veto
 20:16:01 QUARTER  BUY $PCVI 0.114 SOL score 83 impatto 0.00% (Jupiter)
 20:16:01 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 247 veto
@@ -82,21 +97,6 @@ fabbrica: 22404 percorsi, 768 configurazioni, 0 passano, 2921 ms
 20:11:32 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
 20:11:32 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120
 20:11:32 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
-20:11:32 SCOUT    Laboratorio: collegato a PumpPortal
-20:11:31 KAISER   run #231 · 0 posizioni · equity 5.7130 SOL · GMGN spenta (nessuna chiave) · Grok off
-20:11:16 SCRIBE   fine run · trade 26 · win 35% · P&L -0.2870 SOL · equity 5.7130 SOL
-20:11:07 ORACLE   360 raccolti, 230 analizzati, 2 BUY, 219 veto
-20:10:43 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 226 veto
-20:10:19 ORACLE   360 raccolti, 229 analizzati, 2 BUY, 217 veto
-20:09:55 ORACLE   360 raccolti, 228 analizzati, 1 BUY, 220 veto
-20:09:31 ORACLE   360 raccolti, 225 analizzati, 2 BUY, 216 veto
-20:09:17 SCRIBE   chiuso P-0462 $ONI -0.0480 SOL (-41.3%)
-20:09:17 CHARON   Time stop $ONI vendo 100% a -26.3% -> 0.0682 SOL
-20:09:07 ORACLE   360 raccolti, 210 analizzati, 2 BUY, 200 veto
-20:08:43 ORACLE   360 raccolti, 236 analizzati, 2 BUY, 225 veto
-20:08:19 ORACLE   360 raccolti, 233 analizzati, 1 BUY, 221 veto
-20:08:06 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 225 veto
-20:07:40 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 225 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
