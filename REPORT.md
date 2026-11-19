@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 22:07 UTC · in esecuzione da 0.3 giorni · 233 run
+Aggiornato: 2026-11-19 22:12 UTC · in esecuzione da 0.3 giorni · 233 run
 
 | | |
 |---|---|
-| Equity | **5.4831 SOL** (-8.6% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.4831 SOL |
+| Equity | **5.4779 SOL** (-8.7% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.3725 SOL |
 | Trade chiusi | 36 |
 | Win rate | 28% |
-| P&L realizzato | -0.5169 SOL (~$-37.41) |
+| P&L realizzato | -0.5169 SOL (~$-37.44) |
 | Media vincite / perdite | +29.3% / -28.3% |
 | Profit factor | 0.40 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$DATITTY** P-0473 · 0.110 SOL · -3.9% · resta 100% · [grafico](https://dexscreener.com/solana/G2uX4gouXxpCMgUJ5LoFaHTsY9JJwEhYmdatttABpsix)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+22:12:23 ORACLE   360 raccolti, 262 analizzati, 4 BUY, 250 veto
+22:11:59 ORACLE   360 raccolti, 243 analizzati, 5 BUY, 232 veto
+22:11:35 ORACLE   360 raccolti, 250 analizzati, 4 BUY, 237 veto
+22:11:10 QUARTER  BUY $DATITTY 0.110 SOL score 88 impatto 1.15% (Jupiter)
+22:11:10 ORACLE   360 raccolti, 257 analizzati, 3 BUY, 241 veto
+22:10:47 ORACLE   360 raccolti, 254 analizzati, 4 BUY, 238 veto
+22:10:23 ORACLE   360 raccolti, 263 analizzati, 4 BUY, 249 veto
+22:09:59 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 258 veto
+22:09:35 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 245 veto
+22:09:11 ORACLE   360 raccolti, 260 analizzati, 3 BUY, 246 veto
+22:08:47 ORACLE   360 raccolti, 261 analizzati, 3 BUY, 245 veto
+22:08:24 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 243 veto
+22:08:00 ORACLE   360 raccolti, 269 analizzati, 3 BUY, 257 veto
+22:07:46 ORACLE   360 raccolti, 272 analizzati, 4 BUY, 261 veto
 22:07:18 SCOUT    Laboratorio: collegato a PumpPortal
 22:07:13 ORACLE   360 raccolti, 257 analizzati, 4 BUY, 247 veto
 22:06:49 ORACLE   360 raccolti, 265 analizzati, 4 BUY, 250 veto
@@ -81,20 +95,6 @@ _nessuna_
 21:59:57 ORACLE   360 raccolti, 249 analizzati, 3 BUY, 237 veto
 21:59:33 ORACLE   360 raccolti, 261 analizzati, 3 BUY, 247 veto
 21:59:09 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 245 veto
-21:58:45 SCRIBE   chiuso P-0471 $VINTEL 0.0589 SOL (53.7%)
-21:58:45 CHARON   TP1 $VINTEL vendo 100% a 70.3% -> 0.1686 SOL
-21:58:45 ORACLE   360 raccolti, 274 analizzati, 2 BUY, 260 veto
-21:58:20 ORACLE   360 raccolti, 263 analizzati, 4 BUY, 249 veto
-21:57:56 ORACLE   360 raccolti, 264 analizzati, 4 BUY, 248 veto
-21:57:32 ORACLE   360 raccolti, 279 analizzati, 4 BUY, 264 veto
-21:57:08 ORACLE   360 raccolti, 272 analizzati, 4 BUY, 259 veto
-21:56:45 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 254 veto
-21:56:21 QUARTER  BUY $VINTEL 0.109 SOL score 76 impatto 0.02% (Jupiter)
-21:56:20 QUARTER  $MANDY impatto 4.5% oltre slippage: annullato
-21:56:20 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 261 veto
-21:55:57 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 264 veto
-21:55:43 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 244 veto
-21:55:18 ORACLE   360 raccolti, 278 analizzati, 3 BUY, 265 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
