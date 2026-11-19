@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.39.0">
+<meta name="kz-build" content="2.39.1">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=2">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
@@ -30,7 +30,7 @@
   document.getElementById('metaStatusBar').setAttribute('content', light ? 'default' : (bar === 'separate' ? 'black' : 'black-translucent'));
 })();
 </script>
-<link rel="stylesheet" href="style.css?v=51">
+<link rel="stylesheet" href="style.css?v=52">
 <script src="version.js"></script>
 <script src="theme.js"></script>
 <script src="lock.js"></script>
@@ -409,7 +409,7 @@ function fitRadar() {
 // Posizioni: tre schede intere per volta (altezza = un terzo della lista, con un minimo perché la scheda resti leggibile)
 function fitPos() {
   const el = $('#posList'), box = el && el.parentElement, h = box && box.clientHeight; if (!h) return;
-  const row = Math.max(100, Math.floor((h - 20) / 3)); if (el.style.getPropertyValue('--pos-h') !== row + 'px') el.style.setProperty('--pos-h', row + 'px');
+  const row = Math.max(160, Math.floor((h - 20) / 3)); if (el.style.getPropertyValue('--pos-h') !== row + 'px') el.style.setProperty('--pos-h', row + 'px');
 }
 try { const ro = new ResizeObserver(() => { fitRadar(); fitPos(); }); ro.observe($('#radarList')); ro.observe($('#posList').parentElement); } catch (e) { window.addEventListener('resize', () => { fitRadar(); fitPos(); }); }
 
