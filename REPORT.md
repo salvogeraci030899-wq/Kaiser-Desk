@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 17:15 UTC · in esecuzione da 0.1 giorni · 227 run
+Aggiornato: 2026-11-19 17:21 UTC · in esecuzione da 0.1 giorni · 227 run
 
 | | |
 |---|---|
-| Equity | **5.8747 SOL** (-2.1% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.8747 SOL |
+| Equity | **5.8971 SOL** (-1.7% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.7562 SOL |
 | Trade chiusi | 13 |
 | Win rate | 31% |
-| P&L realizzato | -0.1253 SOL (~$-9.13) |
+| P&L realizzato | -0.1253 SOL (~$-9.15) |
 | Media vincite / perdite | +13.8% / -17.7% |
 | Profit factor | 0.35 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$IPO** P-0450 · 0.117 SOL · +19.9% · resta 100% · [grafico](https://dexscreener.com/solana/BQN4WPdFLxB8DLNJpcp2UnKKZQ53iSGxDXagh9gqcibz)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -43,6 +43,21 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+17:21:07 ORACLE   360 raccolti, 235 analizzati, 2 BUY, 223 veto
+17:20:52 QUARTER  BUY $IPO 0.117 SOL score 63 impatto 0.00% (Jupiter)
+17:20:52 ORACLE   360 raccolti, 235 analizzati, 3 BUY, 224 veto
+17:20:27 ORACLE   360 raccolti, 234 analizzati, 3 BUY, 222 veto
+17:20:03 ORACLE   360 raccolti, 225 analizzati, 2 BUY, 216 veto
+17:19:40 ORACLE   360 raccolti, 232 analizzati, 2 BUY, 224 veto
+17:19:16 ORACLE   360 raccolti, 231 analizzati, 1 BUY, 222 veto
+17:18:53 ORACLE   360 raccolti, 228 analizzati, 1 BUY, 217 veto
+17:18:29 ORACLE   360 raccolti, 224 analizzati, 1 BUY, 217 veto
+17:18:06 ORACLE   360 raccolti, 228 analizzati, 1 BUY, 220 veto
+17:17:43 ORACLE   360 raccolti, 222 analizzati, 1 BUY, 214 veto
+17:17:18 ORACLE   360 raccolti, 228 analizzati, 1 BUY, 222 veto
+17:16:55 ORACLE   360 raccolti, 219 analizzati, 1 BUY, 214 veto
+17:16:33 ORACLE   360 raccolti, 220 analizzati, 1 BUY, 215 veto
+17:16:20 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 227 veto
 17:15:55 ORACLE   360 raccolti, 221 analizzati, 1 BUY, 215 veto
 17:15:32 ORACLE   360 raccolti, 215 analizzati, 1 BUY, 210 veto
 17:15:18 ORACLE   360 raccolti, 223 analizzati, 1 BUY, 213 veto
@@ -68,21 +83,6 @@ _nessuna_
 17:08:16 CHARON   Time stop $NTDOY vendo 100% a 3.8% -> 0.0980 SOL
 17:08:16 ORACLE   360 raccolti, 192 analizzati, 2 BUY, 183 veto
 17:08:13 SCOUT    DexScreener errore: This operation was aborted
-17:07:38 ORACLE   360 raccolti, 192 analizzati, 2 BUY, 185 veto
-17:07:14 ORACLE   360 raccolti, 205 analizzati, 2 BUY, 198 veto
-17:06:50 ORACLE   360 raccolti, 212 analizzati, 2 BUY, 201 veto
-17:06:27 ORACLE   360 raccolti, 206 analizzati, 2 BUY, 196 veto
-17:06:03 ORACLE   360 raccolti, 206 analizzati, 2 BUY, 197 veto
-17:05:38 ORACLE   360 raccolti, 194 analizzati, 2 BUY, 186 veto
-17:05:15 ORACLE   360 raccolti, 192 analizzati, 2 BUY, 185 veto
-17:04:51 ORACLE   360 raccolti, 201 analizzati, 2 BUY, 191 veto
-17:04:28 ORACLE   360 raccolti, 190 analizzati, 2 BUY, 179 veto
-17:04:04 ORACLE   360 raccolti, 187 analizzati, 2 BUY, 177 veto
-17:03:41 ORACLE   360 raccolti, 176 analizzati, 2 BUY, 167 veto
-17:03:17 ORACLE   360 raccolti, 156 analizzati, 1 BUY, 147 veto
-17:03:04 ORACLE   360 raccolti, 153 analizzati, 1 BUY, 144 veto
-17:02:37 ORACLE   360 raccolti, 155 analizzati, 1 BUY, 148 veto
-17:02:14 ORACLE   360 raccolti, 153 analizzati, 2 BUY, 148 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
