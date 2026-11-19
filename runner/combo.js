@@ -66,10 +66,17 @@ function run(recs, o) {
   out.ms = Date.now() - t0; return out;
 }
 
+// Piu' soglie di market cap: si tiene la migliore e il p si corregge per il numero di soglie provate (si e' scelto il meglio tra N ricerche: p * N, al massimo 1)
+function runMany(recs, thrs, o) {
+  const res = thrs.map((thr) => run(recs, { ...(o || {}), thr })), score = (r) => (r.best ? r.best.score : -Infinity);
+  const best = res.slice().sort((a, b) => score(b) - score(a))[0], out = { ...best, byThr: res.map((r) => ({ thr: r.thr, n: r.n, score: r.best ? r.best.score : null, p: r.perm.p })), thrsTried: thrs.length };
+  if (best.perm && best.perm.p != null) out.perm = { ...best.perm, raw: best.perm.p, p: +Math.min(1, best.perm.p * thrs.length).toFixed(3) };
+  out.tests = res.reduce((s, r) => s + r.tests, 0); return out;
+}
 // Un risultato credibile: esito positivo sui dati vecchi E recenti, abbastanza operazioni, e il caso fa altrettanto bene in meno del 5% delle ricerche
 function credible(co) {
   const b = co && co.best; if (!b || !b.feat || !co.perm || co.perm.p == null) return false;
   return b.tr.ev > 0 && b.te.ev > 0 && b.tr.n >= MIN_TR && b.te.n >= MIN_TE && co.perm.p <= 0.05 && co.perm.B >= 50;
 }
-const comboKey = (co) => { const b = co && co.best; return b ? [b.feat, b.dir, b.cut, b.rule.delay, b.rule.tp, b.rule.sl, b.rule.hold].join('/') : ''; };
-module.exports = { credible, comboKey, RULES, MIN_TR, MIN_TE, build, run };
+const comboKey = (co) => { const b = co && co.best; return b ? [co.thr || '', b.feat, b.dir, b.cut, b.rule.delay, b.rule.tp, b.rule.sl, b.rule.hold].join('/') : ''; };
+module.exports = { runMany, credible, comboKey, RULES, MIN_TR, MIN_TE, build, run };

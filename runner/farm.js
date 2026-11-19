@@ -119,7 +119,7 @@ if (require.main === module) {
   } catch (e) { console.log('analisi rug non riuscita: ' + String(e.message).split('\n')[0]); }
   // ricerca filtro + regola con controllo delle false scoperte (permutazioni)
   try {
-    const Combo = require('./combo.js'), hd2 = arg('holders', ''), cr2 = arg('creators', ''), co = Combo.run(recs, { thr: 7500, holders: hd2 ? loadHolders(hd2) : new Map(), creators: cr2 ? loadCreators(cr2) : [] });
+    const Combo = require('./combo.js'), hd2 = arg('holders', ''), cr2 = arg('creators', ''), co = Combo.runMany(recs, [7500, 10000, 15000], { holders: hd2 ? loadHolders(hd2) : new Map(), creators: cr2 ? loadCreators(cr2) : [] });
     fs.writeFileSync(arg('combo', path.join(path.dirname(out), 'combo.json')), JSON.stringify(co)); console.log(`combinazioni: ${co.tests} prove, migliore ${co.best ? co.best.score + '%' : '—'}, p ${co.perm.p == null ? '—' : co.perm.p}`);
   } catch (e) { console.log('ricerca combinata non riuscita: ' + String(e.message).split('\n')[0]); }
   console.log(`fabbrica: ${rep.paths} percorsi, ${rep.tried} configurazioni, ${rep.passed} passano, ${rep.ms} ms`);
