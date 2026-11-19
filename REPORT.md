@@ -1,15 +1,15 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 05:47 UTC · in esecuzione da 0.6 giorni · 213 run
+Aggiornato: 2026-11-19 05:52 UTC · in esecuzione da 0.6 giorni · 213 run
 
 | | |
 |---|---|
-| Equity | **5.3224 SOL** (-11.3% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.3224 SOL |
-| Trade chiusi | 42 |
-| Win rate | 29% |
-| P&L realizzato | -0.6776 SOL (~$-50.48) |
-| Media vincite / perdite | +38.0% / -34.7% |
+| Equity | **5.3207 SOL** (-11.3% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.3207 SOL |
+| Trade chiusi | 43 |
+| Win rate | 28% |
+| P&L realizzato | -0.6793 SOL (~$-50.58) |
+| Media vincite / perdite | +38.0% / -33.6% |
 | Profit factor | 0.43 |
 | Circuit breaker | no |
 
@@ -23,11 +23,12 @@ _nessuna_
 | RUG-EXIT liquidità | 8 | -0.5936 |
 | TP1 | 5 | +0.4440 |
 | Time stop | 14 | -0.2132 |
-| Stop loss | 9 | -0.3383 |
+| Stop loss | 10 | -0.3400 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $Anthropic | 64 | -1.6% | -0.0017 | +0% | -40% | Stop loss | 0m |
 | $AFTERGTA6 | 71 | -18.3% | -0.0198 | +0% | -24% | Time stop | 5m |
 | $MANDY | 86 | +99.4% | +0.1051 | +69% | +69% | TP1 | 9m |
 | $HNYDRIP | 63 | +2.9% | +0.0031 | +29% | -4% | Time stop | 5m |
@@ -52,10 +53,27 @@ _nessuna_
 | $Streamoor | 73 | +81.5% | +0.0913 | +85% | +85% | TP1 | 2m |
 | $NAP | 68 | -7.2% | -0.0081 | +2% | +1% | Time stop | 5m |
 | $gte7 | 70 | -33.5% | -0.0379 | +0% | -30% | Stop loss | 1m |
-| $$WISHES | 63 | -6.4% | -0.0073 | +9% | +2% | Time stop | 8m |
 
 ## Ultimi eventi
 ```
+05:52:30 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 232 veto
+05:52:26 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
+05:52:06 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 243 veto
+05:51:43 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 237 veto
+05:51:21 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 230 veto
+05:50:56 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 226 veto
+05:50:33 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 227 veto
+05:50:10 ORACLE   360 raccolti, 227 analizzati, 2 BUY, 217 veto
+05:49:56 ORACLE   360 raccolti, 230 analizzati, 2 BUY, 220 veto
+05:49:40 SCRIBE   chiuso P-0425 $Anthropic -0.0017 SOL (-1.6%)
+05:49:40 CHARON   Stop loss $Anthropic vendo 100% a -40.3% -> 0.1057 SOL
+05:49:29 QUARTER  BUY $Anthropic 0.106 SOL score 64 impatto 1.11% (Jupiter)
+05:49:29 ORACLE   360 raccolti, 228 analizzati, 1 BUY, 217 veto
+05:49:06 ORACLE   360 raccolti, 228 analizzati, 0 BUY, 216 veto
+05:48:42 ORACLE   360 raccolti, 214 analizzati, 0 BUY, 204 veto
+05:48:19 ORACLE   360 raccolti, 226 analizzati, 0 BUY, 215 veto
+05:47:55 ORACLE   360 raccolti, 222 analizzati, 1 BUY, 212 veto
+05:47:31 ORACLE   360 raccolti, 228 analizzati, 1 BUY, 217 veto
 05:47:07 ORACLE   360 raccolti, 230 analizzati, 1 BUY, 218 veto
 05:46:44 ORACLE   360 raccolti, 224 analizzati, 1 BUY, 215 veto
 05:46:20 ORACLE   360 raccolti, 231 analizzati, 1 BUY, 222 veto
@@ -78,24 +96,6 @@ _nessuna_
 05:40:24 ORACLE   360 raccolti, 229 analizzati, 1 BUY, 223 veto
 05:40:01 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 225 veto
 05:39:38 ORACLE   360 raccolti, 229 analizzati, 0 BUY, 221 veto
-05:39:14 ORACLE   360 raccolti, 228 analizzati, 1 BUY, 221 veto
-05:38:51 ORACLE   360 raccolti, 225 analizzati, 1 BUY, 218 veto
-05:38:28 ORACLE   360 raccolti, 224 analizzati, 1 BUY, 216 veto
-05:38:04 ORACLE   360 raccolti, 223 analizzati, 1 BUY, 216 veto
-05:37:41 ORACLE   360 raccolti, 216 analizzati, 1 BUY, 209 veto
-05:37:29 ORACLE   360 raccolti, 215 analizzati, 1 BUY, 208 veto
-05:37:02 ORACLE   360 raccolti, 222 analizzati, 0 BUY, 212 veto
-05:36:39 ORACLE   360 raccolti, 221 analizzati, 0 BUY, 211 veto
-05:36:16 ORACLE   360 raccolti, 216 analizzati, 1 BUY, 206 veto
-05:36:12 SCOUT    gecko nuovi: HTTP 404 (riuso l'ultimo elenco)
-05:35:52 QUARTER  BUY $AFTERGTA6 0.107 SOL score 71 impatto 0.00% (Jupiter)
-05:35:51 ORACLE   360 raccolti, 218 analizzati, 1 BUY, 208 veto
-05:35:28 ORACLE   360 raccolti, 217 analizzati, 0 BUY, 208 veto
-05:35:05 ORACLE   360 raccolti, 214 analizzati, 1 BUY, 203 veto
-05:34:41 ORACLE   360 raccolti, 219 analizzati, 1 BUY, 207 veto
-05:34:17 QUARTER  $AFTERGTA6 impatto 3.4% oltre slippage: annullato
-05:34:17 ORACLE   360 raccolti, 216 analizzati, 2 BUY, 205 veto
-05:33:53 ORACLE   360 raccolti, 209 analizzati, 1 BUY, 198 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
