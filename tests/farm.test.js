@@ -68,3 +68,14 @@ test('il runner salva i percorsi, avvia la fabbrica in un processo separato e ne
   assert.match(src, /require\('\.\/farm\.js'\)/); assert.match(src, /onPath: \(x\) => \{ rt\.pathBuf\.push\(Farm\.pack\(x\)\)/); assert.match(src, /flushPaths\(false\)/); assert.match(src, /flushPaths\(true\)/);
   assert.match(src, /execFile\(process\.execPath, \[path\.join\(__dirname, 'farm\.js'\)/); assert.match(src, /farm: rt\.farm \|\| null/); assert.match(src, /maybeFarm\(\);/); assert.match(src, /3600000/);
 });
+
+test('ricerca filtro + regola: trova un segnale vero (p basso) e non ne inventa uno dal rumore (p alto)', () => {
+  const Combo = require('../runner/combo.js'); let seed = 12345; const rnd = () => { seed = (seed * 1664525 + 1013904223) % 4294967296; return seed / 4294967296; };
+  const mkRec = (i, good) => { const p = []; for (let k = 0; k < 10; k++) p.push(40 + k * 3.5); p.push(76); for (let k = 1; k <= 80; k++) p.push(good ? (k < 6 ? 76 + k * 3 : 76 + 18) : (k < 4 ? 76 - k * 6 : 52)); return { m: 'm' + i, s: 'S', at: T + i * 1000, u: 100, p, cr: '' }; };
+  const N = 900, hol = new Map(), rec1 = [], rec2 = [];
+  for (let i = 0; i < N; i++) { const good = rnd() < 0.5; rec1.push(mkRec(i, good)); hol.set('m' + i, { top1: good ? 0.05 + rnd() * 0.05 : 0.30 + rnd() * 0.1 }); rec2.push(mkRec(i, rnd() < 0.5)); }
+  const real = Combo.run(rec1, { thr: 7500, holders: hol, creators: [], perms: 40, rng: rnd });
+  assert.ok(real.best && real.best.score > 5, 'segnale vero: esito positivo ' + (real.best && real.best.score)); assert.equal(real.best.feat, 'top1'); assert.ok(real.perm.p <= 0.05, 'p ' + real.perm.p);
+  const noise = new Map(); for (let i = 0; i < N; i++) noise.set('m' + i, { top1: rnd() });
+  const none = Combo.run(rec2, { thr: 7500, holders: noise, creators: [], perms: 40, rng: rnd }); assert.ok(none.perm.p > 0.05, 'rumore: p ' + none.perm.p);
+});

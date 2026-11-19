@@ -72,4 +72,4 @@ function analyze(recs, thr, o) {
   return out;
 }
 
-module.exports = { creatorFeats, creatorIndex, RUG_AT, DUMP_AT, WIN_BINS, MIN_BINS, NAMES, PATH_FEATS, HOLD_FEATS, feats, label, analyze };
+module.exports = { CRE_FEATS, creatorFeats, creatorIndex, RUG_AT, DUMP_AT, WIN_BINS, MIN_BINS, NAMES, PATH_FEATS, HOLD_FEATS, feats, label, analyze };

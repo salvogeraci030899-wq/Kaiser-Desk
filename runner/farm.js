@@ -117,6 +117,11 @@ if (require.main === module) {
     const Rug = require('./rug.js'), hd = arg('holders', ''), holders = hd ? loadHolders(hd) : new Map(), creators = arg('creators', '') ? loadCreators(arg('creators', '')) : [], ru = { at: Date.now(), holders: holders.size, results: [Rug.analyze(recs, 7500, { holders, creators }), Rug.analyze(recs, 10000, { holders, creators })] };
     fs.writeFileSync(arg('rug', path.join(path.dirname(out), 'rug.json')), JSON.stringify(ru)); console.log(`rug: ${ru.results[0].n} token oltre 7.5K, ${ru.results[0].base.all.rug}% rug, ${holders.size} con possessori`);
   } catch (e) { console.log('analisi rug non riuscita: ' + String(e.message).split('\n')[0]); }
+  // ricerca filtro + regola con controllo delle false scoperte (permutazioni)
+  try {
+    const Combo = require('./combo.js'), hd2 = arg('holders', ''), cr2 = arg('creators', ''), co = Combo.run(recs, { thr: 7500, holders: hd2 ? loadHolders(hd2) : new Map(), creators: cr2 ? loadCreators(cr2) : [] });
+    fs.writeFileSync(arg('combo', path.join(path.dirname(out), 'combo.json')), JSON.stringify(co)); console.log(`combinazioni: ${co.tests} prove, migliore ${co.best ? co.best.score + '%' : '—'}, p ${co.perm.p == null ? '—' : co.perm.p}`);
+  } catch (e) { console.log('ricerca combinata non riuscita: ' + String(e.message).split('\n')[0]); }
   console.log(`fabbrica: ${rep.paths} percorsi, ${rep.tried} configurazioni, ${rep.passed} passano, ${rep.ms} ms`);
 }
 
