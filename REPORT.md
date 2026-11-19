@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 02:05 UTC · in esecuzione da 0.4 giorni · 209 run
+Aggiornato: 2026-11-19 02:11 UTC · in esecuzione da 0.4 giorni · 209 run
 
 | | |
 |---|---|
-| Equity | **5.3902 SOL** (-10.2% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.3902 SOL |
+| Equity | **5.4043 SOL** (-9.9% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.2814 SOL |
 | Trade chiusi | 34 |
 | Win rate | 29% |
-| P&L realizzato | -0.6098 SOL (~$-44.73) |
+| P&L realizzato | -0.6098 SOL (~$-44.65) |
 | Media vincite / perdite | +35.4% / -36.6% |
 | Profit factor | 0.40 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$Mabel** P-0417 · 0.108 SOL · +14.1% · resta 100% · [grafico](https://dexscreener.com/solana/BaFg7PNkfuG2AvaNVMzR3YyKDVWSjXFJPn8jgPDApSDy)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -56,6 +56,28 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+02:11:08 ORACLE   360 raccolti, 233 analizzati, 1 BUY, 218 veto
+02:10:44 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 214 veto
+02:10:20 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 222 veto
+02:10:06 QUARTER  BUY $Mabel 0.108 SOL score 65 impatto 1.92% (Jupiter)
+02:10:06 ORACLE   360 raccolti, 231 analizzati, 1 BUY, 214 veto
+02:09:41 QUARTER  $Mabel impatto 2.5% oltre slippage: annullato
+02:09:41 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 220 veto
+02:09:17 QUARTER  $Mabel impatto 7.0% oltre slippage: annullato
+02:09:17 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 219 veto
+02:08:53 QUARTER  $Mabel impatto 2.1% oltre slippage: annullato
+02:08:53 ORACLE   360 raccolti, 230 analizzati, 1 BUY, 215 veto
+02:08:29 QUARTER  $Mabel impatto 2.6% oltre slippage: annullato
+02:08:29 ORACLE   360 raccolti, 233 analizzati, 1 BUY, 217 veto
+02:08:15 QUARTER  $Mabel impatto 2.2% oltre slippage: annullato
+02:08:15 ORACLE   360 raccolti, 226 analizzati, 1 BUY, 210 veto
+02:07:49 QUARTER  $Mabel impatto 9.6% oltre slippage: annullato
+02:07:49 ORACLE   360 raccolti, 227 analizzati, 1 BUY, 214 veto
+02:07:25 QUARTER  $Mabel impatto 2.3% oltre slippage: annullato
+02:07:25 ORACLE   360 raccolti, 243 analizzati, 2 BUY, 232 veto
+02:07:01 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 233 veto
+02:06:37 ORACLE   360 raccolti, 234 analizzati, 2 BUY, 226 veto
+02:06:12 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 226 veto
 02:05:47 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 230 veto
 02:05:23 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 229 veto
 02:04:58 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 228 veto
@@ -74,28 +96,6 @@ _nessuna_
 02:00:50 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 231 veto
 02:00:24 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 224 veto
 02:00:09 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 228 veto
-01:59:43 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 230 veto
-01:59:29 QUARTER  BUY $COGITO 0.109 SOL score 74 impatto 0.89% (Jupiter)
-01:59:29 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 229 veto
-01:59:04 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 224 veto
-01:58:40 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 227 veto
-01:58:16 ORACLE   360 raccolti, 232 analizzati, 0 BUY, 220 veto
-01:58:03 ORACLE   360 raccolti, 226 analizzati, 0 BUY, 214 veto
-01:57:37 ORACLE   360 raccolti, 230 analizzati, 0 BUY, 215 veto
-01:57:14 ORACLE   360 raccolti, 222 analizzati, 0 BUY, 208 veto
-01:56:49 ORACLE   360 raccolti, 235 analizzati, 0 BUY, 223 veto
-01:56:26 ORACLE   360 raccolti, 232 analizzati, 0 BUY, 219 veto
-01:56:02 ORACLE   360 raccolti, 231 analizzati, 0 BUY, 217 veto
-01:55:37 ORACLE   360 raccolti, 228 analizzati, 0 BUY, 216 veto
-01:55:13 ORACLE   360 raccolti, 223 analizzati, 0 BUY, 214 veto
-01:54:49 ORACLE   360 raccolti, 217 analizzati, 0 BUY, 207 veto
-01:54:24 ORACLE   360 raccolti, 227 analizzati, 0 BUY, 217 veto
-01:54:00 ORACLE   360 raccolti, 225 analizzati, 0 BUY, 215 veto
-01:53:47 ORACLE   360 raccolti, 218 analizzati, 0 BUY, 209 veto
-01:53:20 ORACLE   360 raccolti, 226 analizzati, 0 BUY, 214 veto
-01:52:56 ORACLE   360 raccolti, 223 analizzati, 0 BUY, 210 veto
-01:52:33 ORACLE   360 raccolti, 222 analizzati, 0 BUY, 209 veto
-01:52:09 ORACLE   360 raccolti, 217 analizzati, 0 BUY, 204 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
