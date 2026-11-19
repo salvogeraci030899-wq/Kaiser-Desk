@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 00:35 UTC · in esecuzione da 0.3 giorni · 207 run
+Aggiornato: 2026-11-19 00:40 UTC · in esecuzione da 0.4 giorni · 207 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-19 00:35 UTC · in esecuzione da 0.3 giorni · 207 run
 | Cassa | 5.4567 SOL |
 | Trade chiusi | 29 |
 | Win rate | 31% |
-| P&L realizzato | -0.5433 SOL (~$-39.92) |
+| P&L realizzato | -0.5433 SOL (~$-39.94) |
 | Media vincite / perdite | +31.2% / -37.2% |
 | Profit factor | 0.37 |
 | Circuit breaker | no |
@@ -56,6 +56,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+00:40:34 ORACLE   360 raccolti, 216 analizzati, 0 BUY, 210 veto
+00:40:10 ORACLE   360 raccolti, 231 analizzati, 0 BUY, 225 veto
+00:39:47 ORACLE   360 raccolti, 230 analizzati, 0 BUY, 223 veto
+00:39:25 ORACLE   360 raccolti, 234 analizzati, 0 BUY, 227 veto
+00:39:01 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 234 veto
+00:38:38 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 233 veto
+00:38:15 ORACLE   360 raccolti, 234 analizzati, 0 BUY, 225 veto
+00:37:51 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 233 veto
+00:37:28 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 239 veto
+00:37:14 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 238 veto
+00:36:57 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 245 veto
+00:36:28 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 237 veto
+00:36:04 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 230 veto
+00:35:49 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 237 veto
 00:35:33 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 238 veto
 00:35:17 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 245 veto
 00:34:49 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 234 veto
@@ -82,20 +96,6 @@ _nessuna_
 00:27:54 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 218 veto
 00:27:31 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 226 veto
 00:27:07 ORACLE   360 raccolti, 224 analizzati, 1 BUY, 212 veto
-00:26:44 ORACLE   360 raccolti, 217 analizzati, 1 BUY, 208 veto
-00:26:20 SCRIBE   chiuso P-0410 $VICECITY -0.0455 SOL (-40.6%)
-00:26:20 CHARON   Time stop $VICECITY vendo 100% a -12.5% -> 0.0665 SOL
-00:26:20 ORACLE   360 raccolti, 225 analizzati, 1 BUY, 216 veto
-00:25:56 ORACLE   360 raccolti, 224 analizzati, 1 BUY, 213 veto
-00:25:33 ORACLE   360 raccolti, 212 analizzati, 1 BUY, 204 veto
-00:25:09 ORACLE   360 raccolti, 222 analizzati, 1 BUY, 212 veto
-00:24:56 ORACLE   360 raccolti, 209 analizzati, 1 BUY, 198 veto
-00:24:30 ORACLE   360 raccolti, 197 analizzati, 1 BUY, 187 veto
-00:24:06 ORACLE   360 raccolti, 204 analizzati, 1 BUY, 194 veto
-00:23:43 ORACLE   360 raccolti, 199 analizzati, 0 BUY, 190 veto
-00:23:20 ORACLE   360 raccolti, 198 analizzati, 1 BUY, 188 veto
-00:22:57 ORACLE   360 raccolti, 195 analizzati, 0 BUY, 186 veto
-00:22:33 ORACLE   360 raccolti, 189 analizzati, 1 BUY, 178 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
