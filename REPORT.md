@@ -1,33 +1,51 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 15:00 UTC · in esecuzione da 0.0 giorni · 224 run
+Aggiornato: 2026-11-19 15:05 UTC · in esecuzione da 0.0 giorni · 224 run
 
 | | |
 |---|---|
-| Equity | **5.9694 SOL** (-0.5% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.8463 SOL |
-| Trade chiusi | 1 |
+| Equity | **5.9512 SOL** (-0.8% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.9512 SOL |
+| Trade chiusi | 2 |
 | Win rate | 0% |
-| P&L realizzato | -0.0334 SOL (~$-2.50) |
-| Media vincite / perdite | +0.0% / -27.6% |
+| P&L realizzato | -0.0488 SOL (~$-3.67) |
+| Media vincite / perdite | +0.0% / -20.2% |
 | Profit factor | 0.00 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$JETSKI** P-0438 · 0.119 SOL · +3.1% · resta 100% · [grafico](https://dexscreener.com/solana/GjER9AzmazAob2PBnMqdFCkwDzp4mtXyMCijEBgAb4Vo)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 1 | -0.0334 |
+| Time stop | 1 | -0.0154 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $JETSKI | 66 | -12.8% | -0.0154 | +11% | +2% | Time stop | 5m |
 | $MEVS | 72 | -27.6% | -0.0334 | +0% | -32% | Stop loss | 1m |
 
 ## Ultimi eventi
 ```
+15:05:26 ORACLE   360 raccolti, 238 analizzati, 3 BUY, 222 veto
+15:05:12 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 223 veto
+15:04:47 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 224 veto
+15:04:23 ORACLE   360 raccolti, 238 analizzati, 2 BUY, 221 veto
+15:03:59 ORACLE   360 raccolti, 239 analizzati, 3 BUY, 226 veto
+15:03:35 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 225 veto
+15:03:11 ORACLE   360 raccolti, 229 analizzati, 1 BUY, 215 veto
+15:02:57 ORACLE   360 raccolti, 214 analizzati, 1 BUY, 199 veto
+15:02:38 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 214 veto
+15:02:18 SCRIBE   chiuso P-0438 $JETSKI -0.0154 SOL (-12.8%)
+15:02:18 CHARON   Time stop $JETSKI vendo 100% a 1.6% -> 0.1049 SOL
+15:02:18 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 221 veto
+15:01:49 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 226 veto
+15:01:35 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 233 veto
+15:01:09 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 220 veto
+15:00:44 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 221 veto
 15:00:20 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 225 veto
 14:59:57 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 227 veto
 14:59:33 ORACLE   360 raccolti, 230 analizzati, 1 BUY, 212 veto
@@ -52,22 +70,6 @@ Aggiornato: 2026-11-19 15:00 UTC · in esecuzione da 0.0 giorni · 224 run
 14:52:51 ORACLE   360 raccolti, 211 analizzati, 1 BUY, 206 veto
 14:52:28 ORACLE   360 raccolti, 220 analizzati, 1 BUY, 209 veto
 14:52:04 SCRIBE   chiuso P-0437 $MEVS -0.0334 SOL (-27.6%)
-14:52:04 CHARON   Stop loss $MEVS vendo 100% a -32.0% -> 0.0876 SOL
-14:52:04 ORACLE   360 raccolti, 218 analizzati, 1 BUY, 204 veto
-14:51:40 ORACLE   360 raccolti, 205 analizzati, 0 BUY, 192 veto
-14:51:26 ORACLE   360 raccolti, 217 analizzati, 0 BUY, 206 veto
-14:51:00 ORACLE   360 raccolti, 221 analizzati, 1 BUY, 208 veto
-14:50:36 QUARTER  BUY $MEVS 0.120 SOL score 72 impatto 0.22% (Jupiter)
-14:50:36 ORACLE   360 raccolti, 210 analizzati, 1 BUY, 196 veto
-14:50:12 ORACLE   360 raccolti, 219 analizzati, 0 BUY, 206 veto
-14:49:59 ORACLE   360 raccolti, 211 analizzati, 0 BUY, 198 veto
-14:49:33 ORACLE   360 raccolti, 213 analizzati, 0 BUY, 200 veto
-14:49:19 ORACLE   360 raccolti, 218 analizzati, 0 BUY, 207 veto
-14:48:53 ORACLE   360 raccolti, 219 analizzati, 0 BUY, 210 veto
-14:48:29 ORACLE   360 raccolti, 215 analizzati, 0 BUY, 203 veto
-14:48:06 ORACLE   360 raccolti, 208 analizzati, 0 BUY, 196 veto
-14:47:42 ORACLE   360 raccolti, 215 analizzati, 0 BUY, 202 veto
-14:47:18 ORACLE   360 raccolti, 209 analizzati, 0 BUY, 197 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
