@@ -316,3 +316,6 @@ Ogni ora la fabbrica prova insieme tutti i filtri sui segnali noti alla soglia (
 
 ## Strategia corrente con filtro (da v2.49.0)
 Se la ricerca con filtri trova un segnale credibile (esito positivo su dati vecchi e recenti, caso sotto il 5%), la strategia corrente può diventare «regola + filtro» (per esempio «solo token con primo possessore ≤ 20%»), con le stesse regole di cambio di sempre: almeno 1 punto in più della corrente e almeno 6 ore. Il filtro si applica in avanti con le misure note alla soglia (possessori, social, attività iniziale, creatore, callout di Grok). Un token senza la misura non entra. Il conto paper a parte e il riepilogo la seguono. Nessun ordine.
+
+## Ricarica automatica dei conti simulati (da v2.52.0)
+Il parametro «Ricarica automatica sotto (% del capitale)» (predefinito 30, 0 = mai) vale per il paper del radar e per il conto della strategia. Quando l'equity scende sotto quella quota del capitale iniziale (e, per il paper, non ci sono posizioni aperte) il saldo torna al capitale: arriva un avviso su Telegram con equity prima della ricarica, importo e numero della ricarica, e l'app mostra «Ricariche automatiche» in Posizioni. Journal e statistiche restano, il P&L esclude le ricariche. Non vale per il reale: lì i tetti del Worker restano.

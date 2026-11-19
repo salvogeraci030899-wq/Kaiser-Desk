@@ -35,6 +35,7 @@ export const SCHEMA = {
   slippageBps: n('Slippage max (bps)', 'risk', 50, 1500, { scope: 'runner', step: 10, hint: '300 = 3%' }),
   feePct: n('Commissioni per lato (%)', 'risk', 0, 5, { scope: 'runner', step: 0.1 }),
   prioritySOL: n('Priority fee (SOL)', 'risk', 0, 0.01, { scope: 'runner', step: 0.0001 }),
+  refillBelowPct: n('Ricarica automatica sotto (% del capitale)', 'risk', 0, 90, { scope: 'runner', step: 5, hint: 'quando l\'equity scende sotto questa quota del capitale iniziale il saldo torna al capitale (con avviso su Telegram); storico e statistiche restano e il P&L esclude le ricariche; 0 = mai. Vale per il paper e per il conto della strategia' }),
   dailyLossPct: n('Stop giornaliero (%)', 'risk', 1, 50, { scope: 'runner', step: 1, hint: 'circuit breaker del paper' }),
   entryGapSec: n('Pausa tra due ingressi (s)', 'risk', 0, 900, { scope: 'runner', step: 5, hint: 'evita di entrare in tanti token insieme: sono scommesse correlate' }),
   cooldownMin: n('Cooldown dopo perdita (min)', 'risk', 0, 240, { scope: 'runner', step: 1 }),

@@ -28,7 +28,8 @@ function acctBlank(now) { return { start: ACCT_START, since: now || 0, eq: ACCT_
 function create() { return { v: 1, seq: 0, lastFarm: 0, items: [], log: [] }; }
 function normalize(o) {
   const r = create(); if (!o || typeof o !== 'object' || !Array.isArray(o.items)) return r;
-  r.seq = Number(o.seq) || 0; if (o.settled && typeof o.settled === 'object') r.settled = o.settled; if (o.acct && Number.isFinite(o.acct.eq)) r.acct = { ...acctBlank(), ...o.acct, trades: Array.isArray(o.acct.trades) ? o.acct.trades.slice(-ACCT_KEEP) : [], curve: Array.isArray(o.acct.curve) ? o.acct.curve.slice(-ACCT_CURVE) : [] };
+  r.seq = Number(o.seq) || 0; if (o.settled && typeof o.settled === 'object') r.settled = o.settled; if (Array.isArray(o.notes)) r.notes = o.notes.slice(-5);
+  if (o.acct && Number.isFinite(o.acct.eq)) r.acct = { ...acctBlank(), ...o.acct, trades: Array.isArray(o.acct.trades) ? o.acct.trades.slice(-ACCT_KEEP) : [], curve: Array.isArray(o.acct.curve) ? o.acct.curve.slice(-ACCT_CURVE) : [] };
   if (o.current && o.current.cfg) r.current = { ...o.current, fwd: { ...blank(), ...(o.current.fwd || {}) }, prev: Array.isArray(o.current.prev) ? o.current.prev.slice(-10) : [] }; r.lastFarm = Number(o.lastFarm) || 0; r.log = Array.isArray(o.log) ? o.log.slice(-40) : [];
   for (const s of o.items) if (s && s.cfg && s.status) r.items.push({ ...s, fwd: { ...blank(), ...(s.fwd || {}) }, history: Array.isArray(s.history) ? s.history : [] });
   return r;
@@ -81,11 +82,17 @@ function promote(reg, b, at, now) {
 const describe = (b) => `${b.cfg.thr / 1000}K rit. ${b.cfg.delay}s +${b.cfg.tp}/-${b.cfg.sl}${b.cfg.hold ? ' ' + b.cfg.hold + 's' : ''}${b.cfg.flt ? ' con filtro ' + b.cfg.flt.name + (b.cfg.flt.dir === 'basso' ? ' <= ' : ' > ') + b.cfg.flt.cut : ''}: vecchi ${b.tr.ev}%, recenti ${b.te.ev}%`;
 // Il conto paper della strategia corrente: un conto a parte (1 SOL, 10% dell'equity a operazione, con gli stessi costi della simulazione), indipendente dal paper del radar.
 // Ogni operazione chiusa della strategia corrente (token nati dopo la sua adozione) entra qui; se la strategia cambia, il conto continua con la nuova.
-function acctApply(reg, rec, s, x, now) {
+function acctApply(reg, rec, s, x, now, ctx) {
   const a = reg.acct || (reg.acct = acctBlank(now)), size = a.eq * ACCT_SIZE, pnl = size * x.net / 100; a.eq += pnl; a.n++; if (pnl > 0) { a.win++; a.gain += pnl; } else a.loss -= pnl;
   a.peak = Math.max(a.peak, a.eq); a.dd = Math.max(a.dd, a.peak - a.eq);
   a.trades.push({ id: s.id, m: rec.m, sym: String(rec.s || '').slice(0, 20), at: now, pct: +x.net.toFixed(1), pnl: +pnl.toFixed(5), why: x.why, held: x.held, eq: +a.eq.toFixed(5), mc0: x.mc0 || null, mc1: x.mc1 || null }); if (a.trades.length > ACCT_KEEP) a.trades.shift();
-  a.curve.push(+a.eq.toFixed(4)); if (a.curve.length > ACCT_CURVE) a.curve.shift();
+  // Ricarica automatica, dichiarata: se l'equity scende sotto la quota del capitale iniziale, il saldo torna al capitale. Storico e statistiche restano; il P&L esclude le ricariche.
+  const rp = ctx && ctx.refillPct; if (rp > 0 && a.eq < a.start * rp / 100) {
+    const before = a.eq, add = +(a.start - a.eq).toFixed(6); a.eq = a.start; a.peak = a.eq; a.topups = a.topups || { n: 0, total: 0, log: [] };
+    a.topups.n++; a.topups.total = +(a.topups.total + add).toFixed(6); a.topups.log.push({ at: now, before: +before.toFixed(4), add }); a.topups.log = a.topups.log.slice(-10);
+    reg.notes = reg.notes || []; reg.notes.push({ at: now, text: `Conto della strategia ricaricato: l'equity era scesa a ${before.toFixed(3)} (sotto il ${rp}% del capitale di ${a.start}). Saldo riportato a ${a.start} \u25ce, ricarica n. ${a.topups.n} (totale ricaricato ${a.topups.total} \u25ce). Storico e statistiche invariati.` });
+  }
+  a.curve.push(+(a.eq - (a.topups ? a.topups.total : 0)).toFixed(4)); if (a.curve.length > ACCT_CURVE) a.curve.shift();
 }
 // Una regola puo' avere un filtro sui segnali noti alla soglia (percorso, possessori, creatore, social...): cfg.flt = { k, name, dir, cut }.
 // Il token passa solo se il segnale c'e' ed e' dalla parte giusta del taglio (come nella ricerca che l'ha trovato).
@@ -114,11 +121,11 @@ function live(rec, cfg, ctx) {
   return { state: 'open', ...base, last, mc1: Math.round(last * u), pct: (last / e - 1) * 100, net: (last / e - 1) * 100 - Farm.COST, held, left: cfg.hold ? Math.max(0, cfg.hold - held) : null };
 }
 // Un token concluso: ogni regola non ritirata lo valuta solo se e' nato dopo la sua ammissione
-function settle(reg, s, rec, x, now) {
+function settle(reg, s, rec, x, now, ctx) {
   const f = s.fwd; f.n++; f.sum += x.net; if (x.net > 0) { f.win++; f.gain += x.net; } else f.loss -= x.net;
   f.cum += x.net; f.peak = Math.max(f.peak, f.cum); f.dd = Math.max(f.dd, f.peak - f.cum); if (!f.first) f.first = rec.at; f.last = rec.at;
   f.recent.push(+x.net.toFixed(2)); if (f.recent.length > RECENT) f.recent.shift();
-  if (s === reg.current) acctApply(reg, rec, s, x, now);
+  if (s === reg.current) acctApply(reg, rec, s, x, now, ctx);
 }
 // La strategia corrente si chiude dal vivo appena scatta l'uscita (liveTick): il token non si conta una seconda volta quando si conclude
 function markSettled(reg, m, now) { reg.settled = reg.settled || {}; reg.settled[m] = now; const ks = Object.keys(reg.settled); if (ks.length > 600) for (const k of ks.sort((a, b) => reg.settled[a] - reg.settled[b]).slice(0, ks.length - 400)) delete reg.settled[k]; }
@@ -128,7 +135,7 @@ function record(reg, rec, now, ctx) {
     if (s.status === 'ritirata' || !(rec.at >= s.since)) continue;
     if (s === reg.current && reg.settled && reg.settled[rec.m]) continue;
     const x = evalRec(rec, s.cfg, ctx); if (!x) continue;
-    settle(reg, s, rec, x, now); changed = true;
+    settle(reg, s, rec, x, now, ctx); changed = true;
   }
   return changed;
 }
@@ -137,7 +144,7 @@ function liveTick(reg, recs, now, ctx) {
   const c = reg.current, open = []; if (!c) return { open, closed: 0 }; let closed = 0;
   for (const rec of recs) {
     if (!(rec.at >= c.since) || (reg.settled && reg.settled[rec.m])) continue;
-    const L = live(rec, c.cfg, ctx); if (L.state === 'closed') { settle(reg, c, rec, { net: L.net, why: L.why, held: L.held, mc0: L.mc0, mc1: L.mc1 }, now); markSettled(reg, rec.m, now); closed++; }
+    const L = live(rec, c.cfg, ctx); if (L.state === 'closed') { settle(reg, c, rec, { net: L.net, why: L.why, held: L.held, mc0: L.mc0, mc1: L.mc1 }, now, ctx); markSettled(reg, rec.m, now); closed++; }
     else if (L.state === 'open') open.push({ id: c.id, m: rec.m, sym: String(rec.s || '').slice(0, 20), at: rec.at + L.j * Farm.BIN * 1000, mc0: L.mc0, mc1: L.mc1, pct: +L.pct.toFixed(1), net: +L.net.toFixed(1), held: L.held, left: L.left, tp: c.cfg.tp, sl: c.cfg.sl });
   }
   return { open: open.sort((a, b) => b.at - a.at).slice(0, 12), closed };
@@ -165,7 +172,7 @@ function summary(reg, now) {
   const count = { prova: 0, validata: 0, ritirata: 0 }; for (const s of reg.items) count[s.status] = (count[s.status] || 0) + 1;
   const live = reg.items.filter((s) => s.status !== 'ritirata'), dead = reg.items.filter((s) => s.status === 'ritirata').sort((a, b) => (b.endedAt || 0) - (a.endedAt || 0)).slice(0, 5);
   const pick = (s) => ({ id: s.id, cfg: s.cfg, status: s.status, since: s.since, farm: s.farm, fwd: stats(s.fwd), why: (s.history[s.history.length - 1] || {}).why || '' });
-  const A = reg.acct, acct = A && { start: A.start, eq: +A.eq.toFixed(4), pnl: +(A.eq - A.start).toFixed(4), pct: +((A.eq / A.start - 1) * 100).toFixed(1), n: A.n, win: A.n ? Math.round(100 * A.win / A.n) : 0, pf: A.loss > 0 ? +(A.gain / A.loss).toFixed(2) : (A.gain > 0 ? 99 : 0), dd: +A.dd.toFixed(4), since: A.since, curve: A.curve, aw: (() => { const w = A.trades.filter((t) => t.pct > 0); return w.length ? +(w.reduce((s, t) => s + t.pct, 0) / w.length).toFixed(1) : 0; })(), al: (() => { const l = A.trades.filter((t) => t.pct <= 0); return l.length ? +(l.reduce((s, t) => s + t.pct, 0) / l.length).toFixed(1) : 0; })(), trades: A.trades.slice(-100).reverse() };
+  const A = reg.acct, acct = A && { start: A.start, eq: +A.eq.toFixed(4), topups: A.topups ? { n: A.topups.n, total: A.topups.total, log: A.topups.log.slice(-3) } : null, pnl: +(A.eq - A.start - (A.topups ? A.topups.total : 0)).toFixed(4), pct: +(((A.eq - (A.topups ? A.topups.total : 0)) / A.start - 1) * 100).toFixed(1), n: A.n, win: A.n ? Math.round(100 * A.win / A.n) : 0, pf: A.loss > 0 ? +(A.gain / A.loss).toFixed(2) : (A.gain > 0 ? 99 : 0), dd: +A.dd.toFixed(4), since: A.since, curve: A.curve, aw: (() => { const w = A.trades.filter((t) => t.pct > 0); return w.length ? +(w.reduce((s, t) => s + t.pct, 0) / w.length).toFixed(1) : 0; })(), al: (() => { const l = A.trades.filter((t) => t.pct <= 0); return l.length ? +(l.reduce((s, t) => s + t.pct, 0) / l.length).toFixed(1) : 0; })(), trades: A.trades.slice(-100).reverse() };
   const c = reg.current, cur = c && { id: c.id, cfg: c.cfg, since: c.since, farm: c.farm, fwd: stats(c.fwd), cum: +c.fwd.cum.toFixed(1), profitable: c.fwd.n >= 20 ? stats(c.fwd).ev > 0 : null, prev: (c.prev || []).slice(-3).map((p) => ({ id: p.id, cfg: p.cfg, fwd: p.fwd })) };
   return { at: now, count, acct: acct || null, current: cur || null, items: [...live, ...dead].slice(0, 20).map(pick), log: reg.log.slice(-6) };
 }

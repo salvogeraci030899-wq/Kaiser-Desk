@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.51.0">
+<meta name="kz-build" content="2.52.0">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=4" media="(prefers-color-scheme: light)">
@@ -523,18 +523,19 @@ function posCard(p, o) {
 function renderStratPos() {
   const R = rt.run && rt.run.strat, A = R && R.acct, C = R && R.current, live = (R && R.live) || [];
   $('#sLab1').textContent = 'Capitale'; $('#sLab2').textContent = 'Equity'; $('#sLab3').textContent = 'vs capitale';
+  const tuS = A && A.topups ? `<div class="card small real-note"><b>Ricariche automatiche: ${A.topups.n}</b> · totale ${fmtSol(A.topups.total, 3)}<div class="tiny muted">Quando l'equity scende sotto la quota del capitale il saldo torna al capitale. Storico e statistiche restano; il P&L esclude le ricariche.</div></div>` : '';
   $('#sCash').textContent = A ? fmtSol(A.start) : '—'; $('#sEq').textContent = A ? fmtSol(A.eq) : '—'; $('#sDay').innerHTML = A ? `<span class="${cls(A.pnl)}">${fmtSol(A.pnl, 4)}</span>` : '—';
   if (!rt.run) { $('#posList').innerHTML = `<div class="empty">Dati del runner non disponibili${rt.runErr ? ': ' + esc(rt.runErr) : ''}.</div>`; return; }
   if (!C) { $('#posList').innerHTML = '<div class="empty">La strategia corrente non c\'è ancora: la sceglie il Laboratorio dopo il primo calcolo della fabbrica.</div>'; return; }
   const label = (c) => (c.thr / 1000) + 'K · rit. ' + c.delay + ' s · +' + c.tp + '/−' + c.sl + (c.hold ? ' · ' + c.hold + ' s' : '') + (c.flt ? ' · filtro ' + c.flt.name : '');
-  $('#posList').innerHTML = live.length ? live.map((p) => {
+  $('#posList').innerHTML = tuS + (live.length ? live.map((p) => {
     const w = clamp((p.pct + p.sl) / (p.tp + p.sl) * 100, 0, 100);
     return `<div class="card poscard" data-mint="${esc(p.m)}"><div class="tok"><span class="timg"><div class="ph"></div></span>
       <div><div class="row"><span class="sym">$${esc(p.sym)}</span><span class="muted tiny">${esc(p.id)} · ${ago(Date.now() - p.at)}</span></div>
       <div class="nm">mcap ${fmtUsd(p.mc0)} → ${fmtUsd(p.mc1)} · target +${p.tp}% · stop −${p.sl}%${p.left != null ? ' · ancora ' + Math.round(p.left) + ' s' : ''}</div></div><div class="score ${cls(p.net)}">${fmtPct(p.net, 1)}</div></div>
       <div class="bar" style="margin-top:8px"><i style="width:${w}%;background:${p.pct >= 0 ? 'var(--green)' : 'var(--red)'}"></i></div>
       <div class="row between posfoot"><span class="tiny muted">Esito netto dei costi · ${esc(label(C.cfg))}</span></div></div>`;
-  }).join('') : `<div class="empty">Nessuna posizione aperta della strategia ${esc(C.id)}.<br><span class="tiny">${esc(label(C.cfg))}<br>Entra quando un token supera la soglia${C.cfg.flt ? ' e passa il filtro' : ''}.</span></div>`;
+  }).join('') : `<div class="empty">Nessuna posizione aperta della strategia ${esc(C.id)}.<br><span class="tiny">${esc(label(C.cfg))}<br>Entra quando un token supera la soglia${C.cfg.flt ? ' e passa il filtro' : ''}.</span></div>`);
 }
 function renderPos() {
   const real = st.mode === 'real', run = rt.run, e = rt.exec, s = S();
@@ -550,9 +551,10 @@ function renderPos() {
   }
   if (st.mode === 'strat') return renderStratPos();
   if (!run) { $('#sCash').textContent = '—'; $('#sEq').textContent = '—'; $('#sDay').textContent = '—'; $('#posList').innerHTML = `<div class="empty">Dati del runner non disponibili${rt.runErr ? ': ' + esc(rt.runErr) : ''}.</div>`; return; }
-  $('#sCash').textContent = fmtSol(run.cash); $('#sEq').textContent = fmtSol(run.equity); const d = run.equity - run.capital;
+  $('#sCash').textContent = fmtSol(run.cash); $('#sEq').textContent = fmtSol(run.equity); const d = run.equity - run.capital - ((run.topups && run.topups.total) || 0);
   $('#sLab3').textContent = 'vs capitale'; $('#sDay').innerHTML = `<span class="${cls(d)}">${fmtSol(d)}</span>`;
-  $('#posList').innerHTML = run.positions.length ? run.positions.map((p) => posCard(p, { value: p.tokens * p.remaining * (rt.prices.get(p.mint) || (p.last && p.last.priceNative) || p.entry), cost: p.cost, sl: s.sl, tp1: s.tp1, trail: s.trail, last: p.last && p.last.priceNative })).join('') : '<div class="empty">Nessuna posizione paper aperta. Il runner entra da solo quando trova un BUY.</div>';
+  const tu = run.topups && run.topups.n ? `<div class="card small real-note"><b>Ricariche automatiche: ${run.topups.n}</b> · totale ${fmtSol(run.topups.total, 3)}<div class="tiny muted">Quando l'equity scende sotto la quota del capitale il saldo torna al capitale. Storico e statistiche restano; il P&L qui sopra esclude le ricariche.</div></div>` : '';
+  $('#posList').innerHTML = tu + (run.positions.length ? run.positions.map((p) => posCard(p, { value: p.tokens * p.remaining * (rt.prices.get(p.mint) || (p.last && p.last.priceNative) || p.entry), cost: p.cost, sl: s.sl, tp1: s.tp1, trail: s.trail, last: p.last && p.last.priceNative })).join('') : '<div class="empty">Nessuna posizione paper aperta. Il runner entra da solo quando trova un BUY.</div>');
 }
 
 // ---------- LABORATORIO (pagina dedicata) ----------
@@ -681,7 +683,7 @@ function renderLab() {
           const R = run.strat; if (!R || !R.items) return '<span class="muted small">Ancora nessuna regola: la fabbrica propone le candidate quando una regola regge sui dati vecchi e su quelli recenti.</span>';
           const lbl = (c) => (c.thr / 1000) + 'K · rit. ' + c.delay + ' s · +' + c.tp + '/−' + c.sl + (c.hold ? ' · ' + c.hold + ' s' : '') + (c.flt ? ' · filtro ' + c.flt.name + (c.flt.dir === 'basso' ? ' ≤ ' : ' > ') + c.flt.cut : ''), ev = (x) => (x.n ? (x.ev > 0 ? '+' : '') + x.ev + '%' : '—'), ST = { prova: 'in prova', validata: 'validata', ritirata: 'ritirata' };
           const cu = R.current, cfgL = (c) => (c.thr / 1000) + 'K · rit. ' + c.delay + ' s · +' + c.tp + '/−' + c.sl + (c.hold ? ' · ' + c.hold + ' s' : '') + (c.flt ? ' · filtro ' + c.flt.name + (c.flt.dir === 'basso' ? ' ≤ ' : ' > ') + c.flt.cut : '');
-          const AC = R.acct, accBox = AC ? `<div class="tiny muted" style="margin:0 0 4px"><b>Conto paper della strategia (a parte, indipendente)</b></div><div class="kv">${kvRow('Equity', AC.eq.toFixed(3) + ' ◎ (' + (AC.pct > 0 ? '+' : '') + AC.pct + '%)', AC.pct > 0 ? 'up' : AC.pct < 0 ? 'down' : '')}${kvRow('P&L', (AC.pnl > 0 ? '+' : '') + AC.pnl.toFixed(4) + ' ◎', AC.pnl > 0 ? 'up' : AC.pnl < 0 ? 'down' : '')}${kvRow('Operazioni · vinte · fattore', AC.n + ' · ' + AC.win + '% · ' + AC.pf)}${kvRow('Perdita massima', AC.dd.toFixed(4) + ' ◎')}</div>`
+          const AC = R.acct, accBox = AC ? `<div class="tiny muted" style="margin:0 0 4px"><b>Conto paper della strategia (a parte, indipendente)</b></div><div class="kv">${kvRow('Equity', AC.eq.toFixed(3) + ' ◎ (' + (AC.pct > 0 ? '+' : '') + AC.pct + '%)', AC.pct > 0 ? 'up' : AC.pct < 0 ? 'down' : '')}${kvRow('P&L', (AC.pnl > 0 ? '+' : '') + AC.pnl.toFixed(4) + ' ◎', AC.pnl > 0 ? 'up' : AC.pnl < 0 ? 'down' : '')}${kvRow('Operazioni · vinte · fattore', AC.n + ' · ' + AC.win + '% · ' + AC.pf)}${kvRow('Perdita massima', AC.dd.toFixed(4) + ' ◎')}${AC.topups ? kvRow('Ricariche automatiche', AC.topups.n + ' (totale ' + AC.topups.total + ' ◎)', 'warn') : ''}</div>`
             + (AC.curve && AC.curve.length > 1 ? `<div class="${AC.pnl >= 0 ? 'up' : 'down'}" style="margin:6px 0">${stuSpark(AC.curve.map((v) => +(v - AC.start).toFixed(4)))}</div>` : '')
             + (AC.trades && AC.trades.length ? tbl(['Quando', 'Coin', 'Esito', 'Uscita'], AC.trades.map((t) => [new Date(t.at).toLocaleString('it-IT', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }), '$' + esc(t.sym), `<span class="${t.pct > 0 ? 'up' : 'down'}">${(t.pct > 0 ? '+' : '') + t.pct}%</span>`, esc(t.why)])) : '<div class="tiny muted" style="margin:6px 0">Ancora nessuna operazione: arrivano man mano che i token nati dopo l\'adozione si concludono (di solito 20-25 minuti dopo la nascita).</div>')
             + '<div class="tiny muted" style="margin:6px 0 12px">Conto simulato di 1 ◎: ogni operazione usa il 10% dell\'equity, con gli stessi costi del Laboratorio (7% a giro). Segue sempre la strategia corrente. Non apre ordini e non tocca il paper del radar né il reale.</div>' : '';
