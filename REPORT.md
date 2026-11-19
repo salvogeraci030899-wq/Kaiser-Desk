@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 12:54 UTC · in esecuzione da 0.9 giorni · 222 run
+Aggiornato: 2026-11-19 12:59 UTC · in esecuzione da 0.9 giorni · 222 run
 
 | | |
 |---|---|
@@ -56,6 +56,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+12:59:09 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 225 veto
+12:58:46 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 226 veto
+12:58:22 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 229 veto
+12:58:08 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 232 veto
+12:57:43 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 224 veto
+12:57:19 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 225 veto
+12:56:56 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 235 veto
+12:56:32 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 231 veto
+12:56:08 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 235 veto
+12:55:43 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 237 veto
+12:55:37 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
+12:55:30 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 229 veto
+12:55:05 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 238 veto
+12:54:40 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 233 veto
 12:54:17 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 228 veto
 12:53:53 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 234 veto
 12:53:39 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 232 veto
@@ -82,20 +96,6 @@ _nessuna_
 12:45:35 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 237 veto
 12:45:11 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 237 veto
 12:44:47 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 228 veto
-12:44:23 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 224 veto
-12:43:59 ORACLE   348 raccolti, 233 analizzati, 0 BUY, 215 veto
-12:43:35 ORACLE   341 raccolti, 221 analizzati, 0 BUY, 201 veto
-12:43:11 ORACLE   321 raccolti, 209 analizzati, 0 BUY, 190 veto
-12:42:48 ORACLE   311 raccolti, 200 analizzati, 0 BUY, 180 veto
-12:42:26 SCOUT    PumpPortal invia nuovi token (22) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-12:42:26 ORACLE   306 raccolti, 198 analizzati, 0 BUY, 179 veto
-12:42:01 ORACLE   282 raccolti, 182 analizzati, 0 BUY, 169 veto
-12:41:37 ORACLE   278 raccolti, 167 analizzati, 0 BUY, 154 veto
-12:41:15 ORACLE   275 raccolti, 168 analizzati, 0 BUY, 155 veto
-12:40:51 ORACLE   250 raccolti, 152 analizzati, 0 BUY, 143 veto
-12:40:28 ORACLE   232 raccolti, 136 analizzati, 0 BUY, 127 veto
-12:40:04 ORACLE   229 raccolti, 135 analizzati, 0 BUY, 127 veto
-12:39:41 ORACLE   202 raccolti, 119 analizzati, 0 BUY, 112 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
