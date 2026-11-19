@@ -17,15 +17,22 @@ async function rpc(o, method, params) {
   const j = await r.json(); if (j && j.error) throw new Error(String(j.error.message || 'errore RPC').slice(0, 80)); return j && j.result;
 }
 // Social dichiarati dal creatore nei metadati del token (twitter, telegram, sito): 0-3. Il file dei metadati e' su IPFS o su un sito: si legge con un tempo massimo.
-const gw = (u) => { u = String(u || '').trim(); if (/^ipfs:\/\//i.test(u)) return 'https://ipfs.io/ipfs/' + u.slice(7).replace(/^ipfs\//, ''); return /^https:\/\//i.test(u) ? u : ''; };
+// I metadati stanno quasi sempre su IPFS e un solo gateway spesso e' lento o rifiuta: si provano piu' gateway insieme e vale il primo che risponde.
+const GATEWAYS = ['https://ipfs.io/ipfs/', 'https://cloudflare-ipfs.com/ipfs/', 'https://dweb.link/ipfs/', 'https://gateway.pinata.cloud/ipfs/'];
+function metaUrls(u) {
+  u = String(u || '').trim(); if (!u) return [];
+  let cid = ''; if (/^ipfs:\/\//i.test(u)) cid = u.slice(7).replace(/^ipfs\//, ''); else { const m = u.match(/^https:\/\/[^/]+\/ipfs\/(.+)$/i); if (m) cid = m[1]; }
+  if (cid) return GATEWAYS.map((g) => g + cid);
+  return /^https:\/\//i.test(u) ? [u] : [];
+}
 function socialFrom(meta) {
   if (!meta || typeof meta !== 'object') return null; const has = (v) => (typeof v === 'string' && v.trim().length > 3 ? 1 : 0);
   const tw = has(meta.twitter), tg = has(meta.telegram), web = has(meta.website); return { tw, tg, web, soc: tw + tg + web };
 }
 async function readMeta(o) {
-  const url = gw(o.uri); if (!url) return null;
-  const r = await o.fetch(url, { signal: AbortSignal.timeout(6000) }); if (!r.ok) return null;
-  const t = await r.text(); if (t.length > 60000) return null; try { return socialFrom(JSON.parse(t)); } catch { return null; }
+  const urls = metaUrls(o.uri); if (!urls.length) return null;
+  const one = async (url) => { const r = await o.fetch(url, { signal: AbortSignal.timeout(5000) }); if (!r.ok) throw new Error('http'); const t = await r.text(); if (t.length > 60000) throw new Error('grande'); return socialFrom(JSON.parse(t)) || Promise.reject(new Error('vuoto')); };
+  try { return await Promise.any(urls.map(one)); } catch { return null; }
 }
 // Attivita' dei primi istanti dalle firme della curva (basta il numero di blocco di ciascuna, niente altre chiamate): quante operazioni nel blocco di creazione e nel successivo
 // (sono i cecchini/bundle che comprano subito), quante nel primo minuto circa (150 blocchi) e quante falliscono. Serve che le firme siano complete (fino a 3 pagine da 1000).
@@ -57,4 +64,4 @@ async function snapshot(o) {
   return { m: f.mint, at: f.at || Date.now(), ...h, ...extra };
 }
 
-module.exports = { holdersFrom, socialFrom, earlyFrom, snapshot };
+module.exports = { metaUrls, holdersFrom, socialFrom, earlyFrom, snapshot };
