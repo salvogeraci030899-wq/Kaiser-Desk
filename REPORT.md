@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 18:16 UTC · in esecuzione da 0.2 giorni · 228 run
+Aggiornato: 2026-11-19 18:21 UTC · in esecuzione da 0.2 giorni · 228 run
 
 | | |
 |---|---|
-| Equity | **5.7502 SOL** (-4.2% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.7502 SOL |
+| Equity | **5.8000 SOL** (-3.3% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.6342 SOL |
 | Trade chiusi | 18 |
 | Win rate | 28% |
-| P&L realizzato | -0.2498 SOL (~$-18.43) |
+| P&L realizzato | -0.2498 SOL (~$-18.49) |
 | Media vincite / perdite | +12.9% / -21.1% |
 | Profit factor | 0.23 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$KFC** P-0455 · 0.115 SOL · +44.1% · resta 100% · [grafico](https://dexscreener.com/solana/7Vq3y87gDiAeyazvi3SjoA3tQ9KoFJrDvgw54fTSEWvh)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -48,6 +48,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+18:21:09 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 233 veto
+18:20:45 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 241 veto
+18:20:22 ORACLE   360 raccolti, 251 analizzati, 3 BUY, 234 veto
+18:19:58 ORACLE   360 raccolti, 250 analizzati, 3 BUY, 234 veto
+18:19:34 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 242 veto
+18:19:10 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 232 veto
+18:18:46 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 228 veto
+18:18:22 QUARTER  BUY $KFC 0.115 SOL score 88 impatto 1.08% (Jupiter)
+18:18:21 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 236 veto
+18:17:57 ORACLE   360 raccolti, 248 analizzati, 3 BUY, 235 veto
+18:17:44 ORACLE   360 raccolti, 243 analizzati, 3 BUY, 231 veto
+18:17:18 ORACLE   360 raccolti, 244 analizzati, 3 BUY, 233 veto
+18:16:54 ORACLE   360 raccolti, 242 analizzati, 3 BUY, 231 veto
+18:16:31 ORACLE   360 raccolti, 245 analizzati, 3 BUY, 234 veto
 18:16:07 ORACLE   360 raccolti, 236 analizzati, 2 BUY, 225 veto
 18:15:43 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 225 veto
 18:15:20 ORACLE   360 raccolti, 229 analizzati, 2 BUY, 218 veto
@@ -74,20 +88,6 @@ _nessuna_
 18:08:03 QUARTER  BUY $LDS 0.115 SOL score 68 impatto 0.30% (Jupiter)
 18:08:03 ORACLE   360 raccolti, 234 analizzati, 2 BUY, 225 veto
 18:07:39 ORACLE   360 raccolti, 230 analizzati, 2 BUY, 219 veto
-18:07:15 ORACLE   360 raccolti, 223 analizzati, 2 BUY, 212 veto
-18:06:51 ORACLE   360 raccolti, 226 analizzati, 1 BUY, 213 veto
-18:06:27 ORACLE   360 raccolti, 226 analizzati, 1 BUY, 212 veto
-18:06:13 ORACLE   360 raccolti, 219 analizzati, 1 BUY, 206 veto
-18:05:48 ORACLE   360 raccolti, 228 analizzati, 1 BUY, 214 veto
-18:05:24 ORACLE   360 raccolti, 230 analizzati, 1 BUY, 213 veto
-18:05:11 ORACLE   360 raccolti, 223 analizzati, 1 BUY, 206 veto
-18:04:45 ORACLE   360 raccolti, 226 analizzati, 1 BUY, 211 veto
-18:04:21 ORACLE   360 raccolti, 228 analizzati, 1 BUY, 213 veto
-18:03:58 ORACLE   360 raccolti, 226 analizzati, 0 BUY, 211 veto
-18:03:34 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 227 veto
-18:03:10 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 226 veto
-18:02:55 SCRIBE   chiuso P-0453 $NEKOMARIO -0.0650 SOL (-55.3%)
-18:02:55 CHARON   Stop loss $NEKOMARIO vendo 100% a -31.4% -> 0.0525 SOL
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
