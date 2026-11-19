@@ -11,14 +11,17 @@ const html = read('index.html');
 
 test('l\'app non ha campi in cui inserire token, chiavi o indirizzi: solo numeri, interruttori e scelte dei parametri', () => {
   assert.ok(!/<textarea\b/i.test(html), 'c\'è una <textarea>');
-  for (const m of html.matchAll(/<input\b[^>]*>/gi)) { const t = m[0]; assert.match(t, /type="(number|checkbox)"/, 'campo non ammesso: ' + t); assert.match(t, /data-(param|reset)=/, 'campo senza data-param/data-reset: ' + t); assert.ok(!/placeholder/i.test(t)); }
-  for (const m of html.matchAll(/<select\b[^>]*>/gi)) assert.match(m[0], /data-param=/, 'select non dei parametri: ' + m[0]);
+  for (const m of html.matchAll(/<input\b[^>]*>/gi)) { const t = m[0]; assert.match(t, /type="(number|checkbox)"/, 'campo non ammesso: ' + t); assert.match(t, /data-(param=|reset=|stu[\s>])/, 'campo senza data-param/data-reset/data-stu: ' + t); assert.ok(!/placeholder/i.test(t)); }
+  for (const m of html.matchAll(/<select\b[^>]*>/gi)) assert.match(m[0], /data-(param=|stu[\s>])/, 'select non dei parametri né dello Studio: ' + m[0]);
+  // i campi dello Studio del Laboratorio sono solo numeri entro limiti fissi e scelte da un elenco: nessun testo libero, nessun indirizzo (il Worker rifiuta tutto il resto)
+  assert.ok([...html.matchAll(/<input\b[^>]*data-stu[^>]*>/gi)].every((m) => /type="number"/.test(m[0])), 'i campi dello Studio sono numerici');
   assert.ok(!/type="(text|password|url|search|email|tel)"/i.test(html), 'campo di testo');
   for (const bad of ['x-app-token', 'executorToken', 'appToken', 'data-pref="token', 'localStorage.setItem(\'kaiser.v1\'', 'prompt(']) assert.ok(!html.includes(bad), 'trovato: ' + bad);
   for (const f of ['lock.js', 'theme.js']) { const s = read(f); assert.ok(!/<input\b/i.test(s) && !/createElement\('input'\)/.test(s), f + ' crea un campo'); }
 });
-test('l\'app scrive in un solo punto: la richiesta di modifica dei parametri, senza segreti', () => {
-  const posts = [...html.matchAll(/method:\s*'(POST|PUT|DELETE|PATCH)'/g)]; assert.equal(posts.length, 1, 'più di una scrittura');
+test('l\'app scrive in due soli punti: la richiesta di modifica dei parametri (approvata su Telegram) e la richiesta di analisi dello Studio (solo numeri, nessun effetto sulla configurazione), senza segreti', () => {
+  const posts = [...html.matchAll(/method:\s*'(POST|PUT|DELETE|PATCH)'/g)]; assert.equal(posts.length, 2, 'più di due scritture');
+  assert.match(html, /fetch\(`\$\{EXEC\}\/lab\/query`, \{ method: 'POST', headers: \{ 'Content-Type': 'application\/json' \}, body: JSON\.stringify\(\{ spec: stuRead\(\) \}\) \}\)/, 'la richiesta dello Studio invia solo la specifica numerica');
   assert.match(html, /fetch\(`\$\{EXEC\}\/propose`, \{ method: 'POST', headers: \{ 'Content-Type': 'application\/json' \}, body: JSON\.stringify\(body\) \}\)/);
   assert.equal([...html.matchAll(/postPropose\(/g)].length, 7, 'postPropose: definizione + parametri + reset + emergenza + chiusura + scorciatoia approvazione + pannello');
   assert.ok(!/<input[^>]*data-reset[^>]*type="(text|password)"/.test(html));

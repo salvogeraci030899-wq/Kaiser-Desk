@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.35.0">
+<meta name="kz-build" content="2.36.0">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=2">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
@@ -30,7 +30,7 @@
   document.getElementById('metaStatusBar').setAttribute('content', light ? 'default' : (bar === 'separate' ? 'black' : 'black-translucent'));
 })();
 </script>
-<link rel="stylesheet" href="style.css?v=49">
+<link rel="stylesheet" href="style.css?v=50">
 <script src="version.js"></script>
 <script src="theme.js"></script>
 <script src="lock.js"></script>
@@ -155,7 +155,7 @@
   </section>
 
   <!-- LABORATORIO -->
-  <section class="view" id="v-lab"><div class="vscroll" id="labBody"></div></section>
+  <section class="view" id="v-lab"><div class="vscroll" id="labScroll"><div id="studio"></div><div id="labBody"></div></div></section>
 
   <!-- SISTEMA -->
   <section class="view" id="v-set">
@@ -534,7 +534,7 @@ function render(fast) {
   pr.className = 'pill ' + (run ? (age < 15 * 60000 ? 'on' : 'off') : '');
   $('#pSol').textContent = rt.solUsd ? 'SOL $' + rt.solUsd.toFixed(2) : (run && run.solUsd ? 'SOL $' + Number(run.solUsd).toFixed(2) : 'SOL —'); $('#pSol').className = 'pill gold';
   $('#pEq').textContent = 'EQ ' + (real ? (e && e.balanceSOL != null ? Number(e.balanceSOL).toFixed(3) + '◎' : '—') : (run ? Number(run.equity).toFixed(3) + '◎' : '—'));
-  applyMode(); if (!fast) renderRadar(); renderPos(); renderJournal(); renderLab(); renderSemi(); renderSystem(); if (!fast) renderParams();
+  applyMode(); if (!fast) renderRadar(); renderPos(); renderJournal(); renderLab(); initStudio(); renderSemi(); renderSystem(); if (!fast) renderParams();
   const np = real ? ((e && e.positions) || []).length : ((run && run.positions) || []).length;
   const dp = $('#dotP'); dp.style.display = np ? '' : 'none'; dp.textContent = np;
 }
@@ -578,6 +578,85 @@ function renderPos() {
 }
 
 // ---------- LABORATORIO (pagina dedicata) ----------
+
+// ---------- STUDIO DEL LABORATORIO: prove su richiesta, qualsiasi contesto (solo numeri entro limiti fissi; nessun ordine, nessuna modifica alla configurazione) ----------
+const STU = {
+  fields: [['thr', 'Soglia di market cap (USD)', 10000], ['delay', 'Ritardo di ingresso (s)', 10], ['tp', 'Target (%)', 20], ['sl', 'Stop (%)', 15], ['hold', 'Tempo massimo (s, 0 = nessuno)', 120], ['trail', 'Trailing dal massimo (%, 0 = no)', 0],
+    ['cost', 'Costi di un giro (%)', 7], ['days', 'Ultimi giorni (0 = tutti)', 0], ['tMin', 'Età minima alla soglia (s)', 0], ['tMax', 'Età massima alla soglia (s, 0 = nessuna)', 0]],
+  feats: [['', 'nessun filtro'], ['t', 'secondi dalla nascita'], ['gap', 'salto alla soglia'], ['speed', 'velocità di salita'], ['dd', 'calo massimo prima'], ['act', 'attività'], ['vol', 'volatilità'], ['top1', 'primo possessore (quota)'], ['top3', 'primi 3 possessori'], ['top10', 'primi 10 possessori'], ['cre', 'quota del creatore']],
+  sweep: [['tp', 'Target'], ['sl', 'Stop'], ['thr', 'Soglia'], ['delay', 'Ritardo'], ['hold', 'Tempo massimo'], ['trail', 'Trailing'], ['cost', 'Costi'], ['tMin', 'Età minima'], ['tMax', 'Età massima']],
+  presets: [['Base 10K', { thr: 10000, delay: 10, tp: 20, sl: 15, hold: 120, trail: 0 }], ['Scalping 7.5K', { thr: 7500, delay: 10, tp: 12, sl: 10, hold: 60, trail: 0 }], ['Lasciar correre', { thr: 7500, delay: 10, tp: 100, sl: 25, hold: 0, trail: 25 }], ['Costi dimezzati', { cost: 3.5 }]],
+};
+const stuTable = (head, rows) => `<table class="ltab"><tr>${head.map((x) => `<th>${x}</th>`).join('')}</tr>${rows.map((r) => `<tr>${r.map((x) => `<td>${x}</td>`).join('')}</tr>`).join('')}</table>`;
+const pc1 = (v) => (v == null ? '—' : (v > 0 ? '+' : '') + v + '%'), cl1 = (v) => (v == null ? '' : v > 0 ? 'up' : v < 0 ? 'down' : '');
+function stuSpark(vals) {
+  if (!vals || vals.length < 2) return '';
+  const w = 300, hgt = 56, mn = Math.min(0, ...vals), mx = Math.max(0, ...vals), sp = mx - mn || 1, y = (v) => (hgt - 4 - ((v - mn) / sp) * (hgt - 8)).toFixed(1), pts = vals.map((v, i) => (i / (vals.length - 1) * w).toFixed(1) + ',' + y(v)).join(' ');
+  return `<svg viewBox="0 0 ${w} ${hgt}" class="spark" role="img" aria-label="Curva cumulata"><line x1="0" x2="${w}" y1="${y(0)}" y2="${y(0)}" class="zero"/><polyline points="${pts}" fill="none" stroke="currentColor" stroke-width="2"/></svg>`;
+}
+function stuHtml(it) {
+  const q = it && it.result; if (!it) return '';
+  const head = `<div class="tiny muted" style="margin:6px 0 4px"><b>${esc(it.id)}</b> · ${esc(it.status)}${it.error ? ' · ' + esc(it.error) : ''}</div>`;
+  if (!q) return head + (it.status === 'errore' ? '' : '<div class="tiny muted">In attesa del runner: di solito pochi secondi.</div>');
+  const kv = (k, v, c) => `<span>${k}</span><span class="mono ${c || ''}">${v}</span>`, m = q.meta || {};
+  const ctx = `<div class="tiny muted">${m.paths} percorsi${m.holders ? ' · ' + m.holders + ' con possessori' : ''} · calcolo ${m.ms} ms</div>`;
+  if (q.mode === 'sweep') {
+    const w = q.spec.sweep, lab = (STU.sweep.find((x) => x[0] === w.p) || [w.p, w.p])[1];
+    return head + ctx + stuTable([lab, 'Op.', 'Esito', 'Vinte', 'Fattore', 'Vecchi', 'Recenti'], q.points.map((p) => [p.v, p.n, `<span class="${cl1(p.ev)}">${pc1(p.ev)}</span>`, p.win + '%', p.pf, `<span class="${cl1(p.trEv)}">${pc1(p.trEv)}</span>`, `<span class="${cl1(p.teEv)}">${pc1(p.teEv)}</span>`])) + '<div class="tiny muted" style="margin-top:6px">Esito medio per operazione, costi inclusi. Una variazione conta solo se è positiva sia sui dati vecchi sia sui recenti, con abbastanza operazioni.</div>';
+  }
+  const a = q.all || { n: 0 }; if (!a.n) return head + ctx + '<div class="tiny muted" style="margin-top:6px">Nessuna operazione con queste impostazioni: allarga la soglia, i filtri o il periodo.</div>';
+  const few = a.n < 30 ? '<div class="warn tiny" style="margin:6px 0">Meno di 30 operazioni: il risultato non è affidabile.</div>' : '';
+  const kvs = `<div class="kv">${kv('Operazioni', a.n)}${kv('Esito medio', pc1(a.ev) + ' (±' + a.se + ')', cl1(a.ev))}${kv('Vinte', a.win + '%')}${kv('Fattore di profitto', a.pf)}${kv('Mediana · peggiore · migliore', pc1(a.median) + ' · ' + pc1(a.worst) + ' · ' + pc1(a.best))}${kv('Perdita cumulata massima', q.maxDd + ' punti')}</div>`;
+  const split = stuTable(['', 'Op.', 'Esito', 'Vinte', 'Fattore'], [['vecchi', q.train.n || 0, `<span class="${cl1(q.train.ev)}">${q.train.n ? pc1(q.train.ev) : '—'}</span>`, q.train.n ? q.train.win + '%' : '—', q.train.n ? q.train.pf : '—'], ['recenti', q.test.n || 0, `<span class="${cl1(q.test.ev)}">${q.test.n ? pc1(q.test.ev) : '—'}</span>`, q.test.n ? q.test.win + '%' : '—', q.test.n ? q.test.pf : '—']]);
+  const mx = Math.max(1, ...q.buckets.map((b) => b.n)), bars = q.buckets.map((b) => `<div class="sbar"><span>${esc(b.l)}</span><i style="width:${Math.round(100 * b.n / mx)}%"></i><b>${b.n}</b></div>`).join('');
+  const days = q.byDay.length ? stuTable(['Giorno', 'Op.', 'Esito'], q.byDay.map((d) => [d.d.slice(5), d.n, `<span class="${cl1(d.ev)}">${pc1(d.ev)}</span>`])) : '';
+  const why = Object.entries(q.reasons).map(([k, v]) => k + ' ' + v).join(' · ');
+  return head + ctx + few + kvs + '<div class="tiny muted" style="margin:8px 0 2px"><b>Dati vecchi e recenti (60% / 40% per data)</b></div>' + split + '<div class="tiny muted" style="margin:8px 0 2px"><b>Curva cumulata</b> (punti %)</div><div class="' + (a.ev >= 0 ? 'up' : 'down') + '">' + stuSpark(q.equity) + '</div>'
+    + '<div class="tiny muted" style="margin:8px 0 2px"><b>Esiti</b></div>' + bars + '<div class="tiny muted" style="margin:6px 0 2px">Uscite: ' + esc(why) + '</div>' + (days ? '<div class="tiny muted" style="margin:8px 0 2px"><b>Giorno per giorno</b></div>' + days : '');
+}
+function stuRead() {
+  const v = {}; for (const [k] of STU.fields) { const el = $('#stu_' + k); v[k] = el && el.value !== '' ? Number(el.value) : undefined; }
+  v.filters = []; for (const i of [0, 1, 2]) { const f = $('#stuf' + i).value, val = $('#stuv' + i).value; if (f && val !== '') v.filters.push({ f, op: $('#stuo' + i).value, v: Number(val) }); }
+  if ($('#stuMode').value === 'sweep') { v.mode = 'sweep'; v.sweep = { p: $('#stuP').value, from: Number($('#stuFrom').value), to: Number($('#stuTo').value), step: Number($('#stuStep').value) }; }
+  return v;
+}
+function stuSave() { try { const o = {}; document.querySelectorAll('#studio [data-stu]').forEach((e) => { o[e.id] = e.value; }); localStorage.setItem('kz-studio', JSON.stringify(o)); } catch { /* facoltativo */ } }
+async function stuPoll() {
+  if (rt.stuBusy) return; rt.stuBusy = true;
+  try { const r = await fetch(`${EXEC}/lab/queries`, { cache: 'no-store' }); const d = await r.json(); if (d && d.ok) { rt.stu = d.items || []; stuShow(); } } catch { /* si riprova */ } finally { rt.stuBusy = false; }
+}
+function stuShow() {
+  const out = $('#studioOut'); if (!out) return; const items = rt.stu || [], sel = items.find((x) => x.id === rt.stuSel) || items[0];
+  const list = items.slice(0, 5).map((x) => `<button class="chipb${sel && x.id === sel.id ? ' on' : ''}" data-stuid="${esc(x.id)}">${esc(x.id)} ${esc(x.status)}</button>`).join('');
+  out.innerHTML = (items.length > 1 ? '<div class="stulist">' + list + '</div>' : '') + stuHtml(sel);
+}
+function initStudio() {
+  const box = $('#studio'); if (!box || box.dataset.ok) return; box.dataset.ok = '1';
+  const f = STU.fields.map(([k, l, d]) => `<label>${l}<input id="stu_${k}" data-stu inputmode="decimal" type="number" step="any" value="${d}"></label>`).join('');
+  const fl = [0, 1, 2].map((i) => `<div class="stufilt"><select id="stuf${i}" data-stu>${STU.feats.map(([k, l]) => `<option value="${k}">${l}</option>`).join('')}</select><select id="stuo${i}" data-stu><option value="<=">fino a</option><option value=">">oltre</option></select><input id="stuv${i}" data-stu inputmode="decimal" type="number" step="any"></div>`).join('');
+  box.innerHTML = `<details class="card labcard" id="stuBox"><summary><b>Studio</b> · prova qualsiasi contesto</summary><div class="tiny muted" style="margin:6px 0">Imposta ingresso, uscita, costi, periodo e filtri: il runner rifà la prova sui percorsi registrati. Solo analisi: non apre ordini e non cambia la configurazione.</div>
+    <div class="stupre">${STU.presets.map(([l], i) => `<button class="chipb" data-stupre="${i}">${l}</button>`).join('')}</div>
+    <div class="stufields">${f}</div><div class="tiny muted" style="margin:10px 0 4px"><b>Filtri sui token</b> (segnali noti alla soglia)</div>${fl}
+    <div class="tiny muted" style="margin:10px 0 4px"><b>Modalità</b></div><div class="stufilt"><select id="stuMode" data-stu><option value="single">una prova</option><option value="sweep">varia un parametro</option></select><select id="stuP" data-stu>${STU.sweep.map(([k, l]) => `<option value="${k}">${l}</option>`).join('')}</select></div>
+    <div class="stufields" id="stuSweep" hidden><label>Da<input id="stuFrom" data-stu inputmode="decimal" type="number" step="any" value="10"></label><label>A<input id="stuTo" data-stu inputmode="decimal" type="number" step="any" value="40"></label><label>Passo<input id="stuStep" data-stu inputmode="decimal" type="number" step="any" value="5"></label></div>
+    <div class="row" style="margin-top:10px;gap:8px;align-items:center"><button class="btn" id="stuRun">Esegui prova</button><span class="tiny muted" id="stuMsg"></span></div><div id="studioOut"></div></details>`;
+  try { const o = JSON.parse(localStorage.getItem('kz-studio') || '{}'); for (const [id, v] of Object.entries(o)) { const e = document.getElementById(id); if (e && e.dataset.stu !== undefined) e.value = v; } } catch { /* facoltativo */ }
+  const sync = () => { $('#stuSweep').hidden = $('#stuMode').value !== 'sweep'; }; sync();
+  box.addEventListener('input', (e) => { if (e.target.dataset.stu !== undefined) { sync(); stuSave(); } });
+  box.addEventListener('click', async (e) => {
+    const pre = e.target.closest('[data-stupre]'); if (pre) { const p = STU.presets[Number(pre.dataset.stupre)][1]; for (const [k, v] of Object.entries(p)) $('#stu_' + k).value = v; stuSave(); return; }
+    const sel = e.target.closest('[data-stuid]'); if (sel) { rt.stuSel = sel.dataset.stuid; stuShow(); return; }
+    if (e.target.id !== 'stuRun') return;
+    const msg = $('#stuMsg'); msg.textContent = 'invio...'; $('#stuRun').disabled = true;
+    try {
+      const r = await fetch(`${EXEC}/lab/query`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ spec: stuRead() }) }), d = await r.json();
+      if (d.ok) { rt.stuSel = d.id; msg.textContent = d.id + ' in coda'; stuPoll(); } else msg.textContent = (d.error || 'errore') + (d.errors ? ': ' + d.errors.map((x) => x.key + ' ' + x.msg).join(', ') : '');
+    } catch (err) { msg.textContent = 'errore di rete'; } finally { setTimeout(() => { $('#stuRun').disabled = false; }, 4000); }
+  });
+  stuPoll();
+}
+setInterval(() => { const act = $('#v-lab') && $('#v-lab').classList.contains('active'); if (!document.hidden && act && !!document.getElementById('studio').dataset.ok && ((rt.stu || []).some((x) => x.status === 'in coda' || x.status === 'in corso') || Date.now() - (rt.stuAt || 0) > 60000)) { rt.stuAt = Date.now(); stuPoll(); } }, 3000);
+
 function renderLab() {
   const run = rt.run, kvRow = (k, v, c) => `<span>${k}</span><span class="mono ${c || ''}">${v}</span>`; let body = '';
   const head = '<div class="card labcard"><div style="font-weight:700">Laboratorio</div><div class="tiny muted" style="margin-top:4px">Osserva le Coin nuove di pump.fun e prova regole sui dati registrati. Non compra e non vende nulla.</div></div>';

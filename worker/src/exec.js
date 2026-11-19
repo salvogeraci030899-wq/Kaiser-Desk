@@ -7,6 +7,7 @@ import { walletAddress, num, limitsFrom } from './lib.js';
 import { parseTx, guardTx, signTx, b64enc, b64dec } from './solana.js';
 import { SCHEMA, GROUPS, validate, diffText, defaults as paramDefaults } from './params.js';
 import { kb as buildKb } from './kb.js';
+import { validateQuery } from './labq.js';
 
 export const SOL = 'So11111111111111111111111111111111111111112';
 const MINT_RE = /^[1-9A-HJ-NP-Za-km-z]{32,44}$/;
@@ -600,6 +601,31 @@ export class Executor {
     if (!data || typeof data !== 'object' || data.v !== 1 || !Array.isArray(data.positions) || !Array.isArray(data.journal)) return { ok: false, error: 'riepilogo non valido' };
     const txt = JSON.stringify(data); if (txt.length > 120000) return { ok: false, error: 'riepilogo troppo grande' };
     await this.store.put('paper', { receivedAt: this.now(), data }); return { ok: true };
+  }
+  // ---- Studio del Laboratorio: prove di analisi su richiesta dall'app (nessun ordine, nessuna modifica alla configurazione) ----
+  async labSubmit(body) {
+    if (String(this.env.LAB_QUERIES || '') === '0') return { ok: false, error: 'le prove dal Laboratorio sono disattivate' };
+    const v = validateQuery(body && body.spec); if (!v.ok) return { ok: false, error: 'richiesta non valida', errors: v.errors };
+    const now = this.now(), q = await this._labClean(await this.store.get('labq', []), now);
+    if (q.length && now - q[q.length - 1].at < 15000) return { ok: false, error: 'troppo presto: aspetta qualche secondo' };
+    if (q.filter((x) => now - x.at < 86400000).length >= 80) return { ok: false, error: 'limite giornaliero di prove raggiunto' };
+    if (q.filter((x) => x.status === 'in coda' || x.status === 'in corso').length >= 4) return { ok: false, error: 'ci sono già prove in corso: aspetta che finiscano' };
+    const seq = (await this.store.get('labseq', 0)) + 1; await this.store.put('labseq', seq);
+    const item = { id: 'Q-' + String(seq).padStart(4, '0'), spec: v.spec, status: 'in coda', at: now }; q.push(item); await this.store.put('labq', q.slice(-20));
+    return { ok: true, id: item.id };
+  }
+  async _labClean(q, now) { let ch = false; for (const x of q) if (x.status === 'in corso' && now - (x.startedAt || x.at) > 300000) { x.status = 'errore'; x.error = 'scaduta senza risposta del runner'; x.doneAt = now; ch = true; } if (ch) await this.store.put('labq', q); return q; }
+  async labList() { const q = await this._labClean(await this.store.get('labq', []), this.now()); return { ok: true, items: q.slice(-12).reverse() }; }
+  async labNext() {
+    const now = this.now(), q = await this._labClean(await this.store.get('labq', []), now), it = q.find((x) => x.status === 'in coda'); if (!it) return { ok: true, query: null };
+    it.status = 'in corso'; it.startedAt = now; await this.store.put('labq', q); return { ok: true, query: { id: it.id, spec: it.spec } };
+  }
+  async labResult(body) {
+    const id = String((body && body.id) || ''); if (!/^Q-\d{1,6}$/.test(id)) return { ok: false, error: 'id non valido' };
+    const q = await this.store.get('labq', []), it = q.find((x) => x.id === id); if (!it) return { ok: false, error: 'prova non trovata' };
+    if (body.error) { it.status = 'errore'; it.error = String(body.error).slice(0, 200); }
+    else { const s = JSON.stringify(body.result || null); if (!body.result || s.length > 30000) { it.status = 'errore'; it.error = 'risultato assente o troppo grande'; } else { it.status = 'finita'; it.result = body.result; } }
+    it.doneAt = this.now(); await this.store.put('labq', q); return { ok: true };
   }
   async paperGet() { const p = await this.store.get('paper', null); return p ? { ok: true, receivedAt: p.receivedAt, data: p.data } : { ok: false, error: 'nessun dato dal runner' }; }
   async paramsView() {
