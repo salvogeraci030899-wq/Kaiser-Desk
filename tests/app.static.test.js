@@ -45,7 +45,7 @@ test('manifest e icone: file presenti, fantasmino al posto della K, installabile
   for (const i of man.icons) assert.ok(fs.existsSync(path.join(root, i.src.split('?')[0])), 'manca ' + i.src);
   assert.ok(man.icons.some((i) => i.purpose === 'maskable'));
   for (const f of ['icon-180.png', 'favicon-32.png', 'icon.svg', '.nojekyll']) assert.ok(fs.existsSync(path.join(root, f)), 'manca ' + f);
-  assert.match(html, /<symbol id="ghost"/); assert.ok(!/class="logo"[^>]*>K</.test(html));
+  assert.match(html, /class="ghost"/); assert.ok(fs.existsSync(path.join(root, 'ghost.png'))); assert.ok(!/class="logo"[^>]*>K</.test(html));
   const png = fs.readFileSync(path.join(root, 'icon-512.png')); assert.equal(png.readUInt32BE(16), 512); assert.equal(png.readUInt32BE(20), 512);
   const apple = fs.readFileSync(path.join(root, 'icon-180.png')); assert.equal(apple.readUInt32BE(16), 180);
 });

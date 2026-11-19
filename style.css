@@ -529,3 +529,7 @@ nav button { justify-content: center; }
 #v-radar.active { padding-bottom: 6px; }
 .vscroll:has(> .poslist) { padding-bottom: 6px; }
 #v-journal .vfoot { padding-bottom: 4px; }
+
+/* Logo: il fantasma è una maschera colorata col testo, quindi nero su chiaro e bianco su scuro */
+.logo { color: var(--text); background: none; }
+.logo .ghost { display: block; width: 100%; height: 100%; background-color: currentColor; -webkit-mask: url(ghost.png?v=3) center / 86% no-repeat; mask: url(ghost.png?v=3) center / 86% no-repeat; }
