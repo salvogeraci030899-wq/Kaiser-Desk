@@ -24,7 +24,7 @@ function pick(alerts, buys, now, ok) {
 }
 function alertOf(c, now) {
   const m = (c.a && c.a.m) || {}, pair = (c.pair && c.pair.pairAddress) || '';
-  return { t: now, mint: c.mint, sym: String(c.sym || '').slice(0, 20), score: num(c.score), pair: MINT_RE.test(pair) ? pair : '', priceNative: num(m.priceNative), mc: num(m.mc), liq: num(m.liq), ageMin: m.ageMin == null ? null : +num(m.ageMin).toFixed(1),
+  return { t: now, mint: c.mint, sym: String(c.sym || '').slice(0, 20), name: String(c.name || '').slice(0, 40), score: num(c.score), pair: MINT_RE.test(pair) ? pair : '', priceNative: num(m.priceNative), mc: num(m.mc), liq: num(m.liq), ageMin: m.ageMin == null ? null : +num(m.ageMin).toFixed(1),
     why: ((c.a && c.a.plus) || []).slice(0, 3).map((x) => String(x).slice(0, 60)) };
 }
 const pumpUrl = (a) => `https://pump.fun/coin/${a.mint}`;
@@ -42,6 +42,6 @@ function track(a, px, now) {
   if (age >= 5 * 60000 && a.p5 == null) a.p5 = r; if (age >= 15 * 60000 && a.p15 == null) a.p15 = r; return true;
 }
 // Vista compatta per l'app
-const view = (alerts, n) => alerts.slice(-(n || 20)).map((a) => ({ t: a.t, mint: a.mint, sym: a.sym, score: a.score, pair: a.pair, mc: a.mc, ageMin: a.ageMin, last: a.last == null ? null : a.last, min: a.min == null ? null : a.min, p5: a.p5 == null ? null : a.p5, p15: a.p15 == null ? null : a.p15 }));
+const view = (alerts, n) => alerts.slice(-(n || 20)).map((a) => ({ t: a.t, mint: a.mint, sym: a.sym, score: a.score, pair: a.pair, mc: a.mc, ageMin: a.ageMin, last: a.last == null ? null : a.last, min: a.min == null ? null : a.min, p5: a.p5 == null ? null : a.p5, p15: a.p15 == null ? null : a.p15, gr: a.gr ? { s: a.gr.s, o: a.gr.o, f: a.gr.f } : null }));
 
 module.exports = { MAX_PER_HOUR, REPEAT_H, TRACK_MS, MODES, pick, alertOf, text, keyboard, pumpUrl, open, track, view };

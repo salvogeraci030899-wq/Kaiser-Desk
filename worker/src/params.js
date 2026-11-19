@@ -21,6 +21,7 @@ export const GROUPS = [
 export const SCHEMA = {
   autopilot: b('Autopilota', 'auto', { scope: 'runner', hint: 'il runner entra in posizione da solo' }),
   paperEnabled: b('Paper acceso (nuovi ingressi)', 'auto', { scope: 'runner', hint: 'spento = il paper non apre nuove posizioni' }),
+  grokTest: b('Test di Grok sui segnali', 'auto', { scope: 'runner', hint: 'solo misura: Grok giudica ogni segnale semi-automatico (serve la chiave XAI_API_KEY e la modalità semi-automatica) e dopo 15 minuti si confronta il giudizio con l\'esito; non cambia gli avvisi né le operazioni. Una chiamata per segnale, al massimo 120 al giorno' }),
   semiAuto: { t: 'enum', label: 'Modalità semi-automatica', group: 'auto', scope: 'runner', values: ['spento', 'avvisi e paper', 'solo avvisi'], hint: 'il radar non apre la posizione: ti manda un avviso con il collegamento a pump.fun e entri tu a mano. «avvisi e paper» lascia girare anche il paper per misurare i segnali; «solo avvisi» non apre posizioni paper' },
   paperStop: b('Paper in stop', 'auto', { scope: 'runner', hint: 'ferma subito i nuovi ingressi paper; le posizioni restano gestite' }),
   scanSec: n('Intervallo scan (s)', 'auto', 15, 600, { scope: 'runner', step: 1 }),

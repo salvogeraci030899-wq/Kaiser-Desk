@@ -16,6 +16,7 @@ const Holders = require('./holders.js');
 const Semi = require('./semi.js');
 const Kb = require('./kb.js');
 const LabQ = require('./labquery.js');
+const Grokstat = require('./grokstat.js');
 
 const STATE_DIR = process.env.STATE_DIR || path.join(__dirname, '..', 'state');
 const LOOP_MIN = Number(process.env.LOOP_MIN || 4.5);
@@ -46,15 +47,16 @@ if (!fs.existsSync(F.config)) {
 }
 const S = { ...E.DEFAULTS, ...RUNNER_DEFAULTS, ...readJSON(F.config, {}) };
 S.useGrok = S.useGrok && !!process.env.XAI_API_KEY;
+S.grokTest = S.grokTest && !!process.env.XAI_API_KEY;
 // Il runner non ha chiavi né firma nulla. Il reale è un conto separato gestito dall'esecutore (vedi realEntries).
 
 const st = Object.assign({
-  startedAt: Date.now(), runs: 0, cash: S.capitalSOL, positions: [], journal: [], signals: [], alerts: [],
+  startedAt: Date.now(), runs: 0, cash: S.capitalSOL, positions: [], journal: [], signals: [], alerts: [], grokLog: [],
   day: null, cooldownUntil: 0, halted: null, seq: 0, events: [],
 }, readJSON(F.state, {}));
 st.runs++;
 if (st.capital > 0) S.capitalSOL = st.capital;   // capitale scelto con un reset dall'app: resta valido ai run successivi
-const rt = { solUsd: 0, sec: new Map(), grok: new Map(), gmgn: new Map(), cands: new Map(), gmgnCache: {}, gcache: {}, seen: new Map(), young: new Map(), youngQ: new Set(), feed: null, trades: null, pathBuf: [], farm: null, farmAt: 0, farmBusy: false, probe: null, probeBusy: false, probeDone: false, strat: Strat.create(), stratDirty: false, rug: null, holdQ: [], holdBuf: [], holdBusy: 0, holdOk: 0, holdFail: 0, holdErr: '' };
+const rt = { solUsd: 0, sec: new Map(), grok: new Map(), gmgn: new Map(), cands: new Map(), gmgnCache: {}, gcache: {}, seen: new Map(), young: new Map(), youngQ: new Set(), feed: null, trades: null, pathBuf: [], farm: null, farmAt: 0, farmBusy: false, probe: null, probeBusy: false, probeDone: false, strat: Strat.create(), stratDirty: false, grokQ: [], grokBusy: false, grokDay: { d: '', n: 0 }, grokErr: 0, grokErrMsg: '', rug: null, holdQ: [], holdBuf: [], holdBusy: 0, holdOk: 0, holdFail: 0, holdErr: '' };
 
 function log(agent, msg) {
   const line = `${new Date().toISOString().slice(11, 19)} ${agent.padEnd(8)} ${msg}`;
@@ -64,7 +66,7 @@ function log(agent, msg) {
 }
 function save() {
   st.journal = st.journal.slice(-2000);
-  st.signals = st.signals.slice(-1000); st.alerts = (st.alerts || []).slice(-60);
+  st.signals = st.signals.slice(-1000); st.alerts = (st.alerts || []).slice(-60); st.grokLog = (st.grokLog || []).slice(-600);
   fs.writeFileSync(F.state, JSON.stringify(st, null, 1));
   fs.writeFileSync(path.join(STATE_DIR, 'REPORT.md'), report());
   fs.writeFileSync(path.join(STATE_DIR, 'journal.csv'), csv());
@@ -92,7 +94,7 @@ function publicSummary() {
     journal: st.journal.slice(-100).map((j) => ({ id: j.id, mint: j.mint, sym: j.sym, openedAt: j.openedAt, closedAt: j.closedAt, cost: j.cost, back: j.back, pnl: j.pnl, pct: j.pct, reason: j.reason, score: j.score, peakPct: j.peakPct, trigPct: j.trigPct, maePct: j.maePct == null ? null : j.maePct, age: j.age == null ? null : j.age })),
     events: st.events.slice(0, 40), config: cfg,
     young: Y.youngSummary(rt.young, Date.now(), 80, (m) => (rt.trades ? rt.trades.botNow(m) : null)),
-    cal: calSummary(st.cal), semi: S.semiAuto || 'spento', alerts: Semi.view(st.alerts || [], 20), farm: rt.farm || null, rug: rt.rug || null, hold: { ok: rt.holdOk, fail: rt.holdFail, queued: rt.holdQ.length, err: rt.holdErr }, probe: rt.probe || null, strat: Strat.summary(rt.strat, Date.now()),
+    cal: calSummary(st.cal), semi: S.semiAuto || 'spento', alerts: Semi.view(st.alerts || [], 20), grok: { on: !!S.grokTest, key: !!process.env.XAI_API_KEY, used: rt.grokDay.n, err: rt.grokErr, errMsg: rt.grokErrMsg, queued: rt.grokQ.length, stat: Grokstat.summary(st.grokLog || []) }, farm: rt.farm || null, rug: rt.rug || null, hold: { ok: rt.holdOk, fail: rt.holdFail, queued: rt.holdQ.length, err: rt.holdErr }, probe: rt.probe || null, strat: Strat.summary(rt.strat, Date.now()),
     lab: rt.trades || (st.lab && st.lab.done.length) ? { info: rt.trades ? rt.trades.status() : null, ...Lab.labSummary((st.lab && st.lab.done) || [], Date.now()) } : null, youngInfo: rt.feed ? { ...rt.feed.status(), tracked: [...rt.young.values()].filter((y) => y.tracked).length } : null,
   };
 }
@@ -245,8 +247,22 @@ async function semiAlerts(buys) {
   for (const c of Semi.pick(st.alerts, buys, now, dipOk)) {
     const a = Semi.alertOf(c, now); st.alerts.push(a); log('QUARTER', `SEGNALE $${a.sym} score ${a.score} (semi-automatico)`);
     await tg(Semi.text(a), Semi.keyboard(a));
+    if (S.grokTest && rt.grokQ.length < 20) rt.grokQ.push(a);      // il giudizio di Grok arriva dopo l'avviso e non lo cambia: e' solo una misura
   }
 }
+// Test di Grok: un giudizio per segnale, uno alla volta, al massimo 120 al giorno; il risultato si confronta con l'esito a 15 minuti (grokstat.js)
+const GROK_DAY_MAX = 120;
+function pumpGrok() {
+  if (!S.grokTest || !grokAnalyze || rt.grokBusy || !rt.grokQ.length) return;
+  const day = new Date().toISOString().slice(0, 10); if (rt.grokDay.d !== day) rt.grokDay = { d: day, n: 0 };
+  if (rt.grokDay.n >= GROK_DAY_MAX) { rt.grokQ.length = 0; return; }
+  const a = rt.grokQ.shift(); if (!a || Date.now() - a.t > 10 * 60000) return;      // giudizio troppo in ritardo: non e' piu' confrontabile con l'esito
+  rt.grokBusy = true; rt.grokDay.n++;
+  grokAnalyze({ address: a.mint, symbol: a.sym, name: a.name }).then((v) => {
+    if (v && v.ok) { a.gr = { s: v.sentiment, h: v.hype, o: v.organic, f: (v.redFlags || []).length, k: (v.kols || []).length, m: v.mentions, why: String(v.summary || '').slice(0, 160) }; log('GROK', `segnale $${a.sym}: sentimento ${v.sentiment} organico ${v.organic} allarmi ${a.gr.f}`); } else rt.grokErr++;
+  }).catch((err) => { rt.grokErr++; rt.grokErrMsg = String(err.message).slice(0, 80); }).finally(() => { rt.grokBusy = false; });
+}
+function logGrok() { for (const a of st.alerts || []) if (a.gr && a.p15 != null && !a.logged) Grokstat.record(st.grokLog, a); }
 // Segue per 15 minuti il prezzo di ogni segnale: serve a capire dopo se i segnali erano buoni, anche se non hai comprato
 async function updateAlerts(pairs) {
   const now = Date.now(), pend = Semi.open(st.alerts || [], now); if (!pend.length) return;
@@ -375,7 +391,7 @@ async function pullParams() {
   }
   const changed = [];
   for (const k of new Set([...appliedKeys, ...Object.keys(next)])) {
-    let nv = k in next ? next[k] : BASE_S[k]; if (k === 'useGrok') nv = !!nv && !!process.env.XAI_API_KEY;
+    let nv = k in next ? next[k] : BASE_S[k]; if (k === 'useGrok' || k === 'grokTest') nv = !!nv && !!process.env.XAI_API_KEY;
     if (S[k] !== nv) { changed.push(`${k} ${S[k]}→${nv}`); S[k] = nv; }
   }
   appliedKeys = new Set(Object.keys(next));
@@ -479,7 +495,7 @@ async function scan() {
   // modalita' semi-automatica: avviso con il collegamento a pump.fun, entri tu a mano (funziona anche con l'autopilota spento)
   st.alerts = st.alerts || [];
   if (S.semiAuto && S.semiAuto !== 'spento') await semiAlerts(buys);
-  await updateAlerts(pairs);
+  await updateAlerts(pairs); logGrok();
   if (S.semiAuto === 'solo avvisi') return;
   if (!S.autopilot) return;
   await realEntries(buys);   // conto REALE (separato dal paper): solo se acceso in config.json e con l'esecutore collegato
@@ -654,6 +670,7 @@ async function main() {
     maybeProbe();
     pumpHolders();
     pumpLabQueries();
+    pumpGrok();
     save();
     if (Date.now() - lastCp >= CHECKPOINT_MS) { lastCp = Date.now(); flushPaths(false); checkpoint(); }
     const left = end - Date.now();
