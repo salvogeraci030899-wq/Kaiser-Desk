@@ -66,4 +66,10 @@ function run(recs, o) {
   out.ms = Date.now() - t0; return out;
 }
 
-module.exports = { RULES, MIN_TR, MIN_TE, build, run };
+// Un risultato credibile: esito positivo sui dati vecchi E recenti, abbastanza operazioni, e il caso fa altrettanto bene in meno del 5% delle ricerche
+function credible(co) {
+  const b = co && co.best; if (!b || !b.feat || !co.perm || co.perm.p == null) return false;
+  return b.tr.ev > 0 && b.te.ev > 0 && b.tr.n >= MIN_TR && b.te.n >= MIN_TE && co.perm.p <= 0.05 && co.perm.B >= 50;
+}
+const comboKey = (co) => { const b = co && co.best; return b ? [b.feat, b.dir, b.cut, b.rule.delay, b.rule.tp, b.rule.sl, b.rule.hold].join('/') : ''; };
+module.exports = { credible, comboKey, RULES, MIN_TR, MIN_TE, build, run };

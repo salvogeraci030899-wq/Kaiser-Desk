@@ -79,3 +79,14 @@ test('ricerca filtro + regola: trova un segnale vero (p basso) e non ne inventa 
   const noise = new Map(); for (let i = 0; i < N; i++) noise.set('m' + i, { top1: rnd() });
   const none = Combo.run(rec2, { thr: 7500, holders: noise, creators: [], perms: 40, rng: rnd }); assert.ok(none.perm.p > 0.05, 'rumore: p ' + none.perm.p);
 });
+
+test('segnale credibile: positivo su vecchi e recenti, abbastanza operazioni e caso sotto il 5%; avviso una volta sola', () => {
+  const Combo = require('../runner/combo.js'), mk = (o) => ({ best: { feat: 'top1', dir: 'basso', cut: 0.1, rule: { delay: 0, tp: 10, sl: 10, hold: 60 }, tr: { n: 100, ev: 3 }, te: { n: 60, ev: 2 }, score: 2, ...o }, perm: { B: 100, p: 0.02 } });
+  assert.equal(Combo.credible(mk()), true);
+  assert.equal(Combo.credible(mk({ te: { n: 60, ev: -1 } })), false, 'negativo sui recenti');
+  assert.equal(Combo.credible(mk({ tr: { n: 10, ev: 3 } })), false, 'poche operazioni');
+  const c = mk(); c.perm.p = 0.2; assert.equal(Combo.credible(c), false, 'il caso fa uguale');
+  const d = mk(); d.perm = { B: 10, p: 0.01 }; assert.equal(Combo.credible(d), false, 'poche permutazioni');
+  assert.equal(Combo.credible({ best: { feat: null } }), false); assert.equal(Combo.comboKey(mk()), 'top1/basso/0.1/0/10/10/60');
+  const src = fs.readFileSync(path.join(__dirname, '..', 'runner', 'runner.js'), 'utf8'); assert.match(src, /st\.comboSeen\.includes\(k\)/); assert.match(src, /\$\{strategyDaily\(\)\}/);
+});
