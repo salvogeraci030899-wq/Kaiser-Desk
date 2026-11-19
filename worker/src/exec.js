@@ -9,6 +9,20 @@ import { SCHEMA, GROUPS, validate, diffText, defaults as paramDefaults } from '.
 
 export const SOL = 'So11111111111111111111111111111111111111112';
 const MINT_RE = /^[1-9A-HJ-NP-Za-km-z]{32,44}$/;
+// Stessa tastiera del runner e di telegram.js: pump.fun in evidenza, poi DexScreener (con pairAddress se c'è, così apre proprio quella pool), GMGN.
+// extraRows (opzionale): righe di pulsanti in testa (es. Approva/Rifiuta, Chiudi ora/Annulla) per i messaggi che hanno già una callback.
+function mintKeyboard(mint, pairAddress, extraRows) {
+  const rows = [...(extraRows || [])];
+  if (MINT_RE.test(mint || '')) {
+    const pair = MINT_RE.test(pairAddress || '') ? pairAddress : mint;
+    rows.push([
+      { text: '🟢 pump.fun', url: `https://pump.fun/coin/${mint}` },
+      { text: '📈 DexScreener', url: `https://dexscreener.com/solana/${pair}` },
+      { text: '🦅 GMGN', url: `https://gmgn.ai/sol/token/${mint}` },
+    ]);
+  }
+  return rows.length ? { inline_keyboard: rows } : null;
+}
 const RESERVE = 10_000_000;            // 0,01 SOL: margine per commissioni e rent degli account
 // Pannello di emergenza: azioni dell'app. 'confirm' = anche con l'approvazione disattivata passa sempre dal tasto su Telegram (accende il reale).
 const PANEL = {
@@ -95,12 +109,12 @@ export class Executor {
     const px = await this.prices(fresh.map((t) => t.mint)), noted = await this.store.get('shieldNoted', {}), wait = await this.store.get('shieldWait', {}); let changed = false;
     for (const t of fresh.slice(0, 5)) {
       const m = px.get(t.mint);
-      if (!m || !(m.priceNative > 0)) { wait[t.mint] = wait[t.mint] || now; changed = true; if (now - wait[t.mint] > 120000 && !noted[t.mint + ':np']) { noted[t.mint + ':np'] = now; await this.notify(`Scudo: nel wallet è comparso ${t.mint.slice(0, 6)}… ma non riesco a leggerne il prezzo (non ancora su DexScreener): nessuna protezione per ora.`); } continue; }
+      if (!m || !(m.priceNative > 0)) { wait[t.mint] = wait[t.mint] || now; changed = true; if (now - wait[t.mint] > 120000 && !noted[t.mint + ':np']) { noted[t.mint + ':np'] = now; await this.notify(`Scudo: nel wallet è comparso ${t.mint.slice(0, 6)}… ma non riesco a leggerne il prezzo (non ancora su DexScreener): nessuna protezione per ora.`, { mint: t.mint }); } continue; }
       if (m.mcap > 20_000_000) continue;                   // non un memecoin giovane: non si protegge
       const value = Number(t.raw) / 10 ** t.decimals * m.priceNative; if (value < cfg.shieldMinSol) continue;
       const sym = (m.sym || t.mint.slice(0, 6)).slice(0, 20), entry = m.priceNative, lv = (pct) => (entry * (1 + pct / 100)).toPrecision(4);
       if (this.mode() !== 'live') {                        // prova: nessuna posizione registrata, solo un avviso (una volta per token)
-        if (!noted[t.mint]) { noted[t.mint] = now; changed = true; await this.notify(`Scudo (prova): rilevato ${sym}, ${value.toFixed(4)} SOL a ${entry.toPrecision(4)}. Con ORDERS_MODE=live lo proteggerei: stop a ${lv(-cfg.shieldSl)} (−${cfg.shieldSl}%), TP1 a ${lv(cfg.shieldTp1)} (+${cfg.shieldTp1}%).`); }
+        if (!noted[t.mint]) { noted[t.mint] = now; changed = true; await this.notify(`Scudo (prova): rilevato ${sym}, ${value.toFixed(4)} SOL a ${entry.toPrecision(4)}. Con ORDERS_MODE=live lo proteggerei: stop a ${lv(-cfg.shieldSl)} (−${cfg.shieldSl}%), TP1 a ${lv(cfg.shieldTp1)} (+${cfg.shieldTp1}%).`, { mint: t.mint }); }
         continue;
       }
       const seq = (await this.store.get('seq', 0)) + 1; await this.store.put('seq', seq);
@@ -108,7 +122,7 @@ export class Executor {
       const pos = { id: 'R-' + String(seq).padStart(4, '0'), source: 'scudo', mint: t.mint, sym, openedAt: now, costSol: value, tokensRaw: String(t.raw), decimals: t.decimals, entry, peak: entry,
         tp1Done: false, spDone: false, entryLiq: m.liq, params, realized: 0, sigs: [], fails: 0, persistedAt: now };
       const ps = await this.store.get('positions', []); ps.push(pos); await this.store.put('positions', ps); delete wait[t.mint]; changed = true;
-      await this.notify(`SCUDO: protetto ${sym} (${pos.id}) · ${value.toFixed(4)} SOL a ${entry.toPrecision(4)}\nStop −${params.sl}% (${lv(-params.sl)}) · TP1 +${params.tp1}% (${lv(params.tp1)}) vendendo ${params.tp1Sell}%, poi trailing −${params.trail}%\nL'ingresso è il prezzo di quando l'ho visto (circa 10 secondi dopo il tuo acquisto).`);
+      await this.notify(`SCUDO: protetto ${sym} (${pos.id}) · ${value.toFixed(4)} SOL a ${entry.toPrecision(4)}\nStop −${params.sl}% (${lv(-params.sl)}) · TP1 +${params.tp1}% (${lv(params.tp1)}) vendendo ${params.tp1Sell}%, poi trailing −${params.trail}%\nL'ingresso è il prezzo di quando l'ho visto (circa 10 secondi dopo il tuo acquisto).`, { mint: t.mint });
     }
     if (changed) { await this.store.put('shieldNoted', Object.fromEntries(Object.entries(noted).slice(-60))); await this.store.put('shieldWait', wait); }
   }
@@ -155,9 +169,20 @@ export class Executor {
     if (!d || !d.swapTransaction) throw new Error('Jupiter non ha restituito la transazione');
     return b64dec(d.swapTransaction);
   }
-  async notify(text, markup) {
+  // Notifiche Telegram. `opts` accetta, in ordine di precedenza:
+  //   { keyboard }                 markup già pronto (inline_keyboard), usato com'è
+  //   { mint, pairAddress?, extraRows? }  costruisce i 3 bottoni (pump.fun/DexScreener/GMGN); extraRows sono righe di pulsanti in testa
+  //   { inline_keyboard }          vecchio stile (compatibilità)
+  //   undefined                    nessun bottone
+  async notify(text, opts) {
     const { TELEGRAM_BOT_TOKEN: t, TELEGRAM_CHAT_ID: c } = this.env; if (!t || !c) return;
-    try { await this.f(`https://api.telegram.org/bot${t}/sendMessage`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ chat_id: c, text, disable_web_page_preview: true, ...(markup ? { reply_markup: markup } : {}) }) }); } catch { /* i messaggi non devono mai bloccare un ordine */ }
+    let kb = null;
+    if (opts) {
+      if (opts.keyboard) kb = opts.keyboard;
+      else if (opts.mint || opts.extraRows) kb = mintKeyboard(opts.mint, opts.pairAddress, opts.extraRows);
+      else if (Array.isArray(opts.inline_keyboard)) kb = opts;
+    }
+    try { await this.f(`https://api.telegram.org/bot${t}/sendMessage`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ chat_id: c, text, disable_web_page_preview: true, ...(kb ? { reply_markup: kb } : {}) }) }); } catch { /* i messaggi non devono mai bloccare un ordine */ }
   }
 
   // ---- controllo e simulazione: una transazione di un servizio esterno non si firma alla cieca ----
@@ -224,7 +249,7 @@ export class Executor {
     refs[ref] = { signature: sent.sig, at: ctx.at }; await this.store.put('refs', Object.fromEntries(Object.entries(refs).slice(-200)));
     if (sent.status === 'pending') {
       pending.push({ ...ctx, kind: 'buy', costSol: size }); await this.store.put('pending', pending);
-      await this.notify(`Acquisto reale inviato, non ancora confermato: $${ctx.sym || mint.slice(0, 6)} ${size} SOL\nhttps://solscan.io/tx/${sent.sig}`);
+      await this.notify(`Acquisto reale inviato, non ancora confermato: $${ctx.sym || mint.slice(0, 6)} ${size} SOL\nhttps://solscan.io/tx/${sent.sig}`, { mint: ctx.mint });
       return { ok: true, pending: true, signature: sent.sig };
     }
     const pos = await this.openPosition(ctx);
@@ -241,7 +266,7 @@ export class Executor {
     const pos = { id: 'R-' + String(seq).padStart(4, '0'), mint: ctx.mint, sym: ctx.sym, openedAt: ctx.at, costSol, tokensRaw: String(raw), decimals: tb.decimals, entry, peak: entry,
       tp1Done: false, spDone: false, entryLiq: ctx.entryLiq, params: ctx.params, realized: 0, sigs: [ctx.sig], fails: 0, persistedAt: this.now() };
     const positions = await this.store.get('positions', []); positions.push(pos); await this.store.put('positions', positions);
-    await this.notify(`ACQUISTO REALE $${pos.sym || pos.mint.slice(0, 6)} ${costSol.toFixed(4)} SOL\n${pos.id} · stop −${pos.params.sl}% · TP1 +${pos.params.tp1}%\nhttps://solscan.io/tx/${ctx.sig}`);
+    await this.notify(`ACQUISTO REALE $${pos.sym || pos.mint.slice(0, 6)} ${costSol.toFixed(4)} SOL\n${pos.id} · stop −${pos.params.sl}% · TP1 +${pos.params.tp1}%\nhttps://solscan.io/tx/${ctx.sig}`, { mint: pos.mint });
     return pos;
   }
 
@@ -258,7 +283,7 @@ export class Executor {
     const t = { id: 'T-' + String(seq).padStart(4, '0'), mint, sym: String(req.sym || '').slice(0, 20), score: num(req.score), sizeSol: size, slippageBps: num(req.slippageBps, this.limits().maxSlippageBps), params: clampParams(req.params), entryLiq: num(req.entryLiq), at: now, exp: now + 10 * 60000 };
     tickets.push(t); await this.store.put('tickets', tickets.slice(-10));
     await this.notify(`Ticket ${t.id}: $${t.sym || mint.slice(0, 6)} score ${t.score} · ${size} SOL\nStop −${t.params.sl}% · TP1 +${t.params.tp1}% · trailing −${t.params.trail}%\nApprova o rifiuta qui sotto entro 10 minuti.`,
-      { inline_keyboard: [[{ text: 'Approva', callback_data: 'ap:' + t.id }, { text: 'Rifiuta', callback_data: 'rj:' + t.id }]] });
+      { mint: t.mint, extraRows: [[{ text: 'Approva', callback_data: 'ap:' + t.id }, { text: 'Rifiuta', callback_data: 'rj:' + t.id }]] });
     return { ok: true, ticket: t };
   }
   approve(id) {
@@ -284,13 +309,13 @@ export class Executor {
       this._attempts = (this._attempts || 0) + 1;
       try {
         const r = await this._sellOnce(p, frac, reason, steps[i], ctx);
-        if (i > 0 && r && r.ok) await this.notify(`Vendita riuscita al tentativo ${i + 1} (slippage ${steps[i] / 100}%): ${p.id} $${p.sym}`);
+        if (i > 0 && r && r.ok) await this.notify(`Vendita riuscita al tentativo ${i + 1} (slippage ${steps[i] / 100}%): ${p.id} $${p.sym}`, { mint: p.mint });
         return r;
       } catch (err) { last = err; if (i < steps.length - 1) await this.sleep(1000); }
     }
     p.fails = num(p.fails) + 1; this.fastRetry = true;
     const ps = await this.store.get('positions', []); await this.store.put('positions', ps.map((x) => (x.id === p.id ? p : x)));
-    if (p.fails === 1 || p.fails % 5 === 0) await this.notify(`USCITA REALE FALLITA (${p.fails}) ${p.id} $${p.sym}: ${last && last.message}\nHo già riprovato subito con slippage fino a ${top / 100}%. Riprovo di nuovo tra pochi secondi. Se persiste, vendi a mano dal wallet.`);
+    if (p.fails === 1 || p.fails % 5 === 0) await this.notify(`USCITA REALE FALLITA (${p.fails}) ${p.id} $${p.sym}: ${last && last.message}\nHo già riprovato subito con slippage fino a ${top / 100}%. Riprovo di nuovo tra pochi secondi. Se persiste, vendi a mano dal wallet.`, { mint: p.mint });
     return { ok: false, error: last && last.message };
   }
   async _sellOnce(p, frac, reason, slippageBps, ctx) {
@@ -311,14 +336,14 @@ export class Executor {
       if (!prep.ok) throw new Error('transazione di uscita non ammessa: ' + prep.reasons.join('; '));
       const signed = await signTx(prep.bytes, this.env.WALLET_SECRET_KEY);
       const sent = await this.sendAndConfirm(signed.tx);
-      if (sent.status === 'pending') { await this.notify(`Vendita reale inviata, non ancora confermata: ${p.id} $${p.sym}\nhttps://solscan.io/tx/${sent.sig}`); return { ok: true, pending: true, signature: sent.sig }; }
+      if (sent.status === 'pending') { await this.notify(`Vendita reale inviata, non ancora confermata: ${p.id} $${p.sym}\nhttps://solscan.io/tx/${sent.sig}`, { mint: p.mint }); return { ok: true, pending: true, signature: sent.sig }; }
       const post = await this.lamports();
       p.realized = num(p.realized) + (post - pre) / 1e9; p.sigs = [...(p.sigs || []), sent.sig].slice(-10); p.fails = 0;
       const left = await this.tokenBalance(p.mint).catch(() => ({ raw: 1n }));
       if (frac >= 0.999 || left.raw === 0n) return this.closePosition(p, reason, sent.sig);
       p.tokensRaw = left.raw.toString();
       const ps = await this.store.get('positions', []); await this.store.put('positions', ps.map((x) => (x.id === p.id ? p : x)));
-      await this.notify(`${reason}: venduta una parte di ${p.id} $${p.sym}\nhttps://solscan.io/tx/${sent.sig}`);
+      await this.notify(`${reason}: venduta una parte di ${p.id} $${p.sym}\nhttps://solscan.io/tx/${sent.sig}`, { mint: p.mint });
       return { ok: true, partial: true, signature: sent.sig };
     }
   }
@@ -328,7 +353,7 @@ export class Executor {
     j.push({ mode: 'real', id: p.id, mint: p.mint, sym: p.sym, openedAt: p.openedAt, closedAt: this.now(), cost: p.costSol, back: num(p.realized), pnl, pct: pnl / p.costSol * 100, reason, score: 0, sigs: p.sigs, source: p.source });
     await this.store.put('journal', j.slice(-300));
     if (p.source === 'scudo') { const dn = await this.store.get('shieldDone', {}); dn[p.mint] = this.now(); await this.store.put('shieldDone', Object.fromEntries(Object.entries(dn).slice(-60))); }
-    await this.notify(`CHIUSA ${p.id} $${p.sym} ${pnl >= 0 ? '+' : ''}${pnl.toFixed(4)} SOL (${(pnl / p.costSol * 100).toFixed(1)}%) · ${reason}${sig ? '\nhttps://solscan.io/tx/' + sig : ''}`);
+    await this.notify(`CHIUSA ${p.id} $${p.sym} ${pnl >= 0 ? '+' : ''}${pnl.toFixed(4)} SOL (${(pnl / p.costSol * 100).toFixed(1)}%) · ${reason}${sig ? '\nhttps://solscan.io/tx/' + sig : ''}`, { mint: p.mint });
     return { ok: true, closed: true, pnl, signature: sig };
   }
   dayPnl(journal) { const d = today(this.now()); return journal.filter((j) => today(j.closedAt) === d).reduce((a, j) => a + num(j.pnl), 0); }
@@ -383,9 +408,9 @@ export class Executor {
     for (const p of pending) {
       try {
         const st = await this.rpc('getSignatureStatuses', [[p.sig], { searchTransactionHistory: true }]), s = st && st.value && st.value[0];
-        if (s && s.err) { await this.notify(`Acquisto reale non riuscito: $${p.sym || p.mint.slice(0, 6)} (${JSON.stringify(s.err)})`); continue; }
+        if (s && s.err) { await this.notify(`Acquisto reale non riuscito: $${p.sym || p.mint.slice(0, 6)} (${JSON.stringify(s.err)})`, { mint: p.mint }); continue; }
         if (s && (s.confirmationStatus === 'confirmed' || s.confirmationStatus === 'finalized')) { await this.openPosition(p); continue; }
-        if (this.now() - p.at > 180000) { await this.notify(`Acquisto reale scaduto senza conferma: $${p.sym || p.mint.slice(0, 6)}. Controlla il wallet.`); continue; }
+        if (this.now() - p.at > 180000) { await this.notify(`Acquisto reale scaduto senza conferma: $${p.sym || p.mint.slice(0, 6)}. Controlla il wallet.`, { mint: p.mint }); continue; }
       } catch { /* si riprova */ }
       keep.push(p);
     }
@@ -483,9 +508,9 @@ export class Executor {
   async _proposeClose(c) {
     const mode = c && c.mode, id = String((c && c.id) || '').toUpperCase();
     if ((mode !== 'paper' && mode !== 'real') || !/^[PR]-\d{1,6}$/.test(id) || (mode === 'real') !== id.startsWith('R-')) return { ok: false, error: 'posizione non valida' };
-    let sym = id;
-    if (mode === 'real') { const p = (await this.store.get('positions', [])).find((x) => x.id === id); if (!p) return { ok: false, error: 'posizione reale non trovata' }; sym = p.sym; }
-    else { const snap = await this.store.get('paper', null), p = snap && snap.data && snap.data.positions.find((x) => x.id === id); if (snap && !p) return { ok: false, error: 'posizione paper non trovata (forse già chiusa)' }; if (p) sym = p.sym; }
+    let sym = id, mint = '';
+    if (mode === 'real') { const p = (await this.store.get('positions', [])).find((x) => x.id === id); if (!p) return { ok: false, error: 'posizione reale non trovata' }; sym = p.sym; mint = p.mint; }
+    else { const snap = await this.store.get('paper', null), p = snap && snap.data && snap.data.positions.find((x) => x.id === id); if (snap && !p) return { ok: false, error: 'posizione paper non trovata (forse già chiusa)' }; if (p) { sym = p.sym; mint = p.mint; } }
     const now = this.now(), props = (await this.store.get('proposals', [])).filter((p) => p.exp > now);
     if (props.some((p) => p.close && p.close.id === id)) return { ok: false, error: 'chiusura già richiesta: controlla Telegram' };
     if (props.length >= 6) return { ok: false, error: 'ci sono già troppe richieste in attesa su Telegram' };
@@ -495,7 +520,8 @@ export class Executor {
     const p = { id: 'C-' + String(seq).padStart(4, '0'), changes: {}, close: { mode, id, sym: String(sym || '').slice(0, 20) }, at: now, exp: now + 10 * 60000 };
     if ((c.approvalOff === true && String(this.env.APP_CLOSE || '').toLowerCase() !== 'confirm') || (await this._closeDirect())) { const r = await this._applyClose(p.close); return { ...r, proposal: p, direct: true }; }
     props.push(p); await this.store.put('proposals', props);
-    await this.notify(`Chiusura posizione ${mode === 'real' ? 'REALE' : 'paper'} ${p.id}\n${p.close.sym} (${id}): vendita di tutta la posizione a mercato.${mode === 'real' ? '\nSono soldi veri.' : ''}\n\nValida per 10 minuti. Se non l'hai chiesta tu, rifiuta.`, { inline_keyboard: [[{ text: 'Chiudi ora', callback_data: 'pa:' + p.id }, { text: 'Annulla', callback_data: 'pr:' + p.id }]] });
+    await this.notify(`Chiusura posizione ${mode === 'real' ? 'REALE' : 'paper'} ${p.id}\n${p.close.sym} (${id}): vendita di tutta la posizione a mercato.${mode === 'real' ? '\nSono soldi veri.' : ''}\n\nValida per 10 minuti. Se non l'hai chiesta tu, rifiuta.`,
+      { mint, extraRows: [[{ text: 'Chiudi ora', callback_data: 'pa:' + p.id }, { text: 'Annulla', callback_data: 'pr:' + p.id }]] });
     return { ok: true, proposal: p };
   }
   async _applyClose(c) {
