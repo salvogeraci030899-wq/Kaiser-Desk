@@ -304,7 +304,7 @@ a.btn { text-decoration: none; display: inline-flex; align-items: center; justif
 html, body { position: fixed; inset: 0; width: 100%; height: auto; margin: 0; overflow: hidden; }
 #app { position: absolute; inset: 0; width: auto; height: auto; }
 html.pwa-mode, html.pwa-mode body { position: static; height: 100%; }
-html.pwa-mode #app { position: fixed; inset: 0; width: auto; height: auto; }   /* riempie esattamente la finestra che iOS concede, con barra di stato trasparente o no */
+html.pwa-mode #app { position: absolute; top: 0; left: 0; right: 0; width: auto; height: var(--app-h, 100%); }   /* riempie esattamente la finestra che iOS concede, con barra di stato trasparente o no */
 .view.active { animation: none; }
 /* Le pagine non scorrono per intero: in alto restano fissi selettori e riepiloghi (.vfix), scorre solo il resto (.vscroll); in basso i tasti d'azione (.vfoot). */
 main { overflow: hidden; display: flex; flex-direction: column; padding-bottom: 0; }
