@@ -2,6 +2,7 @@
 // Sicurezza: la richiesta deve portare il segreto del webhook (derivato da EXEC_TOKEN) E arrivare dalla chat autorizzata (TELEGRAM_CHAT_ID).
 import { num } from './lib.js';
 import { kb as buildKb, positionRows } from './kb.js';
+import { LABELS, SEMI_VALUES, menuKeyboard, menuText, replyKeyboard, paperScreen, signalsScreen, labScreen, rulesScreen, semiScreen, grokScreen } from './tgmenu.js';
 
 export async function webhookSecret(env) {
   const key = await crypto.subtle.importKey('raw', new TextEncoder().encode(String(env.EXEC_TOKEN || '')), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
@@ -10,6 +11,14 @@ export async function webhookSecret(env) {
 }
 
 const HELP = `KAISER · comandi
+/menu — menu a tasti (stato, paper, segnali, Laboratorio, regole, Scudo, semi-automatico, Test Grok)
+/paper — risultati del paper e posizioni, con i tasti pump.fun e Chiudi
+/segnali — ultimi segnali semi-automatici con il tasto per entrare su pump.fun
+/lab — riepilogo del Laboratorio
+/regole — regole in prova, validate e ritirate
+/semi — modalità semi-automatica (con conferma)
+/grok — test di Grok sui segnali (con conferma)
+/tastiera [off] — tastiera fissa con i tasti principali
 /stato — modo, kill switch, posizioni, P&L di oggi
 /posizioni — posizioni reali aperte
 /wallet — indirizzo completo e saldo del wallet
@@ -53,6 +62,16 @@ export async function handleUpdate(ex, update) {
       const r = await ex.propose({ close: { mode: id.startsWith('R-') ? 'real' : 'paper', id } });
       await answer(ex, cb.id, r.ok ? (r.direct ? 'Chiusura avviata' : 'Conferma nel messaggio qui sotto') : (r.error || 'Errore').slice(0, 150));
     }
+    else if (kind === 'mn') {                                           // menu a tasti: stesse schermate dei comandi
+      await answer(ex, cb.id, '');
+      const go = { menu: '/menu', stato: '/stato', paper: '/paper', segnali: '/segnali', lab: '/lab', regole: '/regole', pos: '/posizioni', scudo: '/scudo', par: '/parametri', aiuto: '/aiuto', semi: '/semi', grok: '/grok' }[id];
+      if (go) return handleUpdate(ex, { message: { chat: { id: Number(chat) }, text: go } });
+      if (id === 'emerg') await reply(ex, chat, 'EMERGENZA: ferma gli ingressi, spegne autopilota e reale e vende tutte le posizioni reali. Confermi?', { inline_keyboard: [[{ text: 'CONFERMA EMERGENZA', callback_data: 'em:go' }, { text: 'Annulla', callback_data: 'em:no' }]] });
+      else await reply(ex, chat, 'Comando non valido.');
+    }
+    else if (kind === 'em' && (id === 'go' || id === 'no')) { await answer(ex, cb.id, id === 'go' ? 'Emergenza in corso' : 'Annullata'); if (id === 'go') { const r = await ex.emergency(); if (!r.ok) await reply(ex, chat, r.error || 'errore'); } }
+    else if (kind === 'sm' && SEMI_VALUES[id]) { const r = await ex.propose({ changes: { semiAuto: SEMI_VALUES[id] } }); await answer(ex, cb.id, r.ok ? 'Richiesta inviata: conferma nel messaggio qui sotto' : (r.error || 'Errore').slice(0, 150)); if (!r.ok && r.errors) await reply(ex, chat, r.errors.map((e) => e.msg).join('\n')); }
+    else if (kind === 'gk' && (id === 'on' || id === 'off')) { const r = await ex.propose({ changes: { grokTest: id === 'on' } }); await answer(ex, cb.id, r.ok ? 'Richiesta inviata: conferma nel messaggio qui sotto' : (r.error || 'Errore').slice(0, 150)); }
     else if (kind === 'rj' && /^T-\d+$/.test(id)) { await ex.reject(id); await answer(ex, cb.id, 'Scartato'); }
     else if (kind === 'pa' && /^C-\d+$/.test(id)) { const r = await ex.applyProposal(id); await answer(ex, cb.id, r.ok ? (r.emergency ? 'EMERGENZA eseguita' : r.close ? 'Chiusura avviata' : r.panel ? 'Eseguito' : r.reset ? 'Reset approvato' : 'Parametri applicati') : (r.error || 'Errore').slice(0, 150)); }
     else if (kind === 'pr' && /^C-\d+$/.test(id)) { await ex.rejectProposal(id); await answer(ex, cb.id, 'Richiesta rifiutata'); await reply(ex, chat, `${id} rifiutata.`); }
@@ -60,10 +79,18 @@ export async function handleUpdate(ex, update) {
     return { ok: true };
   }
 
-  const text = String(msg.text || '').trim(); if (!text.startsWith('/')) return { ok: true, ignored: true };
+  let text = String(msg.text || '').trim(); if (!text.startsWith('/')) { const lab = LABELS[text.toLowerCase()]; if (!lab) return { ok: true, ignored: true }; text = lab; }
   const [cmdRaw, ...args] = text.split(/\s+/), cmd = cmdRaw.split('@')[0].toLowerCase();
   switch (cmd) {
-    case '/start': case '/aiuto': case '/help': await reply(ex, chat, HELP); break;
+    case '/start': case '/menu': await reply(ex, chat, await menuText(ex), menuKeyboard()); break;
+    case '/aiuto': case '/help': await reply(ex, chat, HELP, menuKeyboard()); break;
+    case '/paper': { const r = await paperScreen(ex); await reply(ex, chat, r.text, r.markup); break; }
+    case '/segnali': { const r = await signalsScreen(ex); await reply(ex, chat, r.text, r.markup); break; }
+    case '/lab': { const r = await labScreen(ex); await reply(ex, chat, r.text, r.markup); break; }
+    case '/regole': { const r = await rulesScreen(ex); await reply(ex, chat, r.text, r.markup); break; }
+    case '/semi': { const v = SEMI_VALUES[(args[0] || '').toLowerCase().replace(/[^a-z]/g, '')]; if (v) { const r = await ex.propose({ changes: { semiAuto: v } }); if (!r.ok) await reply(ex, chat, r.error || 'errore'); break; } const r = await semiScreen(ex); await reply(ex, chat, r.text, r.markup); break; }
+    case '/grok': { const a = (args[0] || '').toLowerCase(); if (a === 'on' || a === 'off') { const r = await ex.propose({ changes: { grokTest: a === 'on' } }); if (!r.ok) await reply(ex, chat, r.error || 'errore'); break; } const r = await grokScreen(ex); await reply(ex, chat, r.text, r.markup); break; }
+    case '/tastiera': { if ((args[0] || '').toLowerCase() === 'off') await reply(ex, chat, 'Tastiera fissa tolta.', { remove_keyboard: true }); else await reply(ex, chat, 'Tastiera fissa attiva: Menu, Stato, Paper, Segnali, Laboratorio, Posizioni. /tastiera off per toglierla.', replyKeyboard()); break; }
     case '/stato': {
       const s = await ex.state(), h = await ex.health();
       await reply(ex, chat, `KAISER · stato\nModo: ${s.mode.toUpperCase()}${s.killed ? ' · KILL SWITCH ATTIVO' : ''}\nPosizioni reali: ${s.positions.length} · in attesa: ${s.pending.length} · ticket: ${s.tickets.length}\nP&L di oggi: ${fmt(s.dayPnl)} SOL\nSaldo wallet: ${h.balanceSOL != null ? fmt(h.balanceSOL) + ' SOL' : (h.rpcError || h.walletError || '—')}\nLimiti: capitale ${s.limits.maxCapitalSOL} · ordine ${s.limits.maxOrderSOL} · perdita giorno ${s.limits.maxDailyLossSOL} SOL`);
@@ -109,7 +136,7 @@ export async function handleUpdate(ex, update) {
       await reply(ex, chat, `Scudo: ${c.shieldOn ? 'ACCESO' : 'spento'} · ordini ${mode.toUpperCase()}\nStop −${c.shieldSl}% · TP1 +${c.shieldTp1}% (vende ${c.shieldTp1Sell}%) · trailing −${c.shieldTrail}%${c.shieldOn && inf ? (inf.err ? '\nErrore: ' + inf.err : '\nToken ignorati (già nel wallet): ' + (inf.ignored || 0)) : ''}\n/scudo on · /scudo off`);
       break; }
     case '/kill': { await ex.kill(); await reply(ex, chat, 'Kill switch attivo: nuovi ingressi fermi. Le uscite restano attive. /riattiva per ripartire.'); break; }
-    case '/riattiva': { await ex.resume(); await reply(ex, chat, '▶Ingressi riattivati.'); break; }
+    case '/riattiva': { await ex.resume(); await reply(ex, chat, 'Ingressi riattivati.'); break; }
     default: await reply(ex, chat, 'Comando non riconosciuto.\n\n' + HELP);
   }
   return { ok: true };

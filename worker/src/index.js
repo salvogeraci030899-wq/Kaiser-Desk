@@ -11,6 +11,7 @@
 import { safeEqual, corsHeaders, dispatchRequest, runsRequest } from './lib.js';
 import { Executor } from './exec.js';
 import { handleUpdate, webhookSecret } from './tg.js';
+import { COMMANDS, UI_VERSION, menuKeyboard, menuText } from './tgmenu.js';
 
 const json = (obj, status, extra) => new Response(JSON.stringify(obj), { status: status || 200, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...extra } });
 const ROUTES = { '/lab/next': 'POST', '/lab/result': 'POST', '/health': 'GET', '/state': 'GET', '/runner': 'POST', '/paper': 'POST', '/order': 'POST', '/ticket': 'POST', '/approve': 'POST', '/reject': 'POST', '/sell': 'POST', '/kill': 'POST', '/resume': 'POST', '/tick': 'POST' };
@@ -46,6 +47,7 @@ export class Ledger {
       if (path === '/health') return json(await this.ex.health());
       if (path === '/public') return json(await this.ex.publicView());
       if (path === '/tg') return json(await handleUpdate(this.ex, body));
+      if (path === '/tgui') { await ensureCommands(this.ex.env, this.ex); return json({ ok: true }); }
       if (path === '/params') return json(await this.ex.paramsView());
       if (path === '/propose') return json(await this.ex.propose(body));
       if (path === '/lab/query') return json(await this.ex.labSubmit(body));
@@ -114,9 +116,26 @@ export async function ensureWebhook(env) {
   } catch { /* si riprova al prossimo giro */ }
 }
 
+// Menu dei comandi del bot (il tasto "Menu" accanto al campo di testo) e menu a tasti: si registrano da soli una volta per versione, solo per la chat autorizzata.
+export async function ensureCommands(env, ex) {
+  const t = env.TELEGRAM_BOT_TOKEN, chat = String(env.TELEGRAM_CHAT_ID || '');
+  if (!t || !chat || !env.EXEC_TOKEN) return;
+  const mark = UI_VERSION + '|' + t.slice(-6) + '|' + chat;
+  try {
+    if ((await env.STATE.get('tgui')) === mark) return;
+    const api = (m, b) => fetch(`https://api.telegram.org/bot${t}/${m}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(b || {}) }).then((r) => r.json());
+    const a = await api('setMyCommands', { commands: COMMANDS.map(([command, description]) => ({ command, description })), scope: { type: 'chat', chat_id: Number(chat) } });
+    await api('setChatMenuButton', { chat_id: Number(chat), menu_button: { type: 'commands' } });
+    if (a && a.ok) {
+      await api('sendMessage', { chat_id: Number(chat), text: 'KAISER · bot aggiornato\nAdesso c\'è il menu dei comandi accanto al campo di testo e un menu a tasti. I messaggi sulle Coin hanno il tasto per aprirle su pump.fun.\n\n' + (ex ? await menuText(ex).catch(() => 'Scrivi /menu.') : 'Scrivi /menu.'), reply_markup: menuKeyboard(), disable_web_page_preview: true });
+      await env.STATE.put('tgui', mark);
+    }
+  } catch { /* si riprova al prossimo giro */ }
+}
+
 export default {
   async scheduled(event, env, ctx) {
-    if (event.cron === '* * * * *') { ctx.waitUntil(stub(env).fetch('https://ledger/tick', { method: 'POST', body: '{}' })); ctx.waitUntil(ensureWebhook(env)); }
+    if (event.cron === '* * * * *') { ctx.waitUntil(stub(env).fetch('https://ledger/tick', { method: 'POST', body: '{}' })); ctx.waitUntil(ensureWebhook(env)); ctx.waitUntil(stub(env).fetch('https://ledger/tgui', { method: 'POST', body: '{}' })); }
     else ctx.waitUntil(runClock(env));
   },
   async fetch(req, env) {

@@ -413,3 +413,65 @@ test('Studio del Laboratorio: richiesta dall\'app con limiti, coda, esecuzione d
   const src = require('node:fs').readFileSync(require.resolve('../worker/src/index.js'), 'utf8');
   assert.match(src, /'\/lab\/next': 'POST', '\/lab\/result': 'POST'/, 'i due percorsi del runner richiedono il token'); assert.match(src, /url\.pathname === '\/lab\/query' && req\.method === 'POST'/); assert.match(src, /allowed\.includes\(origin\)/);
 });
+
+// ---------- menu e schermate del bot ----------
+const msgq = (text, chat = CHAT) => ({ message: { chat: { id: Number(chat) }, text } });
+const snapshot = () => ({ v: 1, updatedAt: 1, equity: 5.129, capital: 6, halted: false, stats: { n: 46, wr: 26.1, pnl: -0.871, pf: 0.37 },
+  positions: [{ id: 'P-0007', sym: 'PAP', mint: MINT, entry: 1, last: { priceNative: 1.2 }, tp1Done: false }], journal: [{ sym: 'AAA', pct: -15.4, reason: 'Stop loss' }, { sym: 'BBB', pct: 47.1, reason: 'TP1' }],
+  config: { semiAuto: 'spento', grokTest: false }, semi: 'avvisi e paper',
+  alerts: [{ t: Date.now() - 600000, mint: MINT, sym: 'SIG', score: 72, last: 12.5, p5: 5, p15: null, gr: { s: 0.4, o: 7 } }],
+  lab: { observed: 400, priced: 351, info: { active: 245 } }, farm: { paths: 20133, tried: 768, posTrain: 0, passed: 0, bestTrain: { cfg: { thr: 10000, delay: 10, tp: 10, sl: 10, hold: 60 }, tr: { n: 3016, ev: -7.28 }, te: { n: 1801, ev: -6.86 } } },
+  rug: { results: [{ thr: 7500, n: 5120, base: { all: { rug: 31.2, dump: 52.4 } } }] }, strat: { count: { prova: 1, validata: 0, ritirata: 3 }, items: [{ id: 'R-050', cfg: { thr: 12000, delay: 10, tp: 20, sl: 10, hold: 60 }, status: 'in prova', fwd: { n: 12, ev: 1.4 } }] },
+  grok: { on: false, key: true, used: 0, stat: { n: 12, need: 100, verdict: 'pochi dati' } } });
+test('menu del bot: /menu mostra lo stato e i tasti; ogni tasto apre la schermata del comando; solo dalla chat autorizzata', async () => {
+  const w = world(), ex = w.ex(); await ex.paperPut(snapshot());
+  await T.handleUpdate(ex, msgq('/menu')); let m = w.tg.at(-1); assert.match(m.text, /KAISER · menu/); assert.match(m.text, /Ordini: LIVE/); assert.match(m.text, /Semi-automatico: spento · Test Grok: spento/); assert.match(m.text, /Paper: equity 5\.129 SOL · attivo · 1 posizioni/);
+  const cbs = m.reply_markup.inline_keyboard.flat().map((b) => b.callback_data).filter(Boolean); for (const k of ['mn:stato', 'mn:paper', 'mn:segnali', 'mn:lab', 'mn:regole', 'mn:pos', 'mn:scudo', 'mn:par', 'mn:aiuto', 'mn:semi', 'mn:grok', 'mn:emerg']) assert.ok(cbs.includes(k), k);
+  assert.ok(m.reply_markup.inline_keyboard.flat().some((b) => b.text === 'Apri Kaiser' && /^https:/.test(b.url)), 'tasto che apre l\'app');
+  const n = w.tg.length; await T.handleUpdate(ex, cbq('mn:stato')); assert.ok(w.tg.length > n && /^KAISER · stato/.test(w.tg.at(-1).text), 'il tasto Stato apre lo stato');
+  await T.handleUpdate(ex, cbq('mn:aiuto')); assert.match(w.tg.at(-1).text, /\/menu — menu a tasti/); assert.ok(w.tg.at(-1).reply_markup.inline_keyboard.length > 3, 'l\'aiuto ha il menu sotto');
+  const c = w.tg.length; await T.handleUpdate(ex, msgq('/menu', '999')); await T.handleUpdate(ex, cbq('mn:paper', '999')); assert.equal(w.tg.length, c, 'chat sconosciuta: nessuna risposta');
+});
+test('schermate: paper con posizioni e tasti, segnali con il tasto pump.fun, Laboratorio, regole', async () => {
+  const w = world(), ex = w.ex(); await ex.paperPut(snapshot()); const flat = (m) => m.reply_markup.inline_keyboard.flat();
+  await T.handleUpdate(ex, msgq('/paper')); let m = w.tg.at(-1); assert.match(m.text, /Equity 5\.129 su 6\.00 SOL · P&L -0\.871 SOL/); assert.match(m.text, /Operazioni 46 · vinte 26% · fattore di profitto 0\.37/); assert.match(m.text, /P-0007 \$PAP · \+20\.0%/); assert.match(m.text, /\$AAA -15\.4% · Stop loss/);
+  assert.ok(flat(m).some((b) => b.url === 'https://pump.fun/coin/' + MINT) && flat(m).some((b) => b.callback_data === 'cl:P-0007'), 'paper: tasti pump.fun e Chiudi');
+  await T.handleUpdate(ex, msgq('/segnali')); m = w.tg.at(-1); assert.match(m.text, /semi-automatico: avvisi e paper/); assert.match(m.text, /\$SIG score 72 · 10m fa · ora \+12\.5% · 5 min \+5\.0% · 15 min — · Grok \+0\.4 org 7/); assert.ok(flat(m).some((b) => b.text.startsWith('Apri su pump.fun $SIG') && b.url === 'https://pump.fun/coin/' + MINT));
+  await T.handleUpdate(ex, msgq('/lab')); m = w.tg.at(-1); assert.match(m.text, /Coin osservate 400 · con prezzo 351 · seguite ora 245/); assert.match(m.text, /Fabbrica: 20133 percorsi · 768 regole · positive sui vecchi 0 · anche sui recenti 0/); assert.match(m.text, /Migliore sui vecchi: 10K · rit\. 10 s · \+10\/-10 · 60 s → -7\.3% \(recenti -6\.9%\)/); assert.match(m.text, /Rug oltre 7\.5K: 31\.2% \(crolli 52\.4%\) su 5120 token/); assert.match(m.text, /Regole: in prova 1 · validate 0 · ritirate 3/); assert.match(m.text, /Grok: pochi dati \(12 su 100 segnali\)/);
+  await T.handleUpdate(ex, msgq('/regole')); m = w.tg.at(-1); assert.match(m.text, /R-050 12K · rit\. 10 s · \+20\/-10 · 60 s · in prova · 12 op\. · \+1\.4%/);
+  const empty = world(), e2 = empty.ex(); await T.handleUpdate(e2, msgq('/paper')); assert.match(empty.tg.at(-1).text, /nessun dato dal runner/); await T.handleUpdate(e2, msgq('/segnali')); assert.match(empty.tg.at(-1).text, /nessuno ancora/); assert.ok(flat(empty.tg.at(-1)).some((b) => b.callback_data === 'sm:avvisi'), 'senza segnali propone di accendere la modalita\'');
+});
+test('interruttori dal bot: semi-automatico e Test Grok passano dalla richiesta con conferma, mai diretti; emergenza con conferma', async () => {
+  const w = world(), ex = w.ex(); await ex.paperPut(snapshot()); const flat = (m) => m.reply_markup.inline_keyboard.flat();
+  await T.handleUpdate(ex, msgq('/semi')); assert.deepEqual(flat(w.tg.at(-1)).map((b) => b.callback_data), ['sm:spento', 'sm:avvisi', 'sm:solo']);
+  const n = w.tg.length; await T.handleUpdate(ex, cbq('sm:avvisi')); const p = w.tg.at(-1); assert.ok(w.tg.length > n && flat(p).some((b) => /^pa:C-/.test(b.callback_data)), 'arriva la richiesta con Applica/Rifiuta'); assert.equal((await ex.paramsView()).runner.semiAuto, undefined, 'non e\' ancora cambiato niente');
+  await T.handleUpdate(ex, cbq(flat(p).find((b) => /^pa:C-/.test(b.callback_data)).callback_data)); assert.equal((await ex.paramsView()).runner.semiAuto, 'avvisi e paper', 'dopo la conferma e\' applicato');
+  w.now += 20000; await T.handleUpdate(ex, msgq('/semi solo')); assert.ok(flat(w.tg.at(-1)).some((b) => /^pa:C-/.test(b.callback_data)), 'anche con l\'argomento passa dalla conferma');
+  await T.handleUpdate(ex, msgq('/grok')); assert.deepEqual(flat(w.tg.at(-1)).map((b) => b.callback_data), ['gk:on']); w.now += 20000; await T.handleUpdate(ex, cbq('gk:on')); assert.ok(flat(w.tg.at(-1)).some((b) => /^pa:C-/.test(b.callback_data)));
+  await T.handleUpdate(ex, cbq('sm:cattivo')); assert.equal(w.answers.at(-1), 'Comando non valido');
+  const t = await ex.ticket({ mint: MINT, sym: 'EMG', score: 80, sizeSol: 0.05 }); await T.handleUpdate(ex, cbq('ap:' + t.ticket.id)); assert.equal((await ex.state()).positions.length, 1);
+  await T.handleUpdate(ex, cbq('mn:emerg')); const q = w.tg.at(-1); assert.match(q.text, /Confermi\?/); assert.deepEqual(flat(q).map((b) => b.callback_data), ['em:go', 'em:no']); assert.equal((await ex.state()).positions.length, 1, 'il tasto del menu non vende da solo');
+  await T.handleUpdate(ex, cbq('em:no')); assert.equal((await ex.state()).positions.length, 1); await T.handleUpdate(ex, cbq('em:go')); assert.equal((await ex.state()).positions.length, 0, 'dopo la conferma l\'emergenza vende tutto');
+});
+test('tastiera fissa e testi liberi; menu dei comandi registrato una volta e rimandato una sola volta', async () => {
+  const w = world(), ex = w.ex(); await T.handleUpdate(ex, msgq('/tastiera')); const kbd = w.tg.at(-1).reply_markup; assert.equal(kbd.is_persistent, true); assert.deepEqual(kbd.keyboard.flat().map((b) => b.text), ['Menu', 'Stato', 'Paper', 'Segnali', 'Laboratorio', 'Posizioni']);
+  await T.handleUpdate(ex, msgq('Stato')); assert.match(w.tg.at(-1).text, /^KAISER · stato/); await T.handleUpdate(ex, msgq('Laboratorio')); assert.match(w.tg.at(-1).text, /Laboratorio/); const n = w.tg.length; await T.handleUpdate(ex, msgq('ciao')); assert.equal(w.tg.length, n, 'testi sconosciuti ignorati');
+  await T.handleUpdate(ex, msgq('/tastiera off')); assert.deepEqual(w.tg.at(-1).reply_markup, { remove_keyboard: true });
+  const kv = new Map(), calls = [], env = { ...w.env, STATE: { get: async (k) => kv.get(k) || null, put: async (k, v) => { kv.set(k, v); } } };
+  const realFetch = globalThis.fetch; globalThis.fetch = async (url, init) => { const b = JSON.parse(init.body); calls.push([String(url).split('/').pop(), b]); return new Response(JSON.stringify({ ok: true, result: true }), { status: 200 }); };
+  try {
+    await W.ensureCommands(env, ex); const names = calls.map((c) => c[0]); assert.deepEqual(names, ['setMyCommands', 'setChatMenuButton', 'sendMessage']);
+    const cmds = calls[0][1].commands.map((c) => c.command); assert.ok(['menu', 'stato', 'paper', 'segnali', 'lab', 'regole', 'posizioni', 'scudo', 'parametri', 'emergenza', 'aiuto'].every((x) => cmds.includes(x))); assert.ok(cmds.every((c) => /^[a-z0-9_]{1,32}$/.test(c)), 'nomi ammessi da Telegram');
+    assert.equal(calls[0][1].scope.chat_id, Number(CHAT)); assert.equal(calls[1][1].menu_button.type, 'commands'); assert.match(calls[2][1].text, /bot aggiornato/); assert.ok(calls[2][1].reply_markup.inline_keyboard.length >= 4);
+    calls.length = 0; await W.ensureCommands(env, ex); assert.equal(calls.length, 0, 'una volta per versione: niente di nuovo al giro dopo');
+    const noTok = { ...env, TELEGRAM_BOT_TOKEN: '' }; await W.ensureCommands(noTok, ex); assert.equal(calls.length, 0);
+  } finally { globalThis.fetch = realFetch; }
+});
+test('messaggi del runner e del Worker senza Coin: Apri Kaiser e Menu', async () => {
+  const K = await import('../worker/src/kb.js'), R = require('../runner/kb.js'), a = K.kb({ app: true }).inline_keyboard[0];
+  assert.deepEqual(a.map((b) => b.text), ['Apri Kaiser', 'Menu']); assert.equal(a[1].callback_data, 'mn:menu'); assert.deepEqual(K.kb({ app: true }), R.kb({ app: true }));
+});
+test('menu: se il bot e\' collegato a un altro servizio lo dice, perche\' i tasti con azione non arriverebbero', async () => {
+  const w = world(), ex = w.ex(); ex.env.STATE = { get: async (k) => (k === 'tgwh_note' ? 'il bot ha già un webhook altrove: usa un bot dedicato a Kaiser' : null) };
+  await T.handleUpdate(ex, msgq('/menu')); assert.match(w.tg.at(-1).text, /ATTENZIONE: il bot ha già un webhook altrove/); assert.match(w.tg.at(-1).text, /pump\.fun funzionano comunque/);
+});

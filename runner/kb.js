@@ -11,7 +11,7 @@ function coinRows(mint, pair) {
   return [[{ text: 'Apri su pump.fun', url: `https://pump.fun/coin/${mint}` }], [{ text: 'DexScreener', url: `https://dexscreener.com/solana/${p}` }, { text: 'GMGN', url: `https://gmgn.ai/sol/token/${mint}` }]];
 }
 const closeRow = (id) => (/^[PR]-\d{1,6}$/.test(id || '') ? [{ text: 'Chiudi posizione', callback_data: 'cl:' + id }] : null);
-const appRow = (url) => [{ text: 'Apri Kaiser', url: /^https:\/\//.test(url || '') ? url : APP_URL }];
+const appRow = (url) => [{ text: 'Apri Kaiser', url: /^https:\/\//.test(url || '') ? url : APP_URL }, { text: 'Menu', callback_data: 'mn:menu' }];
 function kb(o) {
   const rows = [...((o && o.rows) || [])];
   if (o && o.mint) rows.push(...coinRows(o.mint, o.pair));
