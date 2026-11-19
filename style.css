@@ -2,7 +2,7 @@
    Token iOS (scuro/chiaro/automatico), angoli concentrici, barra a capsula, Vetro (Liquid Glass) fermo o animato.
    I nomi delle classi sono quelli di Kaiser: cambia l'aspetto, non la struttura. */
 :root {
-  --kz-css: 60;
+  --kz-css: 71;
   color-scheme: dark;
   --bg: #000000;
   --surface: #0a0a0a;
@@ -536,3 +536,12 @@ nav button { justify-content: center; }
 html.mode-real .logo { box-shadow: none; }
 .logo .ghost { display: block; width: 100%; height: 100%; background-color: currentColor; -webkit-mask: url(ghost.png?v=4) center / 92% no-repeat; mask: url(ghost.png?v=4) center / 92% no-repeat; }
 .ver { cursor: pointer; padding: 6px 4px; margin: -6px -4px; }
+
+/* Radar: scheda Coin senza tagli — i blocchi non si schiacciano, i segnali scorrono in orizzontale con sfumatura a destra */
+#radarList > .tcard { padding: 10px 14px 10px; gap: 6px; }
+#radarList > .tcard > * { flex-shrink: 0; }
+#radarList .metrics .m { padding: 5px 8px; }
+#radarList .press { margin-top: 2px; }
+#radarList .press-l { margin-top: 2px; margin-bottom: 0; }
+#radarList .chips { align-items: center; min-height: 26px; padding: 0 22px 0 0; margin-right: -14px; -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 30px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 30px), transparent); }
+#radarList .chip { line-height: 1.25; padding: 4px 9px; }
