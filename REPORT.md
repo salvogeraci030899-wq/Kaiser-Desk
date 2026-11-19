@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 17:05 UTC · in esecuzione da 0.1 giorni · 227 run
+Aggiornato: 2026-11-19 17:10 UTC · in esecuzione da 0.1 giorni · 227 run
 
 | | |
 |---|---|
-| Equity | **5.9247 SOL** (-1.3% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.7767 SOL |
-| Trade chiusi | 12 |
-| Win rate | 33% |
-| P&L realizzato | -0.1044 SOL (~$-7.60) |
+| Equity | **5.8747 SOL** (-2.1% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.8747 SOL |
+| Trade chiusi | 13 |
+| Win rate | 31% |
+| P&L realizzato | -0.1253 SOL (~$-9.13) |
 | Media vincite / perdite | +13.8% / -17.7% |
-| Profit factor | 0.39 |
+| Profit factor | 0.35 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$NTDOY** P-0449 · 0.118 SOL · +25.5% · resta 100% · [grafico](https://dexscreener.com/solana/9g5ZXpSVLQsFNZFDiski9LfeGjBqED26N8sCwX2Pxhvf)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 5 | -0.1201 |
-| Time stop | 4 | -0.0123 |
+| Time stop | 5 | -0.0332 |
 | TP1 | 1 | +0.0159 |
 | RUG-EXIT liquidità | 2 | +0.0121 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $NTDOY | 63 | -17.6% | -0.0209 | +33% | +4% | Time stop | 9m |
 | $LUCIA | 69 | -2.4% | -0.0028 | +10% | -4% | Time stop | 5m |
 | $TYO | 65 | -4.2% | -0.0050 | +0% | -75% | RUG-EXIT liquidità | 0m |
 | $TESLA | 69 | -20.8% | -0.0249 | +22% | -14% | Time stop | 5m |
@@ -42,6 +43,22 @@ Aggiornato: 2026-11-19 17:05 UTC · in esecuzione da 0.1 giorni · 227 run
 
 ## Ultimi eventi
 ```
+17:10:50 ORACLE   360 raccolti, 218 analizzati, 1 BUY, 211 veto
+17:10:26 ORACLE   360 raccolti, 222 analizzati, 1 BUY, 216 veto
+17:10:03 ORACLE   360 raccolti, 214 analizzati, 1 BUY, 208 veto
+17:09:40 ORACLE   360 raccolti, 207 analizzati, 1 BUY, 200 veto
+17:09:17 ORACLE   360 raccolti, 207 analizzati, 2 BUY, 199 veto
+17:08:54 ORACLE   360 raccolti, 207 analizzati, 2 BUY, 199 veto
+17:08:31 ORACLE   360 raccolti, 213 analizzati, 2 BUY, 204 veto
+17:08:16 SCRIBE   chiuso P-0449 $NTDOY -0.0209 SOL (-17.6%)
+17:08:16 CHARON   Time stop $NTDOY vendo 100% a 3.8% -> 0.0980 SOL
+17:08:16 ORACLE   360 raccolti, 192 analizzati, 2 BUY, 183 veto
+17:08:13 SCOUT    DexScreener errore: This operation was aborted
+17:07:38 ORACLE   360 raccolti, 192 analizzati, 2 BUY, 185 veto
+17:07:14 ORACLE   360 raccolti, 205 analizzati, 2 BUY, 198 veto
+17:06:50 ORACLE   360 raccolti, 212 analizzati, 2 BUY, 201 veto
+17:06:27 ORACLE   360 raccolti, 206 analizzati, 2 BUY, 196 veto
+17:06:03 ORACLE   360 raccolti, 206 analizzati, 2 BUY, 197 veto
 17:05:38 ORACLE   360 raccolti, 194 analizzati, 2 BUY, 186 veto
 17:05:15 ORACLE   360 raccolti, 192 analizzati, 2 BUY, 185 veto
 17:04:51 ORACLE   360 raccolti, 201 analizzati, 2 BUY, 191 veto
@@ -66,22 +83,6 @@ Aggiornato: 2026-11-19 17:05 UTC · in esecuzione da 0.1 giorni · 227 run
 16:58:03 ORACLE   360 raccolti, 184 analizzati, 2 BUY, 172 veto
 16:57:41 ORACLE   360 raccolti, 185 analizzati, 2 BUY, 174 veto
 16:57:17 ORACLE   360 raccolti, 189 analizzati, 2 BUY, 178 veto
-16:56:53 ORACLE   360 raccolti, 207 analizzati, 2 BUY, 196 veto
-16:56:30 ORACLE   360 raccolti, 241 analizzati, 3 BUY, 224 veto
-16:56:07 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 226 veto
-16:55:43 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 230 veto
-16:55:19 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 228 veto
-16:54:55 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 227 veto
-16:54:30 SCRIBE   chiuso P-0448 $LUCIA -0.0028 SOL (-2.4%)
-16:54:30 CHARON   Time stop $LUCIA vendo 100% a -4.4% -> 0.1162 SOL
-16:54:30 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 229 veto
-16:54:06 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 230 veto
-16:53:53 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-16:53:43 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 226 veto
-16:53:18 ORACLE   343 raccolti, 222 analizzati, 1 BUY, 213 veto
-16:52:55 ORACLE   324 raccolti, 193 analizzati, 1 BUY, 184 veto
-16:52:31 ORACLE   318 raccolti, 193 analizzati, 1 BUY, 185 veto
-16:52:07 ORACLE   278 raccolti, 181 analizzati, 1 BUY, 173 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
