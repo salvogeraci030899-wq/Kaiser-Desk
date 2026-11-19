@@ -16,6 +16,32 @@ async function rpc(o, method, params) {
   const r = await o.fetch(o.url, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ jsonrpc: '2.0', id: 1, method, params }), signal: AbortSignal.timeout(8000) });
   const j = await r.json(); if (j && j.error) throw new Error(String(j.error.message || 'errore RPC').slice(0, 80)); return j && j.result;
 }
+// Social dichiarati dal creatore nei metadati del token (twitter, telegram, sito): 0-3. Il file dei metadati e' su IPFS o su un sito: si legge con un tempo massimo.
+const gw = (u) => { u = String(u || '').trim(); if (/^ipfs:\/\//i.test(u)) return 'https://ipfs.io/ipfs/' + u.slice(7).replace(/^ipfs\//, ''); return /^https:\/\//i.test(u) ? u : ''; };
+function socialFrom(meta) {
+  if (!meta || typeof meta !== 'object') return null; const has = (v) => (typeof v === 'string' && v.trim().length > 3 ? 1 : 0);
+  const tw = has(meta.twitter), tg = has(meta.telegram), web = has(meta.website); return { tw, tg, web, soc: tw + tg + web };
+}
+async function readMeta(o) {
+  const url = gw(o.uri); if (!url) return null;
+  const r = await o.fetch(url, { signal: AbortSignal.timeout(6000) }); if (!r.ok) return null;
+  const t = await r.text(); if (t.length > 60000) return null; try { return socialFrom(JSON.parse(t)); } catch { return null; }
+}
+// Attivita' dei primi istanti dalle firme della curva (basta il numero di blocco di ciascuna, niente altre chiamate): quante operazioni nel blocco di creazione e nel successivo
+// (sono i cecchini/bundle che comprano subito), quante nel primo minuto circa (150 blocchi) e quante falliscono. Serve che le firme siano complete (fino a 3 pagine da 1000).
+function earlyFrom(sigs) {
+  if (!Array.isArray(sigs) || sigs.length < 2) return null; const sl = sigs.map((x) => Number(x.slot)).filter(Number.isFinite); if (sl.length < 2) return null;
+  const s0 = Math.min(...sl), ord = [...sigs].sort((a, b) => a.slot - b.slot), first = ord.slice(0, 200), within = (n) => sl.filter((s) => s <= s0 + n).length - 1;
+  return { s0: within(1), n60: within(150), fail: +(first.filter((x) => x.err).length / first.length).toFixed(3), total: sigs.length };
+}
+async function readEarly(f) {
+  if (!f.curve) return null; let all = [], before;
+  for (let page = 0; page < 3; page++) {
+    const r = await rpc(f, 'getSignaturesForAddress', [f.curve, { limit: 1000, commitment: 'confirmed', ...(before ? { before } : {}) }]); if (!Array.isArray(r)) return null;
+    all = all.concat(r); if (r.length < 1000) return earlyFrom(all); before = r[r.length - 1].signature;
+  }
+  return null;      // piu' di 3000 operazioni: le firme piu' vecchie non sono complete
+}
 async function snapshot(o) {
   const f = { ...o, fetch: o.fetch || globalThis.fetch, url: String(o.url || '').replace(/^wss:/i, 'https:').replace(/^ws:/i, 'http:') };
   if (!f.fetch || !f.url || !f.mint) return null;
@@ -25,7 +51,10 @@ async function snapshot(o) {
   const accs = await rpc(f, 'getMultipleAccounts', [list.map((a) => a.address), { encoding: 'jsonParsed', commitment: 'processed' }]);
   const owners = ((accs && accs.value) || []).map((v) => (v && v.data && v.data.parsed && v.data.parsed.info && v.data.parsed.info.owner) || '');
   const h = holdersFrom(list, owners, supply, f.curve, f.creator); if (!h) return null;
-  return { m: f.mint, at: f.at || Date.now(), ...h };
+  const extra = {}; if (Number.isFinite(f.devBuy) && f.devBuy >= 0) extra.devBuy = +f.devBuy.toFixed(3);
+  try { Object.assign(extra, (await readMeta(f)) || {}); } catch { /* facoltativo */ }
+  try { const e = await readEarly(f); if (e) Object.assign(extra, e); } catch { /* facoltativo */ }
+  return { m: f.mint, at: f.at || Date.now(), ...h, ...extra };
 }
 
-module.exports = { holdersFrom, snapshot };
+module.exports = { holdersFrom, socialFrom, earlyFrom, snapshot };

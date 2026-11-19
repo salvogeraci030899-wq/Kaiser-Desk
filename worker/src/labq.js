@@ -4,7 +4,7 @@ export const FIELDS = {
   thr: { min: 3000, max: 60000, def: 10000 }, delay: { min: 0, max: 120, def: 10 }, tp: { min: 2, max: 1000, def: 20 }, sl: { min: 2, max: 99, def: 15 }, hold: { min: 0, max: 1260, def: 120 },
   trail: { min: 0, max: 90, def: 0 }, cost: { min: 0, max: 20, def: 7 }, days: { min: 0, max: 14, def: 0 }, tMin: { min: 0, max: 1260, def: 0 }, tMax: { min: 0, max: 1260, def: 0 },
 };
-export const FILTER_FEATS = ['t', 'gap', 'speed', 'dd', 'act', 'vol', 'top1', 'top3', 'top10', 'cre', 'crN', 'crHit', 'crMed'], SWEEP = ['thr', 'delay', 'tp', 'sl', 'hold', 'trail', 'cost', 'tMin', 'tMax'], MAX_POINTS = 25;
+export const FILTER_FEATS = ['t', 'gap', 'speed', 'dd', 'act', 'vol', 'top1', 'top3', 'top10', 'cre', 'crN', 'crHit', 'crMed', 'soc', 'tw', 'tg', 'web', 's0', 'n60', 'fail', 'devBuy', 'gs', 'gh', 'go', 'gk', 'gm', 'gf'], SWEEP = ['thr', 'delay', 'tp', 'sl', 'hold', 'trail', 'cost', 'tMin', 'tMax'], MAX_POINTS = 25;
 const r4 = (x) => +Number(x).toFixed(4), isNum = (v) => typeof v === 'number' && Number.isFinite(v);
 
 export function validateQuery(spec) {

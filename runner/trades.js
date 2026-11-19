@@ -177,7 +177,7 @@ class TradeBook {
   create(m, now) {
     if (!m || !MINT_RE.test(m.mint || '') || this.toks.has(m.mint)) return null;
     if (m.pool && String(m.pool).toLowerCase() !== 'pump') return null;      // token di altre piattaforme (formato dei conti diverso): non sono curve di pump.fun
-    const t = { mint: m.mint, sym: String(m.symbol || '').slice(0, 20), name: String(m.name || '').slice(0, 40), createdAt: now, dev: m.traderPublicKey || m.creator || '', addr: [], wid: new Map(), tr: [], path: [], lastMc: num(m.marketCapSol), big: [], devIdx: -1, curve: MINT_RE.test(String(m.bondingCurveKey || m.curve || '')) ? String(m.bondingCurveKey || m.curve) : '', complete: false, crossed: false };
+    const t = { uri: String(m.uri || '').slice(0, 200), devBuy: num(m.solAmount), mint: m.mint, sym: String(m.symbol || '').slice(0, 20), name: String(m.name || '').slice(0, 40), createdAt: now, dev: m.traderPublicKey || m.creator || '', addr: [], wid: new Map(), tr: [], path: [], lastMc: num(m.marketCapSol), big: [], devIdx: -1, curve: MINT_RE.test(String(m.bondingCurveKey || m.curve || '')) ? String(m.bondingCurveKey || m.curve) : '', complete: false, crossed: false };
     this.nCreate++; this.toks.set(m.mint, t);
     if (t.dev) { t.devIdx = this._w(t, t.dev); if (num(m.solAmount) > 0) this._tr(t, 0, 1, num(m.solAmount), t.devIdx); }   // l'acquisto iniziale del dev
     if (t.lastMc > 0) this._mc(t, 0, t.lastMc);
@@ -247,7 +247,7 @@ class TradeFeed {
   adopt(m, now) {
     if (!m || !MINT_RE.test(m.mint || '')) return false; const old = this.book.toks.get(m.mint);
     if (old) { if (!old.curve && m.curve && MINT_RE.test(m.curve)) old.curve = m.curve; return false; }
-    const t = this.book.create({ mint: m.mint, symbol: m.symbol, name: m.name, bondingCurveKey: m.curve, creator: m.creator }, now || m.at || this.now()); if (!t) return false;
+    const t = this.book.create({ mint: m.mint, symbol: m.symbol, name: m.name, bondingCurveKey: m.curve, creator: m.creator, uri: m.uri }, now || m.at || this.now()); if (!t) return false;
     if (this.book.toks.size > this.book.max) { const o = this.book.oldest(); if (o && o.mint !== t.mint) this.finish(o, this.now()); }
     this.send({ method: 'subscribeTokenTrade', keys: [t.mint] }); return true;
   }
