@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 14:55 UTC · in esecuzione da 0.0 giorni · 224 run
+Aggiornato: 2026-11-19 15:00 UTC · in esecuzione da 0.0 giorni · 224 run
 
 | | |
 |---|---|
-| Equity | **5.9666 SOL** (-0.6% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.9666 SOL |
+| Equity | **5.9694 SOL** (-0.5% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.8463 SOL |
 | Trade chiusi | 1 |
 | Win rate | 0% |
-| P&L realizzato | -0.0334 SOL (~$-2.49) |
+| P&L realizzato | -0.0334 SOL (~$-2.50) |
 | Media vincite / perdite | +0.0% / -27.6% |
 | Profit factor | 0.00 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$JETSKI** P-0438 · 0.119 SOL · +3.1% · resta 100% · [grafico](https://dexscreener.com/solana/GjER9AzmazAob2PBnMqdFCkwDzp4mtXyMCijEBgAb4Vo)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -28,6 +28,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+15:00:20 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 225 veto
+14:59:57 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 227 veto
+14:59:33 ORACLE   360 raccolti, 230 analizzati, 1 BUY, 212 veto
+14:59:09 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 223 veto
+14:58:55 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 219 veto
+14:58:30 ORACLE   360 raccolti, 231 analizzati, 1 BUY, 215 veto
+14:58:06 ORACLE   360 raccolti, 232 analizzati, 2 BUY, 214 veto
+14:57:42 ORACLE   360 raccolti, 243 analizzati, 2 BUY, 222 veto
+14:57:18 QUARTER  BUY $JETSKI 0.119 SOL score 66 impatto 1.72% (Jupiter)
+14:57:18 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 217 veto
+14:56:54 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 222 veto
+14:56:30 ORACLE   360 raccolti, 223 analizzati, 2 BUY, 208 veto
+14:56:07 ORACLE   360 raccolti, 217 analizzati, 2 BUY, 202 veto
+14:55:43 ORACLE   360 raccolti, 228 analizzati, 1 BUY, 215 veto
 14:55:20 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 225 veto
 14:55:06 ORACLE   360 raccolti, 229 analizzati, 2 BUY, 219 veto
 14:54:40 ORACLE   360 raccolti, 227 analizzati, 2 BUY, 215 veto
@@ -54,20 +68,6 @@ _nessuna_
 14:48:06 ORACLE   360 raccolti, 208 analizzati, 0 BUY, 196 veto
 14:47:42 ORACLE   360 raccolti, 215 analizzati, 0 BUY, 202 veto
 14:47:18 ORACLE   360 raccolti, 209 analizzati, 0 BUY, 197 veto
-14:46:54 ORACLE   360 raccolti, 214 analizzati, 0 BUY, 201 veto
-14:46:29 ORACLE   360 raccolti, 219 analizzati, 0 BUY, 205 veto
-14:46:06 ORACLE   360 raccolti, 198 analizzati, 0 BUY, 185 veto
-14:45:42 ORACLE   360 raccolti, 209 analizzati, 0 BUY, 198 veto
-14:45:18 ORACLE   360 raccolti, 217 analizzati, 0 BUY, 205 veto
-14:44:53 ORACLE   360 raccolti, 218 analizzati, 0 BUY, 203 veto
-14:44:39 ORACLE   360 raccolti, 222 analizzati, 0 BUY, 210 veto
-14:44:13 ORACLE   360 raccolti, 218 analizzati, 0 BUY, 206 veto
-14:43:50 ORACLE   360 raccolti, 216 analizzati, 0 BUY, 204 veto
-14:43:31 SCOUT    Laboratorio: collegato a PumpPortal
-14:43:26 ORACLE   360 raccolti, 221 analizzati, 0 BUY, 208 veto
-14:43:03 ORACLE   360 raccolti, 214 analizzati, 0 BUY, 200 veto
-14:42:39 ORACLE   360 raccolti, 216 analizzati, 0 BUY, 201 veto
-14:42:16 ORACLE   360 raccolti, 213 analizzati, 0 BUY, 197 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
