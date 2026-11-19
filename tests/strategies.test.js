@@ -82,3 +82,15 @@ test('la fabbrica indica sempre la migliore disponibile e rilegge la corrente', 
   const rep = Farm.run(recs, { watch: [{ thr: 7500, delay: 0, tp: 10, sl: 10, hold: 60 }] });
   assert.ok(rep.best && rep.best.cfg && Number.isFinite(rep.best.score)); assert.ok(rep.watch.length === 1 && rep.watch[0].cfg.thr === 7500);
 });
+
+test('conto paper della strategia: a parte, 1 SOL, 10% a operazione, solo token nati dopo l\'adozione', () => {
+  const T0 = 1_700_000_000_000, reg = S.create(), win = [], los = []; for (let k = 0; k < 120; k++) { win.push(k < 10 ? 40 : k < 20 ? 50 : k < 30 ? 50 + (k - 20) * 4 : 100); los.push(k < 10 ? 40 : k < 20 ? 50 : k < 30 ? 50 - (k - 20) * 4 : 20); }
+  S.adoptBest(reg, { at: T0, best: { cfg: { thr: 5000, delay: 0, tp: 30, sl: 20, hold: 0 }, tr: { n: 50, ev: 0 }, te: { n: 50, ev: 0 } }, watch: [] }, T0);
+  assert.equal(S.summary(reg, T0).acct.eq, 1); assert.equal(S.summary(reg, T0).acct.n, 0);
+  S.record(reg, { m: 'prima', at: T0 - 1, u: 100, p: win }, T0 + 5); assert.equal(S.summary(reg, T0).acct.n, 0, 'nato prima: non conta');
+  S.record(reg, { m: 'w', s: 'W', at: T0 + 10, u: 100, p: win }, T0 + 20); S.record(reg, { m: 'l', s: 'L', at: T0 + 20, u: 100, p: los }, T0 + 30);
+  const a = S.summary(reg, T0 + 40).acct; assert.equal(a.n, 2); assert.equal(a.win, 50); assert.equal(a.trades.length, 2); assert.equal(a.trades[0].sym, 'L', 'la piu\' recente per prima');
+  assert.ok(a.eq > 0.9 && a.eq < 1.1); assert.equal(a.curve.length, 2);
+  // sopravvive al salvataggio e alla rilettura
+  const f = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'kz-acct-')), 's.json'); S.save(f, reg); assert.equal(S.summary(S.load(f), T0 + 50).acct.n, 2);
+});
