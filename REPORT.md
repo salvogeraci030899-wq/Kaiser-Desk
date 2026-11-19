@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 02:16 UTC · in esecuzione da 0.4 giorni · 209 run
+Aggiornato: 2026-11-19 02:21 UTC · in esecuzione da 0.4 giorni · 209 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-19 02:16 UTC · in esecuzione da 0.4 giorni · 209 run
 | Cassa | 5.3401 SOL |
 | Trade chiusi | 35 |
 | Win rate | 29% |
-| P&L realizzato | -0.6599 SOL (~$-48.45) |
+| P&L realizzato | -0.6599 SOL (~$-48.39) |
 | Media vincite / perdite | +35.4% / -36.9% |
 | Profit factor | 0.38 |
 | Circuit breaker | no |
@@ -56,6 +56,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+02:21:10 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 233 veto
+02:20:45 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 227 veto
+02:20:20 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 237 veto
+02:20:06 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 232 veto
+02:19:51 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 230 veto
+02:19:25 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 221 veto
+02:19:00 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 228 veto
+02:18:36 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 226 veto
+02:18:12 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 227 veto
+02:17:48 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 227 veto
+02:17:35 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 228 veto
+02:17:09 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 228 veto
+02:16:55 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 224 veto
+02:16:30 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 230 veto
 02:16:06 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 228 veto
 02:15:41 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 229 veto
 02:15:17 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 225 veto
@@ -82,20 +96,6 @@ _nessuna_
 02:09:17 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 219 veto
 02:08:53 QUARTER  $Mabel impatto 2.1% oltre slippage: annullato
 02:08:53 ORACLE   360 raccolti, 230 analizzati, 1 BUY, 215 veto
-02:08:29 QUARTER  $Mabel impatto 2.6% oltre slippage: annullato
-02:08:29 ORACLE   360 raccolti, 233 analizzati, 1 BUY, 217 veto
-02:08:15 QUARTER  $Mabel impatto 2.2% oltre slippage: annullato
-02:08:15 ORACLE   360 raccolti, 226 analizzati, 1 BUY, 210 veto
-02:07:49 QUARTER  $Mabel impatto 9.6% oltre slippage: annullato
-02:07:49 ORACLE   360 raccolti, 227 analizzati, 1 BUY, 214 veto
-02:07:25 QUARTER  $Mabel impatto 2.3% oltre slippage: annullato
-02:07:25 ORACLE   360 raccolti, 243 analizzati, 2 BUY, 232 veto
-02:07:01 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 233 veto
-02:06:37 ORACLE   360 raccolti, 234 analizzati, 2 BUY, 226 veto
-02:06:12 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 226 veto
-02:05:47 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 230 veto
-02:05:23 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 229 veto
-02:04:58 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 228 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
