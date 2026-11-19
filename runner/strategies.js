@@ -16,6 +16,7 @@ const STALE_MS = 3 * 86400000;               // in 3 giorni meno di 10 segnali: 
 const COOL_MS = 7 * 86400000;                // una configurazione ritirata non rientra per 7 giorni
 const DD_MAX = 60;                           // perdita cumulata (punti %) oltre il massimo di una validata: ritirata
 const RECENT = 30;
+const ACCT_START = 1, ACCT_SIZE = 0.1, ACCT_KEEP = 100, ACCT_CURVE = 150;   // conto paper della strategia corrente: 1 SOL, 10% dell'equity per operazione
 const SWITCH_MARGIN = 1;                      // una nuova migliore sostituisce la corrente solo se la batte di almeno 1 punto percentuale (peggiore dei due esiti)
 const MIN_HOLD_MS = 6 * 3600000;              // e non prima di 6 ore dall'adozione: niente cambi a raffica                           // finestra mobile per controllare che una validata non peggiori
 
@@ -23,10 +24,12 @@ const key = (c) => [c.thr, c.delay, c.tp, c.sl, c.hold].join('/');
 const blank = () => ({ n: 0, sum: 0, win: 0, gain: 0, loss: 0, cum: 0, peak: 0, dd: 0, first: 0, last: 0, recent: [] });
 const stats = (f) => { const n = f.n; return { n, ev: n ? +(f.sum / n).toFixed(2) : 0, win: n ? Math.round(100 * f.win / n) : 0, pf: f.loss > 0 ? +(f.gain / f.loss).toFixed(2) : (f.gain > 0 ? 99 : 0), dd: +f.dd.toFixed(1), span: f.n ? f.last - f.first : 0 }; };
 
+function acctBlank(now) { return { start: ACCT_START, since: now || 0, eq: ACCT_START, n: 0, win: 0, gain: 0, loss: 0, peak: ACCT_START, dd: 0, trades: [], curve: [] }; }
 function create() { return { v: 1, seq: 0, lastFarm: 0, items: [], log: [] }; }
 function normalize(o) {
   const r = create(); if (!o || typeof o !== 'object' || !Array.isArray(o.items)) return r;
-  r.seq = Number(o.seq) || 0; if (o.current && o.current.cfg) r.current = { ...o.current, fwd: { ...blank(), ...(o.current.fwd || {}) }, prev: Array.isArray(o.current.prev) ? o.current.prev.slice(-10) : [] }; r.lastFarm = Number(o.lastFarm) || 0; r.log = Array.isArray(o.log) ? o.log.slice(-40) : [];
+  r.seq = Number(o.seq) || 0; if (o.acct && Number.isFinite(o.acct.eq)) r.acct = { ...acctBlank(), ...o.acct, trades: Array.isArray(o.acct.trades) ? o.acct.trades.slice(-ACCT_KEEP) : [], curve: Array.isArray(o.acct.curve) ? o.acct.curve.slice(-ACCT_CURVE) : [] };
+  if (o.current && o.current.cfg) r.current = { ...o.current, fwd: { ...blank(), ...(o.current.fwd || {}) }, prev: Array.isArray(o.current.prev) ? o.current.prev.slice(-10) : [] }; r.lastFarm = Number(o.lastFarm) || 0; r.log = Array.isArray(o.log) ? o.log.slice(-40) : [];
   for (const s of o.items) if (s && s.cfg && s.status) r.items.push({ ...s, fwd: { ...blank(), ...(s.fwd || {}) }, history: Array.isArray(s.history) ? s.history : [] });
   return r;
 }
@@ -56,7 +59,7 @@ function adoptBest(reg, farm, now) {
   if (!farm || !farm.best || !farm.at || !farm.best.cfg || farm.at <= (reg.lastBest || 0)) return null;
   reg.lastBest = farm.at; const b = farm.best, cur = reg.current, sc = (x) => Math.min(x.tr.ev, x.te.ev);
   const fresh = () => ({ id: 'C-' + String(++reg.seq).padStart(3, '0'), cfg: b.cfg, since: now, farm: { at: farm.at, tr: { n: b.tr.n, ev: b.tr.ev }, te: { n: b.te.n, ev: b.te.ev }, score: sc(b) }, fwd: blank(), prev: cur ? [...(cur.prev || []), { id: cur.id, cfg: cur.cfg, since: cur.since, until: now, fwd: stats(cur.fwd), farm: cur.farm }].slice(-10) : [] });
-  if (!cur) { reg.current = fresh(); const m = { at: now, id: reg.current.id, to: 'corrente', why: 'prima strategia: ' + describe(b) }; reg.log.push(m); reg.log = reg.log.slice(-40); return m; }
+  if (!cur) { reg.current = fresh(); if (!reg.acct) reg.acct = acctBlank(now); const m = { at: now, id: reg.current.id, to: 'corrente', why: 'prima strategia: ' + describe(b) }; reg.log.push(m); reg.log = reg.log.slice(-40); return m; }
   const w = (farm.watch || []).find((x) => key(x.cfg) === key(cur.cfg)); if (w) cur.farm = { at: farm.at, tr: { n: w.tr.n, ev: w.tr.ev }, te: { n: w.te.n, ev: w.te.ev }, score: sc(w) };
   if (key(b.cfg) === key(cur.cfg)) return null;
   if (now - cur.since < MIN_HOLD_MS) return null;
@@ -65,6 +68,14 @@ function adoptBest(reg, farm, now) {
   reg.current = fresh(); reg.log.push(m); reg.log = reg.log.slice(-40); return m;
 }
 const describe = (b) => `${b.cfg.thr / 1000}K rit. ${b.cfg.delay}s +${b.cfg.tp}/-${b.cfg.sl}${b.cfg.hold ? ' ' + b.cfg.hold + 's' : ''}: vecchi ${b.tr.ev}%, recenti ${b.te.ev}%`;
+// Il conto paper della strategia corrente: un conto a parte (1 SOL, 10% dell'equity a operazione, con gli stessi costi della simulazione), indipendente dal paper del radar.
+// Ogni operazione chiusa della strategia corrente (token nati dopo la sua adozione) entra qui; se la strategia cambia, il conto continua con la nuova.
+function acctApply(reg, rec, s, x, now) {
+  const a = reg.acct || (reg.acct = acctBlank(now)), size = a.eq * ACCT_SIZE, pnl = size * x.net / 100; a.eq += pnl; a.n++; if (pnl > 0) { a.win++; a.gain += pnl; } else a.loss -= pnl;
+  a.peak = Math.max(a.peak, a.eq); a.dd = Math.max(a.dd, a.peak - a.eq);
+  a.trades.push({ id: s.id, m: rec.m, sym: String(rec.s || '').slice(0, 20), at: now, pct: +x.net.toFixed(1), pnl: +pnl.toFixed(5), why: x.why, held: x.held, eq: +a.eq.toFixed(5) }); if (a.trades.length > ACCT_KEEP) a.trades.shift();
+  a.curve.push(+a.eq.toFixed(4)); if (a.curve.length > ACCT_CURVE) a.curve.shift();
+}
 // Un token concluso: ogni regola non ritirata lo valuta solo se e' nato dopo la sua ammissione
 function record(reg, rec, now) {
   let changed = false; const u = rec.u || rec.usd;
@@ -74,6 +85,7 @@ function record(reg, rec, now) {
     const f = s.fwd; f.n++; f.sum += x.net; if (x.net > 0) { f.win++; f.gain += x.net; } else f.loss -= x.net;
     f.cum += x.net; f.peak = Math.max(f.peak, f.cum); f.dd = Math.max(f.dd, f.peak - f.cum); if (!f.first) f.first = rec.at; f.last = rec.at;
     f.recent.push(+x.net.toFixed(2)); if (f.recent.length > RECENT) f.recent.shift(); changed = true;
+    if (s === reg.current) acctApply(reg, rec, s, x, now);
   }
   return changed;
 }
@@ -100,8 +112,9 @@ function summary(reg, now) {
   const count = { prova: 0, validata: 0, ritirata: 0 }; for (const s of reg.items) count[s.status] = (count[s.status] || 0) + 1;
   const live = reg.items.filter((s) => s.status !== 'ritirata'), dead = reg.items.filter((s) => s.status === 'ritirata').sort((a, b) => (b.endedAt || 0) - (a.endedAt || 0)).slice(0, 5);
   const pick = (s) => ({ id: s.id, cfg: s.cfg, status: s.status, since: s.since, farm: s.farm, fwd: stats(s.fwd), why: (s.history[s.history.length - 1] || {}).why || '' });
+  const A = reg.acct, acct = A && { start: A.start, eq: +A.eq.toFixed(4), pnl: +(A.eq - A.start).toFixed(4), pct: +((A.eq / A.start - 1) * 100).toFixed(1), n: A.n, win: A.n ? Math.round(100 * A.win / A.n) : 0, pf: A.loss > 0 ? +(A.gain / A.loss).toFixed(2) : (A.gain > 0 ? 99 : 0), dd: +A.dd.toFixed(4), since: A.since, curve: A.curve, trades: A.trades.slice(-15).reverse() };
   const c = reg.current, cur = c && { id: c.id, cfg: c.cfg, since: c.since, farm: c.farm, fwd: stats(c.fwd), cum: +c.fwd.cum.toFixed(1), profitable: c.fwd.n >= 20 ? stats(c.fwd).ev > 0 : null, prev: (c.prev || []).slice(-3).map((p) => ({ id: p.id, cfg: p.cfg, fwd: p.fwd })) };
-  return { at: now, count, current: cur || null, items: [...live, ...dead].slice(0, 20).map(pick), log: reg.log.slice(-6) };
+  return { at: now, count, acct: acct || null, current: cur || null, items: [...live, ...dead].slice(0, 20).map(pick), log: reg.log.slice(-6) };
 }
 
-module.exports = { SWITCH_MARGIN, MIN_HOLD_MS, adoptBest, describe, MAX_TEST, MIN_FWD, MIN_SPAN_MS, MIN_PF, EARLY_N, GIVE_UP_N, STALE_MS, COOL_MS, DD_MAX, key, create, normalize, load, save, ingest, record, review, summary, stats };
+module.exports = { ACCT_START, ACCT_SIZE, SWITCH_MARGIN, MIN_HOLD_MS, adoptBest, describe, MAX_TEST, MIN_FWD, MIN_SPAN_MS, MIN_PF, EARLY_N, GIVE_UP_N, STALE_MS, COOL_MS, DD_MAX, key, create, normalize, load, save, ingest, record, review, summary, stats };
