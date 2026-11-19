@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 03:41 UTC · in esecuzione da 0.5 giorni · 211 run
+Aggiornato: 2026-11-19 03:46 UTC · in esecuzione da 0.5 giorni · 211 run
 
 | | |
 |---|---|
-| Equity | **5.2546 SOL** (-12.4% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.1460 SOL |
-| Trade chiusi | 38 |
+| Equity | **5.2340 SOL** (-12.8% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.2340 SOL |
+| Trade chiusi | 39 |
 | Win rate | 26% |
-| P&L realizzato | -0.7479 SOL (~$-55.08) |
-| Media vincite / perdite | +35.4% / -35.9% |
+| P&L realizzato | -0.7660 SOL (~$-56.56) |
+| Media vincite / perdite | +35.4% / -35.3% |
 | Profit factor | 0.35 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$GMGM** P-0421 · 0.105 SOL · +3.4% · resta 100% · [grafico](https://dexscreener.com/solana/C2ET3Nr4z31rmgKsBzPKiiHPeoaa4vZXDHSXnFjg9i5P)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -22,12 +22,13 @@ Aggiornato: 2026-11-19 03:41 UTC · in esecuzione da 0.5 giorni · 211 run
 | Chiusura manuale (app) | 6 | +0.0235 |
 | RUG-EXIT liquidità | 8 | -0.5936 |
 | TP1 | 4 | +0.3389 |
-| Time stop | 11 | -0.1784 |
+| Time stop | 12 | -0.1965 |
 | Stop loss | 9 | -0.3383 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $GMGM | 63 | -17.1% | -0.0181 | +11% | -1% | Time stop | 6m |
 | $Everglades | 82 | -10.5% | -0.0111 | +0% | -31% | Stop loss | 1m |
 | $GTA Strategy  | 65 | -9.2% | -0.0098 | +59% | -2% | Time stop | 12m |
 | $MANDY | 88 | -62.3% | -0.0671 | +30% | -49% | Stop loss | 2m |
@@ -52,10 +53,24 @@ Aggiornato: 2026-11-19 03:41 UTC · in esecuzione da 0.5 giorni · 211 run
 | $FLAMINGO | 71 | -47.2% | -0.0539 | +12% | -41% | Stop loss | 2m |
 | $STM | 65 | -32.5% | -0.0373 | +36% | -7% | Time stop | 5m |
 | $AMAZON | 64 | -98.4% | -0.1154 | +8% | -97% | RUG-EXIT liquidità | 1m |
-| $snaps | 72 | -16.5% | -0.0194 | +29% | +3% | Time stop | 6m |
 
 ## Ultimi eventi
 ```
+03:46:10 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 228 veto
+03:45:47 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 241 veto
+03:45:24 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 241 veto
+03:45:01 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 238 veto
+03:44:37 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 240 veto
+03:44:14 SCRIBE   chiuso P-0421 $GMGM -0.0181 SOL (-17.1%)
+03:44:14 CHARON   Time stop $GMGM vendo 100% a -0.8% -> 0.0879 SOL
+03:44:14 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 238 veto
+03:43:51 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 225 veto
+03:43:27 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 233 veto
+03:43:04 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 232 veto
+03:42:50 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 236 veto
+03:42:35 ORACLE   360 raccolti, 231 analizzati, 1 BUY, 215 veto
+03:42:06 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 230 veto
+03:41:43 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 234 veto
 03:41:19 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 231 veto
 03:40:56 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 229 veto
 03:40:32 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 232 veto
@@ -81,21 +96,6 @@ Aggiornato: 2026-11-19 03:41 UTC · in esecuzione da 0.5 giorni · 211 run
 03:33:53 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 250 veto
 03:33:29 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 242 veto
 03:33:06 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 233 veto
-03:32:42 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 240 veto
-03:32:19 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 231 veto
-03:32:05 SCRIBE   chiuso P-0420 $Everglades -0.0111 SOL (-10.5%)
-03:32:05 CHARON   Stop loss $Everglades vendo 100% a -31.5% -> 0.0951 SOL
-03:31:55 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 230 veto
-03:31:32 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 230 veto
-03:31:07 QUARTER  BUY $Everglades 0.105 SOL score 82 impatto 0.00% (Jupiter)
-03:31:07 ORACLE   355 raccolti, 248 analizzati, 1 BUY, 233 veto
-03:30:43 ORACLE   351 raccolti, 243 analizzati, 1 BUY, 227 veto
-03:30:19 ORACLE   324 raccolti, 221 analizzati, 1 BUY, 209 veto
-03:29:56 ORACLE   317 raccolti, 216 analizzati, 1 BUY, 204 veto
-03:29:33 ORACLE   314 raccolti, 210 analizzati, 1 BUY, 198 veto
-03:29:10 ORACLE   298 raccolti, 202 analizzati, 1 BUY, 191 veto
-03:28:47 ORACLE   292 raccolti, 193 analizzati, 1 BUY, 181 veto
-03:28:23 SCOUT    PumpPortal invia nuovi token (21) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
