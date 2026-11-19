@@ -272,4 +272,4 @@ Ogni messaggio che riguarda una Coin ha in evidenza **«Apri su pump.fun»** (co
 
 **«Chiudi posizione»** non vende da solo: apre la stessa richiesta di conferma della chiusura dall'app (con «Chiudi ora» e «Annulla»), oppure chiude subito se l'approvazione manuale e' spenta. Vale per le posizioni reali (`R-...`) e per quelle paper (`P-...`). L'indirizzo dell'app per «Apri Kaiser» e' quello di GitHub Pages; si puo' cambiare con la variabile `APP_URL` del runner.
 
-Il Worker va ripubblicato perche' i tasti nuovi arrivino anche dai suoi messaggi (workflow «Pubblica esecutore»).
+Il Worker si ripubblica da solo quando cambia `worker/` su `main` (workflow «Pubblica esecutore»): i tasti nuovi dei suoi messaggi arrivano dopo quella pubblicazione.
