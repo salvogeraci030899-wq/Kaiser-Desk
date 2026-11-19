@@ -2,7 +2,7 @@
    Token iOS (scuro/chiaro/automatico), angoli concentrici, barra a capsula, Vetro (Liquid Glass) fermo o animato.
    I nomi delle classi sono quelli di Kaiser: cambia l'aspetto, non la struttura. */
 :root {
-  --kz-css: 50;
+  --kz-css: 51;
   color-scheme: dark;
   --bg: #000000;
   --surface: #0a0a0a;
@@ -343,7 +343,7 @@ nav { height: 62px; margin-top: 4px; }
 #radarList > .tcard { height: 100%; margin: 0; padding: 12px 14px; scroll-snap-align: start; display: flex; flex-direction: column; justify-content: space-between; gap: 6px; }
 #radarList > .tcard:last-child { scroll-snap-align: end; }
 #radarList > .empty { grid-row: 1 / span 2; align-self: center; }
-#radarList .chips { flex-wrap: nowrap; overflow: hidden; margin-top: 0; }
+#radarList .chips { flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden; margin-top: 0; scrollbar-width: none; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; touch-action: pan-x pan-y; } #radarList .chips::-webkit-scrollbar { display: none; }
 #radarList .chip { white-space: nowrap; flex: 0 0 auto; }
 #radarList .metrics { margin-top: 0; }
 #radarList .nm { max-width: none; }
@@ -467,3 +467,9 @@ nav { height: 62px; margin-top: 4px; }
 .chipb { min-height: 30px; padding: 0 10px; border-radius: var(--r-pill); border: 1px solid var(--border); background: var(--surface); color: var(--text); font: 600 12px var(--font); } .chipb.on { background: var(--surface-hover); border-color: var(--ui); }
 .spark { width: 100%; height: 56px; display: block; } .spark .zero { stroke: var(--border); stroke-width: 1; stroke-dasharray: 3 3; }
 .sbar { display: grid; grid-template-columns: 96px 1fr 34px; gap: 6px; align-items: center; font-size: 12px; margin: 3px 0; } .sbar i { display: block; height: 8px; border-radius: 4px; background: var(--ui); min-width: 2px; } .sbar b { text-align: right; font: 600 12px var(--mono); }
+
+/* Schede: tocco sulla scheda = pump.fun, tocco sull'immagine = dettaglio */
+.timg { display: block; margin: -6px; padding: 6px; cursor: pointer; -webkit-tap-highlight-color: transparent; touch-action: manipulation; } .timg:active img, .timg:active .ph { opacity: 0.7; }
+#radarList .card[data-mint], #posList .card[data-mint] { cursor: pointer; -webkit-tap-highlight-color: transparent; } #radarList .card[data-mint]:active, #posList .card[data-mint]:active { background: var(--surface-hover); }
+.posfoot { gap: 8px; align-items: center; } .posfoot .tiny { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .posfoot .btn { flex: 0 0 auto; margin-left: auto; }
+.poslist > .poscard .nm { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }

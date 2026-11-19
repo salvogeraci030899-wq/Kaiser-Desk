@@ -72,3 +72,14 @@ test('profili pronti: ogni valore e\' ammesso dal Worker (intervalli e tipi)', a
   assert.ok(presets.some((p) => p.id === 'young'), 'manca il profilo dei giovani');
   for (const p of presets) { const { clean, errors } = validate(p.vals); assert.deepEqual(errors, [], p.id + ': ' + JSON.stringify(errors)); assert.deepEqual(Object.keys(clean).sort(), Object.keys(p.vals).sort(), p.id + ': chiavi non ammesse'); for (const k of Object.keys(p.vals)) assert.ok(SCHEMA[k], k); }
 });
+
+test('schede di radar e posizioni: tocco sulla scheda = pump.fun, tocco sull\'immagine = dettaglio, resta solo Chiudi; i segnali scorrono in orizzontale', () => {
+  const css = read('style.css'), card = html.slice(html.indexOf('function posCard('), html.indexOf('function renderPos()'));
+  assert.ok(!/>Dettaglio</.test(card) && !/Grafico/.test(card) && !/class="btn sm pump"/.test(card), 'i tre tasti sono tolti dalla scheda della posizione');
+  assert.match(card, /data-mint="\$\{esc\(p\.mint\)\}"/); assert.match(card, /<span class="timg" data-detail="\$\{esc\(p\.mint\)\}"/); assert.match(card, /data-close="\$\{esc\(p\.id\)\}"/, 'resta il tasto Chiudi');
+  const rc = html.slice(html.indexOf('function candCard('), html.indexOf('// Segnali della modalità semi-automatica')); assert.match(rc, /<span class="timg" data-detail="\$\{esc\(c\.mint\)\}"/); assert.match(rc, /data-mint="\$\{esc\(c\.mint\)\}"/);
+  const h = html.slice(html.indexOf("const d = e.target.closest('[data-detail]'); if (d) return openDetail"), html.indexOf('// Niente zoom'));
+  assert.ok(h.indexOf('[data-detail]') < h.indexOf('a, button, input, select, label, summary') && h.indexOf('a, button, input, select, label, summary') < h.indexOf('openPump(card.dataset.mint)'), 'prima l\'immagine, poi i tasti dentro la scheda, poi il resto della scheda');
+  assert.match(h, /#radarList \.card\[data-mint\], #posList \.card\[data-mint\]/); assert.match(html, /function openPump\(mint\)[\s\S]*https:\/\/pump\.fun\/coin\//);
+  assert.match(css, /#radarList \.chips \{[^}]*overflow-x: auto/); assert.ok(!/#radarList \.chips \{[^}]*overflow: hidden/.test(css), 'i segnali non sono piu\' tagliati');
+});
