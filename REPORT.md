@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 17:36 UTC · in esecuzione da 0.1 giorni · 227 run
+Aggiornato: 2026-11-19 17:40 UTC · in esecuzione da 0.1 giorni · 227 run
 
 | | |
 |---|---|
-| Equity | **5.8469 SOL** (-2.6% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.8469 SOL |
-| Trade chiusi | 14 |
-| Win rate | 29% |
-| P&L realizzato | -0.1531 SOL (~$-11.32) |
-| Media vincite / perdite | +13.8% / -18.3% |
-| Profit factor | 0.30 |
+| Equity | **5.8576 SOL** (-2.4% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.8576 SOL |
+| Trade chiusi | 15 |
+| Win rate | 33% |
+| P&L realizzato | -0.1424 SOL (~$-10.54) |
+| Media vincite / perdite | +12.9% / -18.3% |
+| Profit factor | 0.35 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -21,12 +21,13 @@ _nessuna_
 |---|---|---|
 | Stop loss | 5 | -0.1201 |
 | Time stop | 5 | -0.0332 |
-| TP1 | 2 | -0.0119 |
+| TP1 | 3 | -0.0013 |
 | RUG-EXIT liquidità | 2 | +0.0121 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $CD | 70 | +9.0% | +0.0107 | +79% | +79% | TP1 | 2m |
 | $IPO | 63 | -23.5% | -0.0278 | +67% | +67% | TP1 | 1m |
 | $NTDOY | 63 | -17.6% | -0.0209 | +33% | +4% | Time stop | 9m |
 | $LUCIA | 69 | -2.4% | -0.0028 | +10% | -4% | Time stop | 5m |
@@ -44,6 +45,21 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+17:40:14 SCRIBE   fine run · trade 15 · win 33% · P&L -0.1424 SOL · equity 5.8576 SOL
+17:40:08 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 217 veto
+17:39:44 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 218 veto
+17:39:21 ORACLE   360 raccolti, 225 analizzati, 1 BUY, 210 veto
+17:39:06 SCRIBE   chiuso P-0451 $CD 0.0107 SOL (9.0%)
+17:39:06 CHARON   TP1 $CD vendo 100% a 79.4% -> 0.1286 SOL
+17:38:56 ORACLE   360 raccolti, 235 analizzati, 2 BUY, 218 veto
+17:38:33 ORACLE   360 raccolti, 228 analizzati, 2 BUY, 210 veto
+17:38:10 ORACLE   360 raccolti, 228 analizzati, 2 BUY, 213 veto
+17:37:47 ORACLE   360 raccolti, 232 analizzati, 0 BUY, 216 veto
+17:37:24 QUARTER  BUY $CD 0.117 SOL score 70 impatto 0.08% (Jupiter)
+17:37:24 ORACLE   360 raccolti, 227 analizzati, 1 BUY, 211 veto
+17:37:00 QUARTER  $CD impatto 2.7% oltre slippage: annullato
+17:37:00 ORACLE   360 raccolti, 233 analizzati, 1 BUY, 219 veto
+17:36:37 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 226 veto
 17:36:14 ORACLE   360 raccolti, 224 analizzati, 1 BUY, 208 veto
 17:35:51 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 220 veto
 17:35:27 ORACLE   360 raccolti, 227 analizzati, 1 BUY, 212 veto
@@ -69,21 +85,6 @@ _nessuna_
 17:27:43 ORACLE   360 raccolti, 238 analizzati, 2 BUY, 224 veto
 17:27:20 ORACLE   360 raccolti, 235 analizzati, 2 BUY, 220 veto
 17:27:05 ORACLE   360 raccolti, 235 analizzati, 2 BUY, 222 veto
-17:26:50 ORACLE   360 raccolti, 235 analizzati, 2 BUY, 224 veto
-17:26:25 ORACLE   360 raccolti, 224 analizzati, 2 BUY, 212 veto
-17:26:02 ORACLE   360 raccolti, 233 analizzati, 2 BUY, 221 veto
-17:25:39 ORACLE   360 raccolti, 229 analizzati, 2 BUY, 219 veto
-17:25:15 ORACLE   360 raccolti, 230 analizzati, 2 BUY, 220 veto
-17:24:52 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 224 veto
-17:24:29 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 223 veto
-17:24:06 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 231 veto
-17:23:43 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 230 veto
-17:23:19 ORACLE   360 raccolti, 229 analizzati, 2 BUY, 220 veto
-17:22:56 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 226 veto
-17:22:33 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 224 veto
-17:22:09 ORACLE   360 raccolti, 229 analizzati, 2 BUY, 216 veto
-17:21:46 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 224 veto
-17:21:32 SCRIBE   chiuso P-0450 $IPO -0.0278 SOL (-23.5%)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
