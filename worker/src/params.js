@@ -21,6 +21,7 @@ export const GROUPS = [
 export const SCHEMA = {
   autopilot: b('Autopilota', 'auto', { scope: 'runner', hint: 'il runner entra in posizione da solo' }),
   paperEnabled: b('Paper acceso (nuovi ingressi)', 'auto', { scope: 'runner', hint: 'spento = il paper non apre nuove posizioni' }),
+  semiAuto: { t: 'enum', label: 'Modalità semi-automatica', group: 'auto', scope: 'runner', values: ['spento', 'avvisi e paper', 'solo avvisi'], hint: 'il radar non apre la posizione: ti manda un avviso con il collegamento a pump.fun e entri tu a mano. «avvisi e paper» lascia girare anche il paper per misurare i segnali; «solo avvisi» non apre posizioni paper' },
   paperStop: b('Paper in stop', 'auto', { scope: 'runner', hint: 'ferma subito i nuovi ingressi paper; le posizioni restano gestite' }),
   scanSec: n('Intervallo scan (s)', 'auto', 15, 600, { scope: 'runner', step: 1 }),
   minScore: n('Score minimo BUY', 'auto', 40, 100, { scope: 'runner', step: 1 }),
