@@ -88,7 +88,7 @@ async function pushLive(force) {
 function publicSummary() {
   const s = stats(), { backend, appToken, executorToken, ...cfg } = S;   // mai segreti, anche se qualcuno li scrive in config.json
   return {
-    v: 1, updatedAt: Date.now(), startedAt: st.startedAt, runs: st.runs, capital: S.capitalSOL, cash: st.cash, equity: equity(), halted: !!st.halted, solUsd: rt.solUsd || 0,
+    v: 1, updatedAt: Date.now(), startedAt: st.startedAt, runs: st.runs, capital: S.capitalSOL, topups: st.topups ? { n: st.topups.n, total: st.topups.total, log: st.topups.log.slice(-3) } : null, cash: st.cash, equity: equity(), halted: !!st.halted, solUsd: rt.solUsd || 0,
     stats: { n: s.n, wr: s.wr, pnl: s.pnl, aw: s.aw, al: s.al, pf: Number.isFinite(s.pf) ? s.pf : null },
     positions: st.positions.map((p) => ({ id: p.id, mint: p.mint, sym: p.sym, pairAddress: p.pairAddress, openedAt: p.openedAt, sizeSOL: p.sizeSOL, cost: p.cost, entry: p.entry, tokens: p.tokens,
       remaining: p.remaining, tp1Done: p.tp1Done, peak: p.peak, score: p.score, last: p.last ? { priceNative: p.last.priceNative, liq: p.last.liq, t: p.last.t } : null })),
@@ -258,16 +258,20 @@ function holdMapSet(x) { rt.holdMap = rt.holdMap || new Map(); rt.holdMap.set(x.
 function stratCtx() {
   if (!rt.holdMap) { try { rt.holdMap = Farm.loadHolders(path.join(STATE_DIR, 'lab', 'holders')); } catch { rt.holdMap = new Map(); } }
   if (!rt.cidx || Date.now() - (rt.cidxAt || 0) > 600000) { try { rt.cidx = require('./rug.js').creatorIndex([...Farm.loadCreators(path.join(STATE_DIR, 'lab', 'creators')), ...rt.crBuf]); rt.cidxAt = Date.now(); } catch { rt.cidx = rt.cidx || null; } }
-  return { holders: rt.holdMap, cidx: rt.cidx };
+  return { holders: rt.holdMap, cidx: rt.cidx, refillPct: S.refillBelowPct };
 }
 // La strategia corrente dal vivo: ogni tick si guardano i token ancora in corso; se la regola e' entrata e a un token e' scattata l'uscita, la posizione in ombra si chiude subito
 // (e va nel conto a parte); quelle ancora aperte si pubblicano per l'app. Nessun ordine.
+// Avvisi della strategia (ricariche del suo conto): una riga di Telegram ciascuno
+function flushStratNotes() {
+  try { const ns = rt.strat.notes || []; if (!ns.length) return; rt.strat.notes = []; rt.stratDirty = true; for (const n of ns.slice(0, 3)) tg('<b>KAISER</b> ' + esc(n.text), Kb.kb({ app: true })).catch(() => {}); } catch { /* facoltativo */ }
+}
 function shadowTick() {
   try {
     if (!rt.trades || !rt.strat.current) { rt.shadowOpen = []; return; }
     const now = Date.now(), u = rt.solUsd > 0 ? rt.solUsd : 150, recs = [];
     for (const t of rt.trades.book.toks.values()) { const p = Lab.paddedPath(t, now); if (p.length > 4) recs.push({ m: t.mint, s: t.sym, at: t.createdAt, p, u, cr: t.dev || '' }); }
-    const r = Strat.liveTick(rt.strat, recs, now, stratCtx()); rt.shadowOpen = r.open; if (r.closed) rt.stratDirty = true;
+    const r = Strat.liveTick(rt.strat, recs, now, stratCtx()); rt.shadowOpen = r.open; if (r.closed) rt.stratDirty = true; flushStratNotes();
   } catch (e) { rt.shadowErr = String(e.message).slice(0, 80); }
 }
 // Callout social dei token del Laboratorio: alla soglia di market cap Grok conta menzioni su X, callout di account grandi e allarmi. Solo misura (nessun ordine):
@@ -405,7 +409,7 @@ async function ackClose(ids) {
 }
 async function resetPaper(rp) {
   const cap = Number(Number(rp.capitalSOL).toFixed(2));
-  Object.assign(st, { cash: cap, positions: [], journal: [], signals: [], alerts: [], day: null, halted: null, cooldownUntil: 0, startedAt: Date.now(), capital: cap, resetId: rp.id, realTried: {} });
+  Object.assign(st, { cash: cap, topups: null, positions: [], journal: [], signals: [], alerts: [], day: null, halted: null, cooldownUntil: 0, startedAt: Date.now(), capital: cap, resetId: rp.id, realTried: {} });
   S.capitalSOL = cap; BASE_S.capitalSOL = cap;
   log('KAISER', `reset del paper (${rp.id}): conto azzerato, capitale ${cap} SOL`);
   await tg(`<b>KAISER</b> paper azzerato (${esc(rp.id)}): riparto con ${cap} SOL`, Kb.kb({ app: true }));
@@ -523,6 +527,13 @@ async function scan() {
     st.halted = Date.now();
     log('KAISER', `CIRCUIT BREAKER: perdita giornaliera oltre ${S.dailyLossPct}%`);
     await tg(`<b>KAISER</b> circuit breaker: stop ingressi fino a domani`, Kb.kb({ app: true }));
+  }
+  // ricarica automatica, dichiarata: sotto la quota del capitale il saldo torna al capitale; storico e statistiche restano, il P&L esclude le ricariche
+  if (S.refillBelowPct > 0 && !st.positions.length && equity() < S.capitalSOL * S.refillBelowPct / 100) {
+    const before = equity(), add = +(S.capitalSOL - before).toFixed(6); st.cash += add; st.topups = st.topups || { n: 0, total: 0, log: [] };
+    st.topups.n++; st.topups.total = +(st.topups.total + add).toFixed(6); st.topups.log.push({ at: Date.now(), before: +before.toFixed(4), add }); st.topups.log = st.topups.log.slice(-10);
+    log('KAISER', `RICARICA AUTOMATICA paper n. ${st.topups.n}: equity ${before.toFixed(3)} sotto il ${S.refillBelowPct}% del capitale`);
+    await tg(`<b>KAISER</b> paper ricaricato\nL'equity era scesa a ${before.toFixed(3)} SOL (sotto il ${S.refillBelowPct}% del capitale di ${S.capitalSOL}). Saldo riportato a ${S.capitalSOL} SOL: ricarica n. ${st.topups.n}, totale ricaricato ${st.topups.total} SOL.\nJournal e statistiche invariati; il P&L esclude le ricariche.`, Kb.kb({ app: true }));
   }
   // modalita' semi-automatica: avviso con il collegamento a pump.fun, entri tu a mano (funziona anche con l'autopilota spento)
   st.alerts = st.alerts || [];
@@ -703,7 +714,7 @@ function checkpoint() {
 function startYoung() {
   const onToken = (t) => { if (S.srcYoung !== false) Y.addYoung(rt.young, t, Date.now(), 800); };
   if (S.srcLab !== false) {                                     // Laboratorio: una sola connessione a PumpPortal per nuovi token e scambi (osservazione, nessun ordine)
-    rt.trades = new Lab.TradeFeed({ log: (m) => log('SCOUT', m), solUsd: () => rt.solUsd, rpcHttp: process.env.RPC_URL || '', onCross: (t) => { if (rt.holdQ.length < 200) rt.holdQ.push({ mint: t.mint, curve: t.curve, creator: t.dev, at: Date.now(), uri: t.uri, devBuy: t.devBuy, sym: t.sym, name: t.name }); if (S.socialTest && rt.socQ.length < 20) rt.socQ.push({ mint: t.mint, sym: t.sym, name: t.name, at: Date.now() }); }, onCreator: (x) => { if (rt.crBuf.length < 5000) rt.crBuf.push(x); }, onPath: (x) => { rt.pathBuf.push(Farm.pack(x)); if (Strat.record(rt.strat, x, Date.now(), stratCtx())) rt.stratDirty = true; }, onCreate: onToken, onDone: (s) => { st.lab = st.lab || { done: [] }; st.lab.done.push(s); st.lab.done = st.lab.done.slice(-400); } });
+    rt.trades = new Lab.TradeFeed({ log: (m) => log('SCOUT', m), solUsd: () => rt.solUsd, rpcHttp: process.env.RPC_URL || '', onCross: (t) => { if (rt.holdQ.length < 200) rt.holdQ.push({ mint: t.mint, curve: t.curve, creator: t.dev, at: Date.now(), uri: t.uri, devBuy: t.devBuy, sym: t.sym, name: t.name }); if (S.socialTest && rt.socQ.length < 20) rt.socQ.push({ mint: t.mint, sym: t.sym, name: t.name, at: Date.now() }); }, onCreator: (x) => { if (rt.crBuf.length < 5000) rt.crBuf.push(x); }, onPath: (x) => { rt.pathBuf.push(Farm.pack(x)); if (Strat.record(rt.strat, x, Date.now(), stratCtx())) { rt.stratDirty = true; flushStratNotes(); } }, onCreate: onToken, onDone: (s) => { st.lab = st.lab || { done: [] }; st.lab.done.push(s); st.lab.done = st.lab.done.slice(-400); } });
     rt.trades.start();
   }
   if (S.srcYoung === false) return;

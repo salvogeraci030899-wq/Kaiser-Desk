@@ -130,3 +130,18 @@ test('strategia dal vivo: posizione aperta, chiusura appena scatta l\'uscita, ne
   const down = part.slice(0, 11).concat([40, 40]); assert.equal(S.liveTick(reg, [{ m: 'y', s: 'Y', at: T0 + 20, u: 100, p: down }], T0 + 6000, null).closed, 1);
   const rs = S.load((() => { const f = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'kz-set-')), 's.json'); S.save(f, reg); return f; })()); assert.ok(rs.settled && rs.settled.x, 'la lista dei gia\' chiusi sopravvive al salvataggio');
 });
+
+test('ricarica automatica del conto della strategia: dichiarata, con storico e statistiche intatti e P&L senza le ricariche', () => {
+  const T0 = 1_700_000_000_000, reg = S.create(), los = []; for (let k = 0; k < 120; k++) los.push(k < 10 ? 40 : k < 20 ? 50 : 20);     // soglia, poi crollo: stop
+  S.adoptBest(reg, { at: T0, best: { cfg: { thr: 5000, delay: 0, tp: 30, sl: 20, hold: 0 }, tr: { n: 50, ev: 0 }, te: { n: 50, ev: 0 } }, watch: [] }, T0);
+  const ctx = { holders: new Map(), cidx: null, refillPct: 95 };      // soglia alta per provare in poche operazioni
+  for (let i = 0; i < 3; i++) S.record(reg, { m: 'l' + i, s: 'L' + i, at: T0 + 10 + i, u: 100, p: los }, T0 + 100 + i, ctx);
+  const a = S.summary(reg, T0 + 500).acct; assert.equal(a.n, 3, 'le operazioni restano nello storico'); assert.ok(a.topups && a.topups.n >= 1, 'almeno una ricarica');
+  assert.ok(a.eq >= 0.9 && a.eq <= 1, 'saldo riportato al capitale'); assert.ok(a.pnl < 0, 'il P&L esclude le ricariche e resta negativo: ' + a.pnl); assert.ok(a.pct < 0);
+  assert.ok(reg.notes && /ricaricato/.test(reg.notes[0].text) && /Storico e statistiche invariati/.test(reg.notes[0].text), 'avviso chiaro');
+  assert.equal(a.trades.length, 3);
+  const none = S.create(); S.adoptBest(none, { at: T0, best: { cfg: { thr: 5000, delay: 0, tp: 30, sl: 20, hold: 0 }, tr: { n: 50, ev: 0 }, te: { n: 50, ev: 0 } }, watch: [] }, T0);
+  S.record(none, { m: 'z', s: 'Z', at: T0 + 10, u: 100, p: los }, T0 + 100, { holders: new Map(), cidx: null, refillPct: 0 }); assert.equal(S.summary(none, T0).acct.topups, null, 'con 0 non ricarica mai');
+  const src = fs.readFileSync(path.join(__dirname, '..', 'runner', 'runner.js'), 'utf8'); assert.match(src, /RICARICA AUTOMATICA paper/); assert.match(src, /S\.refillBelowPct > 0 && !st\.positions\.length/); assert.match(src, /flushStratNotes\(\)/);
+  const P = require('../worker/src/params.js'); assert.equal(P.SCHEMA.refillBelowPct.t, 'num'); assert.equal(P.SCHEMA.refillBelowPct.scope, 'runner');
+});
