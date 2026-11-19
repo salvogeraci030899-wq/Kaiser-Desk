@@ -2,7 +2,7 @@
    Token iOS (scuro/chiaro/automatico), angoli concentrici, barra a capsula, Vetro (Liquid Glass) fermo o animato.
    I nomi delle classi sono quelli di Kaiser: cambia l'aspetto, non la struttura. */
 :root {
-  --kz-css: 73;
+  --kz-css: 74;
   color-scheme: dark;
   --bg: #000000;
   --surface: #0a0a0a;
@@ -557,3 +557,8 @@ html.mode-real .logo { box-shadow: none; }
 .ptog:active { background: var(--surface-hover); }
 .panel-all { width: 100%; margin-top: 8px; min-height: 44px; } .panel-all:disabled { opacity: 0.45; }
 .ptog.off { border-color: var(--border); } .ptog.off .pv { color: var(--text-secondary); }
+
+/* Impostazioni > Generale: distanza uniforme tra le schede (10px, come nelle altre pagine) */
+#setGen { gap: 10px; }
+#setGen .card, #setGen .setcard, #setGen .syscard { margin: 0; }
+#setGen .hub1 { flex: 0 0 auto; }
