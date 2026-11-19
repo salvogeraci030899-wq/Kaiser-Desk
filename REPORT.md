@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 22:12 UTC · in esecuzione da 0.3 giorni · 233 run
+Aggiornato: 2026-11-19 22:17 UTC · in esecuzione da 0.3 giorni · 233 run
 
 | | |
 |---|---|
-| Equity | **5.4779 SOL** (-8.7% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.3725 SOL |
-| Trade chiusi | 36 |
-| Win rate | 28% |
-| P&L realizzato | -0.5169 SOL (~$-37.44) |
-| Media vincite / perdite | +29.3% / -28.3% |
-| Profit factor | 0.40 |
+| Equity | **5.4591 SOL** (-9.0% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.4591 SOL |
+| Trade chiusi | 37 |
+| Win rate | 27% |
+| P&L realizzato | -0.5409 SOL (~$-39.18) |
+| Media vincite / perdite | +29.3% / -28.0% |
+| Profit factor | 0.39 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$DATITTY** P-0473 · 0.110 SOL · -3.9% · resta 100% · [grafico](https://dexscreener.com/solana/G2uX4gouXxpCMgUJ5LoFaHTsY9JJwEhYmdatttABpsix)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 13 | -0.4103 |
-| Time stop | 13 | -0.1071 |
+| Time stop | 14 | -0.1311 |
 | TP1 | 6 | +0.2021 |
 | RUG-EXIT liquidità | 4 | -0.2016 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $DATITTY | 88 | -21.7% | -0.0240 | +5% | -17% | Time stop | 5m |
 | $FIONA | 78 | -9.3% | -0.0103 | +0% | -21% | Time stop | 5m |
 | $VINTEL | 76 | +53.7% | +0.0589 | +70% | +70% | TP1 | 2m |
 | $mihao | 64 | -98.6% | -0.1103 | +4% | -97% | RUG-EXIT liquidità | 2m |
@@ -51,10 +52,25 @@ Aggiornato: 2026-11-19 22:12 UTC · in esecuzione da 0.3 giorni · 233 run
 | $CD | 70 | +9.0% | +0.0107 | +79% | +79% | TP1 | 2m |
 | $IPO | 63 | -23.5% | -0.0278 | +67% | +67% | TP1 | 1m |
 | $NTDOY | 63 | -17.6% | -0.0209 | +33% | +4% | Time stop | 9m |
-| $LUCIA | 69 | -2.4% | -0.0028 | +10% | -4% | Time stop | 5m |
 
 ## Ultimi eventi
 ```
+22:17:35 ORACLE   360 raccolti, 260 analizzati, 3 BUY, 245 veto
+22:17:11 ORACLE   360 raccolti, 261 analizzati, 3 BUY, 242 veto
+22:16:47 ORACLE   360 raccolti, 268 analizzati, 3 BUY, 250 veto
+22:16:33 ORACLE   360 raccolti, 266 analizzati, 3 BUY, 249 veto
+22:16:16 SCRIBE   chiuso P-0473 $DATITTY -0.0240 SOL (-21.7%)
+22:16:16 CHARON   Time stop $DATITTY vendo 100% a -17.4% -> 0.0867 SOL
+22:16:16 ORACLE   360 raccolti, 275 analizzati, 3 BUY, 258 veto
+22:15:51 ORACLE   360 raccolti, 271 analizzati, 4 BUY, 254 veto
+22:15:27 ORACLE   360 raccolti, 262 analizzati, 4 BUY, 249 veto
+22:15:03 ORACLE   360 raccolti, 275 analizzati, 3 BUY, 263 veto
+22:14:39 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 250 veto
+22:14:15 ORACLE   360 raccolti, 261 analizzati, 3 BUY, 247 veto
+22:13:51 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 241 veto
+22:13:28 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 249 veto
+22:13:03 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 242 veto
+22:12:50 ORACLE   360 raccolti, 267 analizzati, 3 BUY, 254 veto
 22:12:23 ORACLE   360 raccolti, 262 analizzati, 4 BUY, 250 veto
 22:11:59 ORACLE   360 raccolti, 243 analizzati, 5 BUY, 232 veto
 22:11:35 ORACLE   360 raccolti, 250 analizzati, 4 BUY, 237 veto
@@ -79,22 +95,6 @@ Aggiornato: 2026-11-19 22:12 UTC · in esecuzione da 0.3 giorni · 233 run
 22:05:38 ORACLE   360 raccolti, 256 analizzati, 3 BUY, 242 veto
 22:05:14 ORACLE   360 raccolti, 242 analizzati, 3 BUY, 229 veto
 22:05:01 ORACLE   360 raccolti, 243 analizzati, 2 BUY, 229 veto
-22:04:35 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 239 veto
-22:04:11 ORACLE   360 raccolti, 257 analizzati, 3 BUY, 242 veto
-22:03:47 ORACLE   360 raccolti, 243 analizzati, 3 BUY, 230 veto
-22:03:24 ORACLE   360 raccolti, 256 analizzati, 3 BUY, 245 veto
-22:03:10 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 244 veto
-22:02:45 ORACLE   360 raccolti, 238 analizzati, 4 BUY, 228 veto
-22:02:20 ORACLE   360 raccolti, 252 analizzati, 4 BUY, 243 veto
-22:01:56 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 244 veto
-22:01:33 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 244 veto
-22:01:09 ORACLE   360 raccolti, 250 analizzati, 3 BUY, 236 veto
-22:00:44 QUARTER  BUY $FIONA 0.110 SOL score 78 impatto 1.62% (Jupiter)
-22:00:44 ORACLE   360 raccolti, 253 analizzati, 3 BUY, 239 veto
-22:00:21 ORACLE   360 raccolti, 252 analizzati, 3 BUY, 238 veto
-21:59:57 ORACLE   360 raccolti, 249 analizzati, 3 BUY, 237 veto
-21:59:33 ORACLE   360 raccolti, 261 analizzati, 3 BUY, 247 veto
-21:59:09 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 245 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
