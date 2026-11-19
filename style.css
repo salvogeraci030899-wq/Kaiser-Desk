@@ -2,7 +2,7 @@
    Token iOS (scuro/chiaro/automatico), angoli concentrici, barra a capsula, Vetro (Liquid Glass) fermo o animato.
    I nomi delle classi sono quelli di Kaiser: cambia l'aspetto, non la struttura. */
 :root {
-  --kz-css: 48;
+  --kz-css: 49;
   color-scheme: dark;
   --bg: #000000;
   --surface: #0a0a0a;
@@ -452,3 +452,8 @@ nav { height: 62px; margin-top: 4px; }
 .ltab td { padding: 3px 4px 3px 0; border-top: 1px solid var(--border); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
 
 .labcard { margin-bottom: 10px; } .labcard .kv { margin-bottom: 2px; }
+
+/* Segnali semi-automatici */
+.semi { margin: 0 0 8px; padding: 8px 12px; } .semihead { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+.semirow { display: flex; gap: 8px; align-items: center; justify-content: space-between; padding: 6px 0; border-top: 1px solid var(--border); } .semitxt { min-width: 0; } .semirow .btn { flex: 0 0 auto; }
+#v-radar.active.semi-on { grid-template-rows: 40px auto 38px minmax(0, 1fr); } #semiBox:empty { display: none; } #semiBox .semi { margin: 0; }

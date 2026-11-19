@@ -243,3 +243,13 @@ Dai dati del paper (46 operazioni) 8 uscite per rug valgono circa il 68% della p
 - Il rapporto e' in `rug.json` sul ramo `data` ed e' mostrato nella pagina Lab, sezione "Rug: si possono evitare?".
 - **Altre correzioni.** Il Laboratorio ignora i token di altre piattaforme (campo `pool` diverso da `pump`), che davano letture scartate; il registro delle regole tiene una sola regola per gruppo (soglia + ritardo) e le ultime 40 ritirate.
 - **Notifiche Telegram.** I messaggi del Worker hanno ora i collegamenti a pump.fun, DexScreener e GMGN (modifica fatta direttamente su `main`); i test controllano che non ci siano tasti di conferma, non che non ci sia nessuna tastiera, e le etichette dei collegamenti sono senza emoji.
+
+### Modalita' semi-automatica (v2.34.0)
+
+Il radar sceglie la Coin, tu entri a mano. Invece di aprire la posizione, il runner manda un avviso e ti porta direttamente alla Coin su pump.fun. Non apre ordini, ne' paper ne' reali.
+
+- **Come si accende.** Parametro "Modalita' semi-automatica" (Sistema, Paper, Automazione), come ogni altro parametro con approvazione su Telegram. Valori: `spento` (di base), `avvisi e paper` (avviso per ogni BUY del radar e il paper continua a girare, cosi' si misura se i segnali sono buoni), `solo avvisi` (nessuna posizione paper). Funziona anche con l'autopilota spento.
+- **Avviso su Telegram.** Messaggio "SEGNALE" con score, market cap, eta', liquidita' e i motivi, e tre tasti: "Apri su pump.fun" (il collegamento diretto alla Coin), DexScreener e GMGN. Nessun tasto apre o conferma ordini.
+- **Nell'app.** Sul Radar compare il riquadro "Segnali" con gli ultimi due avvisi e il tasto pump.fun di ciascuno. Il tasto apre il sito (o l'app di pump.fun, se il telefono la associa al collegamento): non posso verificare da qui come si comporta sul tuo iPhone.
+- **Limiti.** Al massimo 8 avvisi all'ora; la stessa Coin non viene segnalata di nuovo prima di 3 ore; rispetta l'attesa del calo impostata (`minDipPct`). I filtri e il punteggio sono quelli del radar.
+- **Misura dei segnali.** Per ogni avviso il runner segue il prezzo per 15 minuti e salva la variazione ora, il minimo e quella dopo 5 e dopo 15 minuti. Nel riquadro vedi subito se i segnali recenti erano buoni, anche se non hai comprato. Nota onesta: i segnali sono quelli del radar, e il radar nel paper ha un fattore di profitto sotto 1; il semi-automatico non cambia la qualita' del segnale, evita solo l'esecuzione automatica.

@@ -13,6 +13,7 @@ const Farm = require('./farm.js');
 const Probe = require('./probe.js');
 const Strat = require('./strategies.js');
 const Holders = require('./holders.js');
+const Semi = require('./semi.js');
 
 const STATE_DIR = process.env.STATE_DIR || path.join(__dirname, '..', 'state');
 const LOOP_MIN = Number(process.env.LOOP_MIN || 4.5);
@@ -46,7 +47,7 @@ S.useGrok = S.useGrok && !!process.env.XAI_API_KEY;
 // Il runner non ha chiavi né firma nulla. Il reale è un conto separato gestito dall'esecutore (vedi realEntries).
 
 const st = Object.assign({
-  startedAt: Date.now(), runs: 0, cash: S.capitalSOL, positions: [], journal: [], signals: [],
+  startedAt: Date.now(), runs: 0, cash: S.capitalSOL, positions: [], journal: [], signals: [], alerts: [],
   day: null, cooldownUntil: 0, halted: null, seq: 0, events: [],
 }, readJSON(F.state, {}));
 st.runs++;
@@ -61,7 +62,7 @@ function log(agent, msg) {
 }
 function save() {
   st.journal = st.journal.slice(-2000);
-  st.signals = st.signals.slice(-1000);
+  st.signals = st.signals.slice(-1000); st.alerts = (st.alerts || []).slice(-60);
   fs.writeFileSync(F.state, JSON.stringify(st, null, 1));
   fs.writeFileSync(path.join(STATE_DIR, 'REPORT.md'), report());
   fs.writeFileSync(path.join(STATE_DIR, 'journal.csv'), csv());
@@ -89,7 +90,7 @@ function publicSummary() {
     journal: st.journal.slice(-100).map((j) => ({ id: j.id, mint: j.mint, sym: j.sym, openedAt: j.openedAt, closedAt: j.closedAt, cost: j.cost, back: j.back, pnl: j.pnl, pct: j.pct, reason: j.reason, score: j.score, peakPct: j.peakPct, trigPct: j.trigPct, maePct: j.maePct == null ? null : j.maePct, age: j.age == null ? null : j.age })),
     events: st.events.slice(0, 40), config: cfg,
     young: Y.youngSummary(rt.young, Date.now(), 80, (m) => (rt.trades ? rt.trades.botNow(m) : null)),
-    cal: calSummary(st.cal), farm: rt.farm || null, rug: rt.rug || null, hold: { ok: rt.holdOk, fail: rt.holdFail, queued: rt.holdQ.length, err: rt.holdErr }, probe: rt.probe || null, strat: Strat.summary(rt.strat, Date.now()),
+    cal: calSummary(st.cal), semi: S.semiAuto || 'spento', alerts: Semi.view(st.alerts || [], 20), farm: rt.farm || null, rug: rt.rug || null, hold: { ok: rt.holdOk, fail: rt.holdFail, queued: rt.holdQ.length, err: rt.holdErr }, probe: rt.probe || null, strat: Strat.summary(rt.strat, Date.now()),
     lab: rt.trades || (st.lab && st.lab.done.length) ? { info: rt.trades ? rt.trades.status() : null, ...Lab.labSummary((st.lab && st.lab.done) || [], Date.now()) } : null, youngInfo: rt.feed ? { ...rt.feed.status(), tracked: [...rt.young.values()].filter((y) => y.tracked).length } : null,
   };
 }
@@ -103,13 +104,13 @@ async function fetchJSON(url, opt = {}) {
     return await r.json();
   } finally { clearTimeout(t); }
 }
-async function tg(text) {
+async function tg(text, markup) {
   const tok = process.env.TELEGRAM_BOT_TOKEN, chat = process.env.TELEGRAM_CHAT_ID;
   if (!tok || !chat) return;
   try {
     await fetchJSON(`https://api.telegram.org/bot${tok}/sendMessage`, {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: chat, text, parse_mode: 'HTML', disable_web_page_preview: true }),
+      body: JSON.stringify({ chat_id: chat, text, parse_mode: 'HTML', disable_web_page_preview: true, ...(markup ? { reply_markup: markup } : {}) }),
     });
   } catch (e) { console.log('telegram:', e.message); }
 }
@@ -237,6 +238,20 @@ async function jupQuote(inMint, outMint, amount) {
   if (!q || !q.outAmount) throw new Error((q && q.error) || 'nessuna rotta');
   return q;
 }
+async function semiAlerts(buys) {
+  const now = Date.now();
+  for (const c of Semi.pick(st.alerts, buys, now, dipOk)) {
+    const a = Semi.alertOf(c, now); st.alerts.push(a); log('QUARTER', `SEGNALE $${a.sym} score ${a.score} (semi-automatico)`);
+    await tg(Semi.text(a), Semi.keyboard(a));
+  }
+}
+// Segue per 15 minuti il prezzo di ogni segnale: serve a capire dopo se i segnali erano buoni, anche se non hai comprato
+async function updateAlerts(pairs) {
+  const now = Date.now(), pend = Semi.open(st.alerts || [], now); if (!pend.length) return;
+  const map = new Map(pairs || []), need = pend.map((a) => a.mint).filter((m) => !map.has(m)).slice(0, 20);
+  if (need.length) { try { for (const [k, v] of await dexPairs(need)) map.set(k, v); } catch { /* si riprova al prossimo giro */ } }
+  for (const a of pend) { const p = map.get(a.mint); if (p) Semi.track(a, num(p.priceNative), now); }
+}
 async function buy(c) {
   const fresh = (await dexPairs([c.mint])).get(c.mint) || c.pair;
   const sizeS = sizeSol();
@@ -341,7 +356,7 @@ async function ackClose(ids) {
 }
 async function resetPaper(rp) {
   const cap = Number(Number(rp.capitalSOL).toFixed(2));
-  Object.assign(st, { cash: cap, positions: [], journal: [], signals: [], day: null, halted: null, cooldownUntil: 0, startedAt: Date.now(), capital: cap, resetId: rp.id, realTried: {} });
+  Object.assign(st, { cash: cap, positions: [], journal: [], signals: [], alerts: [], day: null, halted: null, cooldownUntil: 0, startedAt: Date.now(), capital: cap, resetId: rp.id, realTried: {} });
   S.capitalSOL = cap; BASE_S.capitalSOL = cap;
   log('KAISER', `reset del paper (${rp.id}): conto azzerato, capitale ${cap} SOL`);
   await tg(`<b>KAISER</b> paper azzerato (${esc(rp.id)}): riparto con ${cap} SOL`);
@@ -459,6 +474,11 @@ async function scan() {
     log('KAISER', `CIRCUIT BREAKER: perdita giornaliera oltre ${S.dailyLossPct}%`);
     await tg(`<b>KAISER</b> circuit breaker: stop ingressi fino a domani`);
   }
+  // modalita' semi-automatica: avviso con il collegamento a pump.fun, entri tu a mano (funziona anche con l'autopilota spento)
+  st.alerts = st.alerts || [];
+  if (S.semiAuto && S.semiAuto !== 'spento') await semiAlerts(buys);
+  await updateAlerts(pairs);
+  if (S.semiAuto === 'solo avvisi') return;
   if (!S.autopilot) return;
   await realEntries(buys);   // conto REALE (separato dal paper): solo se acceso in config.json e con l'esecutore collegato
   if (S.paperStop || S.paperEnabled === false) return;   // pannello di emergenza: il paper non apre nuove posizioni (quelle aperte restano gestite)
