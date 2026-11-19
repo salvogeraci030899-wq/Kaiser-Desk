@@ -114,3 +114,11 @@ test('le misure nuove entrano nell\'analisi dei rug e nello Studio', () => {
   for (const k of ['soc', 's0', 'n60', 'devBuy', 'gk', 'gm']) assert.ok(Rug.HOLD_FEATS.includes(k), k);
   const Q = require('../runner/labquery.js'); for (const k of ['soc', 's0', 'devBuy', 'gk']) assert.ok(Q.FILTER_FEATS.includes(k), k);
 });
+
+test('metadati: si provano piu\' gateway IPFS insieme e vale il primo che risponde', async () => {
+  assert.equal(Holders.metaUrls('ipfs://QmX').length, 4); assert.equal(Holders.metaUrls('https://ipfs.io/ipfs/QmX')[1], 'https://cloudflare-ipfs.com/ipfs/QmX'); assert.deepEqual(Holders.metaUrls('http://x'), []);
+  const tried = []; const f = async (url, o) => { tried.push(url); if (url.startsWith('https://ipfs.io')) throw new Error('lento'); if (url.startsWith('https://cloudflare')) return { ok: false }; return { ok: true, text: async () => JSON.stringify({ twitter: 'https://x.com/a', telegram: 'https://t.me/a' }) }; };
+  const calls = []; const f2 = async (url, o) => { if (typeof url === 'string' && url.includes('/ipfs/')) return f(url, o); const b = JSON.parse(o.body); calls.push(b.method); const res = b.method === 'getTokenLargestAccounts' ? { value: [{ address: 'A', amount: '100' }] } : b.method === 'getTokenSupply' ? { value: { amount: '1000' } } : { value: [{ data: { parsed: { info: { owner: 'X' } } } }] }; return { json: async () => ({ result: res }) }; };
+  const x = await Holders.snapshot({ url: 'https://rpc', fetch: f2, mint: 'M', curve: 'C', uri: 'ipfs://QmX', at: T });
+  assert.equal(x.soc, 2); assert.ok(tried.length >= 3, 'ha provato piu\' gateway');
+});
