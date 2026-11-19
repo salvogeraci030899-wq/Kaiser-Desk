@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 17:45 UTC · in esecuzione da 0.1 giorni · 228 run
+Aggiornato: 2026-11-19 17:50 UTC · in esecuzione da 0.1 giorni · 228 run
 
 | | |
 |---|---|
@@ -46,6 +46,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+17:50:28 ORACLE   360 raccolti, 232 analizzati, 0 BUY, 228 veto
+17:50:06 ORACLE   360 raccolti, 219 analizzati, 0 BUY, 213 veto
+17:49:43 ORACLE   360 raccolti, 215 analizzati, 1 BUY, 208 veto
+17:49:19 ORACLE   360 raccolti, 218 analizzati, 1 BUY, 211 veto
+17:48:56 ORACLE   360 raccolti, 205 analizzati, 1 BUY, 198 veto
+17:48:33 ORACLE   360 raccolti, 211 analizzati, 1 BUY, 205 veto
+17:48:10 ORACLE   360 raccolti, 214 analizzati, 1 BUY, 207 veto
+17:47:47 ORACLE   360 raccolti, 216 analizzati, 1 BUY, 210 veto
+17:47:24 ORACLE   360 raccolti, 215 analizzati, 1 BUY, 208 veto
+17:47:00 ORACLE   360 raccolti, 221 analizzati, 1 BUY, 210 veto
+17:46:36 ORACLE   360 raccolti, 217 analizzati, 1 BUY, 206 veto
+17:46:12 ORACLE   360 raccolti, 213 analizzati, 1 BUY, 203 veto
+17:45:48 ORACLE   360 raccolti, 220 analizzati, 1 BUY, 208 veto
 17:45:23 ORACLE   360 raccolti, 220 analizzati, 1 BUY, 208 veto
 17:44:59 ORACLE   360 raccolti, 214 analizzati, 1 BUY, 203 veto
 17:44:35 ORACLE   360 raccolti, 222 analizzati, 1 BUY, 212 veto
@@ -75,19 +88,6 @@ fabbrica: 21814 percorsi, 768 configurazioni, 0 passano, 3559 ms
 17:40:30 SCOUT    Laboratorio: collegato a PumpPortal
 17:40:29 KAISER   run #228 · 0 posizioni · equity 5.8576 SOL · GMGN spenta (nessuna chiave) · Grok off
 17:40:14 SCRIBE   fine run · trade 15 · win 33% · P&L -0.1424 SOL · equity 5.8576 SOL
-17:40:08 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 217 veto
-17:39:44 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 218 veto
-17:39:21 ORACLE   360 raccolti, 225 analizzati, 1 BUY, 210 veto
-17:39:06 SCRIBE   chiuso P-0451 $CD 0.0107 SOL (9.0%)
-17:39:06 CHARON   TP1 $CD vendo 100% a 79.4% -> 0.1286 SOL
-17:38:56 ORACLE   360 raccolti, 235 analizzati, 2 BUY, 218 veto
-17:38:33 ORACLE   360 raccolti, 228 analizzati, 2 BUY, 210 veto
-17:38:10 ORACLE   360 raccolti, 228 analizzati, 2 BUY, 213 veto
-17:37:47 ORACLE   360 raccolti, 232 analizzati, 0 BUY, 216 veto
-17:37:24 QUARTER  BUY $CD 0.117 SOL score 70 impatto 0.08% (Jupiter)
-17:37:24 ORACLE   360 raccolti, 227 analizzati, 1 BUY, 211 veto
-17:37:00 QUARTER  $CD impatto 2.7% oltre slippage: annullato
-17:37:00 ORACLE   360 raccolti, 233 analizzati, 1 BUY, 219 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
