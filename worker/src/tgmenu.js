@@ -14,7 +14,7 @@ const num = (v, d = 0) => { const n = Number(v); return Number.isFinite(n) ? n :
 const fmt = (n, d = 3) => (Number.isFinite(Number(n)) ? Number(n).toFixed(d) : '—');
 const sg = (n, d = 1) => (Number.isFinite(Number(n)) ? (Number(n) > 0 ? '+' : '') + Number(n).toFixed(d) : '—');
 const ago = (ms) => { const s = Math.max(0, Math.round(ms / 1000)); return s < 60 ? s + 's' : s < 3600 ? Math.round(s / 60) + 'm' : Math.round(s / 3600) + 'h'; };
-const cfgLabel = (c) => `${num(c.thr) / 1000}K · rit. ${c.delay} s · +${c.tp}/-${c.sl}${c.hold ? ' · ' + c.hold + ' s' : ''}`;
+const cfgLabel = (c) => `${num(c.thr) / 1000}K · rit. ${c.delay} s · +${c.tp}/-${c.sl}${c.hold ? ' · ' + c.hold + ' s' : ''}${c.flt ? ` · filtro ${c.flt.name} ${c.flt.dir === 'basso' ? '≤' : '>'} ${c.flt.cut}` : ''}`;
 
 export const menuKeyboard = () => ({ inline_keyboard: [
   [{ text: 'Stato', callback_data: 'mn:stato' }, { text: 'Paper', callback_data: 'mn:paper' }, { text: 'Segnali', callback_data: 'mn:segnali' }],

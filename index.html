@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.48.0">
+<meta name="kz-build" content="2.49.0">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=4" media="(prefers-color-scheme: light)">
@@ -641,7 +641,7 @@ function renderLab() {
         + sec('Fabbrica di strategie (prove sui dati registrati)')
         + (() => {
           const F = run.farm; if (!F) return '<span class="muted small">In attesa dei primi percorsi: servono almeno 100 token con market cap sopra 5K, salvati dal runner nuovo.</span>';
-          const lbl = (c) => (c.thr / 1000) + 'K · rit. ' + c.delay + ' s · +' + c.tp + '/−' + c.sl + (c.hold ? ' · ' + c.hold + ' s' : ''), ev = (x) => (x.n ? (x.ev > 0 ? '+' : '') + x.ev + '%' : '—');
+          const lbl = (c) => (c.thr / 1000) + 'K · rit. ' + c.delay + ' s · +' + c.tp + '/−' + c.sl + (c.hold ? ' · ' + c.hold + ' s' : '') + (c.flt ? ' · filtro ' + c.flt.name + (c.flt.dir === 'basso' ? ' ≤ ' : ' > ') + c.flt.cut : ''), ev = (x) => (x.n ? (x.ev > 0 ? '+' : '') + x.ev + '%' : '—');
           const head = `<div class="kv">${kvRow('Percorsi · dati vecchi · recenti', F.paths + ' · ' + F.train + ' · ' + F.test)}${F.gross ? kvRow('Migliore senza costi (peggiore dei due lati)', (F.gross.score > 0 ? '+' : '') + F.gross.score + '%', F.gross.score > F.cost ? 'up' : F.gross.score > 0 ? 'warn' : 'down') : ''}${F.gross ? kvRow('Costo massimo per pareggiare', Math.max(0, F.gross.score) + '% (oggi ' + F.cost + '%)') : ''}${kvRow('Configurazioni provate', F.tried)}${kvRow('Positive sui dati vecchi', F.posTrain)}${kvRow('Positive anche sui recenti', F.passed, F.passed ? 'up' : 'warn')}${kvRow('Aggiornato', new Date(F.at).toLocaleString('it-IT', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }))}</div>`;
           const top = F.top && F.top.length ? tbl(['Regola', 'Operazioni (vecchi/recenti)', 'Esito vecchi', 'Esito recenti'], F.top.map((x) => [lbl(x.cfg), x.tr.n + ' / ' + x.te.n, ev(x.tr), ev(x.te)])) : '<div class="tiny muted" style="margin-top:6px">Nessuna regola regge: positiva dopo i costi sia sui dati vecchi sia su quelli recenti.</div>';
           const bt = F.bestTrain ? `<div class="tiny muted" style="margin-top:6px">Migliore sui dati vecchi: ${lbl(F.bestTrain.cfg)} ha dato ${ev(F.bestTrain.tr)} sui vecchi e ${ev(F.bestTrain.te)} sui recenti. Se la seconda cifra è molto peggiore, la regola era solo un caso.</div>` : '';
@@ -661,8 +661,8 @@ function renderLab() {
         + sec('Regole e prova in avanti')
         + (() => {
           const R = run.strat; if (!R || !R.items) return '<span class="muted small">Ancora nessuna regola: la fabbrica propone le candidate quando una regola regge sui dati vecchi e su quelli recenti.</span>';
-          const lbl = (c) => (c.thr / 1000) + 'K · rit. ' + c.delay + ' s · +' + c.tp + '/−' + c.sl + (c.hold ? ' · ' + c.hold + ' s' : ''), ev = (x) => (x.n ? (x.ev > 0 ? '+' : '') + x.ev + '%' : '—'), ST = { prova: 'in prova', validata: 'validata', ritirata: 'ritirata' };
-          const cu = R.current, cfgL = (c) => (c.thr / 1000) + 'K · rit. ' + c.delay + ' s · +' + c.tp + '/−' + c.sl + (c.hold ? ' · ' + c.hold + ' s' : '');
+          const lbl = (c) => (c.thr / 1000) + 'K · rit. ' + c.delay + ' s · +' + c.tp + '/−' + c.sl + (c.hold ? ' · ' + c.hold + ' s' : '') + (c.flt ? ' · filtro ' + c.flt.name + (c.flt.dir === 'basso' ? ' ≤ ' : ' > ') + c.flt.cut : ''), ev = (x) => (x.n ? (x.ev > 0 ? '+' : '') + x.ev + '%' : '—'), ST = { prova: 'in prova', validata: 'validata', ritirata: 'ritirata' };
+          const cu = R.current, cfgL = (c) => (c.thr / 1000) + 'K · rit. ' + c.delay + ' s · +' + c.tp + '/−' + c.sl + (c.hold ? ' · ' + c.hold + ' s' : '') + (c.flt ? ' · filtro ' + c.flt.name + (c.flt.dir === 'basso' ? ' ≤ ' : ' > ') + c.flt.cut : '');
           const AC = R.acct, accBox = AC ? `<div class="tiny muted" style="margin:0 0 4px"><b>Conto paper della strategia (a parte, indipendente)</b></div><div class="kv">${kvRow('Equity', AC.eq.toFixed(3) + ' ◎ (' + (AC.pct > 0 ? '+' : '') + AC.pct + '%)', AC.pct > 0 ? 'up' : AC.pct < 0 ? 'down' : '')}${kvRow('P&L', (AC.pnl > 0 ? '+' : '') + AC.pnl.toFixed(4) + ' ◎', AC.pnl > 0 ? 'up' : AC.pnl < 0 ? 'down' : '')}${kvRow('Operazioni · vinte · fattore', AC.n + ' · ' + AC.win + '% · ' + AC.pf)}${kvRow('Perdita massima', AC.dd.toFixed(4) + ' ◎')}</div>`
             + (AC.curve && AC.curve.length > 1 ? `<div class="${AC.pnl >= 0 ? 'up' : 'down'}" style="margin:6px 0">${stuSpark(AC.curve.map((v) => +(v - AC.start).toFixed(4)))}</div>` : '')
             + (AC.trades && AC.trades.length ? tbl(['Quando', 'Coin', 'Esito', 'Uscita'], AC.trades.map((t) => [new Date(t.at).toLocaleString('it-IT', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }), '$' + esc(t.sym), `<span class="${t.pct > 0 ? 'up' : 'down'}">${(t.pct > 0 ? '+' : '') + t.pct}%</span>`, esc(t.why)])) : '<div class="tiny muted" style="margin:6px 0">Ancora nessuna operazione: arrivano man mano che i token nati dopo l\'adozione si concludono (di solito 20-25 minuti dopo la nascita).</div>')

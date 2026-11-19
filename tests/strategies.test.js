@@ -48,7 +48,7 @@ test('persistenza e riassunto: il registro si salva e si ricarica, dati rovinati
 });
 test('il runner carica il registro, valuta i token conclusi, pubblica il riassunto e avvisa su Telegram di validazioni e ritiri', () => {
   const src = fs.readFileSync(require.resolve('../runner/runner.js'), 'utf8'), html = fs.readFileSync(require.resolve('../index.html'), 'utf8');
-  assert.match(src, /require\('\.\/strategies\.js'\)/); assert.match(src, /Strat\.record\(rt\.strat, x, Date\.now\(\)\)/); assert.match(src, /Strat\.ingest\(rt\.strat, rt\.farm/); assert.match(src, /Strat\.review\(rt\.strat/);
+  assert.match(src, /require\('\.\/strategies\.js'\)/); assert.match(src, /Strat\.record\(rt\.strat, x, Date\.now\(\), stratCtx\(\)\)/); assert.match(src, /Strat\.ingest\(rt\.strat, rt\.farm/); assert.match(src, /Strat\.review\(rt\.strat/);
   assert.match(src, /strat: Strat\.summary\(rt\.strat/); assert.match(src, /Strat\.load\(STRAT_FILE\(\)\)/); assert.match(src, /Regola \$\{esc\(e\.id\)\}/); assert.ok(html.includes('Regole e prova in avanti'));
   assert.ok(!/\bordini?\b.*apre da sola/.test(src), 'nessuna apertura automatica di ordini');
 });
@@ -93,4 +93,22 @@ test('conto paper della strategia: a parte, 1 SOL, 10% a operazione, solo token 
   assert.ok(a.eq > 0.9 && a.eq < 1.1); assert.equal(a.curve.length, 2);
   // sopravvive al salvataggio e alla rilettura
   const f = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'kz-acct-')), 's.json'); S.save(f, reg); assert.equal(S.summary(S.load(f), T0 + 50).acct.n, 2);
+});
+
+test('regola con filtro: passa solo il token col segnale dalla parte giusta; la ricerca credibile puo\' diventare la corrente', () => {
+  const T0 = 1_700_000_000_000, M = 60000, p = []; for (let k = 0; k < 10; k++) p.push(40); for (let k = 0; k < 90; k++) p.push(k < 6 ? 55 + k * 3 : 80);
+  const cfg = { thr: 5000, delay: 0, tp: 20, sl: 15, hold: 0, flt: { k: 'top1', name: 'primo possessore', dir: 'basso', cut: 0.2 } };
+  const ctx = { holders: new Map([['a', { top1: 0.1 }], ['b', { top1: 0.5 }]]), cidx: null };
+  assert.ok(S.evalRec({ m: 'a', at: T0, u: 100, p }, cfg, ctx), 'segnale basso: entra');
+  assert.equal(S.evalRec({ m: 'b', at: T0, u: 100, p }, cfg, ctx), null, 'segnale alto: non entra');
+  assert.equal(S.evalRec({ m: 'x', at: T0, u: 100, p }, cfg, ctx), null, 'senza misura: non entra');
+  assert.ok(S.evalRec({ m: 'x', at: T0, u: 100, p }, { ...cfg, flt: undefined }, ctx), 'senza filtro entra');
+  assert.notEqual(S.key(cfg), S.key({ ...cfg, flt: undefined }));
+  const reg = S.create(); S.adoptBest(reg, { at: T0, best: { cfg: { thr: 10000, delay: 10, tp: 15, sl: 10, hold: 60 }, tr: { n: 300, ev: -7 }, te: { n: 200, ev: -7 } }, watch: [] }, T0);
+  const co = { at: T0 + 1, thr: 7500, best: { feat: 'top1', name: 'primo possessore', dir: 'basso', cut: 0.2, rule: { delay: 0, tp: 10, sl: 10, hold: 60 }, tr: { n: 200, ev: 3 }, te: { n: 120, ev: 2 }, score: 2 }, perm: { B: 100, p: 0.01 } };
+  assert.equal(S.adoptCombo(reg, co, T0 + 2 * 3600000), null, 'prima di 6 ore resta la corrente');
+  const m = S.adoptCombo(reg, { ...co, at: T0 + 2 }, T0 + 7 * 3600000); assert.ok(m); assert.equal(reg.current.cfg.flt.k, 'top1'); assert.equal(reg.current.cfg.thr, 7500); assert.match(m.why, /con filtro primo possessore/);
+  assert.equal(S.adoptCombo(reg, { ...co, at: T0 + 3, perm: { B: 100, p: 0.4 } }, T0 + 20 * 3600000), null, 'non credibile: non cambia');
+  // la valutazione in avanti applica il filtro
+  const before = reg.current.fwd.n; S.record(reg, { m: 'b', at: reg.current.since + 1, u: 100, p, cr: '' }, T0 + 8 * 3600000, { holders: new Map([['b', { top1: 0.9 }]]), cidx: null }); assert.equal(reg.current.fwd.n, before);
 });

@@ -313,3 +313,6 @@ Alla soglia di market cap il runner misura, oltre ai possessori: i **social dich
 
 ## Ricerca con controllo delle false scoperte (da v2.47.0)
 Ogni ora la fabbrica prova insieme tutti i filtri sui segnali noti alla soglia (percorso, possessori, creatore, social, attività iniziale) e 24 regole, e tiene la migliore. Poi ripete la stessa ricerca 100 volte con i segnali scambiati a caso tra i token: la quota di volte in cui il caso fa altrettanto bene è il «p». Il risultato conta solo se l'esito è positivo sui dati vecchi e recenti e il p è sotto il 5%. Il rapporto è in `combo.json` e nel riquadro Fabbrica del Laboratorio. Solo misura.
+
+## Strategia corrente con filtro (da v2.49.0)
+Se la ricerca con filtri trova un segnale credibile (esito positivo su dati vecchi e recenti, caso sotto il 5%), la strategia corrente può diventare «regola + filtro» (per esempio «solo token con primo possessore ≤ 20%»), con le stesse regole di cambio di sempre: almeno 1 punto in più della corrente e almeno 6 ore. Il filtro si applica in avanti con le misure note alla soglia (possessori, social, attività iniziale, creatore, callout di Grok). Un token senza la misura non entra. Il conto paper a parte e il riepilogo la seguono. Nessun ordine.
