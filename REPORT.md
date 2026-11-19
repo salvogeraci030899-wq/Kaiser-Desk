@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 17:55 UTC · in esecuzione da 0.2 giorni · 228 run
+Aggiornato: 2026-11-19 18:00 UTC · in esecuzione da 0.2 giorni · 228 run
 
 | | |
 |---|---|
-| Equity | **5.8243 SOL** (-2.9% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.8243 SOL |
+| Equity | **5.8279 SOL** (-2.9% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.7069 SOL |
 | Trade chiusi | 16 |
 | Win rate | 31% |
-| P&L realizzato | -0.1757 SOL (~$-12.97) |
+| P&L realizzato | -0.1757 SOL (~$-12.94) |
 | Media vincite / perdite | +12.9% / -19.2% |
 | Profit factor | 0.30 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$NEKOMARIO** P-0453 · 0.116 SOL · +3.9% · resta 100% · [grafico](https://dexscreener.com/solana/7AyRKc9o3UQCPfZwF8bR7yhrXy7KGieL3o2KVxKa2xvd)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -46,6 +46,21 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+18:00:56 ORACLE   360 raccolti, 203 analizzati, 1 BUY, 189 veto
+18:00:54 SCOUT    DexScreener errore: This operation was aborted
+18:00:17 ORACLE   360 raccolti, 219 analizzati, 1 BUY, 206 veto
+18:00:03 ORACLE   360 raccolti, 235 analizzati, 2 BUY, 224 veto
+17:59:37 ORACLE   360 raccolti, 232 analizzati, 3 BUY, 221 veto
+17:59:12 QUARTER  BUY $NEKOMARIO 0.116 SOL score 63 impatto 0.12% (Jupiter)
+17:59:12 ORACLE   360 raccolti, 232 analizzati, 2 BUY, 223 veto
+17:58:49 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 229 veto
+17:58:25 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 232 veto
+17:58:02 ORACLE   360 raccolti, 236 analizzati, 0 BUY, 229 veto
+17:57:38 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 231 veto
+17:57:14 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 230 veto
+17:56:50 ORACLE   360 raccolti, 234 analizzati, 0 BUY, 222 veto
+17:56:25 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 232 veto
+17:56:01 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 230 veto
 17:55:37 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 228 veto
 17:55:13 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 237 veto
 17:54:49 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 246 veto
@@ -71,21 +86,6 @@ _nessuna_
 17:47:24 ORACLE   360 raccolti, 215 analizzati, 1 BUY, 208 veto
 17:47:00 ORACLE   360 raccolti, 221 analizzati, 1 BUY, 210 veto
 17:46:36 ORACLE   360 raccolti, 217 analizzati, 1 BUY, 206 veto
-17:46:12 ORACLE   360 raccolti, 213 analizzati, 1 BUY, 203 veto
-17:45:48 ORACLE   360 raccolti, 220 analizzati, 1 BUY, 208 veto
-17:45:23 ORACLE   360 raccolti, 220 analizzati, 1 BUY, 208 veto
-17:44:59 ORACLE   360 raccolti, 214 analizzati, 1 BUY, 203 veto
-17:44:35 ORACLE   360 raccolti, 222 analizzati, 1 BUY, 212 veto
-17:44:11 ORACLE   360 raccolti, 219 analizzati, 0 BUY, 206 veto
-17:43:47 ORACLE   360 raccolti, 220 analizzati, 1 BUY, 206 veto
-17:43:23 ORACLE   329 raccolti, 204 analizzati, 1 BUY, 191 veto
-17:42:59 ORACLE   313 raccolti, 202 analizzati, 1 BUY, 188 veto
-17:42:36 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-17:42:36 ORACLE   308 raccolti, 194 analizzati, 1 BUY, 182 veto
-17:42:12 ORACLE   278 raccolti, 179 analizzati, 0 BUY, 167 veto
-17:41:48 ORACLE   269 raccolti, 170 analizzati, 0 BUY, 158 veto
-17:41:36 SCRIBE   chiuso P-0452 $Gestalt -0.0332 SOL (-28.1%)
-17:41:36 CHARON   Stop loss $Gestalt vendo 100% a -39.3% -> 0.0849 SOL
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
