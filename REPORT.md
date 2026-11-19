@@ -1,15 +1,15 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 20:36 UTC · in esecuzione da 0.3 giorni · 231 run
+Aggiornato: 2026-11-19 20:42 UTC · in esecuzione da 0.3 giorni · 231 run
 
 | | |
 |---|---|
-| Equity | **5.6635 SOL** (-5.6% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.6635 SOL |
-| Trade chiusi | 28 |
-| Win rate | 32% |
-| P&L realizzato | -0.3365 SOL (~$-24.55) |
-| Media vincite / perdite | +26.6% / -27.5% |
+| Equity | **5.6552 SOL** (-5.7% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.6552 SOL |
+| Trade chiusi | 29 |
+| Win rate | 31% |
+| P&L realizzato | -0.3448 SOL (~$-25.13) |
+| Media vincite / perdite | +26.6% / -26.5% |
 | Profit factor | 0.45 |
 | Circuit breaker | no |
 
@@ -19,7 +19,7 @@ _nessuna_
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| Stop loss | 9 | -0.3215 |
+| Stop loss | 10 | -0.3297 |
 | Time stop | 11 | -0.0670 |
 | TP1 | 5 | +0.1432 |
 | RUG-EXIT liquidità | 3 | -0.0913 |
@@ -27,6 +27,7 @@ _nessuna_
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $Shatcoin | 77 | -7.2% | -0.0082 | +0% | -49% | Stop loss | 1m |
 | $LUCIA | 88 | -7.0% | -0.0080 | +0% | -10% | Time stop | 5m |
 | $PCVI | 83 | -36.0% | -0.0415 | +0% | -34% | Stop loss | 3m |
 | $ONI | 66 | -41.3% | -0.0480 | +7% | -26% | Time stop | 5m |
@@ -51,10 +52,26 @@ _nessuna_
 | $ZGTA | 78 | +14.4% | +0.0171 | +0% | -52% | RUG-EXIT liquidità | 0m |
 | $NNCAT | 67 | -28.9% | -0.0347 | +0% | -31% | Stop loss | 3m |
 | $SC | 67 | +13.3% | +0.0159 | +63% | +63% | TP1 | 2m |
-| $HOLM | 66 | +1.8% | +0.0022 | +0% | -33% | Stop loss | 2m |
 
 ## Ultimi eventi
 ```
+20:42:07 ORACLE   360 raccolti, 233 analizzati, 4 BUY, 222 veto
+20:41:44 ORACLE   360 raccolti, 228 analizzati, 4 BUY, 218 veto
+20:41:20 SCRIBE   chiuso P-0465 $Shatcoin -0.0082 SOL (-7.2%)
+20:41:20 CHARON   Stop loss $Shatcoin vendo 100% a -49.1% -> 0.1060 SOL
+20:41:19 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 238 veto
+20:41:06 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 239 veto
+20:40:40 QUARTER  BUY $Shatcoin 0.113 SOL score 77 impatto 0.42% (Jupiter)
+20:40:40 ORACLE   360 raccolti, 243 analizzati, 3 BUY, 237 veto
+20:40:16 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 245 veto
+20:39:52 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 240 veto
+20:39:29 ORACLE   360 raccolti, 243 analizzati, 2 BUY, 233 veto
+20:39:05 ORACLE   360 raccolti, 245 analizzati, 3 BUY, 235 veto
+20:38:42 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 244 veto
+20:38:17 ORACLE   360 raccolti, 238 analizzati, 2 BUY, 232 veto
+20:37:54 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 249 veto
+20:37:31 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 235 veto
+20:37:07 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 234 veto
 20:36:44 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 244 veto
 20:36:21 ORACLE   360 raccolti, 243 analizzati, 2 BUY, 239 veto
 20:35:59 ORACLE   360 raccolti, 226 analizzati, 1 BUY, 222 veto
@@ -78,23 +95,6 @@ _nessuna_
 20:30:32 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 241 veto
 20:30:09 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 234 veto
 20:29:45 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 232 veto
-20:29:21 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 235 veto
-20:28:58 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 231 veto
-20:28:33 ORACLE   360 raccolti, 240 analizzati, 2 BUY, 232 veto
-20:28:10 ORACLE   360 raccolti, 233 analizzati, 2 BUY, 225 veto
-20:27:45 ORACLE   360 raccolti, 221 analizzati, 2 BUY, 214 veto
-20:27:21 ORACLE   360 raccolti, 225 analizzati, 2 BUY, 218 veto
-20:26:58 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 225 veto
-20:26:35 ORACLE   360 raccolti, 218 analizzati, 1 BUY, 211 veto
-20:26:11 ORACLE   360 raccolti, 230 analizzati, 2 BUY, 224 veto
-20:25:46 QUARTER  BUY $LUCIA 0.113 SOL score 88 impatto 1.09% (Jupiter)
-20:25:46 ORACLE   360 raccolti, 231 analizzati, 2 BUY, 226 veto
-20:25:23 ORACLE   360 raccolti, 219 analizzati, 1 BUY, 215 veto
-20:24:59 ORACLE   360 raccolti, 221 analizzati, 1 BUY, 216 veto
-20:24:35 QUARTER  $LUCIA impatto 2.5% oltre slippage: annullato
-20:24:35 ORACLE   360 raccolti, 227 analizzati, 1 BUY, 223 veto
-20:24:13 ORACLE   360 raccolti, 219 analizzati, 1 BUY, 215 veto
-20:24:11 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
