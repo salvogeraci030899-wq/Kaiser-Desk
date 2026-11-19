@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 05:02 UTC · in esecuzione da 0.5 giorni · 212 run
+Aggiornato: 2026-11-19 05:06 UTC · in esecuzione da 0.5 giorni · 212 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-19 05:02 UTC · in esecuzione da 0.5 giorni · 212 run
 | Cassa | 5.2371 SOL |
 | Trade chiusi | 40 |
 | Win rate | 28% |
-| P&L realizzato | -0.7629 SOL (~$-56.78) |
+| P&L realizzato | -0.7629 SOL (~$-56.85) |
 | Media vincite / perdite | +32.5% / -35.3% |
 | Profit factor | 0.35 |
 | Circuit breaker | no |
@@ -56,6 +56,18 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+05:06:17 SCRIBE   fine run · trade 40 · win 28% · P&L -0.7629 SOL · equity 5.2371 SOL
+05:06:15 ORACLE   360 raccolti, 214 analizzati, 0 BUY, 201 veto
+05:05:51 ORACLE   360 raccolti, 211 analizzati, 0 BUY, 198 veto
+05:05:29 ORACLE   360 raccolti, 207 analizzati, 0 BUY, 196 veto
+05:05:06 ORACLE   360 raccolti, 208 analizzati, 0 BUY, 195 veto
+05:04:42 ORACLE   360 raccolti, 217 analizzati, 0 BUY, 203 veto
+05:04:19 ORACLE   360 raccolti, 210 analizzati, 0 BUY, 198 veto
+05:03:56 ORACLE   360 raccolti, 222 analizzati, 0 BUY, 208 veto
+05:03:33 ORACLE   360 raccolti, 219 analizzati, 0 BUY, 206 veto
+05:03:10 ORACLE   360 raccolti, 219 analizzati, 0 BUY, 208 veto
+05:02:48 ORACLE   360 raccolti, 227 analizzati, 0 BUY, 216 veto
+05:02:24 ORACLE   360 raccolti, 230 analizzati, 0 BUY, 215 veto
 05:02:01 ORACLE   360 raccolti, 231 analizzati, 0 BUY, 216 veto
 05:01:38 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 235 veto
 05:01:15 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 232 veto
@@ -84,18 +96,6 @@ _nessuna_
 04:53:31 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 226 veto
 04:53:08 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 226 veto
 04:52:45 QUARTER  BUY $HNYDRIP 0.105 SOL score 63 impatto 1.90% (Jupiter)
-04:52:45 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 223 veto
-04:52:22 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 226 veto
-04:51:59 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 227 veto
-04:51:36 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 227 veto
-04:51:13 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 229 veto
-04:50:49 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 229 veto
-04:50:26 QUARTER  $HNYDRIP impatto 2.3% oltre slippage: annullato
-04:50:26 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 224 veto
-04:50:12 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 231 veto
-04:49:47 QUARTER  $HNYDRIP impatto 2.3% oltre slippage: annullato
-04:49:47 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 230 veto
-04:49:24 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 225 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
