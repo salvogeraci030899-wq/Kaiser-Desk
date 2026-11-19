@@ -59,3 +59,19 @@ test('il runner legge i possessori alla soglia, li salva, li passa all\'analisi 
   assert.match(src, /require\('\.\/holders\.js'\)/); assert.match(src, /onCross: \(t\) =>/); assert.match(src, /function pumpHolders\(\)/); assert.match(src, /pumpHolders\(\);/); assert.match(src, /'--holders', path\.join\(STATE_DIR, 'lab', 'holders'\)/);
   assert.match(src, /'--rug', path\.join\(STATE_DIR, 'rug\.json'\)/); assert.match(src, /rug: rt\.rug \|\| null/); assert.match(src, /NO_HOLDERS/); assert.match(src, /rt\.holdBuf\.splice\(0\)/);
 });
+
+test('la regola provata su un gruppo filtrato usa solo la soglia dell\'analisi (niente informazioni dal futuro)', () => {
+  const recs = []; for (let i = 0; i < 700; i++) { const r = mk(i, 10 + (i % 7) * 3, i % 3 === 0); recs.push(r); }
+  const seen = []; const orig = Farm.run; Farm.run = (kept, o) => { seen.push(o && o.grid && o.grid.thr); return orig(kept, o); };
+  try { Rug.analyze(recs, 10000, {}); } finally { Farm.run = orig; }
+  for (const thr of seen) assert.deepEqual(thr, [10000]);
+});
+test('riga di comando della fabbrica: l\'analisi dei rug non esce vuota (dipendenza circolare)', () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'kz-farm-')), pd = path.join(dir, 'paths'); fs.mkdirSync(pd, { recursive: true });
+  const recs = []; for (let i = 0; i < 120; i++) { const r = mk(i, 10 + (i % 7), i % 3 === 0); r.at = Date.now() - (120 - i) * 1000; recs.push(Farm.pack({ m: r.m, s: r.s, at: r.at, usd: 100, p: r.p })); }
+  Farm.writeBatch(pd, recs, Date.now());
+  const r = require('node:child_process').spawnSync(process.execPath, [path.join(__dirname, '..', 'runner', 'farm.js'), '--in', pd, '--out', path.join(dir, 'farm.json'), '--rug', path.join(dir, 'rug.json')], { encoding: 'utf8' });
+  assert.equal(r.status, 0, r.stderr);
+  const rug = JSON.parse(fs.readFileSync(path.join(dir, 'rug.json'), 'utf8')); assert.ok(rug.results[0].n > 0, 'token analizzati: ' + rug.results[0].n);
+  assert.ok(!/circular dependency/.test(r.stderr), r.stderr);
+});

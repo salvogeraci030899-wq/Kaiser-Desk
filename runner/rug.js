@@ -3,6 +3,8 @@
 // la distribuzione dei possessori) lo anticipano, se un filtro scelto sui dati vecchi regge su quelli recenti e se, tolti i rug, resta una regola positiva.
 'use strict';
 const Farm = require('./farm.js');
+// Nota: la regola provata su un gruppo filtrato entra SOLO alla soglia con cui si e' filtrato. Con una soglia piu' bassa la regola sceglierebbe
+// i token gia' noti per aver superato quella piu' alta (informazione dal futuro) e i risultati sarebbero falsamente ottimi.
 
 const RUG_AT = 0.25, DUMP_AT = 0.5, WIN_BINS = 60, MIN_BINS = 24;      // finestra di 5 minuti (60 intervalli), almeno 2 minuti di storia
 const MIN_KEEP_N = 100, MIN_KEEP_SHARE = 0.25;
@@ -52,7 +54,7 @@ function analyze(recs, thr, o) {
   const used = new Set();
   for (const c of cand) {
     if (out.filters.length >= 3) break; if (used.has(c.k)) continue; used.add(c.k);
-    const kt = test.filter(c.keep), kept = rows.filter(c.keep).map((x) => x.rec), fr = kept.length >= 200 ? Farm.run(kept, (o && o.farm) || {}) : null;
+    const kt = test.filter(c.keep), kept = rows.filter(c.keep).map((x) => x.rec), fr = kept.length >= 200 ? Farm.run(kept, Object.assign({}, (o && o.farm) || {}, { grid: Object.assign({}, Farm.GRID, { thr: [thr] }) })) : null;
     out.filters.push({ feat: c.k, name: NAMES[c.k], dir: c.dir, cut: fmt(c.cut), train: { keep: pct(c.tr.n, train.length), rug: c.tr.rug, dump: c.tr.dump }, test: { keep: pct(kt.length, test.length), ...rate(kt) },
       farm: fr ? { paths: fr.paths, posTrain: fr.posTrain, passed: fr.passed, bestTrain: fr.bestTrain && { cfg: fr.bestTrain.cfg, tr: fr.bestTrain.tr, te: fr.bestTrain.te }, bestTest: fr.bestTest && { cfg: fr.bestTest.cfg, tr: fr.bestTest.tr, te: fr.bestTest.te } } : null });
   }

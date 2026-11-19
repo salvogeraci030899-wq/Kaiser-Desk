@@ -91,6 +91,9 @@ function run(recs, o) {
     span: sorted.length ? { from: sorted[0].at, to: sorted[sorted.length - 1].at } : null };
 }
 
+// Le esportazioni stanno prima della riga di comando: rug.js richiama questo file e lo trova gia' completo (prima l'analisi dei rug usciva sempre vuota)
+module.exports = { loadHolders, BIN, COST, GRID, MIN_TRAIN, MIN_TEST, KEEP_DAYS, crossIdx, pack, unpack, writeBatch, prune, loadAll, simulate, stats, configs, run };
+
 if (require.main === module) {
   const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
   const dir = arg('in', 'state/lab/paths'), out = arg('out', 'state/farm.json'), t0 = Date.now(), recs = loadAll(dir), rep = run(recs);
@@ -103,4 +106,3 @@ if (require.main === module) {
   console.log(`fabbrica: ${rep.paths} percorsi, ${rep.tried} configurazioni, ${rep.passed} passano, ${rep.ms} ms`);
 }
 
-module.exports = { loadHolders, BIN, COST, GRID, MIN_TRAIN, MIN_TEST, KEEP_DAYS, crossIdx, pack, unpack, writeBatch, prune, loadAll, simulate, stats, configs, run };
