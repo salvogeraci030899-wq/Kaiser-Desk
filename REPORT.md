@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 17:21 UTC · in esecuzione da 0.1 giorni · 227 run
+Aggiornato: 2026-11-19 17:26 UTC · in esecuzione da 0.1 giorni · 227 run
 
 | | |
 |---|---|
-| Equity | **5.8971 SOL** (-1.7% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.7562 SOL |
-| Trade chiusi | 13 |
-| Win rate | 31% |
-| P&L realizzato | -0.1253 SOL (~$-9.15) |
-| Media vincite / perdite | +13.8% / -17.7% |
-| Profit factor | 0.35 |
+| Equity | **5.8469 SOL** (-2.6% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.8469 SOL |
+| Trade chiusi | 14 |
+| Win rate | 29% |
+| P&L realizzato | -0.1531 SOL (~$-11.29) |
+| Media vincite / perdite | +13.8% / -18.3% |
+| Profit factor | 0.30 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$IPO** P-0450 · 0.117 SOL · +19.9% · resta 100% · [grafico](https://dexscreener.com/solana/BQN4WPdFLxB8DLNJpcp2UnKKZQ53iSGxDXagh9gqcibz)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 5 | -0.1201 |
 | Time stop | 5 | -0.0332 |
-| TP1 | 1 | +0.0159 |
+| TP1 | 2 | -0.0119 |
 | RUG-EXIT liquidità | 2 | +0.0121 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $IPO | 63 | -23.5% | -0.0278 | +67% | +67% | TP1 | 1m |
 | $NTDOY | 63 | -17.6% | -0.0209 | +33% | +4% | Time stop | 9m |
 | $LUCIA | 69 | -2.4% | -0.0028 | +10% | -4% | Time stop | 5m |
 | $TYO | 65 | -4.2% | -0.0050 | +0% | -75% | RUG-EXIT liquidità | 0m |
@@ -43,6 +44,21 @@ Aggiornato: 2026-11-19 17:21 UTC · in esecuzione da 0.1 giorni · 227 run
 
 ## Ultimi eventi
 ```
+17:26:02 ORACLE   360 raccolti, 233 analizzati, 2 BUY, 221 veto
+17:25:39 ORACLE   360 raccolti, 229 analizzati, 2 BUY, 219 veto
+17:25:15 ORACLE   360 raccolti, 230 analizzati, 2 BUY, 220 veto
+17:24:52 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 224 veto
+17:24:29 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 223 veto
+17:24:06 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 231 veto
+17:23:43 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 230 veto
+17:23:19 ORACLE   360 raccolti, 229 analizzati, 2 BUY, 220 veto
+17:22:56 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 226 veto
+17:22:33 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 224 veto
+17:22:09 ORACLE   360 raccolti, 229 analizzati, 2 BUY, 216 veto
+17:21:46 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 224 veto
+17:21:32 SCRIBE   chiuso P-0450 $IPO -0.0278 SOL (-23.5%)
+17:21:32 CHARON   TP1 $IPO vendo 100% a 67.4% -> 0.0907 SOL
+17:21:32 ORACLE   360 raccolti, 235 analizzati, 2 BUY, 223 veto
 17:21:07 ORACLE   360 raccolti, 235 analizzati, 2 BUY, 223 veto
 17:20:52 QUARTER  BUY $IPO 0.117 SOL score 63 impatto 0.00% (Jupiter)
 17:20:52 ORACLE   360 raccolti, 235 analizzati, 3 BUY, 224 veto
@@ -68,21 +84,6 @@ Aggiornato: 2026-11-19 17:21 UTC · in esecuzione da 0.1 giorni · 227 run
 17:13:26 ORACLE   360 raccolti, 212 analizzati, 2 BUY, 205 veto
 17:13:02 ORACLE   360 raccolti, 223 analizzati, 2 BUY, 217 veto
 17:12:39 ORACLE   360 raccolti, 224 analizzati, 1 BUY, 219 veto
-17:12:16 ORACLE   360 raccolti, 218 analizzati, 1 BUY, 214 veto
-17:11:54 ORACLE   360 raccolti, 208 analizzati, 1 BUY, 200 veto
-17:11:40 ORACLE   360 raccolti, 214 analizzati, 1 BUY, 206 veto
-17:11:15 ORACLE   360 raccolti, 207 analizzati, 1 BUY, 200 veto
-17:10:50 ORACLE   360 raccolti, 218 analizzati, 1 BUY, 211 veto
-17:10:26 ORACLE   360 raccolti, 222 analizzati, 1 BUY, 216 veto
-17:10:03 ORACLE   360 raccolti, 214 analizzati, 1 BUY, 208 veto
-17:09:40 ORACLE   360 raccolti, 207 analizzati, 1 BUY, 200 veto
-17:09:17 ORACLE   360 raccolti, 207 analizzati, 2 BUY, 199 veto
-17:08:54 ORACLE   360 raccolti, 207 analizzati, 2 BUY, 199 veto
-17:08:31 ORACLE   360 raccolti, 213 analizzati, 2 BUY, 204 veto
-17:08:16 SCRIBE   chiuso P-0449 $NTDOY -0.0209 SOL (-17.6%)
-17:08:16 CHARON   Time stop $NTDOY vendo 100% a 3.8% -> 0.0980 SOL
-17:08:16 ORACLE   360 raccolti, 192 analizzati, 2 BUY, 183 veto
-17:08:13 SCOUT    DexScreener errore: This operation was aborted
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
