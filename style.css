@@ -2,7 +2,7 @@
    Token iOS (scuro/chiaro/automatico), angoli concentrici, barra a capsula, Vetro (Liquid Glass) fermo o animato.
    I nomi delle classi sono quelli di Kaiser: cambia l'aspetto, non la struttura. */
 :root {
-  --kz-css: 76;
+  --kz-css: 77;
   color-scheme: dark;
   --bg: #000000;
   --surface: #0a0a0a;
@@ -562,3 +562,12 @@ html.mode-real .logo { box-shadow: none; }
 #setGen { gap: 10px; }
 #setGen .card, #setGen .setcard, #setGen .syscard { margin: 0; }
 #setGen .hub1 { flex: 0 0 auto; }
+
+/* Elevazione: solo gli elementi che galleggiano sopra la pagina hanno ombra (navbar, avvisi, finestre). Le schede restano piatte con il bordo.
+   In tema chiaro l'ombra e' leggera e vicina; in tema scuro quella di prima, che li' si nota poco. */
+html[data-theme="light"] nav { box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); }
+html[data-theme="light"] .toast { box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); }
+html[data-theme="light"] .dlg-box { box-shadow: 0 8px 28px rgba(0, 0, 0, 0.14); }
+html[data-theme="light"] .sheet .inner { box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.1); }
+html[data-theme="dark"] .dlg-box { box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5); }
+html.glass[data-theme="light"] nav { box-shadow: var(--glass-light), 0 4px 16px rgba(0, 0, 0, 0.08); }
