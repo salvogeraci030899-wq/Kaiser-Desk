@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 04:56 UTC · in esecuzione da 0.5 giorni · 212 run
+Aggiornato: 2026-11-19 05:02 UTC · in esecuzione da 0.5 giorni · 212 run
 
 | | |
 |---|---|
-| Equity | **5.2424 SOL** (-12.6% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.1283 SOL |
-| Trade chiusi | 39 |
-| Win rate | 26% |
-| P&L realizzato | -0.7660 SOL (~$-57.05) |
-| Media vincite / perdite | +35.4% / -35.3% |
+| Equity | **5.2371 SOL** (-12.7% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.2371 SOL |
+| Trade chiusi | 40 |
+| Win rate | 28% |
+| P&L realizzato | -0.7629 SOL (~$-56.78) |
+| Media vincite / perdite | +32.5% / -35.3% |
 | Profit factor | 0.35 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$HNYDRIP** P-0422 · 0.105 SOL · +9.0% · resta 100% · [grafico](https://dexscreener.com/solana/7k5PzYUJPu8im2yChQCtzHgNe4BhyWjuFJvoeW1a7QdP)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -22,12 +22,13 @@ Aggiornato: 2026-11-19 04:56 UTC · in esecuzione da 0.5 giorni · 212 run
 | Chiusura manuale (app) | 6 | +0.0235 |
 | RUG-EXIT liquidità | 8 | -0.5936 |
 | TP1 | 4 | +0.3389 |
-| Time stop | 12 | -0.1965 |
+| Time stop | 13 | -0.1934 |
 | Stop loss | 9 | -0.3383 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $HNYDRIP | 63 | +2.9% | +0.0031 | +29% | -4% | Time stop | 5m |
 | $GMGM | 63 | -17.1% | -0.0181 | +11% | -1% | Time stop | 6m |
 | $Everglades | 82 | -10.5% | -0.0111 | +0% | -31% | Stop loss | 1m |
 | $GTA Strategy  | 65 | -9.2% | -0.0098 | +59% | -2% | Time stop | 12m |
@@ -52,10 +53,24 @@ Aggiornato: 2026-11-19 04:56 UTC · in esecuzione da 0.5 giorni · 212 run
 | $$WISHES | 63 | -6.4% | -0.0073 | +9% | +2% | Time stop | 8m |
 | $FLAMINGO | 71 | -47.2% | -0.0539 | +12% | -41% | Stop loss | 2m |
 | $STM | 65 | -32.5% | -0.0373 | +36% | -7% | Time stop | 5m |
-| $AMAZON | 64 | -98.4% | -0.1154 | +8% | -97% | RUG-EXIT liquidità | 1m |
 
 ## Ultimi eventi
 ```
+05:02:01 ORACLE   360 raccolti, 231 analizzati, 0 BUY, 216 veto
+05:01:38 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 235 veto
+05:01:15 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 232 veto
+05:00:53 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 226 veto
+05:00:30 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 237 veto
+05:00:06 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 233 veto
+04:59:42 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 240 veto
+04:59:18 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 233 veto
+04:58:55 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 238 veto
+04:58:32 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 228 veto
+04:58:08 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 235 veto
+04:57:55 SCRIBE   chiuso P-0422 $HNYDRIP 0.0031 SOL (2.9%)
+04:57:55 CHARON   Time stop $HNYDRIP vendo 100% a -3.6% -> 0.1088 SOL
+04:57:45 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 233 veto
+04:57:22 ORACLE   360 raccolti, 235 analizzati, 0 BUY, 222 veto
 04:56:59 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 228 veto
 04:56:36 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 231 veto
 04:56:13 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 233 veto
@@ -81,21 +96,6 @@ Aggiornato: 2026-11-19 04:56 UTC · in esecuzione da 0.5 giorni · 212 run
 04:49:47 QUARTER  $HNYDRIP impatto 2.3% oltre slippage: annullato
 04:49:47 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 230 veto
 04:49:24 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 225 veto
-04:49:00 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 229 veto
-04:48:37 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 229 veto
-04:48:14 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 223 veto
-04:47:51 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 227 veto
-04:47:29 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 229 veto
-04:47:06 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 224 veto
-04:46:43 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 228 veto
-04:46:20 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 226 veto
-04:45:58 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 221 veto
-04:45:35 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 236 veto
-04:45:12 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 237 veto
-04:44:49 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 238 veto
-04:44:26 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 238 veto
-04:44:03 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 226 veto
-04:43:40 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 230 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
