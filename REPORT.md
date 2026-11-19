@@ -1,25 +1,25 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 21:42 UTC · in esecuzione da 0.3 giorni · 232 run
+Aggiornato: 2026-11-19 21:47 UTC · in esecuzione da 0.3 giorni · 232 run
 
 | | |
 |---|---|
-| Equity | **5.5274 SOL** (-7.9% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.4378 SOL |
-| Trade chiusi | 32 |
-| Win rate | 28% |
-| P&L realizzato | -0.4502 SOL (~$-32.48) |
-| Media vincite / perdite | +26.6% / -27.1% |
+| Equity | **5.5448 SOL** (-7.6% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.5448 SOL |
+| Trade chiusi | 33 |
+| Win rate | 27% |
+| P&L realizzato | -0.4552 SOL (~$-32.81) |
+| Media vincite / perdite | +26.6% / -26.1% |
 | Profit factor | 0.38 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$FIONA** P-0469 · 0.111 SOL · -19.3% · resta 100% · [grafico](https://dexscreener.com/solana/DLxUmNSQArWSegkberb1Hu531tseqWfNE5ixuESJCREN)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| Stop loss | 12 | -0.4053 |
+| Stop loss | 13 | -0.4103 |
 | Time stop | 12 | -0.0968 |
 | TP1 | 5 | +0.1432 |
 | RUG-EXIT liquidità | 3 | -0.0913 |
@@ -27,6 +27,7 @@ Aggiornato: 2026-11-19 21:42 UTC · in esecuzione da 0.3 giorni · 232 run
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $FIONA | 73 | -4.4% | -0.0049 | +0% | -31% | Stop loss | 2m |
 | $\nu | 77 | -17.7% | -0.0199 | +0% | -30% | Stop loss | 1m |
 | $FIONA | 65 | -26.4% | -0.0299 | +2% | -25% | Time stop | 5m |
 | $FIONA  | 65 | -48.8% | -0.0557 | +0% | -39% | Stop loss | 2m |
@@ -51,10 +52,26 @@ Aggiornato: 2026-11-19 21:42 UTC · in esecuzione da 0.3 giorni · 232 run
 | $TYO | 65 | -4.2% | -0.0050 | +0% | -75% | RUG-EXIT liquidità | 0m |
 | $TESLA | 69 | -20.8% | -0.0249 | +22% | -14% | Time stop | 5m |
 | $airdrop | 79 | -27.6% | -0.0331 | +0% | -38% | Stop loss | 4m |
-| $MORALS | 63 | +25.7% | +0.0308 | +4% | +4% | Time stop | 5m |
 
 ## Ultimi eventi
 ```
+21:47:53 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 254 veto
+21:47:30 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 250 veto
+21:47:06 ORACLE   360 raccolti, 264 analizzati, 3 BUY, 249 veto
+21:46:42 ORACLE   360 raccolti, 270 analizzati, 3 BUY, 256 veto
+21:46:19 ORACLE   360 raccolti, 261 analizzati, 3 BUY, 250 veto
+21:45:55 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 261 veto
+21:45:32 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 249 veto
+21:45:19 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 251 veto
+21:45:14 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
+21:44:53 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 257 veto
+21:44:30 SCRIBE   chiuso P-0469 $FIONA -0.0049 SOL (-4.4%)
+21:44:30 CHARON   Stop loss $FIONA vendo 100% a -31.0% -> 0.1071 SOL
+21:44:30 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 254 veto
+21:44:06 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 249 veto
+21:43:43 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 257 veto
+21:43:19 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 246 veto
+21:42:55 ORACLE   360 raccolti, 251 analizzati, 3 BUY, 242 veto
 21:42:31 QUARTER  BUY $FIONA 0.111 SOL score 73 impatto 1.63% (Jupiter)
 21:42:31 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 258 veto
 21:42:07 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 247 veto
@@ -78,23 +95,6 @@ Aggiornato: 2026-11-19 21:42 UTC · in esecuzione da 0.3 giorni · 232 run
 21:36:28 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 247 veto
 21:36:05 QUARTER  $\nu impatto 2.4% oltre slippage: annullato
 21:36:05 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 241 veto
-21:35:51 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 253 veto
-21:35:25 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 254 veto
-21:35:02 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 251 veto
-21:34:39 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 255 veto
-21:34:15 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 258 veto
-21:33:51 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 259 veto
-21:33:26 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 241 veto
-21:33:12 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 251 veto
-21:32:47 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 255 veto
-21:32:23 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 264 veto
-21:31:59 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 269 veto
-21:31:45 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 266 veto
-21:31:19 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 260 veto
-21:30:55 SCRIBE   chiuso P-0467 $FIONA -0.0299 SOL (-26.4%)
-21:30:55 CHARON   Time stop $FIONA vendo 100% a -24.5% -> 0.0831 SOL
-21:30:55 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 260 veto
-21:30:31 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 261 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
