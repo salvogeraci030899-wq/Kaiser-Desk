@@ -1,15 +1,15 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-18 23:55 UTC · in esecuzione da 0.3 giorni · 206 run
+Aggiornato: 2026-11-19 00:00 UTC · in esecuzione da 0.3 giorni · 206 run
 
 | | |
 |---|---|
-| Equity | **5.5504 SOL** (-7.5% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.5504 SOL |
-| Trade chiusi | 26 |
-| Win rate | 31% |
-| P&L realizzato | -0.4496 SOL (~$-33.12) |
-| Media vincite / perdite | +34.9% / -36.6% |
+| Equity | **5.5525 SOL** (-7.5% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.5525 SOL |
+| Trade chiusi | 27 |
+| Win rate | 33% |
+| P&L realizzato | -0.4475 SOL (~$-32.86) |
+| Media vincite / perdite | +31.2% / -36.6% |
 | Profit factor | 0.42 |
 | Circuit breaker | no |
 
@@ -23,11 +23,12 @@ _nessuna_
 | RUG-EXIT liquidità | 5 | -0.4514 |
 | TP1 | 3 | +0.2593 |
 | Time stop | 8 | -0.1086 |
-| Stop loss | 4 | -0.1724 |
+| Stop loss | 5 | -0.1703 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $DUMBGTA6 | 72 | +1.9% | +0.0022 | +0% | -35% | Stop loss | 1m |
 | $Mandy | 88 | -98.3% | -0.1123 | +0% | -97% | RUG-EXIT liquidità | 2m |
 | $GTAVI | 75 | -41.2% | -0.0474 | +9% | -36% | Stop loss | 3m |
 | $vicestream | 65 | -8.3% | -0.0096 | +0% | -10% | Time stop | 5m |
@@ -52,10 +53,26 @@ _nessuna_
 | $GODS | 65 | -97.5% | -0.1189 | +0% | -96% | RUG-EXIT liquidità | 1m |
 | $LEVERAGE | 65 | +5.7% | +0.0070 | +23% | +23% | Chiusura manuale (app) | 1m |
 | $WW | 63 | +14.4% | +0.0174 | +10% | +10% | Chiusura manuale (app) | 2m |
-| $DCTY | 65 | +11.4% | +0.0138 | +3% | +3% | Chiusura manuale (app) | 1m |
 
 ## Ultimi eventi
 ```
+00:00:39 ORACLE   360 raccolti, 197 analizzati, 1 BUY, 191 veto
+00:00:16 ORACLE   360 raccolti, 216 analizzati, 1 BUY, 210 veto
+23:59:52 ORACLE   360 raccolti, 212 analizzati, 1 BUY, 206 veto
+23:59:29 ORACLE   360 raccolti, 218 analizzati, 1 BUY, 212 veto
+23:59:06 ORACLE   360 raccolti, 222 analizzati, 1 BUY, 216 veto
+23:58:43 ORACLE   360 raccolti, 223 analizzati, 1 BUY, 218 veto
+23:58:21 ORACLE   360 raccolti, 206 analizzati, 1 BUY, 200 veto
+23:58:18 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
+23:57:58 ORACLE   360 raccolti, 221 analizzati, 1 BUY, 214 veto
+23:57:34 ORACLE   360 raccolti, 215 analizzati, 1 BUY, 208 veto
+23:57:11 SCRIBE   chiuso P-0409 $DUMBGTA6 0.0022 SOL (1.9%)
+23:57:11 CHARON   Stop loss $DUMBGTA6 vendo 100% a -34.7% -> 0.1142 SOL
+23:57:11 ORACLE   360 raccolti, 218 analizzati, 1 BUY, 210 veto
+23:56:48 ORACLE   360 raccolti, 212 analizzati, 2 BUY, 203 veto
+23:56:24 QUARTER  BUY $DUMBGTA6 0.111 SOL score 72 impatto 1.02% (Jupiter)
+23:56:24 ORACLE   360 raccolti, 230 analizzati, 2 BUY, 221 veto
+23:56:01 ORACLE   360 raccolti, 231 analizzati, 2 BUY, 222 veto
 23:55:37 ORACLE   360 raccolti, 236 analizzati, 2 BUY, 228 veto
 23:55:14 ORACLE   360 raccolti, 222 analizzati, 1 BUY, 214 veto
 23:54:51 ORACLE   360 raccolti, 222 analizzati, 1 BUY, 212 veto
@@ -79,23 +96,6 @@ _nessuna_
 23:47:48 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 225 veto
 23:47:23 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 235 veto
 23:47:11 ORACLE   360 raccolti, 235 analizzati, 0 BUY, 223 veto
-23:46:45 ORACLE   360 raccolti, 230 analizzati, 1 BUY, 221 veto
-23:46:22 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 235 veto
-23:45:59 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 230 veto
-23:45:46 ORACLE   360 raccolti, 226 analizzati, 1 BUY, 217 veto
-23:45:21 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 235 veto
-23:44:58 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 228 veto
-23:44:34 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 227 veto
-23:44:11 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 230 veto
-23:43:48 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 233 veto
-23:43:25 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 227 veto
-23:43:00 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 235 veto
-23:42:37 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 233 veto
-23:42:24 ORACLE   360 raccolti, 230 analizzati, 1 BUY, 224 veto
-23:41:59 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 236 veto
-23:41:37 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 236 veto
-23:41:14 SCRIBE   chiuso P-0408 $Mandy -0.1123 SOL (-98.3%)
-23:41:14 CHARON   RUG-EXIT liquidità $Mandy vendo 100% a -97.5% -> 0.0020 SOL
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
