@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 00:45 UTC · in esecuzione da 0.4 giorni · 207 run
+Aggiornato: 2026-11-19 00:50 UTC · in esecuzione da 0.4 giorni · 207 run
 
 | | |
 |---|---|
-| Equity | **5.4546 SOL** (-9.1% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.3466 SOL |
-| Trade chiusi | 29 |
-| Win rate | 31% |
-| P&L realizzato | -0.5433 SOL (~$-40.03) |
-| Media vincite / perdite | +31.2% / -37.2% |
-| Profit factor | 0.37 |
+| Equity | **5.4074 SOL** (-9.9% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.4074 SOL |
+| Trade chiusi | 30 |
+| Win rate | 30% |
+| P&L realizzato | -0.5926 SOL (~$-43.59) |
+| Media vincite / perdite | +31.2% / -37.6% |
+| Profit factor | 0.35 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$Po** P-0412 · 0.109 SOL · -1.0% · resta 100% · [grafico](https://dexscreener.com/solana/oiLA8CnnfNjKsFWZvgeTPYf35Sut17FSSHY1gPoHZ1p)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -23,11 +23,12 @@ Aggiornato: 2026-11-19 00:45 UTC · in esecuzione da 0.4 giorni · 207 run
 | RUG-EXIT liquidità | 6 | -0.5017 |
 | TP1 | 3 | +0.2593 |
 | Time stop | 9 | -0.1541 |
-| Stop loss | 5 | -0.1703 |
+| Stop loss | 6 | -0.2195 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $Po | 63 | -44.7% | -0.0493 | +9% | -32% | Stop loss | 5m |
 | $LUCIA | 88 | -45.2% | -0.0503 | +0% | -95% | RUG-EXIT liquidità | 1m |
 | $VICECITY | 65 | -40.6% | -0.0455 | +20% | -12% | Time stop | 7m |
 | $DUMBGTA6 | 72 | +1.9% | +0.0022 | +0% | -35% | Stop loss | 1m |
@@ -52,10 +53,24 @@ Aggiornato: 2026-11-19 00:45 UTC · in esecuzione da 0.4 giorni · 207 run
 | $BATPEPE | 67 | -19.1% | -0.0230 | +9% | +9% | Chiusura manuale (app) | 1m |
 | $AI | 82 | -20.4% | -0.0247 | +0% | -50% | RUG-EXIT liquidità | 0m |
 | $FISH | 65 | +47.4% | +0.0567 | +80% | +80% | TP1 | 3m |
-| $GODS | 65 | -97.5% | -0.1189 | +0% | -96% | RUG-EXIT liquidità | 1m |
 
 ## Ultimi eventi
 ```
+00:50:30 ORACLE   360 raccolti, 229 analizzati, 0 BUY, 218 veto
+00:50:16 SCRIBE   chiuso P-0412 $Po -0.0493 SOL (-44.7%)
+00:50:16 CHARON   Stop loss $Po vendo 100% a -31.6% -> 0.0609 SOL
+00:50:06 ORACLE   360 raccolti, 227 analizzati, 0 BUY, 215 veto
+00:49:43 ORACLE   360 raccolti, 224 analizzati, 0 BUY, 214 veto
+00:49:20 ORACLE   360 raccolti, 232 analizzati, 0 BUY, 224 veto
+00:48:56 ORACLE   360 raccolti, 231 analizzati, 0 BUY, 224 veto
+00:48:33 ORACLE   360 raccolti, 229 analizzati, 0 BUY, 222 veto
+00:48:10 ORACLE   360 raccolti, 235 analizzati, 0 BUY, 228 veto
+00:47:47 ORACLE   360 raccolti, 224 analizzati, 1 BUY, 216 veto
+00:47:24 ORACLE   360 raccolti, 226 analizzati, 1 BUY, 217 veto
+00:47:00 ORACLE   360 raccolti, 233 analizzati, 1 BUY, 225 veto
+00:46:37 ORACLE   360 raccolti, 219 analizzati, 1 BUY, 212 veto
+00:46:13 ORACLE   360 raccolti, 217 analizzati, 1 BUY, 210 veto
+00:45:50 ORACLE   360 raccolti, 224 analizzati, 1 BUY, 218 veto
 00:45:26 QUARTER  BUY $Po 0.109 SOL score 63 impatto 0.00% (Jupiter)
 00:45:26 ORACLE   360 raccolti, 230 analizzati, 1 BUY, 225 veto
 00:45:04 ORACLE   360 raccolti, 227 analizzati, 0 BUY, 223 veto
@@ -81,21 +96,6 @@ Aggiornato: 2026-11-19 00:45 UTC · in esecuzione da 0.4 giorni · 207 run
 00:37:28 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 239 veto
 00:37:14 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 238 veto
 00:36:57 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 245 veto
-00:36:28 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 237 veto
-00:36:04 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 230 veto
-00:35:49 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 237 veto
-00:35:33 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 238 veto
-00:35:17 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 245 veto
-00:34:49 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 234 veto
-00:34:24 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 241 veto
-00:34:02 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 247 veto
-00:33:40 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 236 veto
-00:33:18 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 245 veto
-00:32:56 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 235 veto
-00:32:33 ORACLE   360 raccolti, 212 analizzati, 0 BUY, 208 veto
-00:32:10 SCRIBE   chiuso P-0411 $LUCIA -0.0503 SOL (-45.2%)
-00:32:10 CHARON   RUG-EXIT liquidità $LUCIA vendo 100% a -95.5% -> 0.0608 SOL
-00:32:10 ORACLE   360 raccolti, 230 analizzati, 0 BUY, 225 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
