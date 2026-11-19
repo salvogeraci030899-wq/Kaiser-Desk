@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 01:20 UTC · in esecuzione da 0.4 giorni · 208 run
+Aggiornato: 2026-11-19 01:25 UTC · in esecuzione da 0.4 giorni · 208 run
 
 | | |
 |---|---|
-| Equity | **5.4725 SOL** (-8.8% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.4725 SOL |
+| Equity | **5.4716 SOL** (-8.8% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.3621 SOL |
 | Trade chiusi | 32 |
 | Win rate | 31% |
-| P&L realizzato | -0.5275 SOL (~$-38.63) |
+| P&L realizzato | -0.5275 SOL (~$-38.59) |
 | Media vincite / perdite | +35.4% / -36.5% |
 | Profit factor | 0.43 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$RETARDGTA6** P-0415 · 0.109 SOL · +0.0% · resta 100% · [grafico](https://dexscreener.com/solana/EyNVbdpRRpKfssLvyL7bsj7W8fPW7mSTuSGMc7GN92s3)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -56,6 +56,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+01:25:43 ORACLE   360 raccolti, 239 analizzati, 3 BUY, 229 veto
+01:25:20 ORACLE   360 raccolti, 224 analizzati, 3 BUY, 215 veto
+01:24:57 ORACLE   360 raccolti, 229 analizzati, 3 BUY, 220 veto
+01:24:34 ORACLE   360 raccolti, 240 analizzati, 2 BUY, 231 veto
+01:24:10 ORACLE   360 raccolti, 233 analizzati, 2 BUY, 224 veto
+01:23:46 QUARTER  BUY $RETARDGTA6 0.109 SOL score 72 impatto 0.97% (Jupiter)
+01:23:46 ORACLE   360 raccolti, 231 analizzati, 2 BUY, 217 veto
+01:23:23 ORACLE   360 raccolti, 234 analizzati, 2 BUY, 219 veto
+01:22:59 ORACLE   360 raccolti, 230 analizzati, 2 BUY, 216 veto
+01:22:37 ORACLE   360 raccolti, 240 analizzati, 2 BUY, 225 veto
+01:22:14 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 223 veto
+01:21:51 ORACLE   360 raccolti, 235 analizzati, 2 BUY, 219 veto
+01:21:28 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 223 veto
+01:21:04 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 220 veto
 01:20:41 ORACLE   360 raccolti, 220 analizzati, 0 BUY, 206 veto
 01:20:18 ORACLE   360 raccolti, 225 analizzati, 0 BUY, 212 veto
 01:19:55 ORACLE   360 raccolti, 231 analizzati, 0 BUY, 221 veto
@@ -82,20 +96,6 @@ _nessuna_
 01:12:06 ORACLE   360 raccolti, 229 analizzati, 0 BUY, 221 veto
 01:11:42 ORACLE   360 raccolti, 225 analizzati, 0 BUY, 215 veto
 01:11:19 ORACLE   360 raccolti, 211 analizzati, 0 BUY, 202 veto
-01:10:55 ORACLE   360 raccolti, 222 analizzati, 0 BUY, 213 veto
-01:10:32 ORACLE   360 raccolti, 224 analizzati, 0 BUY, 215 veto
-01:10:09 ORACLE   360 raccolti, 228 analizzati, 0 BUY, 220 veto
-01:09:45 ORACLE   360 raccolti, 230 analizzati, 1 BUY, 221 veto
-01:09:21 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 226 veto
-01:08:58 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 221 veto
-01:08:35 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 224 veto
-01:08:12 ORACLE   360 raccolti, 223 analizzati, 1 BUY, 211 veto
-01:07:59 SCRIBE   chiuso P-0414 $FNDR 0.0796 SOL (73.1%)
-01:07:59 CHARON   TP1 $FNDR vendo 100% a 66.8% -> 0.1885 SOL
-01:07:49 ORACLE   360 raccolti, 225 analizzati, 0 BUY, 212 veto
-01:07:26 ORACLE   360 raccolti, 233 analizzati, 1 BUY, 219 veto
-01:07:03 ORACLE   360 raccolti, 230 analizzati, 1 BUY, 216 veto
-01:06:50 ORACLE   360 raccolti, 233 analizzati, 1 BUY, 219 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
