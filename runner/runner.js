@@ -95,7 +95,7 @@ function publicSummary() {
     journal: st.journal.slice(-100).map((j) => ({ id: j.id, mint: j.mint, sym: j.sym, openedAt: j.openedAt, closedAt: j.closedAt, cost: j.cost, back: j.back, pnl: j.pnl, pct: j.pct, reason: j.reason, score: j.score, peakPct: j.peakPct, trigPct: j.trigPct, maePct: j.maePct == null ? null : j.maePct, age: j.age == null ? null : j.age })),
     events: st.events.slice(0, 40), config: cfg,
     young: Y.youngSummary(rt.young, Date.now(), 80, (m) => (rt.trades ? rt.trades.botNow(m) : null)),
-    cal: calSummary(st.cal), semi: S.semiAuto || 'spento', alerts: Semi.view(st.alerts || [], 20), grok: { on: !!S.grokTest, key: !!process.env.XAI_API_KEY, used: rt.grokDay.n, err: rt.grokErr, errMsg: rt.grokErrMsg, queued: rt.grokQ.length, stat: Grokstat.summary(st.grokLog || []) }, farm: rt.farm || null, rug: rt.rug || null, hold: { ok: rt.holdOk, fail: rt.holdFail, queued: rt.holdQ.length, err: rt.holdErr }, probe: rt.probe || null, strat: Strat.summary(rt.strat, Date.now()),
+    cal: calSummary(st.cal), semi: S.semiAuto || 'spento', alerts: Semi.view(st.alerts || [], 20), grok: { on: !!S.grokTest, key: !!process.env.XAI_API_KEY, used: rt.grokDay.n, err: rt.grokErr, errMsg: rt.grokErrMsg, queued: rt.grokQ.length, stat: Grokstat.summary(st.grokLog || []) }, farm: rt.farm || null, rug: rt.rug || null, combo: rt.combo || null, hold: { ok: rt.holdOk, fail: rt.holdFail, queued: rt.holdQ.length, err: rt.holdErr }, probe: rt.probe || null, strat: Strat.summary(rt.strat, Date.now()),
     lab: rt.trades || (st.lab && st.lab.done.length) ? { info: rt.trades ? rt.trades.status() : null, ...Lab.labSummary((st.lab && st.lab.done) || [], Date.now()) } : null, youngInfo: rt.feed ? { ...rt.feed.status(), tracked: [...rt.young.values()].filter((y) => y.tracked).length } : null,
   };
 }
@@ -631,6 +631,7 @@ function pumpLabQueries() {
 }
 function loadFarm() {
   try { rt.rug = JSON.parse(fs.readFileSync(path.join(STATE_DIR, 'rug.json'), 'utf8')); } catch { /* ancora nessuna analisi */ }
+  try { rt.combo = JSON.parse(fs.readFileSync(path.join(STATE_DIR, 'combo.json'), 'utf8')); } catch { /* ancora nessuna ricerca combinata */ }
   try { rt.farm = JSON.parse(fs.readFileSync(path.join(STATE_DIR, 'farm.json'), 'utf8')); } catch { /* ancora nessun rapporto */ }
   if (rt.farm && Strat.ingest(rt.strat, rt.farm, Date.now())) rt.stratDirty = true;   // nuove regole candidate: entrano in prova in avanti
   if (rt.farm) { const m = Strat.adoptBest(rt.strat, rt.farm, Date.now()); if (m) { rt.stratDirty = true; log('SCOUT', `strategia corrente ${m.id}: ${m.why}`); tg(`<b>Strategia corrente ${esc(m.id)}</b>\n${esc(m.why)}\nGira in ombra (nessun ordine).`, Kb.kb({ app: true })).catch(() => {}); } }   // la migliore disponibile, anche se non profittevole
