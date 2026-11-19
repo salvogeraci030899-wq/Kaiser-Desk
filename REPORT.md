@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 08:02 UTC · in esecuzione da 0.7 giorni · 216 run
+Aggiornato: 2026-11-19 08:07 UTC · in esecuzione da 0.7 giorni · 216 run
 
 | | |
 |---|---|
-| Equity | **5.1293 SOL** (-14.5% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.1293 SOL |
+| Equity | **5.1457 SOL** (-14.2% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.0257 SOL |
 | Trade chiusi | 46 |
 | Win rate | 26% |
-| P&L realizzato | -0.8707 SOL (~$-65.15) |
+| P&L realizzato | -0.8707 SOL (~$-64.99) |
 | Media vincite / perdite | +38.0% / -36.0% |
 | Profit factor | 0.37 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$Dacitytard** P-0429 · 0.103 SOL · +16.9% · resta 100% · [grafico](https://dexscreener.com/solana/6CVAeuMnoCGRWnVMFikaaCe5J2jRatCURevqvV7nEpmo)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -56,6 +56,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+08:07:57 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 235 veto
+08:07:33 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 235 veto
+08:07:09 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 231 veto
+08:06:46 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 244 veto
+08:06:22 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 239 veto
+08:05:58 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 234 veto
+08:05:34 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 240 veto
+08:05:09 QUARTER  BUY $Dacitytard 0.103 SOL score 72 impatto 0.61% (Jupiter)
+08:05:09 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 242 veto
+08:04:45 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 242 veto
+08:04:22 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 237 veto
+08:03:58 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 234 veto
+08:03:34 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 233 veto
+08:03:11 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 234 veto
 08:02:47 ORACLE   360 raccolti, 234 analizzati, 0 BUY, 225 veto
 08:02:22 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 226 veto
 08:01:59 ORACLE   360 raccolti, 229 analizzati, 0 BUY, 224 veto
@@ -82,20 +96,6 @@ _nessuna_
 07:54:44 SCOUT    jup trend: HTTP 429 (riuso l'ultimo elenco)
 07:54:44 SCOUT    jup organic: HTTP 429 (riuso l'ultimo elenco)
 07:54:23 ORACLE   360 raccolti, 230 analizzati, 0 BUY, 216 veto
-07:54:00 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 219 veto
-07:53:53 SCOUT    Laboratorio: collegato a PumpPortal
-07:53:37 ORACLE   360 raccolti, 226 analizzati, 0 BUY, 214 veto
-07:53:13 ORACLE   360 raccolti, 230 analizzati, 0 BUY, 220 veto
-07:52:49 ORACLE   360 raccolti, 232 analizzati, 0 BUY, 222 veto
-07:52:26 ORACLE   360 raccolti, 227 analizzati, 0 BUY, 218 veto
-07:52:02 ORACLE   360 raccolti, 229 analizzati, 0 BUY, 222 veto
-07:51:39 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 228 veto
-07:51:15 ORACLE   360 raccolti, 231 analizzati, 0 BUY, 226 veto
-07:50:52 ORACLE   360 raccolti, 235 analizzati, 0 BUY, 229 veto
-07:50:39 ORACLE   360 raccolti, 235 analizzati, 0 BUY, 228 veto
-07:50:13 ORACLE   360 raccolti, 235 analizzati, 0 BUY, 228 veto
-07:50:09 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
-07:49:49 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 231 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
