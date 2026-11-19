@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 18:36 UTC · in esecuzione da 0.2 giorni · 229 run
+Aggiornato: 2026-11-19 18:41 UTC · in esecuzione da 0.2 giorni · 229 run
 
 | | |
 |---|---|
-| Equity | **5.8130 SOL** (-3.1% dal capitale iniziale di 6 SOL) |
+| Equity | **5.8414 SOL** (-2.6% dal capitale iniziale di 6 SOL) |
 | Cassa | 5.6968 SOL |
 | Trade chiusi | 19 |
 | Win rate | 32% |
-| P&L realizzato | -0.1860 SOL (~$-13.85) |
+| P&L realizzato | -0.1860 SOL (~$-13.82) |
 | Media vincite / perdite | +19.9% / -21.1% |
 | Profit factor | 0.43 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$SIM** P-0456 · 0.116 SOL · n/d · resta 100% · [grafico](https://dexscreener.com/solana/Are3C4uea7s61tdWCF9M81FRZbMLmGv4RqdVez2t6jA4)
+- **$SIM** P-0456 · 0.116 SOL · +24.4% · resta 100% · [grafico](https://dexscreener.com/solana/Are3C4uea7s61tdWCF9M81FRZbMLmGv4RqdVez2t6jA4)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -49,6 +49,19 @@ Aggiornato: 2026-11-19 18:36 UTC · in esecuzione da 0.2 giorni · 229 run
 
 ## Ultimi eventi
 ```
+18:41:13 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 267 veto
+18:40:49 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 264 veto
+18:40:26 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 254 veto
+18:40:01 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 259 veto
+18:39:38 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 255 veto
+18:39:14 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 250 veto
+18:38:51 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 230 veto
+18:38:26 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 234 veto
+18:38:03 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 239 veto
+18:37:39 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 237 veto
+18:37:16 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 245 veto
+18:36:52 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 234 veto
+18:36:29 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 243 veto
 18:36:05 QUARTER  BUY $SIM 0.116 SOL score 64 impatto 1.71% (Jupiter)
 18:36:04 SCRIBE   chiuso P-0455 $KFC 0.0638 SOL (55.0%)
 18:36:04 CHARON   TP1 $KFC vendo 100% a 72.1% -> 0.1798 SOL
@@ -78,19 +91,6 @@ fabbrica: 22033 percorsi, 768 configurazioni, 0 passano, 3370 ms
 18:30:57 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
 18:30:57 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
 18:30:57 SCOUT    Laboratorio: collegato a PumpPortal
-18:30:57 KAISER   run #229 · 1 posizioni · equity 5.7692 SOL · GMGN spenta (nessuna chiave) · Grok off
-18:30:29 SCRIBE   fine run · trade 18 · win 28% · P&L -0.2498 SOL · equity 5.7692 SOL
-18:30:16 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 229 veto
-18:30:02 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 231 veto
-18:29:37 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 242 veto
-18:29:13 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 247 veto
-18:28:59 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 233 veto
-18:28:34 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 244 veto
-18:28:09 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 246 veto
-18:27:46 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 234 veto
-18:27:21 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 238 veto
-18:27:08 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 236 veto
-18:26:43 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 233 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
