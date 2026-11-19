@@ -12,6 +12,7 @@ const Lab = require('./trades.js');
 const Farm = require('./farm.js');
 const Probe = require('./probe.js');
 const Strat = require('./strategies.js');
+const Holders = require('./holders.js');
 
 const STATE_DIR = process.env.STATE_DIR || path.join(__dirname, '..', 'state');
 const LOOP_MIN = Number(process.env.LOOP_MIN || 4.5);
@@ -50,7 +51,7 @@ const st = Object.assign({
 }, readJSON(F.state, {}));
 st.runs++;
 if (st.capital > 0) S.capitalSOL = st.capital;   // capitale scelto con un reset dall'app: resta valido ai run successivi
-const rt = { solUsd: 0, sec: new Map(), grok: new Map(), gmgn: new Map(), cands: new Map(), gmgnCache: {}, gcache: {}, seen: new Map(), young: new Map(), youngQ: new Set(), feed: null, trades: null, pathBuf: [], farm: null, farmAt: 0, farmBusy: false, probe: null, probeBusy: false, probeDone: false, strat: Strat.create(), stratDirty: false };
+const rt = { solUsd: 0, sec: new Map(), grok: new Map(), gmgn: new Map(), cands: new Map(), gmgnCache: {}, gcache: {}, seen: new Map(), young: new Map(), youngQ: new Set(), feed: null, trades: null, pathBuf: [], farm: null, farmAt: 0, farmBusy: false, probe: null, probeBusy: false, probeDone: false, strat: Strat.create(), stratDirty: false, rug: null, holdQ: [], holdBuf: [], holdBusy: 0, holdOk: 0, holdFail: 0, holdErr: '' };
 
 function log(agent, msg) {
   const line = `${new Date().toISOString().slice(11, 19)} ${agent.padEnd(8)} ${msg}`;
@@ -88,7 +89,7 @@ function publicSummary() {
     journal: st.journal.slice(-100).map((j) => ({ id: j.id, mint: j.mint, sym: j.sym, openedAt: j.openedAt, closedAt: j.closedAt, cost: j.cost, back: j.back, pnl: j.pnl, pct: j.pct, reason: j.reason, score: j.score, peakPct: j.peakPct, trigPct: j.trigPct, maePct: j.maePct == null ? null : j.maePct, age: j.age == null ? null : j.age })),
     events: st.events.slice(0, 40), config: cfg,
     young: Y.youngSummary(rt.young, Date.now(), 80, (m) => (rt.trades ? rt.trades.botNow(m) : null)),
-    cal: calSummary(st.cal), farm: rt.farm || null, probe: rt.probe || null, strat: Strat.summary(rt.strat, Date.now()),
+    cal: calSummary(st.cal), farm: rt.farm || null, rug: rt.rug || null, hold: { ok: rt.holdOk, fail: rt.holdFail, queued: rt.holdQ.length, err: rt.holdErr }, probe: rt.probe || null, strat: Strat.summary(rt.strat, Date.now()),
     lab: rt.trades || (st.lab && st.lab.done.length) ? { info: rt.trades ? rt.trades.status() : null, ...Lab.labSummary((st.lab && st.lab.done) || [], Date.now()) } : null, youngInfo: rt.feed ? { ...rt.feed.status(), tracked: [...rt.young.values()].filter((y) => y.tracked).length } : null,
   };
 }
@@ -535,6 +536,7 @@ function flushPaths(final) {
     const dir = path.join(STATE_DIR, 'lab', 'paths'), n = rt.pathBuf.length;
     if (n) { Farm.writeBatch(dir, rt.pathBuf.splice(0), Date.now()); }
     if (n || final) Farm.prune(dir, Date.now(), Farm.KEEP_DAYS);
+    const hdir = path.join(STATE_DIR, 'lab', 'holders'); if (rt.holdBuf.length) Farm.writeBatch(hdir, rt.holdBuf.splice(0), Date.now()); if (n || final) Farm.prune(hdir, Date.now(), Farm.KEEP_DAYS);
     const before = rt.strat.log.length, ch = Strat.review(rt.strat, Date.now()); if (ch) rt.stratDirty = true;
     if (ch) for (const e of rt.strat.log.slice(-ch)) { log('SCOUT', `regola ${e.id}: ${e.to} (${e.why})`); if (e.to !== 'prova') tg(`<b>Regola ${esc(e.id)}</b> ${esc(e.to)}\n${esc(e.why)}`).catch(() => {}); }
     if (rt.stratDirty || final) { Strat.save(STRAT_FILE(), rt.strat); rt.stratDirty = false; }
@@ -544,12 +546,21 @@ function flushPaths(final) {
 function maybeFarm() {
   const now = Date.now(); if (rt.farmBusy || now - (rt.farmAt || 0) < 3600000 || process.env.NO_FARM === '1') return; rt.farmAt = now; rt.farmBusy = true;
   const out = path.join(STATE_DIR, 'farm.json');
-  require('node:child_process').execFile(process.execPath, [path.join(__dirname, 'farm.js'), '--in', path.join(STATE_DIR, 'lab', 'paths'), '--out', out], { timeout: 240000 }, (e, so) => {
+  require('node:child_process').execFile(process.execPath, [path.join(__dirname, 'farm.js'), '--in', path.join(STATE_DIR, 'lab', 'paths'), '--out', out, '--holders', path.join(STATE_DIR, 'lab', 'holders'), '--rug', path.join(STATE_DIR, 'rug.json')], { timeout: 240000 }, (e, so) => {
     rt.farmBusy = false; if (e) { log('SCOUT', 'fabbrica non riuscita: ' + String(e.message).split('\n')[0]); return; }
     log('SCOUT', String(so || '').trim()); loadFarm();
   });
 }
+// Possessori: alla soglia di market cap si legge (con 3 chiamate RPC) quanta parte dell'offerta e' in pochi portafogli e quanta ne ha il creatore; al massimo 2 letture insieme
+function pumpHolders() {
+  const url = process.env.RPC_URL; if (!url || process.env.NO_HOLDERS === '1') return;
+  while (rt.holdBusy < 2 && rt.holdQ.length) {
+    const j = rt.holdQ.shift(); rt.holdBusy++;
+    Holders.snapshot({ url, ...j }).then((x) => { if (x) { rt.holdBuf.push(x); rt.holdOk++; } else rt.holdFail++; }).catch((e) => { rt.holdFail++; rt.holdErr = String(e.message).slice(0, 80); }).finally(() => { rt.holdBusy--; });
+  }
+}
 function loadFarm() {
+  try { rt.rug = JSON.parse(fs.readFileSync(path.join(STATE_DIR, 'rug.json'), 'utf8')); } catch { /* ancora nessuna analisi */ }
   try { rt.farm = JSON.parse(fs.readFileSync(path.join(STATE_DIR, 'farm.json'), 'utf8')); } catch { /* ancora nessun rapporto */ }
   if (rt.farm && Strat.ingest(rt.strat, rt.farm, Date.now())) rt.stratDirty = true;   // nuove regole candidate: entrano in prova in avanti
 }
@@ -582,7 +593,7 @@ function checkpoint() {
 function startYoung() {
   const onToken = (t) => { if (S.srcYoung !== false) Y.addYoung(rt.young, t, Date.now(), 800); };
   if (S.srcLab !== false) {                                     // Laboratorio: una sola connessione a PumpPortal per nuovi token e scambi (osservazione, nessun ordine)
-    rt.trades = new Lab.TradeFeed({ log: (m) => log('SCOUT', m), solUsd: () => rt.solUsd, rpcHttp: process.env.RPC_URL || '', onPath: (x) => { rt.pathBuf.push(Farm.pack(x)); if (Strat.record(rt.strat, x, Date.now())) rt.stratDirty = true; }, onCreate: onToken, onDone: (s) => { st.lab = st.lab || { done: [] }; st.lab.done.push(s); st.lab.done = st.lab.done.slice(-400); } });
+    rt.trades = new Lab.TradeFeed({ log: (m) => log('SCOUT', m), solUsd: () => rt.solUsd, rpcHttp: process.env.RPC_URL || '', onCross: (t) => { if (rt.holdQ.length < 200) rt.holdQ.push({ mint: t.mint, curve: t.curve, creator: t.dev, at: Date.now() }); }, onPath: (x) => { rt.pathBuf.push(Farm.pack(x)); if (Strat.record(rt.strat, x, Date.now())) rt.stratDirty = true; }, onCreate: onToken, onDone: (s) => { st.lab = st.lab || { done: [] }; st.lab.done.push(s); st.lab.done = st.lab.done.slice(-400); } });
     rt.trades.start();
   }
   if (S.srcYoung === false) return;
@@ -603,6 +614,7 @@ async function main() {
     if (rt.trades) rt.trades.tick();
     maybeFarm();
     maybeProbe();
+    pumpHolders();
     save();
     if (Date.now() - lastCp >= CHECKPOINT_MS) { lastCp = Date.now(); flushPaths(false); checkpoint(); }
     const left = end - Date.now();

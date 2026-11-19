@@ -67,6 +67,12 @@ function stats(xs) {
 }
 function* configs(grid) { const g = grid || GRID; for (const thr of g.thr) for (const delay of g.delay) for (const tp of g.tp) for (const sl of g.sl) for (const hold of g.hold) yield { thr, delay, tp, sl, hold }; }
 
+// Misure dei possessori salvate dal runner (stesso formato a file piccoli compressi dei percorsi): mint -> { top1, top3, top10, cre }
+function loadHolders(dir) {
+  const m = new Map(); let names = []; try { names = fs.readdirSync(dir).filter((x) => x.endsWith('.jsonl.gz')).sort(); } catch { return m; }
+  for (const n of names) { let t; try { t = zlib.gunzipSync(fs.readFileSync(path.join(dir, n))).toString('utf8'); } catch { continue; } for (const l of t.split('\n')) { if (!l) continue; try { const r = JSON.parse(l); if (r && r.m && !m.has(r.m)) m.set(r.m, r); } catch { /* riga rovinata */ } } }
+  return m;
+}
 // ---------- esecuzione ----------
 function run(recs, o) {
   const grid = (o && o.grid) || GRID, sorted = [...recs].sort((a, b) => a.at - b.at), cut = Math.floor(sorted.length * SPLIT), train = sorted.slice(0, cut), test = sorted.slice(cut);
@@ -89,7 +95,12 @@ if (require.main === module) {
   const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
   const dir = arg('in', 'state/lab/paths'), out = arg('out', 'state/farm.json'), t0 = Date.now(), recs = loadAll(dir), rep = run(recs);
   rep.ms = Date.now() - t0; fs.mkdirSync(path.dirname(out), { recursive: true }); fs.writeFileSync(out, JSON.stringify(rep));
+  // analisi dei rug sugli stessi percorsi (e sulle misure dei possessori, se ci sono)
+  try {
+    const Rug = require('./rug.js'), hd = arg('holders', ''), holders = hd ? loadHolders(hd) : new Map(), ru = { at: Date.now(), holders: holders.size, results: [Rug.analyze(recs, 7500, { holders }), Rug.analyze(recs, 10000, { holders })] };
+    fs.writeFileSync(arg('rug', path.join(path.dirname(out), 'rug.json')), JSON.stringify(ru)); console.log(`rug: ${ru.results[0].n} token oltre 7.5K, ${ru.results[0].base.all.rug}% rug, ${holders.size} con possessori`);
+  } catch (e) { console.log('analisi rug non riuscita: ' + String(e.message).split('\n')[0]); }
   console.log(`fabbrica: ${rep.paths} percorsi, ${rep.tried} configurazioni, ${rep.passed} passano, ${rep.ms} ms`);
 }
 
-module.exports = { BIN, COST, GRID, MIN_TRAIN, MIN_TEST, KEEP_DAYS, pack, unpack, writeBatch, prune, loadAll, simulate, stats, configs, run };
+module.exports = { loadHolders, BIN, COST, GRID, MIN_TRAIN, MIN_TEST, KEEP_DAYS, crossIdx, pack, unpack, writeBatch, prune, loadAll, simulate, stats, configs, run };

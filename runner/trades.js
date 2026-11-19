@@ -147,7 +147,7 @@ function parseCurve(b64) {
 // Legge ogni pochi secondi le curve dei token seguiti con una sola chiamata ogni 100 conti. Se i primi valori non sembrano una market cap sensata il formato non e' quello atteso: si spegne.
 class CurvePoller {
   constructor(o) {
-    this.url = toHttp(o.url); this.fetch = o.fetch || globalThis.fetch; this.book = o.book; this.now = o.now || Date.now; this.log = o.log || (() => {}); this.every = o.everyMs || 10000;
+    this.url = toHttp(o.url); this.fetch = o.fetch || globalThis.fetch; this.book = o.book; this.now = o.now || Date.now; this.log = o.log || (() => {}); this.every = o.everyMs || 10000; this.onCross = o.onCross || null; this.usd = o.usd || (() => 150); this.crossUsd = o.crossUsd || 7500;
     this.last = 0; this.busy = false; this.ok = 0; this.fail = 0; this.bad = 0; this.why = {}; this.sample = []; this.gone = 0; this.done = 0; this.sane = 0; this.off = !this.url || !this.fetch; this.err = '';
   }
   tick() {
@@ -165,6 +165,7 @@ class CurvePoller {
         const v = vals[k]; if (!v || !v.data) { this.gone++; return; } const c = parseCurve(Array.isArray(v.data) ? v.data[0] : v.data);
         if (!c || !(c.mcSol > 1 && c.mcSol < 5000)) { this.bad++; const w = curveWhy(Array.isArray(v.data) ? v.data[0] : v.data); this.why[w] = (this.why[w] || 0) + 1; if (this.sample.length < 3) this.sample.push(w + (c ? ' mc ' + Math.round(c.mcSol) : '') + ' lunghezza ' + Buffer.from(String(Array.isArray(v.data) ? v.data[0] : v.data), 'base64').length); if (this.sane < 20 && this.bad >= 20 && this.ok === 0) { this.off = true; this.log('prezzi dalla catena: formato del conto non riconosciuto, lettura spenta'); } return; }
         this.ok++; this.sane++; this.book.curveMc(t, now, c);
+        if (this.onCross && !t.crossed && c.mcSol * this.usd() >= this.crossUsd) { t.crossed = true; try { this.onCross(t, now); } catch { /* la misura dei possessori non deve fermare la lettura */ } }
       });
     }
   }
@@ -175,7 +176,8 @@ class TradeBook {
   constructor(o) { this.max = (o && o.max) || 300; this.toks = new Map(); this.seen = new Set(); this.nTrades = 0; this.nCreate = 0; }
   create(m, now) {
     if (!m || !MINT_RE.test(m.mint || '') || this.toks.has(m.mint)) return null;
-    const t = { mint: m.mint, sym: String(m.symbol || '').slice(0, 20), name: String(m.name || '').slice(0, 40), createdAt: now, dev: m.traderPublicKey || '', addr: [], wid: new Map(), tr: [], path: [], lastMc: num(m.marketCapSol), big: [], devIdx: -1, curve: MINT_RE.test(String(m.bondingCurveKey || m.curve || '')) ? String(m.bondingCurveKey || m.curve) : '', complete: false };
+    if (m.pool && String(m.pool).toLowerCase() !== 'pump') return null;      // token di altre piattaforme (formato dei conti diverso): non sono curve di pump.fun
+    const t = { mint: m.mint, sym: String(m.symbol || '').slice(0, 20), name: String(m.name || '').slice(0, 40), createdAt: now, dev: m.traderPublicKey || m.creator || '', addr: [], wid: new Map(), tr: [], path: [], lastMc: num(m.marketCapSol), big: [], devIdx: -1, curve: MINT_RE.test(String(m.bondingCurveKey || m.curve || '')) ? String(m.bondingCurveKey || m.curve) : '', complete: false, crossed: false };
     this.nCreate++; this.toks.set(m.mint, t);
     if (t.dev) { t.devIdx = this._w(t, t.dev); if (num(m.solAmount) > 0) this._tr(t, 0, 1, num(m.solAmount), t.devIdx); }   // l'acquisto iniziale del dev
     if (t.lastMc > 0) this._mc(t, 0, t.lastMc);
@@ -211,7 +213,7 @@ class TradeFeed {
     this.o = o || {}; this.WS = this.o.WebSocketImpl || globalThis.WebSocket; this.now = this.o.now || Date.now; this.schedule = this.o.schedule || ((fn, ms) => setTimeout(fn, ms));
     this.solUsd = this.o.solUsd || (() => 0); this.log = this.o.log || (() => {}); this.onCreate = this.o.onCreate || (() => {}); this.onDone = this.o.onDone || (() => {}); this.onPath = this.o.onPath || null; this.keepUsd = this.o.keepUsd == null ? 5000 : this.o.keepUsd; this.url = this.o.url || PORTAL_URL;
     this.book = new TradeBook({ max: this.o.max }); this.stats = { create: 0, trade: 0, other: 0 }; this.warned = false; this.openedAt = 0;
-    this.poller = this.o.rpcHttp ? new CurvePoller({ url: this.o.rpcHttp, book: this.book, now: this.now, log: this.log, fetch: this.o.fetch, everyMs: this.o.pollMs }) : null; this.state = 'off'; this.backoff = 2000; this.retrying = false; this.stopped = false; this.ws = null; this.unsub = [];
+    this.poller = this.o.rpcHttp ? new CurvePoller({ url: this.o.rpcHttp, book: this.book, now: this.now, log: this.log, fetch: this.o.fetch, everyMs: this.o.pollMs, onCross: this.o.onCross, usd: () => (this.solUsd() > 0 ? this.solUsd() : 150) }) : null; this.state = 'off'; this.backoff = 2000; this.retrying = false; this.stopped = false; this.ws = null; this.unsub = [];
   }
   start() { if (!this.WS) { this.log('WebSocket non disponibile (serve Node 22): Laboratorio spento'); return false; } this.stopped = false; this.connect(); return true; }
   stop() { this.stopped = true; try { this.ws && this.ws.close(); } catch { /* niente */ } this.state = 'off'; }
@@ -245,7 +247,7 @@ class TradeFeed {
   adopt(m, now) {
     if (!m || !MINT_RE.test(m.mint || '')) return false; const old = this.book.toks.get(m.mint);
     if (old) { if (!old.curve && m.curve && MINT_RE.test(m.curve)) old.curve = m.curve; return false; }
-    const t = this.book.create({ mint: m.mint, symbol: m.symbol, name: m.name, bondingCurveKey: m.curve }, now || m.at || this.now()); if (!t) return false;
+    const t = this.book.create({ mint: m.mint, symbol: m.symbol, name: m.name, bondingCurveKey: m.curve, creator: m.creator }, now || m.at || this.now()); if (!t) return false;
     if (this.book.toks.size > this.book.max) { const o = this.book.oldest(); if (o && o.mint !== t.mint) this.finish(o, this.now()); }
     this.send({ method: 'subscribeTokenTrade', keys: [t.mint] }); return true;
   }

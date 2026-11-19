@@ -42,6 +42,7 @@ function ingest(reg, farm, now) {
   for (const t of farm.top) {
     if (reg.items.filter((x) => x.status === 'prova').length >= MAX_TEST) break;
     const old = have.get(key(t.cfg)); if (old && (old.status !== 'ritirata' || now - (old.endedAt || 0) < COOL_MS)) continue;
+    if (reg.items.some((x) => x.status !== 'ritirata' && x.cfg.thr === t.cfg.thr && x.cfg.delay === t.cfg.delay)) continue;      // stessa soglia e stesso ritardo: sono la stessa regola con parametri quasi equivalenti
     const s = { id: 'R-' + String(++reg.seq).padStart(3, '0'), cfg: t.cfg, status: 'prova', since: now, farm: { at: farm.at, tr: { n: t.tr.n, ev: t.tr.ev }, te: { n: t.te.n, ev: t.te.ev } }, fwd: blank(), history: [] };
     reg.items.push(s); note(reg, s, 'prova', 'positiva sui dati vecchi e recenti', now); added++;
   }
@@ -61,7 +62,7 @@ function record(reg, rec, now) {
 }
 // Promozioni e ritiri; restituisce il numero di cambi di stato
 function review(reg, now) {
-  let n = 0;
+  let n = 0; const dead = reg.items.filter((x) => x.status === 'ritirata'); if (dead.length > 40) { const keep = new Set(dead.sort((a, b) => (b.endedAt || 0) - (a.endedAt || 0)).slice(0, 40).map((x) => x.id)); reg.items = reg.items.filter((x) => x.status !== 'ritirata' || keep.has(x.id)); }      // il registro non cresce senza limite
   for (const s of reg.items) {
     const f = s.fwd, st = stats(f);
     if (s.status === 'prova') {

@@ -207,7 +207,7 @@ test('CHIUSURA dall\'app: con l\'approvazione manuale disattivata è diretta (re
   const t = await ex.ticket({ mint: MINT, sym: 'DIR2', score: 80, sizeSol: 0.05 }); await T.handleUpdate(ex, cbq('ap:' + t.ticket.id));
   const pos = (await ex.state()).positions[0], n = w.tg.length;
   const r = await ex.propose({ close: { mode: 'real', id: pos.id } }); assert.equal(r.direct, true); assert.equal((await ex.state()).positions.length, 0, 'reale: venduta subito');
-  assert.ok(!w.tg.slice(n).some((m) => m.reply_markup), 'nessun tasto di conferma su Telegram');
+  assert.ok(!w.tg.slice(n).some((m) => m.reply_markup && m.reply_markup.inline_keyboard.flat().some((b) => b.callback_data)), 'nessun tasto di conferma su Telegram (restano solo i collegamenti a pump.fun, DexScreener e GMGN)');
   await ex.store.put('lastClose', 0); await ex.paperPut({ v: 1, positions: [{ id: 'P-0007', sym: 'PAP' }], journal: [] });
   const p = await ex.propose({ close: { mode: 'paper', id: 'P-0007' } }); assert.equal(p.direct, true); assert.deepEqual((await ex.paramsView()).closePaper, ['P-0007'], 'paper: ordine subito pronto per il runner');
   const w2 = world({ APP_CLOSE: 'confirm' }), ex2 = w2.ex(), o2 = await ex2.propose({ changes: { realApprove: false } }); await T.handleUpdate(ex2, cbq('pa:' + o2.proposal.id));
@@ -221,7 +221,7 @@ test('CHIUSURA dall\'app: l\'indicazione approvalOff dell\'app (impostazioni mos
   const w = world(), ex = w.ex(), t = await ex.ticket({ mint: MINT, sym: 'HNT', score: 80, sizeSol: 0.05 }); await T.handleUpdate(ex, cbq('ap:' + t.ticket.id));
   const pos = (await ex.state()).positions[0]; assert.equal((await ex.paramsView()).closeDirect, false, 'il Worker, da solo, vede l\'approvazione attiva');
   const n = w.tg.length, r = await ex.propose({ close: { mode: 'real', id: pos.id, approvalOff: true } });
-  assert.equal(r.direct, true); assert.equal((await ex.state()).positions.length, 0); assert.ok(!w.tg.slice(n).some((m) => m.reply_markup), 'senza tasto su Telegram');
+  assert.equal(r.direct, true); assert.equal((await ex.state()).positions.length, 0); assert.ok(!w.tg.slice(n).some((m) => m.reply_markup && m.reply_markup.inline_keyboard.flat().some((b) => b.callback_data)), 'senza tasto di conferma su Telegram');
   const w2 = world({ APP_CLOSE: 'confirm' }), ex2 = w2.ex(), t2 = await ex2.ticket({ mint: MINT, sym: 'HN2', score: 80, sizeSol: 0.05 }); await T.handleUpdate(ex2, cbq('ap:' + t2.ticket.id));
   const p2 = (await ex2.state()).positions[0], r2 = await ex2.propose({ close: { mode: 'real', id: p2.id, approvalOff: true } }); assert.ok(!r2.direct); assert.equal((await ex2.state()).positions.length, 1);
   const w3 = world(), ex3 = w3.ex(); await ex3.paperPut({ v: 1, positions: [{ id: 'P-0005', sym: 'PP' }], journal: [] });

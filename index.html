@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.32.0">
+<meta name="kz-build" content="2.33.0">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=2">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
@@ -595,6 +595,16 @@ function renderLab() {
           const top = F.top && F.top.length ? tbl(['Regola', 'Operazioni (vecchi/recenti)', 'Esito vecchi', 'Esito recenti'], F.top.map((x) => [lbl(x.cfg), x.tr.n + ' / ' + x.te.n, ev(x.tr), ev(x.te)])) : '<div class="tiny muted" style="margin-top:6px">Nessuna regola regge: positiva dopo i costi sia sui dati vecchi sia su quelli recenti.</div>';
           const bt = F.bestTrain ? `<div class="tiny muted" style="margin-top:6px">Migliore sui dati vecchi: ${lbl(F.bestTrain.cfg)} ha dato ${ev(F.bestTrain.tr)} sui vecchi e ${ev(F.bestTrain.te)} sui recenti. Se la seconda cifra è molto peggiore, la regola era solo un caso.</div>` : '';
           return head + top + bt + `<div class="tiny muted" style="margin-top:6px">Costo di un giro: ${F.cost}%. Ingresso alla prima volta che la market cap supera la soglia più il ritardo; uscita a target, stop (a parità vince lo stop) o tempo massimo; prezzi letti ogni 10 secondi. Una regola passa solo con almeno 30 operazioni sui dati vecchi e 15 sui recenti.</div>`;
+        })()
+        + sec('Rug: si possono evitare?')
+        + (() => {
+          const G = run.rug; if (!G || !G.results || !G.results[0]) return '<span class="muted small">L\'analisi parte con la prossima esecuzione della fabbrica.</span>';
+          const R = G.results[0], b = R.base, hd = run.hold || {}, ev = (x) => (x && x.n ? (x.ev > 0 ? '+' : '') + x.ev + '%' : '—'), sub = (t) => `<div class="tiny muted" style="margin:8px 0 4px"><b>${t}</b></div>`;
+          const head = `<div class="kv">${kvRow('Token oltre ' + (R.thr / 1000) + 'K', R.n)}${kvRow('Rug (al 25% o meno in 5 min)', b.all.rug + '%', 'down')}${kvRow('   vecchi · recenti', b.train.rug + '% · ' + b.test.rug + '%')}${kvRow('Crolli (al 50% o meno)', b.all.dump + '%')}${kvRow('Con misure dei possessori', G.holders || 0)}${hd.ok != null ? kvRow('Possessori letti', hd.ok + (hd.fail ? ' · errori ' + hd.fail : '') + (hd.err ? ' (' + esc(hd.err) + ')' : ''), hd.ok ? 'up' : 'warn') : ''}</div>`;
+          const fk = Object.entries(R.feats || {});
+          const ft = fk.length ? sub('Quota di rug per quartile del segnale (token)') + tbl(['Segnale', 'Q1', 'Q2', 'Q3', 'Q4'], fk.map(([k, f]) => [esc(f.name), ...f.buckets.map((x) => (x.n ? x.rug + '% (' + x.n + ')' : '—'))])) : '<div class="tiny muted" style="margin-top:6px">Ancora pochi dati per i segnali.</div>';
+          const fl = (R.filters || []).length ? sub('Migliori filtri (scelti sui dati vecchi, controllati sui recenti)') + tbl(['Filtro', 'Tengo', 'Rug vecchi', 'Rug recenti', 'Migliore regola dopo'], R.filters.map((x) => [esc(x.name) + (x.dir === 'basso' ? ' ≤ ' : ' > ') + x.cut, x.train.keep + '% / ' + x.test.keep + '%', x.train.rug + '%', x.test.rug + '%', x.farm && x.farm.bestTrain ? ev(x.farm.bestTrain.tr) + ' / ' + ev(x.farm.bestTrain.te) + (x.farm.passed ? ' · ' + x.farm.passed + ' passano' : '') : '—'])) : '';
+          return head + ft + fl + '<div class="tiny muted" style="margin-top:6px">Q1 è il quarto di token con il valore più basso del segnale, Q4 il più alto. Un filtro vale solo se il tasso di rug resta basso anche sui dati recenti e se, dopo averlo applicato, almeno una regola diventa positiva. I segnali sui possessori (primo possessore, primi 3 e 10, quota del creatore) compaiono quando ci sono almeno 200 token misurati.</div>';
         })()
         + sec('Regole e prova in avanti')
         + (() => {
