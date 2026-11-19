@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 09:58 UTC · in esecuzione da 0.7 giorni · 218 run
+Aggiornato: 2026-11-19 10:03 UTC · in esecuzione da 0.7 giorni · 218 run
 
 | | |
 |---|---|
-| Equity | **5.1425 SOL** (-14.3% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.0397 SOL |
-| Trade chiusi | 50 |
-| Win rate | 28% |
-| P&L realizzato | -0.8565 SOL (~$-63.76) |
-| Media vincite / perdite | +35.3% / -34.6% |
+| Equity | **5.1351 SOL** (-14.4% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.1351 SOL |
+| Trade chiusi | 51 |
+| Win rate | 27% |
+| P&L realizzato | -0.8649 SOL (~$-64.48) |
+| Media vincite / perdite | +35.3% / -33.9% |
 | Profit factor | 0.39 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$smugcat** P-0433 · 0.103 SOL · n/d · resta 100% · [grafico](https://dexscreener.com/solana/GdzmudrdUkFSK9wt9Xqye2BKUxg2wivCLqgdGPVuN9kL)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -22,12 +22,13 @@ Aggiornato: 2026-11-19 09:58 UTC · in esecuzione da 0.7 giorni · 218 run
 | Chiusura manuale (app) | 8 | +0.0627 |
 | RUG-EXIT liquidità | 8 | -0.5936 |
 | TP1 | 6 | +0.4371 |
-| Time stop | 15 | -0.2313 |
+| Time stop | 16 | -0.2397 |
 | Stop loss | 13 | -0.5314 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $smugcat | 67 | -8.1% | -0.0084 | +21% | +3% | Time stop | 5m |
 | $DCTY | 80 | -6.6% | -0.0069 | +64% | +64% | TP1 | 1m |
 | $APOCRYCOIN | 80 | +28.2% | +0.0291 | +54% | +31% | Chiusura manuale (app) | 13m |
 | $jingyu | 84 | +9.7% | +0.0101 | +34% | +22% | Chiusura manuale (app) | 41m |
@@ -52,10 +53,24 @@ Aggiornato: 2026-11-19 09:58 UTC · in esecuzione da 0.7 giorni · 218 run
 | $LUCIA | 88 | -45.2% | -0.0503 | +0% | -95% | RUG-EXIT liquidità | 1m |
 | $VICECITY | 65 | -40.6% | -0.0455 | +20% | -12% | Time stop | 7m |
 | $DUMBGTA6 | 72 | +1.9% | +0.0022 | +0% | -35% | Stop loss | 1m |
-| $Mandy | 88 | -98.3% | -0.1123 | +0% | -97% | RUG-EXIT liquidità | 2m |
 
 ## Ultimi eventi
 ```
+10:03:28 SCRIBE   chiuso P-0433 $smugcat -0.0084 SOL (-8.1%)
+10:03:28 CHARON   Time stop $smugcat vendo 100% a 3.4% -> 0.0955 SOL
+10:03:28 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 240 veto
+10:03:05 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 238 veto
+10:02:42 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 238 veto
+10:02:19 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 238 veto
+10:01:56 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 233 veto
+10:01:33 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 235 veto
+10:01:10 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 238 veto
+10:00:47 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 229 veto
+10:00:23 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 241 veto
+10:00:00 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 238 veto
+09:59:38 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 241 veto
+09:59:14 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 244 veto
+09:58:51 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 244 veto
 09:58:28 QUARTER  BUY $smugcat 0.103 SOL score 67 impatto 0.60% (Jupiter)
 09:58:28 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 246 veto
 09:58:04 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 249 veto
@@ -81,21 +96,6 @@ Aggiornato: 2026-11-19 09:58 UTC · in esecuzione da 0.7 giorni · 218 run
 09:51:06 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 221 veto
 09:50:42 QUARTER  BUY $DCTY 0.103 SOL score 80 impatto 0.44% (Jupiter)
 09:50:42 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 220 veto
-09:50:19 QUARTER  $DCTY impatto 2.6% oltre slippage: annullato
-09:50:19 ORACLE   360 raccolti, 243 analizzati, 2 BUY, 223 veto
-09:49:56 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 221 veto
-09:49:32 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 224 veto
-09:49:09 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 220 veto
-09:48:46 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 224 veto
-09:48:23 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 226 veto
-09:47:59 ORACLE   360 raccolti, 233 analizzati, 1 BUY, 217 veto
-09:47:46 SCOUT    prova Q-0005 eseguita in 31 ms
-09:47:35 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 227 veto
-09:47:12 SCOUT    prova Q-0004 eseguita in 35 ms
-09:47:12 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 233 veto
-09:46:49 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 227 veto
-09:46:25 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 232 veto
-09:46:02 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 236 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
