@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 12:23 UTC · in esecuzione da 0.8 giorni · 221 run
+Aggiornato: 2026-11-19 12:29 UTC · in esecuzione da 0.8 giorni · 221 run
 
 | | |
 |---|---|
-| Equity | **5.1368 SOL** (-14.4% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.1368 SOL |
-| Trade chiusi | 52 |
-| Win rate | 29% |
-| P&L realizzato | -0.8632 SOL (~$-64.47) |
+| Equity | **5.1017 SOL** (-15.0% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.1017 SOL |
+| Trade chiusi | 53 |
+| Win rate | 28% |
+| P&L realizzato | -0.8983 SOL (~$-66.77) |
 | Media vincite / perdite | +33.1% / -33.9% |
-| Profit factor | 0.39 |
+| Profit factor | 0.38 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -23,11 +23,12 @@ _nessuna_
 | RUG-EXIT liquidità | 8 | -0.5936 |
 | TP1 | 6 | +0.4371 |
 | Time stop | 16 | -0.2397 |
-| Stop loss | 14 | -0.5297 |
+| Stop loss | 15 | -0.5648 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $MUSK1 | 67 | -33.8% | -0.0351 | +9% | -32% | Stop loss | 1m |
 | $MILEFUND | 81 | +1.6% | +0.0017 | +0% | -31% | Stop loss | 0m |
 | $smugcat | 67 | -8.1% | -0.0084 | +21% | +3% | Time stop | 5m |
 | $DCTY | 80 | -6.6% | -0.0069 | +64% | +64% | TP1 | 1m |
@@ -52,10 +53,25 @@ _nessuna_
 | $LUCIA | 69 | -13.3% | -0.0145 | +9% | +4% | Time stop | 5m |
 | $Po | 63 | -44.7% | -0.0493 | +9% | -32% | Stop loss | 5m |
 | $LUCIA | 88 | -45.2% | -0.0503 | +0% | -95% | RUG-EXIT liquidità | 1m |
-| $VICECITY | 65 | -40.6% | -0.0455 | +20% | -12% | Time stop | 7m |
 
 ## Ultimi eventi
 ```
+12:28:53 ORACLE   360 raccolti, 236 analizzati, 2 BUY, 223 veto
+12:28:29 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 224 veto
+12:28:04 SCRIBE   chiuso P-0435 $MUSK1 -0.0351 SOL (-33.8%)
+12:28:04 CHARON   Stop loss $MUSK1 vendo 100% a -31.6% -> 0.0686 SOL
+12:28:04 ORACLE   360 raccolti, 233 analizzati, 2 BUY, 220 veto
+12:27:40 ORACLE   360 raccolti, 236 analizzati, 2 BUY, 225 veto
+12:27:16 ORACLE   360 raccolti, 235 analizzati, 2 BUY, 223 veto
+12:26:51 QUARTER  BUY $MUSK1 0.103 SOL score 67 impatto 0.55% (Jupiter)
+12:26:51 ORACLE   360 raccolti, 226 analizzati, 2 BUY, 213 veto
+12:26:27 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 228 veto
+12:26:03 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 229 veto
+12:25:40 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 224 veto
+12:25:16 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 234 veto
+12:24:52 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 240 veto
+12:24:39 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 229 veto
+12:24:13 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 235 veto
 12:23:49 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 237 veto
 12:23:25 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 234 veto
 12:23:01 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 235 veto
@@ -80,22 +96,6 @@ _nessuna_
 12:15:43 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 238 veto
 12:15:19 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 238 veto
 12:14:55 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 243 veto
-12:14:32 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 238 veto
-12:14:09 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 237 veto
-12:13:45 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 244 veto
-12:13:21 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 247 veto
-12:12:57 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 244 veto
-12:12:33 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 236 veto
-12:12:09 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 242 veto
-12:11:45 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 234 veto
-12:11:41 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
-12:11:21 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 241 veto
-12:11:07 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 229 veto
-12:10:41 ORACLE   360 raccolti, 228 analizzati, 1 BUY, 215 veto
-12:10:17 SCRIBE   chiuso P-0434 $MILEFUND 0.0017 SOL (1.6%)
-12:10:17 CHARON   Stop loss $MILEFUND vendo 100% a -31.2% -> 0.1054 SOL
-12:10:17 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 227 veto
-12:09:53 QUARTER  BUY $MILEFUND 0.103 SOL score 81 impatto 0.00% (Jupiter)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
