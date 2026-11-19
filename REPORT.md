@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-19 03:31 UTC · in esecuzione da 0.5 giorni · 211 run
+Aggiornato: 2026-11-19 03:36 UTC · in esecuzione da 0.5 giorni · 211 run
 
 | | |
 |---|---|
-| Equity | **5.2622 SOL** (-12.3% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.1569 SOL |
-| Trade chiusi | 37 |
-| Win rate | 27% |
-| P&L realizzato | -0.7368 SOL (~$-54.16) |
-| Media vincite / perdite | +35.4% / -36.9% |
+| Equity | **5.2521 SOL** (-12.5% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.2521 SOL |
+| Trade chiusi | 38 |
+| Win rate | 26% |
+| P&L realizzato | -0.7479 SOL (~$-55.11) |
+| Media vincite / perdite | +35.4% / -35.9% |
 | Profit factor | 0.35 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$Everglades** P-0420 · 0.105 SOL · n/d · resta 100% · [grafico](https://dexscreener.com/solana/CUVwBiCUecmS76gavf8rBc3AGgrtTLSzQFw9AojoGfoM)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -23,11 +23,12 @@ Aggiornato: 2026-11-19 03:31 UTC · in esecuzione da 0.5 giorni · 211 run
 | RUG-EXIT liquidità | 8 | -0.5936 |
 | TP1 | 4 | +0.3389 |
 | Time stop | 11 | -0.1784 |
-| Stop loss | 8 | -0.3272 |
+| Stop loss | 9 | -0.3383 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $Everglades | 82 | -10.5% | -0.0111 | +0% | -31% | Stop loss | 1m |
 | $GTA Strategy  | 65 | -9.2% | -0.0098 | +59% | -2% | Time stop | 12m |
 | $MANDY | 88 | -62.3% | -0.0671 | +30% | -49% | Stop loss | 2m |
 | $Mabel | 65 | -46.0% | -0.0500 | +20% | -56% | RUG-EXIT liquidità | 3m |
@@ -52,10 +53,24 @@ Aggiornato: 2026-11-19 03:31 UTC · in esecuzione da 0.5 giorni · 211 run
 | $STM | 65 | -32.5% | -0.0373 | +36% | -7% | Time stop | 5m |
 | $AMAZON | 64 | -98.4% | -0.1154 | +8% | -97% | RUG-EXIT liquidità | 1m |
 | $snaps | 72 | -16.5% | -0.0194 | +29% | +3% | Time stop | 6m |
-| $DCTYCAT | 64 | -14.7% | -0.0174 | +18% | -2% | Time stop | 5m |
 
 ## Ultimi eventi
 ```
+03:36:13 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 243 veto
+03:35:49 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 247 veto
+03:35:26 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 243 veto
+03:35:02 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 247 veto
+03:34:39 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 252 veto
+03:34:16 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 236 veto
+03:33:53 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 250 veto
+03:33:29 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 242 veto
+03:33:06 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 233 veto
+03:32:42 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 240 veto
+03:32:19 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 231 veto
+03:32:05 SCRIBE   chiuso P-0420 $Everglades -0.0111 SOL (-10.5%)
+03:32:05 CHARON   Stop loss $Everglades vendo 100% a -31.5% -> 0.0951 SOL
+03:31:55 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 230 veto
+03:31:32 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 230 veto
 03:31:07 QUARTER  BUY $Everglades 0.105 SOL score 82 impatto 0.00% (Jupiter)
 03:31:07 ORACLE   355 raccolti, 248 analizzati, 1 BUY, 233 veto
 03:30:43 ORACLE   351 raccolti, 243 analizzati, 1 BUY, 227 veto
@@ -81,21 +96,6 @@ Aggiornato: 2026-11-19 03:31 UTC · in esecuzione da 0.5 giorni · 211 run
 03:26:03 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
 03:26:03 KAISER   run #211 · 0 posizioni · equity 5.2632 SOL · GMGN spenta (nessuna chiave) · Grok off
 03:25:50 SCRIBE   fine run · trade 37 · win 27% · P&L -0.7368 SOL · equity 5.2632 SOL
-03:25:46 SCRIBE   chiuso P-0419 $GTA Strategy  -0.0098 SOL (-9.2%)
-03:25:46 CHARON   Time stop $GTA Strategy  vendo 100% a -2.5% -> 0.0967 SOL
-03:25:46 ORACLE   360 raccolti, 254 analizzati, 3 BUY, 243 veto
-03:25:23 ORACLE   360 raccolti, 257 analizzati, 3 BUY, 243 veto
-03:25:00 ORACLE   360 raccolti, 264 analizzati, 3 BUY, 250 veto
-03:24:37 ORACLE   360 raccolti, 268 analizzati, 3 BUY, 255 veto
-03:24:14 ORACLE   360 raccolti, 264 analizzati, 3 BUY, 252 veto
-03:23:51 ORACLE   360 raccolti, 258 analizzati, 3 BUY, 248 veto
-03:23:28 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 241 veto
-03:23:05 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 244 veto
-03:22:42 ORACLE   360 raccolti, 258 analizzati, 3 BUY, 243 veto
-03:22:19 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 227 veto
-03:21:56 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 236 veto
-03:21:33 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 241 veto
-03:21:10 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 228 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.

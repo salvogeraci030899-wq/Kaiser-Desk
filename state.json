@@ -1,60 +1,8 @@
 {
  "startedAt": 1795018426579,
  "runs": 211,
- "cash": 5.156921841976477,
- "positions": [
-  {
-   "id": "P-0420",
-   "mint": "8CuPLa1GMedPBFcMJy7bkvjuywCkqjtHofHimjXFpump",
-   "sym": "Everglades",
-   "name": "The Everglades Foundation",
-   "pairAddress": "CUVwBiCUecmS76gavf8rBc3AGgrtTLSzQFw9AojoGfoM",
-   "openedAt": 1795059067153,
-   "sizeSOL": 0.10526371106074443,
-   "cost": 0.10626371106074443,
-   "entry": 4.987380000000001e-7,
-   "tokens": 211060.1379095726,
-   "remaining": 1,
-   "rawLeft": "264107288744",
-   "peak": 4.987380000000001e-7,
-   "tp1Done": false,
-   "spDone": false,
-   "entryLiq": 12598.32,
-   "realized": 0,
-   "score": 82,
-   "why": "runner",
-   "entryInfo": {
-    "srcs": [
-     "profili"
-    ],
-    "notes": [],
-    "plus": [
-     "turnover 3.5x/h",
-     "pressione in acquisto"
-    ],
-    "m": {
-     "liq": 12598.32,
-     "mc": 36181,
-     "ageMin": 12.635483333333333,
-     "v1": 44548.81,
-     "tx1": 1565,
-     "br1": 1.4256965944272446,
-     "br5": 1.5169491525423728,
-     "c5": 53.33,
-     "c1": 25.03,
-     "c6": 25.03,
-     "turn": 3.536091320112523,
-     "price": 0.00003624,
-     "priceNative": 4.938e-7
-    },
-    "grok": null
-   },
-   "last": null,
-   "fills": [
-    "BUY 0.105 impatto 0.00% (Jupiter)"
-   ]
-  }
- ],
+ "cash": 5.252054754456477,
+ "positions": [],
  "journal": [
   {
    "id": "P-0383",
@@ -1805,72 +1753,54 @@
    },
    "maePct": -4.109376752134352,
    "age": 31
+  },
+  {
+   "id": "P-0420",
+   "mint": "8CuPLa1GMedPBFcMJy7bkvjuywCkqjtHofHimjXFpump",
+   "sym": "Everglades",
+   "openedAt": 1795059067153,
+   "closedAt": 1795059125776,
+   "cost": 0.10626371106074443,
+   "back": 0.09513291248,
+   "pnl": -0.011130798580744436,
+   "pct": -10.474694013256928,
+   "mode": "paper",
+   "reason": "Stop loss",
+   "score": 82,
+   "solUsd": 73.5484324811825,
+   "peakPct": 0,
+   "trigPct": -31.46702276546003,
+   "entryInfo": {
+    "srcs": [
+     "profili"
+    ],
+    "notes": [],
+    "plus": [
+     "turnover 3.5x/h",
+     "pressione in acquisto"
+    ],
+    "m": {
+     "liq": 12598.32,
+     "mc": 36181,
+     "ageMin": 12.635483333333333,
+     "v1": 44548.81,
+     "tx1": 1565,
+     "br1": 1.4256965944272446,
+     "br5": 1.5169491525423728,
+     "c5": 53.33,
+     "c1": 25.03,
+     "c6": 25.03,
+     "turn": 3.536091320112523,
+     "price": 0.00003624,
+     "priceNative": 4.938e-7
+    },
+    "grok": null
+   },
+   "maePct": -31.46702276546003,
+   "age": 13
   }
  ],
  "signals": [
-  {
-   "t": 1795031117548,
-   "mint": "FPLhhTPAnu9JXjaeWetzJUs9jLA5DTHD4TsYz6g1pump",
-   "sym": "MEMECOIN",
-   "score": 75,
-   "priceNative": 5.932e-7
-  },
-  {
-   "t": 1795031141031,
-   "mint": "FPLhhTPAnu9JXjaeWetzJUs9jLA5DTHD4TsYz6g1pump",
-   "sym": "MEMECOIN",
-   "score": 67,
-   "priceNative": 5.562e-7
-  },
-  {
-   "t": 1795031164462,
-   "mint": "FPLhhTPAnu9JXjaeWetzJUs9jLA5DTHD4TsYz6g1pump",
-   "sym": "MEMECOIN",
-   "score": 67,
-   "priceNative": 5.562e-7
-  },
-  {
-   "t": 1795031187985,
-   "mint": "FPLhhTPAnu9JXjaeWetzJUs9jLA5DTHD4TsYz6g1pump",
-   "sym": "MEMECOIN",
-   "score": 67,
-   "priceNative": 5.562e-7
-  },
-  {
-   "t": 1795031210511,
-   "mint": "FPLhhTPAnu9JXjaeWetzJUs9jLA5DTHD4TsYz6g1pump",
-   "sym": "MEMECOIN",
-   "score": 72,
-   "priceNative": 6.588e-7
-  },
-  {
-   "t": 1795031233431,
-   "mint": "FPLhhTPAnu9JXjaeWetzJUs9jLA5DTHD4TsYz6g1pump",
-   "sym": "MEMECOIN",
-   "score": 72,
-   "priceNative": 7.055e-7
-  },
-  {
-   "t": 1795031255663,
-   "mint": "FPLhhTPAnu9JXjaeWetzJUs9jLA5DTHD4TsYz6g1pump",
-   "sym": "MEMECOIN",
-   "score": 72,
-   "priceNative": 7.055e-7
-  },
-  {
-   "t": 1795031278422,
-   "mint": "FPLhhTPAnu9JXjaeWetzJUs9jLA5DTHD4TsYz6g1pump",
-   "sym": "MEMECOIN",
-   "score": 66,
-   "priceNative": 5.442e-7
-  },
-  {
-   "t": 1795031323425,
-   "mint": "HTLJifKcWvfZCzzR4iXwbXwzvNGJCqLWTzQ7XRwhpump",
-   "sym": "NGA6",
-   "score": 65,
-   "priceNative": 6.14e-7
-  },
   {
    "t": 1795031345552,
    "mint": "HTLJifKcWvfZCzzR4iXwbXwzvNGJCqLWTzQ7XRwhpump",
@@ -8807,16 +8737,94 @@
    "sym": "Everglades",
    "score": 82,
    "priceNative": 4.938e-7
+  },
+  {
+   "t": 1795059092291,
+   "mint": "8CuPLa1GMedPBFcMJy7bkvjuywCkqjtHofHimjXFpump",
+   "sym": "Everglades",
+   "score": 84,
+   "priceNative": 4.279e-7
+  },
+  {
+   "t": 1795059115688,
+   "mint": "8CuPLa1GMedPBFcMJy7bkvjuywCkqjtHofHimjXFpump",
+   "sym": "Everglades",
+   "score": 84,
+   "priceNative": 4.279e-7
+  },
+  {
+   "t": 1795059139814,
+   "mint": "8CuPLa1GMedPBFcMJy7bkvjuywCkqjtHofHimjXFpump",
+   "sym": "Everglades",
+   "score": 79,
+   "priceNative": 3.907e-7
+  },
+  {
+   "t": 1795059162624,
+   "mint": "8CuPLa1GMedPBFcMJy7bkvjuywCkqjtHofHimjXFpump",
+   "sym": "Everglades",
+   "score": 79,
+   "priceNative": 3.907e-7
+  },
+  {
+   "t": 1795059186157,
+   "mint": "8CuPLa1GMedPBFcMJy7bkvjuywCkqjtHofHimjXFpump",
+   "sym": "Everglades",
+   "score": 78,
+   "priceNative": 3.547e-7
+  },
+  {
+   "t": 1795059209103,
+   "mint": "8CuPLa1GMedPBFcMJy7bkvjuywCkqjtHofHimjXFpump",
+   "sym": "Everglades",
+   "score": 78,
+   "priceNative": 3.547e-7
+  },
+  {
+   "t": 1795059326188,
+   "mint": "92m4S52bu3dZyqzPmPStu8Krz6JcpzHdsG4D5QBqpump",
+   "sym": "GTA Strategy ",
+   "score": 66,
+   "priceNative": 6.127e-7
+  },
+  {
+   "t": 1795059349586,
+   "mint": "92m4S52bu3dZyqzPmPStu8Krz6JcpzHdsG4D5QBqpump",
+   "sym": "GTA Strategy ",
+   "score": 66,
+   "priceNative": 6.127e-7
+  },
+  {
+   "t": 1795059373191,
+   "mint": "8CuPLa1GMedPBFcMJy7bkvjuywCkqjtHofHimjXFpump",
+   "sym": "Everglades",
+   "score": 63,
+   "priceNative": 2.036e-7
   }
  ],
  "day": {
   "date": "2026-11-19",
   "startEq": 5.552519002778684
  },
- "cooldownUntil": 1795059046308,
+ "cooldownUntil": 1795059425778,
  "halted": null,
  "seq": 420,
  "events": [
+  "03:36:13 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 243 veto",
+  "03:35:49 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 247 veto",
+  "03:35:26 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 243 veto",
+  "03:35:02 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 247 veto",
+  "03:34:39 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 252 veto",
+  "03:34:16 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 236 veto",
+  "03:33:53 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 250 veto",
+  "03:33:29 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 242 veto",
+  "03:33:06 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 233 veto",
+  "03:32:42 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 240 veto",
+  "03:32:19 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 231 veto",
+  "03:32:05 SCRIBE   chiuso P-0420 $Everglades -0.0111 SOL (-10.5%)",
+  "03:32:05 CHARON   Stop loss $Everglades vendo 100% a -31.5% -> 0.0951 SOL",
+  "03:31:55 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 230 veto",
+  "03:31:32 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 230 veto",
   "03:31:07 QUARTER  BUY $Everglades 0.105 SOL score 82 impatto 0.00% (Jupiter)",
   "03:31:07 ORACLE   355 raccolti, 248 analizzati, 1 BUY, 233 veto",
   "03:30:43 ORACLE   351 raccolti, 243 analizzati, 1 BUY, 227 veto",
@@ -9101,22 +9109,7 @@
   "02:00:24 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 224 veto",
   "02:00:09 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 228 veto",
   "01:59:43 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 230 veto",
-  "01:59:29 QUARTER  BUY $COGITO 0.109 SOL score 74 impatto 0.89% (Jupiter)",
-  "01:59:29 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 229 veto",
-  "01:59:04 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 224 veto",
-  "01:58:40 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 227 veto",
-  "01:58:16 ORACLE   360 raccolti, 232 analizzati, 0 BUY, 220 veto",
-  "01:58:03 ORACLE   360 raccolti, 226 analizzati, 0 BUY, 214 veto",
-  "01:57:37 ORACLE   360 raccolti, 230 analizzati, 0 BUY, 215 veto",
-  "01:57:14 ORACLE   360 raccolti, 222 analizzati, 0 BUY, 208 veto",
-  "01:56:49 ORACLE   360 raccolti, 235 analizzati, 0 BUY, 223 veto",
-  "01:56:26 ORACLE   360 raccolti, 232 analizzati, 0 BUY, 219 veto",
-  "01:56:02 ORACLE   360 raccolti, 231 analizzati, 0 BUY, 217 veto",
-  "01:55:37 ORACLE   360 raccolti, 228 analizzati, 0 BUY, 216 veto",
-  "01:55:13 ORACLE   360 raccolti, 223 analizzati, 0 BUY, 214 veto",
-  "01:54:49 ORACLE   360 raccolti, 217 analizzati, 0 BUY, 207 veto",
-  "01:54:24 ORACLE   360 raccolti, 227 analizzati, 0 BUY, 217 veto",
-  "01:54:00 ORACLE   360 raccolti, 225 analizzati, 0 BUY, 215 veto"
+  "01:59:29 QUARTER  BUY $COGITO 0.109 SOL score 74 impatto 0.89% (Jupiter)"
  ],
  "capital": 6,
  "resetId": "C-0099",
@@ -19164,10 +19157,6 @@
  "lastDaily": "2026-11-18",
  "cal": [
   {
-   "t": 1794936148485,
-   "g": -3.7
-  },
-  {
    "t": 1794936863557,
    "g": -41.5
   },
@@ -19562,6 +19551,10 @@
   {
    "t": 1795058746306,
    "g": -4
+  },
+  {
+   "t": 1795059125776,
+   "g": 35.2
   }
  ]
 }
