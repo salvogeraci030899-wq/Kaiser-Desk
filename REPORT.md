@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 15:24 UTC · in esecuzione da 1.0 giorni · 253 run
+Aggiornato: 2026-11-20 15:28 UTC · in esecuzione da 1.0 giorni · 253 run
 
 | | |
 |---|---|
-| Equity | **5.1424 SOL** (-14.3% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.0396 SOL |
-| Trade chiusi | 92 |
+| Equity | **5.1336 SOL** (-14.4% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.1336 SOL |
+| Trade chiusi | 93 |
 | Win rate | 28% |
-| P&L realizzato | -0.8565 SOL (~$-58.68) |
-| Media vincite / perdite | +39.7% / -27.0% |
+| P&L realizzato | -0.8664 SOL (~$-59.67) |
+| Media vincite / perdite | +39.7% / -26.7% |
 | Profit factor | 0.57 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$小面包** P-0529 · 0.103 SOL · -0.1% · resta 100% · [grafico](https://dexscreener.com/solana/8oh9Kk2GwTk1WyRHUyfYr3rKPySW5TvqeDYM94occEeX)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 30 | -0.8348 |
-| Time stop | 36 | -0.4997 |
+| Time stop | 37 | -0.5096 |
 | TP1 | 15 | +0.8363 |
 | RUG-EXIT liquidità | 11 | -0.3583 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $小面包 | 63 | -9.5% | -0.0098 | +4% | -8% | Time stop | 5m |
 | $BOSSCHICO | 69 | -15.5% | -0.0162 | +11% | -12% | Time stop | 5m |
 | $DIESEL | 64 | -5.6% | -0.0059 | +0% | -66% | RUG-EXIT liquidità | 0m |
 | $Bobo | 63 | -42.9% | -0.0452 | +15% | -36% | Stop loss | 3m |
@@ -51,10 +52,23 @@ Aggiornato: 2026-11-20 15:24 UTC · in esecuzione da 1.0 giorni · 253 run
 | $MARK | 63 | +20.6% | +0.0222 | +60% | +60% | TP1 | 6m |
 | $ㅤㅤ | 67 | +7.1% | +0.0076 | +7% | +0% | Time stop | 5m |
 | $SNOWFLAKE | 69 | -34.3% | -0.0371 | +0% | -38% | Stop loss | 1m |
-| $HARAMBE | 67 | -53.1% | -0.0580 | +24% | -34% | Stop loss | 5m |
 
 ## Ultimi eventi
 ```
+15:28:25 SCRIBE   fine run · trade 93 · win 28% · P&L -0.8664 SOL · equity 5.1336 SOL
+15:28:11 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 259 veto
+15:27:58 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 257 veto
+15:27:32 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 257 veto
+15:27:18 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 251 veto
+15:26:53 ORACLE   360 raccolti, 279 analizzati, 2 BUY, 269 veto
+15:26:29 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 262 veto
+15:26:05 SCRIBE   chiuso P-0529 $小面包 -0.0098 SOL (-9.5%)
+15:26:05 CHARON   Time stop $小面包 vendo 100% a -7.7% -> 0.0940 SOL
+15:26:05 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 248 veto
+15:25:42 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 256 veto
+15:25:18 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 259 veto
+15:24:54 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 257 veto
+15:24:30 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 258 veto
 15:24:07 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 254 veto
 15:23:44 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 242 veto
 15:23:20 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 253 veto
@@ -81,20 +95,6 @@ Aggiornato: 2026-11-20 15:24 UTC · in esecuzione da 1.0 giorni · 253 run
 15:15:40 SCRIBE   chiuso P-0528 $BOSSCHICO -0.0162 SOL (-15.5%)
 15:15:40 CHARON   Time stop $BOSSCHICO vendo 100% a -11.8% -> 0.0880 SOL
 15:15:40 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 230 veto
-15:15:15 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 242 veto
-15:14:51 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 236 veto
-15:14:27 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 234 veto
-15:14:04 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 227 veto
-15:13:40 ORACLE   360 raccolti, 240 analizzati, 2 BUY, 229 veto
-15:13:16 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 226 veto
-15:12:52 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 224 veto
-15:12:29 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 226 veto
-15:12:05 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 226 veto
-15:11:41 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 234 veto
-15:11:17 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 233 veto
-15:10:53 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 227 veto
-15:10:38 QUARTER  BUY $BOSSCHICO 0.103 SOL score 69 impatto 1.82% (Jupiter)
-15:10:38 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 225 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
