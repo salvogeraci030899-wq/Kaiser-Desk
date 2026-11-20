@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 11:12 UTC · in esecuzione da 0.9 giorni · 248 run
+Aggiornato: 2026-11-20 11:16 UTC · in esecuzione da 0.9 giorni · 248 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-20 11:12 UTC · in esecuzione da 0.9 giorni · 248 run
 | Cassa | 5.3069 SOL |
 | Trade chiusi | 80 |
 | Win rate | 30% |
-| P&L realizzato | -0.6931 SOL (~$-49.94) |
+| P&L realizzato | -0.6931 SOL (~$-49.86) |
 | Media vincite / perdite | +37.6% / -26.7% |
 | Profit factor | 0.59 |
 | Circuit breaker | no |
@@ -55,6 +55,17 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+11:16:36 SCRIBE   fine run · trade 80 · win 30% · P&L -0.6931 SOL · equity 5.3069 SOL
+11:16:25 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 266 veto
+11:16:03 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 267 veto
+11:15:41 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 254 veto
+11:15:16 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 261 veto
+11:14:53 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 261 veto
+11:14:30 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 254 veto
+11:14:07 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 264 veto
+11:13:43 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 264 veto
+11:13:20 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 266 veto
+11:12:57 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 265 veto
 11:12:35 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 262 veto
 11:12:12 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 259 veto
 11:11:49 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 261 veto
@@ -84,17 +95,6 @@ _nessuna_
 11:05:24 QUARTER  $MAIN impatto 2.3% oltre slippage: annullato
 11:05:24 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 247 veto
 11:05:11 QUARTER  $MAIN impatto 2.1% oltre slippage: annullato
-11:05:11 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 260 veto
-11:04:45 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 252 veto
-11:04:23 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 237 veto
-11:04:00 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 254 veto
-11:03:35 QUARTER  $MAIN impatto 2.3% oltre slippage: annullato
-11:03:35 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 251 veto
-11:03:12 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 252 veto
-11:02:49 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 250 veto
-11:02:27 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 254 veto
-11:02:04 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 247 veto
-11:01:41 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 258 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
