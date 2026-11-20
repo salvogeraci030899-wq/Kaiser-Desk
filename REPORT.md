@@ -1,25 +1,25 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 14:48 UTC · in esecuzione da 1.0 giorni · 253 run
+Aggiornato: 2026-11-20 14:53 UTC · in esecuzione da 1.0 giorni · 253 run
 
 | | |
 |---|---|
-| Equity | **5.2247 SOL** (-12.9% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.1055 SOL |
-| Trade chiusi | 89 |
+| Equity | **5.1655 SOL** (-13.9% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.1655 SOL |
+| Trade chiusi | 90 |
 | Win rate | 29% |
-| P&L realizzato | -0.7893 SOL (~$-55.90) |
-| Media vincite / perdite | +39.7% / -27.2% |
-| Profit factor | 0.59 |
+| P&L realizzato | -0.8345 SOL (~$-59.02) |
+| Media vincite / perdite | +39.7% / -27.5% |
+| Profit factor | 0.58 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$Bobo** P-0526 · 0.104 SOL · +14.4% · resta 100% · [grafico](https://dexscreener.com/solana/r65E6jtjgipJcGF52DcA2NaRhJgusYdzsB6njuUXeeA)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| Stop loss | 29 | -0.7896 |
+| Stop loss | 30 | -0.8348 |
 | Time stop | 35 | -0.4836 |
 | TP1 | 15 | +0.8363 |
 | RUG-EXIT liquidità | 10 | -0.3525 |
@@ -27,6 +27,7 @@ Aggiornato: 2026-11-20 14:48 UTC · in esecuzione da 1.0 giorni · 253 run
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $Bobo | 63 | -42.9% | -0.0452 | +15% | -36% | Stop loss | 3m |
 | $Huss | 72 | -22.1% | -0.0233 | +12% | -37% | Stop loss | 2m |
 | $Catalyst | 67 | -65.9% | -0.0706 | +31% | -47% | RUG-EXIT liquidità | 4m |
 | $WCAT | 63 | -34.1% | -0.0368 | +7% | -17% | Time stop | 5m |
@@ -51,10 +52,24 @@ Aggiornato: 2026-11-20 14:48 UTC · in esecuzione da 1.0 giorni · 253 run
 | $HARAMBE | 67 | -53.1% | -0.0580 | +24% | -34% | Stop loss | 5m |
 | $Turkey | 63 | +10.7% | +0.0117 | +0% | -40% | Stop loss | 1m |
 | $SI | 76 | -56.7% | -0.0625 | +27% | -15% | Time stop | 5m |
-| $ARTIFICIAL | 68 | -11.7% | -0.0129 | +0% | -25% | Time stop | 5m |
 
 ## Ultimi eventi
 ```
+14:53:49 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 231 veto
+14:53:25 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 237 veto
+14:53:02 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 235 veto
+14:52:38 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 235 veto
+14:52:14 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 237 veto
+14:51:50 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 237 veto
+14:51:27 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 231 veto
+14:51:01 SCRIBE   chiuso P-0526 $Bobo -0.0452 SOL (-42.9%)
+14:51:01 CHARON   Stop loss $Bobo vendo 100% a -35.7% -> 0.0600 SOL
+14:51:01 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 241 veto
+14:50:37 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 245 veto
+14:50:13 ORACLE   360 raccolti, 246 analizzati, 3 BUY, 237 veto
+14:49:50 ORACLE   360 raccolti, 252 analizzati, 3 BUY, 243 veto
+14:49:27 ORACLE   360 raccolti, 257 analizzati, 3 BUY, 247 veto
+14:49:02 ORACLE   360 raccolti, 242 analizzati, 3 BUY, 236 veto
 14:48:38 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 254 veto
 14:48:14 QUARTER  BUY $Bobo 0.104 SOL score 63 impatto 0.00% (Jupiter)
 14:48:14 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 245 veto
@@ -80,23 +95,6 @@ Aggiornato: 2026-11-20 14:48 UTC · in esecuzione da 1.0 giorni · 253 run
 14:40:21 ORACLE   297 raccolti, 198 analizzati, 1 BUY, 192 veto
 14:39:58 ORACLE   283 raccolti, 186 analizzati, 1 BUY, 180 veto
 14:39:36 ORACLE   278 raccolti, 181 analizzati, 1 BUY, 175 veto
-14:39:12 ORACLE   224 raccolti, 133 analizzati, 1 BUY, 128 veto
-14:38:50 ORACLE   210 raccolti, 130 analizzati, 1 BUY, 126 veto
-14:38:48 SCOUT    rug: 9131 token oltre 7.5K, 35.4% rug, 4277 con possessori
-combinazioni: 4656 prove, migliore -6.53%, p 1
-fabbrica: 25471 percorsi, 768 configurazioni, 0 passano, 4098 ms
-14:38:28 ORACLE   208 raccolti, 114 analizzati, 1 BUY, 111 veto
-14:38:25 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
-14:38:25 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120
-14:38:25 KAISER   run #253 · 0 posizioni · equity 5.2107 SOL · GMGN spenta (nessuna chiave) · Grok off
-14:38:03 SCRIBE   fine run · trade 89 · win 29% · P&L -0.7893 SOL · equity 5.2107 SOL
-14:37:46 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 252 veto
-14:37:23 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 245 veto
-14:37:09 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 248 veto
-14:36:44 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 245 veto
-14:36:21 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 234 veto
-14:35:57 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 243 veto
-14:35:33 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 245 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
