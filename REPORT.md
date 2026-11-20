@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 22:31 UTC · in esecuzione da 1.3 giorni · 262 run
+Aggiornato: 2026-11-20 22:36 UTC · in esecuzione da 1.3 giorni · 262 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-20 22:31 UTC · in esecuzione da 1.3 giorni · 262 run
 | Cassa | 5.0540 SOL |
 | Trade chiusi | 124 |
 | Win rate | 31% |
-| P&L realizzato | -0.9460 SOL (~$-65.13) |
+| P&L realizzato | -0.9460 SOL (~$-65.14) |
 | Media vincite / perdite | +43.3% / -29.6% |
 | Profit factor | 0.66 |
 | Circuit breaker | no |
@@ -55,6 +55,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+22:36:11 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 234 veto
+22:35:48 ORACLE   360 raccolti, 234 analizzati, 2 BUY, 225 veto
+22:35:24 ORACLE   360 raccolti, 225 analizzati, 1 BUY, 216 veto
+22:35:10 ORACLE   360 raccolti, 226 analizzati, 2 BUY, 216 veto
+22:34:45 ORACLE   360 raccolti, 238 analizzati, 2 BUY, 229 veto
+22:34:21 ORACLE   360 raccolti, 240 analizzati, 2 BUY, 233 veto
+22:33:57 ORACLE   360 raccolti, 235 analizzati, 2 BUY, 229 veto
+22:33:34 ORACLE   360 raccolti, 228 analizzati, 2 BUY, 220 veto
+22:33:09 ORACLE   360 raccolti, 233 analizzati, 2 BUY, 227 veto
+22:32:46 ORACLE   360 raccolti, 229 analizzati, 2 BUY, 224 veto
+22:32:23 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 232 veto
+22:31:58 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 232 veto
+22:31:35 ORACLE   360 raccolti, 222 analizzati, 2 BUY, 215 veto
+22:31:31 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
 22:31:11 ORACLE   360 raccolti, 243 analizzati, 2 BUY, 234 veto
 22:30:47 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 242 veto
 22:30:23 ORACLE   360 raccolti, 252 analizzati, 3 BUY, 244 veto
@@ -81,20 +95,6 @@ _nessuna_
 22:23:40 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 245 veto
 22:23:15 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 255 veto
 22:22:50 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 235 veto
-22:22:27 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 237 veto
-22:22:02 QUARTER  BUY $Singularity 0.101 SOL score 68 impatto 1.35% (Jupiter)
-22:22:02 ORACLE   360 raccolti, 238 analizzati, 2 BUY, 231 veto
-22:21:38 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 238 veto
-22:21:14 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 238 veto
-22:21:00 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 241 veto
-22:20:34 ORACLE   360 raccolti, 234 analizzati, 2 BUY, 226 veto
-22:20:20 ORACLE   360 raccolti, 228 analizzati, 2 BUY, 220 veto
-22:19:54 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 236 veto
-22:19:31 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 227 veto
-22:19:17 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 222 veto
-22:18:47 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 233 veto
-22:18:34 ORACLE   360 raccolti, 232 analizzati, 0 BUY, 219 veto
-22:18:17 ORACLE   360 raccolti, 236 analizzati, 0 BUY, 223 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
