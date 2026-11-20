@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 03:19 UTC · in esecuzione da 0.5 giorni · 239 run
+Aggiornato: 2026-11-20 03:24 UTC · in esecuzione da 0.5 giorni · 239 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-20 03:19 UTC · in esecuzione da 0.5 giorni · 239 run
 | Cassa | 5.5892 SOL |
 | Trade chiusi | 59 |
 | Win rate | 29% |
-| P&L realizzato | -0.4108 SOL (~$-29.94) |
+| P&L realizzato | -0.4108 SOL (~$-29.83) |
 | Media vincite / perdite | +43.0% / -25.5% |
 | Profit factor | 0.67 |
 | Circuit breaker | no |
@@ -55,6 +55,23 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+03:24:17 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 230 veto
+03:23:55 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 233 veto
+03:23:32 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 229 veto
+03:23:09 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 240 veto
+03:22:46 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 238 veto
+03:22:23 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 232 veto
+03:22:00 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 237 veto
+03:21:38 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 235 veto
+03:21:16 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 229 veto
+03:20:53 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 233 veto
+03:20:29 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 223 veto
+03:20:06 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 228 veto
+03:19:44 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 235 veto
+03:19:21 SCOUT    regola C-052: corrente (nuova strategia: 10K rit. 10s +10/-15 60s: vecchi -7.84%, recenti -7.7%)
+03:19:21 SCOUT    regola C-051: ritirata (102 operazioni in avanti, esito medio -14.9% (±5.2): non regge)
+03:19:21 SCOUT    strategia C-052: corrente: nuova strategia: 10K rit. 10s +10/-15 60s: vecchi -7.84%, recenti -7.7%
+03:19:21 SCOUT    strategia C-051: ritirata: 102 operazioni in avanti, esito medio -14.9% (±5.2): non regge
 03:19:21 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 227 veto
 03:18:59 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 226 veto
 03:18:35 SCRIBE   chiuso P-0495 $LOOSY -0.0141 SOL (-12.5%)
@@ -78,23 +95,6 @@ _nessuna_
 03:12:51 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 245 veto
 03:12:28 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 245 veto
 03:12:06 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 236 veto
-03:11:43 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 242 veto
-03:11:20 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 237 veto
-03:10:58 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 237 veto
-03:10:35 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 238 veto
-03:10:12 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 240 veto
-03:09:50 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 234 veto
-03:09:26 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 240 veto
-03:09:04 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 232 veto
-03:08:40 ORACLE   360 raccolti, 232 analizzati, 0 BUY, 219 veto
-03:08:38 SCOUT    gecko nuovi: HTTP 404 (riuso l'ultimo elenco)
-03:08:18 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 236 veto
-03:07:55 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 233 veto
-03:07:32 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 230 veto
-03:07:10 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 224 veto
-03:06:46 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 223 veto
-03:06:23 ORACLE   360 raccolti, 234 analizzati, 0 BUY, 218 veto
-03:06:00 ORACLE   360 raccolti, 236 analizzati, 0 BUY, 222 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
