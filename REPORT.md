@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 05:15 UTC · in esecuzione da 0.6 giorni · 241 run
+Aggiornato: 2026-11-20 05:20 UTC · in esecuzione da 0.6 giorni · 241 run
 
 | | |
 |---|---|
-| Equity | **5.4032 SOL** (-9.9% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.4032 SOL |
-| Trade chiusi | 66 |
-| Win rate | 27% |
-| P&L realizzato | -0.5968 SOL (~$-42.95) |
-| Media vincite / perdite | +41.0% / -26.0% |
-| Profit factor | 0.58 |
+| Equity | **5.4149 SOL** (-9.8% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.4149 SOL |
+| Trade chiusi | 67 |
+| Win rate | 28% |
+| P&L realizzato | -0.5851 SOL (~$-42.11) |
+| Media vincite / perdite | +39.4% / -26.0% |
+| Profit factor | 0.59 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -19,7 +19,7 @@ _nessuna_
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| Stop loss | 20 | -0.5000 |
+| Stop loss | 21 | -0.4884 |
 | Time stop | 27 | -0.3599 |
 | TP1 | 10 | +0.5450 |
 | RUG-EXIT liquidità | 9 | -0.2819 |
@@ -27,6 +27,7 @@ _nessuna_
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $Turkey | 63 | +10.7% | +0.0117 | +0% | -40% | Stop loss | 1m |
 | $SI | 76 | -56.7% | -0.0625 | +27% | -15% | Time stop | 5m |
 | $ARTIFICIAL | 68 | -11.7% | -0.0129 | +0% | -25% | Time stop | 5m |
 | $ZOL | 66 | -10.4% | -0.0115 | +0% | -33% | Stop loss | 3m |
@@ -51,10 +52,26 @@ _nessuna_
 | $WIFGTA6 | 70 | -0.3% | -0.0003 | +40% | +2% | Time stop | 7m |
 | $AI | 78 | -10.0% | -0.0109 | +12% | +1% | Time stop | 7m |
 | $Anthropia | 65 | -5.9% | -0.0064 | +0% | -96% | RUG-EXIT liquidità | 0m |
-| $BIAOQING | 65 | +33.1% | +0.0358 | +0% | -37% | Stop loss | 0m |
 
 ## Ultimi eventi
 ```
+05:20:57 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 226 veto
+05:20:34 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 227 veto
+05:20:10 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 226 veto
+05:19:47 SCRIBE   chiuso P-0503 $Turkey 0.0117 SOL (10.7%)
+05:19:47 CHARON   Stop loss $Turkey vendo 100% a -40.5% -> 0.1207 SOL
+05:19:47 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 229 veto
+05:19:24 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 234 veto
+05:19:01 QUARTER  BUY $Turkey 0.108 SOL score 63 impatto 1.57% (Jupiter)
+05:19:01 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 229 veto
+05:18:38 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 240 veto
+05:18:15 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 242 veto
+05:17:52 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 234 veto
+05:17:29 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 243 veto
+05:17:07 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 240 veto
+05:16:44 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 241 veto
+05:16:21 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 245 veto
+05:15:57 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 241 veto
 05:15:35 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 239 veto
 05:15:12 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 248 veto
 05:14:49 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 241 veto
@@ -78,23 +95,6 @@ _nessuna_
 05:09:04 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 240 veto
 05:08:41 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 241 veto
 05:08:18 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 242 veto
-05:07:56 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 240 veto
-05:07:33 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 240 veto
-05:07:09 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 243 veto
-05:06:46 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 247 veto
-05:06:23 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 244 veto
-05:06:00 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 245 veto
-05:05:37 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 255 veto
-05:05:14 QUARTER  BUY $SI 0.109 SOL score 76 impatto 0.63% (Jupiter)
-05:05:14 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 241 veto
-05:04:51 QUARTER  $SI impatto 3.0% oltre slippage: annullato
-05:04:51 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 248 veto
-05:04:28 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 244 veto
-05:04:05 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 241 veto
-05:03:42 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 247 veto
-05:03:19 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 243 veto
-05:02:56 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 237 veto
-05:02:33 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 242 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
