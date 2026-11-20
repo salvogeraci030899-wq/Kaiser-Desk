@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 19:30 UTC · in esecuzione da 1.2 giorni · 258 run
+Aggiornato: 2026-11-20 19:35 UTC · in esecuzione da 1.2 giorni · 258 run
 
 | | |
 |---|---|
-| Equity | **5.3036 SOL** (-11.6% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.1890 SOL |
-| Trade chiusi | 108 |
+| Equity | **5.2787 SOL** (-12.0% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.2787 SOL |
+| Trade chiusi | 109 |
 | Win rate | 31% |
-| P&L realizzato | -0.7041 SOL (~$-47.79) |
-| Media vincite / perdite | +42.5% / -27.6% |
+| P&L realizzato | -0.7213 SOL (~$-48.95) |
+| Media vincite / perdite | +42.5% / -27.5% |
 | Profit factor | 0.69 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$FIENA** P-0545 · 0.106 SOL · +8.2% · resta 100% · [grafico](https://dexscreener.com/solana/M7XsxP1Z6W4CnSBwR2voAifVdDCRQeF4CPJdhqyXxHy)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 33 | -0.9947 |
-| Time stop | 41 | -0.4766 |
+| Time stop | 42 | -0.4937 |
 | TP1 | 22 | +1.1852 |
 | RUG-EXIT liquidità | 12 | -0.4181 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $FIENA | 88 | -16.0% | -0.0171 | +9% | -2% | Time stop | 5m |
 | $FIONAWIF | 88 | -35.2% | -0.0379 | +8% | -10% | Time stop | 5m |
 | $Singularity | 88 | -22.8% | -0.0247 | +0% | -43% | Stop loss | 0m |
 | $Singularity | 64 | +44.4% | +0.0476 | +64% | +64% | TP1 | 4m |
@@ -51,10 +52,25 @@ Aggiornato: 2026-11-20 19:30 UTC · in esecuzione da 1.2 giorni · 258 run
 | $WCAT | 63 | -34.1% | -0.0368 | +7% | -17% | Time stop | 5m |
 | $Antjak | 68 | -49.3% | -0.0537 | +9% | -33% | Stop loss | 4m |
 | $Raja | 65 | +36.4% | +0.0394 | +65% | +65% | TP1 | 3m |
-| $ZEN | 67 | -21.0% | -0.0228 | +11% | -17% | Time stop | 5m |
 
 ## Ultimi eventi
 ```
+19:35:38 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 231 veto
+19:35:25 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 229 veto
+19:35:08 SCOUT    Laboratorio: collegato a PumpPortal
+19:34:59 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 235 veto
+19:34:36 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 239 veto
+19:34:13 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 235 veto
+19:33:50 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 248 veto
+19:33:25 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 238 veto
+19:33:02 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 243 veto
+19:32:38 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 242 veto
+19:32:25 SCRIBE   chiuso P-0545 $FIENA -0.0171 SOL (-16.0%)
+19:32:25 CHARON   Time stop $FIENA vendo 100% a -2.1% -> 0.0898 SOL
+19:32:15 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 242 veto
+19:31:51 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 224 veto
+19:31:28 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 245 veto
+19:31:04 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 238 veto
 19:30:41 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 239 veto
 19:30:26 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 235 veto
 19:30:00 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 235 veto
@@ -79,22 +95,6 @@ Aggiornato: 2026-11-20 19:30 UTC · in esecuzione da 1.2 giorni · 258 run
 19:23:13 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 235 veto
 19:22:50 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 233 veto
 19:22:27 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 248 veto
-19:22:03 SCRIBE   chiuso P-0544 $FIONAWIF -0.0379 SOL (-35.2%)
-19:22:03 CHARON   Time stop $FIONAWIF vendo 100% a -10.4% -> 0.0698 SOL
-19:22:03 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 242 veto
-19:21:39 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 242 veto
-19:21:16 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 250 veto
-19:20:52 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 249 veto
-19:20:29 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 246 veto
-19:20:05 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 254 veto
-19:19:41 ORACLE   360 raccolti, 260 analizzati, 3 BUY, 250 veto
-19:19:18 ORACLE   360 raccolti, 257 analizzati, 3 BUY, 246 veto
-19:19:15 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)
-19:18:54 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 254 veto
-19:18:31 ORACLE   360 raccolti, 259 analizzati, 3 BUY, 250 veto
-19:18:07 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 247 veto
-19:17:43 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 251 veto
-19:17:20 ORACLE   360 raccolti, 245 analizzati, 3 BUY, 238 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
