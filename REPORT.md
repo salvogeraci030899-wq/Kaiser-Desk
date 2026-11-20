@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 05:50 UTC · in esecuzione da 0.6 giorni · 242 run
+Aggiornato: 2026-11-20 05:55 UTC · in esecuzione da 0.7 giorni · 242 run
 
 | | |
 |---|---|
-| Equity | **5.3569 SOL** (-10.7% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.3569 SOL |
-| Trade chiusi | 68 |
+| Equity | **5.3198 SOL** (-11.3% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.3198 SOL |
+| Trade chiusi | 69 |
 | Win rate | 28% |
-| P&L realizzato | -0.6431 SOL (~$-46.74) |
-| Media vincite / perdite | +39.4% / -26.5% |
-| Profit factor | 0.57 |
+| P&L realizzato | -0.6802 SOL (~$-49.48) |
+| Media vincite / perdite | +39.4% / -26.7% |
+| Profit factor | 0.55 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -19,7 +19,7 @@ _nessuna_
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| Stop loss | 22 | -0.5464 |
+| Stop loss | 23 | -0.5834 |
 | Time stop | 27 | -0.3599 |
 | TP1 | 10 | +0.5450 |
 | RUG-EXIT liquidità | 9 | -0.2819 |
@@ -27,6 +27,7 @@ _nessuna_
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $SNOWFLAKE | 69 | -34.3% | -0.0371 | +0% | -38% | Stop loss | 1m |
 | $HARAMBE | 67 | -53.1% | -0.0580 | +24% | -34% | Stop loss | 5m |
 | $Turkey | 63 | +10.7% | +0.0117 | +0% | -40% | Stop loss | 1m |
 | $SI | 76 | -56.7% | -0.0625 | +27% | -15% | Time stop | 5m |
@@ -51,10 +52,26 @@ _nessuna_
 | $COOKIE | 77 | +100.7% | +0.1092 | +77% | +77% | TP1 | 9m |
 | $AUDACITY | 69 | -7.8% | -0.0085 | +0% | -4% | Time stop | 5m |
 | $WIFGTA6 | 70 | -0.3% | -0.0003 | +40% | +2% | Time stop | 7m |
-| $AI | 78 | -10.0% | -0.0109 | +12% | +1% | Time stop | 7m |
 
 ## Ultimi eventi
 ```
+05:55:22 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 259 veto
+05:54:58 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 268 veto
+05:54:34 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 261 veto
+05:54:11 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 262 veto
+05:53:47 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 261 veto
+05:53:24 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 265 veto
+05:53:01 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 254 veto
+05:52:37 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 260 veto
+05:52:13 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 262 veto
+05:51:49 SCRIBE   chiuso P-0505 $SNOWFLAKE -0.0371 SOL (-34.3%)
+05:51:49 CHARON   Stop loss $SNOWFLAKE vendo 100% a -37.7% -> 0.0711 SOL
+05:51:49 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 255 veto
+05:51:25 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 257 veto
+05:51:01 QUARTER  BUY $SNOWFLAKE 0.107 SOL score 69 impatto 1.69% (Jupiter)
+05:51:01 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 257 veto
+05:50:37 QUARTER  $SNOWFLAKE impatto 2.0% oltre slippage: annullato
+05:50:37 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 256 veto
 05:50:12 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 259 veto
 05:49:49 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 255 veto
 05:49:25 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 249 veto
@@ -78,23 +95,6 @@ _nessuna_
 05:43:03 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 244 veto
 05:42:39 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 240 veto
 05:42:16 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 238 veto
-05:41:52 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 248 veto
-05:41:28 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 245 veto
-05:41:04 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 242 veto
-05:40:38 QUARTER  BUY $HARAMBE 0.108 SOL score 67 impatto 0.00% (Jupiter)
-05:40:38 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 241 veto
-05:40:15 QUARTER  $HARAMBE impatto 2.7% oltre slippage: annullato
-05:40:15 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 235 veto
-05:39:51 QUARTER  $HARAMBE impatto 2.6% oltre slippage: annullato
-05:39:51 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 235 veto
-05:39:27 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 239 veto
-05:39:03 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 238 veto
-05:38:39 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 239 veto
-05:38:16 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 240 veto
-05:37:52 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 231 veto
-05:37:29 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 233 veto
-05:37:05 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 231 veto
-05:36:42 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 231 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
