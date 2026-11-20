@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 21:31 UTC · in esecuzione da 1.3 giorni · 261 run
+Aggiornato: 2026-11-20 21:36 UTC · in esecuzione da 1.3 giorni · 261 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-20 21:31 UTC · in esecuzione da 1.3 giorni · 261 run
 | Cassa | 5.1364 SOL |
 | Trade chiusi | 120 |
 | Win rate | 33% |
-| P&L realizzato | -0.8636 SOL (~$-58.51) |
+| P&L realizzato | -0.8636 SOL (~$-58.78) |
 | Media vincite / perdite | +43.3% / -30.1% |
 | Profit factor | 0.68 |
 | Circuit breaker | no |
@@ -55,6 +55,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+21:36:07 ORACLE   360 raccolti, 224 analizzati, 1 BUY, 215 veto
+21:35:39 ORACLE   360 raccolti, 231 analizzati, 1 BUY, 224 veto
+21:35:16 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 229 veto
+21:34:52 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 226 veto
+21:34:28 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 238 veto
+21:34:05 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 239 veto
+21:33:42 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 240 veto
+21:33:17 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 254 veto
+21:32:54 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 254 veto
+21:32:30 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 244 veto
+21:32:05 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 239 veto
+21:31:41 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 247 veto
+21:31:17 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 239 veto
 21:30:53 SCRIBE   chiuso P-0556 $Singularity -0.0390 SOL (-37.4%)
 21:30:53 CHARON   Stop loss $Singularity vendo 100% a -32.6% -> 0.0655 SOL
 21:30:53 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 256 veto
@@ -82,21 +95,6 @@ _nessuna_
 21:23:53 QUARTER  BUY $DATACENTER 0.103 SOL score 73 impatto 0.00% (Jupiter)
 21:23:53 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 244 veto
 21:23:30 QUARTER  $DATACENTER impatto 2.1% oltre slippage: annullato
-21:23:30 ORACLE   348 raccolti, 237 analizzati, 1 BUY, 223 veto
-21:23:07 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-21:23:07 QUARTER  $DATACENTER impatto 2.2% oltre slippage: annullato
-21:23:07 ORACLE   339 raccolti, 236 analizzati, 1 BUY, 223 veto
-21:22:43 ORACLE   288 raccolti, 205 analizzati, 1 BUY, 195 veto
-21:22:18 ORACLE   277 raccolti, 167 analizzati, 0 BUY, 157 veto
-21:22:13 SCOUT    sonda scambi: PumpPortal 0 scambi, programma RPC 1818 eventi, curve RPC 271
-21:21:56 ORACLE   268 raccolti, 167 analizzati, 0 BUY, 157 veto
-21:21:33 ORACLE   223 raccolti, 153 analizzati, 0 BUY, 143 veto
-21:21:20 ORACLE   214 raccolti, 138 analizzati, 0 BUY, 129 veto
-21:21:16 SCOUT    rug: 9730 token oltre 7.5K, 35.7% rug, 5589 con possessori
-combinazioni: 4656 prove, migliore -5.17%, p 1
-fabbrica: 27225 percorsi, 768 configurazioni, 0 passano, 4110 ms
-21:20:53 SCRIBE   chiuso P-0554 $chud 0.0232 SOL (22.4%)
-21:20:53 CHARON   Stop loss $chud vendo 100% a -40.4% -> 0.1269 SOL
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
