@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 22:21 UTC · in esecuzione da 1.3 giorni · 262 run
+Aggiornato: 2026-11-20 22:26 UTC · in esecuzione da 1.3 giorni · 262 run
 
 | | |
 |---|---|
-| Equity | **5.0656 SOL** (-15.6% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.0656 SOL |
+| Equity | **5.0645 SOL** (-15.6% dal capitale iniziale di 6 SOL) |
+| Cassa | 4.9632 SOL |
 | Trade chiusi | 123 |
 | Win rate | 32% |
-| P&L realizzato | -0.9344 SOL (~$-64.57) |
+| P&L realizzato | -0.9344 SOL (~$-64.39) |
 | Media vincite / perdite | +43.3% / -29.8% |
 | Profit factor | 0.66 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$Singularity** P-0560 · 0.101 SOL · -0.1% · resta 100% · [grafico](https://dexscreener.com/solana/6tBgPPkJ4jDmpZXAeVRLHUSEivmPCDaj4bTU58FSAnCB)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,21 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+22:26:17 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 250 veto
+22:26:03 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 237 veto
+22:25:36 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 229 veto
+22:25:22 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 241 veto
+22:24:56 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 234 veto
+22:24:33 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 236 veto
+22:24:08 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 242 veto
+22:23:55 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 232 veto
+22:23:40 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 245 veto
+22:23:15 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 255 veto
+22:22:50 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 235 veto
+22:22:27 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 237 veto
+22:22:02 QUARTER  BUY $Singularity 0.101 SOL score 68 impatto 1.35% (Jupiter)
+22:22:02 ORACLE   360 raccolti, 238 analizzati, 2 BUY, 231 veto
+22:21:38 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 238 veto
 22:21:14 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 238 veto
 22:21:00 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 241 veto
 22:20:34 ORACLE   360 raccolti, 234 analizzati, 2 BUY, 226 veto
@@ -80,23 +95,6 @@ _nessuna_
 22:14:05 ORACLE   349 raccolti, 227 analizzati, 1 BUY, 217 veto
 22:13:51 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
 22:13:41 ORACLE   333 raccolti, 207 analizzati, 1 BUY, 199 veto
-22:13:17 ORACLE   319 raccolti, 183 analizzati, 1 BUY, 174 veto
-22:12:53 ORACLE   270 raccolti, 178 analizzati, 1 BUY, 170 veto
-22:12:29 ORACLE   258 raccolti, 158 analizzati, 1 BUY, 149 veto
-22:12:06 ORACLE   252 raccolti, 154 analizzati, 1 BUY, 145 veto
-22:11:42 ORACLE   212 raccolti, 127 analizzati, 1 BUY, 121 veto
-22:11:39 SCOUT    rug: 9808 token oltre 7.5K, 35.7% rug, 5724 con possessori
-combinazioni: 4656 prove, migliore -5.31%, p 1
-fabbrica: 27397 percorsi, 768 configurazioni, 0 passano, 4732 ms
-22:11:19 ORACLE   197 raccolti, 104 analizzati, 1 BUY, 100 veto
-22:11:07 ORACLE   196 raccolti, 104 analizzati, 1 BUY, 100 veto
-22:11:05 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-22:11:02 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-22:11:02 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
-22:11:02 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120
-22:11:02 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
-22:11:02 SCOUT    Laboratorio: collegato a PumpPortal
-22:11:02 KAISER   run #262 · 1 posizioni · equity 5.0868 SOL · GMGN spenta (nessuna chiave) · Grok off
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
