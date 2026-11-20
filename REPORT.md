@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 16:54 UTC · in esecuzione da 1.1 giorni · 255 run
+Aggiornato: 2026-11-20 16:59 UTC · in esecuzione da 1.1 giorni · 255 run
 
 | | |
 |---|---|
@@ -55,6 +55,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+16:59:47 ORACLE   360 raccolti, 244 analizzati, 3 BUY, 230 veto
+16:59:24 ORACLE   360 raccolti, 252 analizzati, 3 BUY, 240 veto
+16:59:00 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 240 veto
+16:58:37 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 235 veto
+16:58:13 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 235 veto
+16:57:50 ORACLE   360 raccolti, 240 analizzati, 2 BUY, 234 veto
+16:57:26 ORACLE   360 raccolti, 233 analizzati, 2 BUY, 228 veto
+16:57:04 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 242 veto
+16:56:41 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 244 veto
+16:56:17 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 234 veto
+16:55:54 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 243 veto
+16:55:31 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 235 veto
+16:55:07 ORACLE   360 raccolti, 243 analizzati, 2 BUY, 232 veto
 16:54:43 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 231 veto
 16:54:19 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 232 veto
 16:53:54 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 225 veto
@@ -82,19 +95,6 @@ _nessuna_
 16:47:35 ORACLE   360 raccolti, 252 analizzati, 3 BUY, 244 veto
 16:47:11 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 248 veto
 16:46:48 ORACLE   360 raccolti, 258 analizzati, 3 BUY, 251 veto
-16:46:24 ORACLE   360 raccolti, 265 analizzati, 3 BUY, 257 veto
-16:46:01 ORACLE   360 raccolti, 256 analizzati, 3 BUY, 246 veto
-16:45:37 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 251 veto
-16:45:12 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 238 veto
-16:44:49 ORACLE   360 raccolti, 254 analizzati, 3 BUY, 238 veto
-16:44:25 ORACLE   360 raccolti, 256 analizzati, 3 BUY, 240 veto
-16:44:02 QUARTER  BUY $HUSS 0.104 SOL score 75 impatto 0.15% (Jupiter)
-16:44:02 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 243 veto
-16:43:39 QUARTER  $HUSS impatto 2.6% oltre slippage: annullato
-16:43:38 QUARTER  $MIA impatto 3.0% oltre slippage: annullato
-16:43:38 SCRIBE   chiuso P-0532 $H4CK 0.0138 SOL (13.3%)
-16:43:38 CHARON   Time stop $H4CK vendo 100% a 1.4% -> 0.1181 SOL
-16:43:38 ORACLE   360 raccolti, 267 analizzati, 3 BUY, 252 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
