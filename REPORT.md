@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 14:43 UTC · in esecuzione da 1.0 giorni · 253 run
+Aggiornato: 2026-11-20 14:48 UTC · in esecuzione da 1.0 giorni · 253 run
 
 | | |
 |---|---|
-| Equity | **5.2107 SOL** (-13.2% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.2107 SOL |
+| Equity | **5.2247 SOL** (-12.9% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.1055 SOL |
 | Trade chiusi | 89 |
 | Win rate | 29% |
-| P&L realizzato | -0.7893 SOL (~$-55.80) |
+| P&L realizzato | -0.7893 SOL (~$-55.90) |
 | Media vincite / perdite | +39.7% / -27.2% |
 | Profit factor | 0.59 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$Bobo** P-0526 · 0.104 SOL · +14.4% · resta 100% · [grafico](https://dexscreener.com/solana/r65E6jtjgipJcGF52DcA2NaRhJgusYdzsB6njuUXeeA)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+14:48:38 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 254 veto
+14:48:14 QUARTER  BUY $Bobo 0.104 SOL score 63 impatto 0.00% (Jupiter)
+14:48:14 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 245 veto
+14:47:50 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 237 veto
+14:47:27 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 240 veto
+14:47:03 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 247 veto
+14:46:39 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 242 veto
+14:46:16 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 239 veto
+14:45:53 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 246 veto
+14:45:30 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 241 veto
+14:45:06 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 243 veto
+14:44:42 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 239 veto
+14:44:17 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 236 veto
+14:43:53 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 240 veto
 14:43:29 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 241 veto
 14:43:06 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 232 veto
 14:42:42 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 245 veto
@@ -83,20 +97,6 @@ fabbrica: 25471 percorsi, 768 configurazioni, 0 passano, 4098 ms
 14:36:21 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 234 veto
 14:35:57 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 243 veto
 14:35:33 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 245 veto
-14:35:20 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 235 veto
-14:34:53 SCRIBE   chiuso P-0525 $Huss -0.0233 SOL (-22.1%)
-14:34:53 CHARON   Stop loss $Huss vendo 100% a -37.0% -> 0.0823 SOL
-14:34:53 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 256 veto
-14:34:30 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 241 veto
-14:34:07 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 248 veto
-14:33:43 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 254 veto
-14:33:18 QUARTER  BUY $Huss 0.105 SOL score 72 impatto 1.53% (Jupiter)
-14:33:18 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 256 veto
-14:32:55 QUARTER  $Huss impatto 2.4% oltre slippage: annullato
-14:32:55 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 247 veto
-14:32:31 QUARTER  $Huss impatto 2.1% oltre slippage: annullato
-14:32:31 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 258 veto
-14:32:07 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 255 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
