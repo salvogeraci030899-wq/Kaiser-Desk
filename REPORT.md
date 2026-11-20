@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 04:04 UTC · in esecuzione da 0.6 giorni · 240 run
+Aggiornato: 2026-11-20 04:09 UTC · in esecuzione da 0.6 giorni · 240 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-20 04:04 UTC · in esecuzione da 0.6 giorni · 240 run
 | Cassa | 5.5534 SOL |
 | Trade chiusi | 62 |
 | Win rate | 29% |
-| P&L realizzato | -0.4466 SOL (~$-32.49) |
+| P&L realizzato | -0.4466 SOL (~$-32.33) |
 | Media vincite / perdite | +41.0% / -25.2% |
 | Profit factor | 0.65 |
 | Circuit breaker | no |
@@ -55,6 +55,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+04:09:27 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 242 veto
+04:09:03 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 237 veto
+04:08:40 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 243 veto
+04:08:17 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 244 veto
+04:07:54 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 227 veto
+04:07:31 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 242 veto
+04:07:09 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 235 veto
+04:06:46 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 229 veto
+04:06:23 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 238 veto
+04:06:00 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 232 veto
+04:05:37 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 230 veto
+04:05:14 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 228 veto
+04:04:51 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 224 veto
 04:04:28 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 218 veto
 04:04:04 ORACLE   360 raccolti, 236 analizzati, 2 BUY, 221 veto
 04:03:41 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 227 veto
@@ -82,19 +95,6 @@ _nessuna_
 03:56:17 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 238 veto
 03:55:54 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 231 veto
 03:55:31 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 230 veto
-03:55:08 ORACLE   360 raccolti, 240 analizzati, 2 BUY, 227 veto
-03:54:45 QUARTER  BUY $NeonCrime 0.111 SOL score 75 impatto 1.88% (Jupiter)
-03:54:45 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 232 veto
-03:54:32 SCRIBE   chiuso P-0497 $SWRDXSTFF 0.0071 SOL (6.3%)
-03:54:32 CHARON   Time stop $SWRDXSTFF vendo 100% a -0.0% -> 0.1192 SOL
-03:54:22 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 221 veto
-03:53:59 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 224 veto
-03:53:36 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 218 veto
-03:53:13 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 220 veto
-03:53:10 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
-03:52:49 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 224 veto
-03:52:26 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 223 veto
-03:52:04 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 215 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
