@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 17:29 UTC · in esecuzione da 1.1 giorni · 256 run
+Aggiornato: 2026-11-20 17:34 UTC · in esecuzione da 1.1 giorni · 256 run
 
 | | |
 |---|---|
-| Equity | **5.1788 SOL** (-13.7% dal capitale iniziale di 6 SOL) |
+| Equity | **5.1817 SOL** (-13.6% dal capitale iniziale di 6 SOL) |
 | Cassa | 5.0646 SOL |
 | Trade chiusi | 99 |
 | Win rate | 29% |
-| P&L realizzato | -0.8310 SOL (~$-57.34) |
+| P&L realizzato | -0.8310 SOL (~$-57.39) |
 | Media vincite / perdite | +39.2% / -26.6% |
 | Profit factor | 0.60 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$MATHISOVER** P-0536 · 0.103 SOL · +10.4% · resta 100% · [grafico](https://dexscreener.com/solana/FYF7DZzBphnko2YVwrFAPQ1Hdko3zcWh9QJACw7eYvVh)
+- **$MATHISOVER** P-0536 · 0.103 SOL · +13.2% · resta 100% · [grafico](https://dexscreener.com/solana/FYF7DZzBphnko2YVwrFAPQ1Hdko3zcWh9QJACw7eYvVh)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,19 @@ Aggiornato: 2026-11-20 17:29 UTC · in esecuzione da 1.1 giorni · 256 run
 
 ## Ultimi eventi
 ```
+17:34:56 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 238 veto
+17:34:32 ORACLE   360 raccolti, 236 analizzati, 2 BUY, 227 veto
+17:34:08 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 250 veto
+17:33:43 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 239 veto
+17:33:30 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 238 veto
+17:33:03 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 248 veto
+17:32:38 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 236 veto
+17:32:14 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 233 veto
+17:31:50 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 236 veto
+17:31:27 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 241 veto
+17:31:03 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 236 veto
+17:30:38 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 244 veto
+17:30:24 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 239 veto
 17:29:55 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 238 veto
 17:29:31 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 241 veto
 17:29:08 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 239 veto
@@ -82,19 +95,6 @@ Aggiornato: 2026-11-20 17:29 UTC · in esecuzione da 1.1 giorni · 256 run
 17:21:16 QUARTER  BUY $MATHISOVER 0.103 SOL score 77 impatto 0.28% (Jupiter)
 17:21:16 ORACLE   360 raccolti, 239 analizzati, 3 BUY, 227 veto
 17:20:50 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 232 veto
-17:20:26 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 245 veto
-17:20:02 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 249 veto
-17:19:47 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 239 veto
-17:19:22 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 255 veto
-17:18:58 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 253 veto
-17:18:35 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 244 veto
-17:18:12 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 255 veto
-17:17:49 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 254 veto
-17:17:25 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 252 veto
-17:17:02 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 255 veto
-17:16:37 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 261 veto
-17:16:13 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 240 veto
-17:15:50 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 251 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
