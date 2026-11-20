@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 21:06 UTC · in esecuzione da 1.3 giorni · 260 run
+Aggiornato: 2026-11-20 21:11 UTC · in esecuzione da 1.3 giorni · 260 run
 
 | | |
 |---|---|
-| Equity | **4.9812 SOL** (-17.0% dal capitale iniziale di 6 SOL) |
-| Cassa | 4.8670 SOL |
-| Trade chiusi | 116 |
-| Win rate | 31% |
-| P&L realizzato | -1.0327 SOL (~$-69.41) |
-| Media vincite / perdite | +41.2% / -30.0% |
-| Profit factor | 0.61 |
+| Equity | **5.1322 SOL** (-14.5% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.1322 SOL |
+| Trade chiusi | 117 |
+| Win rate | 32% |
+| P&L realizzato | -0.8678 SOL (~$-58.15) |
+| Media vincite / perdite | +44.6% / -30.0% |
+| Profit factor | 0.67 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$Trader** P-0553 · 0.099 SOL · +14.9% · resta 100% · [grafico](https://dexscreener.com/solana/65eyzrLgqEjqZ5NMoFntrE6XE6SvxS9zggzaBiew4n8n)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 35 | -1.1122 |
 | Time stop | 42 | -0.4937 |
-| TP1 | 24 | +1.2259 |
+| TP1 | 25 | +1.3907 |
 | RUG-EXIT liquidità | 15 | -0.6526 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $Trader | 69 | +164.3% | +0.1648 | +95% | +95% | TP1 | 3m |
 | $singularity | 71 | -66.1% | -0.0672 | +13% | -67% | RUG-EXIT liquidità | 1m |
 | $Singularity | 82 | -61.8% | -0.0636 | +10% | -52% | RUG-EXIT liquidità | 1m |
 | $GTA | 88 | -19.7% | -0.0203 | +0% | -40% | Stop loss | 0m |
@@ -51,10 +52,24 @@ Aggiornato: 2026-11-20 21:06 UTC · in esecuzione da 1.3 giorni · 260 run
 | $Móm | 72 | -4.4% | -0.0046 | +0% | -15% | Time stop | 5m |
 | $狗 | 72 | +32.4% | +0.0336 | +71% | +71% | TP1 | 1m |
 | $小面包 | 63 | -9.5% | -0.0098 | +4% | -8% | Time stop | 5m |
-| $BOSSCHICO | 69 | -15.5% | -0.0162 | +11% | -12% | Time stop | 5m |
 
 ## Ultimi eventi
 ```
+21:11:25 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 239 veto
+21:11:11 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 237 veto
+21:10:45 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 252 veto
+21:10:32 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 251 veto
+21:09:57 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 248 veto
+21:09:34 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 251 veto
+21:09:10 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 246 veto
+21:08:46 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 253 veto
+21:08:22 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 251 veto
+21:07:59 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 247 veto
+21:07:34 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 248 veto
+21:07:10 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 247 veto
+21:06:56 SCRIBE   chiuso P-0553 $Trader 0.1648 SOL (164.3%)
+21:06:56 CHARON   TP1 $Trader vendo 100% a 95.3% -> 0.2652 SOL
+21:06:56 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 249 veto
 21:06:31 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 263 veto
 21:06:08 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 248 veto
 21:05:54 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 251 veto
@@ -80,21 +95,6 @@ Aggiornato: 2026-11-20 21:06 UTC · in esecuzione da 1.3 giorni · 260 run
 20:58:42 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 238 veto
 20:58:18 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 254 veto
 20:57:54 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 254 veto
-20:57:41 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 258 veto
-20:57:14 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 261 veto
-20:56:50 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 254 veto
-20:56:27 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 247 veto
-20:56:03 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 252 veto
-20:55:50 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 253 veto
-20:55:23 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 258 veto
-20:55:09 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 250 veto
-20:54:43 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 259 veto
-20:54:20 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 251 veto
-20:54:06 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 244 veto
-20:53:50 SCRIBE   chiuso P-0552 $singularity -0.0672 SOL (-66.1%)
-20:53:50 CHARON   RUG-EXIT liquidità $singularity vendo 100% a -66.7% -> 0.0345 SOL
-20:53:50 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 246 veto
-20:53:23 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 248 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.

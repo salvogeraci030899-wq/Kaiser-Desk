@@ -1,70 +1,8 @@
 {
  "startedAt": 1795097825371,
  "runs": 260,
- "cash": 4.86699573533455,
- "positions": [
-  {
-   "id": "P-0553",
-   "mint": "BYKQkHKMWHidNBLQXgt7NX4PLUtJZRYGLWQYkJzPGenX",
-   "sym": "Trader",
-   "name": "The Trader",
-   "pairAddress": "65eyzrLgqEjqZ5NMoFntrE6XE6SvxS9zggzaBiew4n8n",
-   "openedAt": 1795208613849,
-   "sizeSOL": 0.09934685174152143,
-   "cost": 0.10034685174152143,
-   "entry": 0.000001537619843978664,
-   "tokens": 64610.80229327475,
-   "remaining": 1,
-   "rawLeft": "96732739432",
-   "peak": 0.000001878,
-   "tp1Done": false,
-   "spDone": false,
-   "entryLiq": 55865.21,
-   "realized": 0,
-   "score": 69,
-   "why": "runner",
-   "entryInfo": {
-    "srcs": [
-     "jup nuovi",
-     "jup trend",
-     "gecko nuovi",
-     "profili"
-    ],
-    "notes": [],
-    "plus": [
-     "turnover 3.5x/h",
-     "pressione in acquisto"
-    ],
-    "m": {
-     "liq": 53063.85,
-     "mc": 90914,
-     "ageMin": 13.126766666666667,
-     "v1": 188112.4,
-     "tx1": 4006,
-     "br1": 1.6299212598425197,
-     "br5": 1.5257731958762886,
-     "c5": -26.86,
-     "c1": -9.07,
-     "c6": -9.07,
-     "turn": 3.545019820461576,
-     "price": 0.00009091,
-     "priceNative": 0.00000135
-    },
-    "grok": null
-   },
-   "last": {
-    "priceNative": 0.000001767,
-    "liq": 60669.36,
-    "br5": 1.5792349726775956,
-    "tx5": 942,
-    "t": 1795208791798
-   },
-   "fills": [
-    "BUY 0.099 impatto 0.16% (Jupiter)"
-   ],
-   "trough": 0.000001106
-  }
- ],
+ "cash": 5.13216972220455,
+ "positions": [],
  "journal": [
   {
    "id": "P-0437",
@@ -5439,16 +5377,57 @@
    },
    "maePct": -66.7447660796614,
    "age": 8
+  },
+  {
+   "id": "P-0553",
+   "mint": "BYKQkHKMWHidNBLQXgt7NX4PLUtJZRYGLWQYkJzPGenX",
+   "sym": "Trader",
+   "openedAt": 1795208613849,
+   "closedAt": 1795208816799,
+   "cost": 0.10034685174152143,
+   "back": 0.26517398687,
+   "pnl": 0.16482713512847857,
+   "pct": 164.25740545707282,
+   "mode": "paper",
+   "reason": "TP1",
+   "score": 69,
+   "solUsd": 67.17232525603063,
+   "peakPct": 95.30184991822136,
+   "trigPct": 95.30184991822136,
+   "entryInfo": {
+    "srcs": [
+     "jup nuovi",
+     "jup trend",
+     "gecko nuovi",
+     "profili"
+    ],
+    "notes": [],
+    "plus": [
+     "turnover 3.5x/h",
+     "pressione in acquisto"
+    ],
+    "m": {
+     "liq": 53063.85,
+     "mc": 90914,
+     "ageMin": 13.126766666666667,
+     "v1": 188112.4,
+     "tx1": 4006,
+     "br1": 1.6299212598425197,
+     "br5": 1.5257731958762886,
+     "c5": -26.86,
+     "c1": -9.07,
+     "c6": -9.07,
+     "turn": 3.545019820461576,
+     "price": 0.00009091,
+     "priceNative": 0.00000135
+    },
+    "grok": null
+   },
+   "maePct": -28.07064734946625,
+   "age": 13
   }
  ],
  "signals": [
-  {
-   "t": 1795194127889,
-   "mint": "82PX2EDNQy6P23Qu9gzXyu2eqrjVYjsWMuWimd7Cpump",
-   "sym": "GTA6",
-   "score": 67,
-   "priceNative": 4.179e-7
-  },
   {
    "t": 1795194127889,
    "mint": "BfNcetwXyxFJjsnmMboPpHqpZg19ez1ueQGPGE9upump",
@@ -12441,6 +12420,13 @@
    "sym": "Singularity",
    "score": 76,
    "priceNative": 0.00000153
+  },
+  {
+   "t": 1795208950570,
+   "mint": "dQPuvVrUico2zLKnJV2zniQoMbmjd1AHVVvbvEqpump",
+   "sym": "Jensen",
+   "score": 64,
+   "priceNative": 4.182e-7
   }
  ],
  "alerts": [],
@@ -12453,6 +12439,21 @@
  "halted": null,
  "seq": 553,
  "events": [
+  "21:11:25 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 239 veto",
+  "21:11:11 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 237 veto",
+  "21:10:45 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 252 veto",
+  "21:10:32 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 251 veto",
+  "21:09:57 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 248 veto",
+  "21:09:34 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 251 veto",
+  "21:09:10 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 246 veto",
+  "21:08:46 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 253 veto",
+  "21:08:22 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 251 veto",
+  "21:07:59 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 247 veto",
+  "21:07:34 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 248 veto",
+  "21:07:10 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 247 veto",
+  "21:06:56 SCRIBE   chiuso P-0553 $Trader 0.1648 SOL (164.3%)",
+  "21:06:56 CHARON   TP1 $Trader vendo 100% a 95.3% -> 0.2652 SOL",
+  "21:06:56 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 249 veto",
   "21:06:31 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 263 veto",
   "21:06:08 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 248 veto",
   "21:05:54 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 251 veto",
@@ -12737,22 +12738,7 @@
   "19:38:00 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 236 veto",
   "19:37:37 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 226 veto",
   "19:37:14 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 226 veto",
-  "19:36:49 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 228 veto",
-  "19:36:26 ORACLE   360 raccolti, 229 analizzati, 1 BUY, 217 veto",
-  "19:36:02 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 238 veto",
-  "19:35:38 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 231 veto",
-  "19:35:25 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 229 veto",
-  "19:35:08 SCOUT    Laboratorio: collegato a PumpPortal",
-  "19:34:59 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 235 veto",
-  "19:34:36 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 239 veto",
-  "19:34:13 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 235 veto",
-  "19:33:50 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 248 veto",
-  "19:33:25 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 238 veto",
-  "19:33:02 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 243 veto",
-  "19:32:38 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 242 veto",
-  "19:32:25 SCRIBE   chiuso P-0545 $FIENA -0.0171 SOL (-16.0%)",
-  "19:32:25 CHARON   Time stop $FIENA vendo 100% a -2.1% -> 0.0898 SOL",
-  "19:32:15 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 242 veto"
+  "19:36:49 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 228 veto"
  ],
  "capital": 6,
  "resetId": "C-0110",
@@ -12760,5280 +12746,6 @@
  "lastEntryAt": 1795208613849,
  "lab": {
   "done": [
-   {
-    "m": "2FSH8oRwe5QMu6rVV9n5oy7gam7ASZDaG9vKUA74pump",
-    "s": "baby Hulk",
-    "at": 1795207817759,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1902,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "q": [
-     0,
-     0
-    ],
-    "turn": 0
-   },
-   {
-    "m": "D9zxruZgQPBzGbuPzD1HpmFCexqRGasPN3t7B3wqBR8g",
-    "s": "CRIME",
-    "at": 1795207821938,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false
-   },
-   {
-    "m": "7QAmXem2gFrqBNNCVw2zTsVTyzNBPWkxZhQ1mdmdpump",
-    "s": "HFLAMO",
-    "at": 1795207823582,
-    "n60": 1,
-    "b": null,
-    "f": {
-     "top3": 1,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 1,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2145,
-    "th": {},
-    "rx": {
-     "s0": [
-      1,
-      17,
-      0,
-      1,
-      75,
-      0,
-      1,
-      79,
-      0
-     ]
-    },
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "GtKzHxqDKe8YLuRjCeG5wRMjnNAPHs2Bz9TmnQ3Kpump",
-    "s": "sol",
-    "at": 1795207824183,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 3182,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "GbfTEQ4otw3VPZEbNe68PtzbS7TmHiQdcAQSvC2ypump",
-    "s": "putin",
-    "at": 1795207824677,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1886,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "q": [
-     0,
-     0
-    ],
-    "turn": 0
-   },
-   {
-    "m": "3pFRJdhzqqAb51oh1YFRBR6NqoYPWTns4PsTzNZ1pump",
-    "s": "USMS",
-    "at": 1795207825347,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1071,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "5DKz7xefD3xcjhJQc1PuQJT2jCqeZc7Gp8zj5Bitpump",
-    "s": "BetOnBlak",
-    "at": 1795207826106,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2375,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "Dt8nJnys9ivPCudVrw3TYLFwL9uGb9PYuLidNdEDpump",
-    "s": "$DEBTCAT",
-    "at": 1795207830626,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1900,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "q": [
-     0,
-     0
-    ],
-    "turn": 0
-   },
-   {
-    "m": "Gt3Z3RSw4xagCE1jR6ye1gCSZ4X6i8TyzdWVqzabxB5S",
-    "s": "CRIME",
-    "at": 1795207832198,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 285,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "q": [
-     0,
-     0
-    ],
-    "turn": 0
-   },
-   {
-    "m": "Ey1ZsPcEXjxH5oPyRiHGsgCstFHwtP9vWm8ij99cpump",
-    "s": "bey",
-    "at": 1795207836689,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2712,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "q": [
-     0,
-     0
-    ],
-    "turn": 0
-   },
-   {
-    "m": "JDjeAihLMYQsPTvt13iGM8fjeifJRzvoCEvAAVfCpump",
-    "s": "HAHOODBE",
-    "at": 1795207836881,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 3595,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "491S644QzgXKdeQhn7CTew7DsiLPk7efFnqkkBXEpump",
-    "s": "CRIME",
-    "at": 1795207838131,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false
-   },
-   {
-    "m": "H2kobaCkkEUhqNgaMEU44Jwd5qKTRf6vHypfnMYYpump",
-    "s": "ONINU",
-    "at": 1795207839719,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1208,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "283ioTU8vY7zFPRYbJMxSYVgXa7W3QFxAUz58L1mpump",
-    "s": "MOMMY",
-    "at": 1795207840574,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2199,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "5P4SP5D2fDB36vDhQtjnNWKxrUhzvRHDFon4Uc16pump",
-    "s": "USMS",
-    "at": 1795207843863,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2820,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "7j15fDWKPXNZv2mMrYZ1r6TEeTXFPRMH7YtUopwFpump",
-    "s": "banana",
-    "at": 1795207844941,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 4758,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "99dYd1e6GNfhUwDUipiSERtbavbSrj4MY27kgNTjpump",
-    "s": "DTM",
-    "at": 1795207846388,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2957,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "skBD9NwqtaPevgBMmLS5j1X3V8w5yvAsaASM7Yipump",
-    "s": "CHIMP",
-    "at": 1795207849598,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 816,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "CgnE4djKvE2jCUUWaYGxw4SGfNcgCNiwdqwYEjiqpump",
-    "s": "bro",
-    "at": 1795207849840,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1285,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "7zojyr31StdiEfpmVGQox7prttuhpkQR63dgwZKapump",
-    "s": "LUCIA",
-    "at": 1795207850096,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 3060,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "q": [
-     0,
-     0
-    ],
-    "turn": 0
-   },
-   {
-    "m": "4R4GtZpPUVjjrpykUG5M2yGBuSXLd7SXyzgKeCqupump",
-    "s": "ABSURD",
-    "at": 1795207850533,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1632,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "GH9yN4sGzWi6wVmuuRNYwXjSLwBtSP5XoADjMcmtpump",
-    "s": "BetOnBlak",
-    "at": 1795207850992,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1543,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "6VtzLgiMfoUoPsdpV6NKFzLTfK3m9mNyURDfrMqqpump",
-    "s": "RAMENCOIN",
-    "at": 1795207851253,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 307,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "B7joAYdsCEyfSNgHXJWU922XPohdjY13RRJGWFrKnq4z",
-    "s": "Singularit",
-    "at": 1795207852272,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1919,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "GVmJknFVDAhFkQfGczBDye4P2uArCJvbjNV29UFZpump",
-    "s": "pride",
-    "at": 1795207856060,
-    "n60": 1,
-    "b": null,
-    "f": {
-     "top3": 1,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 1,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1997,
-    "th": {},
-    "rx": {
-     "l0": [
-      1,
-      -4,
-      1,
-      1,
-      -4,
-      1,
-      1,
-      -60,
-      1
-     ]
-    },
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0.03
-   },
-   {
-    "m": "De5eXrGzaxWenfGNe9zqqVBK922q5AXTEUMPrSuwpump",
-    "s": "Elenchos",
-    "at": 1795207858006,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2032,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "5cPXrSvYosRhjzeJQoGicY21mEEJyQbc7DoWTpMUpump",
-    "s": "sol",
-    "at": 1795207858119,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2385,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "DQc38ZCLgCwNHpgaHxCWgpoGmHktwDWX8q4Ks6zqizW6",
-    "s": "GRID",
-    "at": 1795207858495,
-    "n60": 1,
-    "b": null,
-    "f": {
-     "top3": 1,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 1,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2007,
-    "th": {},
-    "rx": {
-     "l0": [
-      1,
-      1,
-      0,
-      1,
-      1,
-      0,
-      1,
-      1,
-      0
-     ]
-    },
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0.03
-   },
-   {
-    "m": "CoeX8LdvZuLADsuz77q7jb4CeTRgudyScahmNSZupump",
-    "s": "$AURA",
-    "at": 1795207858944,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1892,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "8prr74ST6B1EYLke65Hy1LvHvTNmv7AsNvtLMmtfpump",
-    "s": "PETRICK",
-    "at": 1795207859154,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2184,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "3VWDyPykfGBhAAZiTYz1hLAHfELfhzax9SGYMJNqpump",
-    "s": "USMS",
-    "at": 1795207861618,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1615,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "EFe9xhC6FhKsqro96NYar7LERxr8G9R6iAgxX8a7pump",
-    "s": "INC",
-    "at": 1795207861758,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 4344,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "F1seKLwJRCySuhntzUg9EqfDmRmLZv5bJj9rfk1wpump",
-    "s": "LUCIA",
-    "at": 1795207861775,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2798,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "3oaPRXCBFxvT381deDbgM3WcYrrbZfZ9eCtEwaHspump",
-    "s": "gigi",
-    "at": 1795207864739,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1880,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "4EJhstgcKqMQYtqtudXy249nfpk7oZJJ8CAzjiVqpump",
-    "s": "BetOnBlak",
-    "at": 1795207865249,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 4160,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "CG9kCJuh4DyC7TyXkKARXcqeMdovk4R7jXfzT9eRpump",
-    "s": "Syringe",
-    "at": 1795207867463,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false
-   },
-   {
-    "m": "6imr9W4ZrCaEB8f9YVUk3DzAdB4iNiuENGMXZz9Npump",
-    "s": "sol",
-    "at": 1795207867489,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 4358,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "5KN4k9WpaRgGBPfUG7vJguXyGiGHp2f2EuaRQQeApump",
-    "s": "FHC",
-    "at": 1795207867509,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1667,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "Ey6SHhp1J4c7gUJ9utUSosLsRXDswaizMBiRQ3Mrpump",
-    "s": "CASHCAT",
-    "at": 1795207867894,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2898,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "5iH8gj1YwuxFv1Tza49sfeVSNFX4iJ8M9D1Nn7qzpump",
-    "s": "UTUBC",
-    "at": 1795207868681,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 3377,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "q": [
-     0,
-     0
-    ],
-    "turn": 0
-   },
-   {
-    "m": "83KQqWkHuevjHHzaWdeV7wUwNjSYEpPZ7sNYx6FZpump",
-    "s": "punch",
-    "at": 1795207871658,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1882,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "EkwTd5ymCcBY4nhwj87snkf6wVQTa86G3HdrxeFYpump",
-    "s": "ONINU",
-    "at": 1795207871678,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 985,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "2SFmY5jqNiv4nDqR9s6sCzxR8GrDuXtqRxNrqvJ7pump",
-    "s": "LUCIA",
-    "at": 1795207872688,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2478,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "Adi5N6KyYWUx7VSA9tPYmksU2pi8rTfyanhxkfmrpump",
-    "s": "punch",
-    "at": 1795207872738,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1880,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "D96XRFLZ2oUWCmAee97fBKMZHe9yVG5tJguJTaB9pump",
-    "s": "punch",
-    "at": 1795207872749,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1884,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "C94CA92ZCYU4d1Gr8tDzZFzGT6prCMuHVH9NdgbQpump",
-    "s": "JUMP",
-    "at": 1795207872966,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1587,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "DnzHdJSwnSyP64aFU6srBR3i23xqfQtjF1hbyJKZpump",
-    "s": "WIF",
-    "at": 1795207874876,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 5488,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "7u55dJsYXXL59DiYbmXLFwXMyB9PKY3JnbqVPn8npump",
-    "s": "DOOYET",
-    "at": 1795207879894,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 7272,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "GKg69QcVhSoXLXxBsVUXTSRvHWk1SCi1Xh3zZzzypump",
-    "s": "UP",
-    "at": 1795207881291,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 895,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "4gzAa38jaSK2tYXJ4iAWQJjzFC6SNcXb84C3kkWZpump",
-    "s": "bro",
-    "at": 1795207882626,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1981,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "2Lsor5AJmqb4r42A3nLeqoe8dhJiFihtHGfXMgvwpump",
-    "s": "BFC",
-    "at": 1795207883964,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 3691,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "q": [
-     0,
-     0
-    ],
-    "turn": 0
-   },
-   {
-    "m": "8buwXoqiN9U5gBD7hrKo1BHN27u9GjuPRWDDJexmpump",
-    "s": "TOELY",
-    "at": 1795207884961,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 3950,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "JSF9CKjpud7rThPtkSxLcPk3XJe22UijP8Z1MRMpump",
-    "s": "CRIME",
-    "at": 1795207886033,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 253,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "CpSimLrH7MG6oL5snwuVCy9ieBE8Ag5BLVjxv6qFpump",
-    "s": "TOAD",
-    "at": 1795207888098,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2256,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "71CWUYArn5bbAtJxFLLzCo7MsjY3yWZmk7y27EEupump",
-    "s": "ONINU",
-    "at": 1795207891422,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 6368,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "HYAc1fQh4UBjgmNw1vMdsbBL8t4Lpya1K1h7rRG5pump",
-    "s": "GEEKED",
-    "at": 1795207893916,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2511,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "Bp3Cibi4DykDriJTydDnY97uQ5RirftHNhU13pHqpump",
-    "s": "BetOnBlak",
-    "at": 1795207894226,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2324,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "4mi6NC6h6YyJynbxjxwAuEMJbPWVcpRvBRkQrnoxpump",
-    "s": "LUCIA",
-    "at": 1795207894630,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 446,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "xWL3RAwaRSuRnsDwSUyoCnzsUuSZTGkqaZkCZgMpump",
-    "s": "pride",
-    "at": 1795207896163,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2072,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "q": [
-     0,
-     0
-    ],
-    "turn": 0
-   },
-   {
-    "m": "7oQ7qz41f4qG9HpUKew9Uf86mPBAnjKDtBrHCc4tpump",
-    "s": "DPR",
-    "at": 1795207899912,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1886,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "5iMfGeYyGCnvPKkR8y7VUKChs8ksrzUBQ6MT9GYppump",
-    "s": "RICK",
-    "at": 1795207901568,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1711,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "8eLyxFAPCMmLBcxTmro8VWGsAxbS3Eey57caQWAqpump",
-    "s": "bro",
-    "at": 1795207901911,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1557,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "ap2cmz1zU7G6ovT9BHccEWUQNyYybRGNuqYnUkzpump",
-    "s": "CUDDLES",
-    "at": 1795207902396,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2042,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "7eqDBzqSwZ5oB3gN56vsACjREwCKmkwc8uATt8gwpump",
-    "s": "BetOnBlak",
-    "at": 1795207907711,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2204,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "Gf81Qmc7t19bhjZNxN6A2YFyWP4WyxYd2JAptxaLpump",
-    "s": "Tagy",
-    "at": 1795207909878,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 274401,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "52yukyBxYW9ftxMMHwCaABwnb5Ci4s317te5RdbUpump",
-    "s": "MANDY",
-    "at": 1795207911228,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2142,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "q": [
-     0,
-     0
-    ],
-    "turn": 0
-   },
-   {
-    "m": "A3NF3wEFyxPW5gwhkBv11rK1Z8HT462prTgLtYQbpump",
-    "s": "MYREN",
-    "at": 1795207911986,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1915,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "5tPKxFxXgZNwrMbnPpsyoNvVK2MUSxrwZPA62uxFpump",
-    "s": "MGOAT",
-    "at": 1795207914383,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1178,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "C89eDAtMY788XUwCYdxXzy4Z1tpHVdEWkh4WBvDipump",
-    "s": "$VDOG",
-    "at": 1795207914541,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 24577,
-    "th": {
-     "10": {
-      "e": 280,
-      "pk": 1.655,
-      "ts": 35,
-      "dip": 1,
-      "r": {
-       "12/10": "tp",
-       "20/15": "tp",
-       "30/20": "tp"
-      },
-      "x": [
-       0.883,
-       0.889,
-       null
-      ],
-      "d": {
-       "10": {
-        "g": 1,
-        "r": {
-         "12/10": "tp",
-         "20/15": "tp",
-         "30/20": "tp"
-        },
-        "x": [
-         0.889,
-         null,
-         null
-        ]
-       },
-       "20": {
-        "g": 1.654,
-        "r": {
-         "12/10": "sl",
-         "20/15": "sl",
-         "30/20": "sl"
-        },
-        "x": [
-         0.537,
-         null,
-         null
-        ]
-       }
-      }
-     },
-     "12": {
-      "e": 280,
-      "pk": 1.655,
-      "ts": 35,
-      "dip": 1,
-      "r": {
-       "12/10": "tp",
-       "20/15": "tp",
-       "30/20": "tp"
-      },
-      "x": [
-       0.883,
-       0.889,
-       null
-      ],
-      "d": {
-       "10": {
-        "g": 1,
-        "r": {
-         "12/10": "tp",
-         "20/15": "tp",
-         "30/20": "tp"
-        },
-        "x": [
-         0.889,
-         null,
-         null
-        ]
-       },
-       "20": {
-        "g": 1.654,
-        "r": {
-         "12/10": "sl",
-         "20/15": "sl",
-         "30/20": "sl"
-        },
-        "x": [
-         0.537,
-         null,
-         null
-        ]
-       }
-      }
-     },
-     "15": {
-      "e": 295,
-      "pk": 1,
-      "ts": 20,
-      "dip": 1,
-      "r": {
-       "12/10": "sl",
-       "20/15": "sl",
-       "30/20": "sl"
-      },
-      "x": [
-       0.537,
-       null,
-       null
-      ],
-      "d": {
-       "10": {
-        "g": 1,
-        "r": {
-         "12/10": "sl",
-         "20/15": "sl",
-         "30/20": "sl"
-        },
-        "x": [
-         0.537,
-         null,
-         null
-        ]
-       },
-       "20": {
-        "g": 1,
-        "r": {
-         "12/10": "sl",
-         "20/15": "sl",
-         "30/20": "sl"
-        },
-        "x": [
-         0.537,
-         null,
-         null
-        ]
-       }
-      }
-     },
-     "7.5": {
-      "e": 270,
-      "pk": 2.561,
-      "ts": 45,
-      "dip": 1,
-      "r": {
-       "12/10": "tp",
-       "20/15": "tp",
-       "30/20": "tp"
-      },
-      "x": [
-       1.367,
-       1.375,
-       null
-      ],
-      "d": {
-       "10": {
-        "g": 1.548,
-        "r": {
-         "12/10": "tp",
-         "20/15": "tp",
-         "30/20": "tp"
-        },
-        "x": [
-         0.883,
-         0.889,
-         null
-        ]
-       },
-       "20": {
-        "g": 1.548,
-        "r": {
-         "12/10": "tp",
-         "20/15": "tp",
-         "30/20": "tp"
-        },
-        "x": [
-         0.889,
-         null,
-         null
-        ]
-       }
-      }
-     }
-    },
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "q": [
-     0,
-     0
-    ],
-    "turn": 0
-   },
-   {
-    "m": "SojPsaHZGHaVqV8NXvhvX2p2gYFNUu99hTLu6v8pump",
-    "s": "HELLO",
-    "at": 1795207915431,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1883,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "DFj8FA1e9kGsgQAYCadZncxDmAHJwCZq8S3Dk8Tmpump",
-    "s": "FOMOCAT",
-    "at": 1795207916714,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2717,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "DXMfxuhBMyM14Ci74YWshpuBtgJ3LFJZpQkfUHFCpump",
-    "s": "Lone",
-    "at": 1795207919938,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1011,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "Bbr66Ghzc6gMNLbEY3wgnzsbJ3JtZe3k5NvaDbEvpump",
-    "s": "bey",
-    "at": 1795207919947,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 586,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "65onNQfS1zpjPVY5iD2LNxMKJTdU4Za6aHocZp4jpump",
-    "s": "DADDY",
-    "at": 1795207921172,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1922,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "q": [
-     0,
-     0
-    ],
-    "turn": 0
-   },
-   {
-    "m": "4w5ZrcqwNekW2qXJj9YEFqA8yNeonozQREaWgcbHpump",
-    "s": "bey",
-    "at": 1795207925993,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 11818,
-    "th": {
-     "10": {
-      "e": 50,
-      "pk": 1.009,
-      "ts": 10,
-      "dip": 1,
-      "r": {
-       "12/10": "none",
-       "20/15": "none",
-       "30/20": "none"
-      },
-      "x": [
-       0.999,
-       0.999,
-       0.999
-      ],
-      "d": {
-       "10": {
-        "g": 1.009,
-        "r": {
-         "12/10": "none",
-         "20/15": "none",
-         "30/20": "none"
-        },
-        "x": [
-         0.99,
-         0.99,
-         0.99
-        ]
-       },
-       "20": {
-        "g": 1.009,
-        "r": {
-         "12/10": "none",
-         "20/15": "none",
-         "30/20": "none"
-        },
-        "x": [
-         0.99,
-         0.99,
-         0.99
-        ]
-       }
-      }
-     },
-     "7.5": {
-      "e": 50,
-      "pk": 1.009,
-      "ts": 10,
-      "dip": 1,
-      "r": {
-       "12/10": "none",
-       "20/15": "none",
-       "30/20": "none"
-      },
-      "x": [
-       0.999,
-       0.999,
-       0.999
-      ],
-      "d": {
-       "10": {
-        "g": 1.009,
-        "r": {
-         "12/10": "none",
-         "20/15": "none",
-         "30/20": "none"
-        },
-        "x": [
-         0.99,
-         0.99,
-         0.99
-        ]
-       },
-       "20": {
-        "g": 1.009,
-        "r": {
-         "12/10": "none",
-         "20/15": "none",
-         "30/20": "none"
-        },
-        "x": [
-         0.99,
-         0.99,
-         0.99
-        ]
-       }
-      }
-     }
-    },
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "q": [
-     0,
-     0
-    ],
-    "turn": 0
-   },
-   {
-    "m": "AfBw4QtvNtaTCW1cmDpRENR8Q2NwysULifRAyGzTpump",
-    "s": "EVIL",
-    "at": 1795207926683,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 5489,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "2eHEVPRj5ugRzw8Mpsdv61WnhFyxHD2Ee1avrzutpump",
-    "s": "SAI",
-    "at": 1795207927162,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1918,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "q": [
-     0,
-     0
-    ],
-    "turn": 0
-   },
-   {
-    "m": "2nbRTDgx1cv1U5gPKxj3DvdRdZFaNM9oTAFQkajzpump",
-    "s": "PIRATE",
-    "at": 1795207928449,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1883,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "32qwyiyAuw2YmCep8N6UMU7zVmn2uyhCsh18oMR5pump",
-    "s": "PIRATE",
-    "at": 1795207928461,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1883,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "2gDw517r2nFB3AVCUKZogEiAoFQwcdMuQsv7QVSQpump",
-    "s": "PIRATE",
-    "at": 1795207928466,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1883,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "4LfUFwV2B9XLqodiwY3h3bocMEKCtfCFAYLAhWgtpump",
-    "s": "PIRATE",
-    "at": 1795207928478,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1883,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "7jWNAXJkbeMeD1Hm9hcyq7rioFWXBzGZNN4e2svjpump",
-    "s": "PIRATE",
-    "at": 1795207928483,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1883,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "7FEwMML2xD3ZEAP2iv63qorPBpGgYsF5Kr1xYRnvpump",
-    "s": "ONINU",
-    "at": 1795207929693,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1501,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "JM3atJFSNXQmkiMFy3S4R2pk4K3qbCbxx2hFaXTpump",
-    "s": "BI",
-    "at": 1795207931279,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2135,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "2xxEr4tAe1txAWjP4TxJNwkbeK1hqqbEFkKq8fRxpump",
-    "s": "CGC",
-    "at": 1795207931770,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1931,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "5bBzNKFEeKNntQib1udxCHxnePy1BzWRYc6tewPApump",
-    "s": "GTK",
-    "at": 1795207935069,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false
-   },
-   {
-    "m": "283iranokCuaFpq7V8bPqQP9dnbeUV2PyCGETQ53pump",
-    "s": "MOMMY",
-    "at": 1795207936292,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 503,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "q": [
-     0,
-     0
-    ],
-    "turn": 0
-   },
-   {
-    "m": "EexFBmTzLASpCuTdNTemNvFDzUmxs5w4qJFS7Fc3pump",
-    "s": "xoxo",
-    "at": 1795207939092,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 3376,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "4bnTyyt69pnpwZmoMyk7ivEDwCUtbLKFcE78hdALpump",
-    "s": "bro",
-    "at": 1795207941879,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1799,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "87SpvEKu5F3vKcTd6vYsFyQYsKUmYR3Dzj8Tos69pump",
-    "s": "PIRATE",
-    "at": 1795207942137,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2046,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "AMuBFACXUPqKQW398DfyNdBi6YuMaUPgHv7yYhkfpump",
-    "s": "DERP",
-    "at": 1795207942282,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 237,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "FRjhHC3U4oXLVsJ1LVx3pfjSBvRKMkn7q72rfZGcpump",
-    "s": "BetOnBlak",
-    "at": 1795207946776,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 4428,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "4MW1hazSjpFguVvQWAxJvwgkA3oBk6aSABxsJojJpump",
-    "s": "PIRATE",
-    "at": 1795207948133,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2156,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "J7qGdcvQaNm77wreoCs3MDZB6BFLNJpv2foetFy7pump",
-    "s": "ANT",
-    "at": 1795207948211,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false
-   },
-   {
-    "m": "2aKZrCG2Pd2Ghr8TMhcC2jp4SNche3T9tCEauunGpump",
-    "s": "STENKS",
-    "at": 1795207948500,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 3185,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "26YktWLnhSYPamR3uy3Pb2pHHURWKadDwNoepAZcpump",
-    "s": "ROT",
-    "at": 1795207951500,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1920,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "q": [
-     0,
-     0
-    ],
-    "turn": 0
-   },
-   {
-    "m": "3RjEWwnMowL5rnoyfmYAyhEiJJxeqEJxxWckVLKwpump",
-    "s": "dad",
-    "at": 1795207951917,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1109,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "4Hg6sPFbCtnrgFXpu68gto9UGceLSh78jeCtwLjbpump",
-    "s": "PIRATE",
-    "at": 1795207953144,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1892,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "6eKxiun9LYcNKYd9TLMsJYJZqbxb89o7tSJRD6Vvpump",
-    "s": "leaf",
-    "at": 1795207954057,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1544,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "AGk4r17eDiKetdjrmJXksi5q8JULW3bM92akT1m1pump",
-    "s": "PIRATE",
-    "at": 1795207954895,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2024,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "BY9v9iE8AJsHC4Qnf2nRghdScTzepiFVtFMLC5FDpump",
-    "s": "SXSN",
-    "at": 1795207955031,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1481,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "cxaSESgrVQx836DLUxfV6dWnKgGkEGdS9fe32VBpump",
-    "s": "ION",
-    "at": 1795207955347,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 132527,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "q": [
-     0,
-     0
-    ],
-    "turn": 0
-   },
-   {
-    "m": "95jr3TSbMpaN9Z1iBi59B1NL9wvtPs7nS1FkvTHFpump",
-    "s": "$BWIZ",
-    "at": 1795207959821,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2719,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "8vTConXN8JpAm61xLzRwauTJ8bt19Uq8VV72bgwkpump",
-    "s": "SXSN",
-    "at": 1795207961061,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1523,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "FFcaWQ5yQocWctJfm9YD43yET7pUpc6vKp1YpJ18pump",
-    "s": "PEPEFREEK",
-    "at": 1795207961212,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1974,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "7oq1omn6KCbeGFtqobPUVydGQSN6TGZ2h96wPKBYpump",
-    "s": "RICK",
-    "at": 1795207963511,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 3179,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "5edTTPmiVuhu81CBRLVbFxQX9dyDsXPChYpUeU3dpump",
-    "s": "crismes",
-    "at": 1795207964293,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 5524,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "q": [
-     0,
-     0
-    ],
-    "turn": 0
-   },
-   {
-    "m": "9S5nK1cyNSo5dVFPCGjrQvNHx7XPvKCBds5p9coHpump",
-    "s": "JHON",
-    "at": 1795207966791,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1895,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "q": [
-     0,
-     0
-    ],
-    "turn": 0
-   },
-   {
-    "m": "596KL9Go4NbmMGcNuZpb4uu8Y7J7YChNxXFKS1Bbpump",
-    "s": "MOMMY",
-    "at": 1795207967689,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1899,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "Hb4A2tbNhRhdZxXyNt1cxeqJtuKbtTnb1DfNk9H5pump",
-    "s": "MCN",
-    "at": 1795207969950,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1886,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "HriZcWStkfZjF7xtEqJcvhDdtG8x2n1ofMS28ekapump",
-    "s": "bro",
-    "at": 1795207980754,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 3798,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "AFG3YraFc8ZPHi5QRo14sDkWb2uxf7o3SHyUzWrppump",
-    "s": "SOOTS",
-    "at": 1795207982438,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 3823,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "B4k6WSyAzk7xYf542W83sMRCc4oHULrMnnHKw8Bdpump",
-    "s": "RICK",
-    "at": 1795207982554,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2716,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "6dWTs2EjmEmT4GhYB8Up1cgnpjqMcfe9MXurY41bpump",
-    "s": "Dinu",
-    "at": 1795207984073,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1934,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "q": [
-     0,
-     0
-    ],
-    "turn": 0
-   },
-   {
-    "m": "E2MP1CojKz1nm1NoH3gLz6oofoun177UF51STT8Dpump",
-    "s": "GrenCAT",
-    "at": 1795207984583,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 937,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "5P6hkmnPBvgvBneHtJ4CVQoSk18NjqsxmHnCYKBpump",
-    "s": "ONINU",
-    "at": 1795207984701,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 980,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "J9zVGDSgPwVYQ1xHEfXCLggeqEu65ooxRoZThk7Bpump",
-    "s": "TLT",
-    "at": 1795207984719,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 3036,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "8Z29QuxDZdT1zJ3FyX8oL6fkWRosf7WjxDPeVjvbpump",
-    "s": "$AURA",
-    "at": 1795207986553,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1926,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "3qDs7Vdvn6VCAMwTGMc825tHQbM3KJALLDFHfChepump",
-    "s": "GECO",
-    "at": 1795207989084,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1947,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "HrngxyKfMTeaVGCjMAm2MwB4DWzAMdQEpTpqUW6n6ocT",
-    "s": "ELYOS",
-    "at": 1795207992579,
-    "n60": 1,
-    "b": null,
-    "f": {
-     "top3": 1,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 1,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2009,
-    "th": {},
-    "rx": {
-     "l0": [
-      1,
-      1,
-      0,
-      1,
-      0,
-      0,
-      1,
-      0,
-      0
-     ]
-    },
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0.03
-   },
-   {
-    "m": "249yKmtXGaa4PcrQhBQx9ZHw4nm2Q7YqXXQP5LWSpump",
-    "s": "SuperCoon",
-    "at": 1795207997756,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 4653,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "7v4c2yQ2zHzXGXvuusxG3T5BLDwZYV1ShQwWSYowpump",
-    "s": "dad",
-    "at": 1795207997993,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 5211,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "3Zrehat6S3GZFqJSrPwigWidRz166rT6cX8P4zcTpump",
-    "s": "RYTHEPUG",
-    "at": 1795207998515,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1929,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "q": [
-     0,
-     0
-    ],
-    "turn": 0
-   },
-   {
-    "m": "J3hhKEpZopjAy6J15K8wfWaQzhaPMS5L2NQqegXBpump",
-    "s": "trench",
-    "at": 1795208000036,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1956,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "DWxmjcrk6qkgPwp4heFSg6TVNxTKFLBtPEBYn518pump",
-    "s": "Datitty",
-    "at": 1795208001442,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2611,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "H4U5nKKwJY4jZBu8XnpUdSFA131Kioq76aj3SRwJpump",
-    "s": "SOOTS",
-    "at": 1795208002016,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1528,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "HjSFzXdpF9UYZrffb7hqV3JMNoXC6k6EvEJidxhApump",
-    "s": "FOMOCAT",
-    "at": 1795208003227,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 6272,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "GK7MNkBtUADm6n4R1S8nyqYEWo9hq23CFCGysrd5pump",
-    "s": "$WORK",
-    "at": 1795208003326,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1895,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "BtCDbAgxvDc85PBuaS25a7buRECFjAx1Xn6L1wDepump",
-    "s": "ramen",
-    "at": 1795208004335,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 317,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "BduNnkzP4JpuM6RQNjnuuYeApQKa35D2aNy9ku2bpump",
-    "s": "SATINU",
-    "at": 1795208008170,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1642,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "CApQthQzV3BTmT9TiUEAMaAzgLBxwZcF24SFmcjsRW69",
-    "s": "Onoda",
-    "at": 1795208011669,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2407,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "C2mPwgReSVSbKyN4WjZ9HuEfbbeiDgSn96JQMoURpump",
-    "s": "fg",
-    "at": 1795208011977,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1370,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "cBgW4uZqJertcvZTdUhcNeHniY6mJLwSzZs76NMpump",
-    "s": "RICK",
-    "at": 1795208012183,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 3207,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "QGJYKXAfm31QGZGakhFTdtejWFasGM2qAA9NvZQpump",
-    "s": "$PENG",
-    "at": 1795208013337,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1933,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "q": [
-     0,
-     0
-    ],
-    "turn": 0
-   },
-   {
-    "m": "64T3vqEecxKMRCTqtavXfxk1LnJ7q9CSayfq3CXtpump",
-    "s": "punch",
-    "at": 1795208015308,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1882,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "BTNr6rPjY6DNmai6qzarQSsDbz9yXd6JFngpEZULpyTU",
-    "s": "TRADER",
-    "at": 1795208015336,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2498,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "q": [
-     0,
-     0
-    ],
-    "turn": 0
-   },
-   {
-    "m": "2XfgQN9FWEuCAKpA4R2teLgasuaHjaZ911qpuxy2pump",
-    "s": "punch",
-    "at": 1795208020562,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1885,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "3xCaM1GhfSCPCMY6GAQiBqYbCqmq2DqicZsuSEa5pump",
-    "s": "BetOnBlak",
-    "at": 1795208021099,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2805,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "6RGLhhvEa5RC4pQjPYdTERFBFrghuLeMsSxCqZ8Hpump",
-    "s": "($dance)",
-    "at": 1795208021877,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1979,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "q": [
-     0,
-     0
-    ],
-    "turn": 0
-   },
-   {
-    "m": "8k8kzCiBsdZvQCyLNwhSb9MCNvicgeaHAzBBxVstpump",
-    "s": "punch",
-    "at": 1795208021958,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1883,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "6VscHFg2ZSY65nWjEXRrAwtUGy3KNF3c7RdkDG84pump",
-    "s": "punch",
-    "at": 1795208021984,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1883,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "Du8FLvwyTxJR7wBeJo3PtgoXW7nj4g2vzQ84Xg1hpump",
-    "s": "bro",
-    "at": 1795208024037,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1373,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "pYYFh5d72ri9GqGUTyKhrmUPZJkxouFgC9XwM29pump",
-    "s": "ONINU",
-    "at": 1795208024251,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1065,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "2rro33jm9nrHALYECwHSzG4PCdouRGdKcDsQ99Uspump",
-    "s": "Lone",
-    "at": 1795208024882,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1201,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "RUmFHQgiKp6Xx3XWWFkDi5cVKBwGDkfe87YxYwBpump",
-    "s": "RAMEN",
-    "at": 1795208025995,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 542,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "GiUSM8EDMeFswQd7ZrDrE18Xj5cxyGtJ4GRzZpgupump",
-    "s": "wApe",
-    "at": 1795208026999,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2269,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "9ci5aMmdF4NbLnepqDz17PVWQEbE1vzLqVC19KUmvqUo",
-    "s": "RAMEN",
-    "at": 1795208027506,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 86256,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "GfdTz3DntW7kMRkzXc8C4672MhaVokaFHaM7Gbj7pump",
-    "s": "agpad",
-    "at": 1795208028015,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2586,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "G7iDhY9UKnFcrQrzivweLJtTRp2k55AzL5TsrqS9pump",
-    "s": "bey",
-    "at": 1795208029636,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 6423,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "CQeqW1RhoCSSnUMXaH1Y61iFS6N364S9NyMtcT3Xpump",
-    "s": "SEYONG",
-    "at": 1795208030807,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1890,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "BZHrGieexHEbQKmcoe5wz8GpVXiVmT76N8Z6CwK4pump",
-    "s": "RICK",
-    "at": 1795208033344,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1716,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "7Z9zsFy2kkLUubAWTak1RDVsENH7WZwwTQBcbfL5pump",
-    "s": "Trader",
-    "at": 1795208034374,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1993,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "CXEKpKLXbJhdeDHwKT57hMtcZ6DUaVDCt5jmkrkzpump",
-    "s": "Bubble",
-    "at": 1795208035087,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false
-   },
-   {
-    "m": "83CwujzbRzqacdDPq8oE1egRCh7MjZ8Hf6ydrZ6vpump",
-    "s": "punch",
-    "at": 1795208036853,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1887,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "BDYN945XUhrDkBu8woH2GCF5GErNz1ZHKr4U34h7pump",
-    "s": "punch",
-    "at": 1795208037150,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1887,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "2a45mWmLaZ1pmuyz6yiF5iuwwfv5VjMP9ECQMpgEpump",
-    "s": "RIEMANN",
-    "at": 1795208037898,
-    "n60": 1,
-    "b": null,
-    "f": {
-     "top3": 1,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 1,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 5186,
-    "th": {},
-    "rx": {
-     "l0": [
-      1,
-      0,
-      0,
-      1,
-      0,
-      0,
-      1,
-      0,
-      0
-     ]
-    },
-    "ls": 0,
-    "lsW": 0,
-    "q": [
-     0,
-     0
-    ],
-    "turn": 0.26
-   },
-   {
-    "m": "339YkGg3CRxLpQ8Yxh64rTmnZ4xhrbPWeT6eQzHGpump",
-    "s": "SALTY",
-    "at": 1795208038435,
-    "n60": 1,
-    "b": null,
-    "f": {
-     "top3": 1,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 1,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 6812,
-    "th": {},
-    "rx": {
-     "l0": [
-      1,
-      1226,
-      0,
-      1,
-      -45,
-      1,
-      1,
-      -45,
-      1
-     ]
-    },
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0.01
-   },
-   {
-    "m": "5rHsMj1Aep24cJmwF3FzrFns9BVPcPoGMjSx3vYppump",
-    "s": "SATINU",
-    "at": 1795208042009,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2770,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "TrcFuy3ukTTBwcmxPioXVtwUfm48WJN45kD1qFspump",
-    "s": "34%",
-    "at": 1795208043508,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2631,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "2Hx6gM6WTaxh91uig4bQHKNbfNVvExtwZ7gy9aenpump",
-    "s": "dad",
-    "at": 1795208046316,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1500,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "6ovM3e8JDDh5jXcatinRWy8rQG2kbgCzeXD1zhyNpump",
-    "s": "SuperCoon",
-    "at": 1795208048041,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 3625,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "923p8ZgvX8nBJLh8CtQP9dtJ3BRMceBHpB35s1MHpump",
-    "s": "RICK",
-    "at": 1795208048732,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2109,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "3mnEZdByfAMf3fqReCHKfBjnvNMFxisne2vitjUGpump",
-    "s": "CHAROC",
-    "at": 1795208051067,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 547,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "Cy9r2gNTUMTcVQEwr37hGDRe3fPmF8MAhdihE8GCpump",
-    "s": "BLACK",
-    "at": 1795208054920,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false
-   },
-   {
-    "m": "E1JLKGZepg8T2iNg25aSx8edSLiccBNK1ocZykjfpump",
-    "s": "ramen",
-    "at": 1795208056326,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 495,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "q": [
-     0,
-     0
-    ],
-    "turn": 0
-   },
-   {
-    "m": "7eJSahjntM7pkzy2efDCNHTmR1hiQda5o3Zysi6xpump",
-    "s": "SHHH",
-    "at": 1795208057444,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 560,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "F2ma2Po86RZPcbnFffDtdemC6bNKPHzpELdWGhepuNCH",
-    "s": "punch",
-    "at": 1795208057654,
-    "n60": 1,
-    "b": null,
-    "f": {
-     "top3": 1,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 1,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 7055,
-    "th": {},
-    "rx": {
-     "l0": [
-      1,
-      235,
-      0,
-      1,
-      192,
-      0,
-      1,
-      -57,
-      1
-     ]
-    },
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0.01
-   },
-   {
-    "m": "2cRX3qsFmV7PQGoKLJWaW3oHsJ1nXNFtxDfLpaH1pump",
-    "s": "LUCIA",
-    "at": 1795208057753,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1937,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "E9hpV6MpQnCncJdVdeiGvWBBWyjfV1HEsNbBZ3Wupump",
-    "s": "sol",
-    "at": 1795208057770,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2649,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "283itNYinCRtFkcVSQnAnKEijTn3jZLpvsCYF6ynpump",
-    "s": "MEGGACOON",
-    "at": 1795208059494,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1910,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "9TVCz5jQwML5jWcphy1N4ge2VTqQ8xPfSVwRvtQnpump",
-    "s": "ONINU",
-    "at": 1795208059819,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2265,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "nCnPm6wFx6wuRBZqKCpBNXTH4WjLyD2jNkYgDtRpump",
-    "s": "dang",
-    "at": 1795208060184,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1435,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "FzBG1BJxu2qvCdwPnG8dwK4r2QXD7K7rU8M2sj9mpump",
-    "s": "Token",
-    "at": 1795208060662,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1888,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "78hYdmLvrbDduzFXkwqHaXG2tVDZSbcb6Sp8VUUdpump",
-    "s": "trench",
-    "at": 1795208061308,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1160,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "FhymPzcT6fyNGr7jF9YhUQAJuwvPoTSuDTxKu279pump",
-    "s": "kittylick",
-    "at": 1795208061629,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2634,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "BMfF5dHj51QjHQoNNN6h5sxzF2CfGv6grx3AhKJFpump",
-    "s": "bro",
-    "at": 1795208063316,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 992,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "H3dNgd3Ys4KwNgJDUCzcqPoHHj8tsGPedAPsg9z1pump",
-    "s": "DCTY",
-    "at": 1795208064668,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1904,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "9sxYRMtccrTxaGj1zFmsekcEEwEpBqyemDWrpFPmhC9r",
-    "s": "BLACK",
-    "at": 1795208065305,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1885,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "6Viy9aS3GqQ5GV49JRTd6JEeA97kaTDmg4JHJFtFpump",
-    "s": "BetOnBlak",
-    "at": 1795208066012,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 6696,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "Goee66DwQTLzFvagC8ULe8oiCNgLXMn4UtK4vupipump",
-    "s": "WEIRDCAT",
-    "at": 1795208066064,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 4452,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "Ex71N1yyu1L6794BgjUSMHoSd8mSg7LpgbdNkrxnpump",
-    "s": "MONY",
-    "at": 1795208066081,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2760,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "2B2UkBvHYM8dUoNaqNvBS5gJRUBpRVZjKZsJv3Depump",
-    "s": "fuck",
-    "at": 1795208069428,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 3002,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "B8WZN8xFG8fbbjYhGKFSZ3dMNW6CbZU2QJvs3SzCpump",
-    "s": "pump",
-    "at": 1795208069837,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1885,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "G2ApeSY8PGy2PmXVvZU88N6UctNJDicy7yvEYpSXpump",
-    "s": "GrenCAT",
-    "at": 1795208074241,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 3126,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "Qvt3BhkxB63bhrGFvkfSz7a5nkAe9am4BVomBU3pump",
-    "s": "RICK",
-    "at": 1795208074258,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2342,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "Ddvb12iyQKWrYaAYnM3bU6rupavwTj5pMAhoghvgBiDT",
-    "s": "MIKU",
-    "at": 1795208075459,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2034,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "EjRigyAEBiU8iXGbrfNjVbi7Vkhuxt5gSKvHWaq4pump",
-    "s": "MGOAT",
-    "at": 1795208075651,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1901,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "5F1finQ5zkHafqg3dN9mY6npGZqeswpXExofwTLQ3VyM",
-    "s": "1",
-    "at": 1795208076018,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1883,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "3Epp4KhaeShBeDdxGtrcG2ARxittg7DBY8Hgz5k6pump",
-    "s": "SALTY",
-    "at": 1795208079959,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 17625,
-    "th": {
-     "10": {
-      "e": 40,
-      "pk": 1.439,
-      "ts": 40,
-      "dip": 0.942,
-      "r": {
-       "12/10": "tp",
-       "20/15": "tp",
-       "30/20": "tp"
-      },
-      "x": [
-       1.392,
-       1.225,
-       0.178
-      ],
-      "d": {
-       "10": {
-        "g": 0.942,
-        "r": {
-         "12/10": "tp",
-         "20/15": "tp",
-         "30/20": "tp"
-        },
-        "x": [
-         1.119,
-         1.3,
-         0.189
-        ]
-       },
-       "20": {
-        "g": 0.942,
-        "r": {
-         "12/10": "tp",
-         "20/15": "tp",
-         "30/20": "tp"
-        },
-        "x": [
-         1.44,
-         1.175,
-         0.189
-        ]
-       }
-      }
-     },
-     "12": {
-      "e": 40,
-      "pk": 1.439,
-      "ts": 40,
-      "dip": 0.942,
-      "r": {
-       "12/10": "tp",
-       "20/15": "tp",
-       "30/20": "tp"
-      },
-      "x": [
-       1.392,
-       1.225,
-       0.178
-      ],
-      "d": {
-       "10": {
-        "g": 0.942,
-        "r": {
-         "12/10": "tp",
-         "20/15": "tp",
-         "30/20": "tp"
-        },
-        "x": [
-         1.119,
-         1.3,
-         0.189
-        ]
-       },
-       "20": {
-        "g": 0.942,
-        "r": {
-         "12/10": "tp",
-         "20/15": "tp",
-         "30/20": "tp"
-        },
-        "x": [
-         1.44,
-         1.175,
-         0.189
-        ]
-       }
-      }
-     },
-     "15": {
-      "e": 80,
-      "pk": 1,
-      "ts": 0,
-      "dip": 1,
-      "r": {
-       "12/10": "sl",
-       "20/15": "sl",
-       "30/20": "sl"
-      },
-      "x": [
-       0.887,
-       0.985,
-       0.124
-      ],
-      "d": {
-       "10": {
-        "g": 0.967,
-        "r": {
-         "12/10": "sl",
-         "20/15": "sl",
-         "30/20": "sl"
-        },
-        "x": [
-         0.819,
-         1.018,
-         0.128
-        ]
-       },
-       "20": {
-        "g": 0.967,
-        "r": {
-         "12/10": "sl",
-         "20/15": "sl",
-         "30/20": "sl"
-        },
-        "x": [
-         0.88,
-         1.032,
-         0.128
-        ]
-       }
-      }
-     },
-     "7.5": {
-      "e": 10,
-      "pk": 1.884,
-      "ts": 70,
-      "dip": 0.931,
-      "r": {
-       "12/10": "tp",
-       "20/15": "tp",
-       "30/20": "tp"
-      },
-      "x": [
-       1.504,
-       1.645,
-       0.234
-      ],
-      "d": {
-       "10": {
-        "g": 1,
-        "r": {
-         "12/10": "tp",
-         "20/15": "tp",
-         "30/20": "tp"
-        },
-        "x": [
-         1.884,
-         1.67,
-         0.233
-        ]
-       },
-       "20": {
-        "g": 0.931,
-        "r": {
-         "12/10": "tp",
-         "20/15": "tp",
-         "30/20": "tp"
-        },
-        "x": [
-         1.958,
-         1.605,
-         0.251
-        ]
-       }
-      }
-     }
-    },
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "q": [
-     0,
-     0
-    ],
-    "turn": 0
-   },
-   {
-    "m": "2yD1fMe2WNvb2hGgfxCVp6kv9Bn2dYoS46RjhRM7pump",
-    "s": "Babypunch",
-    "at": 1795208081361,
-    "n60": 1,
-    "b": null,
-    "f": {
-     "top3": 1,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 1,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1884,
-    "th": {},
-    "rx": {
-     "s0": [
-      1,
-      0,
-      0,
-      1,
-      0,
-      0,
-      1,
-      0,
-      0
-     ]
-    },
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "B5zoLgs1uZrPDpaBg59xYQ3xxtUr5in4BqKWDdcCpump",
-    "s": "ONINU",
-    "at": 1795208083011,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 3188,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "5RUeTU7QpKdm9uRQ78fittZC734u7bfPRyT87qCDXEAf",
-    "s": "Trader",
-    "at": 1795208083027,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1957,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "64eeQdCqJKwJHsLG7LeMFfMK1UtjFvQZFe2FjPSceMpT",
-    "s": "Trader",
-    "at": 1795208084663,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false
-   },
-   {
-    "m": "CvhJaM8ka7JQTmGXWr2EEe3y8mSQ6tmf7sewVG8Cpump",
-    "s": "LittleChimp",
-    "at": 1795208085892,
-    "n60": 1,
-    "b": null,
-    "f": {
-     "top3": 1,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 1,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 4851,
-    "th": {},
-    "rx": {
-     "l0": [
-      1,
-      571,
-      0,
-      1,
-      882,
-      0,
-      1,
-      199,
-      0
-     ]
-    },
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0.01
-   },
-   {
-    "m": "EQwAD7rqRxHY8XNzEgj2NLAqvCoAbKSGK299gHBCpump",
-    "s": "NIO",
-    "at": 1795208088347,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false
-   },
-   {
-    "m": "3Yp89vH7FUwnjLD16r1yHhAboadgNfuKuhERsq77pump",
-    "s": "dad",
-    "at": 1795208090961,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1970,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "FXQtGXBUiyzb2sR9xm2oA5efZz5cKVgXNBqx4UK3pump",
-    "s": "uinhim",
-    "at": 1795208092558,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 18025,
-    "th": {
-     "10": {
-      "e": 115,
-      "pk": 1.613,
-      "ts": 155,
-      "dip": 0.56,
-      "r": {
-       "12/10": "sl",
-       "20/15": "sl",
-       "30/20": "sl"
-      },
-      "x": [
-       0.805,
-       0.56,
-       0.323
-      ],
-      "d": {
-       "10": {
-        "g": 0.773,
-        "r": {
-         "12/10": "tp",
-         "20/15": "tp",
-         "30/20": "tp"
-        },
-        "x": [
-         1.408,
-         0.724,
-         null
-        ]
-       },
-       "20": {
-        "g": 0.773,
-        "r": {
-         "12/10": "tp",
-         "20/15": "tp",
-         "30/20": "tp"
-        },
-        "x": [
-         1.136,
-         1.731,
-         null
-        ]
-       }
-      }
-     },
-     "12": {
-      "e": 180,
-      "pk": 1.481,
-      "ts": 90,
-      "dip": 0.514,
-      "r": {
-       "12/10": "sl",
-       "20/15": "sl",
-       "30/20": "sl"
-      },
-      "x": [
-       0.514,
-       1.342,
-       null
-      ],
-      "d": {
-       "10": {
-        "g": 0.806,
-        "r": {
-         "12/10": "tp",
-         "20/15": "tp",
-         "30/20": "sl"
-        },
-        "x": [
-         1.524,
-         1.664,
-         null
-        ]
-       },
-       "20": {
-        "g": 0.806,
-        "r": {
-         "12/10": "tp",
-         "20/15": "tp",
-         "30/20": "sl"
-        },
-        "x": [
-         1.524,
-         1.664,
-         null
-        ]
-       }
-      }
-     },
-     "15": {
-      "e": 270,
-      "pk": 1,
-      "ts": 0,
-      "dip": 1,
-      "r": {
-       "12/10": "sl",
-       "20/15": "sl",
-       "30/20": "sl"
-      },
-      "x": [
-       0.906,
-       0.08,
-       null
-      ],
-      "d": {
-       "10": {
-        "g": 0.906,
-        "r": {
-         "12/10": "sl",
-         "20/15": "sl",
-         "30/20": "sl"
-        },
-        "x": [
-         1,
-         0.37,
-         null
-        ]
-       },
-       "20": {
-        "g": 0.906,
-        "r": {
-         "12/10": "sl",
-         "20/15": "sl",
-         "30/20": "sl"
-        },
-        "x": [
-         0.966,
-         0.221,
-         null
-        ]
-       }
-      }
-     },
-     "7.5": {
-      "e": 90,
-      "pk": 2.017,
-      "ts": 180,
-      "dip": 0.7,
-      "r": {
-       "12/10": "sl",
-       "20/15": "sl",
-       "30/20": "tp"
-      },
-      "x": [
-       1.247,
-       1.387,
-       0.161
-      ],
-      "d": {
-       "10": {
-        "g": 0.819,
-        "r": {
-         "12/10": "tp",
-         "20/15": "tp",
-         "30/20": "tp"
-        },
-        "x": [
-         1.522,
-         1.482,
-         0.826
-        ]
-       },
-       "20": {
-        "g": 0.819,
-        "r": {
-         "12/10": "tp",
-         "20/15": "tp",
-         "30/20": "tp"
-        },
-        "x": [
-         1.229,
-         1.414,
-         0.493
-        ]
-       }
-      }
-     }
-    },
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "q": [
-     0,
-     0
-    ],
-    "turn": 0
-   },
-   {
-    "m": "uJuY44coTJ9hkdKVWrTzRcePkeRKF53VMTddDyPpump",
-    "s": "RICK",
-    "at": 1795208092648,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2982,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "5i9k97S5x15GniCNHRmVPfG6As8ziApKJCggU5vmpump",
-    "s": "$CCOW",
-    "at": 1795208094771,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2566,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "Hygak7FNmh9BEZibeWWW6G6gbnnNzNVLXrHdkpUapump",
-    "s": "bey",
-    "at": 1795208096058,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 3078,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "hzQA1p64YpM3vQcVA7VKX85dNoDqdcQzciokvKxpump",
-    "s": "MNC",
-    "at": 1795208099363,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1895,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "GSziVoC2j6ioz11nBViBVWghehDR3J27XvBYYhBfpump",
-    "s": "bro",
-    "at": 1795208101519,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2442,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "B18rDAProoJ63ZqXkBffBLQVFELaWM1GnFyrU2pFpump",
-    "s": "BetOnBlak",
-    "at": 1795208103908,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1909,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "283jpqZMuowHy3XFSdgfS7QFEb7V7nN46bn4wK3Epump",
-    "s": "MEGGACOON",
-    "at": 1795208107566,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2867,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "4kZYhULX6FX57BszMgkCJjiPhfWqE9xBZozQVphypump",
-    "s": "RICK",
-    "at": 1795208107751,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 3802,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "4CFc7GUwANxLZWQ3VvTEqHEkSp3JzvcWE6vpzhELpump",
-    "s": "cap",
-    "at": 1795208109455,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1400,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "5JnH7jnyzFNqgQGqDA1M4GbvMDNgNAW6ADVSLc6tpump",
-    "s": "sol",
-    "at": 1795208109472,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2017,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "HcRRxQ4JnoNgSa1MgvbLi8BCeST19BDBa7kZFGM7pump",
-    "s": "DON",
-    "at": 1795208120969,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 330,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "2hJrvBYNqkmGrGx2gnRr6PCGXCmPdSZbW1abEHgdA4tj",
-    "s": "Punch",
-    "at": 1795208121838,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false
-   },
-   {
-    "m": "HKkmczto42DrDHxB3NoVKRp7rGYsdht6vt6A1EX7pump",
-    "s": "wApe",
-    "at": 1795208122380,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1607,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "5BP4KRMSiJrqY6ATpDiA5NRZ1c2z6SNPP9smG8oipump",
-    "s": "ELIZABETH",
-    "at": 1795208124143,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2208,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "64rUPmz247hcvjSi2eedBVatPHY2q3MoB2mKXnzkpump",
-    "s": "ONINU",
-    "at": 1795208124540,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 3706,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "GqcPoSskk51qNYSRjmVhi5hkLi6tJec7bi7owQJ6dJJK",
-    "s": "enu",
-    "at": 1795208125054,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2048,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "8CSM81Yn7sXYeuhbXmXeSZgA4b4KNLmyxzLtDt9Cpump",
-    "s": "EVIL",
-    "at": 1795208125890,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1122,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
    {
     "m": "CT9aPz94SD5emfLPuFvJRg9y7RhFd9i6iiFdmYGdpump",
     "s": "RICK",
@@ -23156,15 +17868,5821 @@
     "ls": 0,
     "lsW": 0,
     "turn": 0
+   },
+   {
+    "m": "65jDTNYVCbHB1SZizevsLw6zK6ycLwR3KJ7K2zvGpump",
+    "s": "pruple",
+    "at": 1795208368258,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2375,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "BBwFPr8QQke8UE6wULobUbPBrYUb2mPiHM1ue6Shpump",
+    "s": "ramen",
+    "at": 1795208368473,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1889,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "Bb8xMbBdNRzLJBxLoL2B5Qoky8QL9n8zoZUfeQtdpump",
+    "s": "dang",
+    "at": 1795208369381,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 3914,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "9zSriTHxbSXJjEPVVbhNn6ts3zFLFUmu3Z2GZjyvpump",
+    "s": "UP",
+    "at": 1795208370975,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 19251,
+    "th": {
+     "10": {
+      "e": 15,
+      "pk": 1,
+      "ts": 0,
+      "dip": 1,
+      "r": {
+       "12/10": "sl",
+       "20/15": "sl",
+       "30/20": "sl"
+      },
+      "x": [
+       0.137,
+       0.101,
+       0.098
+      ],
+      "d": {
+       "10": {
+        "g": 0.67,
+        "r": {
+         "12/10": "sl",
+         "20/15": "sl",
+         "30/20": "sl"
+        },
+        "x": [
+         0.154,
+         0.147,
+         0.146
+        ]
+       },
+       "20": {
+        "g": 0.559,
+        "r": {
+         "12/10": "tp",
+         "20/15": "tp",
+         "30/20": "tp"
+        },
+        "x": [
+         0.183,
+         0.176,
+         0.175
+        ]
+       }
+      }
+     },
+     "12": {
+      "e": 15,
+      "pk": 1,
+      "ts": 0,
+      "dip": 1,
+      "r": {
+       "12/10": "sl",
+       "20/15": "sl",
+       "30/20": "sl"
+      },
+      "x": [
+       0.137,
+       0.101,
+       0.098
+      ],
+      "d": {
+       "10": {
+        "g": 0.67,
+        "r": {
+         "12/10": "sl",
+         "20/15": "sl",
+         "30/20": "sl"
+        },
+        "x": [
+         0.154,
+         0.147,
+         0.146
+        ]
+       },
+       "20": {
+        "g": 0.559,
+        "r": {
+         "12/10": "tp",
+         "20/15": "tp",
+         "30/20": "tp"
+        },
+        "x": [
+         0.183,
+         0.176,
+         0.175
+        ]
+       }
+      }
+     },
+     "15": {
+      "e": 15,
+      "pk": 1,
+      "ts": 0,
+      "dip": 1,
+      "r": {
+       "12/10": "sl",
+       "20/15": "sl",
+       "30/20": "sl"
+      },
+      "x": [
+       0.137,
+       0.101,
+       0.098
+      ],
+      "d": {
+       "10": {
+        "g": 0.67,
+        "r": {
+         "12/10": "sl",
+         "20/15": "sl",
+         "30/20": "sl"
+        },
+        "x": [
+         0.154,
+         0.147,
+         0.146
+        ]
+       },
+       "20": {
+        "g": 0.559,
+        "r": {
+         "12/10": "tp",
+         "20/15": "tp",
+         "30/20": "tp"
+        },
+        "x": [
+         0.183,
+         0.176,
+         0.175
+        ]
+       }
+      }
+     }
+    },
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "3p1BZBnb1QX4ipiQ9TZyAD9kEUognVgeoxWdwsYCpump",
+    "s": "KICK",
+    "at": 1795208371049,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false
+   },
+   {
+    "m": "BWAQtZCm8iK3dhwoRYf3zuHGDkLBy882xTbtiBgvpump",
+    "s": "PUMPCAT",
+    "at": 1795208372410,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 4446,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "283kq2ni9BxbVXYLi4DHXmktqJbDqPfTTQPkTKMppump",
+    "s": "TI3000",
+    "at": 1795208373562,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 21070,
+    "th": {
+     "10": {
+      "e": 45,
+      "pk": 1,
+      "ts": 0,
+      "dip": 1,
+      "r": {
+       "12/10": "sl",
+       "20/15": "sl",
+       "30/20": "none"
+      },
+      "x": [
+       0.844,
+       0.844,
+       0.844
+      ],
+      "d": {
+       "10": {
+        "g": 0.844,
+        "r": {
+         "12/10": "none",
+         "20/15": "none",
+         "30/20": "none"
+        },
+        "x": [
+         1,
+         0.999,
+         0.999
+        ]
+       },
+       "20": {
+        "g": 0.844,
+        "r": {
+         "12/10": "none",
+         "20/15": "none",
+         "30/20": "none"
+        },
+        "x": [
+         0.999,
+         0.999,
+         0.999
+        ]
+       }
+      }
+     },
+     "12": {
+      "e": 45,
+      "pk": 1,
+      "ts": 0,
+      "dip": 1,
+      "r": {
+       "12/10": "sl",
+       "20/15": "sl",
+       "30/20": "none"
+      },
+      "x": [
+       0.844,
+       0.844,
+       0.844
+      ],
+      "d": {
+       "10": {
+        "g": 0.844,
+        "r": {
+         "12/10": "none",
+         "20/15": "none",
+         "30/20": "none"
+        },
+        "x": [
+         1,
+         0.999,
+         0.999
+        ]
+       },
+       "20": {
+        "g": 0.844,
+        "r": {
+         "12/10": "none",
+         "20/15": "none",
+         "30/20": "none"
+        },
+        "x": [
+         0.999,
+         0.999,
+         0.999
+        ]
+       }
+      }
+     },
+     "15": {
+      "e": 45,
+      "pk": 1,
+      "ts": 0,
+      "dip": 1,
+      "r": {
+       "12/10": "sl",
+       "20/15": "sl",
+       "30/20": "none"
+      },
+      "x": [
+       0.844,
+       0.844,
+       0.844
+      ],
+      "d": {
+       "10": {
+        "g": 0.844,
+        "r": {
+         "12/10": "none",
+         "20/15": "none",
+         "30/20": "none"
+        },
+        "x": [
+         1,
+         0.999,
+         0.999
+        ]
+       },
+       "20": {
+        "g": 0.844,
+        "r": {
+         "12/10": "none",
+         "20/15": "none",
+         "30/20": "none"
+        },
+        "x": [
+         0.999,
+         0.999,
+         0.999
+        ]
+       }
+      }
+     },
+     "7.5": {
+      "e": 35,
+      "pk": 2.426,
+      "ts": 10,
+      "dip": 1,
+      "r": {
+       "12/10": "tp",
+       "20/15": "tp",
+       "30/20": "tp"
+      },
+      "x": [
+       2.047,
+       2.047,
+       2.047
+      ],
+      "d": {
+       "10": {
+        "g": 2.426,
+        "r": {
+         "12/10": "sl",
+         "20/15": "sl",
+         "30/20": "none"
+        },
+        "x": [
+         0.844,
+         0.844,
+         0.844
+        ]
+       },
+       "20": {
+        "g": 2.048,
+        "r": {
+         "12/10": "none",
+         "20/15": "none",
+         "30/20": "none"
+        },
+        "x": [
+         1,
+         0.999,
+         0.999
+        ]
+       }
+      }
+     }
+    },
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "7VKEPqzXRXgUUwW7DSbEuSNDTMsEBaBzynD4SmXnpump",
+    "s": "solana",
+    "at": 1795208377166,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1717,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "FG9nEVphw3nRDdvYMmgVnp8dPd6w2NP5eUke6aR6pump",
+    "s": "HOBBES",
+    "at": 1795208378043,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 243,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "6W1ci6WAfBvAfS4NVngJbAyR3qwsfjtSYtyNCDfKKXKt",
+    "s": "RockBottom",
+    "at": 1795208379423,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 3815,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "6U9eHinT5WhyggAcjGdCix5y995ZCxjGsNzkTprLpump",
+    "s": "LMAO",
+    "at": 1795208379644,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 4066,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "QFVXXD7L5oYQYTecWhBKyoTAwMyParRxQanQMKRpump",
+    "s": "bieber",
+    "at": 1795208382924,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1942,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "8qquFh4ZR2tTRPyCQJTVF7oAnfWUF25NpjCb3s7hpump",
+    "s": "Toly",
+    "at": 1795208384605,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 5416,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "AA6TvXKo1UGURKWZUWXi1KEnYvXVqWEBa6rpYUHbpump",
+    "s": "BBY",
+    "at": 1795208384808,
+    "n60": 1,
+    "b": null,
+    "f": {
+     "top3": 1,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 1,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1887,
+    "th": {},
+    "rx": {
+     "s0": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ]
+    },
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "71R31oxZ457oVRHLEtSEenCsJG1Db9AEFyZZH745pump",
+    "s": "UP",
+    "at": 1795208387961,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 3942,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "DMDMvSTDfFUBqExJV3S53nDsKEutcQ1RPZPGEoU9pump",
+    "s": "DON",
+    "at": 1795208390598,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 3549,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "q": [
+     0,
+     0
+    ],
+    "turn": 0
+   },
+   {
+    "m": "M5shTeBmGH9nWEU5ZNSXSiGVr7tXtRndgKNEn9tpump",
+    "s": "BetOnBlak",
+    "at": 1795208393187,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1084,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "3vWY6agv8rVKLt9tjNar3FzfvLjK9KsSEQQ6RZs6pump",
+    "s": "$DEXTER",
+    "at": 1795208394010,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false
+   },
+   {
+    "m": "4NoQvgw8NsdCiPjibkqm6SXQJbuJ4SHNiXoMiocApump",
+    "s": "$blitz",
+    "at": 1795208396064,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2062,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "6p6WatxdqxLFcnF7kUQALFG19Ap2nXJCP1i73GDRpump",
+    "s": "LUCIA",
+    "at": 1795208396307,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2569,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "2oxHthQfDetsYbnsebBViyNeQmh74U3bUmE1brXzpump",
+    "s": "TSTY",
+    "at": 1795208397230,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2361,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "95Z7W9szQPtExaadfSCP3TyK6qmLHZk7FFTG5PS4pump",
+    "s": "Toly",
+    "at": 1795208397654,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 13353,
+    "th": {
+     "10": {
+      "e": 45,
+      "pk": 1.113,
+      "ts": 10,
+      "dip": 1,
+      "r": {
+       "12/10": "sl",
+       "20/15": "sl",
+       "30/20": "sl"
+      },
+      "x": [
+       0.16,
+       0.158,
+       0.158
+      ],
+      "d": {
+       "10": {
+        "g": 1.113,
+        "r": {
+         "12/10": "sl",
+         "20/15": "sl",
+         "30/20": "sl"
+        },
+        "x": [
+         0.144,
+         0.142,
+         0.142
+        ]
+       },
+       "20": {
+        "g": 1.113,
+        "r": {
+         "12/10": "sl",
+         "20/15": "sl",
+         "30/20": "sl"
+        },
+        "x": [
+         0.144,
+         0.142,
+         0.142
+        ]
+       }
+      }
+     },
+     "12": {
+      "e": 55,
+      "pk": 1,
+      "ts": 0,
+      "dip": 1,
+      "r": {
+       "12/10": "sl",
+       "20/15": "sl",
+       "30/20": "sl"
+      },
+      "x": [
+       0.144,
+       0.142,
+       0.142
+      ],
+      "d": {
+       "10": {
+        "g": 1,
+        "r": {
+         "12/10": "sl",
+         "20/15": "sl",
+         "30/20": "sl"
+        },
+        "x": [
+         0.144,
+         0.142,
+         0.142
+        ]
+       },
+       "20": {
+        "g": 0.141,
+        "r": {
+         "12/10": "none",
+         "20/15": "none",
+         "30/20": "none"
+        },
+        "x": [
+         1.02,
+         1.01,
+         1.01
+        ]
+       }
+      }
+     },
+     "7.5": {
+      "e": 20,
+      "pk": 1.598,
+      "ts": 35,
+      "dip": 1,
+      "r": {
+       "12/10": "tp",
+       "20/15": "tp",
+       "30/20": "tp"
+      },
+      "x": [
+       0.23,
+       0.23,
+       0.227
+      ],
+      "d": {
+       "10": {
+        "g": 1.192,
+        "r": {
+         "12/10": "tp",
+         "20/15": "tp",
+         "30/20": "tp"
+        },
+        "x": [
+         0.193,
+         0.193,
+         0.191
+        ]
+       },
+       "20": {
+        "g": 1.192,
+        "r": {
+         "12/10": "tp",
+         "20/15": "tp",
+         "30/20": "tp"
+        },
+        "x": [
+         0.193,
+         0.193,
+         0.191
+        ]
+       }
+      }
+     }
+    },
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "AFescrFjgfXZRhMU6nDEc79zUipHu2DrqPpeA76Ypump",
+    "s": "DERP",
+    "at": 1795208400368,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1967,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "CTVXGDLioK1hnAkFbFmUEgJTXWpD3C9tNjtSg6WTpump",
+    "s": "Toly",
+    "at": 1795208400601,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 21809,
+    "th": {
+     "10": {
+      "e": 20,
+      "pk": 1.197,
+      "ts": 35,
+      "dip": 0.944,
+      "r": {
+       "12/10": "tp",
+       "20/15": "none",
+       "30/20": "none"
+      },
+      "x": [
+       1.197,
+       1.197,
+       1.197
+      ],
+      "d": {
+       "10": {
+        "g": 0.945,
+        "r": {
+         "12/10": "tp",
+         "20/15": "tp",
+         "30/20": "none"
+        },
+        "x": [
+         1.266,
+         1.266,
+         1.266
+        ]
+       },
+       "20": {
+        "g": 0.945,
+        "r": {
+         "12/10": "tp",
+         "20/15": "tp",
+         "30/20": "none"
+        },
+        "x": [
+         1.266,
+         1.266,
+         1.266
+        ]
+       }
+      }
+     },
+     "12": {
+      "e": 20,
+      "pk": 1.197,
+      "ts": 35,
+      "dip": 0.944,
+      "r": {
+       "12/10": "tp",
+       "20/15": "none",
+       "30/20": "none"
+      },
+      "x": [
+       1.197,
+       1.197,
+       1.197
+      ],
+      "d": {
+       "10": {
+        "g": 0.945,
+        "r": {
+         "12/10": "tp",
+         "20/15": "tp",
+         "30/20": "none"
+        },
+        "x": [
+         1.266,
+         1.266,
+         1.266
+        ]
+       },
+       "20": {
+        "g": 0.945,
+        "r": {
+         "12/10": "tp",
+         "20/15": "tp",
+         "30/20": "none"
+        },
+        "x": [
+         1.266,
+         1.266,
+         1.266
+        ]
+       }
+      }
+     },
+     "15": {
+      "e": 20,
+      "pk": 1.197,
+      "ts": 35,
+      "dip": 0.944,
+      "r": {
+       "12/10": "tp",
+       "20/15": "none",
+       "30/20": "none"
+      },
+      "x": [
+       1.197,
+       1.197,
+       1.197
+      ],
+      "d": {
+       "10": {
+        "g": 0.945,
+        "r": {
+         "12/10": "tp",
+         "20/15": "tp",
+         "30/20": "none"
+        },
+        "x": [
+         1.266,
+         1.266,
+         1.266
+        ]
+       },
+       "20": {
+        "g": 0.945,
+        "r": {
+         "12/10": "tp",
+         "20/15": "tp",
+         "30/20": "none"
+        },
+        "x": [
+         1.266,
+         1.266,
+         1.266
+        ]
+       }
+      }
+     }
+    },
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "GMKah61FKjTsD93Jvk54YD7bvpc9cEGzCofbjtuApump",
+    "s": "ONINU",
+    "at": 1795208401151,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1069,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "5cyoyTQx5Ns849x9oQoTiK67nSqxhc7e7XXGnNEWpump",
+    "s": "Fox",
+    "at": 1795208405817,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 3797,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "AiJu1xvshTRoFB1vnJjsFXC5Ju4XLoCPoiFMnomxpump",
+    "s": "SOOTS",
+    "at": 1795208407277,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1941,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "AhhyWxzXyj91bNWHiJmDQzAYkmDZyzfVsihvkTRgpump",
+    "s": "$Queen",
+    "at": 1795208408840,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2343,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "5utCf3rnw18Xa1KneYxxzMZPuqYZT3pUKXjFWpHZpump",
+    "s": "HOOKER",
+    "at": 1795208410608,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2549,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "q": [
+     0,
+     0
+    ],
+    "turn": 0
+   },
+   {
+    "m": "AwkJBGrwYHYxfnAYGUbD7fibvLQebLvzc433tU6Bpump",
+    "s": "$JENSEN",
+    "at": 1795208410918,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 269,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "DpNct3tN8kaXZrs2Et5FfsQ5bLdwTjUV4U2fu2KTpump",
+    "s": "DEXTER GTA6",
+    "at": 1795208411832,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1930,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "AgHGkJPbuERJbdofxZm2bcNjzGjvySJgFd4vWE8rpump",
+    "s": "GG",
+    "at": 1795208412957,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1879,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "4pbX1s286xy7E67o2Uv5p3jGkoYn4VXGeAkmB7Lipump",
+    "s": "GG",
+    "at": 1795208412968,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1879,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "C3Teix89k7nFhSJAvPYhC88MgTr9dxqwFuwuUpE9pump",
+    "s": "GG",
+    "at": 1795208412974,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1879,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "BS4w2GHvrZkPRSoS6KmmE2aHq4aR4M5FuV2emVqypump",
+    "s": "GG",
+    "at": 1795208412986,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1879,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "3LEoWwb4wbkKDL9eN1LNaLeEPDvyfp3RfpwdYKtPpump",
+    "s": "GG",
+    "at": 1795208412991,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1879,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "ACTEAVZM7LUCzvyQ9FH1pEvsAfKevXN4oDp4USy6pump",
+    "s": "The Trader",
+    "at": 1795208413896,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 4214,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "q": [
+     0,
+     0
+    ],
+    "turn": 0
+   },
+   {
+    "m": "GByGXtcYGGGvghsUDNHuQfnUTyd8SGe7bBBPT32Apump",
+    "s": "BetOnBlak",
+    "at": 1795208415468,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2341,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "51zJF1PNsdmcz7apvCUys16UvbdFsUnT9MWMCtp8pump",
+    "s": "GTAF",
+    "at": 1795208421748,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 4306,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "6SqPcYviA8A6LgcZseokHdQvRGReDEXWuvZhiTtcPUmy",
+    "s": "FENCE",
+    "at": 1795208425760,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1880,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "td7Y4s6BqAJG5ttX1hy7ei7SR85gGsaFFSKSW37pump",
+    "s": "BEDROCK",
+    "at": 1795208427500,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 5209,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "9hsTNypV85YJevZV9cGYjibmecT1KCiugErZ7Uhmpump",
+    "s": "RCEO",
+    "at": 1795208429572,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1911,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "283kya1t27W8q3KfeZJiQ1n1aCbzMTpsKcgzX23wpump",
+    "s": "Favorita",
+    "at": 1795208429962,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1940,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "92PpJ3wAkw6x5yUhEowdvy3YnEAZcPWxW5fMkchopump",
+    "s": "$Queen",
+    "at": 1795208435457,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1172,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "HYqUaSMTaTfcwSuwPKtSpmkARWuVJWrd3tSLiEDYpump",
+    "s": "Tuly",
+    "at": 1795208436414,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 4634,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "8KTq1ZiSVCtkFP2CJZ9sKVhRMJifk1pXFRCDWM53pump",
+    "s": "tuly",
+    "at": 1795208437524,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2341,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "BExBJL26fkb7XFMKsZWug58cSkuYBRdi5PBBF5Hvpump",
+    "s": "bey",
+    "at": 1795208437543,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 776,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "ASQ9Qg8Si6B7Wcz6GeEHBFv4XWTigb1RYTVqLCThpump",
+    "s": "sol",
+    "at": 1795208439045,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2486,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "4R7g54F3WGYSRijHuKU7Ka55xwLxVfAgBMVjqyHWpump",
+    "s": "ONINU",
+    "at": 1795208440692,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1735,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "5naRmX9WKQUvsiu6JfCtRzLhDyqEaHwVh8GQUP4vpump",
+    "s": "SALTY",
+    "at": 1795208441544,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 19139,
+    "th": {
+     "10": {
+      "e": 25,
+      "pk": 1.794,
+      "ts": 130,
+      "dip": 1,
+      "r": {
+       "12/10": "tp",
+       "20/15": "tp",
+       "30/20": "tp"
+      },
+      "x": [
+       1.378,
+       1.789,
+       0.176
+      ],
+      "d": {
+       "10": {
+        "g": 1.097,
+        "r": {
+         "12/10": "tp",
+         "20/15": "tp",
+         "30/20": "tp"
+        },
+        "x": [
+         1.257,
+         1.636,
+         0.161
+        ]
+       },
+       "20": {
+        "g": 1.097,
+        "r": {
+         "12/10": "tp",
+         "20/15": "tp",
+         "30/20": "tp"
+        },
+        "x": [
+         1.512,
+         1.636,
+         0.161
+        ]
+       }
+      }
+     },
+     "12": {
+      "e": 50,
+      "pk": 1.398,
+      "ts": 105,
+      "dip": 1,
+      "r": {
+       "12/10": "tp",
+       "20/15": "tp",
+       "30/20": "tp"
+      },
+      "x": [
+       1.341,
+       1.346,
+       0.137
+      ],
+      "d": {
+       "10": {
+        "g": 1.146,
+        "r": {
+         "12/10": "tp",
+         "20/15": "tp",
+         "30/20": "sl"
+        },
+        "x": [
+         1.042,
+         0.124,
+         0.12
+        ]
+       },
+       "20": {
+        "g": 1.146,
+        "r": {
+         "12/10": "tp",
+         "20/15": "tp",
+         "30/20": "sl"
+        },
+        "x": [
+         1.003,
+         0.124,
+         0.12
+        ]
+       }
+      }
+     },
+     "15": {
+      "e": 60,
+      "pk": 1.22,
+      "ts": 95,
+      "dip": 0.937,
+      "r": {
+       "12/10": "tp",
+       "20/15": "tp",
+       "30/20": "sl"
+      },
+      "x": [
+       1.042,
+       0.124,
+       0.12
+      ],
+      "d": {
+       "10": {
+        "g": 1,
+        "r": {
+         "12/10": "tp",
+         "20/15": "tp",
+         "30/20": "sl"
+        },
+        "x": [
+         1.003,
+         0.124,
+         0.12
+        ]
+       },
+       "20": {
+        "g": 1.026,
+        "r": {
+         "12/10": "tp",
+         "20/15": "sl",
+         "30/20": "sl"
+        },
+        "x": [
+         0.977,
+         0.121,
+         0.117
+        ]
+       }
+      }
+     },
+     "7.5": {
+      "e": 10,
+      "pk": 2.038,
+      "ts": 145,
+      "dip": 1,
+      "r": {
+       "12/10": "tp",
+       "20/15": "tp",
+       "30/20": "tp"
+      },
+      "x": [
+       1.67,
+       1.675,
+       0.2
+      ],
+      "d": {
+       "10": {
+        "g": 1,
+        "r": {
+         "12/10": "tp",
+         "20/15": "tp",
+         "30/20": "tp"
+        },
+        "x": [
+         1.714,
+         1.675,
+         0.2
+        ]
+       },
+       "20": {
+        "g": 1.136,
+        "r": {
+         "12/10": "tp",
+         "20/15": "tp",
+         "30/20": "tp"
+        },
+        "x": [
+         1.378,
+         1.789,
+         0.176
+        ]
+       }
+      }
+     }
+    },
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "q": [
+     0,
+     0
+    ],
+    "turn": 0
+   },
+   {
+    "m": "5oaNAXQr5WbD7TZkK9qcDLechcu1eCzK4H8Kae11pump",
+    "s": "PUMPCAT",
+    "at": 1795208443574,
+    "n60": 1,
+    "b": null,
+    "f": {
+     "top3": 1,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 1,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 4552,
+    "th": {},
+    "rx": {
+     "l0": [
+      1,
+      26,
+      0,
+      1,
+      -662,
+      1,
+      1,
+      -656,
+      1
+     ]
+    },
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0.03
+   },
+   {
+    "m": "28FA846aRFoAbw6F9rkdm2pzRQz3uDNYBaJVk7CEpump",
+    "s": "$DOG",
+    "at": 1795208444613,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1893,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "6ipimjZ6kHAaQvbSJRAXryXa65WpPKy1rsGVRMevpump",
+    "s": "BTC",
+    "at": 1795208446468,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1882,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "q": [
+     0,
+     0
+    ],
+    "turn": 0
+   },
+   {
+    "m": "AxnvQ5yyu9GxjxiHpEd6R7m6Ud1vYceuHBNqSDovpump",
+    "s": "TRADER",
+    "at": 1795208447718,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1722,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "49YxE3sRL3qPd6k7AtcckLwErRbpSCud7dLS8ahNpump",
+    "s": "Goblin",
+    "at": 1795208448186,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 221,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "EwXfNgYnsSXmPukAW6MmTNdSqcuUcNikvfX7vf8bpump",
+    "s": "DUMP",
+    "at": 1795208449244,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 3173,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "q": [
+     0,
+     0
+    ],
+    "turn": 0
+   },
+   {
+    "m": "2zsw7RrmASosDEnTuHHohLHFh7B9ZZkYnGTnSui2pump",
+    "s": "BetOnBlak",
+    "at": 1795208451333,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1455,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "3PVBSrxnJ9JJfEGLkKnyCW2kFhCSvC49yRp7HdNqpump",
+    "s": "LUCIA",
+    "at": 1795208451466,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2403,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "HP2Vcmt2m3MDZ41a4spZYW2Ry4bWng3MhDpnfyZepump",
+    "s": "pruple",
+    "at": 1795208451539,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 4657,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "3d5Aan6WqG6d4KUcg2MTsGfgWka4WKaSdh9KDK7Hpump",
+    "s": "FTC",
+    "at": 1795208453718,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2950,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "BhGfDE4RAZFgJRaGtdp5bDSXyu1tiiUpZunuSHRspump",
+    "s": "FERSPE",
+    "at": 1795208454644,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1887,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "AzegFvXUNL8mBYZLDnEnb2VRGfxtZBtPBrHum4PPpump",
+    "s": "CHIMP",
+    "at": 1795208454762,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2202,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "96pRggKbEnSQSDskuf2k5HkEirgnY9SSVt2WyaXDpump",
+    "s": "$LOAD",
+    "at": 1795208458391,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2953,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "HErToSUzA2XNtCa4XW6axb3SZeJ9UKDfxaLp2DcGpump",
+    "s": "sol",
+    "at": 1795208458806,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1492,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "DCSHgJkWF7cbibAWjxfP24PyA2ehzKhSpYtWgBzNpump",
+    "s": "ONINU",
+    "at": 1795208458823,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 444,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "3CDk6hhsLq7wnEwYYRjq8nQw6UDjQJ3b4PYU3MT9pump",
+    "s": "COWKI",
+    "at": 1795208459812,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1617,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "6kgZoqENbhvFRU2u6RSFuXs62435xELR4mZUcWDppump",
+    "s": "$Queen",
+    "at": 1795208466444,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1292,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "5CWHgXTQsmuxjDpxJipRfA7ySFQtgXbyAxM4KAYYpump",
+    "s": "😂",
+    "at": 1795208470460,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2033,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "q": [
+     0,
+     0
+    ],
+    "turn": 0
+   },
+   {
+    "m": "7rh41ADueEtLbrN2BqyvwjKy9cs5XmYxxAwjNNXNpump",
+    "s": "Fiat",
+    "at": 1795208473905,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 319,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "46Ja1J5Lo7LT5dygPMw6RuhsvhJq3dJDZhmeW9B9pump",
+    "s": "ALTRUISTS",
+    "at": 1795208475693,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 359,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "3CuBv94hx5ZDerVSM92eZ1heQr8BmHrEoPaRu9FWpump",
+    "s": "sol",
+    "at": 1795208476656,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1679,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "GVJ5iGQ3nAmz4MU5UDYGRrFkjcQBf2HaufTGMZhVu2Vo",
+    "s": "ALTRUISTS",
+    "at": 1795208476943,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 209,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "5UFBbU4uywzEiEtGAERAhszfezcAFdXQqN2pVQxspump",
+    "s": "PUMPCAT",
+    "at": 1795208478068,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 3842,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "9YaERZFPHrX3v8HNY4bkBbV37pRJGQcqvNGTWBs8pump",
+    "s": "SPHINX",
+    "at": 1795208479494,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 287,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "q": [
+     0,
+     0
+    ],
+    "turn": 0
+   },
+   {
+    "m": "6HgEAy2RaA7pXSsf6e6r7CXu9zQkJws4frCdCCUZpump",
+    "s": "DERP",
+    "at": 1795208481642,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2520,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "9ZwdakB4fEbRRwYUsSQyBPVnggfLb54z3HRTd2ETpump",
+    "s": "punchcat",
+    "at": 1795208482407,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false
+   },
+   {
+    "m": "CAj5jrurj4hWj8bB79sr7bTbFeVeEqykeZDBwK2hpump",
+    "s": "GTG",
+    "at": 1795208483942,
+    "n60": 1,
+    "b": null,
+    "f": {
+     "top3": 1,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 1,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1925,
+    "th": {},
+    "rx": {
+     "s0": [
+      1,
+      17,
+      0,
+      1,
+      17,
+      0,
+      1,
+      17,
+      0
+     ]
+    },
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "22Riuxxa4SRcjzP95VnDFah7QdoAkBKSwnz15jU5pump",
+    "s": "sol",
+    "at": 1795208484612,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 652,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "HZ9d99Lcin2B4ipQsN2hEPFD566sDacorfL77UMXpump",
+    "s": "$blitz",
+    "at": 1795208487235,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1943,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "vDQTec6xptjdPsAPyg5Skxn9FBEgZUc4SJqEeP3pump",
+    "s": "Tuly",
+    "at": 1795208488070,
+    "n60": 1,
+    "b": null,
+    "f": {
+     "top3": 1,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 1,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 4665,
+    "th": {},
+    "rx": {
+     "l0": [
+      1,
+      781,
+      0,
+      1,
+      4,
+      0,
+      1,
+      4,
+      0
+     ]
+    },
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0.03
+   },
+   {
+    "m": "6Qs2gfMF6JPD8LtySx9VBjPLUdrcFx14cqz3q3n1pump",
+    "s": "AI",
+    "at": 1795208491568,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2199,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "EtgW9pzU3tRQWxLtHJrYFYVdNRELamkNpAdQbud1pump",
+    "s": "RICK",
+    "at": 1795208495405,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1100,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "3SuDjWWZseCKiewMXsB36NLdEXaTbKBMf3yZeDHHpump",
+    "s": "Goblin",
+    "at": 1795208495883,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 254,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "q": [
+     0,
+     0
+    ],
+    "turn": 0
+   },
+   {
+    "m": "283kzFo8F4oMggTw6r3ZJ7tXeEpB3pcL39RU522Epump",
+    "s": "NUKE",
+    "at": 1795208496343,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1942,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "3pzJwe4vDt8a3pEoYAmz2pm2QbU8xBZS5P2HQfLdpump",
+    "s": "sol",
+    "at": 1795208497058,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 6471,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "GkQfowRmU9qR7hei2s5NkarTmXQWpsb2vCFWFTprpump",
+    "s": "キック",
+    "at": 1795208499715,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false
+   },
+   {
+    "m": "GzCqQZ65GNLg7rxof4SwGkSKCmdoBH99VddbjepPpump",
+    "s": "ZILLY",
+    "at": 1795208499851,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false
+   },
+   {
+    "m": "4gu6uA7qEiSpBNfaa3AqBoXvjDA6favXVCT884P3vWHk",
+    "s": "ZILLY",
+    "at": 1795208502269,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1880,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "8nTCvwKKPnPYYPwc7m2NLj2bwqAn9Zr9dNgZD5T7pump",
+    "s": "Claude",
+    "at": 1795208503826,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false
+   },
+   {
+    "m": "HxV5StM2eKgHNtB3T9n86yDCT4PB2QGT1Zhvxa47pump",
+    "s": "$Queen",
+    "at": 1795208504515,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1882,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "2zJYNyNYQaLQqnxpoYc3nWg4nA61hrdpWJRKJqsDpump",
+    "s": "FTX",
+    "at": 1795208505395,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 280,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "8wvJnr9a6Hr7daX62XcwQ4C7spuyPj6bVVzYaGJypump",
+    "s": "FOMOCAT",
+    "at": 1795208506523,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2167,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "9dbdmGkbxkUD7gwadmEpSq2tfZG2BxzXvAZYhUCGpump",
+    "s": "TOAD",
+    "at": 1795208507344,
+    "n60": 1,
+    "b": null,
+    "f": {
+     "top3": 1,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 1,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 4797,
+    "th": {},
+    "rx": {
+     "s0": [
+      1,
+      286,
+      0,
+      1,
+      933,
+      0,
+      1,
+      -416,
+      1
+     ]
+    },
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "BQMieboggkuaEGNs6ex4ofBE4z8KAssjB6mHDggmpump",
+    "s": "ONINU",
+    "at": 1795208509342,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 3619,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "6XEYT9yGeUh5CsbUTTgxQus6n45hR8jykMLJCmojpump",
+    "s": "$avg",
+    "at": 1795208509352,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1911,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "q": [
+     0,
+     0
+    ],
+    "turn": 0
+   },
+   {
+    "m": "ELFPk5brDEt8CyK2h54a4n2ERmtVroE8N1RUJnogpump",
+    "s": "COWKI",
+    "at": 1795208512663,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1972,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "283mD5QEEPZHziHjpThg6P8htAhmKEYsVCumMLoapump",
+    "s": "ALTRUISTS",
+    "at": 1795208512678,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 7850,
+    "th": {
+     "7.5": {
+      "e": 35,
+      "pk": 1,
+      "ts": 0,
+      "dip": 1,
+      "r": {
+       "12/10": "sl",
+       "20/15": "sl",
+       "30/20": "sl"
+      },
+      "x": [
+       0.035,
+       0.035,
+       0.035
+      ],
+      "d": {
+       "10": {
+        "g": 1,
+        "r": {
+         "12/10": "sl",
+         "20/15": "sl",
+         "30/20": "sl"
+        },
+        "x": [
+         0.035,
+         0.035,
+         0.035
+        ]
+       },
+       "20": {
+        "g": 0.84,
+        "r": {
+         "12/10": "sl",
+         "20/15": "sl",
+         "30/20": "sl"
+        },
+        "x": [
+         0.041,
+         0.041,
+         0.041
+        ]
+       }
+      }
+     }
+    },
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "EMqSWccVM8Xp4vXJVYDjFwE3esmGZagpBVnUfCqSpump",
+    "s": "PIP",
+    "at": 1795208516044,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2199,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "q": [
+     0,
+     0
+    ],
+    "turn": 0
+   },
+   {
+    "m": "8XiVCAW9K9dfU7uEyYt1wNHSV3eUENBBcdEFuUn6pump",
+    "s": "DCTYPMP",
+    "at": 1795208518430,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1745,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "2od9PrzmWTX2N79oGBxiEVsP8TXAvYBVTnC1tKGopump",
+    "s": "LUCIA",
+    "at": 1795208518463,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2522,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "7DQpqtWB39UwrzsqDgnUVq2D3qG4GfK49YPoT9X8pump",
+    "s": "CUBIXED",
+    "at": 1795208520850,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1687,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "45CGozV8ik84BJPp6fj5Cm6MnD1mTZzi7pVtCmvDpump",
+    "s": "USDC",
+    "at": 1795208521942,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 286,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "A6k4LVfe5qWVks5zdWAEpw1mfUnvtuyWWSghQ18pFii2",
+    "s": "Trader",
+    "at": 1795208522773,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false
+   },
+   {
+    "m": "HAth56paAp6pKqPKPZpG3bNgPZPyKrX3zD7Fdnhtpump",
+    "s": "CRASHED ",
+    "at": 1795208523872,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1897,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "q": [
+     0,
+     0
+    ],
+    "turn": 0
+   },
+   {
+    "m": "EZGEJEzzhpDhduvWNv8h3sWo7Yfu4y11n8Sb9MKpPKah",
+    "s": "CALLING",
+    "at": 1795208525498,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 118214,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "7Um47QkQ89ncRdupwx5cNZf8Wr4vqgENiWt7PNDHpump",
+    "s": "pruple",
+    "at": 1795208526278,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1889,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "6RXXhVSWKke26NxzYMeXgFckT5cNPcEZ7UtjowFkuhic",
+    "s": "CALLING",
+    "at": 1795208526596,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 86122,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "F2rCAT5EoJsDiTdnCzMuobJvDMy6RvXCFeXpJPX5pump",
+    "s": "BetOnBlak",
+    "at": 1795208526737,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2275,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "HdMty46qxRtGXaqAtyhRAkxgDGagCBooVAyvUitNpump",
+    "s": "FERSPE",
+    "at": 1795208530041,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2328,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "8Dj7KJNJ5mNJ8heD6JG98nyH1u7E8a7jDViUf52Ypump",
+    "s": "SJC",
+    "at": 1795208530241,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 86937,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "415uTvZiSxdzbvj5nXvJuivhL1mWhD48VydLxkrzpump",
+    "s": "Tuly",
+    "at": 1795208532989,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2171,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "56BLMpdVqQGsH3obooa4x1oVXgPWVuTY3AMStH8pump",
+    "s": "cancer",
+    "at": 1795208534409,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 6589,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "q": [
+     0,
+     0
+    ],
+    "turn": 0
+   },
+   {
+    "m": "Fu4Y5B7YTXkqVM1m8kmahpa76anytRsRekAE52nbpump",
+    "s": "WILLY",
+    "at": 1795208537588,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1943,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "BRgbxP42otmY8paeZPZPKXy1XGoeCkwxDYSbu6KDpump",
+    "s": "bey",
+    "at": 1795208538867,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2006,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "DsqPGKpRdkSZTJrmbTH5L7yenxp3KZfAJusNaEGApump",
+    "s": "PUTU",
+    "at": 1795208542280,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1892,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "GUtHGr6xcn9e78ew6qY7Jg7foyuAhf67mNBNntn5pump",
+    "s": "Singularity",
+    "at": 1795208542454,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false
+   },
+   {
+    "m": "EMGyxXD26N6LzFu2eMcmtbVHg21ND6aso1auKkN2ebdQ",
+    "s": "FENCE",
+    "at": 1795208544836,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1880,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "HrdXktMXviAWDHoHXG5dzu5Z6MxjK7LUKk3BNCd2DoNG",
+    "s": "DONG",
+    "at": 1795208545198,
+    "n60": 1,
+    "b": null,
+    "f": {
+     "top3": 1,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 1,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 4460,
+    "th": {},
+    "rx": {
+     "m0": [
+      1,
+      846,
+      0,
+      1,
+      382,
+      0,
+      1,
+      -9,
+      1
+     ]
+    },
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "HRyANr9rq8M9jNN4rUyMefK4W3wT7h3Jf4cGyoKppump",
+    "s": "ONINU",
+    "at": 1795208546505,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1140,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "B13YSmnaSUeyQqKx4BGv4AierFiNaSaLHu9RDRiWpump",
+    "s": "ALTRUISTS",
+    "at": 1795208548320,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 224,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "CVJVFvrJ9SabLuadg9knXjKNqZPppuuCqQN6VZGXpump",
+    "s": "MGOAT",
+    "at": 1795208551054,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2759,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "BgkF8F6JhwqGUgVUKR8vGqgmouM8FGfw3J5pzdvopump",
+    "s": "uinhim",
+    "at": 1795208552316,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 5103,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "CNmG8FQdFX9iFW3RF54UoAfFDYxywda5tzbJvqjcpump",
+    "s": "calloor",
+    "at": 1795208552853,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 212583,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "q": [
+     0,
+     0
+    ],
+    "turn": 0
+   },
+   {
+    "m": "AwGYFh66AQUQUs4uLLZUt7UCAGRnjafesaqmjqr6pump",
+    "s": "$Queen",
+    "at": 1795208553013,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 3880,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "92gN1q16A6xgaRmbgx5bGP8kG8t3AgxKghxTptRKpump",
+    "s": "$CAT",
+    "at": 1795208554187,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 19601,
+    "th": {
+     "10": {
+      "e": 35,
+      "pk": 1.347,
+      "ts": 10,
+      "dip": 1,
+      "r": {
+       "12/10": "tp",
+       "20/15": "tp",
+       "30/20": "tp"
+      },
+      "x": [
+       0.067,
+       0.071,
+       0.071
+      ],
+      "d": {
+       "10": {
+        "g": 1.347,
+        "r": {
+         "12/10": "sl",
+         "20/15": "sl",
+         "30/20": "sl"
+        },
+        "x": [
+         0.053,
+         0.053,
+         0.053
+        ]
+       },
+       "20": {
+        "g": 1.347,
+        "r": {
+         "12/10": "sl",
+         "20/15": "sl",
+         "30/20": "sl"
+        },
+        "x": [
+         0.053,
+         0.053,
+         0.053
+        ]
+       }
+      }
+     },
+     "12": {
+      "e": 35,
+      "pk": 1.347,
+      "ts": 10,
+      "dip": 1,
+      "r": {
+       "12/10": "tp",
+       "20/15": "tp",
+       "30/20": "tp"
+      },
+      "x": [
+       0.067,
+       0.071,
+       0.071
+      ],
+      "d": {
+       "10": {
+        "g": 1.347,
+        "r": {
+         "12/10": "sl",
+         "20/15": "sl",
+         "30/20": "sl"
+        },
+        "x": [
+         0.053,
+         0.053,
+         0.053
+        ]
+       },
+       "20": {
+        "g": 1.347,
+        "r": {
+         "12/10": "sl",
+         "20/15": "sl",
+         "30/20": "sl"
+        },
+        "x": [
+         0.053,
+         0.053,
+         0.053
+        ]
+       }
+      }
+     },
+     "15": {
+      "e": 45,
+      "pk": 1,
+      "ts": 0,
+      "dip": 1,
+      "r": {
+       "12/10": "sl",
+       "20/15": "sl",
+       "30/20": "sl"
+      },
+      "x": [
+       0.053,
+       0.053,
+       0.053
+      ],
+      "d": {
+       "10": {
+        "g": 1,
+        "r": {
+         "12/10": "sl",
+         "20/15": "sl",
+         "30/20": "sl"
+        },
+        "x": [
+         0.053,
+         0.053,
+         0.053
+        ]
+       },
+       "20": {
+        "g": 0.93,
+        "r": {
+         "12/10": "sl",
+         "20/15": "sl",
+         "30/20": "sl"
+        },
+        "x": [
+         0.057,
+         0.057,
+         0.057
+        ]
+       }
+      }
+     },
+     "7.5": {
+      "e": 35,
+      "pk": 1.347,
+      "ts": 10,
+      "dip": 1,
+      "r": {
+       "12/10": "tp",
+       "20/15": "tp",
+       "30/20": "tp"
+      },
+      "x": [
+       0.067,
+       0.071,
+       0.071
+      ],
+      "d": {
+       "10": {
+        "g": 1.347,
+        "r": {
+         "12/10": "sl",
+         "20/15": "sl",
+         "30/20": "sl"
+        },
+        "x": [
+         0.053,
+         0.053,
+         0.053
+        ]
+       },
+       "20": {
+        "g": 1.347,
+        "r": {
+         "12/10": "sl",
+         "20/15": "sl",
+         "30/20": "sl"
+        },
+        "x": [
+         0.053,
+         0.053,
+         0.053
+        ]
+       }
+      }
+     }
+    },
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "Fn7F1iLMhWZ69mHfszbkNfUSWeRPdRWdz3QH6nRspump",
+    "s": "WEIRDCAT",
+    "at": 1795208554233,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1302,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "2hHQcUsgWFP7DQVJXYhL94tbbRyFZnKh8NgKvvgWiFHp",
+    "s": "calloor",
+    "at": 1795208554646,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 85864,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "BventzuoRWQrraRvUmsWDnDQC3Gz2WkQT63hbUTApump",
+    "s": "vrl",
+    "at": 1795208558243,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2106,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "GJux4ijfVRAdTECEwersWQropnNc9och5xHGiJGPpump",
+    "s": "FREEGTA",
+    "at": 1795208558950,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1313,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "9pgPKE89rCrjHuK2WjN1zx8aGJ94jUycFyUEQx4Epump",
+    "s": "SALTY",
+    "at": 1795208561448,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 3956,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "q": [
+     0,
+     0
+    ],
+    "turn": 0
+   },
+   {
+    "m": "GqcMRDkvWn7TyqKzh5dPadXM1Ee4oDK8b5mC9YJ7pump",
+    "s": "sol",
+    "at": 1795208565841,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 413,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "3XAwgJivvDwpwSV3MxckuugeDdZ2CtxSsxTqkjUCpump",
+    "s": "MONY",
+    "at": 1795208566658,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 502,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "H1EgvjvYGB3FYLTeN5Sf7Hfr5bbhCLdSqbZzUguGACTC",
+    "s": "MONY",
+    "at": 1795208567710,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1935,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "6VcDJd247tkrVYyJLqXE5FTK1ExcXySQoo9YesgEpump",
+    "s": "BetOnBlak",
+    "at": 1795208569210,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 9775,
+    "th": {
+     "7.5": {
+      "e": 20,
+      "pk": 1,
+      "ts": 0,
+      "dip": 1,
+      "r": {
+       "12/10": "sl",
+       "20/15": "sl",
+       "30/20": "sl"
+      },
+      "x": [
+       0.044,
+       0.044,
+       0.044
+      ],
+      "d": {
+       "10": {
+        "g": 0.307,
+        "r": {
+         "12/10": "sl",
+         "20/15": "sl",
+         "30/20": "sl"
+        },
+        "x": [
+         0.145,
+         0.145,
+         0.145
+        ]
+       },
+       "20": {
+        "g": 0.307,
+        "r": {
+         "12/10": "sl",
+         "20/15": "sl",
+         "30/20": "sl"
+        },
+        "x": [
+         0.145,
+         0.145,
+         0.145
+        ]
+       }
+      }
+     }
+    },
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "CsP4kky4qdv46AYbBQd8wQpY3MC4ZwBafRkSLgTcpump",
+    "s": "BBL",
+    "at": 1795208569886,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1987,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "JCjzCAyVG6af9LN7YsDygmRwUmbLvmTtzBwDVLQWpump",
+    "s": "REDSHANK",
+    "at": 1795208570677,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2002,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "4a7VC5C3uNDxGNmDyXNybQ6c3jpgEmxeCMx9oYofpump",
+    "s": "beer",
+    "at": 1795208581192,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 5120,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "8N3iKCRRrgNjsN6qz2diA4NDKueZwuXDEk7Zbr5upump",
+    "s": "MONY",
+    "at": 1795208581207,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 4525,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "CtAcxLRDHV1nABPrNnYjFxmYsv33vQH82DK3TYXZpump",
+    "s": "AHYPE",
+    "at": 1795208582614,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2348,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "DbNExNpAY7v5Tqsx8XqLFkBP37h6bzKKSYj3iw2jpump",
+    "s": "PUMPCAT",
+    "at": 1795208587283,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 3414,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "6iu2FekcF2b4bbV9Cohqee993nqkDHftN4dMyAc9pump",
+    "s": "sol",
+    "at": 1795208588016,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 3542,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "FAbqrYfzN5LemzFE5f4AKe55VNTDXZPbCAbPotDcpump",
+    "s": "RIEMANN",
+    "at": 1795208588323,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1888,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "7Di37E8ZqbZ56kGf4tWkRNPKAYb9oeWJ5XKJcZKbpump",
+    "s": "WAGMI",
+    "at": 1795208588933,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2101,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "8AbuYG8Pm45u9yNMGjyH1LXxTjgHwnfx36frtLpepump",
+    "s": "ONINU",
+    "at": 1795208590730,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1126,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "GPncS5C8i4UmQCJZxp2f7PemdpBj77bKZWUy39pBpump",
+    "s": "STENKS",
+    "at": 1795208595639,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 5528,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "EKVgfStx6GonYBxtzVqYedUbZg1jvENfWHGpYkunpump",
+    "s": "GUMM",
+    "at": 1795208595680,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2307,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "9LVUBrNMWaYpgiXVbU4VyYCPWaftsPHJzmzjmLTxpump",
+    "s": "dmct",
+    "at": 1795208597421,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 14082,
+    "th": {
+     "10": {
+      "e": 75,
+      "pk": 1,
+      "ts": 0,
+      "dip": 1,
+      "r": {
+       "12/10": "none",
+       "20/15": "none",
+       "30/20": "none"
+      },
+      "x": [
+       1,
+       1,
+       1
+      ],
+      "d": {
+       "10": {
+        "g": 1,
+        "r": {
+         "12/10": "none",
+         "20/15": "none",
+         "30/20": "none"
+        },
+        "x": [
+         1,
+         1,
+         1
+        ]
+       },
+       "20": {
+        "g": 1,
+        "r": {
+         "12/10": "none",
+         "20/15": "none",
+         "30/20": "none"
+        },
+        "x": [
+         1,
+         1,
+         1
+        ]
+       }
+      }
+     },
+     "12": {
+      "e": 75,
+      "pk": 1,
+      "ts": 0,
+      "dip": 1,
+      "r": {
+       "12/10": "none",
+       "20/15": "none",
+       "30/20": "none"
+      },
+      "x": [
+       1,
+       1,
+       1
+      ],
+      "d": {
+       "10": {
+        "g": 1,
+        "r": {
+         "12/10": "none",
+         "20/15": "none",
+         "30/20": "none"
+        },
+        "x": [
+         1,
+         1,
+         1
+        ]
+       },
+       "20": {
+        "g": 1,
+        "r": {
+         "12/10": "none",
+         "20/15": "none",
+         "30/20": "none"
+        },
+        "x": [
+         1,
+         1,
+         1
+        ]
+       }
+      }
+     },
+     "7.5": {
+      "e": 65,
+      "pk": 1.435,
+      "ts": 10,
+      "dip": 1,
+      "r": {
+       "12/10": "tp",
+       "20/15": "tp",
+       "30/20": "tp"
+      },
+      "x": [
+       1.435,
+       1.435,
+       1.435
+      ],
+      "d": {
+       "10": {
+        "g": 1.435,
+        "r": {
+         "12/10": "none",
+         "20/15": "none",
+         "30/20": "none"
+        },
+        "x": [
+         1,
+         1,
+         1
+        ]
+       },
+       "20": {
+        "g": 1.435,
+        "r": {
+         "12/10": "none",
+         "20/15": "none",
+         "30/20": "none"
+        },
+        "x": [
+         1,
+         1,
+         1
+        ]
+       }
+      }
+     }
+    },
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "q": [
+     0,
+     0
+    ],
+    "turn": 0
+   },
+   {
+    "m": "5FegX3Kh5ZyrdSzwQjD1Cz8fNPhzaBL2mjn9JMSbpump",
+    "s": "PUMPCAT",
+    "at": 1795208597433,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 88916,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "9a7Bnwj8jjoJVxL1gXizavnGUDYSqsyWf7sXLms9pump",
+    "s": "JACK",
+    "at": 1795208600828,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 144,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "7NpyknPfhuvdm5J4PWQFTCPoCnkmyk2TxJvoXmdJpump",
+    "s": "COWKI",
+    "at": 1795208602092,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 902,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "QGQYtEcHT4pghunZfvU6rsFepwBADrTdKYvykgcpump",
+    "s": "Iran",
+    "at": 1795208603062,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1937,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "9Su1VoTqEzVD6mHHaMzU5sVEHzNHGwxAiwaf7wqHpump",
+    "s": "BFI",
+    "at": 1795208603911,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1530,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "D4TKdMPywJPGEKyaiX6HzkS8UXkndvUYqVEEVAs3pump",
+    "s": "test",
+    "at": 1795208604991,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1945,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "7v46k2z92nxoZUykfbDx9SK6cHrSz5gPCkbwrbPmpump",
+    "s": "DOOYET",
+    "at": 1795208605291,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1547,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "5tbvxBD4L1TKkTjt7Uu1YVZLiH1h7tL8BjzY6VFPpump",
+    "s": "ONE",
+    "at": 1795208605875,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2298,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "6boQoCnDj3rmC6QCbZmrLAZmoymcPSgixPY2Z4STpump",
+    "s": "KICK",
+    "at": 1795208606003,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false
+   },
+   {
+    "m": "9qwdFPTGLKdvJvea13XAYtGQa4mgbhXWMYiZ3vv7pump",
+    "s": "callooor",
+    "at": 1795208606890,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2991,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "J4xZynw7KRk3BZUzksUMBgzHB3CBEBeAnjqxQzNhpump",
+    "s": "November",
+    "at": 1795208606899,
+    "n60": 1,
+    "b": null,
+    "f": {
+     "top3": 1,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 1,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 5872,
+    "th": {},
+    "rx": {
+     "l0": [
+      1,
+      160,
+      0,
+      1,
+      787,
+      0,
+      1,
+      633,
+      0
+     ]
+    },
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0.05
+   },
+   {
+    "m": "EvnGB9nRf6DWi9XKdJN9XtTEApF4bJ6s6j6CVwM6pump",
+    "s": "sol",
+    "at": 1795208607051,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 3888,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "H8bi8n9DkGb6ToZryqLYwxWo33YbwhkSgY3UjAuCpump",
+    "s": "TOAD",
+    "at": 1795208609758,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1614,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "Ch4ZKJ5kedbvEQkRWAt82cD8cHFJcaB3h12Rk87K7Bvb",
+    "s": "callooor",
+    "at": 1795208611577,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 120001,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "GayGHaSEU6bBsmzyzHFgfmDJsuGkvk5zGAWdAHtd7rNx",
+    "s": "FENCE",
+    "at": 1795208612467,
+    "n60": 1,
+    "b": null,
+    "f": {
+     "top3": 1,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 1,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1876,
+    "th": {},
+    "rx": {
+     "s0": [
+      1,
+      0,
+      0,
+      1,
+      -1,
+      1,
+      1,
+      -1,
+      1
+     ]
+    },
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "8BbwMeSQnwaaVAvwxGVfa3om8MqVcC9VwgVqZY7Spump",
+    "s": "Goth girl",
+    "at": 1795208617959,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2807,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "283mVmTiWtRfigSivRXpR3uWivKtTwU1tfgMGbuVpump",
+    "s": "Sourdough",
+    "at": 1795208619599,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1965,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "ATk7g8bgQfXGrsRpvjTzU9dQCc6hxFvwa4czqaATyzVs",
+    "s": "RIEMN",
+    "at": 1795208621103,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1984,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "9XcVXHhQzjW8hNrLphX8GiHzUs1hnM3ZcCsbBijmpump",
+    "s": "BetOnBlak",
+    "at": 1795208621255,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1165,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "622cxjULcoDomkeF4HRsQvcZrzW6zMsNSs8DphxJpump",
+    "s": "AHYPE",
+    "at": 1795208621908,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2316,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "3WVLsD4Ke4RNLMEFbVvfXkCZrwJoje5tV5m9PzYZpump",
+    "s": "BOUNDINU",
+    "at": 1795208625763,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 265229,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "81hA6cVaJwfXjLuXiCFwFo7ufoQzYQuqKtLL3Awkpump",
+    "s": "uinhim",
+    "at": 1795208627057,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1260,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "95arLKtN4AjhdANKiBqaLZNkyA6hdmgmtEpJczbApump",
+    "s": "DONG",
+    "at": 1795208628326,
+    "n60": 1,
+    "b": null,
+    "f": {
+     "top3": 1,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 1,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2655,
+    "th": {},
+    "rx": {
+     "m0": [
+      1,
+      299,
+      0,
+      1,
+      -47,
+      1,
+      1,
+      -47,
+      1
+     ]
+    },
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0.02
+   },
+   {
+    "m": "7RTXggA64Y5SCFFw3mkroW888ZiybS3L2toF8BE8pump",
+    "s": "$GOAT",
+    "at": 1795208628348,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1262,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "BwHRnmGDRX3upzDxeB9d489oCG7mn9K4YcuQZcZPpump",
+    "s": "November",
+    "at": 1795208628621,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false
+   },
+   {
+    "m": "4eAYC1ffaUiLg14rGPDWJ8gUkWC8jU15zkQfNbwLYqUz",
+    "s": "LEONIDA",
+    "at": 1795208630460,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1881,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "q": [
+     0,
+     0
+    ],
+    "turn": 0
+   },
+   {
+    "m": "283mz3oTtGWXsAaxJpB24e1hRpCc9X7uoBW4Y94npump",
+    "s": "KOTH",
+    "at": 1795208632223,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1303,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "CxhM5yqqfSjhrxvKqgvdLzLiiVzjtEUSdnoSDNsnpump",
+    "s": "DOWNEMBER",
+    "at": 1795208635853,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false
+   },
+   {
+    "m": "6TpQdherYVzEBzsYbEFpf5xMsEMUBdrsqcxGRtXqpump",
+    "s": "BetOnBlak",
+    "at": 1795208640132,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2035,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "7keNHLtA26vTi5omN3kwnsagnsqgdCfFcLFgo4R4pump",
+    "s": "punch",
+    "at": 1795208642188,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1876,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "3j8NAxxiL2pkTUZ6kkWeZZ7By1Mr3j8E7hJZ4Gy4pump",
+    "s": "punch",
+    "at": 1795208643896,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1876,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "FefrkeQ4ouZ2ACdWP2YapafmM1S7thttAvoRn7Ngpump",
+    "s": "punch",
+    "at": 1795208644021,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1876,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "8kZnmQNy7UkuCF5pQtK8c74wz8Nwi8NQ3t4siGFHpump",
+    "s": "$CAT",
+    "at": 1795208646648,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1906,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "8EYuzZ5rkEfSkyfp44Udy2P45ENcFJksjG8sn1u5pump",
+    "s": "bey",
+    "at": 1795208646830,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1463,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "BJD9dCvd7w7q7cVtMeUMg1qaUC28xVj6YXrQ4docpump",
+    "s": "$Queen",
+    "at": 1795208647227,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1582,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "EgdYYE7U7FNVmNSdJFHzHyDHarDwJxFK1XSMs4pnpump",
+    "s": "Dog Think",
+    "at": 1795208650329,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 807,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "6x9JyGKWBun1We55i8V6g68XTPwqYtNSfENwWxnBpump",
+    "s": "punch",
+    "at": 1795208652091,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1878,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "5oY49tA8BJj7zLhWuFALytkLWEX8r8euphNh5Ctepump",
+    "s": "punch",
+    "at": 1795208652106,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1878,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "6rPKuujp4fpZmY1R564mDqwTAxx2rSYLHwsBKCCypump",
+    "s": "punch",
+    "at": 1795208652529,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1878,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "ACjbhTepmxMAkzPLDMWpa4AUriyhy4ptHVyxHxetpump",
+    "s": "punch",
+    "at": 1795208652537,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1878,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "9E2dYL7XK9deCp5hPkhFwjfPxJ3fzRhCVqZHH82Vpump",
+    "s": "ONINU",
+    "at": 1795208654240,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1427,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "bbqTpcHTYjTAsZvyxGzgA3F6EZekRSJ8U42zA1rpump",
+    "s": "DERP",
+    "at": 1795208654252,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 3006,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "6nK982Qgtpo5sCHL2cEP35Hk6XCS177u1Zjxmwu1pump",
+    "s": "DOWNVEMBER",
+    "at": 1795208654564,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false
+   },
+   {
+    "m": "4ZV658TzbMhoDiJFLZQhRA5R9qVhUqA1Xm1dKwa5pump",
+    "s": "POP",
+    "at": 1795208655211,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1884,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "FMddTAotCdyd3xegPbR6BVtnPSzhoLVJeP6tMj76pump",
+    "s": "MOJAVE",
+    "at": 1795208655225,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 4838,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "8QPSxeVeYXNMbJ42MboZ7NM4pP3zChookbotMjwDEeaC",
+    "s": "AMBSH",
+    "at": 1795208656154,
+    "n60": 1,
+    "b": null,
+    "f": {
+     "top3": 1,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 1,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1885,
+    "th": {},
+    "rx": {
+     "s0": [
+      1,
+      -252,
+      1,
+      1,
+      -2366,
+      1,
+      1,
+      -2366,
+      1
+     ]
+    },
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "3A46e5Ri1jhTudD9tG284k9PVR8GJG5trvhh7vT9pump",
+    "s": "BPCATE",
+    "at": 1795208656895,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2284,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "76v2QHEiYyap9okXS7sPhzpsZMV8Hci7ffbXCkDyjBjo",
+    "s": "COLTS",
+    "at": 1795208658303,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1994,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "Gqnin6Z1R6AD8Mu5cx4dQza8RQZAG3FxkoP4L9ho9rzu",
+    "s": "DOWNVEMBER",
+    "at": 1795208658311,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false
+   },
+   {
+    "m": "AKhP8b32VD8w15kr6VcVxd2cCFGdXT1bMb1GqHc8pump",
+    "s": "punch",
+    "at": 1795208660098,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1878,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "CZqHL1qVSAm23nSFy9khbsCaBR3fnPbECyZRgLXRpump",
+    "s": "punch",
+    "at": 1795208660104,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1878,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "2MpqThksgJYmVALMotxupA13FozwrcXamAKfnpbfpump",
+    "s": "ENUF",
+    "at": 1795208660337,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false
+   },
+   {
+    "m": "4Ufn1P68isT4P4fCJzkTPSKRDQeDHDff3JJK4pfzpump",
+    "s": "pruple",
+    "at": 1795208660516,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 7708,
+    "th": {
+     "7.5": {
+      "e": 10,
+      "pk": 1,
+      "ts": 0,
+      "dip": 1,
+      "r": {
+       "12/10": "sl",
+       "20/15": "sl",
+       "30/20": "sl"
+      },
+      "x": [
+       0.1,
+       0.1,
+       0.1
+      ],
+      "d": {
+       "10": {
+        "g": 1,
+        "r": {
+         "12/10": "sl",
+         "20/15": "sl",
+         "30/20": "sl"
+        },
+        "x": [
+         0.1,
+         0.1,
+         0.1
+        ]
+       },
+       "20": {
+        "g": 0.328,
+        "r": {
+         "12/10": "sl",
+         "20/15": "sl",
+         "30/20": "sl"
+        },
+        "x": [
+         0.306,
+         0.306,
+         0.306
+        ]
+       }
+      }
+     }
+    },
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "3ZSXCgNkkGkAyHH6f6Zzb23wdkfoBm2sFi8wBAtYpump",
+    "s": "KICK",
+    "at": 1795208661830,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false
+   },
+   {
+    "m": "D24mfvbDZzQ8byu1oqb7N4mAhf3FP16PGFVYXnCxpump",
+    "s": "Lone",
+    "at": 1795208663680,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 5355,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "5H4owLRBZX6fHHzXFNnmJXdPyWB27zncC1FcGAPXpump",
+    "s": "BetOnBlak",
+    "at": 1795208664693,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 700,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "4c7AszjMantVxg3TLjmWGAy2RiPb3yYg1eq7qj4Mpump",
+    "s": "RUNNER",
+    "at": 1795208666799,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 641,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "5FgfzEwRtnoycBft6h2Qd1PX7AEpw45S3QyivEdVZ4ff",
+    "s": "TIMOTHY",
+    "at": 1795208668217,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 181004,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "q": [
+     0,
+     0
+    ],
+    "turn": 0
+   },
+   {
+    "m": "4BXm9D7nSiGbAfFhAFxLvJ6nmZgC1xxGfaNb9Ynqpump",
+    "s": "$SMASH",
+    "at": 1795208671609,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1951,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "73mDzfNZb3u7Jx8kkTjUzQEwZXKF2YzPhzxJjqtCpump",
+    "s": "November",
+    "at": 1795208671655,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 4301,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "5GwNiVPtVA8zJgPUytCrHdsWqMj4uX17LwDx8CD9pump",
+    "s": "Sipt",
+    "at": 1795208673270,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1877,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "9V9PbMmwRT5h5MSHMZ2Jti8i8CGyK389pnaxG25opump",
+    "s": "HANS",
+    "at": 1795208675264,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2208,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "J1miEGiDcsA9QD4KYYztWZRcjaN5G9peBVn6L1cZpump",
+    "s": "SCRVAN",
+    "at": 1795208675572,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1568,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "F2mNaUvqKvs21sbgpggnG5ZYkuxFoavUQCrPeqKzpump",
+    "s": "$Queen",
+    "at": 1795208676549,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 356,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "CRAQMPAzGWqFyBbXEVZLjeddjuofZhBUHygHGyvLpump",
+    "s": "Jensen",
+    "at": 1795208677761,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 3204,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "q": [
+     0,
+     0
+    ],
+    "turn": 0
+   },
+   {
+    "m": "2DLXkS9hgZaNHceVYQArsNdDT5FdMBYfZUb8ULKipump",
+    "s": "AHYPE",
+    "at": 1795208679233,
+    "n60": 1,
+    "b": null,
+    "f": {
+     "top3": 1,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 1,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2308,
+    "th": {},
+    "rx": {
+     "l0": [
+      1,
+      20,
+      0,
+      1,
+      -119,
+      1,
+      1,
+      -151,
+      1
+     ]
+    },
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0.09
+   },
+   {
+    "m": "Hjudq85PM8kEykTDCkubXjxX6RMk7FkMWHdUBGgKpump",
+    "s": "MOJAVE",
+    "at": 1795208679933,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2629,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
    }
   ]
  },
  "lastDaily": "2026-11-20",
  "cal": [
-  {
-   "t": 1795111375751,
-   "g": -32.7
-  },
   {
    "t": 1795111995106,
    "g": -4
@@ -23560,6 +24078,10 @@
   {
    "t": 1795208030595,
    "g": 7.3
+  },
+  {
+   "t": 1795208816798,
+   "g": 38.8
   }
  ]
 }
