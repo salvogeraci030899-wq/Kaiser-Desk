@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 00:38 UTC · in esecuzione da 0.4 giorni · 236 run
+Aggiornato: 2026-11-20 00:43 UTC · in esecuzione da 0.4 giorni · 236 run
 
 | | |
 |---|---|
-| Equity | **5.4475 SOL** (-9.2% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.4475 SOL |
+| Equity | **5.4637 SOL** (-8.9% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.3375 SOL |
 | Trade chiusi | 48 |
 | Win rate | 27% |
-| P&L realizzato | -0.5525 SOL (~$-40.20) |
+| P&L realizzato | -0.5525 SOL (~$-40.23) |
 | Media vincite / perdite | +34.8% / -26.4% |
 | Profit factor | 0.48 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$COOKIE** P-0485 · 0.109 SOL · +15.9% · resta 100% · [grafico](https://dexscreener.com/solana/E8aViXLf9pHTpd2m68xRohPVxc6hRLmAmWgHw23PFCZQ)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+00:43:12 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 251 veto
+00:42:49 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 231 veto
+00:42:25 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 241 veto
+00:42:02 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 234 veto
+00:41:38 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 234 veto
+00:41:16 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 245 veto
+00:40:52 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 249 veto
+00:40:30 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 244 veto
+00:40:05 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 247 veto
+00:39:41 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 252 veto
+00:39:18 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 240 veto
+00:38:54 QUARTER  BUY $COOKIE 0.109 SOL score 70 impatto 1.98% (Jupiter)
+00:38:54 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 248 veto
+00:38:30 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 247 veto
 00:38:06 QUARTER  $COOKIE impatto 2.3% oltre slippage: annullato
 00:38:06 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 236 veto
 00:37:42 QUARTER  $COOKIE impatto 3.0% oltre slippage: annullato
@@ -81,20 +95,6 @@ _nessuna_
 00:30:36 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 253 veto
 00:30:12 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 251 veto
 00:29:47 QUARTER  BUY $FINOAWIF 0.110 SOL score 88 impatto 1.01% (Jupiter)
-00:29:47 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 240 veto
-00:29:23 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 239 veto
-00:29:00 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 251 veto
-00:28:36 ORACLE   356 raccolti, 257 analizzati, 0 BUY, 248 veto
-00:28:12 ORACLE   333 raccolti, 244 analizzati, 0 BUY, 234 veto
-00:27:48 SCOUT    regola C-050: corrente (nuova strategia: 10K rit. 10s +10/-10 60s: vecchi -7.78%, recenti -6.87%)
-00:27:48 SCOUT    regola C-049: ritirata (651 operazioni in avanti, esito medio -12.0% (±0.0): non regge)
-00:27:48 SCOUT    strategia C-050: corrente: nuova strategia: 10K rit. 10s +10/-10 60s: vecchi -7.78%, recenti -6.87%
-00:27:48 SCOUT    strategia C-049: ritirata: 651 operazioni in avanti, esito medio -12.0% (±0.0): non regge
-00:27:48 ORACLE   328 raccolti, 239 analizzati, 0 BUY, 229 veto
-00:27:25 ORACLE   327 raccolti, 237 analizzati, 0 BUY, 227 veto
-00:27:02 ORACLE   312 raccolti, 229 analizzati, 0 BUY, 219 veto
-00:26:38 ORACLE   309 raccolti, 219 analizzati, 0 BUY, 210 veto
-00:26:15 ORACLE   302 raccolti, 214 analizzati, 0 BUY, 206 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
