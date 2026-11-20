@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 19:15 UTC · in esecuzione da 1.2 giorni · 258 run
+Aggiornato: 2026-11-20 19:20 UTC · in esecuzione da 1.2 giorni · 258 run
 
 | | |
 |---|---|
-| Equity | **5.3337 SOL** (-11.1% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.3337 SOL |
+| Equity | **5.3275 SOL** (-11.2% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.2261 SOL |
 | Trade chiusi | 107 |
 | Win rate | 32% |
-| P&L realizzato | -0.6663 SOL (~$-45.32) |
+| P&L realizzato | -0.6663 SOL (~$-45.11) |
 | Media vincite / perdite | +42.5% / -27.5% |
 | Profit factor | 0.70 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$FIONAWIF** P-0544 · 0.107 SOL · -4.9% · resta 100% · [grafico](https://dexscreener.com/solana/GL4cvByvtgvA3DvuqK6gFGH7b6FdaETH1CswGnJwucPt)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,21 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+19:20:29 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 246 veto
+19:20:05 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 254 veto
+19:19:41 ORACLE   360 raccolti, 260 analizzati, 3 BUY, 250 veto
+19:19:18 ORACLE   360 raccolti, 257 analizzati, 3 BUY, 246 veto
+19:19:15 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)
+19:18:54 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 254 veto
+19:18:31 ORACLE   360 raccolti, 259 analizzati, 3 BUY, 250 veto
+19:18:07 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 247 veto
+19:17:43 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 251 veto
+19:17:20 ORACLE   360 raccolti, 245 analizzati, 3 BUY, 238 veto
+19:16:56 QUARTER  BUY $FIONAWIF 0.107 SOL score 88 impatto 0.70% (Jupiter)
+19:16:56 ORACLE   360 raccolti, 249 analizzati, 3 BUY, 242 veto
+19:16:33 ORACLE   360 raccolti, 254 analizzati, 3 BUY, 245 veto
+19:16:10 ORACLE   360 raccolti, 252 analizzati, 3 BUY, 242 veto
+19:15:46 ORACLE   360 raccolti, 253 analizzati, 3 BUY, 242 veto
 19:15:22 ORACLE   360 raccolti, 260 analizzati, 4 BUY, 248 veto
 19:14:58 ORACLE   360 raccolti, 253 analizzati, 3 BUY, 241 veto
 19:14:35 ORACLE   360 raccolti, 259 analizzati, 3 BUY, 248 veto
@@ -80,21 +95,6 @@ _nessuna_
 19:08:27 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 240 veto
 19:08:03 ORACLE   360 raccolti, 253 analizzati, 3 BUY, 235 veto
 19:07:50 SCRIBE   chiuso P-0542 $Singularity 0.0476 SOL (44.4%)
-19:07:50 CHARON   TP1 $Singularity vendo 100% a 64.4% -> 0.1548 SOL
-19:07:39 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 236 veto
-19:07:16 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 228 veto
-19:06:52 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 222 veto
-19:06:29 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 219 veto
-19:06:05 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 223 veto
-19:05:41 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 225 veto
-19:05:28 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 230 veto
-19:05:13 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 220 veto
-19:04:47 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 221 veto
-19:04:23 ORACLE   360 raccolti, 216 analizzati, 1 BUY, 205 veto
-19:04:09 QUARTER  BUY $Singularity 0.106 SOL score 64 impatto 1.12% (Jupiter)
-19:04:09 ORACLE   360 raccolti, 213 analizzati, 1 BUY, 202 veto
-19:03:42 ORACLE   360 raccolti, 228 analizzati, 0 BUY, 216 veto
-19:03:18 ORACLE   360 raccolti, 221 analizzati, 0 BUY, 209 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
