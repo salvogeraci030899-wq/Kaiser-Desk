@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 20:16 UTC · in esecuzione da 1.2 giorni · 259 run
+Aggiornato: 2026-11-20 20:21 UTC · in esecuzione da 1.3 giorni · 259 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-20 20:16 UTC · in esecuzione da 1.2 giorni · 259 run
 | Cassa | 5.1185 SOL |
 | Trade chiusi | 113 |
 | Win rate | 32% |
-| P&L realizzato | -0.8815 SOL (~$-60.10) |
+| P&L realizzato | -0.8815 SOL (~$-60.11) |
 | Media vincite / perdite | +41.2% / -29.2% |
 | Profit factor | 0.65 |
 | Circuit breaker | no |
@@ -55,6 +55,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+20:21:15 ORACLE   360 raccolti, 246 analizzati, 3 BUY, 237 veto
+20:20:50 ORACLE   360 raccolti, 240 analizzati, 3 BUY, 228 veto
+20:20:36 ORACLE   360 raccolti, 246 analizzati, 3 BUY, 234 veto
+20:20:16 ORACLE   360 raccolti, 243 analizzati, 2 BUY, 233 veto
+20:19:51 ORACLE   360 raccolti, 243 analizzati, 2 BUY, 234 veto
+20:19:27 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 237 veto
+20:19:03 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 241 veto
+20:18:39 ORACLE   360 raccolti, 227 analizzati, 2 BUY, 217 veto
+20:18:15 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 234 veto
+20:17:51 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 239 veto
+20:17:27 ORACLE   360 raccolti, 229 analizzati, 2 BUY, 220 veto
+20:17:03 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 228 veto
+20:16:39 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 228 veto
 20:16:15 ORACLE   360 raccolti, 227 analizzati, 3 BUY, 218 veto
 20:16:00 SCRIBE   chiuso P-0549 $Singularity -0.0972 SOL (-92.3%)
 20:16:00 CHARON   Stop loss $Singularity vendo 100% a -49.6% -> 0.0081 SOL
@@ -82,19 +95,6 @@ _nessuna_
 20:09:09 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 223 veto
 20:08:56 ORACLE   360 raccolti, 225 analizzati, 1 BUY, 216 veto
 20:08:31 ORACLE   360 raccolti, 227 analizzati, 1 BUY, 219 veto
-20:08:17 QUARTER  BUY $Singularity 0.104 SOL score 73 impatto 0.67% (Jupiter)
-20:08:16 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 227 veto
-20:07:51 QUARTER  $Singularity impatto 9.1% oltre slippage: annullato
-20:07:51 ORACLE   360 raccolti, 205 analizzati, 1 BUY, 198 veto
-20:07:27 ORACLE   360 raccolti, 221 analizzati, 0 BUY, 215 veto
-20:07:03 ORACLE   360 raccolti, 236 analizzati, 0 BUY, 230 veto
-20:06:40 ORACLE   360 raccolti, 230 analizzati, 0 BUY, 223 veto
-20:06:16 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 230 veto
-20:05:52 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 229 veto
-20:05:38 ORACLE   360 raccolti, 228 analizzati, 0 BUY, 221 veto
-20:05:11 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 233 veto
-20:04:46 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 231 veto
-20:04:33 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 238 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
