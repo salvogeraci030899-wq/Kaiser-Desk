@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 15:09 UTC · in esecuzione da 1.0 giorni · 253 run
+Aggiornato: 2026-11-20 15:14 UTC · in esecuzione da 1.0 giorni · 253 run
 
 | | |
 |---|---|
-| Equity | **5.1596 SOL** (-14.0% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.1596 SOL |
+| Equity | **5.1570 SOL** (-14.0% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.0554 SOL |
 | Trade chiusi | 91 |
 | Win rate | 29% |
-| P&L realizzato | -0.8404 SOL (~$-59.08) |
+| P&L realizzato | -0.8404 SOL (~$-58.75) |
 | Media vincite / perdite | +39.7% / -27.1% |
 | Profit factor | 0.58 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$BOSSCHICO** P-0528 · 0.103 SOL · -1.6% · resta 100% · [grafico](https://dexscreener.com/solana/T4miWVVw6fghstgSMuEPboQUbEDbpRYJnEmihPibH1c)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+15:14:04 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 227 veto
+15:13:40 ORACLE   360 raccolti, 240 analizzati, 2 BUY, 229 veto
+15:13:16 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 226 veto
+15:12:52 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 224 veto
+15:12:29 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 226 veto
+15:12:05 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 226 veto
+15:11:41 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 234 veto
+15:11:17 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 233 veto
+15:10:53 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 227 veto
+15:10:38 QUARTER  BUY $BOSSCHICO 0.103 SOL score 69 impatto 1.82% (Jupiter)
+15:10:38 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 225 veto
+15:10:13 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 233 veto
+15:09:49 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 224 veto
+15:09:25 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 231 veto
 15:09:00 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 221 veto
 15:08:37 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 223 veto
 15:08:13 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 232 veto
@@ -81,20 +95,6 @@ _nessuna_
 15:00:38 ORACLE   360 raccolti, 213 analizzati, 0 BUY, 209 veto
 15:00:15 ORACLE   360 raccolti, 230 analizzati, 0 BUY, 224 veto
 14:59:52 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 229 veto
-14:59:29 ORACLE   360 raccolti, 219 analizzati, 0 BUY, 211 veto
-14:59:04 ORACLE   360 raccolti, 235 analizzati, 0 BUY, 227 veto
-14:58:41 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 232 veto
-14:58:17 ORACLE   360 raccolti, 227 analizzati, 0 BUY, 217 veto
-14:58:14 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
-14:57:54 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 233 veto
-14:57:30 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 230 veto
-14:57:16 SCRIBE   chiuso P-0527 $DIESEL -0.0059 SOL (-5.6%)
-14:57:16 CHARON   RUG-EXIT liquidità $DIESEL vendo 100% a -65.8% -> 0.0984 SOL
-14:57:16 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 229 veto
-14:56:49 QUARTER  BUY $DIESEL 0.103 SOL score 64 impatto 0.00% (Jupiter)
-14:56:49 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 234 veto
-14:56:26 QUARTER  $DIESEL impatto 2.3% oltre slippage: annullato
-14:56:26 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 232 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
