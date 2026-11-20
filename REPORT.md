@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 01:23 UTC · in esecuzione da 0.5 giorni · 237 run
+Aggiornato: 2026-11-20 01:28 UTC · in esecuzione da 0.5 giorni · 237 run
 
 | | |
 |---|---|
-| Equity | **5.6952 SOL** (-5.1% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.6073 SOL |
-| Trade chiusi | 54 |
+| Equity | **5.6666 SOL** (-5.6% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.6666 SOL |
+| Trade chiusi | 55 |
 | Win rate | 31% |
-| P&L realizzato | -0.2772 SOL (~$-20.24) |
-| Media vincite / perdite | +43.0% / -25.8% |
-| Profit factor | 0.75 |
+| P&L realizzato | -0.3334 SOL (~$-24.32) |
+| Media vincite / perdite | +43.0% / -26.4% |
+| Profit factor | 0.71 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$I** P-0491 · 0.114 SOL · -23.2% · resta 100% · [grafico](https://dexscreener.com/solana/Hngu2MNsMaaX4vwZvWe1QLDMu37CKR6QP6tAhqeVshv2)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -22,11 +22,12 @@ Aggiornato: 2026-11-20 01:23 UTC · in esecuzione da 0.5 giorni · 237 run
 | Stop loss | 16 | -0.4280 |
 | Time stop | 20 | -0.1685 |
 | TP1 | 10 | +0.5450 |
-| RUG-EXIT liquidità | 8 | -0.2257 |
+| RUG-EXIT liquidità | 9 | -0.2819 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $I | 68 | -48.7% | -0.0562 | +0% | -52% | RUG-EXIT liquidità | 3m |
 | $LOOSY | 88 | +59.0% | +0.0674 | +76% | +76% | TP1 | 2m |
 | $PEPESURVIV | 73 | -9.4% | -0.0108 | +11% | -6% | Time stop | 7m |
 | $INU | 63 | +90.8% | +0.1020 | +0% | -61% | RUG-EXIT liquidità | 0m |
@@ -51,10 +52,24 @@ Aggiornato: 2026-11-20 01:23 UTC · in esecuzione da 0.5 giorni · 237 run
 | $FIONA | 73 | -4.4% | -0.0049 | +0% | -31% | Stop loss | 2m |
 | $\nu | 77 | -17.7% | -0.0199 | +0% | -30% | Stop loss | 1m |
 | $FIONA | 65 | -26.4% | -0.0299 | +2% | -25% | Time stop | 5m |
-| $FIONA  | 65 | -48.8% | -0.0557 | +0% | -39% | Stop loss | 2m |
 
 ## Ultimi eventi
 ```
+01:28:14 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 235 veto
+01:27:50 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 238 veto
+01:27:27 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 238 veto
+01:27:03 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 237 veto
+01:26:40 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 238 veto
+01:26:16 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 239 veto
+01:25:53 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 252 veto
+01:25:29 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 246 veto
+01:25:06 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 238 veto
+01:24:42 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 249 veto
+01:24:19 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 251 veto
+01:24:05 SCRIBE   chiuso P-0491 $I -0.0562 SOL (-48.7%)
+01:24:05 CHARON   RUG-EXIT liquidità $I vendo 100% a -51.6% -> 0.0593 SOL
+01:23:55 ORACLE   360 raccolti, 243 analizzati, 2 BUY, 236 veto
+01:23:32 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 252 veto
 01:23:07 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 251 veto
 01:22:44 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 242 veto
 01:22:20 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 244 veto
@@ -80,23 +95,6 @@ Aggiornato: 2026-11-20 01:23 UTC · in esecuzione da 0.5 giorni · 237 run
 01:17:14 SCOUT    Laboratorio: collegato a PumpPortal
 01:17:13 ORACLE   334 raccolti, 219 analizzati, 1 BUY, 206 veto
 01:16:49 ORACLE   331 raccolti, 206 analizzati, 1 BUY, 194 veto
-01:16:26 ORACLE   303 raccolti, 190 analizzati, 1 BUY, 178 veto
-01:16:02 ORACLE   290 raccolti, 180 analizzati, 1 BUY, 169 veto
-01:15:39 ORACLE   288 raccolti, 177 analizzati, 1 BUY, 168 veto
-01:15:16 ORACLE   256 raccolti, 159 analizzati, 2 BUY, 148 veto
-01:14:52 ORACLE   244 raccolti, 159 analizzati, 2 BUY, 149 veto
-01:14:30 ORACLE   239 raccolti, 157 analizzati, 2 BUY, 146 veto
-01:14:27 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)
-01:14:07 ORACLE   218 raccolti, 133 analizzati, 3 BUY, 124 veto
-01:13:46 SCOUT    rug: 8332 token oltre 7.5K, 35.5% rug, 2836 con possessori
-combinazioni: 4176 prove, migliore -5.71%, p 1
-fabbrica: 23579 percorsi, 768 configurazioni, 0 passano, 3589 ms
-01:13:43 ORACLE   216 raccolti, 130 analizzati, 3 BUY, 121 veto
-01:13:14 SCRIBE   chiuso P-0489 $PEPESURVIV -0.0108 SOL (-9.4%)
-01:13:14 CHARON   Time stop $PEPESURVIV vendo 100% a -5.8% -> 0.1036 SOL
-01:13:13 ORACLE   206 raccolti, 119 analizzati, 4 BUY, 112 veto
-01:13:12 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-01:13:09 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
