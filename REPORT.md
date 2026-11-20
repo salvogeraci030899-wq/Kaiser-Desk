@@ -1,25 +1,25 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 18:55 UTC · in esecuzione da 1.2 giorni · 258 run
+Aggiornato: 2026-11-20 19:00 UTC · in esecuzione da 1.2 giorni · 258 run
 
 | | |
 |---|---|
-| Equity | **5.3296 SOL** (-11.2% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.2337 SOL |
-| Trade chiusi | 104 |
-| Win rate | 32% |
-| P&L realizzato | -0.6585 SOL (~$-45.44) |
+| Equity | **5.3108 SOL** (-11.5% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.3108 SOL |
+| Trade chiusi | 105 |
+| Win rate | 31% |
+| P&L realizzato | -0.6892 SOL (~$-47.39) |
 | Media vincite / perdite | +42.5% / -27.6% |
-| Profit factor | 0.70 |
+| Profit factor | 0.69 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$BIGFOOT** P-0541 · 0.107 SOL · -10.2% · resta 100% · [grafico](https://dexscreener.com/solana/5aorbZJuiRWLDNFMSor5dNbFDFkGVd58jd9s4obJc8kV)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| Stop loss | 31 | -0.9393 |
+| Stop loss | 32 | -0.9700 |
 | Time stop | 40 | -0.4387 |
 | TP1 | 21 | +1.1376 |
 | RUG-EXIT liquidità | 12 | -0.4181 |
@@ -27,6 +27,7 @@ Aggiornato: 2026-11-20 18:55 UTC · in esecuzione da 1.2 giorni · 258 run
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $BIGFOOT | 65 | -28.5% | -0.0307 | +0% | -36% | Stop loss | 2m |
 | $MIC | 73 | +123.6% | +0.1301 | +96% | +96% | TP1 | 1m |
 | $DOG | 67 | +11.8% | +0.0124 | +63% | +63% | TP1 | 3m |
 | $MAYA | 88 | +72.2% | +0.0747 | +64% | +64% | TP1 | 4m |
@@ -51,10 +52,28 @@ Aggiornato: 2026-11-20 18:55 UTC · in esecuzione da 1.2 giorni · 258 run
 | $STICK | 75 | +92.8% | +0.0989 | +80% | +80% | TP1 | 7m |
 | $Alouatta | 66 | -20.9% | -0.0224 | +10% | -7% | Time stop | 5m |
 | $CATMARIO | 68 | -4.6% | -0.0050 | +45% | +5% | Time stop | 11m |
-| $MAIN | 70 | +3.8% | +0.0041 | +0% | -6% | Time stop | 5m |
 
 ## Ultimi eventi
 ```
+19:00:00 ORACLE   360 raccolti, 183 analizzati, 1 BUY, 169 veto
+18:59:37 ORACLE   360 raccolti, 184 analizzati, 0 BUY, 172 veto
+18:59:14 ORACLE   360 raccolti, 180 analizzati, 0 BUY, 168 veto
+18:58:51 ORACLE   360 raccolti, 188 analizzati, 0 BUY, 176 veto
+18:58:28 ORACLE   360 raccolti, 189 analizzati, 0 BUY, 180 veto
+18:58:05 ORACLE   360 raccolti, 183 analizzati, 1 BUY, 175 veto
+18:57:42 ORACLE   360 raccolti, 192 analizzati, 1 BUY, 183 veto
+18:57:19 ORACLE   360 raccolti, 197 analizzati, 1 BUY, 188 veto
+18:56:55 SCRIBE   chiuso P-0541 $BIGFOOT -0.0307 SOL (-28.5%)
+18:56:55 CHARON   Stop loss $BIGFOOT vendo 100% a -35.5% -> 0.0771 SOL
+18:56:55 ORACLE   360 raccolti, 193 analizzati, 2 BUY, 185 veto
+18:56:32 ORACLE   360 raccolti, 209 analizzati, 2 BUY, 200 veto
+18:56:08 ORACLE   360 raccolti, 217 analizzati, 2 BUY, 210 veto
+18:55:45 ORACLE   360 raccolti, 223 analizzati, 2 BUY, 216 veto
+18:55:22 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 246 veto
+18:55:09 SCOUT    regola C-056: corrente (nuova strategia: 10K rit. 10s +10/-20 60s: vecchi -7.6%, recenti -7.61%)
+18:55:09 SCOUT    regola C-055: ritirata (322 operazioni in avanti, esito medio -6.7% (±3.9): non regge)
+18:55:09 SCOUT    strategia C-056: corrente: nuova strategia: 10K rit. 10s +10/-20 60s: vecchi -7.6%, recenti -7.61%
+18:55:09 SCOUT    strategia C-055: ritirata: 322 operazioni in avanti, esito medio -6.7% (±3.9): non regge
 18:54:59 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 245 veto
 18:54:36 QUARTER  BUY $BIGFOOT 0.107 SOL score 65 impatto 1.84% (Jupiter)
 18:54:36 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 234 veto
@@ -78,25 +97,6 @@ combinazioni: 4656 prove, migliore -5.26%, p 1
 fabbrica: 26506 percorsi, 768 configurazioni, 0 passano, 4331 ms
 18:50:30 ORACLE   212 raccolti, 130 analizzati, 1 BUY, 127 veto
 18:50:12 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-18:50:11 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-18:50:09 ORACLE   209 raccolti, 130 analizzati, 1 BUY, 127 veto
-18:50:07 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120
-18:50:07 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
-18:50:07 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
-18:50:07 SCOUT    Laboratorio: collegato a PumpPortal
-18:50:07 KAISER   run #258 · 0 posizioni · equity 5.2115 SOL · GMGN spenta (nessuna chiave) · Grok off
-18:49:54 SCRIBE   fine run · trade 103 · win 31% · P&L -0.7885 SOL · equity 5.2115 SOL
-18:49:48 ORACLE   360 raccolti, 234 analizzati, 2 BUY, 220 veto
-18:49:31 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 229 veto
-18:49:06 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 229 veto
-18:48:41 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 228 veto
-18:48:17 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 236 veto
-18:48:03 SCRIBE   chiuso P-0539 $DOG 0.0124 SOL (11.8%)
-18:48:03 CHARON   TP1 $DOG vendo 100% a 63.4% -> 0.1174 SOL
-18:48:03 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 243 veto
-18:47:39 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 235 veto
-18:47:15 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 251 veto
-18:46:50 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 256 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
