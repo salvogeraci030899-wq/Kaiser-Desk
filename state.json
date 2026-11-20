@@ -1,69 +1,65 @@
 {
  "startedAt": 1795097825371,
- "runs": 260,
- "cash": 5.028526327760459,
+ "runs": 261,
+ "cash": 5.051287511375049,
  "positions": [
   {
-   "id": "P-0554",
-   "mint": "EV7J2QaPXPytSkM1LD9GPRkgAbmSEr9R3kYiXBzbpump",
-   "sym": "chud",
-   "name": "nothing ever happens",
-   "pairAddress": "HQBfT5FrSDKj1scAUC62uqvxrzrM4F9FHooT9u4pCfj2",
-   "openedAt": 1795209508780,
-   "sizeSOL": 0.102643394444091,
-   "cost": 0.103643394444091,
-   "entry": 9.933714347359471e-7,
-   "tokens": 103328.31290983834,
+   "id": "P-0555",
+   "mint": "2g1gL1YghQFLAZdteMHG9B7Lq3vY2edJeCaKZnMwpump",
+   "sym": "DATACENTER",
+   "name": "Datacenter",
+   "pairAddress": "FYmULc8gj15YkrHNU4G2Ljcd2n46tobwfudYHEUyXLr7",
+   "openedAt": 1795209833891,
+   "sizeSOL": 0.10310790839540918,
+   "cost": 0.10410790839540918,
+   "entry": 4.6631700000000003e-7,
+   "tokens": 221111.19344868226,
    "remaining": 1,
-   "rawLeft": "121660165369",
-   "peak": 9.933714347359471e-7,
+   "rawLeft": "202537489012",
+   "peak": 5.545e-7,
    "tp1Done": false,
    "spDone": false,
-   "entryLiq": 17162.58,
+   "entryLiq": 10999.76,
    "realized": 0,
-   "score": 65,
+   "score": 73,
    "why": "runner",
    "entryInfo": {
     "srcs": [
-     "nuovo",
-     "gecko nuovi",
-     "jup trend"
+     "jup nuovi"
     ],
     "notes": [
-     "giovane 3m · -31% dal picco",
      "nessun social"
     ],
     "plus": [
-     "turnover 4.7x/h"
+     "pressione in acquisto"
     ],
     "m": {
-     "liq": 17162.58,
-     "mc": 64954,
-     "ageMin": 2.9753833333333333,
-     "v1": 81207.47,
-     "tx1": 1977,
-     "br1": 1.0614583333333334,
-     "br5": 1.0614583333333334,
-     "c5": 103,
-     "c1": 103,
-     "c6": 103,
-     "turn": 4.731658643397438,
-     "price": 0.00006495,
-     "priceNative": 9.667e-7
+     "liq": 11237.74,
+     "mc": 32101,
+     "ageMin": 2.171,
+     "v1": 18118.77,
+     "tx1": 760,
+     "br1": 1.781021897810219,
+     "br5": 1.781021897810219,
+     "c5": 15.3,
+     "c1": 15.3,
+     "c6": 15.3,
+     "turn": 1.612314397734776,
+     "price": 0.00003214,
+     "priceNative": 4.784e-7
     },
     "grok": null
    },
    "last": {
-    "priceNative": 7.336e-7,
-    "liq": 15121.43,
-    "br5": 1.0508757297748124,
-    "tx5": 2457,
-    "t": 1795209630674
+    "priceNative": 5.225e-7,
+    "liq": 11949.48,
+    "br5": 1.3973509933774835,
+    "tx5": 1808,
+    "t": 1795209954569
    },
    "fills": [
-    "BUY 0.103 impatto 1.74% (Jupiter)"
-   ],
-   "trough": 7.336e-7
+    "BUY 0.103 impatto 0.00% (Jupiter)"
+   ]
   }
  ],
  "journal": [
@@ -5488,100 +5484,58 @@
    },
    "maePct": -28.07064734946625,
    "age": 13
+  },
+  {
+   "id": "P-0554",
+   "mint": "EV7J2QaPXPytSkM1LD9GPRkgAbmSEr9R3kYiXBzbpump",
+   "sym": "chud",
+   "openedAt": 1795209508780,
+   "closedAt": 1795209653212,
+   "cost": 0.103643394444091,
+   "back": 0.12686909201,
+   "pnl": 0.02322569756590899,
+   "pct": 22.409240541072563,
+   "mode": "paper",
+   "reason": "Stop loss",
+   "score": 65,
+   "solUsd": 67.27749076199527,
+   "peakPct": 0,
+   "trigPct": -40.3546368174463,
+   "entryInfo": {
+    "srcs": [
+     "nuovo",
+     "gecko nuovi",
+     "jup trend"
+    ],
+    "notes": [
+     "giovane 3m · -31% dal picco",
+     "nessun social"
+    ],
+    "plus": [
+     "turnover 4.7x/h"
+    ],
+    "m": {
+     "liq": 17162.58,
+     "mc": 64954,
+     "ageMin": 2.9753833333333333,
+     "v1": 81207.47,
+     "tx1": 1977,
+     "br1": 1.0614583333333334,
+     "br5": 1.0614583333333334,
+     "c5": 103,
+     "c1": 103,
+     "c6": 103,
+     "turn": 4.731658643397438,
+     "price": 0.00006495,
+     "priceNative": 9.667e-7
+    },
+    "grok": null
+   },
+   "maePct": -40.3546368174463,
+   "age": 3
   }
  ],
  "signals": [
-  {
-   "t": 1795194236516,
-   "mint": "81GUiw6M1KMgvgzCWrjCLc4YBJr8HM9GWXcvCm2Ppump",
-   "sym": "afk",
-   "score": 72,
-   "priceNative": 2.923e-7
-  },
-  {
-   "t": 1795194236516,
-   "mint": "BfNcetwXyxFJjsnmMboPpHqpZg19ez1ueQGPGE9upump",
-   "sym": "Móm",
-   "score": 65,
-   "priceNative": 5.09e-7
-  },
-  {
-   "t": 1795194236516,
-   "mint": "82PX2EDNQy6P23Qu9gzXyu2eqrjVYjsWMuWimd7Cpump",
-   "sym": "GTA6",
-   "score": 65,
-   "priceNative": 5.161e-7
-  },
-  {
-   "t": 1795194260368,
-   "mint": "BfNcetwXyxFJjsnmMboPpHqpZg19ez1ueQGPGE9upump",
-   "sym": "Móm",
-   "score": 65,
-   "priceNative": 5.09e-7
-  },
-  {
-   "t": 1795194260368,
-   "mint": "82PX2EDNQy6P23Qu9gzXyu2eqrjVYjsWMuWimd7Cpump",
-   "sym": "GTA6",
-   "score": 65,
-   "priceNative": 5.27e-7
-  },
-  {
-   "t": 1795194284226,
-   "mint": "81GUiw6M1KMgvgzCWrjCLc4YBJr8HM9GWXcvCm2Ppump",
-   "sym": "afk",
-   "score": 73,
-   "priceNative": 2.918e-7
-  },
-  {
-   "t": 1795194284226,
-   "mint": "82PX2EDNQy6P23Qu9gzXyu2eqrjVYjsWMuWimd7Cpump",
-   "sym": "GTA6",
-   "score": 66,
-   "priceNative": 5.433e-7
-  },
-  {
-   "t": 1795194284226,
-   "mint": "BfNcetwXyxFJjsnmMboPpHqpZg19ez1ueQGPGE9upump",
-   "sym": "Móm",
-   "score": 65,
-   "priceNative": 3.5e-7
-  },
-  {
-   "t": 1795194309939,
-   "mint": "81GUiw6M1KMgvgzCWrjCLc4YBJr8HM9GWXcvCm2Ppump",
-   "sym": "afk",
-   "score": 73,
-   "priceNative": 2.918e-7
-  },
-  {
-   "t": 1795194309939,
-   "mint": "BfNcetwXyxFJjsnmMboPpHqpZg19ez1ueQGPGE9upump",
-   "sym": "Móm",
-   "score": 65,
-   "priceNative": 3.5e-7
-  },
-  {
-   "t": 1795194323756,
-   "mint": "81GUiw6M1KMgvgzCWrjCLc4YBJr8HM9GWXcvCm2Ppump",
-   "sym": "afk",
-   "score": 72,
-   "priceNative": 2.788e-7
-  },
-  {
-   "t": 1795194323756,
-   "mint": "BfNcetwXyxFJjsnmMboPpHqpZg19ez1ueQGPGE9upump",
-   "sym": "Móm",
-   "score": 65,
-   "priceNative": 3.618e-7
-  },
-  {
-   "t": 1795194347116,
-   "mint": "81GUiw6M1KMgvgzCWrjCLc4YBJr8HM9GWXcvCm2Ppump",
-   "sym": "afk",
-   "score": 72,
-   "priceNative": 2.788e-7
-  },
   {
    "t": 1795194347116,
    "mint": "BfNcetwXyxFJjsnmMboPpHqpZg19ez1ueQGPGE9upump",
@@ -12490,6 +12444,97 @@
    "sym": "chud",
    "score": 65,
    "priceNative": 7.336e-7
+  },
+  {
+   "t": 1795209763276,
+   "mint": "EV7J2QaPXPytSkM1LD9GPRkgAbmSEr9R3kYiXBzbpump",
+   "sym": "chud",
+   "score": 65,
+   "priceNative": 0.000001138
+  },
+  {
+   "t": 1795209787597,
+   "mint": "2g1gL1YghQFLAZdteMHG9B7Lq3vY2edJeCaKZnMwpump",
+   "sym": "DATACENTER",
+   "score": 76,
+   "priceNative": 4.617e-7
+  },
+  {
+   "t": 1795209810277,
+   "mint": "2g1gL1YghQFLAZdteMHG9B7Lq3vY2edJeCaKZnMwpump",
+   "sym": "DATACENTER",
+   "score": 76,
+   "priceNative": 4.617e-7
+  },
+  {
+   "t": 1795209833863,
+   "mint": "2g1gL1YghQFLAZdteMHG9B7Lq3vY2edJeCaKZnMwpump",
+   "sym": "DATACENTER",
+   "score": 73,
+   "priceNative": 4.784e-7
+  },
+  {
+   "t": 1795209859419,
+   "mint": "2g1gL1YghQFLAZdteMHG9B7Lq3vY2edJeCaKZnMwpump",
+   "sym": "DATACENTER",
+   "score": 70,
+   "priceNative": 4.925e-7
+  },
+  {
+   "t": 1795209859419,
+   "mint": "EV7J2QaPXPytSkM1LD9GPRkgAbmSEr9R3kYiXBzbpump",
+   "sym": "chud",
+   "score": 66,
+   "priceNative": 0.000001067
+  },
+  {
+   "t": 1795209874390,
+   "mint": "2g1gL1YghQFLAZdteMHG9B7Lq3vY2edJeCaKZnMwpump",
+   "sym": "DATACENTER",
+   "score": 70,
+   "priceNative": 4.925e-7
+  },
+  {
+   "t": 1795209874390,
+   "mint": "EV7J2QaPXPytSkM1LD9GPRkgAbmSEr9R3kYiXBzbpump",
+   "sym": "chud",
+   "score": 66,
+   "priceNative": 0.000001067
+  },
+  {
+   "t": 1795209897802,
+   "mint": "2g1gL1YghQFLAZdteMHG9B7Lq3vY2edJeCaKZnMwpump",
+   "sym": "DATACENTER",
+   "score": 68,
+   "priceNative": 5.057e-7
+  },
+  {
+   "t": 1795209897802,
+   "mint": "EV7J2QaPXPytSkM1LD9GPRkgAbmSEr9R3kYiXBzbpump",
+   "sym": "chud",
+   "score": 66,
+   "priceNative": 9.202e-7
+  },
+  {
+   "t": 1795209920982,
+   "mint": "2g1gL1YghQFLAZdteMHG9B7Lq3vY2edJeCaKZnMwpump",
+   "sym": "DATACENTER",
+   "score": 68,
+   "priceNative": 5.057e-7
+  },
+  {
+   "t": 1795209920983,
+   "mint": "EV7J2QaPXPytSkM1LD9GPRkgAbmSEr9R3kYiXBzbpump",
+   "sym": "chud",
+   "score": 66,
+   "priceNative": 9.202e-7
+  },
+  {
+   "t": 1795209944474,
+   "mint": "2g1gL1YghQFLAZdteMHG9B7Lq3vY2edJeCaKZnMwpump",
+   "sym": "DATACENTER",
+   "score": 70,
+   "priceNative": 5.225e-7
   }
  ],
  "alerts": [],
@@ -12500,8 +12545,37 @@
  },
  "cooldownUntil": 1795208330598,
  "halted": null,
- "seq": 554,
+ "seq": 555,
  "events": [
+  "21:25:44 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 239 veto",
+  "21:25:20 ORACLE   360 raccolti, 240 analizzati, 2 BUY, 232 veto",
+  "21:24:57 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 249 veto",
+  "21:24:34 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 245 veto",
+  "21:24:19 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 241 veto",
+  "21:23:53 QUARTER  BUY $DATACENTER 0.103 SOL score 73 impatto 0.00% (Jupiter)",
+  "21:23:53 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 244 veto",
+  "21:23:30 QUARTER  $DATACENTER impatto 2.1% oltre slippage: annullato",
+  "21:23:30 ORACLE   348 raccolti, 237 analizzati, 1 BUY, 223 veto",
+  "21:23:07 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena",
+  "21:23:07 QUARTER  $DATACENTER impatto 2.2% oltre slippage: annullato",
+  "21:23:07 ORACLE   339 raccolti, 236 analizzati, 1 BUY, 223 veto",
+  "21:22:43 ORACLE   288 raccolti, 205 analizzati, 1 BUY, 195 veto",
+  "21:22:18 ORACLE   277 raccolti, 167 analizzati, 0 BUY, 157 veto",
+  "21:22:13 SCOUT    sonda scambi: PumpPortal 0 scambi, programma RPC 1818 eventi, curve RPC 271",
+  "21:21:56 ORACLE   268 raccolti, 167 analizzati, 0 BUY, 157 veto",
+  "21:21:33 ORACLE   223 raccolti, 153 analizzati, 0 BUY, 143 veto",
+  "21:21:20 ORACLE   214 raccolti, 138 analizzati, 0 BUY, 129 veto",
+  "21:21:16 SCOUT    rug: 9730 token oltre 7.5K, 35.7% rug, 5589 con possessori\ncombinazioni: 4656 prove, migliore -5.17%, p 1\nfabbrica: 27225 percorsi, 768 configurazioni, 0 passano, 4110 ms",
+  "21:20:53 SCRIBE   chiuso P-0554 $chud 0.0232 SOL (22.4%)",
+  "21:20:53 CHARON   Stop loss $chud vendo 100% a -40.4% -> 0.1269 SOL",
+  "21:20:53 ORACLE   208 raccolti, 138 analizzati, 0 BUY, 129 veto",
+  "21:20:53 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an",
+  "21:20:50 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an",
+  "21:20:49 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120",
+  "21:20:49 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com",
+  "21:20:49 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.",
+  "21:20:49 SCOUT    Laboratorio: collegato a PumpPortal",
+  "21:20:49 KAISER   run #261 · 1 posizioni · equity 5.1043 SOL · GMGN spenta (nessuna chiave) · Grok off",
   "21:20:36 SCRIBE   fine run · trade 117 · win 32% · P&L -0.8678 SOL · equity 5.1043 SOL",
   "21:20:30 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 249 veto",
   "21:20:06 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 266 veto",
@@ -12772,41 +12846,12 @@
   "19:54:31 ORACLE   360 raccolti, 228 analizzati, 1 BUY, 223 veto",
   "19:54:06 ORACLE   360 raccolti, 230 analizzati, 1 BUY, 225 veto",
   "19:53:43 ORACLE   360 raccolti, 225 analizzati, 1 BUY, 220 veto",
-  "19:53:20 ORACLE   360 raccolti, 227 analizzati, 1 BUY, 218 veto",
-  "19:52:56 ORACLE   360 raccolti, 207 analizzati, 1 BUY, 198 veto",
-  "19:52:32 ORACLE   360 raccolti, 199 analizzati, 1 BUY, 189 veto",
-  "19:52:08 ORACLE   360 raccolti, 215 analizzati, 0 BUY, 207 veto",
-  "19:51:44 ORACLE   360 raccolti, 201 analizzati, 1 BUY, 195 veto",
-  "19:51:20 ORACLE   360 raccolti, 192 analizzati, 1 BUY, 188 veto",
-  "19:50:57 ORACLE   360 raccolti, 213 analizzati, 1 BUY, 207 veto",
-  "19:50:33 ORACLE   360 raccolti, 230 analizzati, 1 BUY, 223 veto",
-  "19:50:09 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 241 veto",
-  "19:49:44 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 250 veto",
-  "19:49:19 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 246 veto",
-  "19:48:55 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 237 veto",
-  "19:48:31 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 235 veto",
-  "19:48:07 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 228 veto",
-  "19:47:43 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 224 veto",
-  "19:47:19 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 232 veto",
-  "19:46:55 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 228 veto",
-  "19:46:30 ORACLE   360 raccolti, 233 analizzati, 1 BUY, 224 veto",
-  "19:46:26 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)",
-  "19:46:06 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 224 veto",
-  "19:45:41 SCRIBE   chiuso P-0546 $PAY 0.0066 SOL (6.1%)",
-  "19:45:41 CHARON   TP1 $PAY vendo 100% a 77.2% -> 0.1131 SOL",
-  "19:45:41 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 222 veto",
-  "19:45:27 ORACLE   360 raccolti, 226 analizzati, 1 BUY, 217 veto",
-  "19:45:00 ORACLE   360 raccolti, 233 analizzati, 1 BUY, 224 veto",
-  "19:44:35 QUARTER  BUY $PAY 0.106 SOL score 64 impatto 0.68% (Jupiter)",
-  "19:44:35 ORACLE   360 raccolti, 225 analizzati, 3 BUY, 215 veto",
-  "19:44:11 ORACLE   360 raccolti, 224 analizzati, 2 BUY, 214 veto",
-  "19:43:56 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena",
-  "19:43:46 ORACLE   327 raccolti, 210 analizzati, 2 BUY, 201 veto"
+  "19:53:20 ORACLE   360 raccolti, 227 analizzati, 1 BUY, 218 veto"
  ],
  "capital": 6,
  "resetId": "C-0110",
  "realTried": {},
- "lastEntryAt": 1795209508780,
+ "lastEntryAt": 1795209833891,
  "lab": {
   "done": [
    {
@@ -23552,10 +23597,6 @@
  "lastDaily": "2026-11-20",
  "cal": [
   {
-   "t": 1795111995106,
-   "g": -4
-  },
-  {
    "t": 1795113364649,
    "g": -7.7
   },
@@ -23950,6 +23991,10 @@
   {
    "t": 1795208816798,
    "g": 38.8
+  },
+  {
+   "t": 1795209653211,
+   "g": 113
   }
  ]
 }
