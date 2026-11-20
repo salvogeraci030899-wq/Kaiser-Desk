@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 06:05 UTC · in esecuzione da 0.7 giorni · 242 run
+Aggiornato: 2026-11-20 06:10 UTC · in esecuzione da 0.7 giorni · 242 run
 
 | | |
 |---|---|
-| Equity | **5.3198 SOL** (-11.3% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.3198 SOL |
+| Equity | **5.3125 SOL** (-11.5% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.2124 SOL |
 | Trade chiusi | 69 |
 | Win rate | 28% |
-| P&L realizzato | -0.6802 SOL (~$-49.29) |
+| P&L realizzato | -0.6802 SOL (~$-49.37) |
 | Media vincite / perdite | +39.4% / -26.7% |
 | Profit factor | 0.55 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$ㅤㅤ** P-0506 · 0.106 SOL · -5.9% · resta 100% · [grafico](https://dexscreener.com/solana/BemW9gQX5E3rcLF61nSSBZt8KTmDFDT3wPkyWQRMhhXL)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,21 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+06:10:35 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 257 veto
+06:10:21 QUARTER  BUY $ㅤㅤ 0.106 SOL score 67 impatto 0.69% (Jupiter)
+06:10:21 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 260 veto
+06:09:57 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 258 veto
+06:09:33 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 256 veto
+06:09:09 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 258 veto
+06:08:45 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 254 veto
+06:08:21 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 247 veto
+06:07:57 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 259 veto
+06:07:35 SCOUT    Laboratorio: collegato a PumpPortal
+06:07:34 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 253 veto
+06:07:11 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 255 veto
+06:06:47 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 258 veto
+06:06:23 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 256 veto
+06:05:59 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 253 veto
 06:05:44 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 259 veto
 06:05:18 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 255 veto
 06:04:54 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 252 veto
@@ -80,21 +95,6 @@ _nessuna_
 05:56:57 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 261 veto
 05:56:33 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 265 veto
 05:56:10 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 262 veto
-05:55:46 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 263 veto
-05:55:22 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 259 veto
-05:54:58 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 268 veto
-05:54:34 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 261 veto
-05:54:11 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 262 veto
-05:53:47 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 261 veto
-05:53:24 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 265 veto
-05:53:01 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 254 veto
-05:52:37 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 260 veto
-05:52:13 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 262 veto
-05:51:49 SCRIBE   chiuso P-0505 $SNOWFLAKE -0.0371 SOL (-34.3%)
-05:51:49 CHARON   Stop loss $SNOWFLAKE vendo 100% a -37.7% -> 0.0711 SOL
-05:51:49 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 255 veto
-05:51:25 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 257 veto
-05:51:01 QUARTER  BUY $SNOWFLAKE 0.107 SOL score 69 impatto 1.69% (Jupiter)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
