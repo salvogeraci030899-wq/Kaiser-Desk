@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 00:32 UTC · in esecuzione da 0.4 giorni · 236 run
+Aggiornato: 2026-11-20 00:38 UTC · in esecuzione da 0.4 giorni · 236 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-20 00:32 UTC · in esecuzione da 0.4 giorni · 236 run
 | Cassa | 5.4475 SOL |
 | Trade chiusi | 48 |
 | Win rate | 27% |
-| P&L realizzato | -0.5525 SOL (~$-40.22) |
+| P&L realizzato | -0.5525 SOL (~$-40.20) |
 | Media vincite / perdite | +34.8% / -26.4% |
 | Profit factor | 0.48 |
 | Circuit breaker | no |
@@ -55,6 +55,21 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+00:38:06 QUARTER  $COOKIE impatto 2.3% oltre slippage: annullato
+00:38:06 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 236 veto
+00:37:42 QUARTER  $COOKIE impatto 3.0% oltre slippage: annullato
+00:37:42 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 238 veto
+00:37:18 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 233 veto
+00:36:55 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 237 veto
+00:36:31 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 246 veto
+00:36:08 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 246 veto
+00:35:44 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 249 veto
+00:35:20 ORACLE   360 raccolti, 259 analizzati, 3 BUY, 249 veto
+00:34:57 ORACLE   360 raccolti, 258 analizzati, 3 BUY, 248 veto
+00:34:33 ORACLE   360 raccolti, 254 analizzati, 3 BUY, 244 veto
+00:34:09 ORACLE   360 raccolti, 261 analizzati, 3 BUY, 250 veto
+00:33:45 ORACLE   360 raccolti, 259 analizzati, 3 BUY, 245 veto
+00:33:22 ORACLE   360 raccolti, 260 analizzati, 3 BUY, 247 veto
 00:32:58 ORACLE   360 raccolti, 262 analizzati, 3 BUY, 251 veto
 00:32:34 SCRIBE   chiuso P-0484 $FINOAWIF -0.0341 SOL (-30.9%)
 00:32:34 CHARON   Stop loss $FINOAWIF vendo 100% a -30.7% -> 0.0765 SOL
@@ -80,23 +95,6 @@ _nessuna_
 00:27:02 ORACLE   312 raccolti, 229 analizzati, 0 BUY, 219 veto
 00:26:38 ORACLE   309 raccolti, 219 analizzati, 0 BUY, 210 veto
 00:26:15 ORACLE   302 raccolti, 214 analizzati, 0 BUY, 206 veto
-00:25:51 ORACLE   279 raccolti, 196 analizzati, 0 BUY, 189 veto
-00:25:28 ORACLE   270 raccolti, 186 analizzati, 0 BUY, 179 veto
-00:25:05 SCOUT    PumpPortal invia nuovi token (22) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-00:25:05 ORACLE   264 raccolti, 170 analizzati, 0 BUY, 165 veto
-00:24:41 SCRIBE   chiuso P-0483 $COOKIE 0.1092 SOL (100.7%)
-00:24:41 CHARON   TP1 $COOKIE vendo 100% a 77.4% -> 0.2176 SOL
-00:24:41 ORACLE   237 raccolti, 160 analizzati, 1 BUY, 153 veto
-00:24:18 ORACLE   230 raccolti, 149 analizzati, 1 BUY, 142 veto
-00:23:56 ORACLE   225 raccolti, 149 analizzati, 2 BUY, 141 veto
-00:23:32 ORACLE   208 raccolti, 140 analizzati, 2 BUY, 133 veto
-00:23:09 SCOUT    rug: 8271 token oltre 7.5K, 35.5% rug, 2730 con possessori
-combinazioni: 3984 prove, migliore -5.75%, p 1
-fabbrica: 23438 percorsi, 768 configurazioni, 0 passano, 3663 ms
-00:23:09 ORACLE   203 raccolti, 121 analizzati, 2 BUY, 116 veto
-00:22:47 ORACLE   197 raccolti, 121 analizzati, 2 BUY, 116 veto
-00:22:47 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-00:22:47 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
