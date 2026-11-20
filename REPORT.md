@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 10:12 UTC · in esecuzione da 0.8 giorni · 247 run
+Aggiornato: 2026-11-20 10:17 UTC · in esecuzione da 0.8 giorni · 247 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-20 10:12 UTC · in esecuzione da 0.8 giorni · 247 run
 | Cassa | 5.3300 SOL |
 | Trade chiusi | 78 |
 | Win rate | 29% |
-| P&L realizzato | -0.6700 SOL (~$-48.28) |
+| P&L realizzato | -0.6700 SOL (~$-48.16) |
 | Media vincite / perdite | +39.1% / -26.8% |
 | Profit factor | 0.60 |
 | Circuit breaker | no |
@@ -55,6 +55,21 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+10:17:16 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 249 veto
+10:16:53 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 256 veto
+10:16:30 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 263 veto
+10:16:07 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 258 veto
+10:16:04 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
+10:15:44 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 264 veto
+10:15:21 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 264 veto
+10:15:08 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 261 veto
+10:14:43 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 258 veto
+10:14:21 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 266 veto
+10:13:58 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 263 veto
+10:13:35 ORACLE   360 raccolti, 285 analizzati, 0 BUY, 271 veto
+10:13:12 ORACLE   360 raccolti, 285 analizzati, 0 BUY, 270 veto
+10:12:49 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 266 veto
+10:12:26 ORACLE   360 raccolti, 290 analizzati, 0 BUY, 274 veto
 10:12:04 ORACLE   360 raccolti, 291 analizzati, 0 BUY, 277 veto
 10:11:41 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 263 veto
 10:11:28 ORACLE   360 raccolti, 289 analizzati, 0 BUY, 275 veto
@@ -80,21 +95,6 @@ _nessuna_
 10:04:09 ORACLE   360 raccolti, 291 analizzati, 0 BUY, 276 veto
 10:03:46 ORACLE   360 raccolti, 285 analizzati, 0 BUY, 268 veto
 10:03:22 ORACLE   360 raccolti, 289 analizzati, 0 BUY, 272 veto
-10:02:59 ORACLE   360 raccolti, 287 analizzati, 0 BUY, 272 veto
-10:02:36 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 266 veto
-10:02:13 ORACLE   360 raccolti, 287 analizzati, 0 BUY, 275 veto
-10:01:50 ORACLE   360 raccolti, 284 analizzati, 0 BUY, 273 veto
-10:01:28 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 253 veto
-10:01:05 ORACLE   360 raccolti, 285 analizzati, 0 BUY, 272 veto
-10:00:41 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 264 veto
-10:00:41 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
-10:00:19 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 266 veto
-10:00:05 SCRIBE   chiuso P-0514 $Gino  -0.0462 SOL (-42.6%)
-10:00:05 CHARON   Stop loss $Gino  vendo 100% a -33.3% -> 0.0623 SOL
-09:59:55 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 253 veto
-09:59:32 ORACLE   360 raccolti, 281 analizzati, 0 BUY, 261 veto
-09:59:10 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 252 veto
-09:59:03 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
