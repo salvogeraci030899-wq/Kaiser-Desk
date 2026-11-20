@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 08:05 UTC · in esecuzione da 0.7 giorni · 245 run
+Aggiornato: 2026-11-20 08:10 UTC · in esecuzione da 0.7 giorni · 245 run
 
 | | |
 |---|---|
-| Equity | **5.3908 SOL** (-10.2% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.3908 SOL |
+| Equity | **5.3970 SOL** (-10.0% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.2819 SOL |
 | Trade chiusi | 76 |
 | Win rate | 30% |
-| P&L realizzato | -0.6092 SOL (~$-44.20) |
+| P&L realizzato | -0.6092 SOL (~$-44.27) |
 | Media vincite / perdite | +39.1% / -26.7% |
 | Profit factor | 0.62 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$STF** P-0513 · 0.108 SOL · +6.7% · resta 100% · [grafico](https://dexscreener.com/solana/DUoUDyPUqBTdTLJW5ecJUmgFs1EH7svJFhDnz5syc6fo)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+08:10:41 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 244 veto
+08:10:16 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 237 veto
+08:09:52 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 241 veto
+08:09:29 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 243 veto
+08:09:05 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 240 veto
+08:08:41 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 249 veto
+08:08:18 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 248 veto
+08:07:54 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 241 veto
+08:07:30 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 246 veto
+08:07:06 QUARTER  BUY $STF 0.108 SOL score 69 impatto 1.42% (Jupiter)
+08:07:06 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 250 veto
+08:06:42 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 242 veto
+08:06:18 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 254 veto
+08:05:55 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 259 veto
 08:05:31 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 252 veto
 08:05:17 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 258 veto
 08:04:51 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 255 veto
@@ -81,22 +95,6 @@ _nessuna_
 07:57:08 ORACLE   255 raccolti, 183 analizzati, 0 BUY, 179 veto
 07:56:45 ORACLE   250 raccolti, 173 analizzati, 0 BUY, 170 veto
 07:56:23 ORACLE   248 raccolti, 168 analizzati, 0 BUY, 164 veto
-07:56:00 ORACLE   212 raccolti, 143 analizzati, 0 BUY, 141 veto
-07:55:38 ORACLE   207 raccolti, 135 analizzati, 0 BUY, 133 veto
-07:55:37 SCOUT    rug: 8739 token oltre 7.5K, 35.5% rug, 3564 con possessori
-combinazioni: 4464 prove, migliore -6.22%, p 1
-fabbrica: 24534 percorsi, 768 configurazioni, 0 passano, 3610 ms
-07:55:17 ORACLE   204 raccolti, 129 analizzati, 0 BUY, 127 veto
-07:55:17 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-07:55:17 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-07:55:15 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
-07:55:15 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
-07:55:15 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120
-07:55:15 SCOUT    Laboratorio: collegato a PumpPortal
-07:55:15 KAISER   run #245 · 0 posizioni · equity 5.3908 SOL · GMGN spenta (nessuna chiave) · Grok off
-07:55:02 SCRIBE   fine run · trade 76 · win 30% · P&L -0.6092 SOL · equity 5.3908 SOL
-07:54:49 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 242 veto
-07:54:26 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 252 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
