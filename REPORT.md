@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 03:49 UTC · in esecuzione da 0.6 giorni · 240 run
+Aggiornato: 2026-11-20 03:54 UTC · in esecuzione da 0.6 giorni · 240 run
 
 | | |
 |---|---|
-| Equity | **5.5667 SOL** (-7.2% dal capitale iniziale di 6 SOL) |
+| Equity | **5.5712 SOL** (-7.1% dal capitale iniziale di 6 SOL) |
 | Cassa | 5.4472 SOL |
 | Trade chiusi | 60 |
 | Win rate | 28% |
-| P&L realizzato | -0.4406 SOL (~$-32.16) |
+| P&L realizzato | -0.4406 SOL (~$-32.10) |
 | Media vincite / perdite | +43.0% / -25.6% |
 | Profit factor | 0.65 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$SWRDXSTFF** P-0497 · 0.111 SOL · +7.5% · resta 100% · [grafico](https://dexscreener.com/solana/6LHLDdfB54L1XQnGC8MrQNUBYnsmxAHJetXzwZTyFwia)
+- **$SWRDXSTFF** P-0497 · 0.111 SOL · +11.6% · resta 100% · [grafico](https://dexscreener.com/solana/6LHLDdfB54L1XQnGC8MrQNUBYnsmxAHJetXzwZTyFwia)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,22 @@ Aggiornato: 2026-11-20 03:49 UTC · in esecuzione da 0.6 giorni · 240 run
 
 ## Ultimi eventi
 ```
+03:54:22 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 221 veto
+03:53:59 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 224 veto
+03:53:36 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 218 veto
+03:53:13 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 220 veto
+03:53:10 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
+03:52:49 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 224 veto
+03:52:26 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 223 veto
+03:52:04 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 215 veto
+03:51:40 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 217 veto
+03:51:18 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 217 veto
+03:50:55 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 216 veto
+03:50:32 ORACLE   353 raccolti, 236 analizzati, 0 BUY, 213 veto
+03:50:09 ORACLE   344 raccolti, 228 analizzati, 0 BUY, 205 veto
+03:49:47 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
+03:49:47 ORACLE   342 raccolti, 228 analizzati, 0 BUY, 205 veto
+03:49:24 ORACLE   331 raccolti, 218 analizzati, 0 BUY, 197 veto
 03:49:01 ORACLE   326 raccolti, 215 analizzati, 0 BUY, 194 veto
 03:48:38 ORACLE   324 raccolti, 209 analizzati, 1 BUY, 190 veto
 03:48:15 QUARTER  BUY $SWRDXSTFF 0.111 SOL score 76 impatto 1.40% (Jupiter)
@@ -81,22 +97,6 @@ fabbrica: 24038 percorsi, 768 configurazioni, 0 passano, 3750 ms
 03:44:04 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120
 03:44:04 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
 03:44:04 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
-03:44:04 SCOUT    Laboratorio: collegato a PumpPortal
-03:44:03 KAISER   run #240 · 0 posizioni · equity 5.5594 SOL · GMGN spenta (nessuna chiave) · Grok off
-03:43:45 SCRIBE   fine run · trade 60 · win 28% · P&L -0.4406 SOL · equity 5.5594 SOL
-03:43:44 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 238 veto
-03:43:21 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 238 veto
-03:42:59 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 234 veto
-03:42:36 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 238 veto
-03:42:13 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 242 veto
-03:41:50 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 236 veto
-03:41:37 SCRIBE   chiuso P-0496 $ToySoldiers -0.0298 SOL (-26.5%)
-03:41:37 CHARON   Time stop $ToySoldiers vendo 100% a -22.4% -> 0.0829 SOL
-03:41:27 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 240 veto
-03:41:04 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 236 veto
-03:40:41 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 232 veto
-03:40:18 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 235 veto
-03:39:56 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 239 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.

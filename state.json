@@ -16,7 +16,7 @@
    "tokens": 86095.79217985299,
    "remaining": 1,
    "rawLeft": "81490513653",
-   "peak": 0.000001388,
+   "peak": 0.000001911,
    "tp1Done": false,
    "spDone": false,
    "entryLiq": 20750.62,
@@ -49,11 +49,11 @@
     "grok": null
    },
    "last": {
-    "priceNative": 0.000001388,
-    "liq": 21845.95,
-    "br5": 1.3383838383838385,
-    "tx5": 461,
-    "t": 1795146551338
+    "priceNative": 0.000001441,
+    "liq": 22506.55,
+    "br5": 1.2127659574468086,
+    "tx5": 414,
+    "t": 1795146862332
    },
    "fills": [
     "BUY 0.111 impatto 1.40% (Jupiter)"
@@ -2848,27 +2848,6 @@
   }
  ],
  "signals": [
-  {
-   "t": 1795127987741,
-   "mint": "7ZwcEsmBBUWshL3rpkgDchG6rhL1U9jHockwuzgZpump",
-   "sym": "DATITTY",
-   "score": 88,
-   "priceNative": 8.671e-7
-  },
-  {
-   "t": 1795127987741,
-   "mint": "GJVKc1AZi7MMGPuht4kwLnZX9cJwLRBUXjEGUF6twpfx",
-   "sym": "FIONA",
-   "score": 79,
-   "priceNative": 4.6e-7
-  },
-  {
-   "t": 1795127987741,
-   "mint": "H1jcPQwCX9VPiNGBUpQNJdGzZEHiisFSs1WS4fi6pump",
-   "sym": "VINTEL",
-   "score": 73,
-   "priceNative": 0.000001096
-  },
   {
    "t": 1795128012351,
    "mint": "7ZwcEsmBBUWshL3rpkgDchG6rhL1U9jHockwuzgZpump",
@@ -9847,6 +9826,27 @@
    "sym": "SWRDXSTFF",
    "score": 76,
    "priceNative": 0.000001368
+  },
+  {
+   "t": 1795146793101,
+   "mint": "Bg4Q8a2Nkxr8XcAs4dRkCqFXoEX6TCZxtaoYoDSypump",
+   "sym": "NeonCrime",
+   "score": 80,
+   "priceNative": 4.805e-7
+  },
+  {
+   "t": 1795146816244,
+   "mint": "Bg4Q8a2Nkxr8XcAs4dRkCqFXoEX6TCZxtaoYoDSypump",
+   "sym": "NeonCrime",
+   "score": 80,
+   "priceNative": 4.805e-7
+  },
+  {
+   "t": 1795146862332,
+   "mint": "5JB57BRzLGkowV6YCRwK1y9fdhSongcRKVPLxN5kpump",
+   "sym": "ToySoldiers",
+   "score": 75,
+   "priceNative": 5.628e-7
   }
  ],
  "alerts": [],
@@ -9859,6 +9859,22 @@
  "halted": null,
  "seq": 497,
  "events": [
+  "03:54:22 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 221 veto",
+  "03:53:59 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 224 veto",
+  "03:53:36 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 218 veto",
+  "03:53:13 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 220 veto",
+  "03:53:10 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)",
+  "03:52:49 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 224 veto",
+  "03:52:26 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 223 veto",
+  "03:52:04 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 215 veto",
+  "03:51:40 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 217 veto",
+  "03:51:18 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 217 veto",
+  "03:50:55 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 216 veto",
+  "03:50:32 ORACLE   353 raccolti, 236 analizzati, 0 BUY, 213 veto",
+  "03:50:09 ORACLE   344 raccolti, 228 analizzati, 0 BUY, 205 veto",
+  "03:49:47 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena",
+  "03:49:47 ORACLE   342 raccolti, 228 analizzati, 0 BUY, 205 veto",
+  "03:49:24 ORACLE   331 raccolti, 218 analizzati, 0 BUY, 197 veto",
   "03:49:01 ORACLE   326 raccolti, 215 analizzati, 0 BUY, 194 veto",
   "03:48:38 ORACLE   324 raccolti, 209 analizzati, 1 BUY, 190 veto",
   "03:48:15 QUARTER  BUY $SWRDXSTFF 0.111 SOL score 76 impatto 1.40% (Jupiter)",
@@ -10142,23 +10158,7 @@
   "02:18:47 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 238 veto",
   "02:18:25 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 236 veto",
   "02:18:01 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 231 veto",
-  "02:17:38 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 230 veto",
-  "02:17:14 ORACLE   360 raccolti, 231 analizzati, 0 BUY, 225 veto",
-  "02:17:12 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)",
-  "02:16:52 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 229 veto",
-  "02:16:29 ORACLE   360 raccolti, 218 analizzati, 0 BUY, 208 veto",
-  "02:16:06 ORACLE   360 raccolti, 220 analizzati, 0 BUY, 211 veto",
-  "02:15:41 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 228 veto",
-  "02:15:28 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 227 veto",
-  "02:15:03 ORACLE   360 raccolti, 231 analizzati, 0 BUY, 221 veto",
-  "02:14:39 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 234 veto",
-  "02:14:16 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 232 veto",
-  "02:13:52 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 232 veto",
-  "02:13:30 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 237 veto",
-  "02:13:07 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 235 veto",
-  "02:12:44 ORACLE   360 raccolti, 236 analizzati, 0 BUY, 230 veto",
-  "02:12:22 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 246 veto",
-  "02:11:59 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 241 veto"
+  "02:17:38 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 230 veto"
  ],
  "capital": 6,
  "resetId": "C-0110",
