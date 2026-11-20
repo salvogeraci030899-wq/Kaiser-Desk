@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 00:58 UTC · in esecuzione da 0.4 giorni · 236 run
+Aggiornato: 2026-11-20 01:03 UTC · in esecuzione da 0.4 giorni · 236 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-20 00:58 UTC · in esecuzione da 0.4 giorni · 236 run
 | Cassa | 5.5642 SOL |
 | Trade chiusi | 51 |
 | Win rate | 29% |
-| P&L realizzato | -0.4358 SOL (~$-31.76) |
+| P&L realizzato | -0.4358 SOL (~$-31.73) |
 | Media vincite / perdite | +38.8% / -26.3% |
 | Profit factor | 0.60 |
 | Circuit breaker | no |
@@ -55,6 +55,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+01:03:49 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 242 veto
+01:03:25 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 232 veto
+01:03:01 ORACLE   360 raccolti, 242 analizzati, 3 BUY, 231 veto
+01:02:47 ORACLE   360 raccolti, 247 analizzati, 3 BUY, 238 veto
+01:02:21 ORACLE   360 raccolti, 250 analizzati, 3 BUY, 240 veto
+01:01:57 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 237 veto
+01:01:34 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 238 veto
+01:01:10 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 233 veto
+01:00:47 ORACLE   360 raccolti, 240 analizzati, 2 BUY, 232 veto
+01:00:23 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 235 veto
+01:00:08 ORACLE   360 raccolti, 243 analizzati, 2 BUY, 234 veto
+00:59:42 ORACLE   360 raccolti, 227 analizzati, 2 BUY, 220 veto
+00:59:29 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 241 veto
+00:59:04 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 229 veto
 00:58:40 ORACLE   360 raccolti, 236 analizzati, 2 BUY, 231 veto
 00:58:17 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 243 veto
 00:57:54 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 241 veto
@@ -81,20 +95,6 @@ _nessuna_
 00:51:54 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 239 veto
 00:51:30 QUARTER  BUY $LOOSY 0.109 SOL score 67 impatto 1.46% (Jupiter)
 00:51:30 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 250 veto
-00:51:07 QUARTER  $LOOSY impatto 2.5% oltre slippage: annullato
-00:51:07 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 255 veto
-00:50:43 QUARTER  $LOOSY impatto 4.4% oltre slippage: annullato
-00:50:43 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 250 veto
-00:50:19 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 238 veto
-00:50:07 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 236 veto
-00:49:41 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 244 veto
-00:49:19 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 248 veto
-00:48:56 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 245 veto
-00:48:33 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 240 veto
-00:48:10 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 258 veto
-00:47:48 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 256 veto
-00:47:26 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 255 veto
-00:47:03 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 255 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
