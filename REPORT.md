@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 22:16 UTC · in esecuzione da 1.3 giorni · 262 run
+Aggiornato: 2026-11-20 22:21 UTC · in esecuzione da 1.3 giorni · 262 run
 
 | | |
 |---|---|
-| Equity | **5.1280 SOL** (-14.5% dal capitale iniziale di 6 SOL) |
-| Cassa | 4.9873 SOL |
-| Trade chiusi | 122 |
+| Equity | **5.0656 SOL** (-15.6% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.0656 SOL |
+| Trade chiusi | 123 |
 | Win rate | 32% |
-| P&L realizzato | -0.9099 SOL (~$-62.82) |
-| Media vincite / perdite | +43.3% / -29.9% |
-| Profit factor | 0.67 |
+| P&L realizzato | -0.9344 SOL (~$-64.57) |
+| Media vincite / perdite | +43.3% / -29.8% |
+| Profit factor | 0.66 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$GTN** P-0559 · 0.102 SOL · +38.2% · resta 100% · [grafico](https://dexscreener.com/solana/4uxmHJYCJqT6SdGvNBkTVKeRJxnDuU5sto8vjBky7pg7)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 37 | -1.1280 |
-| Time stop | 44 | -0.5401 |
+| Time stop | 45 | -0.5646 |
 | TP1 | 26 | +1.4108 |
 | RUG-EXIT liquidità | 15 | -0.6526 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $GTN | 75 | -23.9% | -0.0246 | +54% | -29% | Time stop | 8m |
 | $shep | 65 | -26.7% | -0.0276 | +41% | -6% | Time stop | 8m |
 | $TI3000 | 70 | -18.0% | -0.0187 | +9% | -12% | Time stop | 5m |
 | $Singularity | 88 | -37.4% | -0.0390 | +7% | -33% | Stop loss | 2m |
@@ -51,10 +52,26 @@ Aggiornato: 2026-11-20 22:16 UTC · in esecuzione da 1.3 giorni · 262 run
 | $peebrain | 67 | -98.9% | -0.1045 | +2% | -32% | Stop loss | 4m |
 | $MATHISOVER | 77 | +57.4% | +0.0599 | +62% | +62% | TP1 | 64m |
 | $RH | 82 | -56.6% | -0.0597 | +0% | -54% | RUG-EXIT liquidità | 2m |
-| $afk | 64 | -8.9% | -0.0094 | +71% | +71% | TP1 | 2m |
 
 ## Ultimi eventi
 ```
+22:21:14 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 238 veto
+22:21:00 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 241 veto
+22:20:34 ORACLE   360 raccolti, 234 analizzati, 2 BUY, 226 veto
+22:20:20 ORACLE   360 raccolti, 228 analizzati, 2 BUY, 220 veto
+22:19:54 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 236 veto
+22:19:31 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 227 veto
+22:19:17 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 222 veto
+22:18:47 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 233 veto
+22:18:34 ORACLE   360 raccolti, 232 analizzati, 0 BUY, 219 veto
+22:18:17 ORACLE   360 raccolti, 236 analizzati, 0 BUY, 223 veto
+22:17:51 ORACLE   360 raccolti, 217 analizzati, 1 BUY, 205 veto
+22:17:27 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 222 veto
+22:17:03 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 220 veto
+22:16:49 SCRIBE   chiuso P-0559 $GTN -0.0246 SOL (-23.9%)
+22:16:49 CHARON   Time stop $GTN vendo 100% a -29.3% -> 0.0782 SOL
+22:16:49 ORACLE   360 raccolti, 235 analizzati, 0 BUY, 223 veto
+22:16:24 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 233 veto
 22:16:10 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 226 veto
 22:15:43 ORACLE   360 raccolti, 223 analizzati, 2 BUY, 213 veto
 22:15:19 ORACLE   360 raccolti, 229 analizzati, 3 BUY, 219 veto
@@ -80,23 +97,6 @@ fabbrica: 27397 percorsi, 768 configurazioni, 0 passano, 4732 ms
 22:11:02 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
 22:11:02 SCOUT    Laboratorio: collegato a PumpPortal
 22:11:02 KAISER   run #262 · 1 posizioni · equity 5.0868 SOL · GMGN spenta (nessuna chiave) · Grok off
-22:10:49 SCRIBE   fine run · trade 122 · win 32% · P&L -0.9099 SOL · equity 5.0868 SOL
-22:10:29 ORACLE   360 raccolti, 258 analizzati, 3 BUY, 252 veto
-22:10:06 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 251 veto
-22:09:44 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 264 veto
-22:09:21 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 250 veto
-22:08:56 ORACLE   360 raccolti, 265 analizzati, 3 BUY, 253 veto
-22:08:32 QUARTER  BUY $GTN 0.102 SOL score 75 impatto 1.29% (Jupiter)
-22:08:32 ORACLE   360 raccolti, 255 analizzati, 4 BUY, 244 veto
-22:08:09 QUARTER  $Singularity impatto 2.4% oltre slippage: annullato
-22:08:09 QUARTER  $GTN impatto 2.5% oltre slippage: annullato
-22:08:09 ORACLE   360 raccolti, 255 analizzati, 5 BUY, 244 veto
-22:07:45 ORACLE   360 raccolti, 240 analizzati, 4 BUY, 230 veto
-22:07:22 ORACLE   360 raccolti, 260 analizzati, 4 BUY, 250 veto
-22:06:59 ORACLE   360 raccolti, 246 analizzati, 3 BUY, 236 veto
-22:06:46 ORACLE   360 raccolti, 250 analizzati, 3 BUY, 240 veto
-22:06:18 ORACLE   360 raccolti, 257 analizzati, 3 BUY, 245 veto
-22:05:54 ORACLE   360 raccolti, 261 analizzati, 3 BUY, 248 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
