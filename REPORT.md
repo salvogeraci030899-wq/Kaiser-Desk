@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 04:09 UTC · in esecuzione da 0.6 giorni · 240 run
+Aggiornato: 2026-11-20 04:14 UTC · in esecuzione da 0.6 giorni · 240 run
 
 | | |
 |---|---|
-| Equity | **5.5534 SOL** (-7.4% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.5534 SOL |
+| Equity | **5.5558 SOL** (-7.4% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.4413 SOL |
 | Trade chiusi | 62 |
 | Win rate | 29% |
-| P&L realizzato | -0.4466 SOL (~$-32.33) |
+| P&L realizzato | -0.4466 SOL (~$-32.35) |
 | Media vincite / perdite | +41.0% / -25.2% |
 | Profit factor | 0.65 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$enu** P-0499 · 0.111 SOL · +3.1% · resta 100% · [grafico](https://dexscreener.com/solana/F8Ykd7drw4ytfNpG9L5r7XrRHwoYSNXFfR469U3LvjGp)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,21 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+04:14:40 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 231 veto
+04:14:18 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 233 veto
+04:13:55 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 231 veto
+04:13:32 QUARTER  BUY $enu 0.111 SOL score 63 impatto 0.43% (Jupiter)
+04:13:32 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 227 veto
+04:13:09 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 230 veto
+04:12:45 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 235 veto
+04:12:22 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 240 veto
+04:11:59 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 241 veto
+04:11:36 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 242 veto
+04:11:13 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 237 veto
+04:10:50 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 243 veto
+04:10:27 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 236 veto
+04:10:15 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 228 veto
+04:09:49 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 243 veto
 04:09:27 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 242 veto
 04:09:03 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 237 veto
 04:08:40 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 243 veto
@@ -80,21 +95,6 @@ _nessuna_
 04:01:09 ORACLE   360 raccolti, 226 analizzati, 1 BUY, 210 veto
 04:00:45 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 220 veto
 04:00:22 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 221 veto
-03:59:59 ORACLE   360 raccolti, 234 analizzati, 0 BUY, 215 veto
-03:59:36 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 226 veto
-03:59:13 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 221 veto
-03:58:51 ORACLE   360 raccolti, 235 analizzati, 0 BUY, 220 veto
-03:58:28 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 222 veto
-03:58:05 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 224 veto
-03:57:52 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 219 veto
-03:57:27 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 223 veto
-03:57:03 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 229 veto
-03:56:49 SCRIBE   chiuso P-0498 $NeonCrime -0.0131 SOL (-11.6%)
-03:56:49 CHARON   Stop loss $NeonCrime vendo 100% a -33.4% -> 0.0993 SOL
-03:56:39 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 227 veto
-03:56:17 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 238 veto
-03:55:54 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 231 veto
-03:55:31 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 230 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
