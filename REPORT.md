@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 18:35 UTC · in esecuzione da 1.2 giorni · 257 run
+Aggiornato: 2026-11-20 18:40 UTC · in esecuzione da 1.2 giorni · 257 run
 
 | | |
 |---|---|
-| Equity | **5.1234 SOL** (-14.6% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.0209 SOL |
-| Trade chiusi | 101 |
+| Equity | **5.1991 SOL** (-13.3% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.1991 SOL |
+| Trade chiusi | 102 |
 | Win rate | 30% |
-| P&L realizzato | -0.8756 SOL (~$-60.60) |
-| Media vincite / perdite | +39.8% / -27.6% |
-| Profit factor | 0.60 |
+| P&L realizzato | -0.8009 SOL (~$-55.32) |
+| Media vincite / perdite | +40.8% / -27.6% |
+| Profit factor | 0.63 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$MAYA** P-0538 · 0.102 SOL · n/d · resta 100% · [grafico](https://dexscreener.com/solana/2AW4WgTvjJQdL89FDKkTX2VYe1ydNoKtAtVZ3B2xpFi8)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 31 | -0.9393 |
 | Time stop | 40 | -0.4387 |
-| TP1 | 18 | +0.9205 |
+| TP1 | 19 | +0.9952 |
 | RUG-EXIT liquidità | 12 | -0.4181 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $MAYA | 88 | +72.2% | +0.0747 | +64% | +64% | TP1 | 4m |
 | $peebrain | 67 | -98.9% | -0.1045 | +2% | -32% | Stop loss | 4m |
 | $MATHISOVER | 77 | +57.4% | +0.0599 | +62% | +62% | TP1 | 64m |
 | $RH | 82 | -56.6% | -0.0597 | +0% | -54% | RUG-EXIT liquidità | 2m |
@@ -51,10 +52,26 @@ Aggiornato: 2026-11-20 18:35 UTC · in esecuzione da 1.2 giorni · 257 run
 | $MAIN | 70 | +3.8% | +0.0041 | +0% | -6% | Time stop | 5m |
 | $Meobao | 67 | -25.3% | -0.0272 | +0% | -31% | Stop loss | 5m |
 | $Gino  | 72 | -42.6% | -0.0462 | +0% | -33% | Stop loss | 1m |
-| $STF | 69 | -13.4% | -0.0145 | +7% | -7% | Time stop | 5m |
 
 ## Ultimi eventi
 ```
+18:40:36 ORACLE   360 raccolti, 230 analizzati, 2 BUY, 219 veto
+18:40:21 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 231 veto
+18:40:06 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 234 veto
+18:39:39 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 231 veto
+18:39:25 ORACLE   360 raccolti, 224 analizzati, 1 BUY, 218 veto
+18:39:08 SCRIBE   chiuso P-0538 $MAYA 0.0747 SOL (72.2%)
+18:39:08 CHARON   TP1 $MAYA vendo 100% a 64.2% -> 0.1782 SOL
+18:39:08 ORACLE   360 raccolti, 240 analizzati, 2 BUY, 234 veto
+18:38:42 ORACLE   360 raccolti, 238 analizzati, 2 BUY, 232 veto
+18:38:17 ORACLE   360 raccolti, 233 analizzati, 2 BUY, 228 veto
+18:37:53 ORACLE   360 raccolti, 240 analizzati, 2 BUY, 234 veto
+18:37:30 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 233 veto
+18:37:17 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 232 veto
+18:37:01 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 254 veto
+18:36:35 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 258 veto
+18:36:11 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 251 veto
+18:35:46 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 259 veto
 18:35:21 QUARTER  BUY $MAYA 0.102 SOL score 88 impatto 1.17% (Jupiter)
 18:35:21 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 265 veto
 18:34:57 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 242 veto
@@ -78,23 +95,6 @@ Aggiornato: 2026-11-20 18:35 UTC · in esecuzione da 1.2 giorni · 257 run
 18:29:42 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 234 veto
 18:29:17 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 250 veto
 18:28:53 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 243 veto
-18:28:29 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 239 veto
-18:28:05 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 270 veto
-18:27:40 ORACLE   360 raccolti, 282 analizzati, 0 BUY, 273 veto
-18:27:16 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 257 veto
-18:27:12 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
-18:26:52 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 260 veto
-18:26:28 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 267 veto
-18:26:15 QUARTER  BUY $peebrain 0.105 SOL score 67 impatto 0.00% (Jupiter)
-18:26:14 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 261 veto
-18:25:49 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 241 veto
-18:25:35 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 259 veto
-18:25:10 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 251 veto
-18:24:55 SCRIBE   chiuso P-0536 $MATHISOVER 0.0599 SOL (57.4%)
-18:24:55 CHARON   TP1 $MATHISOVER vendo 100% a 61.8% -> 0.1643 SOL
-18:24:55 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 231 veto
-18:24:30 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 229 veto
-18:24:17 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 223 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
