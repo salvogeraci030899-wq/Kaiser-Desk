@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 05:55 UTC · in esecuzione da 0.7 giorni · 242 run
+Aggiornato: 2026-11-20 06:00 UTC · in esecuzione da 0.7 giorni · 242 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-20 05:55 UTC · in esecuzione da 0.7 giorni · 242 run
 | Cassa | 5.3198 SOL |
 | Trade chiusi | 69 |
 | Win rate | 28% |
-| P&L realizzato | -0.6802 SOL (~$-49.48) |
+| P&L realizzato | -0.6802 SOL (~$-49.32) |
 | Media vincite / perdite | +39.4% / -26.7% |
 | Profit factor | 0.55 |
 | Circuit breaker | no |
@@ -55,6 +55,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+06:00:31 ORACLE   360 raccolti, 282 analizzati, 0 BUY, 267 veto
+06:00:08 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 261 veto
+05:59:43 ORACLE   360 raccolti, 282 analizzati, 0 BUY, 273 veto
+05:59:20 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 261 veto
+05:58:56 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 265 veto
+05:58:32 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 269 veto
+05:58:09 ORACLE   360 raccolti, 281 analizzati, 0 BUY, 271 veto
+05:57:45 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 263 veto
+05:57:21 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 256 veto
+05:56:57 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 261 veto
+05:56:33 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 265 veto
+05:56:10 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 262 veto
+05:55:46 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 263 veto
 05:55:22 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 259 veto
 05:54:58 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 268 veto
 05:54:34 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 261 veto
@@ -82,19 +95,6 @@ _nessuna_
 05:47:26 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 251 veto
 05:47:02 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 239 veto
 05:46:39 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 252 veto
-05:46:14 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 253 veto
-05:45:50 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 252 veto
-05:45:26 SCRIBE   chiuso P-0504 $HARAMBE -0.0580 SOL (-53.1%)
-05:45:26 CHARON   Stop loss $HARAMBE vendo 100% a -34.3% -> 0.0513 SOL
-05:45:26 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 243 veto
-05:45:02 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 247 veto
-05:44:39 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 245 veto
-05:44:14 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 240 veto
-05:43:50 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 246 veto
-05:43:26 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 234 veto
-05:43:03 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 244 veto
-05:42:39 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 240 veto
-05:42:16 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 238 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
