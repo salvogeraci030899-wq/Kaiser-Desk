@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 18:30 UTC · in esecuzione da 1.2 giorni · 257 run
+Aggiornato: 2026-11-20 18:35 UTC · in esecuzione da 1.2 giorni · 257 run
 
 | | |
 |---|---|
-| Equity | **5.1244 SOL** (-14.6% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.1244 SOL |
+| Equity | **5.1234 SOL** (-14.6% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.0209 SOL |
 | Trade chiusi | 101 |
 | Win rate | 30% |
-| P&L realizzato | -0.8756 SOL (~$-60.62) |
+| P&L realizzato | -0.8756 SOL (~$-60.60) |
 | Media vincite / perdite | +39.8% / -27.6% |
 | Profit factor | 0.60 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$MAYA** P-0538 · 0.102 SOL · n/d · resta 100% · [grafico](https://dexscreener.com/solana/2AW4WgTvjJQdL89FDKkTX2VYe1ydNoKtAtVZ3B2xpFi8)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,22 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+18:35:21 QUARTER  BUY $MAYA 0.102 SOL score 88 impatto 1.17% (Jupiter)
+18:35:21 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 265 veto
+18:34:57 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 242 veto
+18:34:32 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 260 veto
+18:34:17 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 257 veto
+18:33:52 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 256 veto
+18:33:39 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 251 veto
+18:33:14 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 257 veto
+18:32:49 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 247 veto
+18:32:36 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 254 veto
+18:32:20 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 251 veto
+18:31:55 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 230 veto
+18:31:31 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 241 veto
+18:31:18 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 237 veto
+18:31:02 ORACLE   360 raccolti, 238 analizzati, 2 BUY, 231 veto
+18:30:35 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 240 veto
 18:30:21 SCRIBE   chiuso P-0537 $peebrain -0.1045 SOL (-98.9%)
 18:30:21 CHARON   Stop loss $peebrain vendo 100% a -32.4% -> 0.0011 SOL
 18:30:21 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 242 veto
@@ -79,22 +95,6 @@ _nessuna_
 18:24:55 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 231 veto
 18:24:30 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 229 veto
 18:24:17 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 223 veto
-18:23:49 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 242 veto
-18:23:36 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 238 veto
-18:23:11 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 253 veto
-18:22:46 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 255 veto
-18:22:22 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 238 veto
-18:22:08 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 240 veto
-18:21:40 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 254 veto
-18:21:16 ORACLE   360 raccolti, 247 analizzati, 3 BUY, 238 veto
-18:20:52 ORACLE   360 raccolti, 262 analizzati, 3 BUY, 251 veto
-18:20:28 ORACLE   360 raccolti, 256 analizzati, 3 BUY, 245 veto
-18:20:03 ORACLE   360 raccolti, 243 analizzati, 2 BUY, 231 veto
-18:19:39 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 248 veto
-18:19:14 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 251 veto
-18:19:01 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 238 veto
-18:18:34 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 244 veto
-18:18:10 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 251 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
