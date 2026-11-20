@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 19:05 UTC · in esecuzione da 1.2 giorni · 258 run
+Aggiornato: 2026-11-20 19:10 UTC · in esecuzione da 1.2 giorni · 258 run
 
 | | |
 |---|---|
-| Equity | **5.3273 SOL** (-11.2% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.2036 SOL |
-| Trade chiusi | 105 |
-| Win rate | 31% |
-| P&L realizzato | -0.6892 SOL (~$-47.23) |
+| Equity | **5.3584 SOL** (-10.7% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.3584 SOL |
+| Trade chiusi | 106 |
+| Win rate | 32% |
+| P&L realizzato | -0.6416 SOL (~$-43.89) |
 | Media vincite / perdite | +42.5% / -27.6% |
-| Profit factor | 0.69 |
+| Profit factor | 0.71 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$Singularity** P-0542 · 0.106 SOL · +16.4% · resta 100% · [grafico](https://dexscreener.com/solana/14tr7hK5vS5Z2UtRVvFwAya8MzEXz1hhSxhWNnWB17pR)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 32 | -0.9700 |
 | Time stop | 40 | -0.4387 |
-| TP1 | 21 | +1.1376 |
+| TP1 | 22 | +1.1852 |
 | RUG-EXIT liquidità | 12 | -0.4181 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $Singularity | 64 | +44.4% | +0.0476 | +64% | +64% | TP1 | 4m |
 | $BIGFOOT | 65 | -28.5% | -0.0307 | +0% | -36% | Stop loss | 2m |
 | $MIC | 73 | +123.6% | +0.1301 | +96% | +96% | TP1 | 1m |
 | $DOG | 67 | +11.8% | +0.0124 | +63% | +63% | TP1 | 3m |
@@ -51,10 +52,25 @@ Aggiornato: 2026-11-20 19:05 UTC · in esecuzione da 1.2 giorni · 258 run
 | $ZEN | 67 | -21.0% | -0.0228 | +11% | -17% | Time stop | 5m |
 | $STICK | 75 | +92.8% | +0.0989 | +80% | +80% | TP1 | 7m |
 | $Alouatta | 66 | -20.9% | -0.0224 | +10% | -7% | Time stop | 5m |
-| $CATMARIO | 68 | -4.6% | -0.0050 | +45% | +5% | Time stop | 11m |
 
 ## Ultimi eventi
 ```
+19:10:16 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 236 veto
+19:10:02 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 231 veto
+19:09:37 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 245 veto
+19:09:14 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 238 veto
+19:08:50 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 235 veto
+19:08:27 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 240 veto
+19:08:03 ORACLE   360 raccolti, 253 analizzati, 3 BUY, 235 veto
+19:07:50 SCRIBE   chiuso P-0542 $Singularity 0.0476 SOL (44.4%)
+19:07:50 CHARON   TP1 $Singularity vendo 100% a 64.4% -> 0.1548 SOL
+19:07:39 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 236 veto
+19:07:16 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 228 veto
+19:06:52 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 222 veto
+19:06:29 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 219 veto
+19:06:05 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 223 veto
+19:05:41 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 225 veto
+19:05:28 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 230 veto
 19:05:13 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 220 veto
 19:04:47 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 221 veto
 19:04:23 ORACLE   360 raccolti, 216 analizzati, 1 BUY, 205 veto
@@ -79,22 +95,6 @@ Aggiornato: 2026-11-20 19:05 UTC · in esecuzione da 1.2 giorni · 258 run
 18:57:42 ORACLE   360 raccolti, 192 analizzati, 1 BUY, 183 veto
 18:57:19 ORACLE   360 raccolti, 197 analizzati, 1 BUY, 188 veto
 18:56:55 SCRIBE   chiuso P-0541 $BIGFOOT -0.0307 SOL (-28.5%)
-18:56:55 CHARON   Stop loss $BIGFOOT vendo 100% a -35.5% -> 0.0771 SOL
-18:56:55 ORACLE   360 raccolti, 193 analizzati, 2 BUY, 185 veto
-18:56:32 ORACLE   360 raccolti, 209 analizzati, 2 BUY, 200 veto
-18:56:08 ORACLE   360 raccolti, 217 analizzati, 2 BUY, 210 veto
-18:55:45 ORACLE   360 raccolti, 223 analizzati, 2 BUY, 216 veto
-18:55:22 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 246 veto
-18:55:09 SCOUT    regola C-056: corrente (nuova strategia: 10K rit. 10s +10/-20 60s: vecchi -7.6%, recenti -7.61%)
-18:55:09 SCOUT    regola C-055: ritirata (322 operazioni in avanti, esito medio -6.7% (±3.9): non regge)
-18:55:09 SCOUT    strategia C-056: corrente: nuova strategia: 10K rit. 10s +10/-20 60s: vecchi -7.6%, recenti -7.61%
-18:55:09 SCOUT    strategia C-055: ritirata: 322 operazioni in avanti, esito medio -6.7% (±3.9): non regge
-18:54:59 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 245 veto
-18:54:36 QUARTER  BUY $BIGFOOT 0.107 SOL score 65 impatto 1.84% (Jupiter)
-18:54:36 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 234 veto
-18:54:12 ORACLE   350 raccolti, 243 analizzati, 1 BUY, 232 veto
-18:53:48 SCRIBE   chiuso P-0540 $MIC 0.1301 SOL (123.6%)
-18:53:48 CHARON   TP1 $MIC vendo 100% a 95.6% -> 0.2353 SOL
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
