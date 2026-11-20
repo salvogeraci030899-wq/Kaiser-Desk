@@ -1,8 +1,64 @@
 {
  "startedAt": 1795097825371,
  "runs": 243,
- "cash": 5.327397088964297,
- "positions": [],
+ "cash": 5.219849147185011,
+ "positions": [
+  {
+   "id": "P-0507",
+   "mint": "GMGgW3FGXKgPHmjiv3Pdd66dC7vXvpX8U9t4UG4tpBk6",
+   "sym": "MARK",
+   "name": "Justice For Mark Longo",
+   "pairAddress": "GwXobVZb1fuauNK72nSdrkC9rm1K7A2BApYMcy7uTYmk",
+   "openedAt": 1795156145898,
+   "sizeSOL": 0.10654794177928593,
+   "cost": 0.10754794177928594,
+   "entry": 3.9374725938607005e-7,
+   "tokens": 270599.8308290838,
+   "remaining": 1,
+   "rawLeft": "241808541110",
+   "peak": 4.717e-7,
+   "tp1Done": false,
+   "spDone": false,
+   "entryLiq": 10676.47,
+   "realized": 0,
+   "score": 63,
+   "why": "runner",
+   "entryInfo": {
+    "srcs": [
+     "profili"
+    ],
+    "notes": [],
+    "plus": [],
+    "m": {
+     "liq": 10676.47,
+     "mc": 27861,
+     "ageMin": 1.26485,
+     "v1": 4322.22,
+     "tx1": 188,
+     "br1": 1.4050632911392404,
+     "br5": 1.4050632911392404,
+     "c5": -7.26,
+     "c1": -7.26,
+     "c6": -7.26,
+     "turn": 0.4048360553628681,
+     "price": 0.00002786,
+     "priceNative": 3.835e-7
+    },
+    "grok": null
+   },
+   "last": {
+    "priceNative": 4.717e-7,
+    "liq": 12012.85,
+    "br5": 1.2115384615384615,
+    "tx5": 458,
+    "t": 1795156202784
+   },
+   "fills": [
+    "BUY 0.107 impatto 1.66% (Jupiter)"
+   ],
+   "trough": 3.835e-7
+  }
+ ],
  "journal": [
   {
    "id": "P-0437",
@@ -3261,27 +3317,6 @@
   }
  ],
  "signals": [
-  {
-   "t": 1795131176010,
-   "mint": "CV6DiAYvr9oGUrsH4qY565srzL5RT9BYj8np7qD6pump",
-   "sym": "AI",
-   "score": 78,
-   "priceNative": 7.364e-7
-  },
-  {
-   "t": 1795131198680,
-   "mint": "AJsDVx4C7Y8Wehdp7ZnqAXAi3PZVQ6htxCm8gGPXpump",
-   "sym": "BIAOQING",
-   "score": 84,
-   "priceNative": 7.002e-7
-  },
-  {
-   "t": 1795131198680,
-   "mint": "CV6DiAYvr9oGUrsH4qY565srzL5RT9BYj8np7qD6pump",
-   "sym": "AI",
-   "score": 78,
-   "priceNative": 7.154e-7
-  },
   {
    "t": 1795131221073,
    "mint": "AJsDVx4C7Y8Wehdp7ZnqAXAi3PZVQ6htxCm8gGPXpump",
@@ -10260,6 +10295,27 @@
    "sym": "ㅤㅤ",
    "score": 69,
    "priceNative": 0.000001177
+  },
+  {
+   "t": 1795156145873,
+   "mint": "GMGgW3FGXKgPHmjiv3Pdd66dC7vXvpX8U9t4UG4tpBk6",
+   "sym": "MARK",
+   "score": 63,
+   "priceNative": 3.835e-7
+  },
+  {
+   "t": 1795156169548,
+   "mint": "GMGgW3FGXKgPHmjiv3Pdd66dC7vXvpX8U9t4UG4tpBk6",
+   "sym": "MARK",
+   "score": 66,
+   "priceNative": 4.461e-7
+  },
+  {
+   "t": 1795156192702,
+   "mint": "GMGgW3FGXKgPHmjiv3Pdd66dC7vXvpX8U9t4UG4tpBk6",
+   "sym": "MARK",
+   "score": 66,
+   "priceNative": 4.461e-7
   }
  ],
  "alerts": [],
@@ -10270,8 +10326,22 @@
  },
  "cooldownUntil": 1795154209342,
  "halted": null,
- "seq": 506,
+ "seq": 507,
  "events": [
+  "06:29:52 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 258 veto",
+  "06:29:29 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 261 veto",
+  "06:29:05 QUARTER  BUY $MARK 0.107 SOL score 63 impatto 1.66% (Jupiter)",
+  "06:29:05 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 255 veto",
+  "06:28:42 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 259 veto",
+  "06:28:19 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 258 veto",
+  "06:27:56 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 257 veto",
+  "06:27:33 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 257 veto",
+  "06:27:10 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 250 veto",
+  "06:26:46 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 257 veto",
+  "06:26:24 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 259 veto",
+  "06:26:01 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 263 veto",
+  "06:25:38 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 261 veto",
+  "06:25:15 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 262 veto",
   "06:24:51 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 261 veto",
   "06:24:28 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 260 veto",
   "06:24:05 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 261 veto",
@@ -10557,26 +10627,12 @@
   "04:52:22 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 247 veto",
   "04:51:59 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 243 veto",
   "04:51:36 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 245 veto",
-  "04:51:13 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 247 veto",
-  "04:50:50 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 251 veto",
-  "04:50:27 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 245 veto",
-  "04:50:04 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 248 veto",
-  "04:49:40 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 247 veto",
-  "04:49:17 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 241 veto",
-  "04:48:54 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 240 veto",
-  "04:48:31 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 241 veto",
-  "04:48:08 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 243 veto",
-  "04:47:45 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 250 veto",
-  "04:47:22 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 244 veto",
-  "04:46:59 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 240 veto",
-  "04:46:37 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 241 veto",
-  "04:46:14 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 244 veto",
-  "04:45:51 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 236 veto"
+  "04:51:13 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 247 veto"
  ],
  "capital": 6,
  "resetId": "C-0110",
  "realTried": {},
- "lastEntryAt": 1795155021907,
+ "lastEntryAt": 1795156145898,
  "lab": {
   "done": [
    {
