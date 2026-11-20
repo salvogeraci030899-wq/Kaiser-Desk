@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 03:39 UTC · in esecuzione da 0.6 giorni · 239 run
+Aggiornato: 2026-11-20 03:43 UTC · in esecuzione da 0.6 giorni · 239 run
 
 | | |
 |---|---|
-| Equity | **5.5570 SOL** (-7.4% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.4764 SOL |
-| Trade chiusi | 59 |
-| Win rate | 29% |
-| P&L realizzato | -0.4108 SOL (~$-29.80) |
-| Media vincite / perdite | +43.0% / -25.5% |
-| Profit factor | 0.67 |
+| Equity | **5.5594 SOL** (-7.3% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.5594 SOL |
+| Trade chiusi | 60 |
+| Win rate | 28% |
+| P&L realizzato | -0.4406 SOL (~$-32.02) |
+| Media vincite / perdite | +43.0% / -25.6% |
+| Profit factor | 0.65 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$ToySoldiers** P-0496 · 0.112 SOL · -27.9% · resta 100% · [grafico](https://dexscreener.com/solana/DRu3rtvCv1E9BfZqgiJm8TG8177oTJAKdhSHEnRUKZnp)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 18 | -0.4755 |
-| Time stop | 22 | -0.1984 |
+| Time stop | 23 | -0.2283 |
 | TP1 | 10 | +0.5450 |
 | RUG-EXIT liquidità | 9 | -0.2819 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $ToySoldiers | 70 | -26.5% | -0.0298 | +0% | -22% | Time stop | 5m |
 | $LOOSY | 70 | -12.5% | -0.0141 | +21% | +3% | Time stop | 6m |
 | $MF | 69 | -14.0% | -0.0158 | +0% | -12% | Time stop | 5m |
 | $LUCIA | 88 | -1.2% | -0.0014 | +0% | -36% | Stop loss | 2m |
@@ -51,10 +52,22 @@ Aggiornato: 2026-11-20 03:39 UTC · in esecuzione da 0.6 giorni · 239 run
 | $FIONA | 79 | -9.2% | -0.0102 | +11% | -5% | Time stop | 5m |
 | $DATITTY | 88 | -21.7% | -0.0240 | +5% | -17% | Time stop | 5m |
 | $FIONA | 78 | -9.3% | -0.0103 | +0% | -21% | Time stop | 5m |
-| $VINTEL | 76 | +53.7% | +0.0589 | +70% | +70% | TP1 | 2m |
 
 ## Ultimi eventi
 ```
+03:43:45 SCRIBE   fine run · trade 60 · win 28% · P&L -0.4406 SOL · equity 5.5594 SOL
+03:43:44 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 238 veto
+03:43:21 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 238 veto
+03:42:59 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 234 veto
+03:42:36 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 238 veto
+03:42:13 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 242 veto
+03:41:50 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 236 veto
+03:41:37 SCRIBE   chiuso P-0496 $ToySoldiers -0.0298 SOL (-26.5%)
+03:41:37 CHARON   Time stop $ToySoldiers vendo 100% a -22.4% -> 0.0829 SOL
+03:41:27 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 240 veto
+03:41:04 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 236 veto
+03:40:41 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 232 veto
+03:40:18 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 235 veto
 03:39:56 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 239 veto
 03:39:33 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 231 veto
 03:39:10 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 238 veto
@@ -82,19 +95,6 @@ Aggiornato: 2026-11-20 03:39 UTC · in esecuzione da 0.6 giorni · 239 run
 03:31:09 ORACLE   360 raccolti, 234 analizzati, 0 BUY, 218 veto
 03:30:47 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 221 veto
 03:30:24 ORACLE   360 raccolti, 231 analizzati, 1 BUY, 214 veto
-03:30:00 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 222 veto
-03:29:37 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 227 veto
-03:29:15 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 222 veto
-03:28:52 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 229 veto
-03:28:29 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 229 veto
-03:28:06 ORACLE   360 raccolti, 236 analizzati, 0 BUY, 217 veto
-03:27:43 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 230 veto
-03:27:20 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 230 veto
-03:26:58 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 222 veto
-03:26:33 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 227 veto
-03:26:10 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 227 veto
-03:25:48 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 225 veto
-03:25:25 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 231 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
