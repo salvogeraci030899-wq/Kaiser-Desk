@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 15:33 UTC · in esecuzione da 1.1 giorni · 254 run
+Aggiornato: 2026-11-20 15:38 UTC · in esecuzione da 1.1 giorni · 254 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-20 15:33 UTC · in esecuzione da 1.1 giorni · 254 run
 | Cassa | 5.1673 SOL |
 | Trade chiusi | 94 |
 | Win rate | 29% |
-| P&L realizzato | -0.8327 SOL (~$-57.14) |
+| P&L realizzato | -0.8327 SOL (~$-57.03) |
 | Media vincite / perdite | +39.4% / -26.7% |
 | Profit factor | 0.59 |
 | Circuit breaker | no |
@@ -55,6 +55,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+15:38:46 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 242 veto
+15:38:23 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 246 veto
+15:38:00 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 241 veto
+15:37:37 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 247 veto
+15:37:13 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 251 veto
+15:36:50 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 247 veto
+15:36:27 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 253 veto
+15:36:03 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 258 veto
+15:35:40 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 248 veto
+15:35:17 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 259 veto
+15:34:54 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 256 veto
+15:34:31 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 248 veto
+15:34:18 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 252 veto
 15:33:53 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 246 veto
 15:33:29 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 228 veto
 15:33:06 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 234 veto
@@ -84,19 +97,6 @@ fabbrica: 25656 percorsi, 768 configurazioni, 0 passano, 4012 ms
 15:27:32 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 257 veto
 15:27:18 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 251 veto
 15:26:53 ORACLE   360 raccolti, 279 analizzati, 2 BUY, 269 veto
-15:26:29 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 262 veto
-15:26:05 SCRIBE   chiuso P-0529 $小面包 -0.0098 SOL (-9.5%)
-15:26:05 CHARON   Time stop $小面包 vendo 100% a -7.7% -> 0.0940 SOL
-15:26:05 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 248 veto
-15:25:42 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 256 veto
-15:25:18 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 259 veto
-15:24:54 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 257 veto
-15:24:30 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 258 veto
-15:24:07 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 254 veto
-15:23:44 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 242 veto
-15:23:20 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 253 veto
-15:22:56 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 250 veto
-15:22:33 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 249 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
