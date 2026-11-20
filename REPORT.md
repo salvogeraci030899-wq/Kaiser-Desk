@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 01:43 UTC · in esecuzione da 0.5 giorni · 237 run
+Aggiornato: 2026-11-20 01:48 UTC · in esecuzione da 0.5 giorni · 237 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-20 01:43 UTC · in esecuzione da 0.5 giorni · 237 run
 | Cassa | 5.6205 SOL |
 | Trade chiusi | 56 |
 | Win rate | 30% |
-| P&L realizzato | -0.3795 SOL (~$-27.56) |
+| P&L realizzato | -0.3795 SOL (~$-27.64) |
 | Media vincite / perdite | +43.0% / -26.8% |
 | Profit factor | 0.68 |
 | Circuit breaker | no |
@@ -55,6 +55,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+01:48:24 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 237 veto
+01:48:01 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 242 veto
+01:47:39 ORACLE   360 raccolti, 236 analizzati, 0 BUY, 232 veto
+01:47:16 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 239 veto
+01:46:54 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 235 veto
+01:46:30 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 234 veto
+01:46:07 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 230 veto
+01:45:43 ORACLE   360 raccolti, 234 analizzati, 0 BUY, 228 veto
+01:45:20 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 233 veto
+01:44:57 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 234 veto
+01:44:34 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 240 veto
+01:44:10 ORACLE   360 raccolti, 235 analizzati, 0 BUY, 226 veto
+01:43:47 ORACLE   360 raccolti, 236 analizzati, 0 BUY, 226 veto
 01:43:23 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 235 veto
 01:42:59 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 238 veto
 01:42:35 ORACLE   360 raccolti, 231 analizzati, 0 BUY, 223 veto
@@ -82,19 +95,6 @@ _nessuna_
 01:34:02 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 245 veto
 01:33:39 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 245 veto
 01:33:15 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 245 veto
-01:32:52 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 241 veto
-01:32:28 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 236 veto
-01:32:15 SCRIBE   chiuso P-0492 $RUGGED -0.0461 SOL (-40.3%)
-01:32:15 CHARON   Stop loss $RUGGED vendo 100% a -30.5% -> 0.0682 SOL
-01:32:15 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 230 veto
-01:31:50 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 234 veto
-01:31:26 ORACLE   360 raccolti, 244 analizzati, 3 BUY, 230 veto
-01:31:03 ORACLE   360 raccolti, 244 analizzati, 3 BUY, 233 veto
-01:30:39 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 238 veto
-01:30:14 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 224 veto
-01:29:49 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 232 veto
-01:29:24 QUARTER  BUY $RUGGED 0.113 SOL score 66 impatto 1.76% (Jupiter)
-01:29:24 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 239 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
