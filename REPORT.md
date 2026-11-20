@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 21:41 UTC · in esecuzione da 1.3 giorni · 261 run
+Aggiornato: 2026-11-20 21:46 UTC · in esecuzione da 1.3 giorni · 261 run
 
 | | |
 |---|---|
-| Equity | **5.1301 SOL** (-14.5% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.0327 SOL |
-| Trade chiusi | 120 |
-| Win rate | 33% |
-| P&L realizzato | -0.8636 SOL (~$-59.21) |
-| Media vincite / perdite | +43.3% / -30.1% |
-| Profit factor | 0.68 |
+| Equity | **5.1177 SOL** (-14.7% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.1177 SOL |
+| Trade chiusi | 121 |
+| Win rate | 32% |
+| P&L realizzato | -0.8823 SOL (~$-60.46) |
+| Media vincite / perdite | +43.3% / -29.9% |
+| Profit factor | 0.67 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$TI3000** P-0557 · 0.103 SOL · -5.2% · resta 100% · [grafico](https://dexscreener.com/solana/4JTJ7G6TVKUmEcsU9Dd14FZAXhMsDAecU3tYVzGgUMN3)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 37 | -1.1280 |
-| Time stop | 42 | -0.4937 |
+| Time stop | 43 | -0.5124 |
 | TP1 | 26 | +1.4108 |
 | RUG-EXIT liquidità | 15 | -0.6526 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $TI3000 | 70 | -18.0% | -0.0187 | +9% | -12% | Time stop | 5m |
 | $Singularity | 88 | -37.4% | -0.0390 | +7% | -33% | Stop loss | 2m |
 | $DATACENTER | 73 | +19.3% | +0.0201 | +80% | +80% | TP1 | 4m |
 | $chud | 65 | +22.4% | +0.0232 | +0% | -40% | Stop loss | 2m |
@@ -51,10 +52,25 @@ Aggiornato: 2026-11-20 21:41 UTC · in esecuzione da 1.3 giorni · 261 run
 | $RH | 82 | -56.6% | -0.0597 | +0% | -54% | RUG-EXIT liquidità | 2m |
 | $afk | 64 | -8.9% | -0.0094 | +71% | +71% | TP1 | 2m |
 | $HUSS | 75 | +58.9% | +0.0616 | +11% | -2% | Time stop | 6m |
-| $H4CK | 89 | +13.3% | +0.0138 | +4% | +1% | Time stop | 5m |
 
 ## Ultimi eventi
 ```
+21:46:24 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 236 veto
+21:46:00 ORACLE   360 raccolti, 238 analizzati, 2 BUY, 227 veto
+21:45:36 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 230 veto
+21:45:12 ORACLE   360 raccolti, 235 analizzati, 2 BUY, 227 veto
+21:45:09 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
+21:44:49 ORACLE   360 raccolti, 243 analizzati, 2 BUY, 234 veto
+21:44:26 ORACLE   360 raccolti, 223 analizzati, 3 BUY, 213 veto
+21:44:03 ORACLE   360 raccolti, 227 analizzati, 3 BUY, 218 veto
+21:43:49 SCRIBE   chiuso P-0557 $TI3000 -0.0187 SOL (-18.0%)
+21:43:49 CHARON   Time stop $TI3000 vendo 100% a -12.1% -> 0.0850 SOL
+21:43:39 ORACLE   360 raccolti, 231 analizzati, 3 BUY, 222 veto
+21:43:15 ORACLE   360 raccolti, 230 analizzati, 3 BUY, 221 veto
+21:42:51 ORACLE   360 raccolti, 210 analizzati, 2 BUY, 203 veto
+21:42:28 ORACLE   360 raccolti, 218 analizzati, 1 BUY, 207 veto
+21:42:05 ORACLE   360 raccolti, 217 analizzati, 1 BUY, 206 veto
+21:41:42 ORACLE   360 raccolti, 212 analizzati, 0 BUY, 200 veto
 21:41:18 ORACLE   360 raccolti, 219 analizzati, 2 BUY, 209 veto
 21:40:54 ORACLE   360 raccolti, 216 analizzati, 1 BUY, 207 veto
 21:40:31 ORACLE   360 raccolti, 211 analizzati, 1 BUY, 201 veto
@@ -79,22 +95,6 @@ Aggiornato: 2026-11-20 21:41 UTC · in esecuzione da 1.3 giorni · 261 run
 21:34:05 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 239 veto
 21:33:42 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 240 veto
 21:33:17 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 254 veto
-21:32:54 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 254 veto
-21:32:30 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 244 veto
-21:32:05 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 239 veto
-21:31:41 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 247 veto
-21:31:17 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 239 veto
-21:30:53 SCRIBE   chiuso P-0556 $Singularity -0.0390 SOL (-37.4%)
-21:30:53 CHARON   Stop loss $Singularity vendo 100% a -32.6% -> 0.0655 SOL
-21:30:53 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 256 veto
-21:30:41 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 254 veto
-21:30:25 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 243 veto
-21:29:58 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 239 veto
-21:29:35 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 253 veto
-21:29:11 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 245 veto
-21:28:47 QUARTER  BUY $Singularity 0.104 SOL score 88 impatto 1.12% (Jupiter)
-21:28:47 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 239 veto
-21:28:23 SCRIBE   chiuso P-0555 $DATACENTER 0.0201 SOL (19.3%)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
