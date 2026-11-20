@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 19:10 UTC · in esecuzione da 1.2 giorni · 258 run
+Aggiornato: 2026-11-20 19:15 UTC · in esecuzione da 1.2 giorni · 258 run
 
 | | |
 |---|---|
-| Equity | **5.3584 SOL** (-10.7% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.3584 SOL |
-| Trade chiusi | 106 |
+| Equity | **5.3337 SOL** (-11.1% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.3337 SOL |
+| Trade chiusi | 107 |
 | Win rate | 32% |
-| P&L realizzato | -0.6416 SOL (~$-43.89) |
-| Media vincite / perdite | +42.5% / -27.6% |
-| Profit factor | 0.71 |
+| P&L realizzato | -0.6663 SOL (~$-45.32) |
+| Media vincite / perdite | +42.5% / -27.5% |
+| Profit factor | 0.70 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -19,7 +19,7 @@ _nessuna_
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| Stop loss | 32 | -0.9700 |
+| Stop loss | 33 | -0.9947 |
 | Time stop | 40 | -0.4387 |
 | TP1 | 22 | +1.1852 |
 | RUG-EXIT liquidità | 12 | -0.4181 |
@@ -27,6 +27,7 @@ _nessuna_
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $Singularity | 88 | -22.8% | -0.0247 | +0% | -43% | Stop loss | 0m |
 | $Singularity | 64 | +44.4% | +0.0476 | +64% | +64% | TP1 | 4m |
 | $BIGFOOT | 65 | -28.5% | -0.0307 | +0% | -36% | Stop loss | 2m |
 | $MIC | 73 | +123.6% | +0.1301 | +96% | +96% | TP1 | 1m |
@@ -51,10 +52,26 @@ _nessuna_
 | $Raja | 65 | +36.4% | +0.0394 | +65% | +65% | TP1 | 3m |
 | $ZEN | 67 | -21.0% | -0.0228 | +11% | -17% | Time stop | 5m |
 | $STICK | 75 | +92.8% | +0.0989 | +80% | +80% | TP1 | 7m |
-| $Alouatta | 66 | -20.9% | -0.0224 | +10% | -7% | Time stop | 5m |
 
 ## Ultimi eventi
 ```
+19:15:22 ORACLE   360 raccolti, 260 analizzati, 4 BUY, 248 veto
+19:14:58 ORACLE   360 raccolti, 253 analizzati, 3 BUY, 241 veto
+19:14:35 ORACLE   360 raccolti, 259 analizzati, 3 BUY, 248 veto
+19:14:11 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 250 veto
+19:13:46 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 248 veto
+19:13:23 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 251 veto
+19:13:20 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
+19:13:00 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 251 veto
+19:12:37 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 243 veto
+19:12:14 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 232 veto
+19:11:50 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 238 veto
+19:11:36 SCRIBE   chiuso P-0543 $Singularity -0.0247 SOL (-22.8%)
+19:11:36 CHARON   Stop loss $Singularity vendo 100% a -43.4% -> 0.0835 SOL
+19:11:26 QUARTER  BUY $Singularity 0.107 SOL score 88 impatto 0.92% (Jupiter)
+19:11:26 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 240 veto
+19:11:03 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 240 veto
+19:10:39 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 234 veto
 19:10:16 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 236 veto
 19:10:02 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 231 veto
 19:09:37 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 245 veto
@@ -78,23 +95,6 @@ _nessuna_
 19:04:09 ORACLE   360 raccolti, 213 analizzati, 1 BUY, 202 veto
 19:03:42 ORACLE   360 raccolti, 228 analizzati, 0 BUY, 216 veto
 19:03:18 ORACLE   360 raccolti, 221 analizzati, 0 BUY, 209 veto
-19:02:54 ORACLE   360 raccolti, 212 analizzati, 0 BUY, 198 veto
-19:02:31 ORACLE   360 raccolti, 211 analizzati, 0 BUY, 195 veto
-19:02:08 ORACLE   360 raccolti, 212 analizzati, 0 BUY, 196 veto
-19:01:45 ORACLE   360 raccolti, 200 analizzati, 0 BUY, 185 veto
-19:01:20 ORACLE   360 raccolti, 206 analizzati, 1 BUY, 190 veto
-19:00:57 ORACLE   360 raccolti, 204 analizzati, 1 BUY, 188 veto
-19:00:43 ORACLE   360 raccolti, 203 analizzati, 0 BUY, 187 veto
-19:00:26 ORACLE   360 raccolti, 200 analizzati, 0 BUY, 185 veto
-19:00:00 ORACLE   360 raccolti, 183 analizzati, 1 BUY, 169 veto
-18:59:37 ORACLE   360 raccolti, 184 analizzati, 0 BUY, 172 veto
-18:59:14 ORACLE   360 raccolti, 180 analizzati, 0 BUY, 168 veto
-18:58:51 ORACLE   360 raccolti, 188 analizzati, 0 BUY, 176 veto
-18:58:28 ORACLE   360 raccolti, 189 analizzati, 0 BUY, 180 veto
-18:58:05 ORACLE   360 raccolti, 183 analizzati, 1 BUY, 175 veto
-18:57:42 ORACLE   360 raccolti, 192 analizzati, 1 BUY, 183 veto
-18:57:19 ORACLE   360 raccolti, 197 analizzati, 1 BUY, 188 veto
-18:56:55 SCRIBE   chiuso P-0541 $BIGFOOT -0.0307 SOL (-28.5%)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
