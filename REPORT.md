@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 02:44 UTC · in esecuzione da 0.5 giorni · 238 run
+Aggiornato: 2026-11-20 02:49 UTC · in esecuzione da 0.5 giorni · 238 run
 
 | | |
 |---|---|
@@ -55,6 +55,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+02:49:15 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 224 veto
+02:48:51 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 236 veto
+02:48:29 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 226 veto
+02:48:05 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 224 veto
+02:47:42 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 234 veto
+02:47:29 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 232 veto
+02:47:03 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 231 veto
+02:46:39 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 235 veto
+02:46:16 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 226 veto
+02:45:52 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 227 veto
+02:45:29 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 234 veto
+02:45:05 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 238 veto
+02:44:42 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 229 veto
+02:44:19 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 239 veto
 02:43:55 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 238 veto
 02:43:32 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 233 veto
 02:43:09 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 241 veto
@@ -81,20 +95,6 @@ _nessuna_
 02:35:57 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 247 veto
 02:35:33 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 247 veto
 02:35:08 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 242 veto
-02:34:45 QUARTER  BUY $MF 0.112 SOL score 69 impatto 1.14% (Jupiter)
-02:34:45 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 241 veto
-02:34:22 QUARTER  $MF impatto 2.4% oltre slippage: annullato
-02:34:22 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 240 veto
-02:33:59 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 238 veto
-02:33:36 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 236 veto
-02:33:12 QUARTER  $MF impatto 2.2% oltre slippage: annullato
-02:33:12 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 242 veto
-02:32:48 QUARTER  $MF impatto 2.3% oltre slippage: annullato
-02:32:48 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 241 veto
-02:32:25 QUARTER  $MF impatto 2.4% oltre slippage: annullato
-02:32:25 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 239 veto
-02:32:12 QUARTER  $MF impatto 2.2% oltre slippage: annullato
-02:32:12 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 232 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
