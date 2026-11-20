@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 13:33 UTC · in esecuzione da 1.0 giorni · 251 run
+Aggiornato: 2026-11-20 13:38 UTC · in esecuzione da 1.0 giorni · 251 run
 
 | | |
 |---|---|
-| Equity | **5.3557 SOL** (-10.7% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.3557 SOL |
-| Trade chiusi | 84 |
-| Win rate | 30% |
-| P&L realizzato | -0.6443 SOL (~$-45.46) |
-| Media vincite / perdite | +39.8% / -26.2% |
-| Profit factor | 0.63 |
+| Equity | **5.3951 SOL** (-10.1% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.3951 SOL |
+| Trade chiusi | 85 |
+| Win rate | 31% |
+| P&L realizzato | -0.6049 SOL (~$-42.77) |
+| Media vincite / perdite | +39.7% / -26.2% |
+| Profit factor | 0.65 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -21,12 +21,13 @@ _nessuna_
 |---|---|---|
 | Stop loss | 27 | -0.7126 |
 | Time stop | 34 | -0.4468 |
-| TP1 | 14 | +0.7970 |
+| TP1 | 15 | +0.8363 |
 | RUG-EXIT liquidità | 9 | -0.2819 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $Raja | 65 | +36.4% | +0.0394 | +65% | +65% | TP1 | 3m |
 | $ZEN | 67 | -21.0% | -0.0228 | +11% | -17% | Time stop | 5m |
 | $STICK | 75 | +92.8% | +0.0989 | +80% | +80% | TP1 | 7m |
 | $Alouatta | 66 | -20.9% | -0.0224 | +10% | -7% | Time stop | 5m |
@@ -51,10 +52,27 @@ _nessuna_
 | $enu | 63 | -56.4% | -0.0632 | +24% | -15% | Time stop | 5m |
 | $NeonCrime | 75 | -11.6% | -0.0131 | +0% | -33% | Stop loss | 2m |
 | $SWRDXSTFF | 76 | +6.3% | +0.0071 | +48% | -0% | Time stop | 6m |
-| $ToySoldiers | 70 | -26.5% | -0.0298 | +0% | -22% | Time stop | 5m |
 
 ## Ultimi eventi
 ```
+13:38:25 SCRIBE   chiuso P-0521 $Raja 0.0394 SOL (36.4%)
+13:38:25 CHARON   TP1 $Raja vendo 100% a 65.3% -> 0.1475 SOL
+13:38:25 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 264 veto
+13:38:02 ORACLE   360 raccolti, 271 analizzati, 3 BUY, 260 veto
+13:37:39 ORACLE   360 raccolti, 264 analizzati, 3 BUY, 254 veto
+13:37:15 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 256 veto
+13:36:52 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 253 veto
+13:36:29 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 254 veto
+13:36:06 ORACLE   360 raccolti, 266 analizzati, 3 BUY, 254 veto
+13:35:42 ORACLE   360 raccolti, 272 analizzati, 3 BUY, 261 veto
+13:35:19 QUARTER  BUY $Raja 0.107 SOL score 65 impatto 0.00% (Jupiter)
+13:35:19 ORACLE   360 raccolti, 264 analizzati, 3 BUY, 256 veto
+13:35:16 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
+13:34:55 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 260 veto
+13:34:32 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 265 veto
+13:34:20 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 258 veto
+13:33:54 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 269 veto
+13:33:32 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 271 veto
 13:33:10 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 262 veto
 13:32:47 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 266 veto
 13:32:25 ORACLE   360 raccolti, 274 analizzati, 2 BUY, 268 veto
@@ -77,24 +95,6 @@ _nessuna_
 13:27:21 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 260 veto
 13:26:58 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 264 veto
 13:26:35 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 255 veto
-13:26:22 SCRIBE   chiuso P-0520 $ZEN -0.0228 SOL (-21.0%)
-13:26:22 CHARON   Time stop $ZEN vendo 100% a -17.4% -> 0.0858 SOL
-13:26:11 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 243 veto
-13:25:48 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 255 veto
-13:25:25 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 257 veto
-13:25:12 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 256 veto
-13:24:46 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 255 veto
-13:24:24 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 256 veto
-13:24:01 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 256 veto
-13:23:37 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 263 veto
-13:23:14 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 260 veto
-13:22:50 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 259 veto
-13:22:27 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 265 veto
-13:22:04 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 261 veto
-13:21:41 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 251 veto
-13:21:17 QUARTER  BUY $ZEN 0.108 SOL score 67 impatto 1.00% (Jupiter)
-13:21:17 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 250 veto
-13:20:54 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 256 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
