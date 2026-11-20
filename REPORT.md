@@ -1,25 +1,25 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 05:45 UTC · in esecuzione da 0.6 giorni · 242 run
+Aggiornato: 2026-11-20 05:50 UTC · in esecuzione da 0.6 giorni · 242 run
 
 | | |
 |---|---|
-| Equity | **5.3821 SOL** (-10.3% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.3056 SOL |
-| Trade chiusi | 67 |
+| Equity | **5.3569 SOL** (-10.7% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.3569 SOL |
+| Trade chiusi | 68 |
 | Win rate | 28% |
-| P&L realizzato | -0.5851 SOL (~$-42.30) |
-| Media vincite / perdite | +39.4% / -26.0% |
-| Profit factor | 0.59 |
+| P&L realizzato | -0.6431 SOL (~$-46.74) |
+| Media vincite / perdite | +39.4% / -26.5% |
+| Profit factor | 0.57 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$HARAMBE** P-0504 · 0.108 SOL · -29.4% · resta 100% · [grafico](https://dexscreener.com/solana/B6P5NFP5va49ph2wMmgF8EpTEZPRmFqpU3mMgVaSHaNK)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| Stop loss | 21 | -0.4884 |
+| Stop loss | 22 | -0.5464 |
 | Time stop | 27 | -0.3599 |
 | TP1 | 10 | +0.5450 |
 | RUG-EXIT liquidità | 9 | -0.2819 |
@@ -27,6 +27,7 @@ Aggiornato: 2026-11-20 05:45 UTC · in esecuzione da 0.6 giorni · 242 run
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $HARAMBE | 67 | -53.1% | -0.0580 | +24% | -34% | Stop loss | 5m |
 | $Turkey | 63 | +10.7% | +0.0117 | +0% | -40% | Stop loss | 1m |
 | $SI | 76 | -56.7% | -0.0625 | +27% | -15% | Time stop | 5m |
 | $ARTIFICIAL | 68 | -11.7% | -0.0129 | +0% | -25% | Time stop | 5m |
@@ -51,10 +52,24 @@ Aggiornato: 2026-11-20 05:45 UTC · in esecuzione da 0.6 giorni · 242 run
 | $AUDACITY | 69 | -7.8% | -0.0085 | +0% | -4% | Time stop | 5m |
 | $WIFGTA6 | 70 | -0.3% | -0.0003 | +40% | +2% | Time stop | 7m |
 | $AI | 78 | -10.0% | -0.0109 | +12% | +1% | Time stop | 7m |
-| $Anthropia | 65 | -5.9% | -0.0064 | +0% | -96% | RUG-EXIT liquidità | 0m |
 
 ## Ultimi eventi
 ```
+05:50:12 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 259 veto
+05:49:49 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 255 veto
+05:49:25 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 249 veto
+05:49:00 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 257 veto
+05:48:37 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 252 veto
+05:48:13 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 246 veto
+05:47:49 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 248 veto
+05:47:26 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 251 veto
+05:47:02 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 239 veto
+05:46:39 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 252 veto
+05:46:14 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 253 veto
+05:45:50 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 252 veto
+05:45:26 SCRIBE   chiuso P-0504 $HARAMBE -0.0580 SOL (-53.1%)
+05:45:26 CHARON   Stop loss $HARAMBE vendo 100% a -34.3% -> 0.0513 SOL
+05:45:26 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 243 veto
 05:45:02 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 247 veto
 05:44:39 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 245 veto
 05:44:14 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 240 veto
@@ -80,21 +95,6 @@ Aggiornato: 2026-11-20 05:45 UTC · in esecuzione da 0.6 giorni · 242 run
 05:37:29 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 233 veto
 05:37:05 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 231 veto
 05:36:42 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 231 veto
-05:36:17 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 228 veto
-05:35:54 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 232 veto
-05:35:30 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 235 veto
-05:35:06 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 232 veto
-05:34:42 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 232 veto
-05:34:18 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 234 veto
-05:33:54 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 229 veto
-05:33:31 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 229 veto
-05:33:07 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 231 veto
-05:32:44 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 230 veto
-05:32:21 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 237 veto
-05:31:57 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 241 veto
-05:31:34 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 239 veto
-05:31:10 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 234 veto
-05:30:46 ORACLE   355 raccolti, 241 analizzati, 0 BUY, 229 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
