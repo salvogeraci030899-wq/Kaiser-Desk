@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 05:29 UTC · in esecuzione da 0.6 giorni · 242 run
+Aggiornato: 2026-11-20 05:34 UTC · in esecuzione da 0.6 giorni · 242 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-20 05:29 UTC · in esecuzione da 0.6 giorni · 242 run
 | Cassa | 5.4149 SOL |
 | Trade chiusi | 67 |
 | Win rate | 28% |
-| P&L realizzato | -0.5851 SOL (~$-42.25) |
+| P&L realizzato | -0.5851 SOL (~$-42.17) |
 | Media vincite / perdite | +39.4% / -26.0% |
 | Profit factor | 0.59 |
 | Circuit breaker | no |
@@ -55,6 +55,21 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+05:34:42 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 232 veto
+05:34:18 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 234 veto
+05:33:54 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 229 veto
+05:33:31 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 229 veto
+05:33:07 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 231 veto
+05:32:44 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 230 veto
+05:32:21 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 237 veto
+05:31:57 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 241 veto
+05:31:34 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 239 veto
+05:31:10 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 234 veto
+05:30:46 ORACLE   355 raccolti, 241 analizzati, 0 BUY, 229 veto
+05:30:32 SCOUT    PumpPortal invia nuovi token (21) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
+05:30:22 ORACLE   350 raccolti, 233 analizzati, 0 BUY, 221 veto
+05:30:19 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)
+05:29:58 ORACLE   339 raccolti, 232 analizzati, 1 BUY, 220 veto
 05:29:34 ORACLE   334 raccolti, 225 analizzati, 0 BUY, 214 veto
 05:29:11 ORACLE   329 raccolti, 218 analizzati, 0 BUY, 208 veto
 05:28:47 ORACLE   310 raccolti, 207 analizzati, 1 BUY, 198 veto
@@ -82,21 +97,6 @@ fabbrica: 24242 percorsi, 768 configurazioni, 0 passano, 2640 ms
 05:24:24 SCRIBE   fine run · trade 67 · win 28% · P&L -0.5851 SOL · equity 5.4149 SOL
 05:24:22 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 238 veto
 05:24:00 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 234 veto
-05:23:37 ORACLE   360 raccolti, 230 analizzati, 1 BUY, 218 veto
-05:23:13 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 231 veto
-05:22:51 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 229 veto
-05:22:28 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 220 veto
-05:22:05 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 226 veto
-05:21:42 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 229 veto
-05:21:19 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 222 veto
-05:20:57 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 226 veto
-05:20:34 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 227 veto
-05:20:10 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 226 veto
-05:19:47 SCRIBE   chiuso P-0503 $Turkey 0.0117 SOL (10.7%)
-05:19:47 CHARON   Stop loss $Turkey vendo 100% a -40.5% -> 0.1207 SOL
-05:19:47 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 229 veto
-05:19:24 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 234 veto
-05:19:01 QUARTER  BUY $Turkey 0.108 SOL score 63 impatto 1.57% (Jupiter)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
