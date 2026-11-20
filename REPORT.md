@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 11:07 UTC · in esecuzione da 0.9 giorni · 248 run
+Aggiornato: 2026-11-20 11:12 UTC · in esecuzione da 0.9 giorni · 248 run
 
 | | |
 |---|---|
-| Equity | **5.2891 SOL** (-11.8% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.1958 SOL |
-| Trade chiusi | 79 |
-| Win rate | 29% |
-| P&L realizzato | -0.6972 SOL (~$-50.32) |
-| Media vincite / perdite | +39.1% / -26.7% |
+| Equity | **5.3069 SOL** (-11.6% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.3069 SOL |
+| Trade chiusi | 80 |
+| Win rate | 30% |
+| P&L realizzato | -0.6931 SOL (~$-49.94) |
+| Media vincite / perdite | +37.6% / -26.7% |
 | Profit factor | 0.59 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$MAIN** P-0516 · 0.106 SOL · -12.1% · resta 100% · [grafico](https://dexscreener.com/solana/8eLpTQ5gn1VUpZHigciW4K9tbqnLfFxq2yzoPt9E9sCr)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 27 | -0.7126 |
-| Time stop | 30 | -0.4007 |
+| Time stop | 31 | -0.3967 |
 | TP1 | 13 | +0.6981 |
 | RUG-EXIT liquidità | 9 | -0.2819 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $MAIN | 70 | +3.8% | +0.0041 | +0% | -6% | Time stop | 5m |
 | $Meobao | 67 | -25.3% | -0.0272 | +0% | -31% | Stop loss | 5m |
 | $Gino  | 72 | -42.6% | -0.0462 | +0% | -33% | Stop loss | 1m |
 | $STF | 69 | -13.4% | -0.0145 | +7% | -7% | Time stop | 5m |
@@ -51,10 +52,29 @@ Aggiornato: 2026-11-20 11:07 UTC · in esecuzione da 0.9 giorni · 248 run
 | $MF | 69 | -14.0% | -0.0158 | +0% | -12% | Time stop | 5m |
 | $LUCIA | 88 | -1.2% | -0.0014 | +0% | -36% | Stop loss | 2m |
 | $RUGGED | 66 | -40.3% | -0.0461 | +23% | -30% | Stop loss | 3m |
-| $I | 68 | -48.7% | -0.0562 | +0% | -52% | RUG-EXIT liquidità | 3m |
 
 ## Ultimi eventi
 ```
+11:12:35 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 262 veto
+11:12:12 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 259 veto
+11:11:49 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 261 veto
+11:11:26 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 255 veto
+11:11:13 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 259 veto
+11:10:57 SCRIBE   chiuso P-0516 $MAIN 0.0041 SOL (3.8%)
+11:10:57 CHARON   Time stop $MAIN vendo 100% a -6.3% -> 0.1111 SOL
+11:10:47 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 263 veto
+11:10:24 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 256 veto
+11:10:01 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 251 veto
+11:09:39 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 256 veto
+11:09:15 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 255 veto
+11:08:53 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 250 veto
+11:08:30 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 259 veto
+11:08:07 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 257 veto
+11:07:45 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 251 veto
+11:07:32 SCOUT    regola C-054: corrente (nuova strategia: 10K rit. 10s +15/-10 120s: vecchi -7.7%, recenti -7.73%)
+11:07:32 SCOUT    regola C-053: ritirata (105 operazioni in avanti, esito medio -8.0% (±4.5): non regge)
+11:07:32 SCOUT    strategia C-054: corrente: nuova strategia: 10K rit. 10s +15/-10 120s: vecchi -7.7%, recenti -7.73%
+11:07:32 SCOUT    strategia C-053: ritirata: 105 operazioni in avanti, esito medio -8.0% (±4.5): non regge
 11:07:22 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 262 veto
 11:06:59 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 260 veto
 11:06:34 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 252 veto
@@ -75,26 +95,6 @@ Aggiornato: 2026-11-20 11:07 UTC · in esecuzione da 0.9 giorni · 248 run
 11:02:27 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 254 veto
 11:02:04 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 247 veto
 11:01:41 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 258 veto
-11:01:18 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 259 veto
-11:00:55 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 251 veto
-11:00:32 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 263 veto
-11:00:10 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 257 veto
-10:59:45 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 250 veto
-10:59:22 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 257 veto
-10:58:59 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 251 veto
-10:58:36 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 243 veto
-10:58:13 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 248 veto
-10:57:50 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 244 veto
-10:57:27 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 237 veto
-10:57:04 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 247 veto
-10:56:41 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 248 veto
-10:56:18 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 240 veto
-10:55:54 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 241 veto
-10:55:41 SCRIBE   chiuso P-0515 $Meobao -0.0272 SOL (-25.3%)
-10:55:41 CHARON   Stop loss $Meobao vendo 100% a -30.6% -> 0.0804 SOL
-10:55:31 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 241 veto
-10:55:08 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 238 veto
-10:54:45 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 243 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
