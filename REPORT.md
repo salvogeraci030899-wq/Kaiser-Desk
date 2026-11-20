@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 21:16 UTC · in esecuzione da 1.3 giorni · 260 run
+Aggiornato: 2026-11-20 21:20 UTC · in esecuzione da 1.3 giorni · 260 run
 
 | | |
 |---|---|
-| Equity | **5.1322 SOL** (-14.5% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.1322 SOL |
+| Equity | **5.1043 SOL** (-14.9% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.0285 SOL |
 | Trade chiusi | 117 |
 | Win rate | 32% |
-| P&L realizzato | -0.8678 SOL (~$-58.27) |
+| P&L realizzato | -0.8678 SOL (~$-58.38) |
 | Media vincite / perdite | +44.6% / -30.0% |
 | Profit factor | 0.67 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$chud** P-0554 · 0.103 SOL · -26.2% · resta 100% · [grafico](https://dexscreener.com/solana/HQBfT5FrSDKj1scAUC62uqvxrzrM4F9FHooT9u4pCfj2)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,18 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+21:20:36 SCRIBE   fine run · trade 117 · win 32% · P&L -0.8678 SOL · equity 5.1043 SOL
+21:20:30 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 249 veto
+21:20:06 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 266 veto
+21:19:42 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 269 veto
+21:19:17 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 248 veto
+21:18:53 ORACLE   360 raccolti, 279 analizzati, 2 BUY, 272 veto
+21:18:28 QUARTER  BUY $chud 0.103 SOL score 65 impatto 1.74% (Jupiter)
+21:18:28 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 264 veto
+21:18:05 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 257 veto
+21:17:41 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 264 veto
+21:17:18 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 260 veto
+21:16:54 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 257 veto
 21:16:29 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 264 veto
 21:16:05 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 253 veto
 21:15:53 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 253 veto
@@ -83,18 +95,6 @@ _nessuna_
 21:07:34 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 248 veto
 21:07:10 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 247 veto
 21:06:56 SCRIBE   chiuso P-0553 $Trader 0.1648 SOL (164.3%)
-21:06:56 CHARON   TP1 $Trader vendo 100% a 95.3% -> 0.2652 SOL
-21:06:56 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 249 veto
-21:06:31 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 263 veto
-21:06:08 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 248 veto
-21:05:54 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 251 veto
-21:05:28 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 247 veto
-21:05:03 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 244 veto
-21:04:50 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 233 veto
-21:04:22 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 245 veto
-21:03:57 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 246 veto
-21:03:33 QUARTER  BUY $Trader 0.099 SOL score 69 impatto 0.16% (Jupiter)
-21:03:33 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 235 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
