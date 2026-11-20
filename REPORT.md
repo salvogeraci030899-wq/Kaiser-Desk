@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 00:08 UTC · in esecuzione da 0.4 giorni · 235 run
+Aggiornato: 2026-11-20 00:13 UTC · in esecuzione da 0.4 giorni · 235 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-20 00:08 UTC · in esecuzione da 0.4 giorni · 235 run
 | Cassa | 5.3724 SOL |
 | Trade chiusi | 46 |
 | Win rate | 26% |
-| P&L realizzato | -0.6276 SOL (~$-45.86) |
+| P&L realizzato | -0.6276 SOL (~$-45.90) |
 | Media vincite / perdite | +29.3% / -26.3% |
 | Profit factor | 0.39 |
 | Circuit breaker | no |
@@ -55,6 +55,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+00:12:54 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 250 veto
+00:12:31 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 250 veto
+00:12:08 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 254 veto
+00:11:45 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 251 veto
+00:11:22 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 247 veto
+00:10:59 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 258 veto
+00:10:36 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 255 veto
+00:10:13 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 255 veto
+00:09:49 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 253 veto
+00:09:26 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 260 veto
+00:09:03 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 241 veto
+00:08:49 ORACLE   360 raccolti, 267 analizzati, 3 BUY, 257 veto
+00:08:24 ORACLE   360 raccolti, 270 analizzati, 3 BUY, 257 veto
 00:08:01 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 251 veto
 00:07:38 ORACLE   360 raccolti, 261 analizzati, 3 BUY, 251 veto
 00:07:15 ORACLE   360 raccolti, 267 analizzati, 3 BUY, 256 veto
@@ -82,19 +95,6 @@ _nessuna_
 23:59:33 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 252 veto
 23:59:10 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 252 veto
 23:58:47 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 244 veto
-23:58:25 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 247 veto
-23:58:02 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 251 veto
-23:57:39 ORACLE   360 raccolti, 240 analizzati, 2 BUY, 234 veto
-23:57:17 SCOUT    Laboratorio: collegato a PumpPortal
-23:57:16 QUARTER  BUY $AUDACITY 0.108 SOL score 69 impatto 0.22% (Jupiter)
-23:57:16 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 257 veto
-23:56:54 ORACLE   360 raccolti, 265 analizzati, 3 BUY, 259 veto
-23:56:32 ORACLE   360 raccolti, 259 analizzati, 3 BUY, 253 veto
-23:56:09 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 252 veto
-23:55:47 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 253 veto
-23:55:25 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 254 veto
-23:55:03 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 251 veto
-23:54:40 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 254 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
