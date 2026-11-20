@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 16:59 UTC · in esecuzione da 1.1 giorni · 255 run
+Aggiornato: 2026-11-20 17:05 UTC · in esecuzione da 1.1 giorni · 255 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-20 16:59 UTC · in esecuzione da 1.1 giorni · 255 run
 | Cassa | 5.2287 SOL |
 | Trade chiusi | 98 |
 | Win rate | 30% |
-| P&L realizzato | -0.7713 SOL (~$-53.50) |
+| P&L realizzato | -0.7713 SOL (~$-53.05) |
 | Media vincite / perdite | +39.2% / -26.1% |
 | Profit factor | 0.62 |
 | Circuit breaker | no |
@@ -55,6 +55,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+17:05:09 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 222 veto
+17:04:44 ORACLE   360 raccolti, 234 analizzati, 3 BUY, 220 veto
+17:04:20 ORACLE   360 raccolti, 222 analizzati, 2 BUY, 210 veto
+17:03:56 ORACLE   360 raccolti, 244 analizzati, 3 BUY, 231 veto
+17:03:32 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 231 veto
+17:03:09 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 223 veto
+17:02:45 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 232 veto
+17:02:21 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 228 veto
+17:02:07 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 225 veto
+17:01:40 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 237 veto
+17:01:17 ORACLE   360 raccolti, 253 analizzati, 3 BUY, 241 veto
+17:01:03 ORACLE   360 raccolti, 244 analizzati, 3 BUY, 232 veto
+17:00:37 ORACLE   360 raccolti, 250 analizzati, 3 BUY, 236 veto
+17:00:12 ORACLE   360 raccolti, 248 analizzati, 3 BUY, 234 veto
 16:59:47 ORACLE   360 raccolti, 244 analizzati, 3 BUY, 230 veto
 16:59:24 ORACLE   360 raccolti, 252 analizzati, 3 BUY, 240 veto
 16:59:00 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 240 veto
@@ -81,20 +95,6 @@ _nessuna_
 16:51:32 ORACLE   360 raccolti, 234 analizzati, 3 BUY, 224 veto
 16:51:07 ORACLE   360 raccolti, 241 analizzati, 3 BUY, 235 veto
 16:50:44 ORACLE   360 raccolti, 232 analizzati, 3 BUY, 227 veto
-16:50:20 ORACLE   360 raccolti, 232 analizzati, 3 BUY, 226 veto
-16:49:57 QUARTER  BUY $afk 0.105 SOL score 64 impatto 1.34% (Jupiter)
-16:49:56 SCRIBE   chiuso P-0533 $HUSS 0.0616 SOL (58.9%)
-16:49:56 CHARON   Time stop $HUSS vendo 100% a -2.1% -> 0.1661 SOL
-16:49:56 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 239 veto
-16:49:33 ORACLE   360 raccolti, 250 analizzati, 3 BUY, 241 veto
-16:49:10 ORACLE   360 raccolti, 241 analizzati, 3 BUY, 231 veto
-16:48:46 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 240 veto
-16:48:23 ORACLE   360 raccolti, 247 analizzati, 3 BUY, 237 veto
-16:48:07 SCOUT    Laboratorio: collegato a PumpPortal
-16:47:59 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 240 veto
-16:47:35 ORACLE   360 raccolti, 252 analizzati, 3 BUY, 244 veto
-16:47:11 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 248 veto
-16:46:48 ORACLE   360 raccolti, 258 analizzati, 3 BUY, 251 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
