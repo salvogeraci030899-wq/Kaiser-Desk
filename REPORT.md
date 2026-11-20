@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 22:41 UTC · in esecuzione da 1.4 giorni · 262 run
+Aggiornato: 2026-11-20 22:46 UTC · in esecuzione da 1.4 giorni · 262 run
 
 | | |
 |---|---|
-| Equity | **5.0540 SOL** (-15.8% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.0540 SOL |
+| Equity | **5.0530 SOL** (-15.8% dal capitale iniziale di 6 SOL) |
+| Cassa | 4.9520 SOL |
 | Trade chiusi | 124 |
 | Win rate | 31% |
-| P&L realizzato | -0.9460 SOL (~$-65.43) |
+| P&L realizzato | -0.9460 SOL (~$-65.41) |
 | Media vincite / perdite | +43.3% / -29.6% |
 | Profit factor | 0.66 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$MONKE** P-0561 · 0.101 SOL · n/d · resta 100% · [grafico](https://dexscreener.com/solana/BNctDVR7KfPeECzHRL3Zc2iXYfmJFEqnTsumBq6Hi3dM)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+22:46:28 QUARTER  BUY $MONKE 0.101 SOL score 65 impatto 0.00% (Jupiter)
+22:46:28 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 261 veto
+22:46:04 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 255 veto
+22:45:40 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 231 veto
+22:45:16 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 252 veto
+22:44:51 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 251 veto
+22:44:27 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 254 veto
+22:44:03 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 258 veto
+22:43:39 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 250 veto
+22:43:25 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 243 veto
+22:43:00 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 256 veto
+22:42:36 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 232 veto
+22:42:12 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 240 veto
+22:41:48 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 250 veto
 22:41:24 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 230 veto
 22:41:01 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 234 veto
 22:40:36 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 240 veto
@@ -81,20 +95,6 @@ _nessuna_
 22:32:23 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 232 veto
 22:31:58 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 232 veto
 22:31:35 ORACLE   360 raccolti, 222 analizzati, 2 BUY, 215 veto
-22:31:31 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
-22:31:11 ORACLE   360 raccolti, 243 analizzati, 2 BUY, 234 veto
-22:30:47 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 242 veto
-22:30:23 ORACLE   360 raccolti, 252 analizzati, 3 BUY, 244 veto
-22:30:10 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 246 veto
-22:29:43 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 232 veto
-22:29:19 ORACLE   360 raccolti, 226 analizzati, 3 BUY, 217 veto
-22:28:55 ORACLE   360 raccolti, 242 analizzati, 3 BUY, 235 veto
-22:28:31 ORACLE   360 raccolti, 250 analizzati, 3 BUY, 244 veto
-22:28:08 ORACLE   360 raccolti, 244 analizzati, 3 BUY, 238 veto
-22:27:45 ORACLE   360 raccolti, 253 analizzati, 3 BUY, 247 veto
-22:27:21 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 241 veto
-22:27:07 SCRIBE   chiuso P-0560 $Singularity -0.0115 SOL (-11.3%)
-22:27:07 CHARON   Time stop $Singularity vendo 100% a -3.9% -> 0.0908 SOL
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
