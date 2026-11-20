@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 19:20 UTC · in esecuzione da 1.2 giorni · 258 run
+Aggiornato: 2026-11-20 19:25 UTC · in esecuzione da 1.2 giorni · 258 run
 
 | | |
 |---|---|
-| Equity | **5.3275 SOL** (-11.2% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.2261 SOL |
-| Trade chiusi | 107 |
-| Win rate | 32% |
-| P&L realizzato | -0.6663 SOL (~$-45.11) |
-| Media vincite / perdite | +42.5% / -27.5% |
-| Profit factor | 0.70 |
+| Equity | **5.2959 SOL** (-11.7% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.2959 SOL |
+| Trade chiusi | 108 |
+| Win rate | 31% |
+| P&L realizzato | -0.7041 SOL (~$-47.61) |
+| Media vincite / perdite | +42.5% / -27.6% |
+| Profit factor | 0.69 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$FIONAWIF** P-0544 · 0.107 SOL · -4.9% · resta 100% · [grafico](https://dexscreener.com/solana/GL4cvByvtgvA3DvuqK6gFGH7b6FdaETH1CswGnJwucPt)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 33 | -0.9947 |
-| Time stop | 40 | -0.4387 |
+| Time stop | 41 | -0.4766 |
 | TP1 | 22 | +1.1852 |
 | RUG-EXIT liquidità | 12 | -0.4181 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $FIONAWIF | 88 | -35.2% | -0.0379 | +8% | -10% | Time stop | 5m |
 | $Singularity | 88 | -22.8% | -0.0247 | +0% | -43% | Stop loss | 0m |
 | $Singularity | 64 | +44.4% | +0.0476 | +64% | +64% | TP1 | 4m |
 | $BIGFOOT | 65 | -28.5% | -0.0307 | +0% | -36% | Stop loss | 2m |
@@ -51,10 +52,24 @@ Aggiornato: 2026-11-20 19:20 UTC · in esecuzione da 1.2 giorni · 258 run
 | $Antjak | 68 | -49.3% | -0.0537 | +9% | -33% | Stop loss | 4m |
 | $Raja | 65 | +36.4% | +0.0394 | +65% | +65% | TP1 | 3m |
 | $ZEN | 67 | -21.0% | -0.0228 | +11% | -17% | Time stop | 5m |
-| $STICK | 75 | +92.8% | +0.0989 | +80% | +80% | TP1 | 7m |
 
 ## Ultimi eventi
 ```
+19:25:26 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 237 veto
+19:25:02 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 235 veto
+19:24:49 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 238 veto
+19:24:23 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 229 veto
+19:24:00 ORACLE   360 raccolti, 243 analizzati, 2 BUY, 230 veto
+19:23:37 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 250 veto
+19:23:13 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 235 veto
+19:22:50 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 233 veto
+19:22:27 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 248 veto
+19:22:03 SCRIBE   chiuso P-0544 $FIONAWIF -0.0379 SOL (-35.2%)
+19:22:03 CHARON   Time stop $FIONAWIF vendo 100% a -10.4% -> 0.0698 SOL
+19:22:03 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 242 veto
+19:21:39 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 242 veto
+19:21:16 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 250 veto
+19:20:52 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 249 veto
 19:20:29 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 246 veto
 19:20:05 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 254 veto
 19:19:41 ORACLE   360 raccolti, 260 analizzati, 3 BUY, 250 veto
@@ -80,21 +95,6 @@ Aggiornato: 2026-11-20 19:20 UTC · in esecuzione da 1.2 giorni · 258 run
 19:13:00 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 251 veto
 19:12:37 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 243 veto
 19:12:14 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 232 veto
-19:11:50 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 238 veto
-19:11:36 SCRIBE   chiuso P-0543 $Singularity -0.0247 SOL (-22.8%)
-19:11:36 CHARON   Stop loss $Singularity vendo 100% a -43.4% -> 0.0835 SOL
-19:11:26 QUARTER  BUY $Singularity 0.107 SOL score 88 impatto 0.92% (Jupiter)
-19:11:26 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 240 veto
-19:11:03 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 240 veto
-19:10:39 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 234 veto
-19:10:16 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 236 veto
-19:10:02 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 231 veto
-19:09:37 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 245 veto
-19:09:14 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 238 veto
-19:08:50 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 235 veto
-19:08:27 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 240 veto
-19:08:03 ORACLE   360 raccolti, 253 analizzati, 3 BUY, 235 veto
-19:07:50 SCRIBE   chiuso P-0542 $Singularity 0.0476 SOL (44.4%)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
