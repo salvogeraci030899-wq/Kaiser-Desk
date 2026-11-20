@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-20 01:58 UTC · in esecuzione da 0.5 giorni · 237 run
+Aggiornato: 2026-11-20 02:03 UTC · in esecuzione da 0.5 giorni · 237 run
 
 | | |
 |---|---|
-| Equity | **5.6205 SOL** (-6.3% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.6205 SOL |
+| Equity | **5.6174 SOL** (-6.4% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.5071 SOL |
 | Trade chiusi | 56 |
 | Win rate | 30% |
-| P&L realizzato | -0.3795 SOL (~$-27.30) |
+| P&L realizzato | -0.3795 SOL (~$-27.31) |
 | Media vincite / perdite | +43.0% / -26.8% |
 | Profit factor | 0.68 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$LUCIA** P-0493 · 0.112 SOL · -1.9% · resta 100% · [grafico](https://dexscreener.com/solana/2ASwzYQwGP3R7X63RsmczpB2DpmXp4Eyjx6FDTWXnMVy)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,23 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+02:03:08 SCRIBE   fine run · trade 56 · win 30% · P&L -0.3795 SOL · equity 5.6174 SOL
+02:02:55 QUARTER  BUY $LUCIA 0.112 SOL score 88 impatto 0.91% (Jupiter)
+02:02:54 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 265 veto
+02:02:31 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 268 veto
+02:02:18 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 259 veto
+02:01:53 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 272 veto
+02:01:30 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 259 veto
+02:01:07 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 241 veto
+02:00:43 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 259 veto
+02:00:30 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 254 veto
+02:00:02 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 248 veto
+01:59:38 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 255 veto
+01:59:16 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 249 veto
+01:58:52 SCOUT    regola C-051: corrente (nuova strategia: 7.5K rit. 10s +10/-10 60s: vecchi -7.8%, recenti -7.31%)
+01:58:52 SCOUT    regola C-050: ritirata (106 operazioni in avanti, esito medio -12.6% (±4.4): non regge)
+01:58:52 SCOUT    strategia C-051: corrente: nuova strategia: 7.5K rit. 10s +10/-10 60s: vecchi -7.8%, recenti -7.31%
+01:58:52 SCOUT    strategia C-050: ritirata: 106 operazioni in avanti, esito medio -12.6% (±4.4): non regge
 01:58:52 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 248 veto
 01:58:29 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 248 veto
 01:58:07 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 251 veto
@@ -78,23 +95,6 @@ _nessuna_
 01:51:10 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 246 veto
 01:50:46 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 241 veto
 01:50:23 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 234 veto
-01:49:59 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 242 veto
-01:49:35 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 237 veto
-01:49:12 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 233 veto
-01:48:48 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 239 veto
-01:48:24 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 237 veto
-01:48:01 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 242 veto
-01:47:39 ORACLE   360 raccolti, 236 analizzati, 0 BUY, 232 veto
-01:47:16 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 239 veto
-01:46:54 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 235 veto
-01:46:30 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 234 veto
-01:46:07 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 230 veto
-01:45:43 ORACLE   360 raccolti, 234 analizzati, 0 BUY, 228 veto
-01:45:20 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 233 veto
-01:44:57 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 234 veto
-01:44:34 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 240 veto
-01:44:10 ORACLE   360 raccolti, 235 analizzati, 0 BUY, 226 veto
-01:43:47 ORACLE   360 raccolti, 236 analizzati, 0 BUY, 226 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
