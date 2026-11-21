@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-21 13:57 UTC · in esecuzione da 2.0 giorni · 280 run
+Aggiornato: 2026-11-21 14:02 UTC · in esecuzione da 2.0 giorni · 280 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-21 13:57 UTC · in esecuzione da 2.0 giorni · 280 run
 | Cassa | 4.2564 SOL |
 | Trade chiusi | 164 |
 | Win rate | 29% |
-| P&L realizzato | -1.7436 SOL (~$-122.94) |
+| P&L realizzato | -1.7436 SOL (~$-123.13) |
 | Media vincite / perdite | +43.7% / -32.4% |
 | Profit factor | 0.56 |
 | Circuit breaker | ATTIVO oggi |
@@ -55,6 +55,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+14:02:10 ORACLE   360 raccolti, 270 analizzati, 3 BUY, 260 veto
+14:01:46 ORACLE   360 raccolti, 279 analizzati, 2 BUY, 266 veto
+14:01:21 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 265 veto
+14:00:58 ORACLE   360 raccolti, 277 analizzati, 3 BUY, 264 veto
+14:00:43 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 263 veto
+14:00:18 ORACLE   360 raccolti, 278 analizzati, 3 BUY, 264 veto
+13:59:53 ORACLE   360 raccolti, 275 analizzati, 3 BUY, 262 veto
+13:59:30 ORACLE   360 raccolti, 279 analizzati, 2 BUY, 265 veto
+13:59:06 ORACLE   360 raccolti, 284 analizzati, 2 BUY, 270 veto
+13:58:42 ORACLE   360 raccolti, 279 analizzati, 2 BUY, 265 veto
+13:58:18 ORACLE   360 raccolti, 282 analizzati, 2 BUY, 268 veto
+13:57:55 ORACLE   360 raccolti, 287 analizzati, 1 BUY, 270 veto
+13:57:31 ORACLE   360 raccolti, 282 analizzati, 2 BUY, 267 veto
 13:57:07 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 268 veto
 13:56:43 ORACLE   360 raccolti, 287 analizzati, 1 BUY, 272 veto
 13:56:20 ORACLE   360 raccolti, 284 analizzati, 2 BUY, 269 veto
@@ -82,19 +95,6 @@ _nessuna_
 13:47:37 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 266 veto
 13:47:13 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 272 veto
 13:46:50 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 272 veto
-13:46:26 ORACLE   360 raccolti, 289 analizzati, 1 BUY, 281 veto
-13:46:02 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 269 veto
-13:45:38 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 265 veto
-13:45:15 ORACLE   360 raccolti, 285 analizzati, 1 BUY, 274 veto
-13:44:51 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 265 veto
-13:44:27 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 265 veto
-13:44:04 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 270 veto
-13:43:40 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 263 veto
-13:43:17 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 259 veto
-13:42:53 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 266 veto
-13:42:29 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 256 veto
-13:42:06 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 255 veto
-13:41:51 KAISER   CIRCUIT BREAKER: perdita giornaliera oltre 15%
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
