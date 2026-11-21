@@ -1,17 +1,17 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-21 13:36 UTC · in esecuzione da 2.0 giorni · 280 run
+Aggiornato: 2026-11-21 13:41 UTC · in esecuzione da 2.0 giorni · 280 run
 
 | | |
 |---|---|
-| Equity | **4.3439 SOL** (-27.6% dal capitale iniziale di 6 SOL) |
-| Cassa | 4.3439 SOL |
-| Trade chiusi | 163 |
+| Equity | **4.2564 SOL** (-29.1% dal capitale iniziale di 6 SOL) |
+| Cassa | 4.2564 SOL |
+| Trade chiusi | 164 |
 | Win rate | 29% |
-| P&L realizzato | -1.6561 SOL (~$-116.33) |
-| Media vincite / perdite | +43.7% / -31.8% |
-| Profit factor | 0.57 |
-| Circuit breaker | no |
+| P&L realizzato | -1.7436 SOL (~$-122.34) |
+| Media vincite / perdite | +43.7% / -32.4% |
+| Profit factor | 0.56 |
+| Circuit breaker | ATTIVO oggi |
 
 ## Posizioni aperte
 _nessuna_
@@ -22,11 +22,12 @@ _nessuna_
 | Stop loss | 45 | -1.3653 |
 | Time stop | 62 | -0.8232 |
 | TP1 | 34 | +1.7492 |
-| RUG-EXIT liquidità | 22 | -1.2168 |
+| RUG-EXIT liquidità | 23 | -1.3042 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $DPRK | 69 | -99.5% | -0.0875 | +0% | -98% | RUG-EXIT liquidità | 5m |
 | $WAVE | 74 | -96.9% | -0.0869 | +22% | -95% | RUG-EXIT liquidità | 4m |
 | $DPRK | 72 | +49.8% | +0.0442 | +69% | +69% | TP1 | 7m |
 | $Animals | 71 | -31.2% | -0.0279 | +40% | -28% | Time stop | 10m |
@@ -51,10 +52,27 @@ _nessuna_
 | $Cyber | 83 | -99.6% | -0.0933 | +41% | -98% | RUG-EXIT liquidità | 10m |
 | $OMERTA | 83 | -9.5% | -0.0089 | +10% | -1% | Time stop | 11m |
 | $SPONGEBOB | 88 | -2.7% | -0.0025 | +3% | -5% | Time stop | 5m |
-| $Lebrain | 67 | -50.2% | -0.0476 | +19% | -49% | RUG-EXIT liquidità | 2m |
 
 ## Ultimi eventi
 ```
+13:41:51 KAISER   CIRCUIT BREAKER: perdita giornaliera oltre 15%
+13:41:51 SCRIBE   chiuso P-0600 $DPRK -0.0875 SOL (-99.5%)
+13:41:51 CHARON   RUG-EXIT liquidità $DPRK vendo 100% a -98.3% -> 0.0004 SOL
+13:41:51 ORACLE   360 raccolti, 274 analizzati, 2 BUY, 256 veto
+13:41:26 ORACLE   360 raccolti, 276 analizzati, 3 BUY, 257 veto
+13:41:03 ORACLE   360 raccolti, 269 analizzati, 3 BUY, 252 veto
+13:40:39 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 257 veto
+13:40:15 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 250 veto
+13:39:52 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 240 veto
+13:39:28 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 249 veto
+13:39:04 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 249 veto
+13:38:40 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 249 veto
+13:38:16 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 251 veto
+13:37:52 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 251 veto
+13:37:28 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 240 veto
+13:37:04 QUARTER  BUY $DPRK 0.087 SOL score 69 impatto 0.88% (Jupiter)
+13:37:04 QUARTER  $TRUMPCOIN impatto 2.5% oltre slippage: annullato
+13:37:04 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 247 veto
 13:36:40 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 251 veto
 13:36:16 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 241 veto
 13:35:52 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 258 veto
@@ -77,24 +95,6 @@ _nessuna_
 13:29:31 ORACLE   360 raccolti, 285 analizzati, 1 BUY, 265 veto
 13:29:08 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 258 veto
 13:28:44 ORACLE   360 raccolti, 281 analizzati, 2 BUY, 263 veto
-13:28:20 ORACLE   360 raccolti, 286 analizzati, 2 BUY, 268 veto
-13:27:57 ORACLE   360 raccolti, 285 analizzati, 2 BUY, 268 veto
-13:27:32 ORACLE   360 raccolti, 281 analizzati, 2 BUY, 266 veto
-13:27:09 ORACLE   360 raccolti, 285 analizzati, 2 BUY, 268 veto
-13:26:45 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 262 veto
-13:26:21 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 262 veto
-13:25:57 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 259 veto
-13:25:34 ORACLE   360 raccolti, 274 analizzati, 2 BUY, 256 veto
-13:25:10 ORACLE   360 raccolti, 281 analizzati, 2 BUY, 262 veto
-13:24:46 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 253 veto
-13:24:23 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 247 veto
-13:23:59 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 257 veto
-13:23:45 SCRIBE   chiuso P-0599 $WAVE -0.0869 SOL (-96.9%)
-13:23:45 CHARON   RUG-EXIT liquidità $WAVE vendo 100% a -94.6% -> 0.0027 SOL
-13:23:35 ORACLE   357 raccolti, 271 analizzati, 2 BUY, 248 veto
-13:23:11 ORACLE   352 raccolti, 266 analizzati, 2 BUY, 241 veto
-13:22:47 ORACLE   334 raccolti, 258 analizzati, 2 BUY, 232 veto
-13:22:22 ORACLE   325 raccolti, 248 analizzati, 2 BUY, 226 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
