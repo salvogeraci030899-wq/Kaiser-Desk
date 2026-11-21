@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-21 12:40 UTC · in esecuzione da 1.9 giorni · 279 run
+Aggiornato: 2026-11-21 12:46 UTC · in esecuzione da 1.9 giorni · 279 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-21 12:40 UTC · in esecuzione da 1.9 giorni · 279 run
 | Cassa | 4.4145 SOL |
 | Trade chiusi | 160 |
 | Win rate | 29% |
-| P&L realizzato | -1.5855 SOL (~$-109.69) |
+| P&L realizzato | -1.5855 SOL (~$-109.67) |
 | Media vincite / perdite | +43.6% / -31.3% |
 | Profit factor | 0.58 |
 | Circuit breaker | no |
@@ -55,6 +55,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+12:46:09 ORACLE   360 raccolti, 288 analizzati, 2 BUY, 277 veto
+12:45:45 ORACLE   360 raccolti, 288 analizzati, 2 BUY, 274 veto
+12:45:23 ORACLE   360 raccolti, 284 analizzati, 2 BUY, 271 veto
+12:44:59 ORACLE   360 raccolti, 286 analizzati, 2 BUY, 273 veto
+12:44:36 ORACLE   360 raccolti, 289 analizzati, 2 BUY, 274 veto
+12:44:14 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 264 veto
+12:43:50 ORACLE   360 raccolti, 284 analizzati, 2 BUY, 267 veto
+12:43:27 ORACLE   360 raccolti, 285 analizzati, 2 BUY, 268 veto
+12:43:04 ORACLE   360 raccolti, 282 analizzati, 2 BUY, 263 veto
+12:42:41 ORACLE   360 raccolti, 288 analizzati, 2 BUY, 271 veto
+12:42:18 ORACLE   360 raccolti, 288 analizzati, 2 BUY, 271 veto
+12:41:55 ORACLE   360 raccolti, 283 analizzati, 2 BUY, 266 veto
+12:41:32 ORACLE   360 raccolti, 288 analizzati, 2 BUY, 269 veto
+12:41:09 ORACLE   360 raccolti, 287 analizzati, 2 BUY, 268 veto
 12:40:46 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 263 veto
 12:40:23 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 266 veto
 12:40:01 ORACLE   360 raccolti, 285 analizzati, 2 BUY, 269 veto
@@ -81,20 +95,6 @@ _nessuna_
 12:33:04 ORACLE   349 raccolti, 268 analizzati, 2 BUY, 255 veto
 12:32:41 ORACLE   348 raccolti, 267 analizzati, 2 BUY, 254 veto
 12:32:18 ORACLE   328 raccolti, 252 analizzati, 2 BUY, 238 veto
-12:31:55 ORACLE   323 raccolti, 249 analizzati, 2 BUY, 235 veto
-12:31:31 QUARTER  BUY $Emily 0.090 SOL score 73 impatto 0.73% (Jupiter)
-12:31:31 ORACLE   321 raccolti, 244 analizzati, 2 BUY, 229 veto
-12:31:18 ORACLE   311 raccolti, 235 analizzati, 1 BUY, 222 veto
-12:30:53 ORACLE   306 raccolti, 218 analizzati, 2 BUY, 205 veto
-12:30:30 ORACLE   305 raccolti, 217 analizzati, 2 BUY, 206 veto
-12:30:07 ORACLE   266 raccolti, 195 analizzati, 1 BUY, 186 veto
-12:29:42 SCRIBE   chiuso P-0595 $Lazarus 0.0817 SOL (91.9%)
-12:29:42 CHARON   TP1 $Lazarus vendo 100% a 94.3% -> 0.1706 SOL
-12:29:42 ORACLE   259 raccolti, 189 analizzati, 1 BUY, 179 veto
-12:29:19 ORACLE   257 raccolti, 187 analizzati, 1 BUY, 177 veto
-12:28:57 ORACLE   242 raccolti, 174 analizzati, 1 BUY, 166 veto
-12:28:34 ORACLE   239 raccolti, 170 analizzati, 1 BUY, 160 veto
-12:28:11 ORACLE   235 raccolti, 162 analizzati, 1 BUY, 152 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
