@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-21 01:17 UTC · in esecuzione da 1.5 giorni · 265 run
+Aggiornato: 2026-11-21 01:22 UTC · in esecuzione da 1.5 giorni · 265 run
 
 | | |
 |---|---|
-| Equity | **4.9732 SOL** (-17.1% dal capitale iniziale di 6 SOL) |
-| Cassa | 4.8460 SOL |
-| Trade chiusi | 131 |
+| Equity | **4.8537 SOL** (-19.1% dal capitale iniziale di 6 SOL) |
+| Cassa | 4.8537 SOL |
+| Trade chiusi | 132 |
 | Win rate | 31% |
-| P&L realizzato | -1.0541 SOL (~$-72.60) |
-| Media vincite / perdite | +41.9% / -29.4% |
-| Profit factor | 0.64 |
+| P&L realizzato | -1.1463 SOL (~$-78.83) |
+| Media vincite / perdite | +41.9% / -30.1% |
+| Profit factor | 0.62 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$NiggaInu** P-0568 · 0.099 SOL · +28.7% · resta 100% · [grafico](https://dexscreener.com/solana/G1rHhn4ptdp32RF4gLrce8M1mRAxyt2RPzekyaY3YqG9)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -22,11 +22,12 @@ Aggiornato: 2026-11-21 01:17 UTC · in esecuzione da 1.5 giorni · 265 run
 | Stop loss | 39 | -1.2206 |
 | Time stop | 50 | -0.6182 |
 | TP1 | 27 | +1.4373 |
-| RUG-EXIT liquidità | 15 | -0.6526 |
+| RUG-EXIT liquidità | 16 | -0.7448 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $NiggaInu | 70 | -92.3% | -0.0922 | +29% | -93% | RUG-EXIT liquidità | 2m |
 | $SPONGEBOB | 77 | -55.6% | -0.0562 | +0% | -43% | Stop loss | 1m |
 | $SPONGEBOB | 77 | -35.8% | -0.0365 | +0% | -34% | Stop loss | 1m |
 | $Mandy | 69 | +26.2% | +0.0265 | +92% | +92% | TP1 | 1m |
@@ -51,10 +52,25 @@ Aggiornato: 2026-11-21 01:17 UTC · in esecuzione da 1.5 giorni · 265 run
 | $PAY | 64 | +6.1% | +0.0066 | +77% | +77% | TP1 | 1m |
 | $FIENA | 88 | -16.0% | -0.0171 | +9% | -2% | Time stop | 5m |
 | $FIONAWIF | 88 | -35.2% | -0.0379 | +8% | -10% | Time stop | 5m |
-| $Singularity | 88 | -22.8% | -0.0247 | +0% | -43% | Stop loss | 0m |
 
 ## Ultimi eventi
 ```
+01:22:51 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 269 veto
+01:22:26 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 268 veto
+01:22:03 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 258 veto
+01:21:39 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 273 veto
+01:21:16 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 272 veto
+01:20:53 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 264 veto
+01:20:29 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 265 veto
+01:20:06 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 273 veto
+01:19:42 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 252 veto
+01:19:20 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 273 veto
+01:19:06 SCRIBE   chiuso P-0568 $NiggaInu -0.0922 SOL (-92.3%)
+01:19:06 CHARON   RUG-EXIT liquidità $NiggaInu vendo 100% a -93.2% -> 0.0077 SOL
+01:18:56 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 268 veto
+01:18:32 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 260 veto
+01:18:28 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
+01:18:08 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 271 veto
 01:17:45 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 268 veto
 01:17:21 QUARTER  BUY $NiggaInu 0.099 SOL score 70 impatto 1.08% (Jupiter)
 01:17:21 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 270 veto
@@ -79,22 +95,6 @@ Aggiornato: 2026-11-21 01:17 UTC · in esecuzione da 1.5 giorni · 265 run
 01:11:19 CHARON   Stop loss $SPONGEBOB vendo 100% a -42.9% -> 0.0449 SOL
 01:11:09 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 262 veto
 01:10:45 QUARTER  BUY $SPONGEBOB 0.100 SOL score 77 impatto 1.19% (Jupiter)
-01:10:45 ORACLE   360 raccolti, 279 analizzati, 2 BUY, 269 veto
-01:10:21 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 250 veto
-01:09:57 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 263 veto
-01:09:34 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 255 veto
-01:09:11 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 260 veto
-01:08:47 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 263 veto
-01:08:24 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 266 veto
-01:08:00 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 255 veto
-01:07:36 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 268 veto
-01:07:12 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 261 veto
-01:06:47 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 254 veto
-01:06:24 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 266 veto
-01:06:00 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 269 veto
-01:05:37 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 263 veto
-01:05:12 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 267 veto
-01:04:48 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 261 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
