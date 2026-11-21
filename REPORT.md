@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-21 06:39 UTC · in esecuzione da 1.7 giorni · 272 run
+Aggiornato: 2026-11-21 06:44 UTC · in esecuzione da 1.7 giorni · 272 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-21 06:39 UTC · in esecuzione da 1.7 giorni · 272 run
 | Cassa | 4.4495 SOL |
 | Trade chiusi | 152 |
 | Win rate | 30% |
-| P&L realizzato | -1.5505 SOL (~$-103.04) |
+| P&L realizzato | -1.5505 SOL (~$-103.98) |
 | Media vincite / perdite | +42.2% / -31.3% |
 | Profit factor | 0.57 |
 | Circuit breaker | no |
@@ -55,6 +55,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+06:44:01 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 227 veto
+06:43:37 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 224 veto
+06:43:14 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 226 veto
+06:43:01 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 229 veto
+06:42:35 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 227 veto
+06:42:11 ORACLE   360 raccolti, 231 analizzati, 0 BUY, 216 veto
+06:41:47 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 233 veto
+06:41:24 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 230 veto
+06:41:01 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 230 veto
+06:40:37 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 234 veto
+06:40:13 ORACLE   360 raccolti, 236 analizzati, 0 BUY, 226 veto
+06:39:49 ORACLE   360 raccolti, 235 analizzati, 0 BUY, 224 veto
+06:39:24 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 229 veto
 06:39:00 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 228 veto
 06:38:37 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
 06:38:37 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 224 veto
@@ -84,19 +97,6 @@ fabbrica: 28969 percorsi, 768 configurazioni, 0 passano, 4869 ms
 06:33:39 SCRIBE   fine run · trade 152 · win 30% · P&L -1.5505 SOL · equity 4.4495 SOL
 06:33:39 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 243 veto
 06:33:14 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 257 veto
-06:32:50 SCRIBE   chiuso P-0588 $GTAVI -0.0337 SOL (-37.2%)
-06:32:50 CHARON   Stop loss $GTAVI vendo 100% a -35.0% -> 0.0570 SOL
-06:32:50 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 255 veto
-06:32:26 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 254 veto
-06:32:02 QUARTER  BUY $GTAVI 0.090 SOL score 64 impatto 0.52% (Jupiter)
-06:32:01 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 260 veto
-06:31:38 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 255 veto
-06:31:15 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 249 veto
-06:30:50 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 259 veto
-06:30:27 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 259 veto
-06:30:04 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 259 veto
-06:29:40 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 260 veto
-06:29:17 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 264 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
