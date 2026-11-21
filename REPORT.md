@@ -1,15 +1,15 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-21 06:29 UTC · in esecuzione da 1.7 giorni · 271 run
+Aggiornato: 2026-11-21 06:33 UTC · in esecuzione da 1.7 giorni · 271 run
 
 | | |
 |---|---|
-| Equity | **4.4832 SOL** (-25.3% dal capitale iniziale di 6 SOL) |
-| Cassa | 4.4832 SOL |
-| Trade chiusi | 151 |
+| Equity | **4.4495 SOL** (-25.8% dal capitale iniziale di 6 SOL) |
+| Cassa | 4.4495 SOL |
+| Trade chiusi | 152 |
 | Win rate | 30% |
-| P&L realizzato | -1.5168 SOL (~$-99.78) |
-| Media vincite / perdite | +42.2% / -31.2% |
+| P&L realizzato | -1.5505 SOL (~$-102.30) |
+| Media vincite / perdite | +42.2% / -31.3% |
 | Profit factor | 0.57 |
 | Circuit breaker | no |
 
@@ -19,7 +19,7 @@ _nessuna_
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| Stop loss | 41 | -1.2684 |
+| Stop loss | 42 | -1.3021 |
 | Time stop | 58 | -0.6920 |
 | TP1 | 31 | +1.5736 |
 | RUG-EXIT liquidità | 21 | -1.1299 |
@@ -27,6 +27,7 @@ _nessuna_
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $GTAVI | 64 | -37.2% | -0.0337 | +9% | -35% | Stop loss | 1m |
 | $MARS | 75 | +2.3% | +0.0021 | +9% | +2% | Time stop | 5m |
 | $AI | 78 | -19.1% | -0.0174 | +44% | -14% | Time stop | 5m |
 | $SI | 68 | +118.9% | +0.1056 | +122% | +122% | TP1 | 3m |
@@ -51,10 +52,23 @@ _nessuna_
 | $SPONGEBOB | 77 | -35.8% | -0.0365 | +0% | -34% | Stop loss | 1m |
 | $Mandy | 69 | +26.2% | +0.0265 | +92% | +92% | TP1 | 1m |
 | $really | 72 | +1.1% | +0.0011 | +18% | +2% | Time stop | 8m |
-| $TITTYVERSE | 88 | -13.6% | -0.0138 | +0% | -20% | Time stop | 5m |
 
 ## Ultimi eventi
 ```
+06:33:39 SCRIBE   fine run · trade 152 · win 30% · P&L -1.5505 SOL · equity 4.4495 SOL
+06:33:39 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 243 veto
+06:33:14 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 257 veto
+06:32:50 SCRIBE   chiuso P-0588 $GTAVI -0.0337 SOL (-37.2%)
+06:32:50 CHARON   Stop loss $GTAVI vendo 100% a -35.0% -> 0.0570 SOL
+06:32:50 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 255 veto
+06:32:26 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 254 veto
+06:32:02 QUARTER  BUY $GTAVI 0.090 SOL score 64 impatto 0.52% (Jupiter)
+06:32:01 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 260 veto
+06:31:38 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 255 veto
+06:31:15 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 249 veto
+06:30:50 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 259 veto
+06:30:27 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 259 veto
+06:30:04 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 259 veto
 06:29:40 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 260 veto
 06:29:17 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 264 veto
 06:28:54 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 253 veto
@@ -81,20 +95,6 @@ _nessuna_
 06:20:48 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 246 veto
 06:20:24 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 251 veto
 06:20:00 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 251 veto
-06:19:37 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 243 veto
-06:19:13 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 244 veto
-06:18:50 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 248 veto
-06:18:26 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 238 veto
-06:18:02 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 248 veto
-06:17:39 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 249 veto
-06:17:15 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 240 veto
-06:16:51 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 248 veto
-06:16:28 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 247 veto
-06:16:04 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 235 veto
-06:15:40 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 232 veto
-06:15:16 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 235 veto
-06:14:53 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 234 veto
-06:14:30 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 236 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
