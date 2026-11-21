@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-21 04:38 UTC · in esecuzione da 1.6 giorni · 269 run
+Aggiornato: 2026-11-21 04:44 UTC · in esecuzione da 1.6 giorni · 269 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-21 04:38 UTC · in esecuzione da 1.6 giorni · 269 run
 | Cassa | 4.4606 SOL |
 | Trade chiusi | 146 |
 | Win rate | 29% |
-| P&L realizzato | -1.5394 SOL (~$-101.11) |
+| P&L realizzato | -1.5394 SOL (~$-100.65) |
 | Media vincite / perdite | +41.4% / -31.2% |
 | Profit factor | 0.55 |
 | Circuit breaker | no |
@@ -55,6 +55,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+04:44:05 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 261 veto
+04:43:42 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 262 veto
+04:43:20 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 258 veto
+04:42:57 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 257 veto
+04:42:34 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 263 veto
+04:42:11 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 251 veto
+04:41:47 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 266 veto
+04:41:25 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 256 veto
+04:41:03 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 253 veto
+04:40:40 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 257 veto
+04:40:16 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 263 veto
+04:39:52 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 247 veto
+04:39:30 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 260 veto
+04:39:07 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 256 veto
 04:38:44 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 251 veto
 04:38:21 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 258 veto
 04:37:58 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 252 veto
@@ -81,20 +95,6 @@ _nessuna_
 04:31:03 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 242 veto
 04:30:40 QUARTER  BUY $VAREXON 0.089 SOL score 71 impatto 1.31% (Jupiter)
 04:30:40 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 241 veto
-04:30:17 QUARTER  $VAREXON impatto 2.9% oltre slippage: annullato
-04:30:17 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 245 veto
-04:29:54 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 249 veto
-04:29:31 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 237 veto
-04:29:08 QUARTER  $VAREXON impatto 2.1% oltre slippage: annullato
-04:29:08 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 249 veto
-04:28:44 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 244 veto
-04:28:22 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 237 veto
-04:27:59 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 246 veto
-04:27:36 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 249 veto
-04:27:14 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 236 veto
-04:26:51 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 245 veto
-04:26:28 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 247 veto
-04:26:05 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 233 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
