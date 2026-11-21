@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-21 12:11 UTC · in esecuzione da 1.9 giorni · 278 run
+Aggiornato: 2026-11-21 12:16 UTC · in esecuzione da 1.9 giorni · 278 run
 
 | | |
 |---|---|
-| Equity | **4.3453 SOL** (-27.6% dal capitale iniziale di 6 SOL) |
-| Cassa | 4.3453 SOL |
+| Equity | **4.3354 SOL** (-27.7% dal capitale iniziale di 6 SOL) |
+| Cassa | 4.2573 SOL |
 | Trade chiusi | 157 |
 | Win rate | 29% |
-| P&L realizzato | -1.6547 SOL (~$-113.61) |
+| P&L realizzato | -1.6547 SOL (~$-114.15) |
 | Media vincite / perdite | +42.2% / -30.9% |
 | Profit factor | 0.55 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$Emily** P-0594 · 0.087 SOL · -10.2% · resta 100% · [grafico](https://dexscreener.com/solana/Fan13YQwc3ENNA3rrJp1f8ACWybDvMJtEdK7grvLNhbX)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+12:15:52 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 239 veto
+12:15:29 ORACLE   360 raccolti, 254 analizzati, 3 BUY, 236 veto
+12:15:05 QUARTER  BUY $Emily 0.087 SOL score 70 impatto 1.89% (Jupiter)
+12:15:05 ORACLE   360 raccolti, 257 analizzati, 3 BUY, 238 veto
+12:14:41 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 236 veto
+12:14:18 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 244 veto
+12:13:55 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 244 veto
+12:13:32 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 242 veto
+12:13:09 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 245 veto
+12:12:46 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 245 veto
+12:12:23 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 238 veto
+12:12:00 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 251 veto
+12:11:37 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 249 veto
+12:11:13 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 245 veto
 12:10:51 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 249 veto
 12:10:28 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 248 veto
 12:10:05 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 246 veto
@@ -81,20 +95,6 @@ _nessuna_
 12:02:12 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
 12:02:11 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 247 veto
 12:01:48 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 253 veto
-12:01:25 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 251 veto
-12:01:02 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 247 veto
-12:00:39 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 246 veto
-12:00:26 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 247 veto
-12:00:01 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 243 veto
-11:59:38 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 251 veto
-11:59:14 SCRIBE   chiuso P-0593 $will -0.0072 SOL (-8.2%)
-11:59:14 CHARON   Time stop $will vendo 100% a -8.5% -> 0.0808 SOL
-11:59:14 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 252 veto
-11:58:51 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 249 veto
-11:58:27 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 249 veto
-11:58:04 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 251 veto
-11:57:41 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 246 veto
-11:57:18 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 252 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
