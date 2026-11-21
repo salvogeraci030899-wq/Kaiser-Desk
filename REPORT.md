@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-21 01:22 UTC · in esecuzione da 1.5 giorni · 265 run
+Aggiornato: 2026-11-21 01:28 UTC · in esecuzione da 1.5 giorni · 265 run
 
 | | |
 |---|---|
-| Equity | **4.8537 SOL** (-19.1% dal capitale iniziale di 6 SOL) |
-| Cassa | 4.8537 SOL |
-| Trade chiusi | 132 |
-| Win rate | 31% |
-| P&L realizzato | -1.1463 SOL (~$-78.83) |
-| Media vincite / perdite | +41.9% / -30.1% |
-| Profit factor | 0.62 |
+| Equity | **4.8854 SOL** (-18.6% dal capitale iniziale di 6 SOL) |
+| Cassa | 4.8854 SOL |
+| Trade chiusi | 133 |
+| Win rate | 32% |
+| P&L realizzato | -1.1146 SOL (~$-76.55) |
+| Media vincite / perdite | +41.7% / -30.1% |
+| Profit factor | 0.63 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -21,12 +21,13 @@ _nessuna_
 |---|---|---|
 | Stop loss | 39 | -1.2206 |
 | Time stop | 50 | -0.6182 |
-| TP1 | 27 | +1.4373 |
+| TP1 | 28 | +1.4690 |
 | RUG-EXIT liquidità | 16 | -0.7448 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $S&P500 | 68 | +32.4% | +0.0317 | +65% | +65% | TP1 | 1m |
 | $NiggaInu | 70 | -92.3% | -0.0922 | +29% | -93% | RUG-EXIT liquidità | 2m |
 | $SPONGEBOB | 77 | -55.6% | -0.0562 | +0% | -43% | Stop loss | 1m |
 | $SPONGEBOB | 77 | -35.8% | -0.0365 | +0% | -34% | Stop loss | 1m |
@@ -51,10 +52,25 @@ _nessuna_
 | $PUT | 65 | -97.2% | -0.1037 | +33% | -96% | RUG-EXIT liquidità | 5m |
 | $PAY | 64 | +6.1% | +0.0066 | +77% | +77% | TP1 | 1m |
 | $FIENA | 88 | -16.0% | -0.0171 | +9% | -2% | Time stop | 5m |
-| $FIONAWIF | 88 | -35.2% | -0.0379 | +8% | -10% | Time stop | 5m |
 
 ## Ultimi eventi
 ```
+01:27:50 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 256 veto
+01:27:26 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 262 veto
+01:27:02 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 266 veto
+01:26:39 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 262 veto
+01:26:15 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 266 veto
+01:25:51 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 263 veto
+01:25:36 SCRIBE   chiuso P-0569 $S&P500 0.0317 SOL (32.4%)
+01:25:36 CHARON   TP1 $S&P500 vendo 100% a 65.4% -> 0.1298 SOL
+01:25:36 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 255 veto
+01:25:11 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 264 veto
+01:24:47 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 272 veto
+01:24:24 QUARTER  BUY $S&P500 0.097 SOL score 68 impatto 0.34% (Jupiter)
+01:24:24 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 257 veto
+01:24:01 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 273 veto
+01:23:38 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 256 veto
+01:23:15 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 260 veto
 01:22:51 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 269 veto
 01:22:26 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 268 veto
 01:22:03 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 258 veto
@@ -79,22 +95,6 @@ _nessuna_
 01:16:34 QUARTER  $NiggaInu impatto 3.6% oltre slippage: annullato
 01:16:34 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 275 veto
 01:16:10 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 268 veto
-01:15:46 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 266 veto
-01:15:22 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 269 veto
-01:14:58 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 248 veto
-01:14:34 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 262 veto
-01:14:10 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 270 veto
-01:13:57 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 264 veto
-01:13:31 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 265 veto
-01:13:09 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 271 veto
-01:12:44 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 247 veto
-01:12:21 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 268 veto
-01:11:57 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 266 veto
-01:11:34 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 260 veto
-01:11:19 SCRIBE   chiuso P-0567 $SPONGEBOB -0.0562 SOL (-55.6%)
-01:11:19 CHARON   Stop loss $SPONGEBOB vendo 100% a -42.9% -> 0.0449 SOL
-01:11:09 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 262 veto
-01:10:45 QUARTER  BUY $SPONGEBOB 0.100 SOL score 77 impatto 1.19% (Jupiter)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
