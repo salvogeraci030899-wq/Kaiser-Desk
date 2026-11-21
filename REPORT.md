@@ -1,25 +1,25 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-21 00:47 UTC · in esecuzione da 1.4 giorni · 265 run
+Aggiornato: 2026-11-21 00:52 UTC · in esecuzione da 1.4 giorni · 265 run
 
 | | |
 |---|---|
-| Equity | **5.0375 SOL** (-16.0% dal capitale iniziale di 6 SOL) |
-| Cassa | 4.9367 SOL |
-| Trade chiusi | 129 |
+| Equity | **5.0021 SOL** (-16.6% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.0021 SOL |
+| Trade chiusi | 130 |
 | Win rate | 32% |
-| P&L realizzato | -0.9615 SOL (~$-66.17) |
+| P&L realizzato | -0.9979 SOL (~$-68.69) |
 | Media vincite / perdite | +41.9% / -29.1% |
-| Profit factor | 0.66 |
+| Profit factor | 0.65 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$SPONGEBOB** P-0566 · 0.101 SOL · n/d · resta 100% · [grafico](https://dexscreener.com/solana/5d2rAY8DjxH29yRKwSQnXsYW1sMcFhY64TnLLCYYnYrw)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| Stop loss | 37 | -1.1280 |
+| Stop loss | 38 | -1.1645 |
 | Time stop | 50 | -0.6182 |
 | TP1 | 27 | +1.4373 |
 | RUG-EXIT liquidità | 15 | -0.6526 |
@@ -27,6 +27,7 @@ Aggiornato: 2026-11-21 00:47 UTC · in esecuzione da 1.4 giorni · 265 run
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $SPONGEBOB | 77 | -35.8% | -0.0365 | +0% | -34% | Stop loss | 1m |
 | $Mandy | 69 | +26.2% | +0.0265 | +92% | +92% | TP1 | 1m |
 | $really | 72 | +1.1% | +0.0011 | +18% | +2% | Time stop | 8m |
 | $TITTYVERSE | 88 | -13.6% | -0.0138 | +0% | -20% | Time stop | 5m |
@@ -51,10 +52,24 @@ Aggiornato: 2026-11-21 00:47 UTC · in esecuzione da 1.4 giorni · 265 run
 | $FIONAWIF | 88 | -35.2% | -0.0379 | +8% | -10% | Time stop | 5m |
 | $Singularity | 88 | -22.8% | -0.0247 | +0% | -43% | Stop loss | 0m |
 | $Singularity | 64 | +44.4% | +0.0476 | +64% | +64% | TP1 | 4m |
-| $BIGFOOT | 65 | -28.5% | -0.0307 | +0% | -36% | Stop loss | 2m |
 
 ## Ultimi eventi
 ```
+00:52:13 ORACLE   360 raccolti, 285 analizzati, 0 BUY, 278 veto
+00:51:48 ORACLE   360 raccolti, 285 analizzati, 1 BUY, 278 veto
+00:51:24 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 234 veto
+00:51:01 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 261 veto
+00:50:38 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 264 veto
+00:50:15 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 270 veto
+00:49:51 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 269 veto
+00:49:27 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 278 veto
+00:49:04 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 248 veto
+00:48:40 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 260 veto
+00:48:17 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 268 veto
+00:47:52 SCRIBE   chiuso P-0566 $SPONGEBOB -0.0365 SOL (-35.8%)
+00:47:52 CHARON   Stop loss $SPONGEBOB vendo 100% a -33.9% -> 0.0653 SOL
+00:47:52 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 258 veto
+00:47:29 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 256 veto
 00:47:05 QUARTER  BUY $SPONGEBOB 0.101 SOL score 77 impatto 1.05% (Jupiter)
 00:47:05 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 256 veto
 00:46:40 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 242 veto
@@ -82,21 +97,6 @@ fabbrica: 28016 percorsi, 768 configurazioni, 0 passano, 4136 ms
 00:41:57 SCOUT    Laboratorio: collegato a PumpPortal
 00:41:57 KAISER   run #265 · 0 posizioni · equity 5.0385 SOL · GMGN spenta (nessuna chiave) · Grok off
 00:41:26 SCRIBE   fine run · trade 129 · win 32% · P&L -0.9615 SOL · equity 5.0385 SOL
-00:41:25 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 262 veto
-00:41:02 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 262 veto
-00:40:57 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
-00:40:40 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 257 veto
-00:40:17 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 258 veto
-00:39:54 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 264 veto
-00:39:32 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 252 veto
-00:39:10 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 266 veto
-00:38:47 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 263 veto
-00:38:25 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 254 veto
-00:38:02 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 254 veto
-00:37:39 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 242 veto
-00:37:17 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 248 veto
-00:36:54 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 249 veto
-00:36:31 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 259 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
