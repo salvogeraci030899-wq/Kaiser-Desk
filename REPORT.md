@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-21 12:51 UTC · in esecuzione da 1.9 giorni · 279 run
+Aggiornato: 2026-11-21 12:56 UTC · in esecuzione da 1.9 giorni · 279 run
 
 | | |
 |---|---|
-| Equity | **4.4291 SOL** (-26.2% dal capitale iniziale di 6 SOL) |
+| Equity | **4.4416 SOL** (-26.0% dal capitale iniziale di 6 SOL) |
 | Cassa | 4.3252 SOL |
 | Trade chiusi | 160 |
 | Win rate | 29% |
-| P&L realizzato | -1.5855 SOL (~$-109.42) |
+| P&L realizzato | -1.5855 SOL (~$-109.56) |
 | Media vincite / perdite | +43.6% / -31.3% |
 | Profit factor | 0.58 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$Animals** P-0597 · 0.088 SOL · +17.7% · resta 100% · [grafico](https://dexscreener.com/solana/BeQBU1JQ5Zu3FVrcZ8KX85C5uXu54WDtihnPnPuHDKQd)
+- **$Animals** P-0597 · 0.088 SOL · +31.8% · resta 100% · [grafico](https://dexscreener.com/solana/BeQBU1JQ5Zu3FVrcZ8KX85C5uXu54WDtihnPnPuHDKQd)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,19 @@ Aggiornato: 2026-11-21 12:51 UTC · in esecuzione da 1.9 giorni · 279 run
 
 ## Ultimi eventi
 ```
+12:56:10 ORACLE   360 raccolti, 289 analizzati, 2 BUY, 278 veto
+12:55:47 ORACLE   360 raccolti, 284 analizzati, 2 BUY, 272 veto
+12:55:23 ORACLE   360 raccolti, 292 analizzati, 2 BUY, 284 veto
+12:55:00 ORACLE   360 raccolti, 291 analizzati, 2 BUY, 281 veto
+12:54:37 ORACLE   360 raccolti, 290 analizzati, 2 BUY, 280 veto
+12:54:14 ORACLE   360 raccolti, 288 analizzati, 2 BUY, 278 veto
+12:53:51 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 271 veto
+12:53:28 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 271 veto
+12:53:04 ORACLE   360 raccolti, 287 analizzati, 1 BUY, 273 veto
+12:52:41 ORACLE   360 raccolti, 290 analizzati, 2 BUY, 274 veto
+12:52:18 ORACLE   360 raccolti, 285 analizzati, 1 BUY, 270 veto
+12:51:54 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 267 veto
+12:51:31 ORACLE   360 raccolti, 289 analizzati, 2 BUY, 275 veto
 12:51:08 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 267 veto
 12:50:45 ORACLE   360 raccolti, 285 analizzati, 2 BUY, 271 veto
 12:50:22 QUARTER  BUY $Animals 0.088 SOL score 71 impatto 0.91% (Jupiter)
@@ -82,19 +95,6 @@ Aggiornato: 2026-11-21 12:51 UTC · in esecuzione da 1.9 giorni · 279 run
 12:42:41 ORACLE   360 raccolti, 288 analizzati, 2 BUY, 271 veto
 12:42:18 ORACLE   360 raccolti, 288 analizzati, 2 BUY, 271 veto
 12:41:55 ORACLE   360 raccolti, 283 analizzati, 2 BUY, 266 veto
-12:41:32 ORACLE   360 raccolti, 288 analizzati, 2 BUY, 269 veto
-12:41:09 ORACLE   360 raccolti, 287 analizzati, 2 BUY, 268 veto
-12:40:46 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 263 veto
-12:40:23 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 266 veto
-12:40:01 ORACLE   360 raccolti, 285 analizzati, 2 BUY, 269 veto
-12:39:38 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 260 veto
-12:39:14 ORACLE   360 raccolti, 279 analizzati, 3 BUY, 260 veto
-12:38:52 ORACLE   360 raccolti, 280 analizzati, 3 BUY, 261 veto
-12:38:29 ORACLE   360 raccolti, 278 analizzati, 3 BUY, 259 veto
-12:38:06 ORACLE   360 raccolti, 282 analizzati, 3 BUY, 262 veto
-12:37:43 ORACLE   360 raccolti, 278 analizzati, 3 BUY, 259 veto
-12:37:19 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 255 veto
-12:36:56 ORACLE   360 raccolti, 281 analizzati, 3 BUY, 264 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
