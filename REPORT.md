@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-21 02:12 UTC · in esecuzione da 1.5 giorni · 266 run
+Aggiornato: 2026-11-21 02:17 UTC · in esecuzione da 1.5 giorni · 266 run
 
 | | |
 |---|---|
-| Equity | **4.7574 SOL** (-20.7% dal capitale iniziale di 6 SOL) |
-| Cassa | 4.6587 SOL |
-| Trade chiusi | 136 |
+| Equity | **4.7321 SOL** (-21.1% dal capitale iniziale di 6 SOL) |
+| Cassa | 4.7321 SOL |
+| Trade chiusi | 137 |
 | Win rate | 31% |
-| P&L realizzato | -1.2452 SOL (~$-85.47) |
-| Media vincite / perdite | +41.7% / -30.6% |
+| P&L realizzato | -1.2679 SOL (~$-86.98) |
+| Media vincite / perdite | +41.7% / -30.5% |
 | Profit factor | 0.60 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$Gestalt** P-0573 · 0.095 SOL · +3.7% · resta 100% · [grafico](https://dexscreener.com/solana/ymYUyfbuuu3CJ7NZWR3PWa4MzPEzBL1nTMJM9pMXma3)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 40 | -1.2292 |
-| Time stop | 50 | -0.6182 |
+| Time stop | 51 | -0.6409 |
 | TP1 | 29 | +1.4424 |
 | RUG-EXIT liquidità | 17 | -0.8402 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $Gestalt | 72 | -23.6% | -0.0227 | +5% | -7% | Time stop | 5m |
 | $Gestalt | 74 | -8.9% | -0.0086 | +11% | -34% | Stop loss | 3m |
 | $Gestalt | 73 | -97.2% | -0.0954 | +1% | -95% | RUG-EXIT liquidità | 1m |
 | $SPONGEBOB | 77 | -27.0% | -0.0266 | +89% | +89% | TP1 | 0m |
@@ -51,10 +52,24 @@ Aggiornato: 2026-11-21 02:12 UTC · in esecuzione da 1.5 giorni · 266 run
 | $Singularity | 82 | -61.8% | -0.0636 | +10% | -52% | RUG-EXIT liquidità | 1m |
 | $GTA | 88 | -19.7% | -0.0203 | +0% | -40% | Stop loss | 0m |
 | $Singularity | 77 | -92.3% | -0.0972 | +0% | -50% | Stop loss | 1m |
-| $Singularity | 73 | +32.6% | +0.0341 | +69% | +69% | TP1 | 5m |
 
 ## Ultimi eventi
 ```
+02:17:33 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 230 veto
+02:17:10 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 240 veto
+02:16:47 SCRIBE   chiuso P-0573 $Gestalt -0.0227 SOL (-23.6%)
+02:16:47 CHARON   Time stop $Gestalt vendo 100% a -7.3% -> 0.0734 SOL
+02:16:47 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 238 veto
+02:16:24 ORACLE   360 raccolti, 238 analizzati, 1 BUY, 229 veto
+02:16:00 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 236 veto
+02:15:37 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 234 veto
+02:15:14 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 228 veto
+02:14:50 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 239 veto
+02:14:27 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 239 veto
+02:14:04 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 229 veto
+02:13:40 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 245 veto
+02:13:17 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 239 veto
+02:12:53 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 233 veto
 02:12:30 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 237 veto
 02:12:07 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 235 veto
 02:11:43 QUARTER  BUY $Gestalt 0.095 SOL score 72 impatto 0.43% (Jupiter)
@@ -80,21 +95,6 @@ Aggiornato: 2026-11-21 02:12 UTC · in esecuzione da 1.5 giorni · 266 run
 02:04:44 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 246 veto
 02:04:20 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 257 veto
 02:03:57 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 256 veto
-02:03:34 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 247 veto
-02:03:11 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 251 veto
-02:02:48 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 257 veto
-02:02:25 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 258 veto
-02:02:11 SCRIBE   chiuso P-0572 $Gestalt -0.0086 SOL (-8.9%)
-02:02:11 CHARON   Stop loss $Gestalt vendo 100% a -33.8% -> 0.0877 SOL
-02:02:01 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 254 veto
-02:01:38 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 253 veto
-02:01:15 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 249 veto
-02:00:51 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 252 veto
-02:00:27 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 256 veto
-02:00:03 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 247 veto
-01:59:38 QUARTER  BUY $Gestalt 0.095 SOL score 74 impatto 0.16% (Jupiter)
-01:59:38 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 251 veto
-01:59:15 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 245 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
