@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-21 15:27 UTC · in esecuzione da 2.0 giorni · 282 run
+Aggiornato: 2026-11-21 15:32 UTC · in esecuzione da 2.1 giorni · 282 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-21 15:27 UTC · in esecuzione da 2.0 giorni · 282 run
 | Cassa | 4.2564 SOL |
 | Trade chiusi | 164 |
 | Win rate | 29% |
-| P&L realizzato | -1.7436 SOL (~$-122.44) |
+| P&L realizzato | -1.7436 SOL (~$-122.23) |
 | Media vincite / perdite | +43.7% / -32.4% |
 | Profit factor | 0.56 |
 | Circuit breaker | ATTIVO oggi |
@@ -55,6 +55,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+15:32:38 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 266 veto
+15:32:13 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 256 veto
+15:31:49 ORACLE   360 raccolti, 281 analizzati, 2 BUY, 265 veto
+15:31:25 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 264 veto
+15:31:02 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 263 veto
+15:30:38 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 272 veto
+15:30:24 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 271 veto
+15:29:59 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 265 veto
+15:29:35 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 273 veto
+15:29:11 ORACLE   360 raccolti, 288 analizzati, 2 BUY, 277 veto
+15:28:49 ORACLE   360 raccolti, 281 analizzati, 2 BUY, 271 veto
+15:28:24 ORACLE   360 raccolti, 288 analizzati, 1 BUY, 275 veto
+15:28:01 ORACLE   360 raccolti, 291 analizzati, 1 BUY, 278 veto
 15:27:37 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 271 veto
 15:27:13 ORACLE   360 raccolti, 293 analizzati, 1 BUY, 281 veto
 15:26:49 ORACLE   360 raccolti, 290 analizzati, 1 BUY, 278 veto
@@ -82,19 +95,6 @@ _nessuna_
 15:18:20 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 259 veto
 15:17:54 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 257 veto
 15:17:30 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 261 veto
-15:17:07 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 254 veto
-15:16:43 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 260 veto
-15:16:19 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 265 veto
-15:15:55 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 259 veto
-15:15:30 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 255 veto
-15:15:06 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 255 veto
-15:14:41 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 258 veto
-15:14:18 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 262 veto
-15:13:54 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 264 veto
-15:13:30 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 259 veto
-15:13:06 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 263 veto
-15:12:42 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 266 veto
-15:12:19 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 257 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
