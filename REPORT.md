@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-21 12:30 UTC · in esecuzione da 1.9 giorni · 279 run
+Aggiornato: 2026-11-21 12:35 UTC · in esecuzione da 1.9 giorni · 279 run
 
 | | |
 |---|---|
-| Equity | **4.4768 SOL** (-25.4% dal capitale iniziale di 6 SOL) |
-| Cassa | 4.4768 SOL |
+| Equity | **4.4672 SOL** (-25.5% dal capitale iniziale di 6 SOL) |
+| Cassa | 4.3862 SOL |
 | Trade chiusi | 159 |
 | Win rate | 30% |
-| P&L realizzato | -1.5232 SOL (~$-104.98) |
+| P&L realizzato | -1.5232 SOL (~$-105.94) |
 | Media vincite / perdite | +43.6% / -30.9% |
 | Profit factor | 0.59 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$Emily** P-0596 · 0.090 SOL · -9.5% · resta 100% · [grafico](https://dexscreener.com/solana/FpE4ai6Xw4gZtP5wy1G1b9GFNN3JgpVNwdXkoYr3LSqA)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+12:35:46 ORACLE   360 raccolti, 283 analizzati, 3 BUY, 265 veto
+12:35:23 ORACLE   360 raccolti, 278 analizzati, 3 BUY, 259 veto
+12:35:00 ORACLE   360 raccolti, 279 analizzati, 2 BUY, 262 veto
+12:34:37 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 267 veto
+12:34:14 ORACLE   360 raccolti, 281 analizzati, 2 BUY, 267 veto
+12:33:51 ORACLE   360 raccolti, 274 analizzati, 2 BUY, 260 veto
+12:33:27 ORACLE   353 raccolti, 274 analizzati, 2 BUY, 260 veto
+12:33:04 ORACLE   349 raccolti, 268 analizzati, 2 BUY, 255 veto
+12:32:41 ORACLE   348 raccolti, 267 analizzati, 2 BUY, 254 veto
+12:32:18 ORACLE   328 raccolti, 252 analizzati, 2 BUY, 238 veto
+12:31:55 ORACLE   323 raccolti, 249 analizzati, 2 BUY, 235 veto
+12:31:31 QUARTER  BUY $Emily 0.090 SOL score 73 impatto 0.73% (Jupiter)
+12:31:31 ORACLE   321 raccolti, 244 analizzati, 2 BUY, 229 veto
+12:31:18 ORACLE   311 raccolti, 235 analizzati, 1 BUY, 222 veto
 12:30:53 ORACLE   306 raccolti, 218 analizzati, 2 BUY, 205 veto
 12:30:30 ORACLE   305 raccolti, 217 analizzati, 2 BUY, 206 veto
 12:30:07 ORACLE   266 raccolti, 195 analizzati, 1 BUY, 186 veto
@@ -83,20 +97,6 @@ fabbrica: 29550 percorsi, 768 configurazioni, 0 passano, 4415 ms
 12:25:53 KAISER   run #279 · 1 posizioni · equity 4.4092 SOL · GMGN spenta (nessuna chiave) · Grok off
 12:25:41 SCRIBE   fine run · trade 158 · win 29% · P&L -1.6050 SOL · equity 4.4092 SOL
 12:25:32 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 251 veto
-12:25:09 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 246 veto
-12:24:45 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 246 veto
-12:24:22 QUARTER  BUY $Lazarus 0.088 SOL score 74 impatto 1.77% (Jupiter)
-12:24:22 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 249 veto
-12:23:59 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 248 veto
-12:23:36 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 246 veto
-12:23:13 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 247 veto
-12:22:50 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 242 veto
-12:22:26 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 246 veto
-12:22:03 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 241 veto
-12:21:40 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 239 veto
-12:21:17 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 238 veto
-12:21:03 SCOUT    regola C-060: corrente (nuova strategia: 10K rit. 10s +10/-25 60s: vecchi -7.74%, recenti -7.55%)
-12:21:03 SCOUT    regola C-059: ritirata (137 operazioni in avanti, esito medio -9.7% (±5.7): non regge)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
