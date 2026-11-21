@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-21 11:15 UTC · in esecuzione da 1.9 giorni · 277 run
+Aggiornato: 2026-11-21 11:20 UTC · in esecuzione da 1.9 giorni · 277 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-21 11:15 UTC · in esecuzione da 1.9 giorni · 277 run
 | Cassa | 4.3525 SOL |
 | Trade chiusi | 156 |
 | Win rate | 29% |
-| P&L realizzato | -1.6475 SOL (~$-112.08) |
+| P&L realizzato | -1.6475 SOL (~$-112.13) |
 | Media vincite / perdite | +42.2% / -31.1% |
 | Profit factor | 0.55 |
 | Circuit breaker | no |
@@ -55,6 +55,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+11:20:54 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 247 veto
+11:20:40 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 242 veto
+11:20:14 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 249 veto
+11:19:50 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 251 veto
+11:19:27 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 250 veto
+11:19:03 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 254 veto
+11:18:40 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 259 veto
+11:18:16 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 256 veto
+11:18:12 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)
+11:17:52 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 261 veto
+11:17:27 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 257 veto
+11:17:04 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 256 veto
+11:16:40 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 261 veto
+11:16:16 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 262 veto
 11:15:52 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 258 veto
 11:15:28 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 262 veto
 11:15:04 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 266 veto
@@ -81,20 +95,6 @@ _nessuna_
 11:06:53 ORACLE   360 raccolti, 283 analizzati, 0 BUY, 270 veto
 11:06:28 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 264 veto
 11:06:15 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 267 veto
-11:05:49 ORACLE   360 raccolti, 286 analizzati, 0 BUY, 274 veto
-11:05:25 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 262 veto
-11:05:01 ORACLE   360 raccolti, 289 analizzati, 1 BUY, 273 veto
-11:04:37 ORACLE   360 raccolti, 290 analizzati, 1 BUY, 274 veto
-11:04:14 ORACLE   360 raccolti, 282 analizzati, 0 BUY, 266 veto
-11:03:49 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 265 veto
-11:03:25 SCRIBE   chiuso P-0592 $TIMOTHY -0.0336 SOL (-37.9%)
-11:03:25 CHARON   Stop loss $TIMOTHY vendo 100% a -39.5% -> 0.0551 SOL
-11:03:25 ORACLE   360 raccolti, 288 analizzati, 1 BUY, 269 veto
-11:03:12 QUARTER  BUY $TIMOTHY 0.088 SOL score 74 impatto 0.16% (Jupiter)
-11:03:12 ORACLE   360 raccolti, 285 analizzati, 1 BUY, 267 veto
-11:02:46 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 263 veto
-11:02:22 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 264 veto
-11:01:59 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 258 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
