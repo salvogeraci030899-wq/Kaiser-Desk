@@ -1,8 +1,66 @@
 {
  "startedAt": 1795097825371,
  "runs": 275,
- "cash": 4.429238306487167,
- "positions": [],
+ "cash": 4.339653540357424,
+ "positions": [
+  {
+   "id": "P-0590",
+   "mint": "78g2qqHVJCAhEpPCUoaoHmYVakzXevd5ELJt1bi5Gov2",
+   "sym": "cracken",
+   "name": "cracken",
+   "pairAddress": "e6sdDmKxxNrtP8VPUtrJAYU4J91yiezbeHMvzR4NkPb",
+   "openedAt": 1795252302908,
+   "sizeSOL": 0.08858476612974334,
+   "cost": 0.08958476612974334,
+   "entry": 4.337918431871442e-7,
+   "tokens": 204210.30851778042,
+   "remaining": 1,
+   "rawLeft": "186162343154",
+   "peak": 4.641e-7,
+   "tp1Done": false,
+   "spDone": false,
+   "entryLiq": 10850.08,
+   "realized": 0,
+   "score": 64,
+   "why": "runner",
+   "entryInfo": {
+    "srcs": [
+     "profili"
+    ],
+    "notes": [],
+    "plus": [
+     "turnover 3.3x/h"
+    ],
+    "m": {
+     "liq": 10850.08,
+     "mc": 28935,
+     "ageMin": 5.649866666666667,
+     "v1": 35305.77,
+     "tx1": 1360,
+     "br1": 1.2364532019704433,
+     "br5": 1.1894736842105262,
+     "c5": 14.79,
+     "c1": 5.53,
+     "c6": 5.53,
+     "turn": 3.253964026071697,
+     "price": 0.00002893,
+     "priceNative": 4.275e-7
+    },
+    "grok": null
+   },
+   "last": {
+    "priceNative": 3.725e-7,
+    "liq": 10125.13,
+    "br5": 1.3745583038869258,
+    "tx5": 670,
+    "t": 1795252498889
+   },
+   "fills": [
+    "BUY 0.089 impatto 0.47% (Jupiter)"
+   ],
+   "trough": 3.309e-7
+  }
+ ],
  "journal": [
   {
    "id": "P-0437",
@@ -7099,41 +7157,6 @@
  ],
  "signals": [
   {
-   "t": 1795218095191,
-   "mint": "7m7CncqD9pKGVkBeoTcaWd1gA9q6jkiXwLLWTNKupump",
-   "sym": "really",
-   "score": 79,
-   "priceNative": 4.215e-7
-  },
-  {
-   "t": 1795218095191,
-   "mint": "CTerwsBK7QFQBJWgTTSKV9LUYYJhRUouHPd8ijKXpump",
-   "sym": "FARM",
-   "score": 73,
-   "priceNative": 0.000001067
-  },
-  {
-   "t": 1795218118688,
-   "mint": "4dXAFK3eL6MSmNtxoSni1u9493bJ9wweJDqSRkijpump",
-   "sym": "TITTYVERSE",
-   "score": 93,
-   "priceNative": 0.000001413
-  },
-  {
-   "t": 1795218118688,
-   "mint": "7m7CncqD9pKGVkBeoTcaWd1gA9q6jkiXwLLWTNKupump",
-   "sym": "really",
-   "score": 79,
-   "priceNative": 4.215e-7
-  },
-  {
-   "t": 1795218118688,
-   "mint": "CTerwsBK7QFQBJWgTTSKV9LUYYJhRUouHPd8ijKXpump",
-   "sym": "FARM",
-   "score": 73,
-   "priceNative": 0.000001139
-  },
-  {
    "t": 1795218142594,
    "mint": "4dXAFK3eL6MSmNtxoSni1u9493bJ9wweJDqSRkijpump",
    "sym": "TITTYVERSE",
@@ -14097,6 +14120,41 @@
    "sym": "cracken",
    "score": 63,
    "priceNative": 4.088e-7
+  },
+  {
+   "t": 1795252302882,
+   "mint": "78g2qqHVJCAhEpPCUoaoHmYVakzXevd5ELJt1bi5Gov2",
+   "sym": "cracken",
+   "score": 64,
+   "priceNative": 4.275e-7
+  },
+  {
+   "t": 1795252326032,
+   "mint": "78g2qqHVJCAhEpPCUoaoHmYVakzXevd5ELJt1bi5Gov2",
+   "sym": "cracken",
+   "score": 64,
+   "priceNative": 4.501e-7
+  },
+  {
+   "t": 1795252349508,
+   "mint": "78g2qqHVJCAhEpPCUoaoHmYVakzXevd5ELJt1bi5Gov2",
+   "sym": "cracken",
+   "score": 64,
+   "priceNative": 4.641e-7
+  },
+  {
+   "t": 1795252372777,
+   "mint": "78g2qqHVJCAhEpPCUoaoHmYVakzXevd5ELJt1bi5Gov2",
+   "sym": "cracken",
+   "score": 63,
+   "priceNative": 4.167e-7
+  },
+  {
+   "t": 1795252395848,
+   "mint": "78g2qqHVJCAhEpPCUoaoHmYVakzXevd5ELJt1bi5Gov2",
+   "sym": "cracken",
+   "score": 63,
+   "priceNative": 4.167e-7
   }
  ],
  "alerts": [],
@@ -14107,8 +14165,23 @@
  },
  "cooldownUntil": 1795252142476,
  "halted": null,
- "seq": 589,
+ "seq": 590,
  "events": [
+  "09:14:48 ORACLE   360 raccolti, 291 analizzati, 0 BUY, 276 veto",
+  "09:14:26 ORACLE   360 raccolti, 294 analizzati, 0 BUY, 279 veto",
+  "09:14:03 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 265 veto",
+  "09:13:39 ORACLE   360 raccolti, 294 analizzati, 0 BUY, 281 veto",
+  "09:13:15 ORACLE   360 raccolti, 288 analizzati, 1 BUY, 274 veto",
+  "09:12:52 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 267 veto",
+  "09:12:29 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 267 veto",
+  "09:12:06 ORACLE   360 raccolti, 290 analizzati, 1 BUY, 274 veto",
+  "09:11:42 QUARTER  BUY $cracken 0.089 SOL score 64 impatto 0.47% (Jupiter)",
+  "09:11:42 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 264 veto",
+  "09:11:19 ORACLE   360 raccolti, 290 analizzati, 0 BUY, 273 veto",
+  "09:11:06 ORACLE   360 raccolti, 292 analizzati, 0 BUY, 275 veto",
+  "09:10:40 ORACLE   360 raccolti, 282 analizzati, 0 BUY, 265 veto",
+  "09:10:17 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena",
+  "09:10:17 ORACLE   342 raccolti, 271 analizzati, 0 BUY, 256 veto",
   "09:09:53 ORACLE   336 raccolti, 264 analizzati, 0 BUY, 250 veto",
   "09:09:30 ORACLE   331 raccolti, 252 analizzati, 0 BUY, 239 veto",
   "09:09:07 ORACLE   312 raccolti, 242 analizzati, 0 BUY, 231 veto",
@@ -14393,27 +14466,12 @@
   "07:32:11 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 239 veto",
   "07:31:47 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 236 veto",
   "07:31:23 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 242 veto",
-  "07:30:59 ORACLE   355 raccolti, 251 analizzati, 0 BUY, 242 veto",
-  "07:30:35 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena",
-  "07:30:35 ORACLE   346 raccolti, 245 analizzati, 0 BUY, 235 veto",
-  "07:30:11 ORACLE   338 raccolti, 239 analizzati, 0 BUY, 228 veto",
-  "07:29:47 ORACLE   319 raccolti, 224 analizzati, 0 BUY, 216 veto",
-  "07:29:23 ORACLE   309 raccolti, 213 analizzati, 0 BUY, 203 veto",
-  "07:29:00 ORACLE   301 raccolti, 201 analizzati, 0 BUY, 191 veto",
-  "07:28:36 ORACLE   280 raccolti, 192 analizzati, 0 BUY, 183 veto",
-  "07:28:13 ORACLE   273 raccolti, 181 analizzati, 0 BUY, 172 veto",
-  "07:27:51 ORACLE   271 raccolti, 181 analizzati, 0 BUY, 172 veto",
-  "07:27:28 ORACLE   254 raccolti, 169 analizzati, 0 BUY, 160 veto",
-  "07:27:05 ORACLE   244 raccolti, 164 analizzati, 0 BUY, 155 veto",
-  "07:26:42 ORACLE   240 raccolti, 157 analizzati, 0 BUY, 149 veto",
-  "07:26:18 ORACLE   227 raccolti, 146 analizzati, 0 BUY, 139 veto",
-  "07:25:55 ORACLE   218 raccolti, 139 analizzati, 0 BUY, 133 veto",
-  "07:25:33 ORACLE   214 raccolti, 131 analizzati, 0 BUY, 124 veto"
+  "07:30:59 ORACLE   355 raccolti, 251 analizzati, 0 BUY, 242 veto"
  ],
  "capital": 6,
  "resetId": "C-0110",
  "realTried": {},
- "lastEntryAt": 1795251603541,
+ "lastEntryAt": 1795252302908,
  "lab": {
   "done": [
    {
