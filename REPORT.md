@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-21 01:28 UTC · in esecuzione da 1.5 giorni · 265 run
+Aggiornato: 2026-11-21 01:32 UTC · in esecuzione da 1.5 giorni · 265 run
 
 | | |
 |---|---|
-| Equity | **4.8854 SOL** (-18.6% dal capitale iniziale di 6 SOL) |
-| Cassa | 4.8854 SOL |
-| Trade chiusi | 133 |
-| Win rate | 32% |
-| P&L realizzato | -1.1146 SOL (~$-76.55) |
+| Equity | **4.8588 SOL** (-19.0% dal capitale iniziale di 6 SOL) |
+| Cassa | 4.8588 SOL |
+| Trade chiusi | 134 |
+| Win rate | 31% |
+| P&L realizzato | -1.1412 SOL (~$-78.29) |
 | Media vincite / perdite | +41.7% / -30.1% |
-| Profit factor | 0.63 |
+| Profit factor | 0.62 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -21,12 +21,13 @@ _nessuna_
 |---|---|---|
 | Stop loss | 39 | -1.2206 |
 | Time stop | 50 | -0.6182 |
-| TP1 | 28 | +1.4690 |
+| TP1 | 29 | +1.4424 |
 | RUG-EXIT liquidità | 16 | -0.7448 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $SPONGEBOB | 77 | -27.0% | -0.0266 | +89% | +89% | TP1 | 0m |
 | $S&P500 | 68 | +32.4% | +0.0317 | +65% | +65% | TP1 | 1m |
 | $NiggaInu | 70 | -92.3% | -0.0922 | +29% | -93% | RUG-EXIT liquidità | 2m |
 | $SPONGEBOB | 77 | -55.6% | -0.0562 | +0% | -43% | Stop loss | 1m |
@@ -51,10 +52,24 @@ _nessuna_
 | $Singularity | 73 | +32.6% | +0.0341 | +69% | +69% | TP1 | 5m |
 | $PUT | 65 | -97.2% | -0.1037 | +33% | -96% | RUG-EXIT liquidità | 5m |
 | $PAY | 64 | +6.1% | +0.0066 | +77% | +77% | TP1 | 1m |
-| $FIENA | 88 | -16.0% | -0.0171 | +9% | -2% | Time stop | 5m |
 
 ## Ultimi eventi
 ```
+01:32:01 SCRIBE   fine run · trade 134 · win 31% · P&L -1.1412 SOL · equity 4.8588 SOL
+01:32:01 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 263 veto
+01:31:38 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 259 veto
+01:31:14 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 242 veto
+01:30:50 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 265 veto
+01:30:26 SCRIBE   chiuso P-0570 $SPONGEBOB -0.0266 SOL (-27.0%)
+01:30:26 CHARON   TP1 $SPONGEBOB vendo 100% a 88.6% -> 0.0721 SOL
+01:30:26 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 261 veto
+01:30:11 QUARTER  BUY $SPONGEBOB 0.098 SOL score 77 impatto 0.03% (Jupiter)
+01:30:11 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 258 veto
+01:29:46 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 260 veto
+01:29:23 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 261 veto
+01:29:00 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 256 veto
+01:28:36 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 260 veto
+01:28:13 ORACLE   360 raccolti, 282 analizzati, 0 BUY, 267 veto
 01:27:50 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 256 veto
 01:27:26 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 262 veto
 01:27:02 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 266 veto
@@ -80,21 +95,6 @@ _nessuna_
 01:20:29 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 265 veto
 01:20:06 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 273 veto
 01:19:42 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 252 veto
-01:19:20 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 273 veto
-01:19:06 SCRIBE   chiuso P-0568 $NiggaInu -0.0922 SOL (-92.3%)
-01:19:06 CHARON   RUG-EXIT liquidità $NiggaInu vendo 100% a -93.2% -> 0.0077 SOL
-01:18:56 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 268 veto
-01:18:32 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 260 veto
-01:18:28 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
-01:18:08 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 271 veto
-01:17:45 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 268 veto
-01:17:21 QUARTER  BUY $NiggaInu 0.099 SOL score 70 impatto 1.08% (Jupiter)
-01:17:21 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 270 veto
-01:16:58 QUARTER  $NiggaInu impatto 4.0% oltre slippage: annullato
-01:16:58 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 274 veto
-01:16:34 QUARTER  $NiggaInu impatto 3.6% oltre slippage: annullato
-01:16:34 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 275 veto
-01:16:10 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 268 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
