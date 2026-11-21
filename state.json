@@ -1,8 +1,65 @@
 {
  "startedAt": 1795097825371,
  "runs": 278,
- "cash": 4.352454260487691,
- "positions": [],
+ "cash": 4.264405175277937,
+ "positions": [
+  {
+   "id": "P-0593",
+   "mint": "C77wTNSwkorDNDhQTujY39xJJNzG3q78MMRx4EDzpump",
+   "sym": "will",
+   "name": "will save the trenches",
+   "pairAddress": "AeopU4To42XVQL2PX2C4XmqeAvtttwAYTbfg3jPk1sqi",
+   "openedAt": 1795262051749,
+   "sizeSOL": 0.08704908520975381,
+   "cost": 0.08804908520975381,
+   "entry": 4.0404543381140587e-7,
+   "tokens": 215443.80390247214,
+   "remaining": 1,
+   "rawLeft": "197505111166",
+   "peak": 4.623e-7,
+   "tp1Done": false,
+   "spDone": false,
+   "entryLiq": 10371.58,
+   "realized": 0,
+   "score": 77,
+   "why": "runner",
+   "entryInfo": {
+    "srcs": [
+     "profili",
+     "gecko nuovi"
+    ],
+    "notes": [],
+    "plus": [],
+    "m": {
+     "liq": 11156.23,
+     "mc": 31205,
+     "ageMin": 1.7788166666666667,
+     "v1": 13916.39,
+     "tx1": 523,
+     "br1": 1.3333333333333333,
+     "br5": 1.3333333333333333,
+     "c5": 13.12,
+     "c1": 13.12,
+     "c6": 13.12,
+     "turn": 1.2474097432555622,
+     "price": 0.0000312,
+     "priceNative": 4.544e-7
+    },
+    "grok": null
+   },
+   "last": {
+    "priceNative": 4.248e-7,
+    "liq": 10850.26,
+    "br5": 1.4143222506393862,
+    "tx5": 942,
+    "t": 1795262145083
+   },
+   "fills": [
+    "BUY 0.087 impatto 0.09% (Jupiter)"
+   ],
+   "trough": 3.997e-7
+  }
+ ],
  "journal": [
   {
    "id": "P-0437",
@@ -7233,41 +7290,6 @@
  ],
  "signals": [
   {
-   "t": 1795218757047,
-   "mint": "CTerwsBK7QFQBJWgTTSKV9LUYYJhRUouHPd8ijKXpump",
-   "sym": "FARM",
-   "score": 68,
-   "priceNative": 7.29e-7
-  },
-  {
-   "t": 1795218779381,
-   "mint": "4dXAFK3eL6MSmNtxoSni1u9493bJ9wweJDqSRkijpump",
-   "sym": "TITTYVERSE",
-   "score": 93,
-   "priceNative": 6.569e-7
-  },
-  {
-   "t": 1795218779381,
-   "mint": "7m7CncqD9pKGVkBeoTcaWd1gA9q6jkiXwLLWTNKupump",
-   "sym": "really",
-   "score": 72,
-   "priceNative": 3.567e-7
-  },
-  {
-   "t": 1795218779381,
-   "mint": "CTerwsBK7QFQBJWgTTSKV9LUYYJhRUouHPd8ijKXpump",
-   "sym": "FARM",
-   "score": 68,
-   "priceNative": 7.29e-7
-  },
-  {
-   "t": 1795218802375,
-   "mint": "7m7CncqD9pKGVkBeoTcaWd1gA9q6jkiXwLLWTNKupump",
-   "sym": "really",
-   "score": 73,
-   "priceNative": 3.533e-7
-  },
-  {
    "t": 1795218802375,
    "mint": "CTerwsBK7QFQBJWgTTSKV9LUYYJhRUouHPd8ijKXpump",
    "sym": "FARM",
@@ -14231,6 +14253,41 @@
    "sym": "TIMOTHY",
    "score": 75,
    "priceNative": 3.777e-7
+  },
+  {
+   "t": 1795262051695,
+   "mint": "C77wTNSwkorDNDhQTujY39xJJNzG3q78MMRx4EDzpump",
+   "sym": "will",
+   "score": 77,
+   "priceNative": 4.544e-7
+  },
+  {
+   "t": 1795262075159,
+   "mint": "C77wTNSwkorDNDhQTujY39xJJNzG3q78MMRx4EDzpump",
+   "sym": "will",
+   "score": 79,
+   "priceNative": 4.373e-7
+  },
+  {
+   "t": 1795262098924,
+   "mint": "C77wTNSwkorDNDhQTujY39xJJNzG3q78MMRx4EDzpump",
+   "sym": "will",
+   "score": 78,
+   "priceNative": 4.623e-7
+  },
+  {
+   "t": 1795262122033,
+   "mint": "C77wTNSwkorDNDhQTujY39xJJNzG3q78MMRx4EDzpump",
+   "sym": "will",
+   "score": 79,
+   "priceNative": 4.248e-7
+  },
+  {
+   "t": 1795262145083,
+   "mint": "C77wTNSwkorDNDhQTujY39xJJNzG3q78MMRx4EDzpump",
+   "sym": "will",
+   "score": 79,
+   "priceNative": 4.248e-7
   }
  ],
  "alerts": [],
@@ -14241,8 +14298,22 @@
  },
  "cooldownUntil": 1795259305702,
  "halted": null,
- "seq": 592,
+ "seq": 593,
  "events": [
+  "11:55:45 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 250 veto",
+  "11:55:22 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 251 veto",
+  "11:54:58 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 259 veto",
+  "11:54:35 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 254 veto",
+  "11:54:11 QUARTER  BUY $will 0.087 SOL score 77 impatto 0.09% (Jupiter)",
+  "11:54:11 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 256 veto",
+  "11:53:48 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 260 veto",
+  "11:53:25 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 261 veto",
+  "11:53:02 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 257 veto",
+  "11:52:40 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 262 veto",
+  "11:52:16 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 264 veto",
+  "11:51:53 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 260 veto",
+  "11:51:29 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 264 veto",
+  "11:51:06 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 266 veto",
   "11:50:43 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 261 veto",
   "11:50:20 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 265 veto",
   "11:49:57 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 262 veto",
@@ -14528,208 +14599,14 @@
   "10:13:52 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 254 veto",
   "10:13:29 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 252 veto",
   "10:13:05 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 244 veto",
-  "10:12:41 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 249 veto",
-  "10:12:19 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 245 veto",
-  "10:11:55 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 244 veto",
-  "10:11:32 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 249 veto",
-  "10:11:09 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 244 veto",
-  "10:10:46 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 243 veto",
-  "10:10:22 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 249 veto",
-  "10:09:59 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 249 veto",
-  "10:09:36 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 248 veto",
-  "10:09:13 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 248 veto",
-  "10:08:50 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 246 veto",
-  "10:08:27 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 242 veto",
-  "10:08:03 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 247 veto",
-  "10:07:40 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 249 veto",
-  "10:07:18 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 243 veto"
+  "10:12:41 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 249 veto"
  ],
  "capital": 6,
  "resetId": "C-0110",
  "realTried": {},
- "lastEntryAt": 1795258992434,
+ "lastEntryAt": 1795262051750,
  "lab": {
   "done": [
-   {
-    "m": "4mA6w6pUgDfiCRwvBub8WuLELbhT8hUz95cab8VYpump",
-    "s": "TIMOTHY",
-    "at": 1795258607723,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1904,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "C5XSvomJJt9Xsb79Np15CovdkZHiocEq4kMaQ1gBpump",
-    "s": "TIMOTHY",
-    "at": 1795258608002,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1904,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "26FvXnvjGQ77F5gj1pfDGRQDpVGHxLxgtR8UpnEbpump",
-    "s": "SOOTS",
-    "at": 1795258608255,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 3765,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "5hs9iaRsbUAiGes9p8eYHmgQxrfwWVKiJb9y7xHppump",
-    "s": "$PBP",
-    "at": 1795258608772,
-    "n60": 1,
-    "b": null,
-    "f": {
-     "top3": 1,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 1,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1917,
-    "th": {},
-    "rx": {
-     "s0": [
-      1,
-      0,
-      0,
-      1,
-      0,
-      0,
-      1,
-      0,
-      0
-     ]
-    },
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "DpHVmu7vntUgFDtsUhBLDgK8Zvgd7baz3Qr5Ky8apump",
-    "s": "Sully",
-    "at": 1795258609352,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 2114,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "5U3oogdRDtWshnNBpWVPALqdzqCPNWc9TgpZDjizcB9d",
-    "s": "TIMOTHY",
-    "at": 1795258610300,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1904,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "B7zpnfWr1GmkgjoW9UJSpNuiG8JsqqiDsBEzaiL2AGpS",
-    "s": "TIMOTHY",
-    "at": 1795258610342,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1904,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
-   {
-    "m": "5wwEfbVEL9vxyZ85P54mmSTm6EhN1f79fJBYJyWmpump",
-    "s": "WIN",
-    "at": 1795258610808,
-    "n60": 0,
-    "b": null,
-    "f": {
-     "top3": 0,
-     "bundle": 0,
-     "cyc": 0,
-     "uniq": 0,
-     "devSold": false
-    },
-    "ok": false,
-    "hi": 1470,
-    "th": {},
-    "rx": {},
-    "ls": 0,
-    "lsW": 0,
-    "turn": 0
-   },
    {
     "m": "4iPDFfftack2Y2hbh3zW8u4FezhVGpjyiYTQaRZ3pump",
     "s": "NVSI",
@@ -25216,6 +25093,152 @@
     "rx": {},
     "ls": 0,
     "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "6cQMkXH66hA32jh6Tq8P8et58MNia44KCymuphfhpump",
+    "s": "BN",
+    "at": 1795260942408,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false
+   },
+   {
+    "m": "DoF5S8aevJ6b13gMcynVcoXuQ6V9mZzoK1i8voAoUiQb",
+    "s": "QT",
+    "at": 1795260947158,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 2021,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "turn": 0
+   },
+   {
+    "m": "e15Ydp3d1Jnxi4C3hBfTFg6Lh9aFVJLsXEZPiQSpump",
+    "s": "Antston",
+    "at": 1795260949928,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false
+   },
+   {
+    "m": "89MeHUeD3KEVzBruXgdoqSnmyrhtcwHqDJdrAqmUpump",
+    "s": "Cuff",
+    "at": 1795260950825,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false
+   },
+   {
+    "m": "DMLbRXbvjYQu6BEVdUxBhkcvDGoPDaKWtgurMck4XMH1",
+    "s": "Antston",
+    "at": 1795260951193,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false
+   },
+   {
+    "m": "97SEX9pU9TYcZ1RPptiw3DwmxU3gWSX2rE2D6kJxpump",
+    "s": "Gayden",
+    "at": 1795260952485,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false
+   },
+   {
+    "m": "3cHcJfrqWbRSWwaUyGgdvwQwLGAip6TRizHdt9nMpump",
+    "s": "BOTTOM",
+    "at": 1795260955946,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 287,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "q": [
+     0,
+     0
+    ],
+    "turn": 0
+   },
+   {
+    "m": "754W1qGzNKKLifrdKbZ8tbTKRAqo8RYw2tzT44Xkpump",
+    "s": "super.S",
+    "at": 1795260957934,
+    "n60": 0,
+    "b": null,
+    "f": {
+     "top3": 0,
+     "bundle": 0,
+     "cyc": 0,
+     "uniq": 0,
+     "devSold": false
+    },
+    "ok": false,
+    "hi": 1919,
+    "th": {},
+    "rx": {},
+    "ls": 0,
+    "lsW": 0,
+    "q": [
+     0,
+     0
+    ],
     "turn": 0
    }
   ]
