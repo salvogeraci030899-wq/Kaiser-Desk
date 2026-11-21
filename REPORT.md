@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-21 00:27 UTC · in esecuzione da 1.4 giorni · 264 run
+Aggiornato: 2026-11-21 00:32 UTC · in esecuzione da 1.4 giorni · 264 run
 
 | | |
 |---|---|
-| Equity | **5.0120 SOL** (-16.5% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.0120 SOL |
-| Trade chiusi | 128 |
-| Win rate | 31% |
-| P&L realizzato | -0.9880 SOL (~$-67.96) |
-| Media vincite / perdite | +42.3% / -29.1% |
-| Profit factor | 0.65 |
+| Equity | **5.0385 SOL** (-16.0% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.0385 SOL |
+| Trade chiusi | 129 |
+| Win rate | 32% |
+| P&L realizzato | -0.9615 SOL (~$-66.20) |
+| Media vincite / perdite | +41.9% / -29.1% |
+| Profit factor | 0.66 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -21,12 +21,13 @@ _nessuna_
 |---|---|---|
 | Stop loss | 37 | -1.1280 |
 | Time stop | 50 | -0.6182 |
-| TP1 | 26 | +1.4108 |
+| TP1 | 27 | +1.4373 |
 | RUG-EXIT liquidità | 15 | -0.6526 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $Mandy | 69 | +26.2% | +0.0265 | +92% | +92% | TP1 | 1m |
 | $really | 72 | +1.1% | +0.0011 | +18% | +2% | Time stop | 8m |
 | $TITTYVERSE | 88 | -13.6% | -0.0138 | +0% | -20% | Time stop | 5m |
 | $FARM | 64 | -8.5% | -0.0086 | +22% | +1% | Time stop | 8m |
@@ -51,10 +52,25 @@ _nessuna_
 | $Singularity | 88 | -22.8% | -0.0247 | +0% | -43% | Stop loss | 0m |
 | $Singularity | 64 | +44.4% | +0.0476 | +64% | +64% | TP1 | 4m |
 | $BIGFOOT | 65 | -28.5% | -0.0307 | +0% | -36% | Stop loss | 2m |
-| $MIC | 73 | +123.6% | +0.1301 | +96% | +96% | TP1 | 1m |
 
 ## Ultimi eventi
 ```
+00:31:58 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 258 veto
+00:31:36 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 236 veto
+00:31:13 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 248 veto
+00:30:50 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 258 veto
+00:30:27 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 248 veto
+00:30:05 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 254 veto
+00:29:41 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 263 veto
+00:29:19 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 250 veto
+00:29:05 SCRIBE   chiuso P-0565 $Mandy 0.0265 SOL (26.2%)
+00:29:05 CHARON   TP1 $Mandy vendo 100% a 91.7% -> 0.1278 SOL
+00:29:05 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 251 veto
+00:28:39 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 251 veto
+00:28:17 QUARTER  BUY $Mandy 0.100 SOL score 69 impatto 0.00% (Jupiter)
+00:28:17 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 248 veto
+00:27:53 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 255 veto
+00:27:31 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 253 veto
 00:27:07 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 251 veto
 00:26:44 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 251 veto
 00:26:21 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 262 veto
@@ -79,22 +95,6 @@ _nessuna_
 00:19:10 ORACLE   360 raccolti, 229 analizzati, 0 BUY, 225 veto
 00:18:47 ORACLE   360 raccolti, 232 analizzati, 0 BUY, 228 veto
 00:18:24 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 228 veto
-00:18:02 ORACLE   360 raccolti, 235 analizzati, 0 BUY, 230 veto
-00:17:39 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 235 veto
-00:17:16 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 237 veto
-00:16:53 ORACLE   360 raccolti, 235 analizzati, 0 BUY, 227 veto
-00:16:29 ORACLE   360 raccolti, 236 analizzati, 0 BUY, 227 veto
-00:16:06 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 236 veto
-00:15:44 ORACLE   360 raccolti, 234 analizzati, 0 BUY, 222 veto
-00:15:20 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 234 veto
-00:14:57 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 229 veto
-00:14:34 ORACLE   360 raccolti, 235 analizzati, 0 BUY, 222 veto
-00:14:11 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 234 veto
-00:13:48 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 236 veto
-00:13:25 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 229 veto
-00:13:02 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 235 veto
-00:12:39 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 243 veto
-00:12:37 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
