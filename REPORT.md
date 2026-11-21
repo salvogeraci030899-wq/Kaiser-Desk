@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-21 13:47 UTC · in esecuzione da 2.0 giorni · 280 run
+Aggiornato: 2026-11-21 13:52 UTC · in esecuzione da 2.0 giorni · 280 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-21 13:47 UTC · in esecuzione da 2.0 giorni · 280 run
 | Cassa | 4.2564 SOL |
 | Trade chiusi | 164 |
 | Win rate | 29% |
-| P&L realizzato | -1.7436 SOL (~$-122.66) |
+| P&L realizzato | -1.7436 SOL (~$-123.32) |
 | Media vincite / perdite | +43.7% / -32.4% |
 | Profit factor | 0.56 |
 | Circuit breaker | ATTIVO oggi |
@@ -55,6 +55,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+13:51:59 ORACLE   360 raccolti, 289 analizzati, 2 BUY, 281 veto
+13:51:35 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 270 veto
+13:51:11 ORACLE   360 raccolti, 291 analizzati, 1 BUY, 280 veto
+13:50:47 ORACLE   360 raccolti, 288 analizzati, 2 BUY, 278 veto
+13:50:23 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 273 veto
+13:50:00 ORACLE   360 raccolti, 287 analizzati, 1 BUY, 278 veto
+13:49:36 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 273 veto
+13:49:12 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 275 veto
+13:48:48 ORACLE   360 raccolti, 286 analizzati, 0 BUY, 275 veto
+13:48:25 ORACLE   360 raccolti, 286 analizzati, 0 BUY, 274 veto
+13:48:00 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 264 veto
+13:47:37 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 266 veto
+13:47:13 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 272 veto
 13:46:50 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 272 veto
 13:46:26 ORACLE   360 raccolti, 289 analizzati, 1 BUY, 281 veto
 13:46:02 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 269 veto
@@ -82,19 +95,6 @@ _nessuna_
 13:38:40 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 249 veto
 13:38:16 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 251 veto
 13:37:52 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 251 veto
-13:37:28 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 240 veto
-13:37:04 QUARTER  BUY $DPRK 0.087 SOL score 69 impatto 0.88% (Jupiter)
-13:37:04 QUARTER  $TRUMPCOIN impatto 2.5% oltre slippage: annullato
-13:37:04 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 247 veto
-13:36:40 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 251 veto
-13:36:16 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 241 veto
-13:35:52 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 258 veto
-13:35:28 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 257 veto
-13:35:05 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 250 veto
-13:34:41 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 260 veto
-13:34:17 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 254 veto
-13:33:53 ORACLE   360 raccolti, 274 analizzati, 2 BUY, 255 veto
-13:33:30 ORACLE   360 raccolti, 281 analizzati, 2 BUY, 265 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
