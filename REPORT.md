@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-21 05:18 UTC · in esecuzione da 1.6 giorni · 270 run
+Aggiornato: 2026-11-21 05:23 UTC · in esecuzione da 1.6 giorni · 270 run
 
 | | |
 |---|---|
-| Equity | **4.4504 SOL** (-25.8% dal capitale iniziale di 6 SOL) |
-| Cassa | 4.4504 SOL |
-| Trade chiusi | 147 |
+| Equity | **4.3929 SOL** (-26.8% dal capitale iniziale di 6 SOL) |
+| Cassa | 4.3929 SOL |
+| Trade chiusi | 148 |
 | Win rate | 29% |
-| P&L realizzato | -1.5496 SOL (~$-102.37) |
-| Media vincite / perdite | +41.4% / -31.0% |
-| Profit factor | 0.55 |
+| P&L realizzato | -1.6071 SOL (~$-106.09) |
+| Media vincite / perdite | +41.4% / -31.3% |
+| Profit factor | 0.54 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -22,11 +22,12 @@ _nessuna_
 | Stop loss | 41 | -1.2684 |
 | Time stop | 56 | -0.6767 |
 | TP1 | 30 | +1.4679 |
-| RUG-EXIT liquidità | 20 | -1.0724 |
+| RUG-EXIT liquidità | 21 | -1.1299 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $DODO | 67 | -63.9% | -0.0575 | +6% | -60% | RUG-EXIT liquidità | 3m |
 | $MARS | 69 | -11.3% | -0.0102 | +14% | -2% | Time stop | 5m |
 | $VAREXON | 71 | -5.8% | -0.0052 | +42% | -1% | Time stop | 5m |
 | $BTC | 69 | +28.4% | +0.0255 | +63% | +63% | TP1 | 5m |
@@ -51,10 +52,25 @@ _nessuna_
 | $FARM | 64 | -8.5% | -0.0086 | +22% | +1% | Time stop | 8m |
 | $MONKE | 65 | -20.3% | -0.0207 | +0% | -9% | Time stop | 5m |
 | $Singularity | 68 | -11.3% | -0.0115 | +2% | -4% | Time stop | 5m |
-| $GTN | 75 | -23.9% | -0.0246 | +54% | -29% | Time stop | 8m |
 
 ## Ultimi eventi
 ```
+05:23:26 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 249 veto
+05:23:02 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 254 veto
+05:22:39 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 256 veto
+05:22:15 SCRIBE   chiuso P-0584 $DODO -0.0575 SOL (-63.9%)
+05:22:15 CHARON   RUG-EXIT liquidità $DODO vendo 100% a -60.4% -> 0.0325 SOL
+05:22:15 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 258 veto
+05:21:52 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 258 veto
+05:21:29 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 258 veto
+05:21:06 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 253 veto
+05:20:42 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 263 veto
+05:20:19 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 258 veto
+05:19:56 ORACLE   360 raccolti, 274 analizzati, 2 BUY, 260 veto
+05:19:33 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 261 veto
+05:19:09 QUARTER  BUY $DODO 0.089 SOL score 67 impatto 0.00% (Jupiter)
+05:19:09 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 259 veto
+05:18:46 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 256 veto
 05:18:22 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 260 veto
 05:17:59 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 257 veto
 05:17:36 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 247 veto
@@ -79,22 +95,6 @@ _nessuna_
 05:10:16 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 262 veto
 05:09:53 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 257 veto
 05:09:30 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 258 veto
-05:09:07 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 261 veto
-05:08:42 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 252 veto
-05:08:29 SCOUT    regola C-058: corrente (nuova strategia: 10K rit. 10s +15/-15 60s: vecchi -7.58%, recenti -7%)
-05:08:29 SCOUT    regola C-057: ritirata (290 operazioni in avanti, esito medio -7.7% (±4.3): non regge)
-05:08:29 SCOUT    strategia C-058: corrente: nuova strategia: 10K rit. 10s +15/-15 60s: vecchi -7.58%, recenti -7%
-05:08:29 SCOUT    strategia C-057: ritirata: 290 operazioni in avanti, esito medio -7.7% (±4.3): non regge
-05:08:19 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 250 veto
-05:07:56 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 252 veto
-05:07:33 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 252 veto
-05:07:20 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 237 veto
-05:06:55 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 254 veto
-05:06:32 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 248 veto
-05:06:09 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 240 veto
-05:05:46 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 240 veto
-05:05:23 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 246 veto
-05:05:00 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 244 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
