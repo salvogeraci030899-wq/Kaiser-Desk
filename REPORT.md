@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-21 12:25 UTC · in esecuzione da 1.9 giorni · 278 run
+Aggiornato: 2026-11-21 12:30 UTC · in esecuzione da 1.9 giorni · 279 run
 
 | | |
 |---|---|
-| Equity | **4.4092 SOL** (-26.5% dal capitale iniziale di 6 SOL) |
-| Cassa | 4.3061 SOL |
-| Trade chiusi | 158 |
-| Win rate | 29% |
-| P&L realizzato | -1.6050 SOL (~$-110.92) |
-| Media vincite / perdite | +42.5% / -30.9% |
-| Profit factor | 0.56 |
+| Equity | **4.4768 SOL** (-25.4% dal capitale iniziale di 6 SOL) |
+| Cassa | 4.4768 SOL |
+| Trade chiusi | 159 |
+| Win rate | 30% |
+| P&L realizzato | -1.5232 SOL (~$-104.98) |
+| Media vincite / perdite | +43.6% / -30.9% |
+| Profit factor | 0.59 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$Lazarus** P-0595 · 0.088 SOL · +17.2% · resta 100% · [grafico](https://dexscreener.com/solana/94Jrh4NHPABTM2sgGb5tDWVJpvjTuDpM8DPD6hSFBdHH)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 45 | -1.3653 |
 | Time stop | 60 | -0.7331 |
-| TP1 | 32 | +1.6233 |
+| TP1 | 33 | +1.7051 |
 | RUG-EXIT liquidità | 21 | -1.1299 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $Lazarus | 74 | +91.9% | +0.0817 | +94% | +94% | TP1 | 5m |
 | $Emily | 70 | +56.6% | +0.0498 | +78% | +78% | TP1 | 5m |
 | $will | 77 | -8.2% | -0.0072 | +14% | -9% | Time stop | 5m |
 | $TIMOTHY | 74 | -37.9% | -0.0336 | +0% | -39% | Stop loss | 0m |
@@ -51,10 +52,35 @@ Aggiornato: 2026-11-21 12:25 UTC · in esecuzione da 1.9 giorni · 278 run
 | $Gestalt | 72 | -23.6% | -0.0227 | +5% | -7% | Time stop | 5m |
 | $Gestalt | 74 | -8.9% | -0.0086 | +11% | -34% | Stop loss | 3m |
 | $Gestalt | 73 | -97.2% | -0.0954 | +1% | -95% | RUG-EXIT liquidità | 1m |
-| $SPONGEBOB | 77 | -27.0% | -0.0266 | +89% | +89% | TP1 | 0m |
 
 ## Ultimi eventi
 ```
+12:30:53 ORACLE   306 raccolti, 218 analizzati, 2 BUY, 205 veto
+12:30:30 ORACLE   305 raccolti, 217 analizzati, 2 BUY, 206 veto
+12:30:07 ORACLE   266 raccolti, 195 analizzati, 1 BUY, 186 veto
+12:29:42 SCRIBE   chiuso P-0595 $Lazarus 0.0817 SOL (91.9%)
+12:29:42 CHARON   TP1 $Lazarus vendo 100% a 94.3% -> 0.1706 SOL
+12:29:42 ORACLE   259 raccolti, 189 analizzati, 1 BUY, 179 veto
+12:29:19 ORACLE   257 raccolti, 187 analizzati, 1 BUY, 177 veto
+12:28:57 ORACLE   242 raccolti, 174 analizzati, 1 BUY, 166 veto
+12:28:34 ORACLE   239 raccolti, 170 analizzati, 1 BUY, 160 veto
+12:28:11 ORACLE   235 raccolti, 162 analizzati, 1 BUY, 152 veto
+12:27:49 ORACLE   219 raccolti, 157 analizzati, 1 BUY, 148 veto
+12:27:27 ORACLE   214 raccolti, 143 analizzati, 1 BUY, 133 veto
+12:27:04 ORACLE   213 raccolti, 142 analizzati, 1 BUY, 134 veto
+12:26:41 ORACLE   194 raccolti, 131 analizzati, 1 BUY, 124 veto
+12:26:22 SCOUT    rug: 10630 token oltre 7.5K, 35.9% rug, 7312 con possessori
+combinazioni: 4656 prove, migliore -6.24%, p 1
+fabbrica: 29550 percorsi, 768 configurazioni, 0 passano, 4415 ms
+12:26:18 ORACLE   190 raccolti, 117 analizzati, 1 BUY, 111 veto
+12:26:13 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
+12:26:12 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
+12:25:56 ORACLE   190 raccolti, 117 analizzati, 1 BUY, 111 veto
+12:25:53 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
+12:25:53 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120
+12:25:53 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
+12:25:53 SCOUT    Laboratorio: collegato a PumpPortal
+12:25:53 KAISER   run #279 · 1 posizioni · equity 4.4092 SOL · GMGN spenta (nessuna chiave) · Grok off
 12:25:41 SCRIBE   fine run · trade 158 · win 29% · P&L -1.6050 SOL · equity 4.4092 SOL
 12:25:32 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 251 veto
 12:25:09 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 246 veto
@@ -71,30 +97,6 @@ Aggiornato: 2026-11-21 12:25 UTC · in esecuzione da 1.9 giorni · 278 run
 12:21:17 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 238 veto
 12:21:03 SCOUT    regola C-060: corrente (nuova strategia: 10K rit. 10s +10/-25 60s: vecchi -7.74%, recenti -7.55%)
 12:21:03 SCOUT    regola C-059: ritirata (137 operazioni in avanti, esito medio -9.7% (±5.7): non regge)
-12:21:03 SCOUT    strategia C-060: corrente: nuova strategia: 10K rit. 10s +10/-25 60s: vecchi -7.74%, recenti -7.55%
-12:21:03 SCOUT    strategia C-059: ritirata: 137 operazioni in avanti, esito medio -9.7% (±5.7): non regge
-12:20:53 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 235 veto
-12:20:31 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 234 veto
-12:20:07 SCRIBE   chiuso P-0594 $Emily 0.0498 SOL (56.6%)
-12:20:07 CHARON   TP1 $Emily vendo 100% a 77.8% -> 0.1377 SOL
-12:20:07 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 233 veto
-12:19:43 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 234 veto
-12:19:20 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 230 veto
-12:18:57 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 233 veto
-12:18:34 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 229 veto
-12:18:10 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 230 veto
-12:17:47 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 234 veto
-12:17:24 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 235 veto
-12:17:01 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 229 veto
-12:16:38 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 237 veto
-12:16:15 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 237 veto
-12:15:52 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 239 veto
-12:15:29 ORACLE   360 raccolti, 254 analizzati, 3 BUY, 236 veto
-12:15:05 QUARTER  BUY $Emily 0.087 SOL score 70 impatto 1.89% (Jupiter)
-12:15:05 ORACLE   360 raccolti, 257 analizzati, 3 BUY, 238 veto
-12:14:41 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 236 veto
-12:14:18 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 244 veto
-12:13:55 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 244 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
