@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 02:31 UTC · in esecuzione da 2.5 giorni · 295 run
+Aggiornato: 2026-11-22 02:36 UTC · in esecuzione da 2.5 giorni · 295 run
 
 | | |
 |---|---|
-| Equity | **4.1291 SOL** (-31.2% dal capitale iniziale di 6 SOL) |
-| Cassa | 4.0521 SOL |
-| Trade chiusi | 175 |
+| Equity | **4.0670 SOL** (-32.2% dal capitale iniziale di 6 SOL) |
+| Cassa | 4.0670 SOL |
+| Trade chiusi | 176 |
 | Win rate | 30% |
-| P&L realizzato | -1.8642 SOL (~$-130.05) |
-| Media vincite / perdite | +41.5% / -32.2% |
-| Profit factor | 0.55 |
+| P&L realizzato | -1.9330 SOL (~$-134.61) |
+| Media vincite / perdite | +41.5% / -32.6% |
+| Profit factor | 0.54 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$SANTA** P-0612 · 0.083 SOL · -6.9% · resta 100% · [grafico](https://dexscreener.com/solana/DMrMCRWC59qp6zGjfyJvr1gu5VA95qRBq3bi43ThvjgM)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -22,11 +22,12 @@ Aggiornato: 2026-11-22 02:31 UTC · in esecuzione da 2.5 giorni · 295 run
 | Stop loss | 49 | -1.4469 |
 | Time stop | 65 | -0.8378 |
 | TP1 | 37 | +1.7962 |
-| RUG-EXIT liquidità | 24 | -1.3757 |
+| RUG-EXIT liquidità | 25 | -1.4445 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $SANTA | 70 | -82.2% | -0.0689 | +17% | -74% | RUG-EXIT liquidità | 4m |
 | $MANDY | 88 | -3.8% | -0.0032 | +0% | -43% | Stop loss | 0m |
 | $PushCoin | 82 | -25.4% | -0.0214 | +0% | -39% | Stop loss | 0m |
 | $GRAUDIA | 88 | +5.9% | +0.0050 | +4% | +2% | Time stop | 5m |
@@ -51,10 +52,25 @@ Aggiornato: 2026-11-22 02:31 UTC · in esecuzione da 2.5 giorni · 295 run
 | $cracken | 64 | -37.8% | -0.0339 | +7% | -18% | Time stop | 5m |
 | $リオン | 73 | -22.5% | -0.0203 | +2% | -36% | Stop loss | 4m |
 | $GTAVI | 64 | -37.2% | -0.0337 | +9% | -35% | Stop loss | 1m |
-| $MARS | 75 | +2.3% | +0.0021 | +9% | +2% | Time stop | 5m |
 
 ## Ultimi eventi
 ```
+02:35:58 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 258 veto
+02:35:35 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 255 veto
+02:35:13 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 254 veto
+02:35:09 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
+02:34:48 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 252 veto
+02:34:26 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 259 veto
+02:34:03 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 254 veto
+02:33:40 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 265 veto
+02:33:17 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 261 veto
+02:32:54 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 267 veto
+02:32:30 SCRIBE   chiuso P-0612 $SANTA -0.0689 SOL (-82.2%)
+02:32:30 CHARON   RUG-EXIT liquidità $SANTA vendo 100% a -74.0% -> 0.0149 SOL
+02:32:30 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 258 veto
+02:32:07 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 250 veto
+02:31:44 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 249 veto
+02:31:21 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 263 veto
 02:30:58 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 257 veto
 02:30:35 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 256 veto
 02:30:11 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 268 veto
@@ -79,22 +95,6 @@ Aggiornato: 2026-11-22 02:31 UTC · in esecuzione da 2.5 giorni · 295 run
 02:23:12 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 256 veto
 02:22:49 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 255 veto
 02:22:26 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 254 veto
-02:22:04 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 254 veto
-02:21:40 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 248 veto
-02:21:18 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 241 veto
-02:20:54 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 245 veto
-02:20:41 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 239 veto
-02:20:16 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 237 veto
-02:19:53 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 253 veto
-02:19:29 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 256 veto
-02:19:07 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 255 veto
-02:18:42 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 247 veto
-02:18:20 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 259 veto
-02:17:55 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 251 veto
-02:17:32 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 257 veto
-02:17:09 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 255 veto
-02:16:47 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 252 veto
-02:16:23 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 259 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
