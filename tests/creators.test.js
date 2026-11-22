@@ -92,3 +92,20 @@ test('runner e app: il controllo si aggiorna a ogni scansione; la vista per l\'a
   const v = Semi.view([{ t: 1, mint: 'M', sym: 'S', score: 70, band: '1M-2M', cline: 'creatore sconosciuto', vote: 'y' }], 5)[0]; assert.equal(v.band, '1M-2M'); assert.equal(v.cline, 'creatore sconosciuto'); assert.equal(v.vote, 'y');
   assert.match(html, /a\.band \? 'fascia ' \+ esc\(a\.band\)/); assert.match(html, /esc\(a\.cline\)/);
 });
+
+test('riepilogo uomo e macchina, revisione a 7 giorni con criteri decisi in anticipo, verdetto una volta sola', () => {
+  const T = Date.UTC(2026, 10, 23, 12, 0, 0), al = (i, o) => ({ id: 'a' + String(i).padStart(4, '0'), t: T - i * 60000, band: '500K-1M', ...o });
+  const alerts = [al(1, { vote: 'y' }), al(2, { vote: 'n', sh: { done: true, pct: -12 } }), al(3, {}), al(4, { band: '1M-2M', vote: 'n' })];
+  const journal = [{ src: 'umano', band: '500K-1M', pct: 25, closedAt: T - 3600000 }, { src: 'umano', band: '500K-1M', pct: -20, closedAt: T - 90 * 3600000 }, { src: 'bot', pct: -5, closedAt: T }];
+  const cr = { launches: 900, bandCoins: 12, doubled: 3, cov: { tabella: 6, esterna: 2, sconosciuto: 2 } };
+  const t = Semi.digestText({ alerts, journal, positions: [{ src: 'umano' }, { src: 'bot' }], bandDays: { '2026-11-23': { c: 30, nv: 9 } }, cr, now: T });
+  assert.match(t, /Avvisi oggi: 4 \(500K-1M 3, 1M-2M 1\) · Prendo 1 · Scarto 2 · senza risposta 1/); assert.match(t, /Tue posizioni aperte: 1 · chiuse oggi: 1, netto medio \+25\.0%/);
+  assert.match(t, /Tuoi trade chiusi in tutto: 2 di 50/); assert.match(t, /Scarti simulati chiusi: 1/); assert.match(t, /viste oggi: 30, con punteggio sufficiente: 9/); assert.match(t, /creatore sconosciuto nel 20% dei casi/); assert.ok(!/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u.test(t), 'niente emoji');
+  const since = T - 8 * 86400000, many = Array.from({ length: 20 }, (_, i) => al(i + 5, { t: since + (i + 1) * 3600000 }));
+  const ok = Semi.reviewOf({ alerts: many, journal, cr, since }); assert.equal(ok.enough, true); assert.match(Semi.reviewText(ok), /si va avanti fino a 50 trade chiusi/);
+  const few = Semi.reviewOf({ alerts: many.slice(0, 5), journal, cr, since }); assert.equal(few.enough, false); assert.equal(few.few, true); assert.match(Semi.reviewText(few), /pochi avvisi/);
+  const blind = Semi.reviewOf({ alerts: many, journal, cr: { cov: { tabella: 1, esterna: 0, sconosciuto: 9 } }, since }); assert.equal(blind.blind, true); assert.match(Semi.reviewText(blind), /troppi creatori sconosciuti/);
+  assert.equal(Semi.reviewOf({ alerts: many, journal, cr: null, since }).blind, true, 'senza dati sui creatori: sconosciuto al 100%');
+  const src = fs.readFileSync(require.resolve('../runner/runner.js'), 'utf8');
+  assert.match(src, /humanChecks\(\)\.catch/); assert.match(src, /!st\.humanReviewed && Date\.now\(\) - st\.humanSince/); assert.match(src, /t\.verdict !== 'in corso' && !st\.humanNotified/); assert.match(src, /Semi\.digestText\(/);
+});

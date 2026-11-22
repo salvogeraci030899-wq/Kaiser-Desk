@@ -128,4 +128,33 @@ function controlStats(journal, alerts) {
   return out;
 }
 
-module.exports = { vote, humanStats, humanTrades, bandExits, shadowOpen, shadowStep, controlStats, HCFG, MAX_PER_HOUR, REPEAT_H, TRACK_MS, MODES, pick, alertOf, text, keyboard, pumpUrl, open, track, view };
+// Riepilogo del flusso uomo e macchina per Telegram (senza emoji). Il giorno e' quello italiano, come il riepilogo di sempre.
+const dayIt = (t) => new Date(t + 3600000).toISOString().slice(0, 10);
+const sgn = (n, d = 1) => (n == null ? 'n/d' : (n >= 0 ? '+' : '') + Number(n).toFixed(d));
+function digestText(o) {
+  const now = o.now || Date.now(), day = dayIt(now), al = (o.alerts || []).filter((a) => dayIt(a.t) === day), bands = {};
+  for (const a of al) bands[a.band || 'altro'] = (bands[a.band || 'altro'] || 0) + 1;
+  const mine = (o.journal || []).filter((j) => j.src === 'umano'), today = mine.filter((j) => dayIt(j.closedAt) === day), t = humanTrades(o.journal || []), k = controlStats(o.journal || [], o.alerts || []);
+  const open = (o.positions || []).filter((p) => p.src === 'umano').length, bd = (o.bandDays || {})[new Date(now).toISOString().slice(0, 10)] || { c: 0, nv: 0 }, c = o.cr || {}, cov = c.cov || {}, calls = (cov.tabella || 0) + (cov.esterna || 0) + (cov.sconosciuto || 0);
+  const mean = today.length ? today.reduce((s, j) => s + j.pct, 0) / today.length : null;
+  return `<b>KAISER</b> uomo e macchina ${day}\n` +
+    `Avvisi oggi: ${al.length}${al.length ? ' (' + Object.entries(bands).map(([b, n]) => b + ' ' + n).join(', ') + ')' : ''} · Prendo ${al.filter((a) => a.vote === 'y').length} · Scarto ${al.filter((a) => a.vote === 'n').length} · senza risposta ${al.filter((a) => !a.vote).length}\n` +
+    `Tue posizioni aperte: ${open} · chiuse oggi: ${today.length}${mean == null ? '' : ', netto medio ' + sgn(mean) + '%'}\n` +
+    `Tuoi trade chiusi in tutto: ${t.n} di ${t.cfg.minN}${t.mean == null ? '' : ', netto medio ' + sgn(t.mean) + '% (intervallo ' + sgn(t.lo) + '% / ' + sgn(t.hi) + '%)'}\n` +
+    `Scarti simulati chiusi: ${k.n}${k.nMean == null ? '' : ', netto medio ' + sgn(k.nMean) + '%'}\n` +
+    `Coin di fascia alta viste oggi: ${bd.c}, con punteggio sufficiente: ${bd.nv}\n` +
+    `Creatori: ${c.launches || 0} lanci noti, ${c.bandCoins || 0} Coin in fascia alta, ${c.doubled || 0} raddoppiate${calls ? ', creatore sconosciuto nel ' + Math.round(100 * (cov.sconosciuto || 0) / calls) + '% dei casi' : ''}`;
+}
+// Revisione a 7 giorni, con criteri decisi in anticipo: meno di 15 avvisi in fascia alta, oppure creatore sconosciuto in oltre l'80% dei casi = dati insufficienti
+const REVIEW = { days: 7, minAlerts: 15, maxUnknown: 0.8 };
+function reviewOf(o) {
+  const al = (o.alerts || []).filter((a) => a.band && a.t >= (o.since || 0)), c = (o.cr && o.cr.cov) || {}, calls = (c.tabella || 0) + (c.esterna || 0) + (c.sconosciuto || 0), unk = calls ? (c.sconosciuto || 0) / calls : 1;
+  const t = humanTrades(o.journal || []), few = al.length < REVIEW.minAlerts, blind = unk > REVIEW.maxUnknown;
+  return { alerts: al.length, unknown: +unk.toFixed(2), trades: t.n, need: t.cfg.minN, enough: !few && !blind, few, blind };
+}
+function reviewText(r) {
+  const head = `<b>KAISER</b> revisione a ${REVIEW.days} giorni (criteri decisi in anticipo)\nAvvisi in fascia alta: ${r.alerts} (servono almeno ${REVIEW.minAlerts}) · creatore sconosciuto: ${Math.round(100 * r.unknown)}% (massimo ${Math.round(100 * REVIEW.maxUnknown)}%) · tuoi trade chiusi: ${r.trades} di ${r.need}\n`;
+  return head + (r.enough ? 'I dati bastano: si va avanti fino a ' + r.need + ' trade chiusi, poi si applica la regola di superamento.' : 'I dati non bastano' + (r.few ? ': pochi avvisi' : '') + (r.blind ? ': troppi creatori sconosciuti' : '') + '. Conviene fermare o semplificare il test: decidi tu.');
+}
+
+module.exports = { digestText, reviewOf, reviewText, REVIEW, vote, humanStats, humanTrades, bandExits, shadowOpen, shadowStep, controlStats, HCFG, MAX_PER_HOUR, REPEAT_H, TRACK_MS, MODES, pick, alertOf, text, keyboard, pumpUrl, open, track, view };
