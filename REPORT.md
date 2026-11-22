@@ -1,15 +1,15 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 20:25 UTC · in esecuzione da 3.3 giorni · 317 run
+Aggiornato: 2026-11-22 20:31 UTC · in esecuzione da 3.3 giorni · 317 run
 
 | | |
 |---|---|
-| Equity | **3.9038 SOL** (-34.9% dal capitale iniziale di 6 SOL) |
-| Cassa | 3.9038 SOL |
-| Trade chiusi | 225 |
+| Equity | **3.8755 SOL** (-35.4% dal capitale iniziale di 6 SOL) |
+| Cassa | 3.8755 SOL |
+| Trade chiusi | 226 |
 | Win rate | 31% |
-| P&L realizzato | -2.0962 SOL (~$-146.43) |
-| Media vincite / perdite | +40.1% / -31.5% |
+| P&L realizzato | -2.1245 SOL (~$-148.39) |
+| Media vincite / perdite | +40.1% / -31.6% |
 | Profit factor | 0.57 |
 | Circuit breaker | no |
 
@@ -66,11 +66,12 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | Stop loss | 59 | -1.7213 |
 | Time stop | 86 | -1.0169 |
 | TP1 | 52 | +2.2479 |
-| RUG-EXIT liquidità | 28 | -1.6059 |
+| RUG-EXIT liquidità | 29 | -1.6342 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $retire | 67 | -35.7% | -0.0282 | +1% | -53% | RUG-EXIT liquidità | 1m |
 | $FSDV15 | 88 | -97.8% | -0.0789 | +0% | -97% | RUG-EXIT liquidità | 1m |
 | $Monkey | 67 | -11.1% | -0.0090 | +9% | -29% | Time stop | 5m |
 | $CHRISTMASS | 64 | -13.5% | -0.0110 | +17% | +3% | Time stop | 13m |
@@ -95,10 +96,27 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | $XMASS | 74 | -21.8% | -0.0172 | +0% | -8% | Time stop | 5m |
 | $MOG | 66 | -15.7% | -0.0124 | +15% | +2% | Time stop | 5m |
 | $SI | 70 | -11.4% | -0.0090 | +24% | +3% | Time stop | 5m |
-| $MCAT | 68 | +25.4% | +0.0200 | +96% | +96% | TP1 | 1m |
 
 ## Ultimi eventi
 ```
+20:30:51 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 246 veto
+20:30:27 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 259 veto
+20:30:02 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 261 veto
+20:29:38 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 252 veto
+20:29:14 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 263 veto
+20:28:51 SCRIBE   chiuso P-0662 $retire -0.0282 SOL (-35.7%)
+20:28:51 CHARON   RUG-EXIT liquidità $retire vendo 100% a -52.5% -> 0.0508 SOL
+20:28:51 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 266 veto
+20:28:37 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 259 veto
+20:28:12 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 275 veto
+20:27:48 ORACLE   360 raccolti, 286 analizzati, 1 BUY, 278 veto
+20:27:35 QUARTER  BUY $retire 0.078 SOL score 67 impatto 0.27% (Jupiter)
+20:27:35 QUARTER  SEGNALE $retire score 67 (semi-automatico)
+20:27:35 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 268 veto
+20:27:20 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 266 veto
+20:26:55 ORACLE   360 raccolti, 285 analizzati, 0 BUY, 279 veto
+20:26:32 ORACLE   360 raccolti, 286 analizzati, 0 BUY, 279 veto
+20:26:08 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 271 veto
 20:25:44 ORACLE   360 raccolti, 283 analizzati, 0 BUY, 273 veto
 20:25:20 ORACLE   360 raccolti, 282 analizzati, 0 BUY, 271 veto
 20:24:56 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 268 veto
@@ -121,26 +139,6 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 20:18:59 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 251 veto
 20:18:46 QUARTER  BUY $FSDV15 0.080 SOL score 88 impatto 0.95% (Jupiter)
 20:18:45 QUARTER  SEGNALE $FSDV15 score 88 (semi-automatico)
-20:18:45 ORACLE   337 raccolti, 247 analizzati, 1 BUY, 238 veto
-20:18:21 ORACLE   315 raccolti, 233 analizzati, 0 BUY, 223 veto
-20:18:07 SCOUT    PumpPortal invia nuovi token (21) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-20:17:57 ORACLE   304 raccolti, 230 analizzati, 0 BUY, 223 veto
-20:17:34 ORACLE   277 raccolti, 209 analizzati, 0 BUY, 202 veto
-20:17:10 ORACLE   261 raccolti, 191 analizzati, 0 BUY, 184 veto
-20:16:48 ORACLE   258 raccolti, 188 analizzati, 0 BUY, 181 veto
-20:16:24 ORACLE   226 raccolti, 167 analizzati, 0 BUY, 163 veto
-20:16:08 SCOUT    rug: 11622 token oltre 7.5K, 35.5% rug, 11235 con possessori
-combinazioni: 7248 prove, migliore -4.45%, p 1
-fabbrica: 32556 percorsi, 768 configurazioni, 0 passano, 5000 ms
-20:16:01 ORACLE   212 raccolti, 140 analizzati, 0 BUY, 136 veto
-20:15:41 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-20:15:39 ORACLE   207 raccolti, 140 analizzati, 0 BUY, 136 veto
-20:15:38 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-20:15:37 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
-20:15:37 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120, semiAuto spento→avvisi e paper
-20:15:37 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
-20:15:37 SCOUT    Laboratorio: collegato a PumpPortal
-20:15:36 KAISER   run #317 · 0 posizioni · equity 3.9827 SOL · GMGN spenta (nessuna chiave) · Grok off
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
