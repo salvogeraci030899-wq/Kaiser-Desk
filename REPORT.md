@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 17:40 UTC · in esecuzione da 3.1 giorni · 313 run
+Aggiornato: 2026-11-22 17:44 UTC · in esecuzione da 3.1 giorni · 313 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-22 17:40 UTC · in esecuzione da 3.1 giorni · 313 run
 | Cassa | 3.9203 SOL |
 | Trade chiusi | 214 |
 | Win rate | 31% |
-| P&L realizzato | -2.0797 SOL (~$-146.43) |
+| P&L realizzato | -2.0797 SOL (~$-146.37) |
 | Media vincite / perdite | +38.9% / -31.8% |
 | Profit factor | 0.56 |
 | Circuit breaker | no |
@@ -58,7 +58,7 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | Netto medio dei presi | +69.5% (intervallo -86.7% / +225.6%) |
 | Netto medio degli scartati | n/d% |
 | Differenza presi meno scartati (limite inferiore) | n/d |
-| Senza risposta / decisi dopo 5 minuti | 18 / 0 |
+| Senza risposta / decisi dopo 5 minuti | 19 / 0 |
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -99,6 +99,17 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 
 ## Ultimi eventi
 ```
+17:44:24 SCRIBE   fine run · trade 214 · win 31% · P&L -2.0797 SOL · equity 3.9203 SOL
+17:44:10 ORACLE   360 raccolti, 270 analizzati, 3 BUY, 257 veto
+17:43:47 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 246 veto
+17:43:24 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 251 veto
+17:43:01 ORACLE   360 raccolti, 274 analizzati, 3 BUY, 261 veto
+17:42:39 ORACLE   360 raccolti, 262 analizzati, 3 BUY, 251 veto
+17:42:16 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 249 veto
+17:41:53 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 252 veto
+17:41:30 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 251 veto
+17:41:07 ORACLE   360 raccolti, 280 analizzati, 3 BUY, 269 veto
+17:40:44 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 257 veto
 17:40:22 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 256 veto
 17:39:58 ORACLE   360 raccolti, 269 analizzati, 3 BUY, 259 veto
 17:39:35 ORACLE   360 raccolti, 271 analizzati, 3 BUY, 260 veto
@@ -128,17 +139,6 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 17:31:07 ORACLE   360 raccolti, 244 analizzati, 4 BUY, 234 veto
 17:30:44 ORACLE   360 raccolti, 254 analizzati, 3 BUY, 240 veto
 17:30:20 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 241 veto
-17:29:57 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 226 veto
-17:29:34 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 245 veto
-17:29:11 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 252 veto
-17:28:48 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 250 veto
-17:28:25 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 254 veto
-17:28:02 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 249 veto
-17:27:39 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 249 veto
-17:27:16 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 249 veto
-17:26:53 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 259 veto
-17:26:30 QUARTER  BUY $SANTIA 0.078 SOL score 69 impatto 1.01% (Jupiter)
-17:26:30 QUARTER  SEGNALE $SANTIA score 69 (semi-automatico)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
