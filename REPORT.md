@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 03:30 UTC · in esecuzione da 2.6 giorni · 296 run
+Aggiornato: 2026-11-22 03:35 UTC · in esecuzione da 2.6 giorni · 297 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-22 03:30 UTC · in esecuzione da 2.6 giorni · 296 run
 | Cassa | 4.0653 SOL |
 | Trade chiusi | 178 |
 | Win rate | 30% |
-| P&L realizzato | -1.9347 SOL (~$-134.27) |
+| P&L realizzato | -1.9347 SOL (~$-133.79) |
 | Media vincite / perdite | +40.9% / -32.4% |
 | Profit factor | 0.54 |
 | Circuit breaker | no |
@@ -55,6 +55,31 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+03:35:43 ORACLE   350 raccolti, 283 analizzati, 2 BUY, 268 veto
+03:35:20 ORACLE   342 raccolti, 269 analizzati, 2 BUY, 255 veto
+03:34:57 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
+03:34:57 ORACLE   316 raccolti, 252 analizzati, 2 BUY, 240 veto
+03:34:34 ORACLE   298 raccolti, 236 analizzati, 2 BUY, 223 veto
+03:34:10 ORACLE   291 raccolti, 229 analizzati, 2 BUY, 216 veto
+03:33:46 ORACLE   269 raccolti, 209 analizzati, 2 BUY, 201 veto
+03:33:23 ORACLE   262 raccolti, 204 analizzati, 2 BUY, 196 veto
+03:33:00 ORACLE   260 raccolti, 194 analizzati, 2 BUY, 187 veto
+03:32:38 ORACLE   237 raccolti, 184 analizzati, 2 BUY, 178 veto
+03:32:15 ORACLE   229 raccolti, 175 analizzati, 2 BUY, 169 veto
+03:31:53 ORACLE   224 raccolti, 171 analizzati, 2 BUY, 165 veto
+03:31:31 ORACLE   206 raccolti, 153 analizzati, 2 BUY, 149 veto
+03:31:16 SCOUT    rug: 11698 token oltre 7.5K, 35.7% rug, 9512 con possessori
+combinazioni: 4656 prove, migliore -6.04%, p 1
+fabbrica: 32444 percorsi, 768 configurazioni, 0 passano, 6916 ms
+03:31:09 ORACLE   197 raccolti, 114 analizzati, 1 BUY, 111 veto
+03:30:55 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
+03:30:52 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
+03:30:47 ORACLE   196 raccolti, 114 analizzati, 1 BUY, 111 veto
+03:30:45 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
+03:30:45 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120
+03:30:45 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
+03:30:45 SCOUT    Laboratorio: collegato a PumpPortal
+03:30:44 KAISER   run #297 · 0 posizioni · equity 4.0653 SOL · GMGN spenta (nessuna chiave) · Grok off
 03:30:27 SCRIBE   fine run · trade 178 · win 30% · P&L -1.9347 SOL · equity 4.0653 SOL
 03:30:23 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 242 veto
 03:29:58 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 254 veto
@@ -72,29 +97,6 @@ _nessuna_
 03:25:36 CHARON   Time stop $FRIEND vendo 100% a 4.6% -> 0.0756 SOL
 03:25:36 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 261 veto
 03:25:12 ORACLE   360 raccolti, 287 analizzati, 2 BUY, 272 veto
-03:24:48 ORACLE   360 raccolti, 289 analizzati, 2 BUY, 274 veto
-03:24:24 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 262 veto
-03:24:01 ORACLE   360 raccolti, 284 analizzati, 0 BUY, 274 veto
-03:23:36 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 270 veto
-03:23:13 ORACLE   360 raccolti, 279 analizzati, 2 BUY, 269 veto
-03:22:48 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 265 veto
-03:22:25 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 256 veto
-03:22:02 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 257 veto
-03:21:38 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 267 veto
-03:21:14 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 255 veto
-03:20:50 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 247 veto
-03:20:26 QUARTER  BUY $FRIEND 0.081 SOL score 69 impatto 0.00% (Jupiter)
-03:20:25 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 263 veto
-03:20:02 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 266 veto
-03:19:39 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 259 veto
-03:19:15 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 273 veto
-03:18:51 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 265 veto
-03:18:28 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 250 veto
-03:18:03 ORACLE   360 raccolti, 281 analizzati, 2 BUY, 271 veto
-03:17:40 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 272 veto
-03:17:16 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 267 veto
-03:16:53 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 267 veto
-03:16:29 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 270 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
