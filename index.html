@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.56.2">
+<meta name="kz-build" content="2.56.3">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=4" media="(prefers-color-scheme: light)">
@@ -351,12 +351,12 @@ function renderRadar() {
   el.scrollTop = top; fitRadar();
   $('#lastScan').textContent = rt.lastScan ? new Date(rt.lastScan).toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' }) : 'mai';
 }
-// Due schede sempre intere: l'altezza di ogni riga è metà della lista meno la distanza. Si misura prima del disegno e a ogni cambio di dimensione della finestra.
+// Una scheda Coin per volta, sempre intera. Si misura prima del disegno e a ogni cambio di dimensione della finestra.
 const RADAR_MIN_ROW = 190;
 function fitRadar() {
   const el = $('#radarList'), h = el.clientHeight; if (!h) return;
-  // mai sotto l'altezza del contenuto: se non ci stanno due schede intere se ne vede una e si scorre
-  const row = Math.max(RADAR_MIN_ROW, Math.floor((h - 10) / 2));
+  // una scheda per volta: ogni scheda occupa tutta l'altezza della lista (mai sotto l'altezza del contenuto) e si scorre da una all'altra
+  const row = Math.max(RADAR_MIN_ROW, h);
   if (el.style.getPropertyValue('--row-h') !== row + 'px') el.style.setProperty('--row-h', row + 'px');
 }
 
