@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 04:51 UTC · in esecuzione da 2.6 giorni · 298 run
+Aggiornato: 2026-11-22 04:56 UTC · in esecuzione da 2.6 giorni · 298 run
 
 | | |
 |---|---|
-| Equity | **4.0463 SOL** (-32.6% dal capitale iniziale di 6 SOL) |
-| Cassa | 4.0463 SOL |
-| Trade chiusi | 181 |
+| Equity | **4.0047 SOL** (-33.3% dal capitale iniziale di 6 SOL) |
+| Cassa | 4.0047 SOL |
+| Trade chiusi | 182 |
 | Win rate | 30% |
-| P&L realizzato | -1.9537 SOL (~$-135.45) |
-| Media vincite / perdite | +40.5% / -32.3% |
-| Profit factor | 0.54 |
+| P&L realizzato | -1.9953 SOL (~$-138.15) |
+| Media vincite / perdite | +40.5% / -32.4% |
+| Profit factor | 0.53 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -22,11 +22,12 @@ _nessuna_
 | Stop loss | 51 | -1.4623 |
 | Time stop | 66 | -0.8447 |
 | TP1 | 39 | +1.7977 |
-| RUG-EXIT liquidità | 25 | -1.4445 |
+| RUG-EXIT liquidità | 26 | -1.4861 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $RARE | 63 | -50.7% | -0.0415 | +0% | -56% | RUG-EXIT liquidità | 1m |
 | $Snowball | 64 | +22.1% | +0.0180 | +70% | +70% | TP1 | 5m |
 | $LEONIDA | 72 | -25.1% | -0.0206 | +5% | -31% | Stop loss | 3m |
 | $Tiger | 74 | -20.0% | -0.0164 | +60% | +60% | TP1 | 1m |
@@ -51,10 +52,26 @@ _nessuna_
 | $Emily | 73 | -68.8% | -0.0623 | +33% | -27% | Time stop | 5m |
 | $Lazarus | 74 | +91.9% | +0.0817 | +94% | +94% | TP1 | 5m |
 | $Emily | 70 | +56.6% | +0.0498 | +78% | +78% | TP1 | 5m |
-| $will | 77 | -8.2% | -0.0072 | +14% | -9% | Time stop | 5m |
 
 ## Ultimi eventi
 ```
+04:56:23 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 266 veto
+04:56:20 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)
+04:55:59 ORACLE   360 raccolti, 285 analizzati, 0 BUY, 271 veto
+04:55:36 ORACLE   360 raccolti, 284 analizzati, 0 BUY, 271 veto
+04:55:13 ORACLE   360 raccolti, 283 analizzati, 0 BUY, 269 veto
+04:54:50 ORACLE   360 raccolti, 285 analizzati, 0 BUY, 273 veto
+04:54:27 ORACLE   360 raccolti, 289 analizzati, 0 BUY, 277 veto
+04:54:04 ORACLE   360 raccolti, 284 analizzati, 0 BUY, 271 veto
+04:53:41 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 269 veto
+04:53:18 ORACLE   360 raccolti, 290 analizzati, 1 BUY, 276 veto
+04:53:05 SCRIBE   chiuso P-0618 $RARE -0.0415 SOL (-50.7%)
+04:53:05 CHARON   RUG-EXIT liquidità $RARE vendo 100% a -56.4% -> 0.0404 SOL
+04:52:55 ORACLE   360 raccolti, 282 analizzati, 2 BUY, 269 veto
+04:52:32 ORACLE   360 raccolti, 290 analizzati, 1 BUY, 276 veto
+04:52:09 ORACLE   360 raccolti, 291 analizzati, 1 BUY, 274 veto
+04:51:45 QUARTER  BUY $RARE 0.081 SOL score 63 impatto 1.96% (Jupiter)
+04:51:45 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 264 veto
 04:51:22 QUARTER  $snowball impatto 2.7% oltre slippage: annullato
 04:51:22 ORACLE   360 raccolti, 289 analizzati, 2 BUY, 275 veto
 04:50:59 ORACLE   360 raccolti, 289 analizzati, 1 BUY, 272 veto
@@ -78,23 +95,6 @@ _nessuna_
 04:44:51 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 272 veto
 04:44:28 ORACLE   360 raccolti, 293 analizzati, 1 BUY, 280 veto
 04:44:04 ORACLE   360 raccolti, 289 analizzati, 2 BUY, 277 veto
-04:43:41 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 266 veto
-04:43:18 ORACLE   360 raccolti, 294 analizzati, 2 BUY, 282 veto
-04:42:55 ORACLE   360 raccolti, 291 analizzati, 2 BUY, 278 veto
-04:42:31 ORACLE   360 raccolti, 286 analizzati, 2 BUY, 274 veto
-04:42:08 ORACLE   360 raccolti, 293 analizzati, 2 BUY, 282 veto
-04:41:45 ORACLE   360 raccolti, 286 analizzati, 2 BUY, 275 veto
-04:41:23 ORACLE   360 raccolti, 289 analizzati, 2 BUY, 278 veto
-04:41:09 SCOUT    regola C-064: corrente (nuova strategia: 10K rit. 10s +30/-10 60s: vecchi -7.72%, recenti -7.66%)
-04:41:09 SCOUT    regola C-063: ritirata (302 operazioni in avanti, esito medio -6.8% (±4.1): non regge)
-04:41:09 SCOUT    strategia C-064: corrente: nuova strategia: 10K rit. 10s +30/-10 60s: vecchi -7.72%, recenti -7.66%
-04:41:09 SCOUT    strategia C-063: ritirata: 302 operazioni in avanti, esito medio -6.8% (±4.1): non regge
-04:40:59 QUARTER  BUY $Snowball 0.081 SOL score 64 impatto 0.22% (Jupiter)
-04:40:59 ORACLE   360 raccolti, 294 analizzati, 2 BUY, 282 veto
-04:40:36 QUARTER  $Snowball impatto 2.2% oltre slippage: annullato
-04:40:36 QUARTER  $snowball impatto 3.5% oltre slippage: annullato
-04:40:36 ORACLE   360 raccolti, 294 analizzati, 3 BUY, 281 veto
-04:40:13 QUARTER  $snowball impatto 2.3% oltre slippage: annullato
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
