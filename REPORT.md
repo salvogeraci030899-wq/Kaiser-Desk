@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 16:44 UTC · in esecuzione da 3.1 giorni · 312 run
+Aggiornato: 2026-11-22 16:49 UTC · in esecuzione da 3.1 giorni · 312 run
 
 | | |
 |---|---|
-| Equity | **3.9541 SOL** (-34.1% dal capitale iniziale di 6 SOL) |
-| Cassa | 3.9541 SOL |
+| Equity | **3.9480 SOL** (-34.2% dal capitale iniziale di 6 SOL) |
+| Cassa | 3.8740 SOL |
 | Trade chiusi | 210 |
 | Win rate | 31% |
-| P&L realizzato | -2.0459 SOL (~$-144.35) |
+| P&L realizzato | -2.0459 SOL (~$-144.37) |
 | Media vincite / perdite | +39.3% / -32.0% |
 | Profit factor | 0.56 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$OMGAI** P-0647 · 0.079 SOL · -6.5% · resta 100% · [grafico](https://dexscreener.com/solana/F68Nu1ridRu7jueSJFV7C6zGJdR84faGcaPmjUmqMhSK)
 
 ## Test ingresso rapido (solo paper, quotazioni Jupiter)
 Ipotesi: comprare 5 secondi dopo la creazione, tenere 30 secondi, vendere. Un token su 3, 0.05 SOL a operazione. Serie 2 dal 2026-11-22 11:02 UTC.
@@ -99,6 +99,22 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 
 ## Ultimi eventi
 ```
+16:49:25 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 260 veto
+16:49:01 QUARTER  BUY $OMGAI 0.079 SOL score 75 impatto 1.39% (Jupiter)
+16:49:01 QUARTER  SEGNALE $OMGAI score 75 (semi-automatico)
+16:49:01 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 260 veto
+16:48:38 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 257 veto
+16:48:14 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 255 veto
+16:48:08 SCOUT    Laboratorio: collegato a PumpPortal
+16:47:51 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 260 veto
+16:47:28 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 254 veto
+16:47:05 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 248 veto
+16:46:42 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 257 veto
+16:46:18 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 261 veto
+16:45:55 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 252 veto
+16:45:31 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 268 veto
+16:45:08 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 265 veto
+16:44:45 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 261 veto
 16:44:21 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 274 veto
 16:43:59 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 272 veto
 16:43:35 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 263 veto
@@ -123,22 +139,6 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 16:36:16 ORACLE   360 raccolti, 283 analizzati, 0 BUY, 276 veto
 16:35:53 ORACLE   360 raccolti, 283 analizzati, 0 BUY, 276 veto
 16:35:31 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 272 veto
-16:35:08 ORACLE   360 raccolti, 287 analizzati, 0 BUY, 280 veto
-16:34:45 ORACLE   360 raccolti, 282 analizzati, 0 BUY, 273 veto
-16:34:21 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 266 veto
-16:33:58 ORACLE   360 raccolti, 284 analizzati, 0 BUY, 275 veto
-16:33:35 ORACLE   360 raccolti, 290 analizzati, 0 BUY, 281 veto
-16:33:12 ORACLE   360 raccolti, 284 analizzati, 0 BUY, 276 veto
-16:33:08 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
-16:32:48 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 272 veto
-16:32:26 ORACLE   360 raccolti, 288 analizzati, 0 BUY, 281 veto
-16:32:03 SCRIBE   chiuso P-0646 $poorcat 0.0099 SOL (12.4%)
-16:32:03 CHARON   Time stop $poorcat vendo 100% a -7.6% -> 0.0898 SOL
-16:32:03 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 272 veto
-16:31:40 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 274 veto
-16:31:17 ORACLE   360 raccolti, 284 analizzati, 0 BUY, 277 veto
-16:30:54 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 270 veto
-16:30:30 ORACLE   360 raccolti, 286 analizzati, 1 BUY, 279 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
