@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.62.0">
+<meta name="kz-build" content="2.62.1">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=4" media="(prefers-color-scheme: light)">
@@ -215,7 +215,7 @@ const st = { mode: ['real', 'strat'].includes(prefGet('kz_mode', 'paper')) ? pre
 const rt = { gcache: {}, seen: new Map(), imgs: new Map(), cands: new Map(), sec: new Map(), run: null, runErr: '', exec: null, execErr: '', par: null, parErr: '', draft: {}, prices: new Map(), solUsd: 0, scanning: false, lastScan: 0, filter: 'all', logs: [] };
 const S = () => {   // stesse regole e filtri del runner; in solo uomo i limiti della fascia alta valgono sopra qualunque valore salvato prima
   const s = { ...DEFAULTS, ...((rt.run && rt.run.config) || {}) };
-  if (s.humanOnly) { s.minMcap = Math.max(Number(s.minMcap) || 0, Number(s.bandMin) || 500000); s.minLiq = Math.max(Number(s.minLiq) || 0, DEFAULTS.minLiq); }
+  if (s.humanOnly) { s.minMcap = Math.max(Number(s.minMcap) || 0, Number(s.bandMin) || 500000); s.minLiq = Math.max(Number(s.minLiq) || 0, DEFAULTS.minLiq); s.maxMcap = Math.max(Number(s.maxMcap) || 0, DEFAULTS.maxMcap); s.maxAgeH = Math.max(Number(s.maxAgeH) || 0, DEFAULTS.maxAgeH); }
   return s;
 };
 

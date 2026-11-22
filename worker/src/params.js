@@ -12,7 +12,7 @@ export const GROUPS = [
   { id: 'auto', page: 'paper', title: 'Autopilota del runner (spento in modalità solo uomo)' },
   { id: 'risk', page: 'paper', title: 'Capitale e rischio (paper)' },
   { id: 'exit', page: 'paper', title: 'Uscite del bot (Charon): non valgono per i Prendo' },
-  { id: 'filt', page: 'paper', title: 'Filtri di selezione (valgono anche per il reale; la fascia alta fissa i minimi di market cap e liquidità)' },
+  { id: 'filt', page: 'paper', title: 'Filtri di selezione (valgono anche per il reale; in solo uomo la fascia alta impone i minimi di market cap e liquidità e i massimi di market cap ed età: i valori salvati più stretti non contano)' },
   { id: 'real', page: 'real', title: 'Ordini reali dal runner' },
   { id: 'rexit', page: 'real', title: 'Uscite (Charon, reale)' },
   { id: 'shield', page: 'real', title: 'Scudo: protezione del trading manuale da pump.fun' },
