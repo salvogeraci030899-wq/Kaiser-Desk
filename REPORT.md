@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 16:59 UTC · in esecuzione da 3.1 giorni · 313 run
+Aggiornato: 2026-11-22 17:04 UTC · in esecuzione da 3.1 giorni · 313 run
 
 | | |
 |---|---|
-| Equity | **3.9581 SOL** (-34.0% dal capitale iniziale di 6 SOL) |
-| Cassa | 3.9581 SOL |
+| Equity | **3.9557 SOL** (-34.1% dal capitale iniziale di 6 SOL) |
+| Cassa | 3.8779 SOL |
 | Trade chiusi | 212 |
 | Win rate | 32% |
-| P&L realizzato | -2.0419 SOL (~$-144.15) |
+| P&L realizzato | -2.0419 SOL (~$-143.45) |
 | Media vincite / perdite | +38.9% / -31.9% |
 | Profit factor | 0.56 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$BTC** P-0649 · 0.079 SOL · -1.8% · resta 100% · [grafico](https://dexscreener.com/solana/5SbQSTCsg2HAThajC6k9Kxy2K4VDTRDZWXSb2uuQ1soQ)
 
 ## Test ingresso rapido (solo paper, quotazioni Jupiter)
 Ipotesi: comprare 5 secondi dopo la creazione, tenere 30 secondi, vendere. Un token su 3, 0.05 SOL a operazione. Serie 2 dal 2026-11-22 11:02 UTC.
@@ -58,7 +58,7 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | Netto medio dei presi | +69.5% (intervallo -86.7% / +225.6%) |
 | Netto medio degli scartati | n/d% |
 | Differenza presi meno scartati (limite inferiore) | n/d |
-| Senza risposta / decisi dopo 5 minuti | 14 / 0 |
+| Senza risposta / decisi dopo 5 minuti | 15 / 0 |
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -99,6 +99,21 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 
 ## Ultimi eventi
 ```
+17:04:35 QUARTER  BUY $BTC 0.079 SOL score 64 impatto 0.80% (Jupiter)
+17:04:34 QUARTER  SEGNALE $BTC score 64 (semi-automatico)
+17:04:34 ORACLE   360 raccolti, 272 analizzati, 3 BUY, 262 veto
+17:04:11 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 270 veto
+17:03:48 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 258 veto
+17:03:26 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 265 veto
+17:03:03 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 271 veto
+17:02:41 ORACLE   360 raccolti, 274 analizzati, 2 BUY, 268 veto
+17:02:19 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 259 veto
+17:01:56 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 268 veto
+17:01:32 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 271 veto
+17:01:09 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 268 veto
+17:00:45 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 263 veto
+17:00:22 ORACLE   360 raccolti, 281 analizzati, 0 BUY, 269 veto
+17:00:00 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 265 veto
 16:59:37 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 268 veto
 16:59:14 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 263 veto
 16:58:51 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 261 veto
@@ -126,21 +141,6 @@ fabbrica: 32603 percorsi, 768 configurazioni, 0 passano, 6287 ms
 16:54:27 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
 16:54:25 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120, semiAuto spento→avvisi e paper
 16:54:25 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
-16:54:25 SCOUT    Laboratorio: collegato a PumpPortal
-16:54:25 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
-16:54:24 KAISER   run #313 · 0 posizioni · equity 3.9636 SOL · GMGN spenta (nessuna chiave) · Grok off
-16:54:11 SCRIBE   fine run · trade 211 · win 32% · P&L -2.0364 SOL · equity 3.9636 SOL
-16:54:05 QUARTER  $FOAM impatto 2.2% oltre slippage: annullato
-16:54:05 QUARTER  SEGNALE $FOAM score 70 (semi-automatico)
-16:54:05 SCRIBE   chiuso P-0647 $OMGAI 0.0095 SOL (11.9%)
-16:54:05 CHARON   Time stop $OMGAI vendo 100% a 4.3% -> 0.0896 SOL
-16:54:05 ORACLE   360 raccolti, 282 analizzati, 3 BUY, 273 veto
-16:53:40 ORACLE   360 raccolti, 294 analizzati, 2 BUY, 284 veto
-16:53:17 ORACLE   360 raccolti, 290 analizzati, 2 BUY, 281 veto
-16:52:54 ORACLE   360 raccolti, 292 analizzati, 2 BUY, 282 veto
-16:52:31 ORACLE   360 raccolti, 297 analizzati, 1 BUY, 286 veto
-16:52:08 ORACLE   360 raccolti, 294 analizzati, 1 BUY, 285 veto
-16:51:45 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 269 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
