@@ -81,6 +81,14 @@ class Creators {
     if (s.launches) bits.push(`${s.launches} token lanciati, ${s.high} arrivati in alto`);
     return bits.length ? 'creatore: ' + bits.join('; ') : 'creatore: nessuno storico';
   }
+  // Vista compatta per l'app: i creatori con Coin in fascia alta (prima quelli con Coin raddoppiate) e le Coin viste di recente; indirizzi abbreviati
+  view(n) {
+    const lim = n || 10, short = (a) => (a ? a.slice(0, 4) + '...' + a.slice(-4) : ''), per = new Map();
+    for (const b of Object.values(this.band)) { const p = per.get(b.c) || { c: b.c, band: 0, doubled: 0, best: 0 }; p.band++; if (b.m >= 2 * b.f) p.doubled++; if (b.m > p.best) p.best = b.m; per.set(b.c, p); }
+    const top = [...per.values()].sort((a, b) => b.doubled - a.doubled || b.best - a.best).slice(0, lim).map((p) => { const l = this.launches.get(p.c) || { n: 0, high: 0 }; return { c: short(p.c), band: p.band, doubled: p.doubled, best: p.best, launches: l.n, high: l.high }; });
+    const coins = Object.entries(this.band).sort((a, b) => b[1].t - a[1].t).slice(0, 12).map(([, b]) => ({ s: b.s, c: short(b.c), f: b.f, m: b.m, t: b.t }));
+    return { ...this.summary(), top, coins };
+  }
   save() {
     if (!this.bandFile || !this.dirty) return false;
     try { fs.mkdirSync(path.dirname(this.bandFile), { recursive: true }); fs.writeFileSync(this.bandFile, JSON.stringify({ v: 1, band: this.band })); this.dirty = false; return true; } catch { return false; }

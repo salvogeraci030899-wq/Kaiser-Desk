@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.62.1">
+<meta name="kz-build" content="2.63.0">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=4" media="(prefers-color-scheme: light)">
@@ -493,6 +493,9 @@ async function loadFast() { await Promise.all([loadRunner(), loadExec()]); await
 
 // ---------- PAPER / REALE ----------
 function applyMode() {
+  const only = !!S().humanOnly;      // solo uomo: il vecchio conto Strategia non esiste piu', la modalita' si nasconde
+  document.querySelectorAll('.modeSeg button[data-mode="strat"]').forEach((b) => { b.hidden = only; });
+  if (only && st.mode === 'strat') { st.mode = 'paper'; prefSet('kz_mode', 'paper'); }
   document.documentElement.classList.toggle('mode-real', st.mode === 'real');
   document.querySelectorAll('.modeSeg button').forEach((b) => b.classList.toggle('on', b.dataset.mode === st.mode));
 }
@@ -647,7 +650,20 @@ document.addEventListener('click', async (e) => {
 function openStudio() { openFull('Studio', studioHtml(), 'studio'); studioMount(); stuPoll(); }
 setInterval(() => { if (!document.hidden && ((rt.fullKey === 'studio' && (rt.stu || []).some((x) => x.status === 'in coda' || x.status === 'in corso')) || Date.now() - (rt.stuAt || 0) > 60000)) { rt.stuAt = Date.now(); stuPoll(); } }, 3000);
 
+// Laboratorio in solo uomo: la ricerca sui creatori (memoria dei lanci, Coin di fascia alta, creatori migliori)
+function renderCreators() {
+  const C = rt.run && rt.run.creators, el = $('#labBody'); if (!el) return;
+  const k = (v) => (v >= 1e6 ? (v / 1e6).toFixed(1) + 'M' : v >= 1e3 ? (v / 1e3).toFixed(0) + 'K' : String(Math.round(v || 0))), row = (a, b) => `<span>${a}</span><span class="mono">${b}</span>`;
+  if (!C) { el.innerHTML = '<div class="card"><span class="muted small">La ricerca sui creatori parte con il prossimo run del runner: i primi dati arrivano dopo qualche minuto.</span></div>'; return; }
+  const cv = C.cov || {}, calls = (cv.tabella || 0) + (cv.esterna || 0) + (cv.sconosciuto || 0), unk = calls ? Math.round(100 * (cv.sconosciuto || 0) / calls) + '%' : 'n/d';
+  const top = (C.top || []).map((t) => `<tr><td style="white-space:nowrap">${esc(t.c)}</td><td>${t.band}</td><td>${t.doubled}</td><td>${k(t.best)}</td><td>${t.launches}/${t.high}</td></tr>`).join('');
+  const coins = (C.coins || []).map((c) => `<tr><td>${esc(c.s || '?')}</td><td style="white-space:nowrap">${esc(c.c)}</td><td>${k(c.f)}</td><td>${k(c.m)}</td><td>${c.f ? (c.m / c.f).toFixed(1) + 'x' : '-'}</td></tr>`).join('');
+  el.innerHTML = `<div style="grid-column:1/-1;display:flex;flex-direction:column;gap:10px;min-width:0"><div class="card"><div class="tiny muted" style="margin-bottom:6px"><b>Ricerca sui creatori (sempre attiva)</b></div><div class="kv">${row('Lanci noti · creatori', C.launches + ' · ' + C.creators)}${row('Coin di fascia alta viste · creatori', C.bandCoins + ' · ' + C.bandCreators)}${row('Raddoppiate · creatori', C.doubled + ' · ' + C.doubledCreators)}${row('Creatore non trovato', unk + ' dei casi (tabella ' + (cv.tabella || 0) + ', esterna ' + (cv.esterna || 0) + ')')}</div></div>`
+    + `<div class="card"><div class="tiny muted" style="margin-bottom:6px"><b>Creatori migliori</b> (Coin in fascia, raddoppiate, massimo, lanci/in alto)</div>${top ? `<table class="ltab" style="table-layout:auto"><tr><th>Creatore</th><th>Coin</th><th>Racc.</th><th>Max</th><th>Lanci</th></tr>${top}</table>` : '<span class="muted small">Nessun creatore ancora: la memoria si riempie man mano che il Radar vede Coin di fascia alta.</span>'}</div>`
+    + `<div class="card"><div class="tiny muted" style="margin-bottom:6px"><b>Coin di fascia alta viste di recente</b> (market cap alla prima lettura, massimo)</div>${coins ? `<table class="ltab" style="table-layout:auto"><tr><th>Coin</th><th>Creatore</th><th>Prima</th><th>Max</th><th>x</th></tr>${coins}</table>` : '<span class="muted small">Nessuna Coin ancora.</span>'}</div></div>`;
+}
 function renderLab() {
+  if (S().humanOnly) return renderCreators();
   const run = rt.run, kvRow = (k, v, c) => `<span>${k}</span><span class="mono ${c || ''}">${v}</span>`; let body = '';
     const L = run && run.lab, none2 = '<span class="muted small">Il Laboratorio osserva le Coin nuove di pump.fun: i primi risultati arrivano dopo circa 20 minuti dall\'avvio del runner con il codice nuovo.</span>';
     if (!L) body = none2; else {

@@ -111,3 +111,14 @@ test('riepilogo uomo e macchina, revisione a 7 giorni con criteri decisi in anti
   const src = fs.readFileSync(require.resolve('../runner/runner.js'), 'utf8');
   assert.match(src, /humanChecks\(\)\.catch/); assert.match(src, /!st\.humanReviewed && Date\.now\(\) - st\.humanSince/); assert.match(src, /t\.verdict !== 'in corso' && !st\.humanNotified/); assert.match(src, /Semi\.digestText\(/);
 });
+
+test('vista per l\'app: creatori migliori (prima quelli con Coin raddoppiate), Coin recenti, indirizzi abbreviati; Laboratorio e modalita\' Strategia in solo uomo', () => {
+  const T = 1_700_000_000_000; let now = T; const c = new Creators({ dir: '', bandFile: '', now: () => now }), a = id(950), b = id(951);
+  c.noteLaunch({ mint: id(40), creator: a, at: 1 }); c.noteLaunch({ mint: id(41), creator: b, at: 2 });
+  c.noteBand(id(40), 'AAA', 600000, a); now += 1000; c.noteBand(id(41), 'BBB', 700000, b); c.noteBand(id(40), 'AAA', 1500000, a);
+  const v = c.view(5); assert.equal(v.top.length, 2); assert.equal(v.top[0].doubled, 1, 'prima il creatore con la Coin raddoppiata'); assert.equal(v.top[0].c, a.slice(0, 4) + '...' + a.slice(-4)); assert.ok(!JSON.stringify(v).includes(a), 'indirizzo intero mai nella vista');
+  assert.equal(v.coins[0].s, 'BBB', 'prima la piu\' recente'); assert.equal(v.bandCoins, 2); assert.equal(v.doubled, 1); assert.equal(c.view(1).top.length, 1);
+  const src = fs.readFileSync(require.resolve('../runner/runner.js'), 'utf8'), html = fs.readFileSync(require.resolve('../index.html'), 'utf8');
+  assert.match(src, /creators: rt\.creators \? rt\.creators\.view\(10\) : null/); assert.match(src, /st\.stratResetV !== 1\) \{ rt\.strat = Strat\.create\(\)/);
+  assert.match(html, /function renderLab\(\) \{\n  if \(S\(\)\.humanOnly\) return renderCreators\(\);/); assert.match(html, /data-mode="strat"\]'\)\.forEach\(\(b\) => \{ b\.hidden = only; \}\)/); assert.match(html, /if \(only && st\.mode === 'strat'\)/);
+});
