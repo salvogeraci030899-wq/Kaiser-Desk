@@ -107,7 +107,7 @@ function publicSummary() {
     journal: st.journal.slice(-100).map((j) => ({ id: j.id, mint: j.mint, sym: j.sym, openedAt: j.openedAt, closedAt: j.closedAt, cost: j.cost, back: j.back, pnl: j.pnl, pct: j.pct, reason: j.reason, score: j.score, peakPct: j.peakPct, trigPct: j.trigPct, maePct: j.maePct == null ? null : j.maePct, age: j.age == null ? null : j.age })),
     events: st.events.slice(0, 40), config: cfg,
     young: Y.youngSummary(rt.young, Date.now(), 80, (m) => (rt.trades ? rt.trades.botNow(m) : null)),
-    cal: calSummary(st.cal), semi: S.semiAuto || 'spento', alerts: Semi.view(st.alerts || [], 20), grok: { on: !!S.grokTest, key: !!process.env.XAI_API_KEY, used: rt.grokDay.n, err: rt.grokErr, errMsg: rt.grokErrMsg, queued: rt.grokQ.length, stat: Grokstat.summary(st.grokLog || []) }, farm: rt.farm || null, rug: rt.rug || null, combo: rt.combo || null, hold: { ok: rt.holdOk, fail: rt.holdFail, queued: rt.holdQ.length, err: rt.holdErr }, probe: rt.probe || null, strat: Object.assign(Strat.summary(rt.strat, Date.now()), { live: rt.shadowOpen || [] }),
+    creators: rt.creators ? rt.creators.view(10) : null, cal: calSummary(st.cal), semi: S.semiAuto || 'spento', alerts: Semi.view(st.alerts || [], 20), grok: { on: !!S.grokTest, key: !!process.env.XAI_API_KEY, used: rt.grokDay.n, err: rt.grokErr, errMsg: rt.grokErrMsg, queued: rt.grokQ.length, stat: Grokstat.summary(st.grokLog || []) }, farm: rt.farm || null, rug: rt.rug || null, combo: rt.combo || null, hold: { ok: rt.holdOk, fail: rt.holdFail, queued: rt.holdQ.length, err: rt.holdErr }, probe: rt.probe || null, strat: Object.assign(Strat.summary(rt.strat, Date.now()), { live: rt.shadowOpen || [] }),
     lab: rt.trades || (st.lab && st.lab.done.length) ? { info: rt.trades ? rt.trades.status() : null, ...Lab.labSummary((st.lab && st.lab.done) || [], Date.now()) } : null, youngInfo: rt.feed ? { ...rt.feed.status(), tracked: [...rt.young.values()].filter((y) => y.tracked).length } : null,
   };
 }
@@ -939,7 +939,9 @@ function resetForBand() {
 }
 async function main() {
   const wasReset = resetForBand();
-  rt.strat = Strat.load(STRAT_FILE()); if (!S.humanOnly) { loadFarm(); loadProbe(); }
+  rt.strat = Strat.load(STRAT_FILE());
+  if (S.humanOnly && st.stratResetV !== 1) { rt.strat = Strat.create(); rt.stratDirty = true; st.stratResetV = 1; Strat.save(STRAT_FILE(), rt.strat); log('KAISER', 'reset: vecchio conto Strategia azzerato (i dati grezzi del Laboratorio si eliminano da soli dopo 7 giorni)'); }
+  if (!S.humanOnly) { loadFarm(); loadProbe(); }
   rt.snipe = new Snipe.Snipe({ quote: snipeQuote, file: path.join(STATE_DIR, 'snipe.json'), cfg: snipeCfg(), log: (m) => log('SNIPE', m) });
   rt.grad = new Grad.Grad({ quote: snipeQuote, file: path.join(STATE_DIR, 'grad.json'), cfg: gradCfg(), log: (m) => log('MIGRATI', m) });
   rt.creators = new Creators.Creators({ dir: path.join(STATE_DIR, 'lab', 'creators'), bandFile: path.join(STATE_DIR, 'creators-band.json'), fetch: (u, i) => fetch(u, i), log: (m) => log('CREATORI', m) }).load();
