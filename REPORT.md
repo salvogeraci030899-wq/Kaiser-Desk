@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 13:08 UTC · in esecuzione da 3.0 giorni · 308 run
+Aggiornato: 2026-11-22 13:13 UTC · in esecuzione da 3.0 giorni · 308 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-22 13:08 UTC · in esecuzione da 3.0 giorni · 308 run
 | Cassa | 3.9049 SOL |
 | Trade chiusi | 201 |
 | Win rate | 31% |
-| P&L realizzato | -2.0951 SOL (~$-146.63) |
+| P&L realizzato | -2.0951 SOL (~$-146.83) |
 | Media vincite / perdite | +39.2% / -32.5% |
 | Profit factor | 0.54 |
 | Circuit breaker | no |
@@ -99,6 +99,19 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 
 ## Ultimi eventi
 ```
+13:13:49 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 266 veto
+13:13:26 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 266 veto
+13:13:03 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 267 veto
+13:12:40 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 263 veto
+13:12:15 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 265 veto
+13:11:52 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 269 veto
+13:11:29 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 266 veto
+13:11:06 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 266 veto
+13:10:42 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 266 veto
+13:10:18 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 264 veto
+13:09:54 ORACLE   360 raccolti, 282 analizzati, 0 BUY, 271 veto
+13:09:31 ORACLE   360 raccolti, 283 analizzati, 0 BUY, 272 veto
+13:09:07 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 267 veto
 13:08:43 ORACLE   360 raccolti, 283 analizzati, 0 BUY, 272 veto
 13:08:18 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 267 veto
 13:07:54 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 260 veto
@@ -126,19 +139,6 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 13:00:46 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 258 veto
 13:00:22 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 264 veto
 13:00:08 SCRIBE   chiuso P-0637 $MCAT 0.0200 SOL (25.4%)
-13:00:08 CHARON   TP1 $MCAT vendo 100% a 96.3% -> 0.0987 SOL
-13:00:08 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 265 veto
-12:59:43 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 259 veto
-12:59:20 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 266 veto
-12:58:56 QUARTER  BUY $MCAT 0.078 SOL score 68 impatto 0.00% (Jupiter)
-12:58:55 QUARTER  SEGNALE $MCAT score 68 (semi-automatico)
-12:58:55 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 266 veto
-12:58:32 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 266 veto
-12:58:08 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 270 veto
-12:57:44 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 269 veto
-12:57:21 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 267 veto
-12:56:57 ORACLE   360 raccolti, 284 analizzati, 0 BUY, 273 veto
-12:56:33 ORACLE   360 raccolti, 281 analizzati, 0 BUY, 270 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
