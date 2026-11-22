@@ -455,8 +455,8 @@ nav { height: 62px; margin-top: 4px; }
 .labcard { margin-bottom: 10px; } .labcard .kv { margin-bottom: 2px; }
 
 /* Segnali semi-automatici */
-.semi { margin: 0 0 8px; padding: 8px 12px; } .semihead { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
-.semirow { display: flex; gap: 8px; align-items: center; justify-content: space-between; padding: 6px 0; border-top: 1px solid var(--border); } .semitxt { min-width: 0; } .semirow .btn { flex: 0 0 auto; }
+.semi { margin: 0 0 8px; padding: 2px 12px; } .semihead { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+.semirow { display: flex; gap: 8px; align-items: center; justify-content: space-between; padding: 6px 0; } .semitxt { min-width: 0; } .semirow .btn { flex: 0 0 auto; }
 #v-radar.active.semi-on { grid-template-rows: 40px auto 38px minmax(0, 1fr); } #semiBox:empty { display: none; } #semiBox .semi { margin: 0; }
 
 /* Studio del Laboratorio */
@@ -576,3 +576,9 @@ html.glass[data-theme="light"] nav { box-shadow: var(--glass-light), 0 4px 16px 
 .sheet .inner { max-height: calc(100% - var(--safe-top) - 12px); }
 .sheet.full .inner { height: 100%; max-height: none; padding-top: calc(var(--safe-top) + 14px); }
 .sheet.full .inner > .grab { display: none; }
+
+/* radar a due schede per volta: scheda compatta (senza la riga di testo delle vendite, la barra resta) cosi' due schede stanno nello spazio della lista */
+#radarList > .tcard { padding: 8px 12px; gap: 4px; }
+#radarList .press-l { display: none; }
+#radarList .metrics .m { padding: 3px 8px; }
+#radarList .press { margin-top: 0; }
