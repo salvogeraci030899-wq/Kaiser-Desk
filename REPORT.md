@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 09:27 UTC · in esecuzione da 2.8 giorni · 304 run
+Aggiornato: 2026-11-22 09:32 UTC · in esecuzione da 2.8 giorni · 304 run
 
 | | |
 |---|---|
-| Equity | **3.9409 SOL** (-34.3% dal capitale iniziale di 6 SOL) |
-| Cassa | 3.9409 SOL |
+| Equity | **3.9434 SOL** (-34.3% dal capitale iniziale di 6 SOL) |
+| Cassa | 3.8611 SOL |
 | Trade chiusi | 196 |
 | Win rate | 31% |
-| P&L realizzato | -2.0591 SOL (~$-143.64) |
+| P&L realizzato | -2.0591 SOL (~$-143.63) |
 | Media vincite / perdite | +39.6% / -32.4% |
 | Profit factor | 0.54 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$MooSom** P-0633 · 0.079 SOL · +4.4% · resta 100% · [grafico](https://dexscreener.com/solana/eZeDqpiodAYfmG1fj2T9z6dhCEEocpUNYXhDHicSLnz)
 
 ## Test ingresso rapido (solo paper, quotazioni Jupiter)
 Ipotesi: comprare 5 secondi dopo la creazione, tenere 30 secondi, vendere. Un token su 3, 0.05 SOL a operazione. Serie 1 dal 2026-11-22 09:22 UTC.
@@ -22,13 +22,13 @@ Regola decisa in anticipo: almeno 300 operazioni, netto medio >= +3% e limite in
 
 | | |
 |---|---|
-| Esito | **in corso** (21 di 300 operazioni) |
-| Netto medio per operazione | -60.1% (intervallo -82.9% / -37.3%) |
-| Mediana / operazioni in utile | -100.0% / 9.5% |
-| Quota dei guadagni dall'1% migliore | 81% |
-| Token campionati / con rotta di acquisto | 24 / 24 (100%) |
+| Esito | **in corso** (63 di 300 operazioni) |
+| Netto medio per operazione | -54.9% (intervallo -68.0% / -41.7%) |
+| Mediana / operazioni in utile | -77.7% / 11.1% |
+| Quota dei guadagni dall'1% migliore | 31% |
+| Token campionati / con rotta di acquisto | 69 / 68 (98.6%) |
 | Tempo per ottenere la quotazione (mediana / 90%) | 5.0 s / 5.1 s |
-| Senza rotta in acquisto / in vendita (perdita totale) | 0 / 11 |
+| Senza rotta in acquisto / in vendita (perdita totale) | 0 / 27 |
 | Errori di rete (acquisto / vendita) / interrotte a fine run | 0 / 0 / 0 |
 
 ## Uscite per motivo
@@ -70,6 +70,23 @@ Regola decisa in anticipo: almeno 300 operazioni, netto medio >= +3% e limite in
 
 ## Ultimi eventi
 ```
+09:32:27 ORACLE   360 raccolti, 283 analizzati, 2 BUY, 262 veto
+09:32:03 ORACLE   360 raccolti, 289 analizzati, 3 BUY, 267 veto
+09:31:39 ORACLE   360 raccolti, 279 analizzati, 3 BUY, 258 veto
+09:31:16 ORACLE   360 raccolti, 294 analizzati, 3 BUY, 269 veto
+09:30:52 ORACLE   360 raccolti, 291 analizzati, 1 BUY, 265 veto
+09:30:28 ORACLE   360 raccolti, 293 analizzati, 1 BUY, 269 veto
+09:30:05 ORACLE   360 raccolti, 300 analizzati, 1 BUY, 277 veto
+09:29:41 ORACLE   360 raccolti, 292 analizzati, 1 BUY, 269 veto
+09:29:18 ORACLE   360 raccolti, 293 analizzati, 1 BUY, 270 veto
+09:29:14 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)
+09:28:54 ORACLE   359 raccolti, 297 analizzati, 1 BUY, 273 veto
+09:28:30 ORACLE   353 raccolti, 292 analizzati, 2 BUY, 268 veto
+09:28:06 QUARTER  BUY $MooSom 0.079 SOL score 76 impatto 1.62% (Jupiter)
+09:28:06 ORACLE   351 raccolti, 279 analizzati, 2 BUY, 256 veto
+09:27:42 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
+09:27:42 QUARTER  $MooSom impatto 2.2% oltre slippage: annullato
+09:27:42 ORACLE   327 raccolti, 264 analizzati, 2 BUY, 243 veto
 09:27:19 ORACLE   320 raccolti, 259 analizzati, 2 BUY, 238 veto
 09:26:55 ORACLE   316 raccolti, 251 analizzati, 2 BUY, 232 veto
 09:26:31 ORACLE   290 raccolti, 230 analizzati, 2 BUY, 214 veto
@@ -95,23 +112,6 @@ fabbrica: 32682 percorsi, 768 configurazioni, 0 passano, 8092 ms
 09:22:14 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
 09:22:14 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120
 09:22:14 SCOUT    Laboratorio: collegato a PumpPortal
-09:22:14 KAISER   run #304 · 1 posizioni · equity 3.9466 SOL · GMGN spenta (nessuna chiave) · Grok off
-09:22:01 SCRIBE   fine run · trade 195 · win 31% · P&L -2.0503 SOL · equity 3.9466 SOL
-09:21:49 ORACLE   360 raccolti, 297 analizzati, 1 BUY, 274 veto
-09:21:26 ORACLE   360 raccolti, 292 analizzati, 2 BUY, 271 veto
-09:21:02 ORACLE   360 raccolti, 295 analizzati, 2 BUY, 275 veto
-09:20:39 ORACLE   360 raccolti, 295 analizzati, 2 BUY, 275 veto
-09:20:16 ORACLE   360 raccolti, 291 analizzati, 2 BUY, 272 veto
-09:19:53 ORACLE   360 raccolti, 293 analizzati, 2 BUY, 275 veto
-09:19:30 ORACLE   360 raccolti, 297 analizzati, 2 BUY, 279 veto
-09:19:07 ORACLE   360 raccolti, 294 analizzati, 3 BUY, 277 veto
-09:18:42 ORACLE   360 raccolti, 298 analizzati, 3 BUY, 283 veto
-09:18:19 ORACLE   360 raccolti, 297 analizzati, 3 BUY, 282 veto
-09:17:57 ORACLE   360 raccolti, 293 analizzati, 3 BUY, 279 veto
-09:17:33 QUARTER  BUY $RDIFF 0.079 SOL score 66 impatto 1.05% (Jupiter)
-09:17:33 SCRIBE   chiuso P-0631 $cateball 0.0004 SOL (0.5%)
-09:17:33 CHARON   Time stop $cateball vendo 100% a -1.1% -> 0.0804 SOL
-09:17:33 ORACLE   360 raccolti, 293 analizzati, 4 BUY, 280 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
