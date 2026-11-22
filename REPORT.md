@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 05:16 UTC · in esecuzione da 2.6 giorni · 299 run
+Aggiornato: 2026-11-22 05:21 UTC · in esecuzione da 2.6 giorni · 299 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-22 05:16 UTC · in esecuzione da 2.6 giorni · 299 run
 | Cassa | 3.9695 SOL |
 | Trade chiusi | 184 |
 | Win rate | 29% |
-| P&L realizzato | -2.0305 SOL (~$-139.96) |
+| P&L realizzato | -2.0305 SOL (~$-139.48) |
 | Media vincite / perdite | +40.5% / -32.2% |
 | Profit factor | 0.53 |
 | Circuit breaker | no |
@@ -55,6 +55,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+05:21:05 ORACLE   360 raccolti, 291 analizzati, 1 BUY, 281 veto
+05:20:42 ORACLE   360 raccolti, 291 analizzati, 1 BUY, 282 veto
+05:20:19 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 275 veto
+05:19:54 ORACLE   360 raccolti, 286 analizzati, 1 BUY, 275 veto
+05:19:31 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 272 veto
+05:19:08 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 267 veto
+05:18:44 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 272 veto
+05:18:21 ORACLE   360 raccolti, 283 analizzati, 2 BUY, 270 veto
+05:17:58 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 268 veto
+05:17:35 ORACLE   360 raccolti, 285 analizzati, 2 BUY, 273 veto
+05:17:12 ORACLE   360 raccolti, 287 analizzati, 2 BUY, 275 veto
+05:16:49 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 261 veto
+05:16:25 ORACLE   357 raccolti, 284 analizzati, 2 BUY, 273 veto
 05:16:11 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
 05:16:01 ORACLE   351 raccolti, 271 analizzati, 2 BUY, 260 veto
 05:15:39 ORACLE   344 raccolti, 263 analizzati, 2 BUY, 253 veto
@@ -84,19 +97,6 @@ fabbrica: 32560 percorsi, 768 configurazioni, 0 passano, 5348 ms
 05:11:10 KAISER   run #299 · 1 posizioni · equity 3.9968 SOL · GMGN spenta (nessuna chiave) · Grok off
 05:10:59 SCRIBE   fine run · trade 183 · win 30% · P&L -2.0048 SOL · equity 3.9968 SOL
 05:10:41 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 267 veto
-05:10:17 ORACLE   360 raccolti, 270 analizzati, 3 BUY, 259 veto
-05:09:54 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 267 veto
-05:09:31 ORACLE   360 raccolti, 279 analizzati, 3 BUY, 267 veto
-05:09:08 QUARTER  BUY $Biao 0.080 SOL score 63 impatto 0.86% (Jupiter)
-05:09:08 ORACLE   360 raccolti, 273 analizzati, 3 BUY, 263 veto
-05:08:44 ORACLE   360 raccolti, 274 analizzati, 2 BUY, 264 veto
-05:08:21 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 258 veto
-05:07:58 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 259 veto
-05:07:35 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 261 veto
-05:07:12 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 260 veto
-05:06:49 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 255 veto
-05:06:26 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 268 veto
-05:06:03 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 271 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
