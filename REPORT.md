@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 00:51 UTC · in esecuzione da 2.4 giorni · 293 run
+Aggiornato: 2026-11-22 00:56 UTC · in esecuzione da 2.4 giorni · 293 run
 
 | | |
 |---|---|
-| Equity | **4.2144 SOL** (-29.8% dal capitale iniziale di 6 SOL) |
-| Cassa | 4.2144 SOL |
+| Equity | **4.2173 SOL** (-29.7% dal capitale iniziale di 6 SOL) |
+| Cassa | 4.1291 SOL |
 | Trade chiusi | 169 |
 | Win rate | 30% |
-| P&L realizzato | -1.7856 SOL (~$-125.39) |
+| P&L realizzato | -1.7856 SOL (~$-125.16) |
 | Media vincite / perdite | +42.7% / -32.3% |
 | Profit factor | 0.56 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$Wow** P-0606 · 0.084 SOL · +4.6% · resta 100% · [grafico](https://dexscreener.com/solana/EvffEqBhYngYe4g6Vqga7VZKLjSnYVWbLmSAW8XML5ND)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+00:56:16 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 265 veto
+00:55:52 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 255 veto
+00:55:29 ORACLE   360 raccolti, 282 analizzati, 2 BUY, 275 veto
+00:55:05 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 263 veto
+00:54:40 QUARTER  BUY $Wow 0.084 SOL score 67 impatto 1.90% (Jupiter)
+00:54:40 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 240 veto
+00:54:16 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 247 veto
+00:53:53 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 265 veto
+00:53:29 ORACLE   360 raccolti, 274 analizzati, 2 BUY, 262 veto
+00:53:05 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 265 veto
+00:52:41 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 266 veto
+00:52:17 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 267 veto
+00:51:53 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 269 veto
+00:51:29 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 262 veto
 00:51:06 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 268 veto
 00:50:42 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 261 veto
 00:50:18 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 264 veto
@@ -81,20 +95,6 @@ _nessuna_
 00:43:08 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 249 veto
 00:42:45 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 247 veto
 00:42:22 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 253 veto
-00:41:58 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 244 veto
-00:41:34 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 246 veto
-00:41:10 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 251 veto
-00:40:47 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 254 veto
-00:40:23 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 246 veto
-00:39:59 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 254 veto
-00:39:35 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 259 veto
-00:39:11 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 248 veto
-00:38:47 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 258 veto
-00:38:23 SCRIBE   chiuso P-0604 $BOOBILLIONS -0.0263 SOL (-30.6%)
-00:38:23 CHARON   Stop loss $BOOBILLIONS vendo 100% a -41.6% -> 0.0598 SOL
-00:38:23 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 255 veto
-00:38:00 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 245 veto
-00:37:36 QUARTER  BUY $BOOBILLIONS 0.085 SOL score 93 impatto 0.00% (Jupiter)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
