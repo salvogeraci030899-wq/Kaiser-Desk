@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 13:13 UTC · in esecuzione da 3.0 giorni · 308 run
+Aggiornato: 2026-11-22 13:18 UTC · in esecuzione da 3.0 giorni · 308 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-22 13:13 UTC · in esecuzione da 3.0 giorni · 308 run
 | Cassa | 3.9049 SOL |
 | Trade chiusi | 201 |
 | Win rate | 31% |
-| P&L realizzato | -2.0951 SOL (~$-146.83) |
+| P&L realizzato | -2.0951 SOL (~$-146.73) |
 | Media vincite / perdite | +39.2% / -32.5% |
 | Profit factor | 0.54 |
 | Circuit breaker | no |
@@ -58,7 +58,7 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | Netto medio dei presi | n/d |
 | Netto medio degli scartati | n/d% |
 | Differenza presi meno scartati (limite inferiore) | n/d |
-| Senza risposta / decisi dopo 5 minuti | 4 / 0 |
+| Senza risposta / decisi dopo 5 minuti | 5 / 0 |
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -99,6 +99,19 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 
 ## Ultimi eventi
 ```
+13:18:58 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 269 veto
+13:18:35 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 265 veto
+13:18:11 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 261 veto
+13:17:47 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 262 veto
+13:17:23 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 256 veto
+13:16:59 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 259 veto
+13:16:36 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 257 veto
+13:16:12 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 257 veto
+13:15:47 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 268 veto
+13:15:24 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 269 veto
+13:15:00 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 262 veto
+13:14:36 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 270 veto
+13:14:13 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 271 veto
 13:13:49 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 266 veto
 13:13:26 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 266 veto
 13:13:03 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 267 veto
@@ -126,19 +139,6 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 13:04:21 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 265 veto
 13:03:57 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 270 veto
 13:03:33 SCOUT    regola C-067: corrente (nuova strategia: 10K rit. 10s +15/-10 300s: vecchi -8.27%, recenti -8%)
-13:03:33 SCOUT    regola C-066: ritirata (105 operazioni in avanti, esito medio -18.3% (±5.4): non regge)
-13:03:33 SCOUT    strategia C-067: corrente: nuova strategia: 10K rit. 10s +15/-10 300s: vecchi -8.27%, recenti -8%
-13:03:33 SCOUT    strategia C-066: ritirata: 105 operazioni in avanti, esito medio -18.3% (±5.4): non regge
-13:03:33 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 268 veto
-13:03:10 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 264 veto
-13:02:45 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 256 veto
-13:02:22 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 259 veto
-13:01:58 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 256 veto
-13:01:34 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 260 veto
-13:01:10 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 262 veto
-13:00:46 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 258 veto
-13:00:22 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 264 veto
-13:00:08 SCRIBE   chiuso P-0637 $MCAT 0.0200 SOL (25.4%)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
