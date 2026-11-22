@@ -20,6 +20,7 @@ const Grokstat = require('./grokstat.js');
 
 const STATE_DIR = process.env.STATE_DIR || path.join(__dirname, '..', 'state');
 const Snipe = require('./snipe.js');
+const Grad = require('./grad.js');
 const LOOP_MIN = Number(process.env.LOOP_MIN || 4.5);
 const TICK_SEC = Number(process.env.TICK_SEC || 10);
 const SCAN_SEC = Number(process.env.SCAN_SEC || 30);
@@ -68,6 +69,7 @@ function log(agent, msg) {
 }
 function save() {
   if (rt.snipe) rt.snipe.flush();
+  if (rt.grad) rt.grad.flush();
   st.journal = st.journal.slice(-2000);
   st.signals = st.signals.slice(-1000); st.alerts = (st.alerts || []).slice(-60); st.grokLog = (st.grokLog || []).slice(-600);
   fs.writeFileSync(F.state, JSON.stringify(st, null, 1));
@@ -262,6 +264,39 @@ function snipeCfg() {
   const c = { enabled: S.snipeTest !== false }, m = { snipeEvery: 'every', snipeDelayMs: 'delayMs', snipeHoldMs: 'holdMs', snipeSizeSol: 'sizeSol' };
   for (const [k, v] of Object.entries(m)) if (Number.isFinite(Number(S[k])) && S[k] !== '' && S[k] != null) c[v] = Number(S[k]);
   return c;
+}
+function gradCfg() {
+  const c = { enabled: S.gradTest !== false };
+  if (Number.isFinite(Number(S.gradSizeSol)) && S.gradSizeSol !== '' && S.gradSizeSol != null) c.sizeSol = Number(S.gradSizeSol);
+  return c;
+}
+function gradSection() {
+  if (!rt.grad) return '';
+  const s = rt.grad.summary(), f = (n, d = 1) => (n == null ? 'n/d' : (n >= 0 ? '+' : '') + Number(n).toFixed(d)), c = s.counts;
+  const hr = (h) => { const x = s.h[h]; return x && x.mean != null ? `${f(x.mean)}% (intervallo ${f(x.ciLo)}% / ${f(x.ciHi)}%), mediana ${f(x.median)}%, in utile ${x.win}%, senza rotta ${x.noRoute} su ${x.n}` : `n/d (${x ? x.n : 0})`; };
+  return `## Token migrati: costo reale e rendimento (solo paper, quotazioni Jupiter)
+Si compra ${s.cfg.sizeSol} SOL quando la curva si completa e si quota la vendita ogni ${s.cfg.sampleMs / 1000} s per ${s.cfg.spanMs / 60000} minuti. Serie ${s.series} dal ${new Date(s.since).toISOString().slice(0, 16).replace('T', ' ')} UTC.
+Regola decisa in anticipo: orizzonte ${s.cfg.primaryS} s (gli altri sono solo descrittivi), almeno ${s.cfg.passN} token, netto medio >= +${s.cfg.passMeanPct}% e limite inferiore al 95% sopra zero.
+
+| | |
+|---|---|
+| Esito | **${s.verdict}** (${s.n} di ${s.need} token) |
+| Costo del giro (vendita subito dopo l'acquisto) | ${hr(0)} |
+| Netto a 60 s | ${hr(60)} |
+| Netto a ${s.cfg.primaryS} s (primario) | ${hr(s.cfg.primaryS)} |
+| Netto a 900 s | ${hr(900)} |
+| Impatto di prezzo in acquisto (mediana) / ritardo del lettore (mediana) | ${s.impMedian == null ? 'n/d' : s.impMedian + '%'} / ${s.latMedianMs == null ? 'n/d' : (s.latMedianMs / 1000).toFixed(1) + ' s'} |
+| Curve completate viste / acquistate / senza rotta / coda piena / interrotte | ${c.seen} / ${c.filled} / ${c.noRouteBuy} / ${c.skippedQueue} / ${c.interrupted} |
+
+`;
+}
+async function gradVerdict() {
+  if (!rt.grad) return;
+  const s = rt.grad.summary();
+  if (s.verdict === 'in corso' || st.gradNotified === s.series) return;
+  st.gradNotified = s.series;
+  const p = s.primary;
+  await tg(`<b>KAISER</b> raccolta token migrati: <b>${s.verdict}</b>\n${p.n} token, netto medio ${p.mean}% (intervallo ${p.ciLo}% / ${p.ciHi}%)\nIl dettaglio e' nel report. Il reale resta spento.`);
 }
 function snipeSection() {
   if (!rt.snipe) return '';
@@ -630,7 +665,7 @@ Aggiornato: ${new Date().toISOString().replace('T', ' ').slice(0, 16)} UTC · in
 ## Posizioni aperte
 ${st.positions.length ? st.positions.map((p) => `- **$${p.sym}** ${p.id} · ${p.sizeSOL.toFixed(3)} SOL · ${p.last ? f((p.last.priceNative / p.entry - 1) * 100, 1) + '%' : 'n/d'} · resta ${(p.remaining * 100).toFixed(0)}% · [grafico](https://dexscreener.com/solana/${p.pairAddress})`).join('\n') : '_nessuna_'}
 
-${snipeSection()}## Uscite per motivo
+${snipeSection()}${gradSection()}## Uscite per motivo
 ${Object.keys(by).length ? '| Motivo | Trade | P&L SOL |\n|---|---|---|\n' + Object.entries(by).map(([k, v]) => `| ${k} | ${v.n} | ${f(v.pnl)} |`).join('\n') : '_ancora nessuna_'}
 
 ## Ultimi 25 trade
@@ -766,7 +801,7 @@ function checkpoint() {
 function startYoung() {
   const onToken = (t) => { if (rt.snipe) rt.snipe.onCreate(t); if (S.srcYoung !== false) Y.addYoung(rt.young, t, Date.now(), 800); };
   if (S.srcLab !== false) {                                     // Laboratorio: una sola connessione a PumpPortal per nuovi token e scambi (osservazione, nessun ordine)
-    rt.trades = new Lab.TradeFeed({ log: (m) => log('SCOUT', m), solUsd: () => rt.solUsd, rpcHttp: process.env.RPC_URL || '', onCross: (t) => { if (rt.holdQ.length < 200) rt.holdQ.push({ mint: t.mint, curve: t.curve, creator: t.dev, at: Date.now(), uri: t.uri, devBuy: t.devBuy, sym: t.sym, name: t.name }); if (S.socialTest && rt.socQ.length < 20) rt.socQ.push({ mint: t.mint, sym: t.sym, name: t.name, at: Date.now() }); }, onCreator: (x) => { if (rt.crBuf.length < 5000) rt.crBuf.push(x); }, onPath: (x) => { rt.pathBuf.push(Farm.pack(x)); if (Strat.record(rt.strat, x, Date.now(), stratCtx())) { rt.stratDirty = true; flushStratNotes(); } }, onCreate: onToken, onDone: (s) => { st.lab = st.lab || { done: [] }; st.lab.done.push(s); st.lab.done = st.lab.done.slice(-400); } });
+    rt.trades = new Lab.TradeFeed({ log: (m) => log('SCOUT', m), onComplete: (t, now) => { if (rt.grad) rt.grad.onComplete({ mint: t.mint, sym: t.sym, at: now }); }, solUsd: () => rt.solUsd, rpcHttp: process.env.RPC_URL || '', onCross: (t) => { if (rt.holdQ.length < 200) rt.holdQ.push({ mint: t.mint, curve: t.curve, creator: t.dev, at: Date.now(), uri: t.uri, devBuy: t.devBuy, sym: t.sym, name: t.name }); if (S.socialTest && rt.socQ.length < 20) rt.socQ.push({ mint: t.mint, sym: t.sym, name: t.name, at: Date.now() }); }, onCreator: (x) => { if (rt.crBuf.length < 5000) rt.crBuf.push(x); }, onPath: (x) => { rt.pathBuf.push(Farm.pack(x)); if (Strat.record(rt.strat, x, Date.now(), stratCtx())) { rt.stratDirty = true; flushStratNotes(); } }, onCreate: onToken, onDone: (s) => { st.lab = st.lab || { done: [] }; st.lab.done.push(s); st.lab.done = st.lab.done.slice(-400); } });
     rt.trades.start();
   }
   if (S.srcYoung === false) return;
@@ -776,6 +811,7 @@ function startYoung() {
 async function main() {
   rt.strat = Strat.load(STRAT_FILE()); loadFarm(); loadProbe();
   rt.snipe = new Snipe.Snipe({ quote: snipeQuote, file: path.join(STATE_DIR, 'snipe.json'), cfg: snipeCfg(), log: (m) => log('SNIPE', m) });
+  rt.grad = new Grad.Grad({ quote: snipeQuote, file: path.join(STATE_DIR, 'grad.json'), cfg: gradCfg(), log: (m) => log('MIGRATI', m) });
   startYoung();
   const end = Date.now() + LOOP_MIN * 60000;
   log('KAISER', `run #${st.runs} · ${st.positions.length} posizioni · equity ${equity().toFixed(4)} SOL · GMGN ${gmgnOn() ? 'attiva' : 'spenta (nessuna chiave)'} · Grok ${S.useGrok ? 'on' : 'off'}`);
@@ -786,7 +822,9 @@ async function main() {
       else await manage();
     } catch (e) { log('KAISER', 'errore: ' + (e.stack || e.message).split('\n')[0]); }
     if (rt.trades) rt.trades.tick();
-    if (end - Date.now() < 75000) rt.snipe.stop();                // niente nuove entrate negli ultimi 75 s: le posizioni del test si chiudono prima della fine del run
+    if (end - Date.now() < 75000) rt.snipe.stop();
+    if (end - Date.now() < rt.grad.cfg.spanMs + 120000) rt.grad.stop();          // una raccolta dura 15 minuti: niente nuovi ingressi quando non ci sarebbe il tempo di finirla
+    gradVerdict().catch(() => {});                // niente nuove entrate negli ultimi 75 s: le posizioni del test si chiudono prima della fine del run
     snipeVerdict().catch(() => {});
     shadowTick();
     maybeFarm();
@@ -813,7 +851,7 @@ async function main() {
   }
   if (rt.feed) rt.feed.stop();
   if (rt.trades) rt.trades.stop();
-  rt.snipe.stop(); await rt.snipe.drain(60000);
+  rt.snipe.stop(); rt.grad.stop(); await Promise.all([rt.snipe.drain(60000), rt.grad.drain(60000)]);
   flushPaths(true);
   save();
   await pushLive(true);
