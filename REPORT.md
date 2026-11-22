@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 18:00 UTC · in esecuzione da 3.2 giorni · 314 run
+Aggiornato: 2026-11-22 18:05 UTC · in esecuzione da 3.2 giorni · 314 run
 
 | | |
 |---|---|
-| Equity | **3.9474 SOL** (-34.2% dal capitale iniziale di 6 SOL) |
-| Cassa | 3.8409 SOL |
-| Trade chiusi | 214 |
+| Equity | **3.9153 SOL** (-34.7% dal capitale iniziale di 6 SOL) |
+| Cassa | 3.9153 SOL |
+| Trade chiusi | 215 |
 | Win rate | 31% |
-| P&L realizzato | -2.0797 SOL (~$-146.07) |
-| Media vincite / perdite | +38.9% / -31.8% |
+| P&L realizzato | -2.0847 SOL (~$-146.61) |
+| Media vincite / perdite | +38.9% / -31.6% |
 | Profit factor | 0.56 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$OpenIndex** P-0651 · 0.078 SOL · +35.8% · resta 100% · [grafico](https://dexscreener.com/solana/4X1SAtTgzqfyRDu237HxJLtSfTosMHe9EuXNPvRfFbjc)
+_nessuna_
 
 ## Test ingresso rapido (solo paper, quotazioni Jupiter)
 Ipotesi: comprare 5 secondi dopo la creazione, tenere 30 secondi, vendere. Un token su 3, 0.05 SOL a operazione. Serie 2 dal 2026-11-22 11:02 UTC.
@@ -64,13 +64,14 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 58 | -1.7068 |
-| Time stop | 80 | -0.9321 |
+| Time stop | 81 | -0.9371 |
 | TP1 | 49 | +2.0863 |
 | RUG-EXIT liquidità | 27 | -1.5271 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $OpenIndex | 64 | -6.3% | -0.0050 | +54% | +4% | Time stop | 7m |
 | $SANTIA | 69 | -5.4% | -0.0043 | +7% | -14% | Time stop | 5m |
 | $BTC | 64 | -41.7% | -0.0334 | +0% | -34% | Stop loss | 3m |
 | $FOAM | 71 | -6.9% | -0.0056 | +62% | +62% | TP1 | 1m |
@@ -95,10 +96,24 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | $GIFTER | 70 | -50.7% | -0.0410 | +0% | -61% | RUG-EXIT liquidità | 2m |
 | $eˣ | 74 | +14.2% | +0.0114 | +68% | +68% | TP1 | 6m |
 | $casual | 63 | +52.2% | +0.0416 | +61% | +61% | TP1 | 8m |
-| $TC | 65 | -8.5% | -0.0068 | +15% | +5% | Time stop | 6m |
 
 ## Ultimi eventi
 ```
+18:05:02 ORACLE   360 raccolti, 279 analizzati, 2 BUY, 269 veto
+18:04:39 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 244 veto
+18:04:14 ORACLE   360 raccolti, 279 analizzati, 2 BUY, 263 veto
+18:03:51 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 261 veto
+18:03:27 SCRIBE   chiuso P-0651 $OpenIndex -0.0050 SOL (-6.3%)
+18:03:27 CHARON   Time stop $OpenIndex vendo 100% a 3.8% -> 0.0744 SOL
+18:03:27 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 258 veto
+18:03:02 ORACLE   360 raccolti, 279 analizzati, 2 BUY, 266 veto
+18:02:39 ORACLE   360 raccolti, 283 analizzati, 2 BUY, 270 veto
+18:02:16 ORACLE   360 raccolti, 279 analizzati, 2 BUY, 267 veto
+18:01:52 ORACLE   360 raccolti, 286 analizzati, 2 BUY, 275 veto
+18:01:28 ORACLE   360 raccolti, 282 analizzati, 2 BUY, 272 veto
+18:01:03 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 265 veto
+18:00:38 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 273 veto
+18:00:14 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 265 veto
 17:59:50 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 263 veto
 17:59:25 QUARTER  SEGNALE $Lucky score 72 (semi-automatico)
 17:59:25 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 259 veto
@@ -124,21 +139,6 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 17:52:57 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 260 veto
 17:52:33 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 271 veto
 17:52:11 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 270 veto
-17:51:47 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 259 veto
-17:51:23 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 259 veto
-17:50:59 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 264 veto
-17:50:35 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 261 veto
-17:50:11 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 269 veto
-17:49:47 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 264 veto
-17:49:24 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 261 veto
-17:48:59 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 253 veto
-17:48:36 ORACLE   354 raccolti, 253 analizzati, 0 BUY, 241 veto
-17:48:12 ORACLE   349 raccolti, 246 analizzati, 1 BUY, 235 veto
-17:47:48 ORACLE   319 raccolti, 234 analizzati, 1 BUY, 226 veto
-17:47:25 ORACLE   308 raccolti, 216 analizzati, 2 BUY, 207 veto
-17:47:02 ORACLE   300 raccolti, 207 analizzati, 2 BUY, 198 veto
-17:46:47 SCOUT    PumpPortal invia nuovi token (24) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-17:46:37 ORACLE   262 raccolti, 185 analizzati, 2 BUY, 182 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
