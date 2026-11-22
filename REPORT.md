@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 01:45 UTC · in esecuzione da 2.5 giorni · 294 run
+Aggiornato: 2026-11-22 01:50 UTC · in esecuzione da 2.5 giorni · 294 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-22 01:45 UTC · in esecuzione da 2.5 giorni · 294 run
 | Cassa | 4.1391 SOL |
 | Trade chiusi | 174 |
 | Win rate | 30% |
-| P&L realizzato | -1.8609 SOL (~$-130.53) |
+| P&L realizzato | -1.8609 SOL (~$-130.73) |
 | Media vincite / perdite | +41.5% / -32.4% |
 | Profit factor | 0.55 |
 | Circuit breaker | no |
@@ -55,6 +55,18 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+01:50:03 SCRIBE   fine run · trade 174 · win 30% · P&L -1.8609 SOL · equity 4.1391 SOL
+01:49:51 ORACLE   360 raccolti, 289 analizzati, 0 BUY, 281 veto
+01:49:28 ORACLE   360 raccolti, 292 analizzati, 0 BUY, 283 veto
+01:49:04 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 268 veto
+01:48:41 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 271 veto
+01:48:16 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 274 veto
+01:47:53 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 261 veto
+01:47:30 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 270 veto
+01:47:07 ORACLE   360 raccolti, 288 analizzati, 1 BUY, 280 veto
+01:46:44 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 266 veto
+01:46:21 ORACLE   360 raccolti, 285 analizzati, 2 BUY, 275 veto
+01:45:58 ORACLE   360 raccolti, 290 analizzati, 2 BUY, 279 veto
 01:45:34 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 271 veto
 01:45:10 ORACLE   360 raccolti, 291 analizzati, 1 BUY, 281 veto
 01:44:46 SCRIBE   chiuso P-0610 $PushCoin -0.0214 SOL (-25.4%)
@@ -83,18 +95,6 @@ _nessuna_
 01:37:52 ORACLE   360 raccolti, 288 analizzati, 1 BUY, 279 veto
 01:37:29 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 263 veto
 01:37:05 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 270 veto
-01:36:42 ORACLE   360 raccolti, 288 analizzati, 1 BUY, 278 veto
-01:36:18 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 270 veto
-01:35:55 ORACLE   360 raccolti, 287 analizzati, 1 BUY, 277 veto
-01:35:31 ORACLE   360 raccolti, 289 analizzati, 1 BUY, 276 veto
-01:35:06 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 267 veto
-01:34:42 ORACLE   360 raccolti, 289 analizzati, 1 BUY, 277 veto
-01:34:19 QUARTER  BUY $GRAUDIA 0.083 SOL score 88 impatto 0.88% (Jupiter)
-01:34:18 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 270 veto
-01:33:54 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 263 veto
-01:33:32 ORACLE   360 raccolti, 284 analizzati, 0 BUY, 273 veto
-01:33:09 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 265 veto
-01:32:46 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 264 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
