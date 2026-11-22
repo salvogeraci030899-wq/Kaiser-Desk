@@ -1,15 +1,15 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 04:56 UTC · in esecuzione da 2.6 giorni · 298 run
+Aggiornato: 2026-11-22 05:01 UTC · in esecuzione da 2.6 giorni · 298 run
 
 | | |
 |---|---|
-| Equity | **4.0047 SOL** (-33.3% dal capitale iniziale di 6 SOL) |
-| Cassa | 4.0047 SOL |
-| Trade chiusi | 182 |
+| Equity | **3.9952 SOL** (-33.4% dal capitale iniziale di 6 SOL) |
+| Cassa | 3.9952 SOL |
+| Trade chiusi | 183 |
 | Win rate | 30% |
-| P&L realizzato | -1.9953 SOL (~$-138.15) |
-| Media vincite / perdite | +40.5% / -32.4% |
+| P&L realizzato | -2.0048 SOL (~$-138.83) |
+| Media vincite / perdite | +40.5% / -32.3% |
 | Profit factor | 0.53 |
 | Circuit breaker | no |
 
@@ -21,12 +21,13 @@ _nessuna_
 |---|---|---|
 | Stop loss | 51 | -1.4623 |
 | Time stop | 66 | -0.8447 |
-| TP1 | 39 | +1.7977 |
+| TP1 | 40 | +1.7882 |
 | RUG-EXIT liquidità | 26 | -1.4861 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $snowball | 64 | -11.7% | -0.0095 | +64% | +64% | TP1 | 1m |
 | $RARE | 63 | -50.7% | -0.0415 | +0% | -56% | RUG-EXIT liquidità | 1m |
 | $Snowball | 64 | +22.1% | +0.0180 | +70% | +70% | TP1 | 5m |
 | $LEONIDA | 72 | -25.1% | -0.0206 | +5% | -31% | Stop loss | 3m |
@@ -51,10 +52,25 @@ _nessuna_
 | $Animals | 71 | -31.2% | -0.0279 | +40% | -28% | Time stop | 10m |
 | $Emily | 73 | -68.8% | -0.0623 | +33% | -27% | Time stop | 5m |
 | $Lazarus | 74 | +91.9% | +0.0817 | +94% | +94% | TP1 | 5m |
-| $Emily | 70 | +56.6% | +0.0498 | +78% | +78% | TP1 | 5m |
 
 ## Ultimi eventi
 ```
+05:01:23 ORACLE   360 raccolti, 284 analizzati, 0 BUY, 272 veto
+05:01:00 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 269 veto
+05:00:37 ORACLE   360 raccolti, 286 analizzati, 0 BUY, 274 veto
+05:00:14 ORACLE   360 raccolti, 283 analizzati, 0 BUY, 271 veto
+04:59:51 ORACLE   360 raccolti, 281 analizzati, 0 BUY, 269 veto
+04:59:28 ORACLE   360 raccolti, 281 analizzati, 0 BUY, 269 veto
+04:59:04 SCRIBE   chiuso P-0619 $snowball -0.0095 SOL (-11.7%)
+04:59:04 CHARON   TP1 $snowball vendo 100% a 64.1% -> 0.0716 SOL
+04:59:04 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 269 veto
+04:58:42 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 269 veto
+04:58:18 QUARTER  BUY $snowball 0.080 SOL score 64 impatto 0.42% (Jupiter)
+04:58:18 ORACLE   360 raccolti, 286 analizzati, 1 BUY, 278 veto
+04:57:55 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 276 veto
+04:57:32 ORACLE   360 raccolti, 285 analizzati, 1 BUY, 276 veto
+04:57:09 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 270 veto
+04:56:46 ORACLE   360 raccolti, 285 analizzati, 1 BUY, 276 veto
 04:56:23 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 266 veto
 04:56:20 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)
 04:55:59 ORACLE   360 raccolti, 285 analizzati, 0 BUY, 271 veto
@@ -79,22 +95,6 @@ _nessuna_
 04:50:13 ORACLE   360 raccolti, 289 analizzati, 1 BUY, 273 veto
 04:49:50 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 269 veto
 04:49:27 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 268 veto
-04:49:04 ORACLE   360 raccolti, 285 analizzati, 0 BUY, 269 veto
-04:48:41 ORACLE   360 raccolti, 292 analizzati, 0 BUY, 275 veto
-04:48:18 ORACLE   360 raccolti, 288 analizzati, 0 BUY, 271 veto
-04:47:55 ORACLE   360 raccolti, 294 analizzati, 0 BUY, 276 veto
-04:47:32 ORACLE   360 raccolti, 298 analizzati, 0 BUY, 281 veto
-04:47:09 ORACLE   360 raccolti, 292 analizzati, 0 BUY, 279 veto
-04:46:46 ORACLE   360 raccolti, 293 analizzati, 0 BUY, 279 veto
-04:46:23 ORACLE   360 raccolti, 298 analizzati, 0 BUY, 286 veto
-04:46:10 SCRIBE   chiuso P-0617 $Snowball 0.0180 SOL (22.1%)
-04:46:10 CHARON   TP1 $Snowball vendo 100% a 70.0% -> 0.0996 SOL
-04:46:00 ORACLE   360 raccolti, 290 analizzati, 0 BUY, 278 veto
-04:45:37 ORACLE   360 raccolti, 294 analizzati, 0 BUY, 282 veto
-04:45:14 ORACLE   360 raccolti, 294 analizzati, 1 BUY, 282 veto
-04:44:51 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 272 veto
-04:44:28 ORACLE   360 raccolti, 293 analizzati, 1 BUY, 280 veto
-04:44:04 ORACLE   360 raccolti, 289 analizzati, 2 BUY, 277 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
