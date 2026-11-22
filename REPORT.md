@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 03:01 UTC · in esecuzione da 2.5 giorni · 296 run
+Aggiornato: 2026-11-22 03:06 UTC · in esecuzione da 2.5 giorni · 296 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-22 03:01 UTC · in esecuzione da 2.5 giorni · 296 run
 | Cassa | 4.0722 SOL |
 | Trade chiusi | 177 |
 | Win rate | 30% |
-| P&L realizzato | -1.9278 SOL (~$-133.81) |
+| P&L realizzato | -1.9278 SOL (~$-133.40) |
 | Media vincite / perdite | +40.9% / -32.6% |
 | Profit factor | 0.54 |
 | Circuit breaker | no |
@@ -55,6 +55,19 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+03:06:07 ORACLE   360 raccolti, 287 analizzati, 1 BUY, 279 veto
+03:05:44 ORACLE   360 raccolti, 285 analizzati, 1 BUY, 276 veto
+03:05:20 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 266 veto
+03:04:56 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 270 veto
+03:04:33 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 269 veto
+03:04:09 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 271 veto
+03:03:45 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 275 veto
+03:03:21 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 274 veto
+03:02:57 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 266 veto
+03:02:33 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 277 veto
+03:02:10 ORACLE   360 raccolti, 289 analizzati, 1 BUY, 281 veto
+03:01:47 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 268 veto
+03:01:23 ORACLE   360 raccolti, 279 analizzati, 2 BUY, 272 veto
 03:01:00 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 267 veto
 03:00:36 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 272 veto
 03:00:11 ORACLE   360 raccolti, 286 analizzati, 2 BUY, 280 veto
@@ -82,19 +95,6 @@ _nessuna_
 02:51:30 ORACLE   360 raccolti, 285 analizzati, 0 BUY, 268 veto
 02:51:05 SCRIBE   chiuso P-0613 $MASCOIN 0.0052 SOL (6.3%)
 02:51:05 CHARON   Stop loss $MASCOIN vendo 100% a -40.6% -> 0.0875 SOL
-02:51:05 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 255 veto
-02:50:41 ORACLE   360 raccolti, 281 analizzati, 0 BUY, 264 veto
-02:50:17 ORACLE   360 raccolti, 286 analizzati, 0 BUY, 269 veto
-02:49:52 ORACLE   360 raccolti, 284 analizzati, 0 BUY, 266 veto
-02:49:29 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 261 veto
-02:49:05 ORACLE   360 raccolti, 282 analizzati, 0 BUY, 263 veto
-02:48:40 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 263 veto
-02:48:16 QUARTER  BUY $MASCOIN 0.081 SOL score 65 impatto 1.87% (Jupiter)
-02:48:16 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 267 veto
-02:47:52 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 257 veto
-02:47:29 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 261 veto
-02:47:05 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 263 veto
-02:46:41 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 268 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
