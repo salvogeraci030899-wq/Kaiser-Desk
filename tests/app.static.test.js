@@ -83,3 +83,8 @@ test('schede di radar e posizioni: tocco sulla scheda = pump.fun, tocco sull\'im
   assert.match(h, /#radarList \.card\[data-mint\], #posList \.card\[data-mint\]/); assert.match(html, /function openPump\(mint\)[\s\S]*https:\/\/pump\.fun\/coin\//);
   assert.match(css, /#radarList \.chips \{[^}]*overflow-x: auto/); assert.ok(!/#radarList \.chips \{[^}]*overflow: hidden/.test(css), 'i segnali non sono piu\' tagliati');
 });
+
+test('radar: l\'altezza minima delle schede viene davvero applicata (il commento non deve inghiottire l\'istruzione)', () => {
+  const html = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8'), i = html.indexOf('function fitRadar()'), body = html.slice(i, html.indexOf('\n}', i));
+  assert.match(body, /Math\.max\(RADAR_MIN_ROW/); assert.ok(body.split('\n').some((l) => /^\s*if \(el\.style\.getPropertyValue\('--row-h'\)/.test(l) && /setProperty\('--row-h'/.test(l)), 'l\'istruzione che imposta --row-h sta su una riga propria, non in un commento');
+});
