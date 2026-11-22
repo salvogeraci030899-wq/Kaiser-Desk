@@ -31,7 +31,7 @@ const pumpUrl = (a) => `https://pump.fun/coin/${a.mint}`;
 // Il messaggio non mostra il punteggio del bot ne' i suoi motivi: la decisione e' tua, cosi' si misura il tuo giudizio e non quello del bot.
 function text(a) {
   const bits = [a.mc ? 'market cap $' + k(a.mc) : '', a.ageMin != null ? 'età ' + Math.round(a.ageMin) + ' min' : '', a.liq ? 'liquidità $' + k(a.liq) : ''].filter(Boolean).join(' · ');
-  return `<b>SEGNALE</b> $${esc(a.sym || a.mint.slice(0, 6))}\n${bits}\nDecidi tu: Prendo o Scarto. Con Prendo il paper apre subito la posizione con i parametri impostati e la chiude da solo. Per entrare davvero apri la Coin su pump.fun.`;
+  return `<b>SEGNALE</b> $${esc(a.sym || a.mint.slice(0, 6))}\n${bits}\nDecidi tu: Prendo o Scarto. Con Prendo il paper apre subito la posizione e la chiude da solo (+10%, -10% o 60 secondi). Per entrare davvero apri la Coin su pump.fun.`;
 }
 const voteRow = (a) => (/^a[0-9a-z]{4,8}$/.test(a.id || '') ? [[{ text: 'Prendo', callback_data: 'hd:y:' + a.id }, { text: 'Scarto', callback_data: 'hd:n:' + a.id }]] : []);
 function keyboard(a) { return Kb.kb({ rows: voteRow(a), mint: a.mint, pair: a.pair }); }

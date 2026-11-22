@@ -130,3 +130,17 @@ test('soglie come filtri veri: mcap minimo/massimo, età massima e scambi minimi
 test('impostazioni senza effetto tolte dal modulo: approvazione manuale paper e tassa non esistono piu\'', async () => {
   const { SCHEMA } = await import('../worker/src/params.js'); assert.ok(!('approve' in SCHEMA) && !('taxPct' in SCHEMA));
 });
+
+test('Charon: la posizione aperta con Prendo esce da sola a +10%, -10% o dopo 60 secondi; le altre posizioni non cambiano', () => {
+  const base = { entry: 1, peak: 1, openedAt: now, tp1Done: false, entryLiq: 100000 }, ex = { tp: 10, sl: 10, holdSec: 60 }, m = (px) => ({ priceNative: px, liq: 100000, br5: 1, tx5: 5 });
+  const mine = { ...base, ex };
+  assert.equal(E.charon(mine, m(1.05), S, now + 30000), null, 'in mezzo: resta');
+  assert.deepEqual(E.charon(mine, m(1.11), S, now + 20000), { frac: 1, reason: 'Target (tuo)' });
+  assert.deepEqual(E.charon(mine, m(0.89), S, now + 20000), { frac: 1, reason: 'Stop (tuo)' });
+  assert.deepEqual(E.charon(mine, m(1.02), S, now + 61000), { frac: 1, reason: 'Tempo (tuo)' });
+  assert.equal(E.charon(mine, m(1.05), S, now + 59000), null, 'prima dei 60 secondi');
+  assert.equal(E.charon({ ...base }, m(1.11), S, now + 20000), null, 'il bot non esce a +11%');
+  assert.equal(E.charon({ ...base }, m(1.41), S, now + 20000).reason, 'TP1', 'posizione del bot: regole di sempre (primo target +40%)');
+  assert.equal(E.charon({ ...base }, m(0.89), S, now + 20000), null, 'il bot ha stop al -25%');
+  assert.equal(E.charon({ ...mine }, { priceNative: 1.05, liq: 40000, br5: 1, tx5: 5 }, S, now + 5000).reason, 'RUG-EXIT liquidità', 'il controllo sul crollo della liquidita\' resta');
+});
