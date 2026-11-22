@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 12:03 UTC · in esecuzione da 2.9 giorni · 307 run
+Aggiornato: 2026-11-22 12:08 UTC · in esecuzione da 2.9 giorni · 307 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-22 12:03 UTC · in esecuzione da 2.9 giorni · 307 run
 | Cassa | 3.8850 SOL |
 | Trade chiusi | 200 |
 | Win rate | 31% |
-| P&L realizzato | -2.1150 SOL (~$-149.25) |
+| P&L realizzato | -2.1150 SOL (~$-149.00) |
 | Media vincite / perdite | +39.4% / -32.5% |
 | Profit factor | 0.54 |
 | Circuit breaker | no |
@@ -58,7 +58,7 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | Netto medio dei presi | n/d |
 | Netto medio degli scartati | n/d% |
 | Differenza presi meno scartati (limite inferiore) | n/d |
-| Senza risposta / decisi dopo 5 minuti | 2 / 0 |
+| Senza risposta / decisi dopo 5 minuti | 3 / 0 |
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -99,6 +99,19 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 
 ## Ultimi eventi
 ```
+12:08:08 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 241 veto
+12:07:45 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 231 veto
+12:07:22 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 231 veto
+12:06:57 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 230 veto
+12:06:33 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 236 veto
+12:06:11 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 236 veto
+12:05:48 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 229 veto
+12:05:25 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 232 veto
+12:05:02 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 231 veto
+12:04:39 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 228 veto
+12:04:16 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 231 veto
+12:03:53 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 233 veto
+12:03:30 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 226 veto
 12:03:05 SCRIBE   chiuso P-0636 $airball -0.0366 SOL (-46.1%)
 12:03:05 CHARON   Stop loss $airball vendo 100% a -36.3% -> 0.0428 SOL
 12:03:05 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 232 veto
@@ -126,21 +139,6 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 11:55:44 ORACLE   248 raccolti, 178 analizzati, 0 BUY, 165 veto
 11:55:21 ORACLE   245 raccolti, 176 analizzati, 0 BUY, 164 veto
 11:54:58 ORACLE   237 raccolti, 172 analizzati, 0 BUY, 162 veto
-11:54:35 ORACLE   230 raccolti, 160 analizzati, 0 BUY, 151 veto
-11:54:13 ORACLE   227 raccolti, 158 analizzati, 0 BUY, 149 veto
-11:53:50 ORACLE   201 raccolti, 144 analizzati, 0 BUY, 136 veto
-11:53:45 SCOUT    rug: 11749 token oltre 7.5K, 35.6% rug, 10289 con possessori
-combinazioni: 5664 prove, migliore -3.98%, p 0.744
-fabbrica: 32634 percorsi, 768 configurazioni, 0 passano, 5779 ms
-11:53:27 ORACLE   195 raccolti, 131 analizzati, 0 BUY, 125 veto
-11:53:16 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-11:53:11 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-11:53:05 ORACLE   195 raccolti, 131 analizzati, 0 BUY, 125 veto
-11:53:01 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
-11:53:01 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120, semiAuto spento→avvisi e paper
-11:53:01 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
-11:53:01 SCOUT    Laboratorio: collegato a PumpPortal
-11:53:01 KAISER   run #307 · 0 posizioni · equity 3.9216 SOL · GMGN spenta (nessuna chiave) · Grok off
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
