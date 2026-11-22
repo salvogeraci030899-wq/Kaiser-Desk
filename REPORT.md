@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 09:37 UTC · in esecuzione da 2.8 giorni · 304 run
+Aggiornato: 2026-11-22 09:42 UTC · in esecuzione da 2.8 giorni · 304 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-22 09:37 UTC · in esecuzione da 2.8 giorni · 304 run
 | Cassa | 3.9182 SOL |
 | Trade chiusi | 197 |
 | Win rate | 30% |
-| P&L realizzato | -2.0818 SOL (~$-145.32) |
+| P&L realizzato | -2.0818 SOL (~$-145.56) |
 | Media vincite / perdite | +39.6% / -32.4% |
 | Profit factor | 0.54 |
 | Circuit breaker | no |
@@ -22,13 +22,13 @@ Regola decisa in anticipo: almeno 300 operazioni, netto medio >= +3% e limite in
 
 | | |
 |---|---|
-| Esito | **in corso** (87 di 300 operazioni) |
-| Netto medio per operazione | -59.5% (intervallo -70.1% / -48.8%) |
-| Mediana / operazioni in utile | -88.8% / 9.2% |
-| Quota dei guadagni dall'1% migliore | 29% |
-| Token campionati / con rotta di acquisto | 90 / 90 (100%) |
+| Esito | **in corso** (119 di 300 operazioni) |
+| Netto medio per operazione | -56.9% (intervallo -66.5% / -47.4%) |
+| Mediana / operazioni in utile | -85.2% / 10.1% |
+| Quota dei guadagni dall'1% migliore | 38% |
+| Token campionati / con rotta di acquisto | 124 / 123 (99.2%) |
 | Tempo per ottenere la quotazione (mediana / 90%) | 5.0 s / 5.1 s |
-| Senza rotta in acquisto / in vendita (perdita totale) | 0 / 40 |
+| Senza rotta in acquisto / in vendita (perdita totale) | 0 / 53 |
 | Errori di rete (acquisto / vendita) / interrotte a fine run | 0 / 0 / 0 |
 
 ## Uscite per motivo
@@ -70,6 +70,19 @@ Regola decisa in anticipo: almeno 300 operazioni, netto medio >= +3% e limite in
 
 ## Ultimi eventi
 ```
+09:42:44 ORACLE   360 raccolti, 292 analizzati, 2 BUY, 274 veto
+09:42:20 ORACLE   360 raccolti, 290 analizzati, 2 BUY, 274 veto
+09:41:57 ORACLE   360 raccolti, 293 analizzati, 2 BUY, 280 veto
+09:41:33 ORACLE   360 raccolti, 294 analizzati, 1 BUY, 279 veto
+09:41:09 ORACLE   360 raccolti, 288 analizzati, 1 BUY, 270 veto
+09:40:46 ORACLE   360 raccolti, 292 analizzati, 2 BUY, 275 veto
+09:40:22 ORACLE   360 raccolti, 292 analizzati, 2 BUY, 275 veto
+09:39:58 ORACLE   360 raccolti, 286 analizzati, 2 BUY, 270 veto
+09:39:34 ORACLE   360 raccolti, 283 analizzati, 2 BUY, 269 veto
+09:39:10 ORACLE   360 raccolti, 285 analizzati, 2 BUY, 271 veto
+09:38:47 ORACLE   360 raccolti, 279 analizzati, 2 BUY, 266 veto
+09:38:23 ORACLE   360 raccolti, 286 analizzati, 2 BUY, 275 veto
+09:38:00 ORACLE   360 raccolti, 279 analizzati, 2 BUY, 266 veto
 09:37:37 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 267 veto
 09:37:12 ORACLE   360 raccolti, 284 analizzati, 2 BUY, 268 veto
 09:36:49 ORACLE   360 raccolti, 285 analizzati, 2 BUY, 269 veto
@@ -97,19 +110,6 @@ Regola decisa in anticipo: almeno 300 operazioni, netto medio >= +3% e limite in
 09:29:14 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)
 09:28:54 ORACLE   359 raccolti, 297 analizzati, 1 BUY, 273 veto
 09:28:30 ORACLE   353 raccolti, 292 analizzati, 2 BUY, 268 veto
-09:28:06 QUARTER  BUY $MooSom 0.079 SOL score 76 impatto 1.62% (Jupiter)
-09:28:06 ORACLE   351 raccolti, 279 analizzati, 2 BUY, 256 veto
-09:27:42 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-09:27:42 QUARTER  $MooSom impatto 2.2% oltre slippage: annullato
-09:27:42 ORACLE   327 raccolti, 264 analizzati, 2 BUY, 243 veto
-09:27:19 ORACLE   320 raccolti, 259 analizzati, 2 BUY, 238 veto
-09:26:55 ORACLE   316 raccolti, 251 analizzati, 2 BUY, 232 veto
-09:26:31 ORACLE   290 raccolti, 230 analizzati, 2 BUY, 214 veto
-09:26:08 ORACLE   283 raccolti, 214 analizzati, 1 BUY, 199 veto
-09:25:46 ORACLE   278 raccolti, 214 analizzati, 1 BUY, 199 veto
-09:25:22 ORACLE   262 raccolti, 208 analizzati, 2 BUY, 194 veto
-09:24:59 ORACLE   257 raccolti, 200 analizzati, 2 BUY, 188 veto
-09:24:36 ORACLE   256 raccolti, 199 analizzati, 2 BUY, 188 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
