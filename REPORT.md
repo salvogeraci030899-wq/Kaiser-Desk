@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 13:59 UTC · in esecuzione da 3.0 giorni · 309 run
+Aggiornato: 2026-11-22 14:04 UTC · in esecuzione da 3.0 giorni · 309 run
 
 | | |
 |---|---|
-| Equity | **3.8959 SOL** (-35.1% dal capitale iniziale di 6 SOL) |
-| Cassa | 3.8959 SOL |
+| Equity | **3.8987 SOL** (-35.0% dal capitale iniziale di 6 SOL) |
+| Cassa | 3.8170 SOL |
 | Trade chiusi | 202 |
 | Win rate | 31% |
-| P&L realizzato | -2.1041 SOL (~$-147.14) |
+| P&L realizzato | -2.1041 SOL (~$-147.33) |
 | Media vincite / perdite | +39.2% / -32.3% |
 | Profit factor | 0.54 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$MOG** P-0639 · 0.078 SOL · +4.9% · resta 100% · [grafico](https://dexscreener.com/solana/9sWXXAzi9GZ9RyHD9azYLJsfKjcwFGsVKd9gVepj4uX6)
 
 ## Test ingresso rapido (solo paper, quotazioni Jupiter)
 Ipotesi: comprare 5 secondi dopo la creazione, tenere 30 secondi, vendere. Un token su 3, 0.05 SOL a operazione. Serie 2 dal 2026-11-22 11:02 UTC.
@@ -58,7 +58,7 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | Netto medio dei presi | n/d |
 | Netto medio degli scartati | n/d% |
 | Differenza presi meno scartati (limite inferiore) | n/d |
-| Senza risposta / decisi dopo 5 minuti | 5 / 0 |
+| Senza risposta / decisi dopo 5 minuti | 6 / 0 |
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -99,6 +99,22 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 
 ## Ultimi eventi
 ```
+14:04:08 QUARTER  SEGNALE $XMASS score 64 (semi-automatico)
+14:04:08 ORACLE   360 raccolti, 277 analizzati, 3 BUY, 265 veto
+14:03:43 ORACLE   360 raccolti, 286 analizzati, 1 BUY, 270 veto
+14:03:20 ORACLE   360 raccolti, 289 analizzati, 1 BUY, 272 veto
+14:02:56 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 265 veto
+14:02:33 ORACLE   360 raccolti, 288 analizzati, 1 BUY, 268 veto
+14:02:09 ORACLE   360 raccolti, 286 analizzati, 1 BUY, 267 veto
+14:01:46 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 259 veto
+14:01:22 QUARTER  BUY $MOG 0.078 SOL score 66 impatto 1.32% (Jupiter)
+14:01:21 QUARTER  SEGNALE $MOG score 66 (semi-automatico)
+14:01:21 ORACLE   360 raccolti, 285 analizzati, 1 BUY, 271 veto
+14:00:57 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 266 veto
+14:00:34 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 258 veto
+14:00:09 ORACLE   360 raccolti, 283 analizzati, 0 BUY, 266 veto
+13:59:45 ORACLE   360 raccolti, 281 analizzati, 0 BUY, 265 veto
+13:59:22 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 255 veto
 13:58:58 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 260 veto
 13:58:35 ORACLE   360 raccolti, 284 analizzati, 0 BUY, 265 veto
 13:58:11 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 261 veto
@@ -123,22 +139,6 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 13:51:28 ORACLE   360 raccolti, 283 analizzati, 0 BUY, 268 veto
 13:51:05 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 262 veto
 13:50:40 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 272 veto
-13:50:17 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 271 veto
-13:49:52 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 263 veto
-13:49:28 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 264 veto
-13:49:05 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 264 veto
-13:48:42 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 258 veto
-13:48:18 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 262 veto
-13:47:54 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 258 veto
-13:47:31 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 256 veto
-13:47:07 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 260 veto
-13:46:43 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 254 veto
-13:46:29 QUARTER  BUY $SI 0.078 SOL score 70 impatto 1.20% (Jupiter)
-13:46:29 QUARTER  SEGNALE $SI score 70 (semi-automatico)
-13:46:29 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 248 veto
-13:46:04 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 261 veto
-13:45:40 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 260 veto
-13:45:17 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 245 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
