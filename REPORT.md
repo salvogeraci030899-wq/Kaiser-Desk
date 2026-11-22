@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 07:52 UTC · in esecuzione da 2.7 giorni · 302 run
+Aggiornato: 2026-11-22 07:57 UTC · in esecuzione da 2.7 giorni · 302 run
 
 | | |
 |---|---|
-| Equity | **3.9481 SOL** (-34.2% dal capitale iniziale di 6 SOL) |
+| Equity | **3.9484 SOL** (-34.2% dal capitale iniziale di 6 SOL) |
 | Cassa | 3.8625 SOL |
 | Trade chiusi | 189 |
 | Win rate | 30% |
-| P&L realizzato | -2.0576 SOL (~$-142.17) |
+| P&L realizzato | -2.0576 SOL (~$-142.14) |
 | Media vincite / perdite | +41.1% / -32.6% |
 | Profit factor | 0.53 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$TC** P-0626 · 0.079 SOL · +8.6% · resta 100% · [grafico](https://dexscreener.com/solana/8Qr1Jzso2U2U9E67TXSK3mQXDDYnyPdXTVQKeMNSR64E)
+- **$TC** P-0626 · 0.079 SOL · +9.0% · resta 100% · [grafico](https://dexscreener.com/solana/8Qr1Jzso2U2U9E67TXSK3mQXDDYnyPdXTVQKeMNSR64E)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,19 @@ Aggiornato: 2026-11-22 07:52 UTC · in esecuzione da 2.7 giorni · 302 run
 
 ## Ultimi eventi
 ```
+07:56:58 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 267 veto
+07:56:34 ORACLE   360 raccolti, 287 analizzati, 1 BUY, 274 veto
+07:56:11 ORACLE   360 raccolti, 284 analizzati, 0 BUY, 271 veto
+07:55:47 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 269 veto
+07:55:24 ORACLE   360 raccolti, 285 analizzati, 2 BUY, 273 veto
+07:55:01 ORACLE   360 raccolti, 281 analizzati, 2 BUY, 270 veto
+07:54:37 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 266 veto
+07:54:13 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 272 veto
+07:53:49 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 271 veto
+07:53:26 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 267 veto
+07:53:02 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 269 veto
+07:52:38 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 270 veto
+07:52:15 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 259 veto
 07:51:50 QUARTER  BUY $TC 0.079 SOL score 65 impatto 1.11% (Jupiter)
 07:51:50 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 269 veto
 07:51:27 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 272 veto
@@ -82,21 +95,6 @@ Aggiornato: 2026-11-22 07:52 UTC · in esecuzione da 2.7 giorni · 302 run
 07:43:43 ORACLE   238 raccolti, 178 analizzati, 1 BUY, 173 veto
 07:43:20 ORACLE   228 raccolti, 173 analizzati, 1 BUY, 169 veto
 07:43:08 SCRIBE   chiuso P-0625 $FIREBALL -0.0438 SOL (-54.2%)
-07:43:08 CHARON   Stop loss $FIREBALL vendo 100% a -34.4% -> 0.0370 SOL
-07:42:58 ORACLE   225 raccolti, 169 analizzati, 1 BUY, 165 veto
-07:42:36 ORACLE   211 raccolti, 157 analizzati, 1 BUY, 153 veto
-07:42:32 SCOUT    rug: 11750 token oltre 7.5K, 35.6% rug, 9917 con possessori
-combinazioni: 5760 prove, migliore -6.21%, p 1
-fabbrica: 32630 percorsi, 768 configurazioni, 0 passano, 6336 ms
-07:42:14 ORACLE   201 raccolti, 150 analizzati, 1 BUY, 146 veto
-07:41:59 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-07:41:52 ORACLE   200 raccolti, 142 analizzati, 1 BUY, 138 veto
-07:41:51 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-07:41:49 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
-07:41:49 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
-07:41:49 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120
-07:41:49 SCOUT    Laboratorio: collegato a PumpPortal
-07:41:49 KAISER   run #302 · 1 posizioni · equity 3.9728 SOL · GMGN spenta (nessuna chiave) · Grok off
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
