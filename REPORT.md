@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 10:03 UTC · in esecuzione da 2.8 giorni · 304 run
+Aggiornato: 2026-11-22 10:08 UTC · in esecuzione da 2.8 giorni · 304 run
 
 | | |
 |---|---|
-| Equity | **3.8966 SOL** (-35.1% dal capitale iniziale di 6 SOL) |
-| Cassa | 3.8388 SOL |
-| Trade chiusi | 197 |
+| Equity | **3.8960 SOL** (-35.1% dal capitale iniziale di 6 SOL) |
+| Cassa | 3.8960 SOL |
+| Trade chiusi | 198 |
 | Win rate | 30% |
-| P&L realizzato | -2.0818 SOL (~$-146.46) |
+| P&L realizzato | -2.1040 SOL (~$-148.30) |
 | Media vincite / perdite | +39.6% / -32.4% |
-| Profit factor | 0.54 |
+| Profit factor | 0.53 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$HIPPO** P-0634 · 0.078 SOL · -26.2% · resta 100% · [grafico](https://dexscreener.com/solana/6mwM4JfD9AKCCTmYnQE3Qi5HF27SJDT2sQsfBjGyjGcr)
+_nessuna_
 
 ## Test ingresso rapido (solo paper, quotazioni Jupiter)
 Ipotesi: comprare 5 secondi dopo la creazione, tenere 30 secondi, vendere. Un token su 3, 0.05 SOL a operazione. Serie 1 dal 2026-11-22 09:22 UTC.
@@ -22,19 +22,19 @@ Regola decisa in anticipo: almeno 300 operazioni, netto medio >= +3% e limite in
 
 | | |
 |---|---|
-| Esito | **in corso** (244 di 300 operazioni) |
-| Netto medio per operazione | -46.6% (intervallo -56.5% / -36.7%) |
-| Mediana / operazioni in utile | -68.0% / 11.1% |
-| Quota dei guadagni dall'1% migliore | 55% |
-| Token campionati / con rotta di acquisto | 250 / 247 (98.8%) |
+| Esito | **in corso** (272 di 300 operazioni) |
+| Netto medio per operazione | -44.2% (intervallo -53.7% / -34.7%) |
+| Mediana / operazioni in utile | -54.6% / 11.4% |
+| Quota dei guadagni dall'1% migliore | 53% |
+| Token campionati / con rotta di acquisto | 279 / 273 (97.8%) |
 | Tempo per ottenere la quotazione (mediana / 90%) | 5.0 s / 5.1 s |
-| Senza rotta in acquisto / in vendita (perdita totale) | 3 / 86 |
+| Senza rotta in acquisto / in vendita (perdita totale) | 4 / 89 |
 | Errori di rete (acquisto / vendita) / interrotte a fine run | 0 / 0 / 0 |
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| Stop loss | 54 | -1.5839 |
+| Stop loss | 55 | -1.6060 |
 | Time stop | 72 | -0.9066 |
 | TP1 | 44 | +1.9357 |
 | RUG-EXIT liquidità | 27 | -1.5271 |
@@ -42,6 +42,7 @@ Regola decisa in anticipo: almeno 300 operazioni, netto medio >= +3% e limite in
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $HIPPO | 76 | -27.9% | -0.0221 | +11% | -31% | Stop loss | 4m |
 | $MooSom | 76 | -28.5% | -0.0228 | +24% | -19% | Time stop | 6m |
 | $RDIFF | 66 | -11.0% | -0.0088 | +0% | -5% | Time stop | 5m |
 | $cateball | 63 | +0.5% | +0.0004 | +1% | -1% | Time stop | 5m |
@@ -66,10 +67,24 @@ Regola decisa in anticipo: almeno 300 operazioni, netto medio >= +3% e limite in
 | $SANTA | 70 | -82.2% | -0.0689 | +17% | -74% | RUG-EXIT liquidità | 4m |
 | $MANDY | 88 | -3.8% | -0.0032 | +0% | -43% | Stop loss | 0m |
 | $PushCoin | 82 | -25.4% | -0.0214 | +0% | -39% | Stop loss | 0m |
-| $GRAUDIA | 88 | +5.9% | +0.0050 | +4% | +2% | Time stop | 5m |
 
 ## Ultimi eventi
 ```
+10:08:19 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 273 veto
+10:07:55 ORACLE   360 raccolti, 286 analizzati, 1 BUY, 276 veto
+10:07:32 ORACLE   360 raccolti, 286 analizzati, 1 BUY, 275 veto
+10:07:08 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 273 veto
+10:06:44 ORACLE   360 raccolti, 287 analizzati, 0 BUY, 277 veto
+10:06:21 ORACLE   360 raccolti, 285 analizzati, 0 BUY, 275 veto
+10:05:57 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 269 veto
+10:05:34 ORACLE   360 raccolti, 285 analizzati, 0 BUY, 275 veto
+10:05:10 ORACLE   360 raccolti, 286 analizzati, 0 BUY, 276 veto
+10:04:46 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 272 veto
+10:04:23 ORACLE   360 raccolti, 285 analizzati, 1 BUY, 277 veto
+10:03:59 ORACLE   360 raccolti, 286 analizzati, 2 BUY, 275 veto
+10:03:34 SCRIBE   chiuso P-0634 $HIPPO -0.0221 SOL (-27.9%)
+10:03:34 CHARON   Stop loss $HIPPO vendo 100% a -30.9% -> 0.0572 SOL
+10:03:34 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 269 veto
 10:03:11 ORACLE   360 raccolti, 285 analizzati, 1 BUY, 274 veto
 10:02:47 ORACLE   360 raccolti, 282 analizzati, 2 BUY, 271 veto
 10:02:23 ORACLE   360 raccolti, 279 analizzati, 2 BUY, 266 veto
@@ -95,21 +110,6 @@ Regola decisa in anticipo: almeno 300 operazioni, netto medio >= +3% e limite in
 09:56:26 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 264 veto
 09:56:01 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 268 veto
 09:55:38 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 269 veto
-09:55:15 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 265 veto
-09:54:51 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 275 veto
-09:54:28 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 266 veto
-09:54:04 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 267 veto
-09:53:40 ORACLE   360 raccolti, 285 analizzati, 1 BUY, 274 veto
-09:53:17 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 267 veto
-09:52:53 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 266 veto
-09:52:28 ORACLE   360 raccolti, 286 analizzati, 1 BUY, 275 veto
-09:52:05 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 270 veto
-09:51:41 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 270 veto
-09:51:17 ORACLE   360 raccolti, 290 analizzati, 1 BUY, 280 veto
-09:50:54 ORACLE   360 raccolti, 288 analizzati, 1 BUY, 276 veto
-09:50:31 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 270 veto
-09:50:07 ORACLE   360 raccolti, 291 analizzati, 1 BUY, 279 veto
-09:49:43 ORACLE   360 raccolti, 292 analizzati, 1 BUY, 280 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
