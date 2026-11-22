@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 17:35 UTC · in esecuzione da 3.1 giorni · 313 run
+Aggiornato: 2026-11-22 17:40 UTC · in esecuzione da 3.1 giorni · 313 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-22 17:35 UTC · in esecuzione da 3.1 giorni · 313 run
 | Cassa | 3.9203 SOL |
 | Trade chiusi | 214 |
 | Win rate | 31% |
-| P&L realizzato | -2.0797 SOL (~$-146.23) |
+| P&L realizzato | -2.0797 SOL (~$-146.43) |
 | Media vincite / perdite | +38.9% / -31.8% |
 | Profit factor | 0.56 |
 | Circuit breaker | no |
@@ -39,12 +39,12 @@ Regola decisa in anticipo: orizzonte 300 s (gli altri sono solo descrittivi), al
 
 | | |
 |---|---|
-| Esito | **in corso** (1 di 300 token) |
-| Costo del giro (vendita subito dopo l'acquisto) | n/d (1) |
-| Netto a 60 s | n/d (1) |
-| Netto a 300 s (primario) | n/d (1) |
+| Esito | **in corso** (2 di 300 token) |
+| Costo del giro (vendita subito dopo l'acquisto) | -21.9% (intervallo -58.0% / +14.1%), mediana -21.9%, in utile 0%, senza rotta 0 su 2 |
+| Netto a 60 s | -40.7% (intervallo -154.3% / +72.8%), mediana -40.7%, in utile 50%, senza rotta 0 su 2 |
+| Netto a 300 s (primario) | -38.8% (intervallo -154.4% / +76.7%), mediana -38.8%, in utile 50%, senza rotta 0 su 2 |
 | Netto a 900 s | n/d (0) |
-| Impatto di prezzo in acquisto (mediana) / ritardo del lettore (mediana) | 0.89% / 6.3 s |
+| Impatto di prezzo in acquisto (mediana) / ritardo del lettore (mediana) | 14.88% / 6.3 s |
 | Curve completate viste / acquistate / senza rotta / coda piena / interrotte | 2 / 2 / 0 / 0 / 0 |
 
 ## Uomo e macchina: i segnali che prendi contro quelli che scarti
@@ -58,7 +58,7 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | Netto medio dei presi | +69.5% (intervallo -86.7% / +225.6%) |
 | Netto medio degli scartati | n/d% |
 | Differenza presi meno scartati (limite inferiore) | n/d |
-| Senza risposta / decisi dopo 5 minuti | 17 / 0 |
+| Senza risposta / decisi dopo 5 minuti | 18 / 0 |
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -99,6 +99,19 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 
 ## Ultimi eventi
 ```
+17:40:22 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 256 veto
+17:39:58 ORACLE   360 raccolti, 269 analizzati, 3 BUY, 259 veto
+17:39:35 ORACLE   360 raccolti, 271 analizzati, 3 BUY, 260 veto
+17:39:12 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 253 veto
+17:38:49 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 247 veto
+17:38:26 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 248 veto
+17:38:03 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 249 veto
+17:37:40 ORACLE   360 raccolti, 270 analizzati, 3 BUY, 258 veto
+17:37:17 ORACLE   360 raccolti, 265 analizzati, 3 BUY, 253 veto
+17:36:53 ORACLE   360 raccolti, 257 analizzati, 3 BUY, 245 veto
+17:36:30 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 255 veto
+17:36:07 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 259 veto
+17:35:43 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 253 veto
 17:35:20 ORACLE   360 raccolti, 262 analizzati, 3 BUY, 249 veto
 17:34:57 ORACLE   360 raccolti, 266 analizzati, 3 BUY, 252 veto
 17:34:34 ORACLE   360 raccolti, 253 analizzati, 3 BUY, 239 veto
@@ -126,19 +139,6 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 17:26:53 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 259 veto
 17:26:30 QUARTER  BUY $SANTIA 0.078 SOL score 69 impatto 1.01% (Jupiter)
 17:26:30 QUARTER  SEGNALE $SANTIA score 69 (semi-automatico)
-17:26:30 ORACLE   360 raccolti, 268 analizzati, 3 BUY, 255 veto
-17:26:06 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 258 veto
-17:25:43 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 258 veto
-17:25:20 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 244 veto
-17:24:57 QUARTER  $tremp impatto 3.0% oltre slippage: annullato
-17:24:57 ORACLE   360 raccolti, 268 analizzati, 3 BUY, 256 veto
-17:24:34 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 255 veto
-17:24:11 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 242 veto
-17:23:47 QUARTER  $tremp impatto 2.5% oltre slippage: annullato
-17:23:47 QUARTER  SEGNALE $tremp score 66 (semi-automatico)
-17:23:47 ORACLE   360 raccolti, 265 analizzati, 3 BUY, 254 veto
-17:23:24 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 253 veto
-17:23:02 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 249 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
