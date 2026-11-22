@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 18:50 UTC · in esecuzione da 3.2 giorni · 315 run
+Aggiornato: 2026-11-22 18:55 UTC · in esecuzione da 3.2 giorni · 315 run
 
 | | |
 |---|---|
-| Equity | **3.9377 SOL** (-34.4% dal capitale iniziale di 6 SOL) |
+| Equity | **3.9838 SOL** (-33.6% dal capitale iniziale di 6 SOL) |
 | Cassa | 3.8713 SOL |
 | Trade chiusi | 219 |
 | Win rate | 32% |
-| P&L realizzato | -2.0487 SOL (~$-143.93) |
+| P&L realizzato | -2.0487 SOL (~$-143.96) |
 | Media vincite / perdite | +39.4% / -31.6% |
 | Profit factor | 0.57 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$SINGULARTY** P-0656 · 0.079 SOL · -15.9% · resta 100% · [grafico](https://dexscreener.com/solana/BdCFwyfpEPcM2LizTPjjqwuJ35Y55NQ7rLtZXzZY7QGk)
+- **$SINGULARTY** P-0656 · 0.079 SOL · +42.4% · resta 100% · [grafico](https://dexscreener.com/solana/BdCFwyfpEPcM2LizTPjjqwuJ35Y55NQ7rLtZXzZY7QGk)
 
 ## Test ingresso rapido (solo paper, quotazioni Jupiter)
 Ipotesi: comprare 5 secondi dopo la creazione, tenere 30 secondi, vendere. Un token su 3, 0.05 SOL a operazione. Serie 2 dal 2026-11-22 11:02 UTC.
@@ -58,7 +58,7 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | Netto medio dei presi | +69.5% (intervallo -86.7% / +225.6%) |
 | Netto medio degli scartati | n/d% |
 | Differenza presi meno scartati (limite inferiore) | n/d |
-| Senza risposta / decisi dopo 5 minuti | 24 / 0 |
+| Senza risposta / decisi dopo 5 minuti | 25 / 0 |
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -99,6 +99,21 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 
 ## Ultimi eventi
 ```
+18:55:29 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 241 veto
+18:55:05 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 242 veto
+18:54:40 ORACLE   360 raccolti, 246 analizzati, 4 BUY, 235 veto
+18:54:17 ORACLE   360 raccolti, 253 analizzati, 3 BUY, 242 veto
+18:54:03 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 242 veto
+18:53:38 ORACLE   360 raccolti, 245 analizzati, 4 BUY, 236 veto
+18:53:13 QUARTER  SEGNALE $XMAS score 64 (semi-automatico)
+18:53:13 ORACLE   360 raccolti, 254 analizzati, 4 BUY, 246 veto
+18:52:48 ORACLE   360 raccolti, 261 analizzati, 3 BUY, 254 veto
+18:52:45 SCOUT    prezzo SOL non disponibile: HTTP 429
+18:52:25 ORACLE   360 raccolti, 254 analizzati, 3 BUY, 247 veto
+18:52:00 ORACLE   360 raccolti, 271 analizzati, 3 BUY, 264 veto
+18:51:37 ORACLE   360 raccolti, 266 analizzati, 3 BUY, 259 veto
+18:51:13 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 254 veto
+18:50:50 ORACLE   360 raccolti, 272 analizzati, 3 BUY, 263 veto
 18:50:25 ORACLE   360 raccolti, 274 analizzati, 3 BUY, 264 veto
 18:50:11 ORACLE   360 raccolti, 278 analizzati, 3 BUY, 268 veto
 18:49:46 ORACLE   360 raccolti, 272 analizzati, 3 BUY, 263 veto
@@ -124,21 +139,6 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 18:44:32 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 255 veto
 18:44:09 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 253 veto
 18:43:45 ORACLE   360 raccolti, 251 analizzati, 3 BUY, 242 veto
-18:43:21 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 236 veto
-18:42:57 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 236 veto
-18:42:34 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 229 veto
-18:42:09 ORACLE   360 raccolti, 236 analizzati, 2 BUY, 226 veto
-18:41:44 ORACLE   360 raccolti, 233 analizzati, 2 BUY, 227 veto
-18:41:20 SCRIBE   chiuso P-0655 $Leap 0.0565 SOL (71.7%)
-18:41:20 CHARON   TP1 $Leap vendo 100% a 72.5% -> 0.1354 SOL
-18:41:20 ORACLE   360 raccolti, 232 analizzati, 2 BUY, 224 veto
-18:40:56 ORACLE   360 raccolti, 222 analizzati, 2 BUY, 215 veto
-18:40:32 ORACLE   360 raccolti, 232 analizzati, 2 BUY, 225 veto
-18:40:08 ORACLE   360 raccolti, 228 analizzati, 2 BUY, 221 veto
-18:39:43 ORACLE   360 raccolti, 222 analizzati, 2 BUY, 215 veto
-18:39:19 ORACLE   355 raccolti, 223 analizzati, 2 BUY, 216 veto
-18:38:55 ORACLE   341 raccolti, 213 analizzati, 2 BUY, 207 veto
-18:38:32 QUARTER  BUY $Leap 0.078 SOL score 67 impatto 0.10% (Jupiter)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
