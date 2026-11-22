@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 16:00 UTC · in esecuzione da 3.1 giorni · 311 run
+Aggiornato: 2026-11-22 16:03 UTC · in esecuzione da 3.1 giorni · 311 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-22 16:00 UTC · in esecuzione da 3.1 giorni · 311 run
 | Cassa | 3.9442 SOL |
 | Trade chiusi | 209 |
 | Win rate | 31% |
-| P&L realizzato | -2.0558 SOL (~$-144.28) |
+| P&L realizzato | -2.0558 SOL (~$-144.44) |
 | Media vincite / perdite | +39.7% / -32.0% |
 | Profit factor | 0.56 |
 | Circuit breaker | no |
@@ -99,6 +99,16 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 
 ## Ultimi eventi
 ```
+16:03:59 SCRIBE   fine run · trade 209 · win 31% · P&L -2.0558 SOL · equity 3.9442 SOL
+16:03:46 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 258 veto
+16:03:22 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 268 veto
+16:02:58 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 265 veto
+16:02:35 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 265 veto
+16:02:11 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 268 veto
+16:01:47 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 265 veto
+16:01:23 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 264 veto
+16:01:00 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 267 veto
+16:00:36 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 267 veto
 16:00:12 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 267 veto
 15:59:48 ORACLE   360 raccolti, 281 analizzati, 2 BUY, 268 veto
 15:59:24 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 269 veto
@@ -129,16 +139,6 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 15:51:04 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 250 veto
 15:50:41 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 243 veto
 15:50:16 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 245 veto
-15:49:52 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 252 veto
-15:49:28 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 244 veto
-15:49:04 SCRIBE   chiuso P-0644 $FRANK 0.0069 SOL (8.7%)
-15:49:04 CHARON   Time stop $FRANK vendo 100% a -12.1% -> 0.0868 SOL
-15:49:04 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 249 veto
-15:48:40 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 248 veto
-15:48:17 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 248 veto
-15:47:53 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 253 veto
-15:47:29 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 248 veto
-15:47:05 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 251 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
