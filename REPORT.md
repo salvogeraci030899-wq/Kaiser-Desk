@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 10:43 UTC · in esecuzione da 2.9 giorni · 305 run
+Aggiornato: 2026-11-22 10:48 UTC · in esecuzione da 2.9 giorni · 305 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-22 10:43 UTC · in esecuzione da 2.9 giorni · 305 run
 | Cassa | 3.8960 SOL |
 | Trade chiusi | 198 |
 | Win rate | 30% |
-| P&L realizzato | -2.1040 SOL (~$-148.17) |
+| P&L realizzato | -2.1040 SOL (~$-148.21) |
 | Media vincite / perdite | +39.6% / -32.4% |
 | Profit factor | 0.53 |
 | Circuit breaker | no |
@@ -22,13 +22,13 @@ Regola decisa in anticipo: almeno 300 operazioni, netto medio >= +3% e limite in
 
 | | |
 |---|---|
-| Esito | **non passa** (503 di 300 operazioni) |
-| Netto medio per operazione | -41.1% (intervallo -47.8% / -34.5%) |
-| Mediana / operazioni in utile | -43.7% / 11.3% |
-| Quota dei guadagni dall'1% migliore | 56% |
-| Token campionati / con rotta di acquisto | 517 / 508 (98.3%) |
+| Esito | **non passa** (543 di 300 operazioni) |
+| Netto medio per operazione | -41.4% (intervallo -47.7% / -35.1%) |
+| Mediana / operazioni in utile | -44.6% / 11.6% |
+| Quota dei guadagni dall'1% migliore | 53% |
+| Token campionati / con rotta di acquisto | 554 / 545 (98.4%) |
 | Tempo per ottenere la quotazione (mediana / 90%) | 5.0 s / 5.1 s |
-| Senza rotta in acquisto / in vendita (perdita totale) | 8 / 147 |
+| Senza rotta in acquisto / in vendita (perdita totale) | 9 / 160 |
 | Errori di rete (acquisto / vendita) / interrotte a fine run | 0 / 0 / 0 |
 
 ## Uscite per motivo
@@ -70,6 +70,19 @@ Regola decisa in anticipo: almeno 300 operazioni, netto medio >= +3% e limite in
 
 ## Ultimi eventi
 ```
+10:48:02 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 251 veto
+10:47:38 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 251 veto
+10:47:14 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 246 veto
+10:46:51 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 250 veto
+10:46:28 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 252 veto
+10:46:04 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 243 veto
+10:45:40 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 246 veto
+10:45:16 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 246 veto
+10:44:53 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 237 veto
+10:44:29 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 240 veto
+10:44:06 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 238 veto
+10:43:43 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 237 veto
+10:43:18 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 244 veto
 10:42:55 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 241 veto
 10:42:32 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 246 veto
 10:42:08 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 243 veto
@@ -97,19 +110,6 @@ Regola decisa in anticipo: almeno 300 operazioni, netto medio >= +3% e limite in
 10:33:41 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 236 veto
 10:33:17 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 237 veto
 10:32:53 SCOUT    regola C-066: corrente (nuova strategia: 10K rit. 10s +20/-15 60s: vecchi -8.21%, recenti -7.58%)
-10:32:53 SCOUT    regola C-065: ritirata (128 operazioni in avanti, esito medio -9.5% (±5.5): non regge)
-10:32:53 SCOUT    strategia C-066: corrente: nuova strategia: 10K rit. 10s +20/-15 60s: vecchi -8.21%, recenti -7.58%
-10:32:53 SCOUT    strategia C-065: ritirata: 128 operazioni in avanti, esito medio -9.5% (±5.5): non regge
-10:32:53 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 242 veto
-10:32:29 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 240 veto
-10:32:06 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 241 veto
-10:31:42 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 244 veto
-10:31:19 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 252 veto
-10:31:05 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 252 veto
-10:30:40 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 267 veto
-10:30:17 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 266 veto
-10:29:53 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 263 veto
-10:29:30 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 268 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
