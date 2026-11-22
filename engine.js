@@ -14,11 +14,13 @@ const DEFAULTS = {
   sl: 25, tp1: 40, tp1Sell: 50, trail: 20, beAfterTp1: true, timeStopMin: 45, timeStopMinPnl: 5,
   // Solo uomo: resta attivo il Radar con gli avvisi, i tuoi Prendo (posizione paper) e gli Scarto (prezzo seguito 15 minuti). Spenti: ingressi automatici del bot (paper e reale), test di ingresso rapido, raccolta sui migrati, Laboratorio, strategie, Grok e prove sui social.
   humanOnly: true,
+  // Fascia alta (da bandMin in su): avvisi per i candidati con punteggio almeno alertMinScore; uscite proprie dei Prendo: stop, a +100% vende la meta', il resto con trailing, tempo massimo
+  bandMin: 500000, alertMinScore: 55, humanBandSl: 20, humanBandTp: 100, humanBandTpSell: 50, humanBandTrail: 25, humanBandHoldMin: 360,
   // Uscite delle posizioni aperte con Prendo (le stesse della migliore configurazione del Laboratorio): target +10%, stop -10%, uscita dopo 60 secondi
   humanTp: 10, humanSl: 10, humanHoldSec: 60,
   rugLiqDrop: 45, sellPressure: true,
   // Filtri
-  minLiq: 15000, minMcap: 15000, maxMcap: 20000000, minAgeMin: 5, maxAgeH: 72, minTxH1: 40,
+  minLiq: 40000, minMcap: 500000, maxMcap: 50000000, minAgeMin: 5, maxAgeH: 720, minTxH1: 40,      // fascia alta: Coin da 500.000 dollari in su, con liquidita' che regge le uscite
   srcDexProfiles: true, srcDexBoosts: true, srcGecko: true, srcJupiter: true, srcYoung: true, srcLab: true, minDipPct: 0, srcGmgnTrending: true, srcGmgnTrenches: false, gmgnInterval: '1h',
   // Backend
   backend: '', appToken: '',
@@ -233,8 +235,9 @@ function exitSol(tokens, priceNative, impact, feePct, prioritySOL) {
 }
 
 // ---- CHARON: regole d'uscita, restituisce {frac, reason} oppure null ----
-function charon(p, m, S, now = Date.now()) {
+function charon(p, m, S0, now = Date.now()) {
   if (!m || !m.priceNative) return null;
+  const S = p.xs ? { ...S0, ...p.xs } : S0;      // Prendo in fascia alta: uscite proprie sopra quelle di base
   const pnl = (m.priceNative / p.entry - 1) * 100;
   const fromPeak = p.peak ? (m.priceNative / p.peak - 1) * 100 : 0;
   const ageMin = (now - p.openedAt) / 60000;
