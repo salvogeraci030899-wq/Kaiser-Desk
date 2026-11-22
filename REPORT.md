@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 11:07 UTC · in esecuzione da 2.9 giorni · 306 run
+Aggiornato: 2026-11-22 11:12 UTC · in esecuzione da 2.9 giorni · 306 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-22 11:07 UTC · in esecuzione da 2.9 giorni · 306 run
 | Cassa | 3.8960 SOL |
 | Trade chiusi | 198 |
 | Win rate | 30% |
-| P&L realizzato | -2.1040 SOL (~$-148.64) |
+| P&L realizzato | -2.1040 SOL (~$-148.81) |
 | Media vincite / perdite | +39.6% / -32.4% |
 | Profit factor | 0.53 |
 | Circuit breaker | no |
@@ -22,14 +22,14 @@ Regola decisa in anticipo: almeno 300 operazioni, netto medio >= +3% e limite in
 
 | | |
 |---|---|
-| Esito | **in corso** (26 di 300 operazioni) |
-| Netto medio per operazione | -6.8% (intervallo -49.7% / +36.2%) |
-| Mediana / operazioni in utile | -13.2% / 11.5% |
+| Esito | **in corso** (55 di 300 operazioni) |
+| Netto medio per operazione | -27.6% (intervallo -49.5% / -5.8%) |
+| Mediana / operazioni in utile | -24.1% / 5.5% |
 | Quota dei guadagni dall'1% migliore | 56% |
-| Token campionati / con rotta di acquisto | 30 / 28 (93.3%) |
+| Token campionati / con rotta di acquisto | 59 / 58 (98.3%) |
 | Tempo per ottenere la quotazione (mediana / 90%) | 5.0 s / 5.1 s |
-| Senza rotta in acquisto / in vendita (perdita totale) | 0 / 3 |
-| Motivi dell'assenza di rotta (Jupiter) | sell:NO_ROUTES_FOUND: 3 |
+| Senza rotta in acquisto / in vendita (perdita totale) | 0 / 7 |
+| Motivi dell'assenza di rotta (Jupiter) | sell:NO_ROUTES_FOUND: 7 |
 | Vendite riuscite solo con la rotta non limitata | 0 |
 | Errori di rete (acquisto / vendita) / interrotte a fine run | 0 / 0 / 0 |
 
@@ -99,6 +99,20 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 
 ## Ultimi eventi
 ```
+11:12:42 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 261 veto
+11:12:19 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 260 veto
+11:11:55 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 258 veto
+11:11:32 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 262 veto
+11:11:08 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 261 veto
+11:10:45 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 258 veto
+11:10:21 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 259 veto
+11:10:08 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 255 veto
+11:09:42 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 251 veto
+11:09:18 ORACLE   358 raccolti, 272 analizzati, 0 BUY, 255 veto
+11:08:55 ORACLE   351 raccolti, 261 analizzati, 0 BUY, 243 veto
+11:08:31 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
+11:08:31 ORACLE   347 raccolti, 254 analizzati, 0 BUY, 236 veto
+11:08:08 ORACLE   324 raccolti, 241 analizzati, 0 BUY, 227 veto
 11:07:44 ORACLE   317 raccolti, 227 analizzati, 0 BUY, 212 veto
 11:07:22 ORACLE   317 raccolti, 227 analizzati, 0 BUY, 212 veto
 11:06:59 ORACLE   298 raccolti, 216 analizzati, 0 BUY, 202 veto
@@ -127,20 +141,6 @@ fabbrica: 32648 percorsi, 768 configurazioni, 0 passano, 5968 ms
 11:02:43 SNIPE    test ingresso rapido: parametri cambiati, nuova serie 2
 11:02:30 SCRIBE   fine run · trade 198 · win 30% · P&L -2.1040 SOL · equity 3.8960 SOL
 11:02:10 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 260 veto
-11:01:46 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 258 veto
-11:01:23 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 260 veto
-11:00:59 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 259 veto
-11:00:36 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 261 veto
-11:00:12 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 258 veto
-10:59:48 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 264 veto
-10:59:25 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 263 veto
-10:59:02 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 252 veto
-10:58:38 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 252 veto
-10:58:16 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 251 veto
-10:57:52 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 237 veto
-10:57:28 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 237 veto
-10:57:04 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 237 veto
-10:56:41 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 236 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
