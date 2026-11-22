@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 19:56 UTC · in esecuzione da 3.2 giorni · 316 run
+Aggiornato: 2026-11-22 20:01 UTC · in esecuzione da 3.2 giorni · 316 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-22 19:56 UTC · in esecuzione da 3.2 giorni · 316 run
 | Cassa | 3.9827 SOL |
 | Trade chiusi | 224 |
 | Win rate | 31% |
-| P&L realizzato | -2.0173 SOL (~$-141.52) |
+| P&L realizzato | -2.0173 SOL (~$-141.57) |
 | Media vincite / perdite | +40.1% / -31.1% |
 | Profit factor | 0.58 |
 | Circuit breaker | no |
@@ -39,12 +39,12 @@ Regola decisa in anticipo: orizzonte 300 s (gli altri sono solo descrittivi), al
 
 | | |
 |---|---|
-| Esito | **in corso** (2 di 300 token) |
-| Costo del giro (vendita subito dopo l'acquisto) | -21.9% (intervallo -58.0% / +14.1%), mediana -21.9%, in utile 0%, senza rotta 0 su 2 |
-| Netto a 60 s | -40.7% (intervallo -154.3% / +72.8%), mediana -40.7%, in utile 50%, senza rotta 0 su 2 |
-| Netto a 300 s (primario) | -38.8% (intervallo -154.4% / +76.7%), mediana -38.8%, in utile 50%, senza rotta 0 su 2 |
+| Esito | **in corso** (3 di 300 token) |
+| Costo del giro (vendita subito dopo l'acquisto) | -16.0% (intervallo -39.9% / +7.9%), mediana -4.0%, in utile 0%, senza rotta 0 su 3 |
+| Netto a 60 s | -28.0% (intervallo -98.1% / +42.2%), mediana -2.5%, in utile 33.3%, senza rotta 0 su 3 |
+| Netto a 300 s (primario) | -33.6% (intervallo -101.1% / +33.9%), mediana -23.1%, in utile 33.3%, senza rotta 0 su 3 |
 | Netto a 900 s | n/d (0) |
-| Impatto di prezzo in acquisto (mediana) / ritardo del lettore (mediana) | 14.88% / 6.3 s |
+| Impatto di prezzo in acquisto (mediana) / ritardo del lettore (mediana) | 0.89% / 6.3 s |
 | Curve completate viste / acquistate / senza rotta / coda piena / interrotte | 3 / 3 / 0 / 0 / 0 |
 
 ## Uomo e macchina: i segnali che prendi contro quelli che scarti
@@ -58,7 +58,7 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | Netto medio dei presi | +69.5% (intervallo -86.7% / +225.6%) |
 | Netto medio degli scartati | n/d% |
 | Differenza presi meno scartati (limite inferiore) | n/d |
-| Senza risposta / decisi dopo 5 minuti | 31 / 0 |
+| Senza risposta / decisi dopo 5 minuti | 32 / 0 |
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -99,6 +99,19 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 
 ## Ultimi eventi
 ```
+20:01:11 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 265 veto
+20:00:46 ORACLE   360 raccolti, 292 analizzati, 1 BUY, 284 veto
+20:00:32 ORACLE   360 raccolti, 293 analizzati, 1 BUY, 285 veto
+20:00:06 ORACLE   360 raccolti, 288 analizzati, 1 BUY, 281 veto
+19:59:41 ORACLE   360 raccolti, 292 analizzati, 1 BUY, 286 veto
+19:59:17 ORACLE   360 raccolti, 296 analizzati, 2 BUY, 290 veto
+19:58:54 ORACLE   360 raccolti, 293 analizzati, 2 BUY, 285 veto
+19:58:30 ORACLE   360 raccolti, 297 analizzati, 3 BUY, 288 veto
+19:58:06 ORACLE   360 raccolti, 296 analizzati, 2 BUY, 288 veto
+19:57:42 ORACLE   360 raccolti, 282 analizzati, 2 BUY, 276 veto
+19:57:18 ORACLE   360 raccolti, 292 analizzati, 3 BUY, 288 veto
+19:56:55 ORACLE   360 raccolti, 292 analizzati, 3 BUY, 287 veto
+19:56:32 ORACLE   360 raccolti, 289 analizzati, 3 BUY, 282 veto
 19:56:07 ORACLE   360 raccolti, 291 analizzati, 2 BUY, 287 veto
 19:55:44 ORACLE   360 raccolti, 291 analizzati, 1 BUY, 288 veto
 19:55:21 ORACLE   360 raccolti, 286 analizzati, 1 BUY, 282 veto
@@ -126,19 +139,6 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 19:48:09 ORACLE   360 raccolti, 240 analizzati, 3 BUY, 232 veto
 19:47:45 ORACLE   360 raccolti, 243 analizzati, 3 BUY, 235 veto
 19:47:21 ORACLE   360 raccolti, 234 analizzati, 3 BUY, 225 veto
-19:46:57 ORACLE   360 raccolti, 238 analizzati, 3 BUY, 226 veto
-19:46:33 ORACLE   360 raccolti, 238 analizzati, 3 BUY, 230 veto
-19:46:10 ORACLE   360 raccolti, 244 analizzati, 3 BUY, 235 veto
-19:45:45 ORACLE   360 raccolti, 237 analizzati, 3 BUY, 229 veto
-19:45:20 ORACLE   360 raccolti, 252 analizzati, 3 BUY, 242 veto
-19:44:56 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 243 veto
-19:44:33 SCRIBE   chiuso P-0659 $CHRISTMASS -0.0110 SOL (-13.5%)
-19:44:33 CHARON   Time stop $CHRISTMASS vendo 100% a 2.9% -> 0.0701 SOL
-19:44:33 ORACLE   360 raccolti, 245 analizzati, 3 BUY, 234 veto
-19:44:08 ORACLE   360 raccolti, 276 analizzati, 3 BUY, 263 veto
-19:43:44 ORACLE   360 raccolti, 278 analizzati, 3 BUY, 264 veto
-19:43:19 ORACLE   360 raccolti, 265 analizzati, 3 BUY, 252 veto
-19:42:55 ORACLE   360 raccolti, 275 analizzati, 3 BUY, 262 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
