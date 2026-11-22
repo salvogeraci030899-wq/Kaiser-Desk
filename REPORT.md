@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 17:20 UTC · in esecuzione da 3.1 giorni · 313 run
+Aggiornato: 2026-11-22 17:25 UTC · in esecuzione da 3.1 giorni · 313 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-22 17:20 UTC · in esecuzione da 3.1 giorni · 313 run
 | Cassa | 3.9246 SOL |
 | Trade chiusi | 213 |
 | Win rate | 31% |
-| P&L realizzato | -2.0754 SOL (~$-145.84) |
+| P&L realizzato | -2.0754 SOL (~$-145.86) |
 | Media vincite / perdite | +38.9% / -31.9% |
 | Profit factor | 0.56 |
 | Circuit breaker | no |
@@ -45,7 +45,7 @@ Regola decisa in anticipo: orizzonte 300 s (gli altri sono solo descrittivi), al
 | Netto a 300 s (primario) | n/d (1) |
 | Netto a 900 s | n/d (0) |
 | Impatto di prezzo in acquisto (mediana) / ritardo del lettore (mediana) | 0.89% / 6.3 s |
-| Curve completate viste / acquistate / senza rotta / coda piena / interrotte | 1 / 1 / 0 / 0 / 0 |
+| Curve completate viste / acquistate / senza rotta / coda piena / interrotte | 2 / 2 / 0 / 0 / 0 |
 
 ## Uomo e macchina: i segnali che prendi contro quelli che scarti
 Il radar sceglie, tu decidi (Prendo o Scarto) senza vedere il punteggio del bot. Rendimento a 5 minuti dalla tua decisione, meno 5% di costo a giro (stima mediana, non una misura per ogni token).
@@ -99,6 +99,23 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 
 ## Ultimi eventi
 ```
+17:25:20 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 244 veto
+17:24:57 QUARTER  $tremp impatto 3.0% oltre slippage: annullato
+17:24:57 ORACLE   360 raccolti, 268 analizzati, 3 BUY, 256 veto
+17:24:34 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 255 veto
+17:24:11 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 242 veto
+17:23:47 QUARTER  $tremp impatto 2.5% oltre slippage: annullato
+17:23:47 QUARTER  SEGNALE $tremp score 66 (semi-automatico)
+17:23:47 ORACLE   360 raccolti, 265 analizzati, 3 BUY, 254 veto
+17:23:24 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 253 veto
+17:23:02 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 249 veto
+17:22:38 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 251 veto
+17:22:16 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 255 veto
+17:21:53 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 250 veto
+17:21:29 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 264 veto
+17:21:07 ORACLE   360 raccolti, 275 analizzati, 4 BUY, 261 veto
+17:20:43 ORACLE   360 raccolti, 272 analizzati, 4 BUY, 259 veto
+17:20:20 ORACLE   360 raccolti, 282 analizzati, 4 BUY, 268 veto
 17:19:57 ORACLE   360 raccolti, 285 analizzati, 4 BUY, 271 veto
 17:19:34 ORACLE   360 raccolti, 277 analizzati, 4 BUY, 266 veto
 17:19:11 ORACLE   360 raccolti, 284 analizzati, 4 BUY, 273 veto
@@ -122,23 +139,6 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 17:12:40 ORACLE   360 raccolti, 259 analizzati, 3 BUY, 250 veto
 17:12:17 ORACLE   360 raccolti, 264 analizzati, 3 BUY, 255 veto
 17:11:54 ORACLE   360 raccolti, 271 analizzati, 3 BUY, 261 veto
-17:11:31 ORACLE   360 raccolti, 269 analizzati, 3 BUY, 259 veto
-17:11:08 ORACLE   360 raccolti, 272 analizzati, 3 BUY, 262 veto
-17:10:44 ORACLE   360 raccolti, 270 analizzati, 3 BUY, 257 veto
-17:10:22 ORACLE   360 raccolti, 272 analizzati, 3 BUY, 260 veto
-17:09:59 ORACLE   360 raccolti, 276 analizzati, 3 BUY, 265 veto
-17:09:36 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 264 veto
-17:09:13 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 262 veto
-17:08:50 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 263 veto
-17:08:27 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 266 veto
-17:08:05 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 263 veto
-17:07:41 SCRIBE   chiuso P-0649 $BTC -0.0334 SOL (-41.7%)
-17:07:41 CHARON   Stop loss $BTC vendo 100% a -33.8% -> 0.0467 SOL
-17:07:41 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 263 veto
-17:07:17 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 266 veto
-17:06:55 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 259 veto
-17:06:32 ORACLE   360 raccolti, 280 analizzati, 3 BUY, 271 veto
-17:06:08 ORACLE   360 raccolti, 272 analizzati, 3 BUY, 264 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
