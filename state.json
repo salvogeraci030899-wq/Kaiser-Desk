@@ -1,8 +1,67 @@
 {
  "startedAt": 1795097825371,
  "runs": 302,
- "cash": 3.9423525579991847,
- "positions": [],
+ "cash": 3.862505506839201,
+ "positions": [
+  {
+   "id": "P-0626",
+   "mint": "Fw7uHfAH5zm65FUUcHHsJQFyCXW9Fogm424uF3EGpump",
+   "sym": "TC",
+   "name": "Twerking Cat",
+   "pairAddress": "8Qr1Jzso2U2U9E67TXSK3mQXDDYnyPdXTVQKeMNSR64E",
+   "openedAt": 1795333910737,
+   "sizeSOL": 0.0788470511599837,
+   "cost": 0.0798470511599837,
+   "entry": 2.3875895293255803e-7,
+   "tokens": 330237.04531932477,
+   "remaining": 1,
+   "rawLeft": "290582013776",
+   "peak": 2.593e-7,
+   "tp1Done": false,
+   "spDone": false,
+   "entryLiq": 7672.68,
+   "realized": 0,
+   "score": 65,
+   "why": "runner",
+   "entryInfo": {
+    "srcs": [
+     "profili"
+    ],
+    "notes": [
+     "-37% in 1h"
+    ],
+    "plus": [
+     "pressione in acquisto"
+    ],
+    "m": {
+     "liq": 8138.43,
+     "mc": 17928,
+     "ageMin": 17.421233333333333,
+     "v1": 15505,
+     "tx1": 458,
+     "br1": 1.3232323232323233,
+     "br5": 1.7666666666666666,
+     "c5": 33.66,
+     "c1": -37.37,
+     "c6": -37.37,
+     "turn": 1.9051586116732588,
+     "price": 0.00001792,
+     "priceNative": 2.593e-7
+    },
+    "grok": null
+   },
+   "last": {
+    "priceNative": 2.593e-7,
+    "liq": 8138.52,
+    "br5": 1.7666666666666666,
+    "tx5": 81,
+    "t": 1795333921347
+   },
+   "fills": [
+    "BUY 0.079 impatto 1.11% (Jupiter)"
+   ]
+  }
+ ],
  "journal": [
   {
    "id": "P-0437",
@@ -8752,13 +8811,6 @@
  "signals": [
   {
    "t": 1795306739122,
-   "mint": "G74SSWk4qF4BeWfyR53fVZYqdNWo9wH7UR55jF4uuxds",
-   "sym": "MANEKI",
-   "score": 89,
-   "priceNative": 0.000001148
-  },
-  {
-   "t": 1795306739122,
    "mint": "8R7rompcCDEZKGjRRybZt1UrDrZTdmSXqFjDtvSCpump",
    "sym": "C@T",
    "score": 88,
@@ -15749,6 +15801,13 @@
    "sym": "FIREBALL",
    "score": 65,
    "priceNative": 2.938e-7
+  },
+  {
+   "t": 1795333910677,
+   "mint": "Fw7uHfAH5zm65FUUcHHsJQFyCXW9Fogm424uF3EGpump",
+   "sym": "TC",
+   "score": 65,
+   "priceNative": 2.593e-7
   }
  ],
  "alerts": [],
@@ -15759,8 +15818,23 @@
  },
  "cooldownUntil": 1795333688498,
  "halted": null,
- "seq": 625,
+ "seq": 626,
  "events": [
+  "07:51:50 QUARTER  BUY $TC 0.079 SOL score 65 impatto 1.11% (Jupiter)",
+  "07:51:50 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 269 veto",
+  "07:51:27 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 272 veto",
+  "07:51:03 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 267 veto",
+  "07:50:39 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 260 veto",
+  "07:50:16 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 265 veto",
+  "07:49:51 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 261 veto",
+  "07:49:28 ORACLE   360 raccolti, 281 analizzati, 0 BUY, 271 veto",
+  "07:49:05 ORACLE   360 raccolti, 283 analizzati, 0 BUY, 274 veto",
+  "07:48:41 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 269 veto",
+  "07:48:17 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 268 veto",
+  "07:47:54 ORACLE   351 raccolti, 274 analizzati, 0 BUY, 263 veto",
+  "07:47:31 ORACLE   345 raccolti, 265 analizzati, 0 BUY, 254 veto",
+  "07:47:27 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)",
+  "07:47:07 ORACLE   326 raccolti, 256 analizzati, 0 BUY, 247 veto",
   "07:46:43 ORACLE   316 raccolti, 250 analizzati, 0 BUY, 241 veto",
   "07:46:20 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena",
   "07:46:20 ORACLE   313 raccolti, 238 analizzati, 0 BUY, 229 veto",
@@ -16045,27 +16119,12 @@
   "06:12:57 ORACLE   360 raccolti, 295 analizzati, 1 BUY, 285 veto",
   "06:12:32 ORACLE   360 raccolti, 294 analizzati, 1 BUY, 284 veto",
   "06:12:09 ORACLE   360 raccolti, 287 analizzati, 1 BUY, 277 veto",
-  "06:11:44 ORACLE   360 raccolti, 296 analizzati, 0 BUY, 286 veto",
-  "06:11:20 ORACLE   360 raccolti, 292 analizzati, 0 BUY, 281 veto",
-  "06:10:57 ORACLE   360 raccolti, 290 analizzati, 1 BUY, 279 veto",
-  "06:10:33 ORACLE   360 raccolti, 295 analizzati, 1 BUY, 285 veto",
-  "06:10:08 ORACLE   360 raccolti, 294 analizzati, 0 BUY, 286 veto",
-  "06:09:45 ORACLE   360 raccolti, 292 analizzati, 0 BUY, 283 veto",
-  "06:09:21 ORACLE   360 raccolti, 291 analizzati, 1 BUY, 284 veto",
-  "06:08:57 ORACLE   360 raccolti, 296 analizzati, 1 BUY, 289 veto",
-  "06:08:33 ORACLE   360 raccolti, 287 analizzati, 1 BUY, 281 veto",
-  "06:08:09 ORACLE   360 raccolti, 291 analizzati, 1 BUY, 281 veto",
-  "06:07:44 ORACLE   360 raccolti, 291 analizzati, 1 BUY, 279 veto",
-  "06:07:30 SCOUT    PumpPortal invia nuovi token (21) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena",
-  "06:07:20 ORACLE   360 raccolti, 287 analizzati, 1 BUY, 276 veto",
-  "06:06:56 ORACLE   360 raccolti, 294 analizzati, 1 BUY, 283 veto",
-  "06:06:32 ORACLE   357 raccolti, 290 analizzati, 1 BUY, 278 veto",
-  "06:06:08 ORACLE   353 raccolti, 279 analizzati, 0 BUY, 268 veto"
+  "06:11:44 ORACLE   360 raccolti, 296 analizzati, 0 BUY, 286 veto"
  ],
  "capital": 6,
  "resetId": "C-0110",
  "realTried": {},
- "lastEntryAt": 1795333121155,
+ "lastEntryAt": 1795333910737,
  "lab": {
   "done": [
    {
