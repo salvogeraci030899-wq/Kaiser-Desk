@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 02:45 UTC · in esecuzione da 2.5 giorni · 296 run
+Aggiornato: 2026-11-22 02:50 UTC · in esecuzione da 2.5 giorni · 296 run
 
 | | |
 |---|---|
-| Equity | **4.0670 SOL** (-32.2% dal capitale iniziale di 6 SOL) |
-| Cassa | 4.0670 SOL |
+| Equity | **4.0535 SOL** (-32.4% dal capitale iniziale di 6 SOL) |
+| Cassa | 3.9846 SOL |
 | Trade chiusi | 176 |
 | Win rate | 30% |
-| P&L realizzato | -1.9330 SOL (~$-134.16) |
+| P&L realizzato | -1.9330 SOL (~$-133.99) |
 | Media vincite / perdite | +41.5% / -32.6% |
 | Profit factor | 0.54 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$MASCOIN** P-0613 · 0.081 SOL · -15.4% · resta 100% · [grafico](https://dexscreener.com/solana/GVwtZwYs9NAxjaMJSouti5xWjA47WfNUtHWVZpgPuLCM)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+02:50:41 ORACLE   360 raccolti, 281 analizzati, 0 BUY, 264 veto
+02:50:17 ORACLE   360 raccolti, 286 analizzati, 0 BUY, 269 veto
+02:49:52 ORACLE   360 raccolti, 284 analizzati, 0 BUY, 266 veto
+02:49:29 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 261 veto
+02:49:05 ORACLE   360 raccolti, 282 analizzati, 0 BUY, 263 veto
+02:48:40 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 263 veto
+02:48:16 QUARTER  BUY $MASCOIN 0.081 SOL score 65 impatto 1.87% (Jupiter)
+02:48:16 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 267 veto
+02:47:52 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 257 veto
+02:47:29 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 261 veto
+02:47:05 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 263 veto
+02:46:41 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 268 veto
+02:46:17 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 256 veto
+02:45:53 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 261 veto
 02:45:30 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 262 veto
 02:45:07 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 257 veto
 02:44:42 ORACLE   344 raccolti, 260 analizzati, 0 BUY, 250 veto
@@ -83,20 +97,6 @@ fabbrica: 32301 percorsi, 768 configurazioni, 0 passano, 3961 ms
 02:40:16 SCRIBE   fine run · trade 176 · win 30% · P&L -1.9330 SOL · equity 4.0670 SOL
 02:40:11 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 243 veto
 02:39:48 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 242 veto
-02:39:25 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 249 veto
-02:39:01 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 247 veto
-02:38:38 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 245 veto
-02:38:15 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 252 veto
-02:37:53 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 260 veto
-02:37:29 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 257 veto
-02:37:07 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 263 veto
-02:36:44 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 253 veto
-02:36:21 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 253 veto
-02:35:58 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 258 veto
-02:35:35 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 255 veto
-02:35:13 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 254 veto
-02:35:09 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
-02:34:48 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 252 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.

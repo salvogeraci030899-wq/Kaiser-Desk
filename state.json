@@ -1,8 +1,66 @@
 {
  "startedAt": 1795097825371,
  "runs": 296,
- "cash": 4.06698165299115,
- "positions": [],
+ "cash": 3.9846420199313273,
+ "positions": [
+  {
+   "id": "P-0613",
+   "mint": "9GQhJ7t7Gy8DyeMVxjJZuTsHvmoZro5sVDxzNxsFpump",
+   "sym": "MASCOIN",
+   "name": "Mascoin",
+   "pairAddress": "GVwtZwYs9NAxjaMJSouti5xWjA47WfNUtHWVZpgPuLCM",
+   "openedAt": 1795315696487,
+   "sizeSOL": 0.081339633059823,
+   "cost": 0.082339633059823,
+   "entry": 4.790432983013872e-7,
+   "tokens": 169795.99411627438,
+   "remaining": 1,
+   "rawLeft": "198816832950",
+   "peak": 4.790432983013872e-7,
+   "tp1Done": false,
+   "spDone": false,
+   "entryLiq": 11433.96,
+   "realized": 0,
+   "score": 65,
+   "why": "runner",
+   "entryInfo": {
+    "srcs": [
+     "gecko nuovi"
+    ],
+    "notes": [
+     "nessun social"
+    ],
+    "plus": [],
+    "m": {
+     "liq": 11438.02,
+     "mc": 32341,
+     "ageMin": 2.30715,
+     "v1": 20109.08,
+     "tx1": 529,
+     "br1": 1.2595744680851064,
+     "br5": 1.2595744680851064,
+     "c5": 11.66,
+     "c1": 11.66,
+     "c6": 11.66,
+     "turn": 1.7580909982671826,
+     "price": 0.00003234,
+     "priceNative": 4.656e-7
+    },
+    "grok": null
+   },
+   "last": {
+    "priceNative": 4.054e-7,
+    "liq": 10634.52,
+    "br5": 1.285294117647059,
+    "tx5": 775,
+    "t": 1795315841415
+   },
+   "fills": [
+    "BUY 0.081 impatto 1.87% (Jupiter)"
+   ],
+   "trough": 3.586e-7
+  }
+ ],
  "journal": [
   {
    "id": "P-0437",
@@ -8144,20 +8202,6 @@
  ],
  "signals": [
   {
-   "t": 1795298000617,
-   "mint": "HUpUhhHm3rh5kx47KE3h9MbHq6sHLNgaXGEf5e7Xpump",
-   "sym": "VIRUS",
-   "score": 77,
-   "priceNative": 4.404e-7
-  },
-  {
-   "t": 1795298024091,
-   "mint": "HUpUhhHm3rh5kx47KE3h9MbHq6sHLNgaXGEf5e7Xpump",
-   "sym": "VIRUS",
-   "score": 80,
-   "priceNative": 4.526e-7
-  },
-  {
    "t": 1795298046911,
    "mint": "HUpUhhHm3rh5kx47KE3h9MbHq6sHLNgaXGEf5e7Xpump",
    "sym": "VIRUS",
@@ -15142,6 +15186,20 @@
    "sym": "SANTA",
    "score": 77,
    "priceNative": 4.371e-7
+  },
+  {
+   "t": 1795315696427,
+   "mint": "9GQhJ7t7Gy8DyeMVxjJZuTsHvmoZro5sVDxzNxsFpump",
+   "sym": "MASCOIN",
+   "score": 65,
+   "priceNative": 4.656e-7
+  },
+  {
+   "t": 1795315720817,
+   "mint": "9GQhJ7t7Gy8DyeMVxjJZuTsHvmoZro5sVDxzNxsFpump",
+   "sym": "MASCOIN",
+   "score": 65,
+   "priceNative": 4.483e-7
   }
  ],
  "alerts": [],
@@ -15152,8 +15210,22 @@
  },
  "cooldownUntil": 1795315050330,
  "halted": null,
- "seq": 612,
+ "seq": 613,
  "events": [
+  "02:50:41 ORACLE   360 raccolti, 281 analizzati, 0 BUY, 264 veto",
+  "02:50:17 ORACLE   360 raccolti, 286 analizzati, 0 BUY, 269 veto",
+  "02:49:52 ORACLE   360 raccolti, 284 analizzati, 0 BUY, 266 veto",
+  "02:49:29 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 261 veto",
+  "02:49:05 ORACLE   360 raccolti, 282 analizzati, 0 BUY, 263 veto",
+  "02:48:40 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 263 veto",
+  "02:48:16 QUARTER  BUY $MASCOIN 0.081 SOL score 65 impatto 1.87% (Jupiter)",
+  "02:48:16 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 267 veto",
+  "02:47:52 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 257 veto",
+  "02:47:29 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 261 veto",
+  "02:47:05 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 263 veto",
+  "02:46:41 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 268 veto",
+  "02:46:17 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 256 veto",
+  "02:45:53 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 261 veto",
   "02:45:30 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 262 veto",
   "02:45:07 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 257 veto",
   "02:44:42 ORACLE   344 raccolti, 260 analizzati, 0 BUY, 250 veto",
@@ -15439,26 +15511,12 @@
   "01:12:11 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 257 veto",
   "01:11:47 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 256 veto",
   "01:11:24 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 265 veto",
-  "01:11:01 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 263 veto",
-  "01:10:38 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 266 veto",
-  "01:10:14 ORACLE   360 raccolti, 281 analizzati, 0 BUY, 271 veto",
-  "01:09:50 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 266 veto",
-  "01:09:27 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 266 veto",
-  "01:09:04 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 268 veto",
-  "01:08:40 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 266 veto",
-  "01:08:17 SCRIBE   chiuso P-0606 $Wow -0.0030 SOL (-3.6%)",
-  "01:08:17 CHARON   Time stop $Wow vendo 100% a 4.2% -> 0.0822 SOL",
-  "01:08:17 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 258 veto",
-  "01:07:53 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 260 veto",
-  "01:07:30 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 263 veto",
-  "01:07:06 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 249 veto",
-  "01:06:43 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 259 veto",
-  "01:06:20 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 254 veto"
+  "01:11:01 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 263 veto"
  ],
  "capital": 6,
  "resetId": "C-0110",
  "realTried": {},
- "lastEntryAt": 1795314516757,
+ "lastEntryAt": 1795315696487,
  "lab": {
   "done": [
    {
