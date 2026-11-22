@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 10:27 UTC · in esecuzione da 2.8 giorni · 305 run
+Aggiornato: 2026-11-22 10:32 UTC · in esecuzione da 2.8 giorni · 305 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-22 10:27 UTC · in esecuzione da 2.8 giorni · 305 run
 | Cassa | 3.8960 SOL |
 | Trade chiusi | 198 |
 | Win rate | 30% |
-| P&L realizzato | -2.1040 SOL (~$-148.24) |
+| P&L realizzato | -2.1040 SOL (~$-148.08) |
 | Media vincite / perdite | +39.6% / -32.4% |
 | Profit factor | 0.53 |
 | Circuit breaker | no |
@@ -22,13 +22,13 @@ Regola decisa in anticipo: almeno 300 operazioni, netto medio >= +3% e limite in
 
 | | |
 |---|---|
-| Esito | **non passa** (409 di 300 operazioni) |
-| Netto medio per operazione | -43.6% (intervallo -50.5% / -36.8%) |
-| Mediana / operazioni in utile | -47.1% / 11.2% |
-| Quota dei guadagni dall'1% migliore | 52% |
-| Token campionati / con rotta di acquisto | 420 / 414 (98.6%) |
+| Esito | **non passa** (442 di 300 operazioni) |
+| Netto medio per operazione | -40.7% (intervallo -48.1% / -33.4%) |
+| Mediana / operazioni in utile | -43.3% / 11.3% |
+| Quota dei guadagni dall'1% migliore | 57% |
+| Token campionati / con rotta di acquisto | 452 / 446 (98.7%) |
 | Tempo per ottenere la quotazione (mediana / 90%) | 5.0 s / 5.1 s |
-| Senza rotta in acquisto / in vendita (perdita totale) | 6 / 123 |
+| Senza rotta in acquisto / in vendita (perdita totale) | 6 / 130 |
 | Errori di rete (acquisto / vendita) / interrotte a fine run | 0 / 0 / 0 |
 
 ## Uscite per motivo
@@ -70,6 +70,20 @@ Regola decisa in anticipo: almeno 300 operazioni, netto medio >= +3% e limite in
 
 ## Ultimi eventi
 ```
+10:32:53 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 242 veto
+10:32:29 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 240 veto
+10:32:06 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 241 veto
+10:31:42 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 244 veto
+10:31:19 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 252 veto
+10:31:05 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 252 veto
+10:30:40 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 267 veto
+10:30:17 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 266 veto
+10:29:53 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 263 veto
+10:29:30 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 268 veto
+10:29:06 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 266 veto
+10:28:43 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 264 veto
+10:28:20 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 267 veto
+10:27:56 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 271 veto
 10:27:32 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 268 veto
 10:27:08 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 269 veto
 10:26:45 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 271 veto
@@ -96,22 +110,6 @@ Regola decisa in anticipo: almeno 300 operazioni, netto medio >= +3% e limite in
 10:18:34 ORACLE   360 raccolti, 294 analizzati, 1 BUY, 281 veto
 10:18:11 ORACLE   360 raccolti, 285 analizzati, 1 BUY, 271 veto
 10:17:57 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-10:17:47 ORACLE   342 raccolti, 273 analizzati, 1 BUY, 261 veto
-10:17:33 ORACLE   335 raccolti, 263 analizzati, 1 BUY, 251 veto
-10:17:07 ORACLE   329 raccolti, 259 analizzati, 1 BUY, 247 veto
-10:16:44 ORACLE   311 raccolti, 241 analizzati, 1 BUY, 231 veto
-10:16:21 ORACLE   303 raccolti, 238 analizzati, 1 BUY, 228 veto
-10:15:58 ORACLE   300 raccolti, 229 analizzati, 1 BUY, 219 veto
-10:15:34 ORACLE   282 raccolti, 213 analizzati, 1 BUY, 205 veto
-10:15:11 ORACLE   275 raccolti, 211 analizzati, 1 BUY, 202 veto
-10:14:48 ORACLE   268 raccolti, 204 analizzati, 1 BUY, 196 veto
-10:14:25 ORACLE   254 raccolti, 193 analizzati, 1 BUY, 186 veto
-10:14:02 ORACLE   246 raccolti, 176 analizzati, 1 BUY, 169 veto
-10:13:40 ORACLE   244 raccolti, 175 analizzati, 1 BUY, 168 veto
-10:13:17 ORACLE   215 raccolti, 153 analizzati, 1 BUY, 149 veto
-10:13:10 SCOUT    rug: 11738 token oltre 7.5K, 35.6% rug, 10156 con possessori
-combinazioni: 5664 prove, migliore -5.38%, p 1
-fabbrica: 32644 percorsi, 768 configurazioni, 0 passano, 6133 ms
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
