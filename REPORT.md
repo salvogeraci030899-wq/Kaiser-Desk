@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 04:41 UTC · in esecuzione da 2.6 giorni · 298 run
+Aggiornato: 2026-11-22 04:46 UTC · in esecuzione da 2.6 giorni · 298 run
 
 | | |
 |---|---|
-| Equity | **4.0494 SOL** (-32.5% dal capitale iniziale di 6 SOL) |
-| Cassa | 3.9467 SOL |
-| Trade chiusi | 180 |
-| Win rate | 29% |
-| P&L realizzato | -1.9717 SOL (~$-136.72) |
-| Media vincite / perdite | +40.9% / -32.3% |
-| Profit factor | 0.53 |
+| Equity | **4.0463 SOL** (-32.6% dal capitale iniziale di 6 SOL) |
+| Cassa | 4.0463 SOL |
+| Trade chiusi | 181 |
+| Win rate | 30% |
+| P&L realizzato | -1.9537 SOL (~$-135.40) |
+| Media vincite / perdite | +40.5% / -32.3% |
+| Profit factor | 0.54 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$Snowball** P-0617 · 0.081 SOL · +27.5% · resta 100% · [grafico](https://dexscreener.com/solana/HhK4MDRCdiVxSxZ2yYSRST9efANCdeJJc2U6SaFHY1Vo)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 51 | -1.4623 |
 | Time stop | 66 | -0.8447 |
-| TP1 | 38 | +1.7797 |
+| TP1 | 39 | +1.7977 |
 | RUG-EXIT liquidità | 25 | -1.4445 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $Snowball | 64 | +22.1% | +0.0180 | +70% | +70% | TP1 | 5m |
 | $LEONIDA | 72 | -25.1% | -0.0206 | +5% | -31% | Stop loss | 3m |
 | $Tiger | 74 | -20.0% | -0.0164 | +60% | +60% | TP1 | 1m |
 | $FRIEND | 69 | -8.4% | -0.0069 | +15% | +5% | Time stop | 5m |
@@ -51,10 +52,28 @@ Aggiornato: 2026-11-22 04:41 UTC · in esecuzione da 2.6 giorni · 298 run
 | $Lazarus | 74 | +91.9% | +0.0817 | +94% | +94% | TP1 | 5m |
 | $Emily | 70 | +56.6% | +0.0498 | +78% | +78% | TP1 | 5m |
 | $will | 77 | -8.2% | -0.0072 | +14% | -9% | Time stop | 5m |
-| $TIMOTHY | 74 | -37.9% | -0.0336 | +0% | -39% | Stop loss | 0m |
 
 ## Ultimi eventi
 ```
+04:46:10 SCRIBE   chiuso P-0617 $Snowball 0.0180 SOL (22.1%)
+04:46:10 CHARON   TP1 $Snowball vendo 100% a 70.0% -> 0.0996 SOL
+04:46:00 ORACLE   360 raccolti, 290 analizzati, 0 BUY, 278 veto
+04:45:37 ORACLE   360 raccolti, 294 analizzati, 0 BUY, 282 veto
+04:45:14 ORACLE   360 raccolti, 294 analizzati, 1 BUY, 282 veto
+04:44:51 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 272 veto
+04:44:28 ORACLE   360 raccolti, 293 analizzati, 1 BUY, 280 veto
+04:44:04 ORACLE   360 raccolti, 289 analizzati, 2 BUY, 277 veto
+04:43:41 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 266 veto
+04:43:18 ORACLE   360 raccolti, 294 analizzati, 2 BUY, 282 veto
+04:42:55 ORACLE   360 raccolti, 291 analizzati, 2 BUY, 278 veto
+04:42:31 ORACLE   360 raccolti, 286 analizzati, 2 BUY, 274 veto
+04:42:08 ORACLE   360 raccolti, 293 analizzati, 2 BUY, 282 veto
+04:41:45 ORACLE   360 raccolti, 286 analizzati, 2 BUY, 275 veto
+04:41:23 ORACLE   360 raccolti, 289 analizzati, 2 BUY, 278 veto
+04:41:09 SCOUT    regola C-064: corrente (nuova strategia: 10K rit. 10s +30/-10 60s: vecchi -7.72%, recenti -7.66%)
+04:41:09 SCOUT    regola C-063: ritirata (302 operazioni in avanti, esito medio -6.8% (±4.1): non regge)
+04:41:09 SCOUT    strategia C-064: corrente: nuova strategia: 10K rit. 10s +30/-10 60s: vecchi -7.72%, recenti -7.66%
+04:41:09 SCOUT    strategia C-063: ritirata: 302 operazioni in avanti, esito medio -6.8% (±4.1): non regge
 04:40:59 QUARTER  BUY $Snowball 0.081 SOL score 64 impatto 0.22% (Jupiter)
 04:40:59 ORACLE   360 raccolti, 294 analizzati, 2 BUY, 282 veto
 04:40:36 QUARTER  $Snowball impatto 2.2% oltre slippage: annullato
@@ -76,25 +95,6 @@ Aggiornato: 2026-11-22 04:41 UTC · in esecuzione da 2.6 giorni · 298 run
 04:35:35 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 266 veto
 04:35:12 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 267 veto
 04:35:09 SCOUT    Laboratorio: collegato a PumpPortal
-04:34:47 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 267 veto
-04:34:25 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 261 veto
-04:34:01 ORACLE   360 raccolti, 282 analizzati, 0 BUY, 264 veto
-04:33:38 ORACLE   360 raccolti, 281 analizzati, 0 BUY, 263 veto
-04:33:16 ORACLE   360 raccolti, 281 analizzati, 0 BUY, 264 veto
-04:32:53 ORACLE   360 raccolti, 281 analizzati, 0 BUY, 264 veto
-04:32:30 ORACLE   360 raccolti, 281 analizzati, 0 BUY, 265 veto
-04:32:07 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 261 veto
-04:31:44 ORACLE   360 raccolti, 284 analizzati, 0 BUY, 268 veto
-04:31:21 ORACLE   360 raccolti, 281 analizzati, 0 BUY, 265 veto
-04:30:58 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 264 veto
-04:30:35 ORACLE   360 raccolti, 285 analizzati, 0 BUY, 268 veto
-04:30:22 ORACLE   360 raccolti, 286 analizzati, 0 BUY, 270 veto
-04:29:56 ORACLE   360 raccolti, 287 analizzati, 0 BUY, 270 veto
-04:29:33 ORACLE   360 raccolti, 282 analizzati, 0 BUY, 270 veto
-04:29:09 ORACLE   360 raccolti, 289 analizzati, 0 BUY, 277 veto
-04:28:55 ORACLE   360 raccolti, 286 analizzati, 0 BUY, 273 veto
-04:28:27 ORACLE   360 raccolti, 293 analizzati, 0 BUY, 280 veto
-04:28:04 ORACLE   360 raccolti, 289 analizzati, 0 BUY, 276 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
