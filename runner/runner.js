@@ -107,7 +107,7 @@ function publicSummary() {
     journal: st.journal.slice(-100).map((j) => ({ id: j.id, mint: j.mint, sym: j.sym, openedAt: j.openedAt, closedAt: j.closedAt, cost: j.cost, back: j.back, pnl: j.pnl, pct: j.pct, reason: j.reason, score: j.score, peakPct: j.peakPct, trigPct: j.trigPct, maePct: j.maePct == null ? null : j.maePct, age: j.age == null ? null : j.age })),
     events: st.events.slice(0, 40), config: cfg,
     young: Y.youngSummary(rt.young, Date.now(), 80, (m) => (rt.trades ? rt.trades.botNow(m) : null)),
-    creators: rt.creators ? rt.creators.view(10) : null, cal: calSummary(st.cal), semi: S.semiAuto || 'spento', alerts: Semi.view(st.alerts || [], 20), grok: { on: !!S.grokTest, key: !!process.env.XAI_API_KEY, used: rt.grokDay.n, err: rt.grokErr, errMsg: rt.grokErrMsg, queued: rt.grokQ.length, stat: Grokstat.summary(st.grokLog || []) }, farm: rt.farm || null, rug: rt.rug || null, combo: rt.combo || null, hold: { ok: rt.holdOk, fail: rt.holdFail, queued: rt.holdQ.length, err: rt.holdErr }, probe: rt.probe || null, strat: Object.assign(Strat.summary(rt.strat, Date.now()), { live: rt.shadowOpen || [] }),
+    decisions: Semi.decisions(st.alerts || [], st.journal, st.positions, 60), decisionStats: Semi.controlStats(st.journal || [], st.alerts || []), creators: rt.creators ? rt.creators.view(10) : null, cal: calSummary(st.cal), semi: S.semiAuto || 'spento', alerts: Semi.view(st.alerts || [], 20), grok: { on: !!S.grokTest, key: !!process.env.XAI_API_KEY, used: rt.grokDay.n, err: rt.grokErr, errMsg: rt.grokErrMsg, queued: rt.grokQ.length, stat: Grokstat.summary(st.grokLog || []) }, farm: rt.farm || null, rug: rt.rug || null, combo: rt.combo || null, hold: { ok: rt.holdOk, fail: rt.holdFail, queued: rt.holdQ.length, err: rt.holdErr }, probe: rt.probe || null, strat: Object.assign(Strat.summary(rt.strat, Date.now()), { live: rt.shadowOpen || [] }),
     lab: rt.trades || (st.lab && st.lab.done.length) ? { info: rt.trades ? rt.trades.status() : null, ...Lab.labSummary((st.lab && st.lab.done) || [], Date.now()) } : null, youngInfo: rt.feed ? { ...rt.feed.status(), tracked: [...rt.young.values()].filter((y) => y.tracked).length } : null,
   };
 }
@@ -274,20 +274,18 @@ function snipeCfg() {
   return c;
 }
 function humanSection() {
-  const t = Semi.humanTrades(st.journal || []), h = Semi.humanStats(st.alerts || []), f = (n) => (n == null ? 'n/d' : (n >= 0 ? '+' : '') + Number(n).toFixed(1));
-  return `## Uomo e macchina: le Coin che prendi contro quelle del bot
-Il radar sceglie e tu decidi (Prendo o Scarto) senza vedere il punteggio del bot. Con Prendo il paper apre subito la posizione con i parametri impostati e la chiude da solo: il rendimento e' netto di impatto, commissioni e priority fee.
-Regola decisa in anticipo: almeno ${t.cfg.minN} trade tuoi chiusi, netto medio >= +${t.cfg.passMeanPct}% con limite inferiore del 95% sopra zero.
+  const t = Semi.humanTrades(st.journal || []), k = Semi.controlStats(st.journal || [], st.alerts || []), h = Semi.humanStats(st.alerts || []), f = (n) => (n == null ? 'n/d' : (n >= 0 ? '+' : '') + Number(n).toFixed(1));
+  return `## Le tue decisioni: prese e scartate
+Il paper e' il registro di cio' che decidi sugli avvisi di Telegram. Con Prendo si apre subito una posizione paper con le uscite impostate (netto di impatto, commissioni e priority fee); con Scarto si simula la stessa uscita con costi stimati dalla liquidita', per vedere cosa avresti ottenuto. Non c'e' nessun bot a parte.
+Regola decisa in anticipo, sui tuoi Prendo chiusi: almeno ${t.cfg.minN}, netto medio >= +${t.cfg.passMeanPct}% con limite inferiore del 95% sopra zero. Il confronto con gli Scarto e' solo descrittivo.
 
 | | |
 |---|---|
 | Esito | **${t.verdict}** |
-| Trade tuoi chiusi / trade del bot chiusi | ${t.n} / ${t.botN} |
-| Netto medio dei tuoi trade | ${t.mean == null ? 'n/d' : `${f(t.mean)}% (intervallo ${f(t.lo)}% / ${f(t.hi)}%), in utile ${t.win}%`} |
-| Netto medio dei trade del bot | ${f(t.botMean)}% |
-| Differenza tuoi meno bot (limite inferiore) | ${t.diff == null ? 'n/d' : `${f(t.diff)}% (${f(t.diffLo)}%)`} |
-| Scartati: variazione a 5 minuti dalla decisione, meno ${h.cfg.costPct}% di costo (solo descrittivo) | ${h.n} segnali, ${f(h.nMean)}% |
-| Segnali senza risposta / decisi dopo 5 minuti | ${h.noAns} / ${h.late} |
+| Prendo chiusi | ${t.n} di ${t.cfg.minN}${t.mean == null ? '' : `, netto medio ${f(t.mean)}% (intervallo ${f(t.lo)}% / ${f(t.hi)}%), in utile ${t.win}%`} |
+| Scarto simulati chiusi | ${k.n}${k.nMean == null ? '' : `, netto medio ${f(k.nMean)}% (intervallo ${f(k.nLo)}% / ${f(k.nHi)}%), in utile ${k.nWin}%`}; ancora aperti ${k.open} |
+| Prendo meno Scarto (limite inferiore) | ${k.diff == null ? 'n/d' : `${f(k.diff)}% (${f(k.diffLo)}%)`} |
+| Avvisi senza risposta | ${h.noAns} |
 
 `;
 }
@@ -306,7 +304,6 @@ Memoria: ${c.launches} lanci noti, ${c.creators} creatori; ${c.bandCoins} Coin i
 |---|---|---|---|---|
 ${rows}
 
-Controllo equo: gli Scarto si simulano come se fossero stati presi, con le stesse uscite e costi stimati dalla liquidita'. Scartati simulati chiusi: ${k.n}${k.n >= 2 ? `, netto medio ${f(k.nMean)}% (intervallo ${f(k.nLo)}% / ${f(k.nHi)}%), in utile ${k.nWin}%` : ''}; ancora aperti: ${k.open}. Tuoi Prendo meno Scarto simulati: ${k.diff == null ? 'n/d' : `${f(k.diff)}% (limite inferiore ${f(k.diffLo)}%)`}. Solo descrittivo: non entra nella regola di superamento.
 Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, per giorno: ${Object.keys(st.bandDays || {}).sort().slice(-4).map((d) => `${d.slice(5)}: ${st.bandDays[d].c} / ${st.bandDays[d].nv}`).join('; ') || 'nessun dato'}.
 
 `;
@@ -456,7 +453,7 @@ async function buy(c, o) {
     id: 'P-' + String(++st.seq).padStart(4, '0'), mint: c.mint, sym: c.sym, name: c.name, pairAddress: fresh.pairAddress,
     openedAt: Date.now(), sizeSOL: sizeS, cost: sizeS + S.prioritySOL, entry, tokens: sizeS / entry, remaining: 1, rawLeft: rawOut,
     peak: entry, tp1Done: false, spDone: false, entryLiq: liq, realized: 0, score: c.score, why: human ? 'umano' : 'runner', src: human ? 'umano' : 'bot', ex: human && !bandMode ? { tp: num(S.humanTp, 10), sl: num(S.humanSl, 10), holdSec: num(S.humanHoldSec, 60) } : undefined,
-    xs: bandMode ? bandExits() : undefined, band: bandMode ? o.band : undefined, cr: human ? (o.cr || '') : undefined,
+    xs: bandMode ? bandExits() : undefined, band: bandMode ? o.band : undefined, cr: human ? (o.cr || '') : undefined, aid: human ? (o.aid || '') : undefined, aid: human ? (o.aid || '') : undefined,
     entryInfo: { srcs: c.srcs, notes: c.a.notes, plus: c.a.plus, m: c.a.m, grok: c.gr ? { s: c.gr.sentiment, o: c.gr.organic } : null },
     last: null, fills: [`BUY ${sizeS.toFixed(3)} impatto ${(impact * 100).toFixed(2)}% (${src})`],
   };
@@ -472,7 +469,7 @@ async function buy(c, o) {
 const bandExits = () => Semi.bandExits(S);
 async function humanTake(a, at) {
   const why = st.halted ? 'circuit breaker attivo' : st.positions.some((p) => p.mint === a.mint) ? 'Coin già in posizione' : st.cash < sizeSol() * 0.5 || sizeSol() < 0.001 ? 'cassa insufficiente' : Date.now() - at > 5 * 60000 ? 'decisione arrivata troppo tardi (oltre 5 minuti)' : '';
-  const o = { src: 'umano', why, band: a.band || '', cr: a.cr || '' }; let p = null;
+  const o = { src: 'umano', why, band: a.band || '', cr: a.cr || '', aid: a.id || '' }; let p = null;
   if (!why) p = await buy({ mint: a.mint, sym: a.sym, name: a.name, score: a.score, srcs: ['umano'], a: { notes: ['scelta tua'], plus: [], m: {} }, pair: { priceNative: a.priceNative, pairAddress: a.pair, liquidity: { usd: a.liq } } }, o);
   if (!p) { log('QUARTER', `Prendo $${a.sym} non aperto: ${o.why}`); await tg(`<b>PRESO</b> $${esc(a.sym)} non aperto in paper: ${esc(o.why)}`); }
   return p;
@@ -511,7 +508,7 @@ async function sell(p, frac, reason) {
     st.positions = st.positions.filter((x) => x !== p);
     const pnl = p.realized - p.cost;
     const j = { id: p.id, mint: p.mint, sym: p.sym, openedAt: p.openedAt, closedAt: Date.now(), cost: p.cost, back: p.realized, pnl, pct: pnl / p.cost * 100,
-      mode: 'paper', src: p.src || 'bot', band: p.band || '', cr: p.cr || '', reason, score: p.score, solUsd: rt.solUsd, peakPct: (p.peak / p.entry - 1) * 100, trigPct: (m.priceNative / p.entry - 1) * 100, entryInfo: p.entryInfo,
+      mode: 'paper', src: p.src || 'bot', band: p.band || '', cr: p.cr || '', aid: p.aid || '', reason, score: p.score, solUsd: rt.solUsd, peakPct: (p.peak / p.entry - 1) * 100, trigPct: (m.priceNative / p.entry - 1) * 100, entryInfo: p.entryInfo,
       maePct: p.trough && p.entry > 0 ? (p.trough / p.entry - 1) * 100 : null, age: p.entryInfo && p.entryInfo.m && Number.isFinite(Number(p.entryInfo.m.ageMin)) ? Math.round(Number(p.entryInfo.m.ageMin)) : null };
     st.journal.push(j);
     pushLive(true).catch(() => {});

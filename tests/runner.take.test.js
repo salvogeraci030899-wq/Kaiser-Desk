@@ -34,7 +34,7 @@ test('Prendo apre subito una posizione paper segnata come tua; Scarto no; lo ste
   try {
     await R.pullParams();
     assert.equal(st.positions.length, 1, 'una sola posizione: il Prendo'); const p = st.positions[0];
-    assert.equal(p.mint, M1); assert.equal(p.src, 'umano'); assert.deepEqual(p.ex, { tp: 10, sl: 10, holdSec: 60 }, 'uscite proprie'); assert.ok(p.cost > 0 && st.cash < 6, 'la cassa scende');
+    assert.equal(p.mint, M1); assert.equal(p.src, 'umano'); assert.deepEqual(p.ex, { tp: 10, sl: 10, holdSec: 60 }, 'uscite proprie'); assert.equal(p.aid, 'a0001', 'la posizione e\' legata all\'avviso'); assert.ok(p.cost > 0 && st.cash < 6, 'la cassa scende');
     assert.equal(st.alerts[0].vote, 'y'); assert.equal(st.alerts[1].vote, 'n');
     await R.pullParams(); assert.equal(st.positions.length, 1, 'lo stesso voto non riapre');
     st.alerts.push({ ...alert('a0004', M1, 'AAA') }); w.restore();

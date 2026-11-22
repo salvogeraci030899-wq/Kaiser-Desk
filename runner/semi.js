@@ -157,4 +157,25 @@ function reviewText(r) {
   return head + (r.enough ? 'I dati bastano: si va avanti fino a ' + r.need + ' trade chiusi, poi si applica la regola di superamento.' : 'I dati non bastano' + (r.few ? ': pochi avvisi' : '') + (r.blind ? ': troppi creatori sconosciuti' : '') + '. Conviene fermare o semplificare il test: decidi tu.');
 }
 
-module.exports = { digestText, reviewOf, reviewText, REVIEW, vote, humanStats, humanTrades, bandExits, shadowOpen, shadowStep, controlStats, HCFG, MAX_PER_HOUR, REPEAT_H, TRACK_MS, MODES, pick, alertOf, text, keyboard, pumpUrl, open, track, view };
+// Il paper e' il registro delle decisioni sugli avvisi: ogni avviso con Prendo o Scarto diventa una riga. Prendo = posizione paper vera (aperta o chiusa);
+// Scarto = simulazione con le stesse uscite. Un'unica lista, nessun bot a parte.
+function decisions(alerts, journal, positions, n) {
+  const jr = new Map((journal || []).filter((j) => j.aid).map((j) => [j.aid, j])), pos = new Map((positions || []).filter((p) => p.aid).map((p) => [p.aid, p])), out = [];
+  for (const a of alerts || []) {
+    if (!a.vote) continue;
+    const base = { t: a.t, sym: a.sym, band: a.band || '', vote: a.vote };
+    if (a.vote === 'y') {
+      const j = jr.get(a.id), p = pos.get(a.id);
+      if (j) out.push({ ...base, status: 'chiuso', pct: +Number(j.pct).toFixed(1), pnl: +Number(j.pnl).toFixed(4), reason: j.reason, at: j.closedAt });
+      else if (p) out.push({ ...base, status: 'aperto', pct: p.last && p.entry > 0 ? +((p.last.priceNative / p.entry - 1) * 100).toFixed(1) : null, pnl: null, reason: 'in corso', at: p.openedAt });
+      else out.push({ ...base, status: 'non aperto', pct: null, pnl: null, reason: 'non aperto', at: a.vAt || a.t });
+    } else {
+      const s = a.sh;
+      if (s && s.done) out.push({ ...base, status: 'chiuso', pct: +Number(s.pct).toFixed(1), pnl: null, reason: s.reason, at: s.t1 });
+      else out.push({ ...base, status: s ? 'aperto' : 'senza simulazione', pct: null, pnl: null, reason: s ? 'in corso' : 'senza simulazione', at: a.vAt || a.t });
+    }
+  }
+  return out.sort((x, y) => (y.at || y.t) - (x.at || x.t)).slice(0, n || 60);
+}
+
+module.exports = { decisions, digestText, reviewOf, reviewText, REVIEW, vote, humanStats, humanTrades, bandExits, shadowOpen, shadowStep, controlStats, HCFG, MAX_PER_HOUR, REPEAT_H, TRACK_MS, MODES, pick, alertOf, text, keyboard, pumpUrl, open, track, view };
