@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 20:20 UTC · in esecuzione da 3.3 giorni · 317 run
+Aggiornato: 2026-11-22 20:25 UTC · in esecuzione da 3.3 giorni · 317 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-22 20:20 UTC · in esecuzione da 3.3 giorni · 317 run
 | Cassa | 3.9038 SOL |
 | Trade chiusi | 225 |
 | Win rate | 31% |
-| P&L realizzato | -2.0962 SOL (~$-146.56) |
+| P&L realizzato | -2.0962 SOL (~$-146.43) |
 | Media vincite / perdite | +40.1% / -31.5% |
 | Profit factor | 0.57 |
 | Circuit breaker | no |
@@ -99,6 +99,19 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 
 ## Ultimi eventi
 ```
+20:25:44 ORACLE   360 raccolti, 283 analizzati, 0 BUY, 273 veto
+20:25:20 ORACLE   360 raccolti, 282 analizzati, 0 BUY, 271 veto
+20:24:56 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 268 veto
+20:24:32 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 270 veto
+20:24:08 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 267 veto
+20:23:45 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 266 veto
+20:23:22 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 269 veto
+20:22:58 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 262 veto
+20:22:34 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 262 veto
+20:22:10 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 270 veto
+20:21:47 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 266 veto
+20:21:23 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 268 veto
+20:20:59 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 267 veto
 20:20:35 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 263 veto
 20:20:11 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 254 veto
 20:19:47 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 271 veto
@@ -128,19 +141,6 @@ fabbrica: 32556 percorsi, 768 configurazioni, 0 passano, 5000 ms
 20:15:37 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
 20:15:37 SCOUT    Laboratorio: collegato a PumpPortal
 20:15:36 KAISER   run #317 · 0 posizioni · equity 3.9827 SOL · GMGN spenta (nessuna chiave) · Grok off
-20:06:14 ORACLE   360 raccolti, 291 analizzati, 1 BUY, 286 veto
-20:05:51 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 275 veto
-20:05:28 ORACLE   360 raccolti, 293 analizzati, 2 BUY, 286 veto
-20:05:04 ORACLE   360 raccolti, 292 analizzati, 2 BUY, 284 veto
-20:04:40 ORACLE   360 raccolti, 285 analizzati, 2 BUY, 274 veto
-20:04:16 ORACLE   360 raccolti, 297 analizzati, 2 BUY, 287 veto
-20:04:02 ORACLE   360 raccolti, 295 analizzati, 2 BUY, 285 veto
-20:03:36 ORACLE   360 raccolti, 287 analizzati, 2 BUY, 277 veto
-20:03:12 ORACLE   360 raccolti, 291 analizzati, 2 BUY, 281 veto
-20:02:48 ORACLE   360 raccolti, 293 analizzati, 2 BUY, 282 veto
-20:02:24 ORACLE   360 raccolti, 287 analizzati, 2 BUY, 277 veto
-20:02:00 ORACLE   360 raccolti, 287 analizzati, 1 BUY, 276 veto
-20:01:35 ORACLE   360 raccolti, 286 analizzati, 1 BUY, 276 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
