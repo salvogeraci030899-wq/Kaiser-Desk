@@ -40,7 +40,7 @@ test('il parametro dell\'app: tre valori, spento di base, modificabile solo come
 });
 test('runner e app: l\'avviso parte prima dell\'ingresso, con la modalità «solo avvisi» il paper non apre posizioni, il radar mostra il tasto pump.fun', () => {
   const src = fs.readFileSync(require.resolve('../runner/runner.js'), 'utf8'), html = fs.readFileSync(require.resolve('../index.html'), 'utf8');
-  const i1 = src.indexOf("if (S.semiAuto && S.semiAuto !== 'spento') await semiAlerts(buys);"), i2 = src.indexOf("if (S.semiAuto === 'solo avvisi') return;"), i3 = src.indexOf('if (!S.autopilot) return;\n  await realEntries(buys);');
+  const i1 = src.indexOf("if (S.humanOnly || (S.semiAuto && S.semiAuto !== 'spento')) await semiAlerts(buys);"), i2 = src.indexOf("if (S.humanOnly || S.semiAuto === 'solo avvisi') return;"), i3 = src.indexOf('if (!S.autopilot) return;\n  await realEntries(buys);');
   assert.ok(i1 > 0 && i2 > i1 && i3 > i2, 'avviso, poi uscita anticipata, poi gli ingressi'); assert.match(src, /await tg\(Semi\.text\(a\), Semi\.keyboard\(a\)\)/); assert.match(src, /async function tg\(text, markup\)/); assert.match(src, /alerts: Semi\.view\(st\.alerts \|\| \[\], 20\)/);
   assert.match(html, /id="semiBox"/); assert.match(html, /function renderSemi\(\)/); assert.match(html, /https:\/\/pump\.fun\/coin\/\$\{encodeURIComponent\(a\.mint\)\}/); assert.match(html, /renderLab\(\); renderSemi\(\);/);
 });
@@ -59,3 +59,14 @@ test('decisione umana: una sola per segnale; il confronto presi contro scartati 
   assert.equal(Semi.humanStats([...mk(10, 'y', 40), ...mk(5, 'n', 0)]).verdict, 'in corso', 'troppo pochi');
   const tardi = Semi.humanStats([{ id: 'ax1', t: T, vote: 'y', vAt: T + 6 * 60000, vp: 0, p5: 30, p15: 30 }]); assert.equal(tardi.late, 1); assert.equal(tardi.y, 0, 'deciso dopo 5 minuti: escluso');
 });
+
+test('solo uomo: resta attivo il Radar con gli avvisi, i Prendo e gli Scarto; spenti ingressi del bot, prove automatiche e Laboratorio; le uscite e i voti continuano', () => {
+  const E = require('../engine.js'), src = fs.readFileSync(require.resolve('../runner/runner.js'), 'utf8');
+  assert.equal(E.DEFAULTS.humanOnly, true, 'acceso di default');
+  assert.match(src, /if \(!S\.humanOnly\) \{ shadowTick\(\); maybeFarm\(\); maybeProbe\(\); pumpHolders\(\); pumpLabQueries\(\); pumpGrok\(\); pumpSocial\(\); \}/);
+  assert.match(src, /if \(S\.srcLab !== false && !S\.humanOnly\)/); assert.match(src, /enabled: !S\.humanOnly && S\.snipeTest !== false/); assert.match(src, /enabled: !S\.humanOnly && S\.gradTest !== false/);
+  assert.match(src, /if \(!S\.humanOnly\) \{ loadFarm\(\); loadProbe\(\); \}/);
+  assert.ok(src.indexOf("if (S.humanOnly || S.semiAuto === 'solo avvisi') return;") < src.indexOf('await realEntries(buys);'), 'nessun ingresso automatico, ne\' paper ne\' reale');
+  assert.match(src, /else await manage\(\);/, 'le uscite delle posizioni continuano'); assert.match(src, /async function humanTake\(/); assert.match(src, /await updateAlerts\(pairs\)/, 'gli Scarto si seguono');
+});
+
