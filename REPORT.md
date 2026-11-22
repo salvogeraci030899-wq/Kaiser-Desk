@@ -1,25 +1,25 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 00:00 UTC · in esecuzione da 2.4 giorni · 292 run
+Aggiornato: 2026-11-22 00:05 UTC · in esecuzione da 2.4 giorni · 292 run
 
 | | |
 |---|---|
-| Equity | **4.2554 SOL** (-29.1% dal capitale iniziale di 6 SOL) |
-| Cassa | 4.1703 SOL |
-| Trade chiusi | 164 |
+| Equity | **4.2258 SOL** (-29.6% dal capitale iniziale di 6 SOL) |
+| Cassa | 4.2258 SOL |
+| Trade chiusi | 165 |
 | Win rate | 29% |
-| P&L realizzato | -1.7436 SOL (~$-122.22) |
+| P&L realizzato | -1.7742 SOL (~$-124.40) |
 | Media vincite / perdite | +43.7% / -32.4% |
-| Profit factor | 0.56 |
+| Profit factor | 0.55 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$KAREN** P-0601 · 0.085 SOL · n/d · resta 100% · [grafico](https://dexscreener.com/solana/9Air2baaMqFFKwoVGep43vxT7XS7mZe8A16ghexMJTsy)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| Stop loss | 45 | -1.3653 |
+| Stop loss | 46 | -1.3959 |
 | Time stop | 62 | -0.8232 |
 | TP1 | 34 | +1.7492 |
 | RUG-EXIT liquidità | 23 | -1.3042 |
@@ -27,6 +27,7 @@ Aggiornato: 2026-11-22 00:00 UTC · in esecuzione da 2.4 giorni · 292 run
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $KAREN | 80 | -35.5% | -0.0306 | +0% | -40% | Stop loss | 4m |
 | $DPRK | 69 | -99.5% | -0.0875 | +0% | -98% | RUG-EXIT liquidità | 5m |
 | $WAVE | 74 | -96.9% | -0.0869 | +22% | -95% | RUG-EXIT liquidità | 4m |
 | $DPRK | 72 | +49.8% | +0.0442 | +69% | +69% | TP1 | 7m |
@@ -51,10 +52,25 @@ Aggiornato: 2026-11-22 00:00 UTC · in esecuzione da 2.4 giorni · 292 run
 | $ELON | 64 | -99.4% | -0.0913 | +34% | -98% | RUG-EXIT liquidità | 2m |
 | $Cyber | 83 | -99.6% | -0.0933 | +41% | -98% | RUG-EXIT liquidità | 10m |
 | $OMERTA | 83 | -9.5% | -0.0089 | +10% | -1% | Time stop | 11m |
-| $SPONGEBOB | 88 | -2.7% | -0.0025 | +3% | -5% | Time stop | 5m |
 
 ## Ultimi eventi
 ```
+00:05:21 ORACLE   360 raccolti, 273 analizzati, 5 BUY, 252 veto
+00:04:57 ORACLE   360 raccolti, 280 analizzati, 5 BUY, 257 veto
+00:04:32 SCRIBE   chiuso P-0601 $KAREN -0.0306 SOL (-35.5%)
+00:04:32 CHARON   Stop loss $KAREN vendo 100% a -40.3% -> 0.0555 SOL
+00:04:32 ORACLE   360 raccolti, 279 analizzati, 5 BUY, 255 veto
+00:04:08 ORACLE   360 raccolti, 275 analizzati, 5 BUY, 254 veto
+00:03:44 ORACLE   360 raccolti, 279 analizzati, 4 BUY, 261 veto
+00:03:19 ORACLE   360 raccolti, 274 analizzati, 4 BUY, 252 veto
+00:02:57 ORACLE   360 raccolti, 276 analizzati, 4 BUY, 254 veto
+00:02:33 ORACLE   360 raccolti, 277 analizzati, 4 BUY, 257 veto
+00:02:08 ORACLE   360 raccolti, 264 analizzati, 4 BUY, 245 veto
+00:01:45 ORACLE   360 raccolti, 263 analizzati, 4 BUY, 245 veto
+00:01:21 ORACLE   360 raccolti, 271 analizzati, 3 BUY, 251 veto
+00:00:56 ORACLE   360 raccolti, 275 analizzati, 3 BUY, 253 veto
+00:00:32 ORACLE   360 raccolti, 277 analizzati, 3 BUY, 255 veto
+00:00:29 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
 00:00:18 QUARTER  BUY $KAREN 0.085 SOL score 80 impatto 1.70% (Jupiter)
 00:00:18 ORACLE   360 raccolti, 279 analizzati, 3 BUY, 260 veto
 23:59:53 ORACLE   360 raccolti, 271 analizzati, 3 BUY, 252 veto
@@ -79,22 +95,6 @@ Aggiornato: 2026-11-22 00:00 UTC · in esecuzione da 2.4 giorni · 292 run
 23:52:19 ORACLE   360 raccolti, 283 analizzati, 2 BUY, 270 veto
 23:51:54 ORACLE   360 raccolti, 293 analizzati, 3 BUY, 282 veto
 23:51:31 ORACLE   360 raccolti, 284 analizzati, 3 BUY, 273 veto
-23:51:07 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 265 veto
-23:50:52 ORACLE   360 raccolti, 283 analizzati, 2 BUY, 272 veto
-23:50:24 ORACLE   360 raccolti, 282 analizzati, 2 BUY, 269 veto
-23:50:00 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 264 veto
-23:49:35 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 258 veto
-23:49:11 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 269 veto
-23:48:48 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 265 veto
-23:48:23 ORACLE   360 raccolti, 288 analizzati, 1 BUY, 276 veto
-23:48:09 SCOUT    Laboratorio: collegato a PumpPortal
-23:48:00 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 254 veto
-23:47:37 ORACLE   360 raccolti, 279 analizzati, 2 BUY, 264 veto
-23:47:13 ORACLE   360 raccolti, 283 analizzati, 2 BUY, 271 veto
-23:46:49 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 264 veto
-23:46:26 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 268 veto
-23:46:02 ORACLE   360 raccolti, 289 analizzati, 1 BUY, 279 veto
-23:45:38 ORACLE   360 raccolti, 279 analizzati, 2 BUY, 268 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
