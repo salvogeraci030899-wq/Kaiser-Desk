@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 15:29 UTC · in esecuzione da 3.1 giorni · 311 run
+Aggiornato: 2026-11-22 15:34 UTC · in esecuzione da 3.1 giorni · 311 run
 
 | | |
 |---|---|
-| Equity | **3.9064 SOL** (-34.9% dal capitale iniziale di 6 SOL) |
-| Cassa | 3.8041 SOL |
-| Trade chiusi | 206 |
+| Equity | **3.9462 SOL** (-34.2% dal capitale iniziale di 6 SOL) |
+| Cassa | 3.9462 SOL |
+| Trade chiusi | 207 |
 | Win rate | 31% |
-| P&L realizzato | -2.1172 SOL (~$-148.67) |
-| Media vincite / perdite | +39.5% / -32.2% |
-| Profit factor | 0.54 |
+| P&L realizzato | -2.0538 SOL (~$-144.05) |
+| Media vincite / perdite | +40.2% / -32.2% |
+| Profit factor | 0.56 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$MengLan** P-0643 · 0.078 SOL · +31.8% · resta 100% · [grafico](https://dexscreener.com/solana/5aWwqWHB7qvHvYc5ZZ1NgxFULXo5MNUAYezYbCHjuoiF)
+_nessuna_
 
 ## Test ingresso rapido (solo paper, quotazioni Jupiter)
 Ipotesi: comprare 5 secondi dopo la creazione, tenere 30 secondi, vendere. Un token su 3, 0.05 SOL a operazione. Serie 2 dal 2026-11-22 11:02 UTC.
@@ -65,12 +65,13 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 |---|---|---|
 | Stop loss | 57 | -1.6734 |
 | Time stop | 75 | -0.9452 |
-| TP1 | 47 | +2.0284 |
+| TP1 | 48 | +2.0919 |
 | RUG-EXIT liquidità | 27 | -1.5271 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $MengLan | 65 | +80.7% | +0.0635 | +108% | +108% | TP1 | 3m |
 | $Plurality | 64 | -38.8% | -0.0308 | +0% | -33% | Stop loss | 5m |
 | $KYC | 65 | +60.3% | +0.0472 | +61% | +61% | TP1 | 3m |
 | $XMASS | 74 | -21.8% | -0.0172 | +0% | -8% | Time stop | 5m |
@@ -95,10 +96,24 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | $CORONA | 72 | +24.8% | +0.0199 | +72% | +72% | TP1 | 3m |
 | $Biao | 63 | -31.7% | -0.0257 | +3% | -24% | Time stop | 5m |
 | $snowball | 64 | -11.7% | -0.0095 | +64% | +64% | TP1 | 1m |
-| $RARE | 63 | -50.7% | -0.0415 | +0% | -56% | RUG-EXIT liquidità | 1m |
 
 ## Ultimi eventi
 ```
+15:34:30 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 251 veto
+15:34:07 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 247 veto
+15:33:43 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 258 veto
+15:33:18 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 258 veto
+15:32:55 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 246 veto
+15:32:32 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 258 veto
+15:32:08 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 259 veto
+15:31:44 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 247 veto
+15:31:20 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 254 veto
+15:30:56 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 255 veto
+15:30:33 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 252 veto
+15:30:08 SCRIBE   chiuso P-0643 $MengLan 0.0635 SOL (80.7%)
+15:30:08 CHARON   TP1 $MengLan vendo 100% a 108.5% -> 0.1421 SOL
+15:30:08 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 259 veto
+15:29:44 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 257 veto
 15:29:20 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 249 veto
 15:28:57 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 265 veto
 15:28:33 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 263 veto
@@ -124,21 +139,6 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 15:22:54 ORACLE   360 raccolti, 287 analizzati, 0 BUY, 270 veto
 15:22:30 ORACLE   360 raccolti, 285 analizzati, 0 BUY, 268 veto
 15:22:07 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 262 veto
-15:21:43 ORACLE   360 raccolti, 289 analizzati, 0 BUY, 270 veto
-15:21:19 ORACLE   360 raccolti, 282 analizzati, 0 BUY, 263 veto
-15:20:55 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 260 veto
-15:20:31 ORACLE   360 raccolti, 287 analizzati, 0 BUY, 268 veto
-15:20:07 ORACLE   360 raccolti, 289 analizzati, 0 BUY, 271 veto
-15:19:44 ORACLE   360 raccolti, 284 analizzati, 0 BUY, 264 veto
-15:19:19 ORACLE   350 raccolti, 277 analizzati, 0 BUY, 254 veto
-15:18:55 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-15:18:55 ORACLE   339 raccolti, 264 analizzati, 0 BUY, 243 veto
-15:18:33 ORACLE   332 raccolti, 259 analizzati, 0 BUY, 238 veto
-15:18:09 ORACLE   305 raccolti, 239 analizzati, 0 BUY, 220 veto
-15:17:45 ORACLE   298 raccolti, 227 analizzati, 0 BUY, 209 veto
-15:17:22 ORACLE   293 raccolti, 219 analizzati, 0 BUY, 199 veto
-15:17:00 ORACLE   276 raccolti, 212 analizzati, 0 BUY, 193 veto
-15:16:36 ORACLE   271 raccolti, 205 analizzati, 0 BUY, 185 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
