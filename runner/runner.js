@@ -246,12 +246,12 @@ async function jupQuote(inMint, outMint, amount) {
   return q;
 }
 // Quotazione di Jupiter per il test di ingresso rapido: 400 e 404 = nessuna rotta (token non ancora instradabile), il resto sono errori transitori
-async function snipeQuote(inMint, outMint, amount) {
-  const c = new AbortController(), tm = setTimeout(() => c.abort(), 4000);
+async function snipeQuote(inMint, outMint, amount, opt) {
+  const c = new AbortController(), tm = setTimeout(() => c.abort(), 4000), loose = !!(opt && opt.loose);
   try {
-    const r = await fetch(`https://lite-api.jup.ag/swap/v1/quote?inputMint=${inMint}&outputMint=${outMint}&amount=${amount}&slippageBps=${S.slippageBps}&restrictIntermediateTokens=true`,
+    const r = await fetch(`https://lite-api.jup.ag/swap/v1/quote?inputMint=${inMint}&outputMint=${outMint}&amount=${amount}&slippageBps=${loose ? 1500 : S.slippageBps}&restrictIntermediateTokens=${loose ? 'false' : 'true'}`,
       { signal: c.signal, headers: { accept: 'application/json', 'user-agent': 'kaiser-desk-runner' } });
-    if (r.status === 400 || r.status === 404) throw Object.assign(new Error('nessuna rotta'), { noRoute: true });
+    if (r.status === 400 || r.status === 404) { let b = null; try { b = await r.json(); } catch { /* corpo non leggibile */ } throw Object.assign(new Error('nessuna rotta'), { noRoute: true, code: (b && (b.errorCode || b.error)) || ('HTTP ' + r.status) }); }
     if (!r.ok) throw new Error('HTTP ' + r.status);
     const q = await r.json();
     if (!q || !q.outAmount) throw Object.assign(new Error((q && q.error) || 'nessuna rotta'), { noRoute: true });
@@ -280,6 +280,8 @@ ${row('Quota dei guadagni dall\'1% migliore', s.mean == null ? 'n/d' : `${s.topS
 ${row('Token campionati / con rotta di acquisto', `${s.counts.sampled} / ${s.counts.filled}${s.quotable != null ? ` (${s.quotable}%)` : ''}`)}
 ${row('Tempo per ottenere la quotazione (mediana / 90%)', s.latMedianMs == null ? 'n/d' : `${(s.latMedianMs / 1000).toFixed(1)} s / ${(s.latP90Ms / 1000).toFixed(1)} s`)}
 ${row('Senza rotta in acquisto / in vendita (perdita totale)', `${s.counts.noRouteBuy} / ${s.counts.noRouteSell}`)}
+${row('Motivi dell\'assenza di rotta (Jupiter)', Object.keys(s.why).length ? Object.entries(s.why).map(([k, v]) => `${k}: ${v}`).join('; ') : 'nessuno')}
+${row('Vendite riuscite solo con la rotta non limitata', `${s.viaFallback || 0}`)}
 ${row('Errori di rete (acquisto / vendita) / interrotte a fine run', `${s.counts.errBuy} / ${s.counts.errSell} / ${s.counts.interrupted}`)}
 
 `;
