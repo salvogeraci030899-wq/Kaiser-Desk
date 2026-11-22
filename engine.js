@@ -12,6 +12,8 @@ const DEFAULTS = {
   dailyLossPct: 15, refillBelowPct: 30, cooldownMin: 10, retradeH: 2, entryGapSec: 60, taxPct: 26, maxEntriesPerScan: 1,
   // Charon
   sl: 25, tp1: 40, tp1Sell: 50, trail: 20, beAfterTp1: true, timeStopMin: 45, timeStopMinPnl: 5,
+  // Uscite delle posizioni aperte con Prendo (le stesse della migliore configurazione del Laboratorio): target +10%, stop -10%, uscita dopo 60 secondi
+  humanTp: 10, humanSl: 10, humanHoldSec: 60,
   rugLiqDrop: 45, sellPressure: true,
   // Filtri
   minLiq: 15000, minMcap: 15000, maxMcap: 20000000, minAgeMin: 5, maxAgeH: 72, minTxH1: 40,
@@ -236,6 +238,12 @@ function charon(p, m, S, now = Date.now()) {
   const ageMin = (now - p.openedAt) / 60000;
   if (p.entryLiq && m.liq && m.liq < p.entryLiq * (1 - S.rugLiqDrop / 100))
     return { frac: 1, reason: 'RUG-EXIT liquidità' };
+  if (p.ex) {      // posizione aperta con Prendo: uscite proprie (stop, target, tempo), tutto in una volta; a parita' vince lo stop, come nel laboratorio
+    if (pnl <= -p.ex.sl) return { frac: 1, reason: 'Stop (tuo)' };
+    if (pnl >= p.ex.tp) return { frac: 1, reason: 'Target (tuo)' };
+    if ((now - p.openedAt) / 1000 >= p.ex.holdSec) return { frac: 1, reason: 'Tempo (tuo)' };
+    return null;
+  }
   if (pnl <= -S.sl) return { frac: 1, reason: 'Stop loss' };
   if (p.tp1Done && S.beAfterTp1 && pnl <= 0) return { frac: 1, reason: 'Break-even' };
   if (!p.tp1Done && pnl >= S.tp1) return { frac: S.tp1Sell / 100, reason: 'TP1', tp1: true };

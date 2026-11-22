@@ -416,7 +416,7 @@ async function buy(c, o) {
   const p = {
     id: 'P-' + String(++st.seq).padStart(4, '0'), mint: c.mint, sym: c.sym, name: c.name, pairAddress: fresh.pairAddress,
     openedAt: Date.now(), sizeSOL: sizeS, cost: sizeS + S.prioritySOL, entry, tokens: sizeS / entry, remaining: 1, rawLeft: rawOut,
-    peak: entry, tp1Done: false, spDone: false, entryLiq: liq, realized: 0, score: c.score, why: human ? 'umano' : 'runner', src: human ? 'umano' : 'bot',
+    peak: entry, tp1Done: false, spDone: false, entryLiq: liq, realized: 0, score: c.score, why: human ? 'umano' : 'runner', src: human ? 'umano' : 'bot', ex: human ? { tp: num(S.humanTp, 10), sl: num(S.humanSl, 10), holdSec: num(S.humanHoldSec, 60) } : undefined,
     entryInfo: { srcs: c.srcs, notes: c.a.notes, plus: c.a.plus, m: c.a.m, grok: c.gr ? { s: c.gr.sentiment, o: c.gr.organic } : null },
     last: null, fills: [`BUY ${sizeS.toFixed(3)} impatto ${(impact * 100).toFixed(2)}% (${src})`],
   };
@@ -424,7 +424,7 @@ async function buy(c, o) {
   st.positions.push(p); st.lastEntryAt = Date.now();
   pushLive(true).catch(() => {});
   log('QUARTER', `BUY $${c.sym} ${sizeS.toFixed(3)} SOL score ${c.score} impatto ${(impact * 100).toFixed(2)}% (${src})`);
-  await tg(human ? `<b>PRESO paper</b> $${esc(c.sym)} ${sizeS.toFixed(3)} SOL · impatto ${(impact * 100).toFixed(2)}%\n${p.id} · posizione aperta con i parametri impostati (target, stop, tempo): da qui esce da sola. Per entrare davvero apri la Coin su pump.fun`
+  await tg(human ? `<b>PRESO paper</b> $${esc(c.sym)} ${sizeS.toFixed(3)} SOL · impatto ${(impact * 100).toFixed(2)}%\n${p.id} · posizione aperta: esce da sola a +${num(S.humanTp, 10)}%, -${num(S.humanSl, 10)}% o dopo ${num(S.humanHoldSec, 60)} secondi. Per entrare davvero apri la Coin su pump.fun`
     : `<b>BUY paper</b> $${esc(c.sym)} ${sizeS.toFixed(3)} SOL · score ${c.score}\n${p.id} · il paper ha comprato al posto tuo; per entrare a mano apri la Coin su pump.fun`, Kb.kb({ mint: c.mint, pair: fresh.pairAddress, close: p.id }));
   return p;
 }
