@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 11:23 UTC · in esecuzione da 2.9 giorni · 306 run
+Aggiornato: 2026-11-22 11:28 UTC · in esecuzione da 2.9 giorni · 306 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-22 11:23 UTC · in esecuzione da 2.9 giorni · 306 run
 | Cassa | 3.8960 SOL |
 | Trade chiusi | 198 |
 | Win rate | 30% |
-| P&L realizzato | -2.1040 SOL (~$-148.77) |
+| P&L realizzato | -2.1040 SOL (~$-148.79) |
 | Media vincite / perdite | +39.6% / -32.4% |
 | Profit factor | 0.53 |
 | Circuit breaker | no |
@@ -22,14 +22,14 @@ Regola decisa in anticipo: almeno 300 operazioni, netto medio >= +3% e limite in
 
 | | |
 |---|---|
-| Esito | **in corso** (118 di 300 operazioni) |
-| Netto medio per operazione | -22.0% (intervallo -34.7% / -9.2%) |
-| Mediana / operazioni in utile | -7.5% / 11% |
-| Quota dei guadagni dall'1% migliore | 51% |
-| Token campionati / con rotta di acquisto | 124 / 124 (100%) |
+| Esito | **in corso** (147 di 300 operazioni) |
+| Netto medio per operazione | -23.8% (intervallo -34.5% / -13.2%) |
+| Mediana / operazioni in utile | -7.9% / 11.6% |
+| Quota dei guadagni dall'1% migliore | 49% |
+| Token campionati / con rotta di acquisto | 150 / 150 (100%) |
 | Tempo per ottenere la quotazione (mediana / 90%) | 5.0 s / 5.1 s |
-| Senza rotta in acquisto / in vendita (perdita totale) | 0 / 14 |
-| Motivi dell'assenza di rotta (Jupiter) | sell:NO_ROUTES_FOUND: 14 |
+| Senza rotta in acquisto / in vendita (perdita totale) | 0 / 16 |
+| Motivi dell'assenza di rotta (Jupiter) | sell:NO_ROUTES_FOUND: 16 |
 | Vendite riuscite solo con la rotta non limitata | 0 |
 | Errori di rete (acquisto / vendita) / interrotte a fine run | 0 / 0 / 0 |
 
@@ -99,6 +99,19 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 
 ## Ultimi eventi
 ```
+11:27:57 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 248 veto
+11:27:34 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 250 veto
+11:27:10 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 249 veto
+11:26:46 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 261 veto
+11:26:23 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 260 veto
+11:26:00 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 257 veto
+11:25:36 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 264 veto
+11:25:12 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 263 veto
+11:24:49 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 258 veto
+11:24:26 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 268 veto
+11:24:02 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 263 veto
+11:23:38 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 261 veto
+11:23:14 ORACLE   360 raccolti, 286 analizzati, 0 BUY, 274 veto
 11:22:50 ORACLE   360 raccolti, 288 analizzati, 0 BUY, 273 veto
 11:22:27 ORACLE   360 raccolti, 289 analizzati, 0 BUY, 274 veto
 11:22:03 ORACLE   360 raccolti, 299 analizzati, 0 BUY, 286 veto
@@ -126,19 +139,6 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 11:13:53 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 270 veto
 11:13:30 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 267 veto
 11:13:06 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 257 veto
-11:12:42 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 261 veto
-11:12:19 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 260 veto
-11:11:55 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 258 veto
-11:11:32 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 262 veto
-11:11:08 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 261 veto
-11:10:45 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 258 veto
-11:10:21 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 259 veto
-11:10:08 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 255 veto
-11:09:42 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 251 veto
-11:09:18 ORACLE   358 raccolti, 272 analizzati, 0 BUY, 255 veto
-11:08:55 ORACLE   351 raccolti, 261 analizzati, 0 BUY, 243 veto
-11:08:31 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-11:08:31 ORACLE   347 raccolti, 254 analizzati, 0 BUY, 236 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
