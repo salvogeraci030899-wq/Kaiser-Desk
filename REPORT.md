@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 00:20 UTC · in esecuzione da 2.4 giorni · 293 run
+Aggiornato: 2026-11-22 00:25 UTC · in esecuzione da 2.4 giorni · 293 run
 
 | | |
 |---|---|
-| Equity | **4.2315 SOL** (-29.5% dal capitale iniziale di 6 SOL) |
+| Equity | **4.2712 SOL** (-28.8% dal capitale iniziale di 6 SOL) |
 | Cassa | 4.1469 SOL |
 | Trade chiusi | 166 |
 | Win rate | 30% |
-| P&L realizzato | -1.7675 SOL (~$-124.17) |
+| P&L realizzato | -1.7675 SOL (~$-124.15) |
 | Media vincite / perdite | +43.0% / -32.4% |
 | Profit factor | 0.55 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$time** P-0603 · 0.085 SOL · n/d · resta 100% · [grafico](https://dexscreener.com/solana/B58EAnKrNBEdY5vcuzzsvE9xUmb5xfw75zkGitih7x2o)
+- **$time** P-0603 · 0.085 SOL · +46.9% · resta 100% · [grafico](https://dexscreener.com/solana/B58EAnKrNBEdY5vcuzzsvE9xUmb5xfw75zkGitih7x2o)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,19 @@ Aggiornato: 2026-11-22 00:20 UTC · in esecuzione da 2.4 giorni · 293 run
 
 ## Ultimi eventi
 ```
+00:25:12 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 257 veto
+00:24:49 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 249 veto
+00:24:25 ORACLE   360 raccolti, 260 analizzati, 3 BUY, 249 veto
+00:24:01 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 245 veto
+00:23:38 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 243 veto
+00:23:14 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 240 veto
+00:22:51 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 248 veto
+00:22:27 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 241 veto
+00:22:03 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 243 veto
+00:21:39 ORACLE   360 raccolti, 250 analizzati, 3 BUY, 238 veto
+00:21:16 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 227 veto
+00:20:52 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 225 veto
+00:20:28 ORACLE   360 raccolti, 241 analizzati, 3 BUY, 226 veto
 00:20:03 QUARTER  BUY $time 0.085 SOL score 75 impatto 0.89% (Jupiter)
 00:20:03 ORACLE   360 raccolti, 230 analizzati, 3 BUY, 215 veto
 00:19:48 SCRIBE   chiuso P-0602 $MANEKI 0.0067 SOL (7.8%)
@@ -82,21 +95,6 @@ Aggiornato: 2026-11-22 00:20 UTC · in esecuzione da 2.4 giorni · 293 run
 00:12:22 ORACLE   250 raccolti, 165 analizzati, 4 BUY, 152 veto
 00:11:59 ORACLE   236 raccolti, 160 analizzati, 4 BUY, 149 veto
 00:11:36 ORACLE   216 raccolti, 153 analizzati, 4 BUY, 142 veto
-00:11:13 ORACLE   210 raccolti, 138 analizzati, 4 BUY, 127 veto
-00:10:50 ORACLE   204 raccolti, 138 analizzati, 3 BUY, 128 veto
-00:10:27 ORACLE   187 raccolti, 125 analizzati, 5 BUY, 116 veto
-00:10:23 SCOUT    rug: 11510 token oltre 7.5K, 36% rug, 9136 con possessori
-combinazioni: 4656 prove, migliore -5.82%, p 1
-fabbrica: 31939 percorsi, 768 configurazioni, 0 passano, 5976 ms
-00:10:03 ORACLE   183 raccolti, 117 analizzati, 4 BUY, 110 veto
-00:09:52 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-00:09:51 QUARTER  BUY $MANEKI 0.085 SOL score 90 impatto 0.31% (Jupiter)
-00:09:51 ORACLE   183 raccolti, 117 analizzati, 4 BUY, 110 veto
-00:09:48 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-00:09:47 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
-00:09:47 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
-00:09:47 SCOUT    Laboratorio: collegato a PumpPortal
-00:09:47 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
