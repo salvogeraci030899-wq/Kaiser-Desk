@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 21:36 UTC · in esecuzione da 0.0 giorni · 318 run
+Aggiornato: 2026-11-22 21:39 UTC · in esecuzione da 0.0 giorni · 318 run
 
 | | |
 |---|---|
@@ -39,12 +39,12 @@ Regola decisa in anticipo: orizzonte 300 s (gli altri sono solo descrittivi), al
 
 | | |
 |---|---|
-| Esito | **in corso** (3 di 300 token) |
-| Costo del giro (vendita subito dopo l'acquisto) | -16.0% (intervallo -39.9% / +7.9%), mediana -4.0%, in utile 0%, senza rotta 0 su 3 |
-| Netto a 60 s | -28.0% (intervallo -98.1% / +42.2%), mediana -2.5%, in utile 33.3%, senza rotta 0 su 3 |
-| Netto a 300 s (primario) | -33.6% (intervallo -101.1% / +33.9%), mediana -23.1%, in utile 33.3%, senza rotta 0 su 3 |
+| Esito | **in corso** (4 di 300 token) |
+| Costo del giro (vendita subito dopo l'acquisto) | -12.9% (intervallo -30.8% / +5.1%), mediana -3.8%, in utile 0%, senza rotta 0 su 4 |
+| Netto a 60 s | -16.2% (intervallo -70.9% / +38.5%), mediana +7.4%, in utile 50%, senza rotta 0 su 4 |
+| Netto a 300 s (primario) | -8.8% (intervallo -76.9% / +59.2%), mediana -1.5%, in utile 50%, senza rotta 0 su 4 |
 | Netto a 900 s | n/d (0) |
-| Impatto di prezzo in acquisto (mediana) / ritardo del lettore (mediana) | 0.89% / 6.3 s |
+| Impatto di prezzo in acquisto (mediana) / ritardo del lettore (mediana) | 6.53% / 7.8 s |
 | Curve completate viste / acquistate / senza rotta / coda piena / interrotte | 4 / 4 / 0 / 0 / 0 |
 
 ## Uomo e macchina: i segnali che prendi contro quelli che scarti
@@ -72,6 +72,14 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 
 ## Ultimi eventi
 ```
+21:39:32 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 276 veto
+21:39:09 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 269 veto
+21:38:44 ORACLE   360 raccolti, 291 analizzati, 2 BUY, 282 veto
+21:38:21 ORACLE   360 raccolti, 284 analizzati, 2 BUY, 275 veto
+21:37:57 ORACLE   360 raccolti, 286 analizzati, 2 BUY, 276 veto
+21:37:33 ORACLE   360 raccolti, 283 analizzati, 2 BUY, 273 veto
+21:37:09 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 264 veto
+21:36:46 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 261 veto
 21:36:32 SCRIBE   chiuso P-0669 $GOKU 0.0112 SOL (9.3%)
 21:36:32 CHARON   TP1 $GOKU vendo 100% a 67.3% -> 0.1322 SOL
 21:36:32 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 267 veto
@@ -104,14 +112,6 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 21:28:51 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 251 veto
 21:28:26 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 263 veto
 21:28:03 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 255 veto
-21:27:39 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 255 veto
-21:27:16 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 270 veto
-21:26:52 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 276 veto
-21:26:28 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 261 veto
-21:26:15 SCOUT    regola C-069: corrente (nuova strategia: 10K rit. 10s +20/-20 60s: vecchi -8%, recenti -7.86%)
-21:26:15 SCOUT    regola C-068: ritirata (225 operazioni in avanti, esito medio -7.2% (±4.4): non regge)
-21:26:15 SCOUT    strategia C-069: corrente: nuova strategia: 10K rit. 10s +20/-20 60s: vecchi -8%, recenti -7.86%
-21:26:15 SCOUT    strategia C-068: ritirata: 225 operazioni in avanti, esito medio -7.2% (±4.4): non regge
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
