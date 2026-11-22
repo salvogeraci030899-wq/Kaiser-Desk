@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 04:06 UTC · in esecuzione da 2.6 giorni · 297 run
+Aggiornato: 2026-11-22 04:11 UTC · in esecuzione da 2.6 giorni · 297 run
 
 | | |
 |---|---|
-| Equity | **4.0488 SOL** (-32.5% dal capitale iniziale di 6 SOL) |
-| Cassa | 4.0488 SOL |
+| Equity | **4.0367 SOL** (-32.7% dal capitale iniziale di 6 SOL) |
+| Cassa | 3.9669 SOL |
 | Trade chiusi | 179 |
 | Win rate | 30% |
-| P&L realizzato | -1.9512 SOL (~$-135.40) |
+| P&L realizzato | -1.9512 SOL (~$-135.43) |
 | Media vincite / perdite | +40.9% / -32.3% |
 | Profit factor | 0.54 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$LEONIDA** P-0616 · 0.081 SOL · -13.8% · resta 100% · [grafico](https://dexscreener.com/solana/EnLwc5bZEAjCW7RW4LtHoU2FUXvwcPTwDXTeCueoSNpC)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,21 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+04:11:30 ORACLE   360 raccolti, 289 analizzati, 0 BUY, 280 veto
+04:11:06 ORACLE   360 raccolti, 285 analizzati, 1 BUY, 275 veto
+04:10:42 ORACLE   360 raccolti, 292 analizzati, 1 BUY, 283 veto
+04:10:19 ORACLE   360 raccolti, 291 analizzati, 1 BUY, 283 veto
+04:09:56 ORACLE   360 raccolti, 295 analizzati, 1 BUY, 286 veto
+04:09:33 ORACLE   360 raccolti, 294 analizzati, 1 BUY, 284 veto
+04:09:10 ORACLE   360 raccolti, 292 analizzati, 1 BUY, 280 veto
+04:08:46 QUARTER  BUY $LEONIDA 0.081 SOL score 72 impatto 1.03% (Jupiter)
+04:08:46 ORACLE   360 raccolti, 291 analizzati, 1 BUY, 279 veto
+04:08:23 QUARTER  $LEONIDA impatto 2.3% oltre slippage: annullato
+04:08:23 ORACLE   360 raccolti, 300 analizzati, 1 BUY, 288 veto
+04:08:00 ORACLE   360 raccolti, 297 analizzati, 0 BUY, 286 veto
+04:07:37 ORACLE   360 raccolti, 290 analizzati, 1 BUY, 280 veto
+04:07:13 ORACLE   360 raccolti, 297 analizzati, 0 BUY, 285 veto
+04:06:49 ORACLE   360 raccolti, 297 analizzati, 0 BUY, 285 veto
 04:06:26 ORACLE   360 raccolti, 289 analizzati, 0 BUY, 277 veto
 04:06:03 ORACLE   360 raccolti, 300 analizzati, 0 BUY, 285 veto
 04:05:39 ORACLE   360 raccolti, 300 analizzati, 0 BUY, 285 veto
@@ -80,21 +95,6 @@ _nessuna_
 03:58:10 ORACLE   360 raccolti, 284 analizzati, 0 BUY, 274 veto
 03:57:46 ORACLE   360 raccolti, 284 analizzati, 0 BUY, 271 veto
 03:57:23 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 266 veto
-03:57:00 ORACLE   360 raccolti, 284 analizzati, 0 BUY, 270 veto
-03:56:37 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 266 veto
-03:56:14 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 263 veto
-03:55:50 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 265 veto
-03:55:27 ORACLE   360 raccolti, 285 analizzati, 1 BUY, 268 veto
-03:55:04 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 264 veto
-03:54:41 ORACLE   360 raccolti, 286 analizzati, 1 BUY, 272 veto
-03:54:17 ORACLE   360 raccolti, 285 analizzati, 1 BUY, 271 veto
-03:53:53 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 264 veto
-03:53:30 ORACLE   360 raccolti, 288 analizzati, 1 BUY, 277 veto
-03:53:17 SCRIBE   chiuso P-0615 $Tiger -0.0164 SOL (-20.0%)
-03:53:17 CHARON   TP1 $Tiger vendo 100% a 60.3% -> 0.0659 SOL
-03:53:07 ORACLE   360 raccolti, 287 analizzati, 1 BUY, 275 veto
-03:52:43 QUARTER  BUY $Tiger 0.081 SOL score 74 impatto 1.57% (Jupiter)
-03:52:43 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 272 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
