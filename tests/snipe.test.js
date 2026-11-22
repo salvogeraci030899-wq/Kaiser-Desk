@@ -136,7 +136,7 @@ test('vendita: l\'ultimo tentativo prova anche la rotta non limitata; i motivi d
   s.onCreate({ mint: mint(11), at: c.now() }); await c.run(70000);
   assert.deepEqual(seen, [false, false, false, true], 'tre tentativi normali, poi quello non limitato');
   assert.equal(s.d.trades.length, 1); assert.equal(s.d.trades[0].stuck, 0); assert.equal(s.d.trades[0].fb, 1);
-  assert.equal(s.summary().viaFallback, 1);
+  s.d.trades.push({ s: 1, pnl: 1, stuck: 0 }); assert.equal(s.summary().viaFallback, 1);
   const c2 = clock(), s2 = make(c2, async (a) => { if (a === SOL_MINT) return { outAmount: '1000', priceImpactPct: 0 }; throw Object.assign(new Error('x'), { noRoute: true, code: 'TOKEN_NOT_TRADABLE' }); });
   s2.onCreate({ mint: mint(12), at: c2.now() }); await c2.run(70000);
   assert.equal(s2.d.trades[0].pnl, -100); assert.equal(s2.d.why['sell:TOKEN_NOT_TRADABLE'], 1);
