@@ -586,7 +586,16 @@ export class Executor {
   rejectProposal(id) { return this.run(async () => { const ps = await this.store.get('proposals', []); await this.store.put('proposals', ps.filter((x) => x.id !== id)); return { ok: true }; }); }
   resetParams() { return this.run(async () => { await this.store.put('params', {}); this.ov = {}; await this.store.put('proposals', []); await this.notify('Parametri riportati ai valori di config.json e ai tetti di Cloudflare.'); return { ok: true }; }); }
   // il runner riferisce i parametri che sta davvero usando (con il suo token): servono a mostrare «prima → dopo» corretti
-  async reportRunner(cfg, resetAck, closeAck) {
+  // Decisioni prendo/scarto date sugli avvisi del semi-automatico: solo una registrazione per il runner, nessun ordine. Una per segnale.
+  async humanVote(id, v) {
+    if (!/^a[0-9a-z]{4,8}$/.test(String(id || '')) || (v !== 'y' && v !== 'n')) return { ok: false, error: 'non valido' };
+    const list = await this.store.get('humanVotes', []);
+    if (list.some((x) => x.id === id)) return { ok: false, error: 'gia registrato' };
+    list.push({ id, v, at: this.now() });
+    await this.store.put('humanVotes', list.slice(-100));
+    return { ok: true };
+  }
+  async reportRunner(cfg, resetAck, closeAck, voteAck) {
     if (cfg) {
       const { clean } = validate(Object.fromEntries(Object.entries(cfg).filter(([k, v]) => SCHEMA[k] && SCHEMA[k].scope === 'runner' && (typeof v === 'number' || typeof v === 'boolean' || typeof v === 'string'))));
       await this.store.put('runnerCfg', clean);
@@ -594,6 +603,7 @@ export class Executor {
     const pr = await this.store.get('paperReset', null);
     if (resetAck && pr && pr.id === resetAck) await this.store.put('paperReset', null);   // il runner ha eseguito: la direttiva non serve più
     if (Array.isArray(closeAck) && closeAck.length) { const done = new Set(closeAck.map(String)); await this.store.put('paperCloses', (await this.store.get('paperCloses', [])).filter((x) => !done.has(x.id))); }
+    if (Array.isArray(voteAck) && voteAck.length) { const done = new Set(voteAck.map(String)); await this.store.put('humanVotes', (await this.store.get('humanVotes', [])).filter((x) => !done.has(x.id))); }
     return { ok: true };
   }
   // Riepilogo del paper in diretta: il runner lo spinge qui (con il suo token) a ogni evento e ogni pochi secondi; l'app lo legge da qui senza ritardi di GitHub.
@@ -634,6 +644,7 @@ export class Executor {
     return { ok: true, schema: SCHEMA, groups: GROUPS, runner: split('runner'), worker: split('worker'), runnerCfg: await this.store.get('runnerCfg', {}), ceilings: this.ceilings(), limits: { ...this.limits(), ...this.shieldCfg(), ...this.exitSlipCfg() },
       resetPaper: ((r) => (r && now - r.at < 3600000 ? r : null))(await this.store.get('paperReset', null)),
       closeDirect: await this._closeDirect(), approval: await this.approval(),
+      humanVotes: (await this.store.get('humanVotes', [])).filter((x) => now - x.at < 7200000),
       closePaper: (await this.store.get('paperCloses', [])).filter((x) => now - x.at < 3600000).map((x) => x.id),
       proposals: (await this.store.get('proposals', [])).filter((p) => p.exp > now).map((p) => ({ id: p.id, changes: p.changes, reset: p.reset || null, emergency: !!p.emergency, close: p.close || null, panel: p.panel || null, exp: p.exp })) };
   }

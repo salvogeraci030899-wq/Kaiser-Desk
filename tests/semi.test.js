@@ -12,10 +12,10 @@ const T = 1_700_000_000_000;
 
 test('segnale: un BUY del radar diventa un avviso con il collegamento diretto a pump.fun, senza emoji e senza aprire ordini', () => {
   const a = Semi.alertOf(cand(1), T); assert.equal(a.mint, mint(1)); assert.equal(a.score, 70); assert.equal(a.mc, 12300); assert.equal(a.ageMin, 4.4); assert.equal(a.pair, mint(101));
-  const kb = Semi.keyboard(a); assert.equal(kb.inline_keyboard[0][0].text, 'Apri su pump.fun'); assert.equal(kb.inline_keyboard[0][0].url, 'https://pump.fun/coin/' + mint(1));
-  assert.ok(kb.inline_keyboard[1][0].url.includes('dexscreener.com/solana/' + mint(101))); assert.ok(kb.inline_keyboard[1][1].url.includes('gmgn.ai/sol/token/' + mint(1)));
-  assert.ok(!JSON.stringify(kb).includes('callback_data'), 'nessun tasto che apre o conferma ordini');
-  const t = Semi.text(a); assert.match(t, /SEGNALE/); assert.match(t, /\$T1 · score 70/); assert.match(t, /market cap \$12\.3K · età 4 min · liquidità \$8\.1K/); assert.match(t, /Entra a mano da pump\.fun/); assert.ok(!/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u.test(t + JSON.stringify(kb)), 'niente emoji');
+  const kb = Semi.keyboard(a); assert.deepEqual(kb.inline_keyboard[0].map((b) => b.callback_data), ['hd:y:' + a.id, 'hd:n:' + a.id]); assert.equal(kb.inline_keyboard[1][0].text, 'Apri su pump.fun'); assert.equal(kb.inline_keyboard[1][0].url, 'https://pump.fun/coin/' + mint(1));
+  assert.ok(kb.inline_keyboard[2][0].url.includes('dexscreener.com/solana/' + mint(101))); assert.ok(kb.inline_keyboard[2][1].url.includes('gmgn.ai/sol/token/' + mint(1)));
+  assert.ok(kb.inline_keyboard.flat().filter((b) => b.callback_data).every((b) => /^hd:[yn]:a[0-9a-z]+$/.test(b.callback_data)), 'solo i tasti di decisione, nessun tasto che apre o conferma ordini');
+  const t = Semi.text(a); assert.match(t, /SEGNALE/); assert.match(t, /\$T1\n/); assert.ok(!/score|Motivi|volume in crescita/.test(t), 'il punteggio e i motivi del bot non si vedono'); assert.match(t, /market cap \$12\.3K · età 4 min · liquidità \$8\.1K/); assert.match(t, /entra a mano da pump\.fun/); assert.ok(!/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u.test(t + JSON.stringify(kb)), 'niente emoji');
   assert.equal(Semi.alertOf({ mint: mint(2), sym: '<b>x', score: 1, a: { m: {} } }, T).pair, '', 'senza coppia si usa il mint'); assert.match(Semi.text(Semi.alertOf({ mint: mint(2), sym: '<b>x', score: 1, a: { m: {} } }, T)), /\$&lt;b&gt;x/, 'il testo e\' protetto');
 });
 test('scelta dei segnali: non si ripete la stessa Coin per 3 ore, al massimo 8 in un\'ora, rispetta il filtro del calo', () => {
@@ -43,4 +43,19 @@ test('runner e app: l\'avviso parte prima dell\'ingresso, con la modalità «sol
   const i1 = src.indexOf("if (S.semiAuto && S.semiAuto !== 'spento') await semiAlerts(buys);"), i2 = src.indexOf("if (S.semiAuto === 'solo avvisi') return;"), i3 = src.indexOf('if (!S.autopilot) return;\n  await realEntries(buys);');
   assert.ok(i1 > 0 && i2 > i1 && i3 > i2, 'avviso, poi uscita anticipata, poi gli ingressi'); assert.match(src, /await tg\(Semi\.text\(a\), Semi\.keyboard\(a\)\)/); assert.match(src, /async function tg\(text, markup\)/); assert.match(src, /alerts: Semi\.view\(st\.alerts \|\| \[\], 20\)/);
   assert.match(html, /id="semiBox"/); assert.match(html, /function renderSemi\(\)/); assert.match(html, /https:\/\/pump\.fun\/coin\/\$\{encodeURIComponent\(a\.mint\)\}/); assert.match(html, /renderLab\(\); renderSemi\(\);/);
+});
+
+test('decisione umana: una sola per segnale; il confronto presi contro scartati usa il prezzo alla decisione, il costo e una regola decisa in anticipo', () => {
+  const al = []; for (let i = 0; i < 100; i++) al.push({ id: 'a' + i.toString(36).padStart(4, '0'), t: T, p5: null, p15: 0 });
+  assert.equal(Semi.vote(al, al[0].id, 'y', T + 60000), true); assert.equal(Semi.vote(al, al[0].id, 'n', T + 70000), false, 'una sola decisione'); assert.equal(Semi.vote(al, 'zzzzz', 'y', T), false); assert.equal(Semi.vote(al, al[1].id, 'x', T), false);
+  assert.equal(al[0].vote, 'y'); assert.equal(al[0].vp, 0);
+  const mk = (n, vote, p5) => Array.from({ length: n }, (_, i) => ({ id: 'a' + i, t: T, vote, vAt: T + 60000, vp: 10, p5, p15: p5 }));
+  // prezzo alla decisione +10%, a 5 minuti +21%: (1,21 / 1,10 - 1) = +10%, meno il costo del 5% = +5%
+  const h = Semi.humanStats([...mk(60, 'y', 21), ...mk(40, 'n', 0)]);
+  assert.equal(h.y, 60); assert.equal(h.n, 40); assert.ok(Math.abs(h.nMean - (-14.09)) < 0.05, 'scartati ' + h.nMean);
+  const ys = mk(60, 'y', 21).map((a, i) => ({ ...a, p5: 21 + (i % 3) })); const g = Semi.humanStats([...ys, ...mk(40, 'n', 0)]);
+  assert.ok(g.yMean > 3 && g.yLo > 0 && g.diffLo > 0); assert.equal(g.verdict, 'passa');
+  assert.equal(Semi.humanStats([...mk(60, 'y', 5), ...mk(40, 'n', 5)]).verdict, 'non passa', 'prezzi uguali: nessun vantaggio dopo i costi');
+  assert.equal(Semi.humanStats([...mk(10, 'y', 40), ...mk(5, 'n', 0)]).verdict, 'in corso', 'troppo pochi');
+  const tardi = Semi.humanStats([{ id: 'ax1', t: T, vote: 'y', vAt: T + 6 * 60000, vp: 0, p5: 30, p15: 30 }]); assert.equal(tardi.late, 1); assert.equal(tardi.y, 0, 'deciso dopo 5 minuti: escluso');
 });

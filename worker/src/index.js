@@ -54,7 +54,7 @@ export class Ledger {
       if (path === '/lab/queries') return json(await this.ex.labList());
       if (path === '/lab/next') return json(await this.ex.labNext());
       if (path === '/lab/result') return json(await this.ex.labResult(body));
-      if (path === '/runner') return json(await this.ex.reportRunner(body.config, body.resetAck, body.closeAck));
+      if (path === '/runner') return json(await this.ex.reportRunner(body.config, body.resetAck, body.closeAck, body.voteAck));
       if (path === '/paper' && req.method === 'POST') return json(await this.ex.paperPut(body.data));
       if (path === '/paper') return json(await this.ex.paperGet());
       if (path === '/state') return json(await this.ex.state());
