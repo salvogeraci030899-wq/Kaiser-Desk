@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 19:30 UTC · in esecuzione da 3.2 giorni · 316 run
+Aggiornato: 2026-11-22 19:35 UTC · in esecuzione da 3.2 giorni · 316 run
 
 | | |
 |---|---|
-| Equity | **4.0026 SOL** (-33.3% dal capitale iniziale di 6 SOL) |
-| Cassa | 4.0026 SOL |
+| Equity | **4.0061 SOL** (-33.2% dal capitale iniziale di 6 SOL) |
+| Cassa | 3.9216 SOL |
 | Trade chiusi | 222 |
 | Win rate | 32% |
-| P&L realizzato | -1.9974 SOL (~$-140.14) |
+| P&L realizzato | -1.9974 SOL (~$-139.98) |
 | Media vincite / perdite | +40.1% / -31.4% |
 | Profit factor | 0.58 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$CHRISTMASS** P-0659 · 0.080 SOL · +5.5% · resta 100% · [grafico](https://dexscreener.com/solana/42FkVbLF9WqEY2isoXb64jPEkQALx4hREZd7CEN1hGYK)
 
 ## Test ingresso rapido (solo paper, quotazioni Jupiter)
 Ipotesi: comprare 5 secondi dopo la creazione, tenere 30 secondi, vendere. Un token su 3, 0.05 SOL a operazione. Serie 2 dal 2026-11-22 11:02 UTC.
@@ -58,7 +58,7 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | Netto medio dei presi | +69.5% (intervallo -86.7% / +225.6%) |
 | Netto medio degli scartati | n/d% |
 | Differenza presi meno scartati (limite inferiore) | n/d |
-| Senza risposta / decisi dopo 5 minuti | 27 / 0 |
+| Senza risposta / decisi dopo 5 minuti | 28 / 0 |
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -99,6 +99,21 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 
 ## Ultimi eventi
 ```
+19:35:22 ORACLE   360 raccolti, 283 analizzati, 3 BUY, 272 veto
+19:35:09 SCOUT    Laboratorio: collegato a PumpPortal
+19:34:58 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 259 veto
+19:34:33 ORACLE   360 raccolti, 278 analizzati, 3 BUY, 266 veto
+19:34:09 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 266 veto
+19:33:44 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 265 veto
+19:33:20 ORACLE   360 raccolti, 281 analizzati, 2 BUY, 269 veto
+19:32:56 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 261 veto
+19:32:32 ORACLE   360 raccolti, 274 analizzati, 2 BUY, 263 veto
+19:32:07 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 265 veto
+19:31:42 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 259 veto
+19:31:18 QUARTER  BUY $CHRISTMASS 0.080 SOL score 64 impatto 0.96% (Jupiter)
+19:31:18 QUARTER  SEGNALE $CHRISTMASS score 64 (semi-automatico)
+19:31:18 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 246 veto
+19:30:53 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 254 veto
 19:30:30 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 251 veto
 19:30:05 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 249 veto
 19:29:40 ORACLE   335 raccolti, 249 analizzati, 0 BUY, 234 veto
@@ -126,21 +141,6 @@ fabbrica: 32580 percorsi, 768 configurazioni, 0 passano, 8012 ms
 19:25:17 KAISER   run #316 · 0 posizioni · equity 4.0026 SOL · GMGN spenta (nessuna chiave) · Grok off
 19:25:03 SCRIBE   fine run · trade 222 · win 32% · P&L -1.9974 SOL · equity 4.0026 SOL
 19:24:45 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 266 veto
-19:24:22 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 264 veto
-19:23:57 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 271 veto
-19:23:33 ORACLE   360 raccolti, 283 analizzati, 2 BUY, 274 veto
-19:23:09 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 264 veto
-19:22:45 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 262 veto
-19:22:21 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 262 veto
-19:21:57 SCRIBE   chiuso P-0658 $Nаe -0.0145 SOL (-17.8%)
-19:21:57 CHARON   Stop loss $Nаe vendo 100% a -32.9% -> 0.0669 SOL
-19:21:57 ORACLE   360 raccolti, 276 analizzati, 3 BUY, 263 veto
-19:21:33 ORACLE   360 raccolti, 279 analizzati, 2 BUY, 268 veto
-19:21:19 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 267 veto
-19:20:54 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 265 veto
-19:20:40 ORACLE   360 raccolti, 268 analizzati, 3 BUY, 259 veto
-19:20:15 ORACLE   360 raccolti, 278 analizzati, 3 BUY, 270 veto
-19:19:50 ORACLE   360 raccolti, 273 analizzati, 3 BUY, 263 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
