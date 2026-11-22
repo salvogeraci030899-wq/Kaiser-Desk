@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.64.0">
+<meta name="kz-build" content="2.65.0">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=4" media="(prefers-color-scheme: light)">
@@ -145,7 +145,7 @@
 
   <!-- SISTEMA -->
   <section class="view" id="v-set">
-    <div class="vfix"><div class="seg" id="setTabs" style="margin-bottom:8px"><button data-tab="gen" class="on">Generale</button><button data-tab="paper">Paper</button><button data-tab="real">Reale</button></div></div>
+    <div class="vfix"><div class="seg" id="setTabs" style="margin-bottom:8px"><button data-tab="gen" class="on">Generale</button><button data-tab="paper">Uomo e macchina</button><button data-tab="real">Reale</button></div></div>
     <div class="setpage" id="setGen">
       <div class="card setcard">
         <div class="set wide"><label>Tema</label>
@@ -905,7 +905,7 @@ function applyPreset(id) {
   for (const [k, v] of Object.entries(p.vals)) { if (!rt.par.schema[k]) continue; if (v === baseVal(k)) delete rt.draft[k]; else rt.draft[k] = v; }
   renderPage('paper'); if (rt.fullKey === 'presets') refreshFull('presets', presetsHtml()); toast('Valori caricati nel modulo: premi «Inserisci su Paper» per inviarli');
 }
-const GSHORT = { auto: 'Autopilota', risk: 'Capitale e rischio', exit: 'Uscite', filt: 'Filtri', real: 'Ordini reali', rexit: 'Uscite reali', shield: 'Scudo', lim: 'Limiti' };
+const GSHORT = { radar: 'Radar e avvisi', human: 'Uscite dei Prendo', acct: 'Taglia e costi', auto: 'Bot: comandi', risk: 'Bot: limiti', exit: 'Bot: uscite', filt: 'Bot: filtri', real: 'Ordini reali', rexit: 'Uscite reali', shield: 'Scudo', lim: 'Limiti' };
 const groupKeys = (gid) => Object.keys(rt.par.schema).filter((k) => rt.par.schema[k].group === gid);
 const groupHtml = (gid) => groupKeys(gid).map(paramRow).join('');
 const grpBar = (pg) => { const n = Object.keys(draftFor(pg)).length, probs = parProblems(pg), bad = probs.length; return n ? `${bad ? `<div class="down tiny sbnote">${probs.join('<br>')}</div>` : ''}<button class="btn sm" data-par="discard" data-page="${pg}">Annulla</button><button class="btn gold" data-par="send" data-page="${pg}" ${bad ? 'disabled' : ''}>Inserisci su ${PAGES[pg].label} (${n})</button>` : '<span class="tiny muted">Nessuna modifica da inserire</span>'; };
@@ -931,11 +931,11 @@ function renderPage(pg) {
   let html = '';
   if (pg === 'paper') {
     html += tile({ t: 'Conto paper', v: run ? fmtSol(run.equity, 2) : '—', s: run ? `capitale ${fmtSol(run.capital, 2)} · ${run.stats ? run.stats.n : 0} trade` : 'dati non disponibili', attr: 'data-open="reset"' });
-    html += tile({ t: 'Uscite pronte', v: 'Preset', s: 'stop e target in un tocco', attr: 'data-open="presets"' });
+    if (!S().humanOnly) html += tile({ t: 'Uscite pronte', v: 'Preset', s: 'stop e target in un tocco', attr: 'data-open="presets"' });      // le uscite pronte sono del bot automatico: in solo uomo non servono
   } else {
     html += tile({ t: 'Esecutore', v: e ? (e.mode === 'live' ? 'LIVE' : e.mode === 'dryrun' ? 'DRY-RUN' : 'SPENTO') : 'n/d', cls: e && e.mode === 'live' ? 'warn' : e ? '' : 'down', s: e ? `saldo ${e.balanceSOL != null ? Number(e.balanceSOL).toFixed(3) + ' ◎' : '—'}${e.killed ? ' · KILL' : ''}` : 'non raggiungibile', attr: 'data-open="exec"', span: true });
   }
-  html += gs.map((g) => { const ks = groupKeys(g.id), d = ks.filter((k) => k in rt.draft).length; return tile({ t: GSHORT[g.id] || esc(g.title), v: String(ks.length), s: d ? `${d} ${d === 1 ? 'modifica' : 'modifiche'} da inserire` : 'parametri', cls: d ? 'warn' : '', attr: `data-grp="${g.id}"` }); }).join('');
+  html += gs.map((g) => { const ks = groupKeys(g.id), d = ks.filter((k) => k in rt.draft).length; const off = g.off && S().humanOnly; return tile({ t: GSHORT[g.id] || esc(g.title), v: String(ks.length), s: d ? `${d} ${d === 1 ? 'modifica' : 'modifiche'} da inserire` : (off ? 'spento in solo uomo' : 'parametri'), cls: d ? 'warn' : (off ? 'muted' : ''), attr: `data-grp="${g.id}"` }); }).join('');
   hub.innerHTML = html;
   const mine = p.proposals.filter((q) => (q.reset ? pg === 'paper' : pageOf(Object.keys(q.changes)[0]) === pg)), nReset = pg === 'paper' && p.resetPaper ? 1 : 0;
   $(P.pend).innerHTML = mine.length || nReset ? `<button type="button" class="card real-note small pendline" data-open="pend-${pg}"><b>${mine.length + nReset} ${mine.length + nReset === 1 ? 'richiesta' : 'richieste'} in attesa</b><span class="tiny muted"> · tocca per i dettagli ↗</span></button>` : '';
