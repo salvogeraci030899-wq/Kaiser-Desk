@@ -31,7 +31,7 @@ const pumpUrl = (a) => `https://pump.fun/coin/${a.mint}`;
 // Il messaggio non mostra il punteggio del bot ne' i suoi motivi: la decisione e' tua, cosi' si misura il tuo giudizio e non quello del bot.
 function text(a) {
   const bits = [a.mc ? 'market cap $' + k(a.mc) : '', a.ageMin != null ? 'età ' + Math.round(a.ageMin) + ' min' : '', a.liq ? 'liquidità $' + k(a.liq) : ''].filter(Boolean).join(' · ');
-  return `<b>SEGNALE</b> $${esc(a.sym || a.mint.slice(0, 6))}\n${bits}\nDecidi tu: Prendo o Scarto. Se prendi, entra a mano da pump.fun, taglia e uscita sono tue.`;
+  return `<b>SEGNALE</b> $${esc(a.sym || a.mint.slice(0, 6))}\n${bits}\nDecidi tu: Prendo o Scarto. Con Prendo il paper apre subito la posizione con i parametri impostati e la chiude da solo. Per entrare davvero apri la Coin su pump.fun.`;
 }
 const voteRow = (a) => (/^a[0-9a-z]{4,8}$/.test(a.id || '') ? [[{ text: 'Prendo', callback_data: 'hd:y:' + a.id }, { text: 'Scarto', callback_data: 'hd:n:' + a.id }]] : []);
 function keyboard(a) { return Kb.kb({ rows: voteRow(a), mint: a.mint, pair: a.pair }); }
@@ -78,4 +78,16 @@ function humanStats(alerts, o) {
   return out;
 }
 
-module.exports = { vote, humanStats, HCFG, MAX_PER_HOUR, REPEAT_H, TRACK_MS, MODES, pick, alertOf, text, keyboard, pumpUrl, open, track, view };
+// Trade paper aperti da te (Prendo) contro quelli del bot: rendimento netto vero (impatto, commissioni, priority fee, uscite con le regole impostate).
+// Regola decisa in anticipo: almeno minN trade tuoi chiusi, netto medio >= passMeanPct e limite inferiore del 95% sopra zero.
+function humanTrades(journal, o) {
+  const c = { minN: 50, passMeanPct: 3, ...(o || {}) }, h = journal.filter((j) => j.src === 'umano').map((j) => j.pct), b = journal.filter((j) => j.src !== 'umano').map((j) => j.pct);
+  const A = ms(h), B = ms(b), out = { cfg: c, n: A.n, botN: B.n, verdict: 'in corso' };
+  if (A.n >= 2) { const se = Math.sqrt(A.v / A.n); Object.assign(out, { mean: +A.m.toFixed(2), lo: +(A.m - 1.96 * se).toFixed(2), hi: +(A.m + 1.96 * se).toFixed(2), win: +(100 * h.filter((v) => v > 0).length / A.n).toFixed(1) }); }
+  if (B.n >= 2) out.botMean = +B.m.toFixed(2);
+  if (A.n >= 2 && B.n >= 2) { const se = Math.sqrt(A.v / A.n + B.v / B.n), d = A.m - B.m; Object.assign(out, { diff: +d.toFixed(2), diffLo: +(d - 1.96 * se).toFixed(2) }); }
+  if (A.n >= c.minN) out.verdict = (out.mean >= c.passMeanPct && out.lo > 0) ? 'passa' : 'non passa';
+  return out;
+}
+
+module.exports = { vote, humanStats, humanTrades, HCFG, MAX_PER_HOUR, REPEAT_H, TRACK_MS, MODES, pick, alertOf, text, keyboard, pumpUrl, open, track, view };

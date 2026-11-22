@@ -266,19 +266,20 @@ function snipeCfg() {
   return c;
 }
 function humanSection() {
-  const h = Semi.humanStats(st.alerts || []), f = (n) => (n == null ? 'n/d' : (n >= 0 ? '+' : '') + Number(n).toFixed(1));
-  return `## Uomo e macchina: i segnali che prendi contro quelli che scarti
-Il radar sceglie, tu decidi (Prendo o Scarto) senza vedere il punteggio del bot. Rendimento a 5 minuti dalla tua decisione, meno ${h.cfg.costPct}% di costo a giro (stima mediana, non una misura per ogni token).
-Regola decisa in anticipo: almeno ${h.cfg.minY} presi e ${h.cfg.minN} scartati, netto medio dei presi >= +${h.cfg.passMeanPct}% con limite inferiore sopra zero e sopra gli scartati.
+  const t = Semi.humanTrades(st.journal || []), h = Semi.humanStats(st.alerts || []), f = (n) => (n == null ? 'n/d' : (n >= 0 ? '+' : '') + Number(n).toFixed(1));
+  return `## Uomo e macchina: le Coin che prendi contro quelle del bot
+Il radar sceglie e tu decidi (Prendo o Scarto) senza vedere il punteggio del bot. Con Prendo il paper apre subito la posizione con i parametri impostati e la chiude da solo: il rendimento e' netto di impatto, commissioni e priority fee.
+Regola decisa in anticipo: almeno ${t.cfg.minN} trade tuoi chiusi, netto medio >= +${t.cfg.passMeanPct}% con limite inferiore del 95% sopra zero.
 
 | | |
 |---|---|
-| Esito | **${h.verdict}** |
-| Presi / scartati (con misura a 5 minuti) | ${h.y} / ${h.n} |
-| Netto medio dei presi | ${h.yMean == null ? 'n/d' : `${f(h.yMean)}% (intervallo ${f(h.yLo)}% / ${f(h.yHi)}%)`} |
-| Netto medio degli scartati | ${f(h.nMean)}% |
-| Differenza presi meno scartati (limite inferiore) | ${h.diff == null ? 'n/d' : `${f(h.diff)}% (${f(h.diffLo)}%)`} |
-| Senza risposta / decisi dopo 5 minuti | ${h.noAns} / ${h.late} |
+| Esito | **${t.verdict}** |
+| Trade tuoi chiusi / trade del bot chiusi | ${t.n} / ${t.botN} |
+| Netto medio dei tuoi trade | ${t.mean == null ? 'n/d' : `${f(t.mean)}% (intervallo ${f(t.lo)}% / ${f(t.hi)}%), in utile ${t.win}%`} |
+| Netto medio dei trade del bot | ${f(t.botMean)}% |
+| Differenza tuoi meno bot (limite inferiore) | ${t.diff == null ? 'n/d' : `${f(t.diff)}% (${f(t.diffLo)}%)`} |
+| Scartati: variazione a 5 minuti dalla decisione, meno ${h.cfg.costPct}% di costo (solo descrittivo) | ${h.n} segnali, ${f(h.nMean)}% |
+| Segnali senza risposta / decisi dopo 5 minuti | ${h.noAns} / ${h.late} |
 
 `;
 }
@@ -400,19 +401,22 @@ async function updateAlerts(pairs) {
   if (need.length) { try { for (const [k, v] of await dexPairs(need)) map.set(k, v); } catch { /* si riprova al prossimo giro */ } }
   for (const a of pend) { const p = map.get(a.mint); if (p) Semi.track(a, num(p.priceNative), now); }
 }
-async function buy(c) {
-  const fresh = (await dexPairs([c.mint])).get(c.mint) || c.pair;
+async function buy(c, o) {
+  const human = !!(o && o.src === 'umano');
+  let fresh = null; try { fresh = (await dexPairs([c.mint])).get(c.mint); } catch { /* si usa il prezzo del segnale */ }
+  fresh = fresh || c.pair;
   const sizeS = sizeSol();
-  const priceN = num(fresh.priceNative), liq = num(fresh.liquidity && fresh.liquidity.usd);
+  const priceN = num(fresh && fresh.priceNative), liq = num(fresh && fresh.liquidity && fresh.liquidity.usd);
+  if (!(priceN > 0)) { if (o) o.why = 'prezzo non disponibile'; return null; }
   let impact, rawOut = null, src = 'stima';
   try { const q = await jupQuote(SOL_MINT, c.mint, Math.floor(sizeS * 1e9)); impact = Math.max(0, num(q.priceImpactPct)); rawOut = q.outAmount; src = 'Jupiter'; }
   catch { impact = E.estImpact(sizeS * (rt.solUsd || 150), liq); }
-  if (impact > S.slippageBps / 10000) { log('QUARTER', `$${c.sym} impatto ${(impact * 100).toFixed(1)}% oltre slippage: annullato`); return; }
+  if (impact > S.slippageBps / 10000) { log('QUARTER', `$${c.sym} impatto ${(impact * 100).toFixed(1)}% oltre slippage: annullato`); if (o) o.why = `impatto ${(impact * 100).toFixed(1)}% oltre lo slippage`; return null; }
   const entry = E.entryPrice(priceN, impact, S.feePct);
   const p = {
     id: 'P-' + String(++st.seq).padStart(4, '0'), mint: c.mint, sym: c.sym, name: c.name, pairAddress: fresh.pairAddress,
     openedAt: Date.now(), sizeSOL: sizeS, cost: sizeS + S.prioritySOL, entry, tokens: sizeS / entry, remaining: 1, rawLeft: rawOut,
-    peak: entry, tp1Done: false, spDone: false, entryLiq: liq, realized: 0, score: c.score, why: 'runner',
+    peak: entry, tp1Done: false, spDone: false, entryLiq: liq, realized: 0, score: c.score, why: human ? 'umano' : 'runner', src: human ? 'umano' : 'bot',
     entryInfo: { srcs: c.srcs, notes: c.a.notes, plus: c.a.plus, m: c.a.m, grok: c.gr ? { s: c.gr.sentiment, o: c.gr.organic } : null },
     last: null, fills: [`BUY ${sizeS.toFixed(3)} impatto ${(impact * 100).toFixed(2)}% (${src})`],
   };
@@ -420,7 +424,17 @@ async function buy(c) {
   st.positions.push(p); st.lastEntryAt = Date.now();
   pushLive(true).catch(() => {});
   log('QUARTER', `BUY $${c.sym} ${sizeS.toFixed(3)} SOL score ${c.score} impatto ${(impact * 100).toFixed(2)}% (${src})`);
-  await tg(`<b>BUY paper</b> $${esc(c.sym)} ${sizeS.toFixed(3)} SOL · score ${c.score}\n${p.id} · il paper ha comprato al posto tuo; per entrare a mano apri la Coin su pump.fun`, Kb.kb({ mint: c.mint, pair: fresh.pairAddress, close: p.id }));
+  await tg(human ? `<b>PRESO paper</b> $${esc(c.sym)} ${sizeS.toFixed(3)} SOL · impatto ${(impact * 100).toFixed(2)}%\n${p.id} · posizione aperta con i parametri impostati (target, stop, tempo): da qui esce da sola. Per entrare davvero apri la Coin su pump.fun`
+    : `<b>BUY paper</b> $${esc(c.sym)} ${sizeS.toFixed(3)} SOL · score ${c.score}\n${p.id} · il paper ha comprato al posto tuo; per entrare a mano apri la Coin su pump.fun`, Kb.kb({ mint: c.mint, pair: fresh.pairAddress, close: p.id }));
+  return p;
+}
+// Prendo: il paper apre subito la posizione sulla Coin del segnale, con taglia e uscite impostate. Fa da filtro solo la decisione umana: restano i controlli del conto (circuit breaker, cassa, stessa Coin gia' aperta).
+async function humanTake(a, at) {
+  const why = st.halted ? 'circuit breaker attivo' : st.positions.some((p) => p.mint === a.mint) ? 'Coin già in posizione' : st.cash < sizeSol() * 0.5 || sizeSol() < 0.001 ? 'cassa insufficiente' : Date.now() - at > 5 * 60000 ? 'decisione arrivata troppo tardi (oltre 5 minuti)' : '';
+  const o = { src: 'umano', why }; let p = null;
+  if (!why) p = await buy({ mint: a.mint, sym: a.sym, name: a.name, score: a.score, srcs: ['umano'], a: { notes: ['scelta tua'], plus: [], m: {} }, pair: { priceNative: a.priceNative, pairAddress: a.pair, liquidity: { usd: a.liq } } }, o);
+  if (!p) { log('QUARTER', `Prendo $${a.sym} non aperto: ${o.why}`); await tg(`<b>PRESO</b> $${esc(a.sym)} non aperto in paper: ${esc(o.why)}`); }
+  return p;
 }
 function calSummary(c) {
   if (!Array.isArray(c) || !c.length) return null;
@@ -456,7 +470,7 @@ async function sell(p, frac, reason) {
     st.positions = st.positions.filter((x) => x !== p);
     const pnl = p.realized - p.cost;
     const j = { id: p.id, mint: p.mint, sym: p.sym, openedAt: p.openedAt, closedAt: Date.now(), cost: p.cost, back: p.realized, pnl, pct: pnl / p.cost * 100,
-      mode: 'paper', reason, score: p.score, solUsd: rt.solUsd, peakPct: (p.peak / p.entry - 1) * 100, trigPct: (m.priceNative / p.entry - 1) * 100, entryInfo: p.entryInfo,
+      mode: 'paper', src: p.src || 'bot', reason, score: p.score, solUsd: rt.solUsd, peakPct: (p.peak / p.entry - 1) * 100, trigPct: (m.priceNative / p.entry - 1) * 100, entryInfo: p.entryInfo,
       maePct: p.trough && p.entry > 0 ? (p.trough / p.entry - 1) * 100 : null, age: p.entryInfo && p.entryInfo.m && Number.isFinite(Number(p.entryInfo.m.ageMin)) ? Math.round(Number(p.entryInfo.m.ageMin)) : null };
     st.journal.push(j);
     pushLive(true).catch(() => {});
@@ -552,8 +566,9 @@ async function pullParams() {
     const done = [];
     for (const x of d.humanVotes.slice(0, 20)) {
       if (!x || !/^a[0-9a-z]{4,8}$/.test(String(x.id)) || (x.v !== 'y' && x.v !== 'n')) continue;
-      Semi.vote(st.alerts || [], x.id, x.v, num(x.at) || Date.now());
+      const al = (st.alerts || []).find((q) => q.id === x.id), ok = Semi.vote(st.alerts || [], x.id, x.v, num(x.at) || Date.now());
       done.push(x.id);
+      if (ok && x.v === 'y' && al) { try { await humanTake(al, num(x.at) || Date.now()); } catch (e) { log('QUARTER', `Prendo ${al.sym}: errore ${e.message}`); } }
     }
     if (done.length) { save(); await ackVote(done); }
   }
