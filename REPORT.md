@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 18:45 UTC · in esecuzione da 3.2 giorni · 315 run
+Aggiornato: 2026-11-22 18:50 UTC · in esecuzione da 3.2 giorni · 315 run
 
 | | |
 |---|---|
-| Equity | **3.9513 SOL** (-34.1% dal capitale iniziale di 6 SOL) |
-| Cassa | 3.9513 SOL |
+| Equity | **3.9377 SOL** (-34.4% dal capitale iniziale di 6 SOL) |
+| Cassa | 3.8713 SOL |
 | Trade chiusi | 219 |
 | Win rate | 32% |
-| P&L realizzato | -2.0487 SOL (~$-143.84) |
+| P&L realizzato | -2.0487 SOL (~$-143.93) |
 | Media vincite / perdite | +39.4% / -31.6% |
 | Profit factor | 0.57 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$SINGULARTY** P-0656 · 0.079 SOL · -15.9% · resta 100% · [grafico](https://dexscreener.com/solana/BdCFwyfpEPcM2LizTPjjqwuJ35Y55NQ7rLtZXzZY7QGk)
 
 ## Test ingresso rapido (solo paper, quotazioni Jupiter)
 Ipotesi: comprare 5 secondi dopo la creazione, tenere 30 secondi, vendere. Un token su 3, 0.05 SOL a operazione. Serie 2 dal 2026-11-22 11:02 UTC.
@@ -99,6 +99,26 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 
 ## Ultimi eventi
 ```
+18:50:25 ORACLE   360 raccolti, 274 analizzati, 3 BUY, 264 veto
+18:50:11 ORACLE   360 raccolti, 278 analizzati, 3 BUY, 268 veto
+18:49:46 ORACLE   360 raccolti, 272 analizzati, 3 BUY, 263 veto
+18:49:22 QUARTER  BUY $SINGULARTY 0.079 SOL score 84 impatto 0.54% (Jupiter)
+18:49:21 ORACLE   360 raccolti, 264 analizzati, 3 BUY, 254 veto
+18:49:18 SCOUT    jup trend: HTTP 429 (riuso l'ultimo elenco)
+18:49:18 SCOUT    jup organic: HTTP 429 (riuso l'ultimo elenco)
+18:49:18 SCOUT    jup nuovi: HTTP 429 (riuso l'ultimo elenco)
+18:49:18 SCOUT    prezzo SOL non disponibile: HTTP 429
+18:48:58 QUARTER  $SINGULARTY impatto 2.2% oltre slippage: annullato
+18:48:57 QUARTER  SEGNALE $SINGULARTY score 84 (semi-automatico)
+18:48:57 ORACLE   360 raccolti, 272 analizzati, 3 BUY, 260 veto
+18:48:33 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 262 veto
+18:48:08 ORACLE   360 raccolti, 261 analizzati, 3 BUY, 250 veto
+18:47:44 ORACLE   360 raccolti, 260 analizzati, 3 BUY, 252 veto
+18:47:19 ORACLE   360 raccolti, 273 analizzati, 3 BUY, 266 veto
+18:46:56 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 267 veto
+18:46:32 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 271 veto
+18:46:09 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 268 veto
+18:45:44 ORACLE   360 raccolti, 258 analizzati, 3 BUY, 253 veto
 18:45:20 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 255 veto
 18:44:55 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 254 veto
 18:44:32 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 255 veto
@@ -119,28 +139,6 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 18:39:19 ORACLE   355 raccolti, 223 analizzati, 2 BUY, 216 veto
 18:38:55 ORACLE   341 raccolti, 213 analizzati, 2 BUY, 207 veto
 18:38:32 QUARTER  BUY $Leap 0.078 SOL score 67 impatto 0.10% (Jupiter)
-18:38:32 QUARTER  SEGNALE $Leap score 67 (semi-automatico)
-18:38:32 ORACLE   337 raccolti, 211 analizzati, 2 BUY, 205 veto
-18:38:07 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-18:38:07 ORACLE   313 raccolti, 191 analizzati, 1 BUY, 187 veto
-18:37:45 ORACLE   303 raccolti, 187 analizzati, 1 BUY, 183 veto
-18:37:23 ORACLE   296 raccolti, 184 analizzati, 1 BUY, 180 veto
-18:37:00 ORACLE   269 raccolti, 165 analizzati, 1 BUY, 160 veto
-18:36:38 ORACLE   258 raccolti, 156 analizzati, 1 BUY, 150 veto
-18:36:15 ORACLE   257 raccolti, 151 analizzati, 1 BUY, 147 veto
-18:36:12 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
-18:36:09 SCOUT    rug: 11640 token oltre 7.5K, 35.6% rug, 11048 con possessori
-combinazioni: 7392 prove, migliore -3.88%, p 1
-fabbrica: 32591 percorsi, 768 configurazioni, 0 passano, 5846 ms
-18:35:52 ORACLE   227 raccolti, 145 analizzati, 1 BUY, 142 veto
-18:35:29 ORACLE   218 raccolti, 131 analizzati, 2 BUY, 128 veto
-18:35:08 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-18:35:08 ORACLE   214 raccolti, 131 analizzati, 2 BUY, 128 veto
-18:35:05 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-18:35:04 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
-18:35:04 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120, semiAuto spento→avvisi e paper
-18:35:04 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
-18:35:03 SCOUT    Laboratorio: collegato a PumpPortal
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
