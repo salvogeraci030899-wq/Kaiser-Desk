@@ -24,14 +24,14 @@ function pick(alerts, buys, now, ok) {
 }
 function alertOf(c, now) {
   const m = (c.a && c.a.m) || {}, pair = (c.pair && c.pair.pairAddress) || '';
-  return { id: 'a' + Math.floor(now / 1000).toString(36), t: now, mint: c.mint, sym: String(c.sym || '').slice(0, 20), name: String(c.name || '').slice(0, 40), score: num(c.score), pair: MINT_RE.test(pair) ? pair : '', priceNative: num(m.priceNative), mc: num(m.mc), liq: num(m.liq), ageMin: m.ageMin == null ? null : +num(m.ageMin).toFixed(1),
+  return { id: 'a' + Math.floor(now / 1000).toString(36), band: c.band || '', cr: c.cr || '', cline: c.cline || '', t: now, mint: c.mint, sym: String(c.sym || '').slice(0, 20), name: String(c.name || '').slice(0, 40), score: num(c.score), pair: MINT_RE.test(pair) ? pair : '', priceNative: num(m.priceNative), mc: num(m.mc), liq: num(m.liq), ageMin: m.ageMin == null ? null : +num(m.ageMin).toFixed(1),
     why: ((c.a && c.a.plus) || []).slice(0, 3).map((x) => String(x).slice(0, 60)) };
 }
 const pumpUrl = (a) => `https://pump.fun/coin/${a.mint}`;
 // Il messaggio non mostra il punteggio del bot ne' i suoi motivi: la decisione e' tua, cosi' si misura il tuo giudizio e non quello del bot.
 function text(a) {
   const bits = [a.mc ? 'market cap $' + k(a.mc) : '', a.ageMin != null ? 'età ' + Math.round(a.ageMin) + ' min' : '', a.liq ? 'liquidità $' + k(a.liq) : ''].filter(Boolean).join(' · ');
-  return `<b>SEGNALE</b> $${esc(a.sym || a.mint.slice(0, 6))}\n${bits}\nDecidi tu: Prendo o Scarto. Con Prendo il paper apre subito la posizione e la chiude da solo (+10%, -10% o 60 secondi). Per entrare davvero apri la Coin su pump.fun.`;
+  return `<b>SEGNALE</b> $${esc(a.sym || a.mint.slice(0, 6))}${a.band ? ' · fascia ' + esc(a.band) : ''}\n${bits}${a.cline ? '\n' + esc(a.cline) : ''}\nDecidi tu: Prendo o Scarto. Con Prendo il paper apre subito la posizione e la gestisce da solo con le uscite impostate. Per entrare davvero apri la Coin su pump.fun.`;
 }
 const voteRow = (a) => (/^a[0-9a-z]{4,8}$/.test(a.id || '') ? [[{ text: 'Prendo', callback_data: 'hd:y:' + a.id }, { text: 'Scarto', callback_data: 'hd:n:' + a.id }]] : []);
 function keyboard(a) { return Kb.kb({ rows: voteRow(a), mint: a.mint, pair: a.pair }); }

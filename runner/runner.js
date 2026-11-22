@@ -21,6 +21,7 @@ const Grokstat = require('./grokstat.js');
 const STATE_DIR = process.env.STATE_DIR || path.join(__dirname, '..', 'state');
 const Snipe = require('./snipe.js');
 const Grad = require('./grad.js');
+const Creators = require('./creators.js');
 const LOOP_MIN = Number(process.env.LOOP_MIN || 4.5);
 const TICK_SEC = Number(process.env.TICK_SEC || 10);
 const SCAN_SEC = Number(process.env.SCAN_SEC || 30);
@@ -283,6 +284,23 @@ Regola decisa in anticipo: almeno ${t.cfg.minN} trade tuoi chiusi, netto medio >
 
 `;
 }
+function creatorsSection() {
+  if (!rt.creators) return '';
+  const c = rt.creators.summary(), al = (st.alerts || []).filter((a) => a.band), f = (n) => (n == null ? 'n/d' : (n >= 0 ? '+' : '') + Number(n).toFixed(1));
+  const rows = ['500K-1M', '1M-2M', '2M+'].map((b) => {
+    const A = al.filter((a) => a.band === b), T = (st.journal || []).filter((j) => j.src === 'umano' && j.band === b), m = T.length ? T.reduce((s, j) => s + j.pct, 0) / T.length : null;
+    return `| ${b} | ${A.length} | ${A.filter((a) => a.vote === 'y').length} / ${A.filter((a) => a.vote === 'n').length} | ${T.length} | ${f(m)}${m == null ? '' : '%'} |`;
+  }).join('\n');
+  return `## Coin di fascia alta e ricerca sui creatori
+Il Radar guarda le Coin da ${S.bandMin} dollari di market cap in su. Per ognuna si risale al creatore e si registra la market cap: una Coin e' «raddoppiata» se supera il doppio della prima lettura in fascia. Il profilo del creatore compare nell'avviso.
+Memoria: ${c.launches} lanci noti, ${c.creators} creatori; ${c.bandCoins} Coin in fascia alta viste (${c.bandCreators} creatori), ${c.doubled} raddoppiate (${c.doubledCreators} creatori). Creatore trovato: tabella ${c.cov.tabella}, richiesta esterna ${c.cov.esterna}, sconosciuto ${c.cov.sconosciuto}.
+
+| Fascia | Avvisi | Prendo / Scarto | Tuoi trade chiusi | Netto medio |
+|---|---|---|---|---|
+${rows}
+
+`;
+}
 function gradCfg() {
   const c = { enabled: !S.humanOnly && S.gradTest !== false };
   if (Number.isFinite(Number(S.gradSizeSol)) && S.gradSizeSol !== '' && S.gradSizeSol != null) c.sizeSol = Number(S.gradSizeSol);
@@ -402,7 +420,7 @@ async function updateAlerts(pairs) {
   for (const a of pend) { const p = map.get(a.mint); if (p) Semi.track(a, num(p.priceNative), now); }
 }
 async function buy(c, o) {
-  const human = !!(o && o.src === 'umano');
+  const human = !!(o && o.src === 'umano'), bandMode = human && !!o.band;
   let fresh = null; try { fresh = (await dexPairs([c.mint])).get(c.mint); } catch { /* si usa il prezzo del segnale */ }
   fresh = fresh || c.pair;
   const sizeS = sizeSol();
@@ -416,7 +434,8 @@ async function buy(c, o) {
   const p = {
     id: 'P-' + String(++st.seq).padStart(4, '0'), mint: c.mint, sym: c.sym, name: c.name, pairAddress: fresh.pairAddress,
     openedAt: Date.now(), sizeSOL: sizeS, cost: sizeS + S.prioritySOL, entry, tokens: sizeS / entry, remaining: 1, rawLeft: rawOut,
-    peak: entry, tp1Done: false, spDone: false, entryLiq: liq, realized: 0, score: c.score, why: human ? 'umano' : 'runner', src: human ? 'umano' : 'bot', ex: human ? { tp: num(S.humanTp, 10), sl: num(S.humanSl, 10), holdSec: num(S.humanHoldSec, 60) } : undefined,
+    peak: entry, tp1Done: false, spDone: false, entryLiq: liq, realized: 0, score: c.score, why: human ? 'umano' : 'runner', src: human ? 'umano' : 'bot', ex: human && !bandMode ? { tp: num(S.humanTp, 10), sl: num(S.humanSl, 10), holdSec: num(S.humanHoldSec, 60) } : undefined,
+    xs: bandMode ? bandExits() : undefined, band: bandMode ? o.band : undefined, cr: human ? (o.cr || '') : undefined,
     entryInfo: { srcs: c.srcs, notes: c.a.notes, plus: c.a.plus, m: c.a.m, grok: c.gr ? { s: c.gr.sentiment, o: c.gr.organic } : null },
     last: null, fills: [`BUY ${sizeS.toFixed(3)} impatto ${(impact * 100).toFixed(2)}% (${src})`],
   };
@@ -424,14 +443,15 @@ async function buy(c, o) {
   st.positions.push(p); st.lastEntryAt = Date.now();
   pushLive(true).catch(() => {});
   log('QUARTER', `BUY $${c.sym} ${sizeS.toFixed(3)} SOL score ${c.score} impatto ${(impact * 100).toFixed(2)}% (${src})`);
-  await tg(human ? `<b>PRESO paper</b> $${esc(c.sym)} ${sizeS.toFixed(3)} SOL · impatto ${(impact * 100).toFixed(2)}%\n${p.id} · posizione aperta: esce da sola a +${num(S.humanTp, 10)}%, -${num(S.humanSl, 10)}% o dopo ${num(S.humanHoldSec, 60)} secondi. Per entrare davvero apri la Coin su pump.fun`
+  await tg(human ? `<b>PRESO paper</b> $${esc(c.sym)} ${sizeS.toFixed(3)} SOL · impatto ${(impact * 100).toFixed(2)}%\n${p.id} · posizione aperta: ${bandMode ? `stop -${num(S.humanBandSl, 20)}%, a +${num(S.humanBandTp, 100)}% vende ${num(S.humanBandTpSell, 50)}% e il resto esce con trailing -${num(S.humanBandTrail, 25)}% (massimo ${(num(S.humanBandHoldMin, 360) / 60).toFixed(0)} ore)` : `esce da sola a +${num(S.humanTp, 10)}%, -${num(S.humanSl, 10)}% o dopo ${num(S.humanHoldSec, 60)} secondi`}. Per entrare davvero apri la Coin su pump.fun`
     : `<b>BUY paper</b> $${esc(c.sym)} ${sizeS.toFixed(3)} SOL · score ${c.score}\n${p.id} · il paper ha comprato al posto tuo; per entrare a mano apri la Coin su pump.fun`, Kb.kb({ mint: c.mint, pair: fresh.pairAddress, close: p.id }));
   return p;
 }
 // Prendo: il paper apre subito la posizione sulla Coin del segnale, con taglia e uscite impostate. Fa da filtro solo la decisione umana: restano i controlli del conto (circuit breaker, cassa, stessa Coin gia' aperta).
+const bandExits = () => ({ sl: num(S.humanBandSl, 20), tp1: num(S.humanBandTp, 100), tp1Sell: num(S.humanBandTpSell, 50), trail: num(S.humanBandTrail, 25), beAfterTp1: true, timeStopMin: num(S.humanBandHoldMin, 360), timeStopMinPnl: 5 });
 async function humanTake(a, at) {
   const why = st.halted ? 'circuit breaker attivo' : st.positions.some((p) => p.mint === a.mint) ? 'Coin già in posizione' : st.cash < sizeSol() * 0.5 || sizeSol() < 0.001 ? 'cassa insufficiente' : Date.now() - at > 5 * 60000 ? 'decisione arrivata troppo tardi (oltre 5 minuti)' : '';
-  const o = { src: 'umano', why }; let p = null;
+  const o = { src: 'umano', why, band: a.band || '', cr: a.cr || '' }; let p = null;
   if (!why) p = await buy({ mint: a.mint, sym: a.sym, name: a.name, score: a.score, srcs: ['umano'], a: { notes: ['scelta tua'], plus: [], m: {} }, pair: { priceNative: a.priceNative, pairAddress: a.pair, liquidity: { usd: a.liq } } }, o);
   if (!p) { log('QUARTER', `Prendo $${a.sym} non aperto: ${o.why}`); await tg(`<b>PRESO</b> $${esc(a.sym)} non aperto in paper: ${esc(o.why)}`); }
   return p;
@@ -470,7 +490,7 @@ async function sell(p, frac, reason) {
     st.positions = st.positions.filter((x) => x !== p);
     const pnl = p.realized - p.cost;
     const j = { id: p.id, mint: p.mint, sym: p.sym, openedAt: p.openedAt, closedAt: Date.now(), cost: p.cost, back: p.realized, pnl, pct: pnl / p.cost * 100,
-      mode: 'paper', src: p.src || 'bot', reason, score: p.score, solUsd: rt.solUsd, peakPct: (p.peak / p.entry - 1) * 100, trigPct: (m.priceNative / p.entry - 1) * 100, entryInfo: p.entryInfo,
+      mode: 'paper', src: p.src || 'bot', band: p.band || '', cr: p.cr || '', reason, score: p.score, solUsd: rt.solUsd, peakPct: (p.peak / p.entry - 1) * 100, trigPct: (m.priceNative / p.entry - 1) * 100, entryInfo: p.entryInfo,
       maePct: p.trough && p.entry > 0 ? (p.trough / p.entry - 1) * 100 : null, age: p.entryInfo && p.entryInfo.m && Number.isFinite(Number(p.entryInfo.m.ageMin)) ? Math.round(Number(p.entryInfo.m.ageMin)) : null };
     st.journal.push(j);
     pushLive(true).catch(() => {});
@@ -642,6 +662,17 @@ async function scan() {
     const gr = await askGrok(c);
     if (gr) { c.gr = gr; Object.assign(c, E.decide(c.a, c.sec, gr, S)); }
   }
+  // ricerca sui creatori, sempre attiva: per ogni candidato in fascia alta si risale al creatore, si registra la market cap e si costruisce il profilo
+  if (rt.creators) {
+    let looked = 0;
+    for (const c of cands) {
+      const mc = num(c.a && c.a.m && c.a.m.mc); if (!(mc >= num(S.bandMin, 500000)) || c.verdict === 'VETO' || looked >= 12) continue;
+      looked++;
+      try { c.cr = await rt.creators.creatorOf(c.mint); } catch { c.cr = ''; }
+      rt.creators.noteBand(c.mint, c.sym, mc, c.cr);
+      c.cstat = rt.creators.stats(c.cr); c.cline = rt.creators.line(c.cstat); c.ctier = rt.creators.tier(c.cstat); c.band = Creators.bandOf(mc);
+    }
+  }
   const buys = cands.filter((c) => c.verdict === 'BUY').sort((a, b) => b.score - a.score);
   log('ORACLE', `${mints.length} raccolti, ${cands.length} analizzati, ${buys.length} BUY, ${cands.filter((c) => c.verdict === 'VETO').length} veto`);
   // registro dei segnali: serve a capire dopo se i BUY scartati (es. per max posizioni) erano buoni
@@ -662,7 +693,8 @@ async function scan() {
   }
   // modalita' semi-automatica: avviso con il collegamento a pump.fun, entri tu a mano (funziona anche con l'autopilota spento)
   st.alerts = st.alerts || [];
-  if (S.humanOnly || (S.semiAuto && S.semiAuto !== 'spento')) await semiAlerts(buys);      // solo uomo: gli avvisi partono sempre
+  const alertCands = S.humanOnly ? cands.filter((c) => c.band && c.verdict !== 'VETO' && c.score >= num(S.alertMinScore, 55)).sort((a, b) => (b.ctier || 0) - (a.ctier || 0) || b.score - a.score) : buys;
+  if (S.humanOnly || (S.semiAuto && S.semiAuto !== 'spento')) await semiAlerts(alertCands);      // solo uomo: gli avvisi partono sempre, dalle Coin di fascia alta
   await updateAlerts(pairs); logGrok();
   if (S.humanOnly || S.semiAuto === 'solo avvisi') return;                                   // solo uomo: nessun ingresso automatico, ne' paper ne' reale
   if (!S.autopilot) return;
@@ -712,7 +744,7 @@ Aggiornato: ${new Date().toISOString().replace('T', ' ').slice(0, 16)} UTC · in
 ## Posizioni aperte
 ${st.positions.length ? st.positions.map((p) => `- **$${p.sym}** ${p.id} · ${p.sizeSOL.toFixed(3)} SOL · ${p.last ? f((p.last.priceNative / p.entry - 1) * 100, 1) + '%' : 'n/d'} · resta ${(p.remaining * 100).toFixed(0)}% · [grafico](https://dexscreener.com/solana/${p.pairAddress})`).join('\n') : '_nessuna_'}
 
-${snipeSection()}${gradSection()}${humanSection()}## Uscite per motivo
+${snipeSection()}${gradSection()}${humanSection()}${creatorsSection()}## Uscite per motivo
 ${Object.keys(by).length ? '| Motivo | Trade | P&L SOL |\n|---|---|---|\n' + Object.entries(by).map(([k, v]) => `| ${k} | ${v.n} | ${f(v.pnl)} |`).join('\n') : '_ancora nessuna_'}
 
 ## Ultimi 25 trade
@@ -742,7 +774,8 @@ function flushPaths(final) {
     const dir = path.join(STATE_DIR, 'lab', 'paths'), n = rt.pathBuf.length;
     if (n) { Farm.writeBatch(dir, rt.pathBuf.splice(0), Date.now()); }
     if (n || final) Farm.prune(dir, Date.now(), Farm.KEEP_DAYS);
-    const cdir = path.join(STATE_DIR, 'lab', 'creators'); if (rt.crBuf.length) Farm.writeBatch(cdir, rt.crBuf.splice(0), Date.now()); if (n || final) Farm.prune(cdir, Date.now(), Farm.KEEP_DAYS);
+    const cdir = path.join(STATE_DIR, 'lab', 'creators'); if (rt.creators) rt.crBuf.push(...rt.creators.drain()); if (rt.crBuf.length) Farm.writeBatch(cdir, rt.crBuf.splice(0), Date.now()); if (n || final) Farm.prune(cdir, Date.now(), 14);
+    if (rt.creators) rt.creators.save();
     const hdir = path.join(STATE_DIR, 'lab', 'holders'); if (rt.holdBuf.length) Farm.writeBatch(hdir, rt.holdBuf.splice(0), Date.now()); if (n || final) Farm.prune(hdir, Date.now(), Farm.KEEP_DAYS);
     const before = rt.strat.log.length, ch = Strat.review(rt.strat, Date.now(), rt.farm); if (ch) rt.stratDirty = true;
     for (const m of rt.strat.retireMsgs || []) { log('SCOUT', `strategia ${m.id}: ${m.to}: ${m.why}`); tg(`<b>Strategia ${esc(m.id)}</b> ${esc(m.to)}\n${esc(m.why)}${m.to === 'ritirata' ? '\nNon rientra per 3 giorni: al suo posto va la migliore tra le altre (anche se ancora in perdita).' : '\nGira in ombra (nessun ordine).'}`, Kb.kb({ app: true })).catch(() => {}); } rt.strat.retireMsgs = [];
@@ -846,19 +879,21 @@ function checkpoint() {
 
 // ---------------- loop ----------------
 function startYoung() {
-  const onToken = (t) => { if (rt.snipe) rt.snipe.onCreate(t); if (S.srcYoung !== false) Y.addYoung(rt.young, t, Date.now(), 800); };
+  const onToken = (t) => { if (rt.creators) rt.creators.noteLaunch({ mint: t.mint, creator: t.creator, at: Date.now() }); if (rt.snipe) rt.snipe.onCreate(t); if (S.srcYoung !== false) Y.addYoung(rt.young, t, Date.now(), 800); };
   if (S.srcLab !== false && !S.humanOnly) {                     // Laboratorio: una sola connessione a PumpPortal per nuovi token e scambi (osservazione, nessun ordine)
     rt.trades = new Lab.TradeFeed({ log: (m) => log('SCOUT', m), onComplete: (t, now) => { if (rt.grad) rt.grad.onComplete({ mint: t.mint, sym: t.sym, at: now }); }, solUsd: () => rt.solUsd, rpcHttp: process.env.RPC_URL || '', onCross: (t) => { if (rt.holdQ.length < 200) rt.holdQ.push({ mint: t.mint, curve: t.curve, creator: t.dev, at: Date.now(), uri: t.uri, devBuy: t.devBuy, sym: t.sym, name: t.name }); if (S.socialTest && rt.socQ.length < 20) rt.socQ.push({ mint: t.mint, sym: t.sym, name: t.name, at: Date.now() }); }, onCreator: (x) => { if (rt.crBuf.length < 5000) rt.crBuf.push(x); }, onPath: (x) => { rt.pathBuf.push(Farm.pack(x)); if (Strat.record(rt.strat, x, Date.now(), stratCtx())) { rt.stratDirty = true; flushStratNotes(); } }, onCreate: onToken, onDone: (s) => { st.lab = st.lab || { done: [] }; st.lab.done.push(s); st.lab.done = st.lab.done.slice(-400); } });
     rt.trades.start();
   }
   if (S.srcYoung === false) return;
   const rpc = process.env.RPC_URL || '';
-  if (rpc || !rt.trades) { rt.feed = new Y.YoungFeed({ rpcUrl: rpc, portal: !rt.trades, log: (m) => log('SCOUT', m), onToken: (t) => { if (rt.snipe) rt.snipe.onCreate(t); Y.addYoung(rt.young, t, Date.now(), 800); if (rt.trades) rt.trades.adopt(t); } }); rt.feed.start(); }   // RPC come fonte principale; PumpPortal (Laboratorio) come riserva
+  if (rpc || !rt.trades) { rt.feed = new Y.YoungFeed({ rpcUrl: rpc, portal: !rt.trades, log: (m) => log('SCOUT', m), onToken: (t) => { if (rt.creators) rt.creators.noteLaunch({ mint: t.mint, creator: t.creator, at: Date.now() }); if (rt.snipe) rt.snipe.onCreate(t); Y.addYoung(rt.young, t, Date.now(), 800); if (rt.trades) rt.trades.adopt(t); } }); rt.feed.start(); }   // RPC come fonte principale; PumpPortal (Laboratorio) come riserva
 }
 async function main() {
   rt.strat = Strat.load(STRAT_FILE()); if (!S.humanOnly) { loadFarm(); loadProbe(); }
   rt.snipe = new Snipe.Snipe({ quote: snipeQuote, file: path.join(STATE_DIR, 'snipe.json'), cfg: snipeCfg(), log: (m) => log('SNIPE', m) });
   rt.grad = new Grad.Grad({ quote: snipeQuote, file: path.join(STATE_DIR, 'grad.json'), cfg: gradCfg(), log: (m) => log('MIGRATI', m) });
+  rt.creators = new Creators.Creators({ dir: path.join(STATE_DIR, 'lab', 'creators'), bandFile: path.join(STATE_DIR, 'creators-band.json'), fetch: (u, i) => fetch(u, i), log: (m) => log('CREATORI', m) }).load();
+  log('CREATORI', `memoria: ${rt.creators.summary().launches} lanci, ${rt.creators.summary().creators} creatori, ${rt.creators.summary().bandCoins} Coin in fascia alta`);
   startYoung();
   const end = Date.now() + LOOP_MIN * 60000;
   log('KAISER', `run #${st.runs} · ${st.positions.length} posizioni · equity ${equity().toFixed(4)} SOL · GMGN ${gmgnOn() ? 'attiva' : 'spenta (nessuna chiave)'} · Grok ${S.useGrok ? 'on' : 'off'}`);
