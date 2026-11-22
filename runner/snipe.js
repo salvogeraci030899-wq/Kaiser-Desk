@@ -9,6 +9,7 @@
 // almeno `passMeanPct` % e limite inferiore dell'intervallo di confidenza al 95% sopra zero. Altrimenti il test non passa.
 // Limiti dichiarati: una quotazione non è un'esecuzione (nel reale ci sono concorrenti e latenza di rete in più); il campione di token si sceglie con
 // una funzione del mint, indipendente dall'esito. Se i parametri cambiano si apre una nuova serie e le statistiche ripartono.
+// Raggiunte `passN` operazioni il verdetto e' definitivo: il test si ferma da solo (niente nuovi campioni, anche se poi cambiano i parametri). Per rifarlo si cancella snipe.json.
 'use strict';
 const crypto = require('node:crypto');
 const fs = require('node:fs');
@@ -45,7 +46,9 @@ class Snipe {
   load() {
     let d = null; try { d = JSON.parse(fs.readFileSync(this.file, 'utf8')); } catch { return; }
     if (!d || d.v !== 1 || !Array.isArray(d.trades)) return;
+    const need = (d.cfg && d.cfg.passN) || this.cfg.passN, fin = !!d.finished || d.trades.filter((t) => t.s === (d.series || 1)).length >= need;
     this.d = { ...this.d, ...d, counts: { ...this.zero(), ...(d.counts || {}) }, lat: Array.isArray(d.lat) ? d.lat : [], why: d.why && typeof d.why === 'object' ? d.why : {} };
+    if (fin) { if (!this.d.finished) { this.d.finished = true; this.dirty = true; } return; }       // verdetto gia' dato: niente nuova serie
     if (JSON.stringify(d.cfg) !== JSON.stringify(this.pick())) {      // parametri cambiati: nuova serie, le vecchie operazioni restano ma non contano
       this.d.series = (d.series || 1) + 1; this.d.cfg = this.pick(); this.d.counts = this.zero(); this.d.lat = []; this.d.why = {}; this.d.since = this.now(); this.dirty = true;
       this.log(`test ingresso rapido: parametri cambiati, nuova serie ${this.d.series}`);
@@ -56,7 +59,7 @@ class Snipe {
 
   // evento di creazione ricevuto dal flusso (t.at = istante di ricezione)
   onCreate(t) {
-    if (!this.cfg.enabled || this.stopped || !t || !t.mint || this.seenMints.has(t.mint)) return false;
+    if (!this.cfg.enabled || this.stopped || this.d.finished || !t || !t.mint || this.seenMints.has(t.mint)) return false;
     this.seenMints.add(t.mint); if (this.seenMints.size > 20000) this.seenMints.clear();
     const c = this.d.counts; c.seen++; this.dirty = true;
     if (!this.sampled(t.mint)) return false;
@@ -108,6 +111,7 @@ class Snipe {
     if (d.trades.length > k.maxTrades) d.trades.splice(0, d.trades.length - k.maxTrades);
     d.lat.push(e.latency); if (d.lat.length > 2000) d.lat.splice(0, d.lat.length - 2000);
     this.pending.delete(e.mint); this.dirty = true;
+    if (!d.finished && d.trades.filter((x) => x.s === d.series).length >= k.passN) { d.finished = true; this.log('test ingresso rapido: verdetto raggiunto, il test si ferma'); }
   }
   // motivo dell'errore di rotta (codice o testo breve di Jupiter), per capire se la rotta manca davvero
   why(side, err) { const k = side + ':' + String((err && (err.code || err.message)) || 'n/d').slice(0, 60); this.d.why[k] = (this.d.why[k] || 0) + 1; }
@@ -122,7 +126,7 @@ class Snipe {
 
   summary() {
     const k = this.cfg, d = this.d, xs = d.trades.filter((t) => t.s === d.series).map((t) => t.pnl), n = xs.length;
-    const out = { series: d.series, since: d.since, cfg: d.cfg, counts: d.counts, why: d.why || {}, n, need: k.passN, verdict: 'in corso' };
+    const out = { finished: !!d.finished, series: d.series, since: d.since, cfg: d.cfg, counts: d.counts, why: d.why || {}, n, need: k.passN, verdict: 'in corso' };
     const lat = d.lat; if (lat.length) { out.latMedianMs = median(lat); out.latP90Ms = pct(lat, 0.9); }
     const tried = d.counts.sampled; if (tried) out.quotable = +(100 * d.counts.filled / tried).toFixed(1);
     if (n >= 2) {
