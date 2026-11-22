@@ -1,6 +1,6 @@
 {
  "startedAt": 1795097825371,
- "runs": 315,
+ "runs": 316,
  "cash": 4.002633898588161,
  "positions": [],
  "journal": [
@@ -10249,34 +10249,6 @@
  ],
  "signals": [
   {
-   "t": 1795359990375,
-   "mint": "3NLPK4MtmJXgpFxhgyxth3Vmf7VmhdDAvnk6G6XYpump",
-   "sym": "Plurality",
-   "score": 66,
-   "priceNative": 5.506e-7
-  },
-  {
-   "t": 1795360013708,
-   "mint": "3NLPK4MtmJXgpFxhgyxth3Vmf7VmhdDAvnk6G6XYpump",
-   "sym": "Plurality",
-   "score": 66,
-   "priceNative": 5.488e-7
-  },
-  {
-   "t": 1795360036389,
-   "mint": "3NLPK4MtmJXgpFxhgyxth3Vmf7VmhdDAvnk6G6XYpump",
-   "sym": "Plurality",
-   "score": 67,
-   "priceNative": 5.086e-7
-  },
-  {
-   "t": 1795360058945,
-   "mint": "3NLPK4MtmJXgpFxhgyxth3Vmf7VmhdDAvnk6G6XYpump",
-   "sym": "Plurality",
-   "score": 67,
-   "priceNative": 4.296e-7
-  },
-  {
    "t": 1795360082070,
    "mint": "3NLPK4MtmJXgpFxhgyxth3Vmf7VmhdDAvnk6G6XYpump",
    "sym": "Plurality",
@@ -17247,6 +17219,34 @@
    "sym": "XMAS",
    "score": 77,
    "priceNative": 5.543e-7
+  },
+  {
+   "t": 1795375615384,
+   "mint": "DJcHva2UJnRUPxzVfczcYyqxRtpwDTPcok6irtNmpump",
+   "sym": "SINGULARTY",
+   "score": 63,
+   "priceNative": 0.000001218
+  },
+  {
+   "t": 1795375685948,
+   "mint": "DJcHva2UJnRUPxzVfczcYyqxRtpwDTPcok6irtNmpump",
+   "sym": "SINGULARTY",
+   "score": 63,
+   "priceNative": 9.536e-7
+  },
+  {
+   "t": 1795375709857,
+   "mint": "GVGCRFovfHCLy6k49ryaUbKw6gDRLrJdYR8tNtJgpump",
+   "sym": "CHRISTMASS",
+   "score": 64,
+   "priceNative": 0.00000131
+  },
+  {
+   "t": 1795375709857,
+   "mint": "DJcHva2UJnRUPxzVfczcYyqxRtpwDTPcok6irtNmpump",
+   "sym": "SINGULARTY",
+   "score": 63,
+   "priceNative": 0.000001057
   }
  ],
  "alerts": [
@@ -17849,7 +17849,7 @@
    "why": [
     "turnover 3.4x/h"
    ],
-   "last": -6.9,
+   "last": 30.8,
    "min": -28.1,
    "p5": -6.9
   }
@@ -17863,6 +17863,29 @@
  "halted": null,
  "seq": 658,
  "events": [
+  "19:30:30 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 251 veto",
+  "19:30:05 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 249 veto",
+  "19:29:40 ORACLE   335 raccolti, 249 analizzati, 0 BUY, 234 veto",
+  "19:29:16 ORACLE   326 raccolti, 235 analizzati, 0 BUY, 220 veto",
+  "19:28:53 ORACLE   323 raccolti, 232 analizzati, 0 BUY, 217 veto",
+  "19:28:39 SCOUT    PumpPortal invia nuovi token (21) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena",
+  "19:28:29 ORACLE   302 raccolti, 219 analizzati, 2 BUY, 205 veto",
+  "19:28:05 ORACLE   293 raccolti, 204 analizzati, 1 BUY, 192 veto",
+  "19:27:42 ORACLE   288 raccolti, 197 analizzati, 0 BUY, 187 veto",
+  "19:27:18 ORACLE   258 raccolti, 182 analizzati, 0 BUY, 173 veto",
+  "19:26:55 ORACLE   246 raccolti, 169 analizzati, 1 BUY, 160 veto",
+  "19:26:32 ORACLE   244 raccolti, 169 analizzati, 0 BUY, 160 veto",
+  "19:26:18 SCOUT    rug: 11642 token oltre 7.5K, 35.5% rug, 11146 con possessori\ncombinazioni: 7344 prove, migliore -4.19%, p 1\nfabbrica: 32580 percorsi, 768 configurazioni, 0 passano, 8012 ms",
+  "19:26:07 ORACLE   208 raccolti, 143 analizzati, 0 BUY, 137 veto",
+  "19:25:44 ORACLE   199 raccolti, 130 analizzati, 0 BUY, 125 veto",
+  "19:25:22 ORACLE   196 raccolti, 130 analizzati, 0 BUY, 125 veto",
+  "19:25:22 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an",
+  "19:25:20 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an",
+  "19:25:17 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com",
+  "19:25:17 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120, semiAuto spento→avvisi e paper",
+  "19:25:17 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.",
+  "19:25:17 SCOUT    Laboratorio: collegato a PumpPortal",
+  "19:25:17 KAISER   run #316 · 0 posizioni · equity 4.0026 SOL · GMGN spenta (nessuna chiave) · Grok off",
   "19:25:03 SCRIBE   fine run · trade 222 · win 32% · P&L -1.9974 SOL · equity 4.0026 SOL",
   "19:24:45 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 266 veto",
   "19:24:22 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 264 veto",
@@ -18139,30 +18162,7 @@
   "17:57:11 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 256 veto",
   "17:56:45 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 247 veto",
   "17:56:22 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 249 veto",
-  "17:56:08 QUARTER  BUY $OpenIndex 0.078 SOL score 64 impatto 0.93% (Jupiter)",
-  "17:56:07 QUARTER  SEGNALE $OpenIndex score 64 (semi-automatico)",
-  "17:56:07 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 254 veto",
-  "17:55:43 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 254 veto",
-  "17:55:18 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 252 veto",
-  "17:54:55 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 266 veto",
-  "17:54:32 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 264 veto",
-  "17:54:08 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 260 veto",
-  "17:53:45 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 266 veto",
-  "17:53:21 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 263 veto",
-  "17:52:57 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 260 veto",
-  "17:52:33 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 271 veto",
-  "17:52:11 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 270 veto",
-  "17:51:47 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 259 veto",
-  "17:51:23 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 259 veto",
-  "17:50:59 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 264 veto",
-  "17:50:35 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 261 veto",
-  "17:50:11 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 269 veto",
-  "17:49:47 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 264 veto",
-  "17:49:24 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 261 veto",
-  "17:48:59 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 253 veto",
-  "17:48:36 ORACLE   354 raccolti, 253 analizzati, 0 BUY, 241 veto",
-  "17:48:12 ORACLE   349 raccolti, 246 analizzati, 1 BUY, 235 veto",
-  "17:47:48 ORACLE   319 raccolti, 234 analizzati, 1 BUY, 226 veto"
+  "17:56:08 QUARTER  BUY $OpenIndex 0.078 SOL score 64 impatto 0.93% (Jupiter)"
  ],
  "capital": 6,
  "resetId": "C-0110",
