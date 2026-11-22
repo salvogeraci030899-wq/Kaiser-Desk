@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 15:34 UTC · in esecuzione da 3.1 giorni · 311 run
+Aggiornato: 2026-11-22 15:39 UTC · in esecuzione da 3.1 giorni · 311 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-22 15:34 UTC · in esecuzione da 3.1 giorni · 311 run
 | Cassa | 3.9462 SOL |
 | Trade chiusi | 207 |
 | Win rate | 31% |
-| P&L realizzato | -2.0538 SOL (~$-144.05) |
+| P&L realizzato | -2.0538 SOL (~$-144.32) |
 | Media vincite / perdite | +40.2% / -32.2% |
 | Profit factor | 0.56 |
 | Circuit breaker | no |
@@ -45,7 +45,7 @@ Regola decisa in anticipo: orizzonte 300 s (gli altri sono solo descrittivi), al
 | Netto a 300 s (primario) | n/d (0) |
 | Netto a 900 s | n/d (0) |
 | Impatto di prezzo in acquisto (mediana) / ritardo del lettore (mediana) | n/d / n/d |
-| Curve completate viste / acquistate / senza rotta / coda piena / interrotte | 0 / 0 / 0 / 0 / 0 |
+| Curve completate viste / acquistate / senza rotta / coda piena / interrotte | 1 / 1 / 0 / 0 / 0 |
 
 ## Uomo e macchina: i segnali che prendi contro quelli che scarti
 Il radar sceglie, tu decidi (Prendo o Scarto) senza vedere il punteggio del bot. Rendimento a 5 minuti dalla tua decisione, meno 5% di costo a giro (stima mediana, non una misura per ogni token).
@@ -99,6 +99,19 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 
 ## Ultimi eventi
 ```
+15:39:39 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 247 veto
+15:39:15 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 244 veto
+15:38:51 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 235 veto
+15:38:27 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 250 veto
+15:38:04 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 244 veto
+15:37:40 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 235 veto
+15:37:16 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 248 veto
+15:36:52 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 240 veto
+15:36:28 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 239 veto
+15:36:05 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 244 veto
+15:35:41 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 243 veto
+15:35:18 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 241 veto
+15:34:54 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 247 veto
 15:34:30 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 251 veto
 15:34:07 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 247 veto
 15:33:43 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 258 veto
@@ -126,19 +139,6 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 15:26:53 QUARTER  $MengLan impatto 2.3% oltre slippage: annullato
 15:26:52 QUARTER  SEGNALE $MengLan score 64 (semi-automatico)
 15:26:52 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 264 veto
-15:26:27 ORACLE   360 raccolti, 282 analizzati, 0 BUY, 273 veto
-15:26:04 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 269 veto
-15:25:39 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 253 veto
-15:25:16 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 269 veto
-15:24:52 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 266 veto
-15:24:29 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 268 veto
-15:24:05 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 269 veto
-15:23:41 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 270 veto
-15:23:18 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 261 veto
-15:23:14 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
-15:22:54 ORACLE   360 raccolti, 287 analizzati, 0 BUY, 270 veto
-15:22:30 ORACLE   360 raccolti, 285 analizzati, 0 BUY, 268 veto
-15:22:07 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 262 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
