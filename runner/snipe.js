@@ -20,11 +20,12 @@ const DEFAULTS = {
   retryMs: 2000, giveUpMs: 30000,     // se Jupiter non ha ancora la rotta si riprova ogni 2 s, fino a 30 s dalla creazione
   holdMs: 30000,                      // tempo di permanenza dopo l'acquisto
   sellTries: 4, sellRetryMs: 1500,    // la vendita non riuscita dopo 4 tentativi per "nessuna rotta" conta come perdita totale
+  sellFallback: 1,                    // l'ultimo tentativo di vendita chiede anche rotte non limitate ai token intermedi di base (diagnosi: la rotta manca davvero o solo con il filtro?)
   sizeSol: 0.05, feePct: 1, prioritySol: 0.0005,
   maxQueue: 8,                        // posizioni contemporanee massime (limita le richieste a Jupiter)
   passN: 300, passMeanPct: 3, maxTrades: 3000,
 };
-const CFG_KEYS = ['every', 'delayMs', 'retryMs', 'giveUpMs', 'holdMs', 'sellTries', 'sellRetryMs', 'sizeSol', 'feePct', 'prioritySol', 'passN', 'passMeanPct'];
+const CFG_KEYS = ['every', 'delayMs', 'retryMs', 'giveUpMs', 'holdMs', 'sellTries', 'sellRetryMs', 'sellFallback', 'sizeSol', 'feePct', 'prioritySol', 'passN', 'passMeanPct'];
 
 const median = (a) => { if (!a.length) return null; const s = [...a].sort((x, y) => x - y), m = s.length >> 1; return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; };
 const pct = (a, p) => { if (!a.length) return null; const s = [...a].sort((x, y) => x - y); return s[Math.min(s.length - 1, Math.floor(s.length * p))]; };
@@ -36,7 +37,7 @@ class Snipe {
     this.now = o.now || Date.now; this.schedule = o.schedule || ((fn, ms) => setTimeout(fn, ms));
     this.log = o.log || (() => {}); this.file = o.file || ''; this.stopped = false; this.dirty = false;
     this.pending = new Map(); this.seenMints = new Set();
-    this.d = { v: 1, since: this.now(), series: 1, cfg: this.pick(), counts: this.zero(), lat: [], trades: [] };
+    this.d = { v: 1, since: this.now(), series: 1, cfg: this.pick(), counts: this.zero(), lat: [], trades: [], why: {} };
     if (this.file) this.load();
   }
   pick() { const c = {}; for (const k of CFG_KEYS) c[k] = this.cfg[k]; return c; }
@@ -44,9 +45,9 @@ class Snipe {
   load() {
     let d = null; try { d = JSON.parse(fs.readFileSync(this.file, 'utf8')); } catch { return; }
     if (!d || d.v !== 1 || !Array.isArray(d.trades)) return;
-    this.d = { ...this.d, ...d, counts: { ...this.zero(), ...(d.counts || {}) }, lat: Array.isArray(d.lat) ? d.lat : [] };
+    this.d = { ...this.d, ...d, counts: { ...this.zero(), ...(d.counts || {}) }, lat: Array.isArray(d.lat) ? d.lat : [], why: d.why && typeof d.why === 'object' ? d.why : {} };
     if (JSON.stringify(d.cfg) !== JSON.stringify(this.pick())) {      // parametri cambiati: nuova serie, le vecchie operazioni restano ma non contano
-      this.d.series = (d.series || 1) + 1; this.d.cfg = this.pick(); this.d.counts = this.zero(); this.d.lat = []; this.d.since = this.now(); this.dirty = true;
+      this.d.series = (d.series || 1) + 1; this.d.cfg = this.pick(); this.d.counts = this.zero(); this.d.lat = []; this.d.why = {}; this.d.since = this.now(); this.dirty = true;
       this.log(`test ingresso rapido: parametri cambiati, nuova serie ${this.d.series}`);
     }
   }
@@ -82,6 +83,7 @@ class Snipe {
       const late = this.now() - e.at + k.retryMs > k.giveUpMs;
       if (!late) { this.schedule(() => this.buy(e), k.retryMs); return; }
       if (err && err.noRoute) c.noRouteBuy++; else c.errBuy++;
+      this.why('buy', err);
       this.pending.delete(e.mint); this.dirty = true;
     }
   }
@@ -89,22 +91,26 @@ class Snipe {
     if (!this.pending.has(e.mint)) return;
     const k = this.cfg, c = this.d.counts;
     try {
-      const q = await this.o.quote(e.mint, SOL_MINT, e.tokens);
+      const last = tries >= k.sellTries, loose = !!(last && k.sellFallback);
+      const q = await this.o.quote(e.mint, SOL_MINT, e.tokens, loose ? { loose: true } : undefined);
+      if (loose) e.fb = 1;
       const back = Number(q.outAmount) / 1e9 * (1 - k.feePct / 100) - k.prioritySol, cost = k.sizeSol + k.prioritySol;
       this.close(e, (Math.max(0, back) / cost - 1) * 100, false);
     } catch (err) {
       if (tries < k.sellTries) { this.schedule(() => this.sell(e, tries + 1), k.sellRetryMs); return; }
-      if (err && err.noRoute) { c.noRouteSell++; this.close(e, -100, true); }          // non si riesce a vendere: perdita totale
+      if (err && err.noRoute) { c.noRouteSell++; this.why('sell', err); this.close(e, -100, true); }          // non si riesce a vendere: perdita totale
       else { c.errSell++; this.pending.delete(e.mint); this.dirty = true; }               // errore di rete: l'operazione non conta
     }
   }
   close(e, pnlPct, stuck) {
     const k = this.cfg, d = this.d;
-    d.trades.push({ s: d.series, at: e.at, m: e.mint, sym: e.sym, lat: e.latency, imp: +e.impact.toFixed(2), pnl: +pnlPct.toFixed(2), hold: this.now() - e.filledAt, stuck: stuck ? 1 : 0 });
+    d.trades.push({ s: d.series, at: e.at, m: e.mint, sym: e.sym, lat: e.latency, imp: +e.impact.toFixed(2), pnl: +pnlPct.toFixed(2), hold: this.now() - e.filledAt, stuck: stuck ? 1 : 0, fb: e.fb ? 1 : 0 });
     if (d.trades.length > k.maxTrades) d.trades.splice(0, d.trades.length - k.maxTrades);
     d.lat.push(e.latency); if (d.lat.length > 2000) d.lat.splice(0, d.lat.length - 2000);
     this.pending.delete(e.mint); this.dirty = true;
   }
+  // motivo dell'errore di rotta (codice o testo breve di Jupiter), per capire se la rotta manca davvero
+  why(side, err) { const k = side + ':' + String((err && (err.code || err.message)) || 'n/d').slice(0, 60); this.d.why[k] = (this.d.why[k] || 0) + 1; }
   stop() { this.stopped = true; }
   // attende le posizioni aperte (fine run); quelle rimaste si contano come interrotte e non entrano nelle statistiche
   async drain(maxMs) {
@@ -116,14 +122,14 @@ class Snipe {
 
   summary() {
     const k = this.cfg, d = this.d, xs = d.trades.filter((t) => t.s === d.series).map((t) => t.pnl), n = xs.length;
-    const out = { series: d.series, since: d.since, cfg: d.cfg, counts: d.counts, n, need: k.passN, verdict: 'in corso' };
+    const out = { series: d.series, since: d.since, cfg: d.cfg, counts: d.counts, why: d.why || {}, n, need: k.passN, verdict: 'in corso' };
     const lat = d.lat; if (lat.length) { out.latMedianMs = median(lat); out.latP90Ms = pct(lat, 0.9); }
     const tried = d.counts.sampled; if (tried) out.quotable = +(100 * d.counts.filled / tried).toFixed(1);
     if (n >= 2) {
       const mean = xs.reduce((a, b) => a + b, 0) / n, sd = Math.sqrt(xs.reduce((a, b) => a + (b - mean) ** 2, 0) / (n - 1)), se = sd / Math.sqrt(n);
       const sorted = [...xs].sort((a, b) => a - b), pos = xs.filter((v) => v > 0).reduce((a, b) => a + b, 0), top = sorted.slice(Math.floor(n * 0.99)).filter((v) => v > 0).reduce((a, b) => a + b, 0);
       Object.assign(out, { mean: +mean.toFixed(2), sd: +sd.toFixed(1), ciLo: +(mean - 1.96 * se).toFixed(2), ciHi: +(mean + 1.96 * se).toFixed(2), median: +median(xs).toFixed(2),
-        win: +(100 * xs.filter((v) => v > 0).length / n).toFixed(1), stuck: d.trades.filter((t) => t.s === d.series && t.stuck).length, topShare: pos > 0 ? +(100 * top / pos).toFixed(0) : 0 });
+        win: +(100 * xs.filter((v) => v > 0).length / n).toFixed(1), stuck: d.trades.filter((t) => t.s === d.series && t.stuck).length, viaFallback: d.trades.filter((t) => t.s === d.series && t.fb).length, topShare: pos > 0 ? +(100 * top / pos).toFixed(0) : 0 });
       if (n >= k.passN) out.verdict = (out.mean >= k.passMeanPct && out.ciLo > 0) ? 'passa' : 'non passa';
     }
     return out;
