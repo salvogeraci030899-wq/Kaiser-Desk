@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 00:14 UTC · in esecuzione da 2.4 giorni · 293 run
+Aggiornato: 2026-11-22 00:20 UTC · in esecuzione da 2.4 giorni · 293 run
 
 | | |
 |---|---|
-| Equity | **4.2368 SOL** (-29.4% dal capitale iniziale di 6 SOL) |
-| Cassa | 4.1403 SOL |
-| Trade chiusi | 165 |
-| Win rate | 29% |
-| P&L realizzato | -1.7742 SOL (~$-124.51) |
-| Media vincite / perdite | +43.7% / -32.4% |
+| Equity | **4.2315 SOL** (-29.5% dal capitale iniziale di 6 SOL) |
+| Cassa | 4.1469 SOL |
+| Trade chiusi | 166 |
+| Win rate | 30% |
+| P&L realizzato | -1.7675 SOL (~$-124.17) |
+| Media vincite / perdite | +43.0% / -32.4% |
 | Profit factor | 0.55 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$MANEKI** P-0602 · 0.085 SOL · +14.1% · resta 100% · [grafico](https://dexscreener.com/solana/5vA4cfFs6BrJkhUQEd5nHkQ1gFqJD4JZuU61Xp11GT5A)
+- **$time** P-0603 · 0.085 SOL · n/d · resta 100% · [grafico](https://dexscreener.com/solana/B58EAnKrNBEdY5vcuzzsvE9xUmb5xfw75zkGitih7x2o)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 46 | -1.3959 |
 | Time stop | 62 | -0.8232 |
-| TP1 | 34 | +1.7492 |
+| TP1 | 35 | +1.7559 |
 | RUG-EXIT liquidità | 23 | -1.3042 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $MANEKI | 90 | +7.8% | +0.0067 | +96% | +96% | TP1 | 10m |
 | $KAREN | 80 | -35.5% | -0.0306 | +0% | -40% | Stop loss | 4m |
 | $DPRK | 69 | -99.5% | -0.0875 | +0% | -98% | RUG-EXIT liquidità | 5m |
 | $WAVE | 74 | -96.9% | -0.0869 | +22% | -95% | RUG-EXIT liquidità | 4m |
@@ -51,10 +52,27 @@ Aggiornato: 2026-11-22 00:14 UTC · in esecuzione da 2.4 giorni · 293 run
 | $PENNY | 64 | -10.0% | -0.0090 | +14% | +4% | Time stop | 5m |
 | $ELON | 64 | -99.4% | -0.0913 | +34% | -98% | RUG-EXIT liquidità | 2m |
 | $Cyber | 83 | -99.6% | -0.0933 | +41% | -98% | RUG-EXIT liquidità | 10m |
-| $OMERTA | 83 | -9.5% | -0.0089 | +10% | -1% | Time stop | 11m |
 
 ## Ultimi eventi
 ```
+00:20:03 QUARTER  BUY $time 0.085 SOL score 75 impatto 0.89% (Jupiter)
+00:20:03 ORACLE   360 raccolti, 230 analizzati, 3 BUY, 215 veto
+00:19:48 SCRIBE   chiuso P-0602 $MANEKI 0.0067 SOL (7.8%)
+00:19:48 CHARON   TP1 $MANEKI vendo 100% a 96.3% -> 0.0922 SOL
+00:19:38 ORACLE   360 raccolti, 242 analizzati, 5 BUY, 225 veto
+00:19:13 ORACLE   360 raccolti, 234 analizzati, 5 BUY, 219 veto
+00:18:59 ORACLE   360 raccolti, 237 analizzati, 4 BUY, 222 veto
+00:18:34 ORACLE   360 raccolti, 236 analizzati, 3 BUY, 222 veto
+00:18:10 ORACLE   360 raccolti, 236 analizzati, 5 BUY, 218 veto
+00:17:46 ORACLE   360 raccolti, 234 analizzati, 5 BUY, 217 veto
+00:17:23 ORACLE   360 raccolti, 236 analizzati, 5 BUY, 220 veto
+00:16:59 ORACLE   360 raccolti, 245 analizzati, 4 BUY, 228 veto
+00:16:35 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
+00:16:35 ORACLE   360 raccolti, 239 analizzati, 4 BUY, 222 veto
+00:16:22 ORACLE   360 raccolti, 237 analizzati, 4 BUY, 220 veto
+00:15:55 ORACLE   358 raccolti, 240 analizzati, 4 BUY, 222 veto
+00:15:31 ORACLE   355 raccolti, 231 analizzati, 4 BUY, 215 veto
+00:15:07 ORACLE   332 raccolti, 219 analizzati, 4 BUY, 207 veto
 00:14:42 ORACLE   324 raccolti, 208 analizzati, 4 BUY, 195 veto
 00:14:19 ORACLE   319 raccolti, 204 analizzati, 4 BUY, 190 veto
 00:13:55 ORACLE   296 raccolti, 194 analizzati, 4 BUY, 183 veto
@@ -79,24 +97,6 @@ fabbrica: 31939 percorsi, 768 configurazioni, 0 passano, 5976 ms
 00:09:47 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
 00:09:47 SCOUT    Laboratorio: collegato a PumpPortal
 00:09:47 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120
-00:09:46 KAISER   run #293 · 0 posizioni · equity 4.2258 SOL · GMGN spenta (nessuna chiave) · Grok off
-00:09:32 SCRIBE   fine run · trade 165 · win 29% · P&L -1.7742 SOL · equity 4.2258 SOL
-00:09:19 ORACLE   360 raccolti, 279 analizzati, 4 BUY, 261 veto
-00:08:56 ORACLE   360 raccolti, 273 analizzati, 5 BUY, 254 veto
-00:08:31 ORACLE   360 raccolti, 282 analizzati, 5 BUY, 262 veto
-00:08:08 ORACLE   360 raccolti, 282 analizzati, 5 BUY, 261 veto
-00:07:45 ORACLE   360 raccolti, 281 analizzati, 5 BUY, 259 veto
-00:07:21 ORACLE   360 raccolti, 283 analizzati, 5 BUY, 260 veto
-00:06:57 ORACLE   360 raccolti, 281 analizzati, 5 BUY, 260 veto
-00:06:33 ORACLE   360 raccolti, 272 analizzati, 5 BUY, 251 veto
-00:06:09 ORACLE   360 raccolti, 281 analizzati, 5 BUY, 263 veto
-00:05:45 ORACLE   360 raccolti, 271 analizzati, 5 BUY, 253 veto
-00:05:21 ORACLE   360 raccolti, 273 analizzati, 5 BUY, 252 veto
-00:04:57 ORACLE   360 raccolti, 280 analizzati, 5 BUY, 257 veto
-00:04:32 SCRIBE   chiuso P-0601 $KAREN -0.0306 SOL (-35.5%)
-00:04:32 CHARON   Stop loss $KAREN vendo 100% a -40.3% -> 0.0555 SOL
-00:04:32 ORACLE   360 raccolti, 279 analizzati, 5 BUY, 255 veto
-00:04:08 ORACLE   360 raccolti, 275 analizzati, 5 BUY, 254 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
