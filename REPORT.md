@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 17:30 UTC · in esecuzione da 3.1 giorni · 313 run
+Aggiornato: 2026-11-22 17:35 UTC · in esecuzione da 3.1 giorni · 313 run
 
 | | |
 |---|---|
-| Equity | **3.9166 SOL** (-34.7% dal capitale iniziale di 6 SOL) |
-| Cassa | 3.8451 SOL |
-| Trade chiusi | 213 |
+| Equity | **3.9203 SOL** (-34.7% dal capitale iniziale di 6 SOL) |
+| Cassa | 3.9203 SOL |
+| Trade chiusi | 214 |
 | Win rate | 31% |
-| P&L realizzato | -2.0754 SOL (~$-145.89) |
-| Media vincite / perdite | +38.9% / -31.9% |
+| P&L realizzato | -2.0797 SOL (~$-146.23) |
+| Media vincite / perdite | +38.9% / -31.8% |
 | Profit factor | 0.56 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$SANTIA** P-0650 · 0.078 SOL · -9.0% · resta 100% · [grafico](https://dexscreener.com/solana/rP6nJaBuovvmQkN2w7mvmgSfkDQ4qDVWKyRWRM1X5L6)
+_nessuna_
 
 ## Test ingresso rapido (solo paper, quotazioni Jupiter)
 Ipotesi: comprare 5 secondi dopo la creazione, tenere 30 secondi, vendere. Un token su 3, 0.05 SOL a operazione. Serie 2 dal 2026-11-22 11:02 UTC.
@@ -64,13 +64,14 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 58 | -1.7068 |
-| Time stop | 79 | -0.9278 |
+| Time stop | 80 | -0.9321 |
 | TP1 | 49 | +2.0863 |
 | RUG-EXIT liquidità | 27 | -1.5271 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $SANTIA | 69 | -5.4% | -0.0043 | +7% | -14% | Time stop | 5m |
 | $BTC | 64 | -41.7% | -0.0334 | +0% | -34% | Stop loss | 3m |
 | $FOAM | 71 | -6.9% | -0.0056 | +62% | +62% | TP1 | 1m |
 | $OMGAI | 75 | +11.9% | +0.0095 | +4% | +4% | Time stop | 5m |
@@ -95,10 +96,24 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | $eˣ | 74 | +14.2% | +0.0114 | +68% | +68% | TP1 | 6m |
 | $casual | 63 | +52.2% | +0.0416 | +61% | +61% | TP1 | 8m |
 | $TC | 65 | -8.5% | -0.0068 | +15% | +5% | Time stop | 6m |
-| $FIREBALL | 68 | -54.2% | -0.0438 | +0% | -34% | Stop loss | 4m |
 
 ## Ultimi eventi
 ```
+17:35:20 ORACLE   360 raccolti, 262 analizzati, 3 BUY, 249 veto
+17:34:57 ORACLE   360 raccolti, 266 analizzati, 3 BUY, 252 veto
+17:34:34 ORACLE   360 raccolti, 253 analizzati, 3 BUY, 239 veto
+17:34:11 ORACLE   360 raccolti, 258 analizzati, 3 BUY, 243 veto
+17:33:48 ORACLE   360 raccolti, 260 analizzati, 3 BUY, 244 veto
+17:33:25 ORACLE   360 raccolti, 260 analizzati, 4 BUY, 244 veto
+17:33:02 ORACLE   360 raccolti, 260 analizzati, 4 BUY, 248 veto
+17:32:39 ORACLE   360 raccolti, 259 analizzati, 3 BUY, 248 veto
+17:32:16 ORACLE   360 raccolti, 252 analizzati, 3 BUY, 241 veto
+17:31:53 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 245 veto
+17:31:40 SCRIBE   chiuso P-0650 $SANTIA -0.0043 SOL (-5.4%)
+17:31:40 CHARON   Time stop $SANTIA vendo 100% a -14.4% -> 0.0752 SOL
+17:31:30 ORACLE   360 raccolti, 255 analizzati, 4 BUY, 245 veto
+17:31:07 ORACLE   360 raccolti, 244 analizzati, 4 BUY, 234 veto
+17:30:44 ORACLE   360 raccolti, 254 analizzati, 3 BUY, 240 veto
 17:30:20 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 241 veto
 17:29:57 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 226 veto
 17:29:34 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 245 veto
@@ -124,21 +139,6 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 17:23:47 ORACLE   360 raccolti, 265 analizzati, 3 BUY, 254 veto
 17:23:24 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 253 veto
 17:23:02 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 249 veto
-17:22:38 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 251 veto
-17:22:16 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 255 veto
-17:21:53 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 250 veto
-17:21:29 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 264 veto
-17:21:07 ORACLE   360 raccolti, 275 analizzati, 4 BUY, 261 veto
-17:20:43 ORACLE   360 raccolti, 272 analizzati, 4 BUY, 259 veto
-17:20:20 ORACLE   360 raccolti, 282 analizzati, 4 BUY, 268 veto
-17:19:57 ORACLE   360 raccolti, 285 analizzati, 4 BUY, 271 veto
-17:19:34 ORACLE   360 raccolti, 277 analizzati, 4 BUY, 266 veto
-17:19:11 ORACLE   360 raccolti, 284 analizzati, 4 BUY, 273 veto
-17:18:47 ORACLE   360 raccolti, 294 analizzati, 4 BUY, 280 veto
-17:18:24 ORACLE   360 raccolti, 285 analizzati, 4 BUY, 269 veto
-17:18:02 ORACLE   360 raccolti, 295 analizzati, 4 BUY, 280 veto
-17:17:39 ORACLE   360 raccolti, 293 analizzati, 4 BUY, 277 veto
-17:17:16 ORACLE   360 raccolti, 280 analizzati, 4 BUY, 268 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
