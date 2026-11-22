@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 01:10 UTC · in esecuzione da 2.5 giorni · 294 run
+Aggiornato: 2026-11-22 01:15 UTC · in esecuzione da 2.5 giorni · 294 run
 
 | | |
 |---|---|
-| Equity | **4.2113 SOL** (-29.8% dal capitale iniziale di 6 SOL) |
-| Cassa | 4.2113 SOL |
+| Equity | **4.2098 SOL** (-29.8% dal capitale iniziale di 6 SOL) |
+| Cassa | 4.1261 SOL |
 | Trade chiusi | 170 |
 | Win rate | 29% |
-| P&L realizzato | -1.7887 SOL (~$-125.50) |
+| P&L realizzato | -1.7887 SOL (~$-125.72) |
 | Media vincite / perdite | +42.7% / -32.1% |
 | Profit factor | 0.55 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$Tots** P-0607 · 0.084 SOL · -0.6% · resta 100% · [grafico](https://dexscreener.com/solana/8cpQbNfKBTfMVjze35RbjvWKPp9pUDYnxnHgQBbtfxfk)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -55,6 +55,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+01:15:18 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 231 veto
+01:14:54 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 247 veto
+01:14:30 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 248 veto
+01:14:07 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 247 veto
+01:13:44 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 247 veto
+01:13:20 QUARTER  BUY $Tots 0.084 SOL score 76 impatto 1.41% (Jupiter)
+01:13:20 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 255 veto
+01:12:57 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 256 veto
+01:12:34 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 257 veto
+01:12:11 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 257 veto
+01:11:47 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 256 veto
+01:11:24 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 265 veto
+01:11:01 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 263 veto
+01:10:38 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 266 veto
 01:10:14 ORACLE   360 raccolti, 281 analizzati, 0 BUY, 271 veto
 01:09:50 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 266 veto
 01:09:27 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 266 veto
@@ -81,22 +95,6 @@ _nessuna_
 01:02:37 ORACLE   308 raccolti, 215 analizzati, 1 BUY, 204 veto
 01:02:14 ORACLE   284 raccolti, 190 analizzati, 1 BUY, 181 veto
 01:01:51 ORACLE   272 raccolti, 181 analizzati, 1 BUY, 172 veto
-01:01:28 ORACLE   268 raccolti, 179 analizzati, 1 BUY, 170 veto
-01:01:05 ORACLE   238 raccolti, 164 analizzati, 1 BUY, 157 veto
-01:00:43 ORACLE   223 raccolti, 157 analizzati, 1 BUY, 150 veto
-01:00:32 SCOUT    rug: 11551 token oltre 7.5K, 36% rug, 9213 con possessori
-combinazioni: 4656 prove, migliore -5.8%, p 1
-fabbrica: 32039 percorsi, 768 configurazioni, 0 passano, 5630 ms
-01:00:20 ORACLE   213 raccolti, 140 analizzati, 1 BUY, 134 veto
-01:00:08 ORACLE   212 raccolti, 140 analizzati, 1 BUY, 134 veto
-01:00:07 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-01:00:04 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120
-01:00:03 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-01:00:03 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
-01:00:03 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
-01:00:03 SCOUT    Laboratorio: collegato a PumpPortal
-01:00:03 KAISER   run #294 · 1 posizioni · equity 4.2297 SOL · GMGN spenta (nessuna chiave) · Grok off
-00:59:50 SCRIBE   fine run · trade 169 · win 30% · P&L -1.7856 SOL · equity 4.2297 SOL
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
