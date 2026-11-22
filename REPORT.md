@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 15:55 UTC · in esecuzione da 3.1 giorni · 311 run
+Aggiornato: 2026-11-22 16:00 UTC · in esecuzione da 3.1 giorni · 311 run
 
 | | |
 |---|---|
-| Equity | **3.9569 SOL** (-34.1% dal capitale iniziale di 6 SOL) |
-| Cassa | 3.8731 SOL |
-| Trade chiusi | 208 |
+| Equity | **3.9442 SOL** (-34.3% dal capitale iniziale di 6 SOL) |
+| Cassa | 3.9442 SOL |
+| Trade chiusi | 209 |
 | Win rate | 31% |
-| P&L realizzato | -2.0468 SOL (~$-143.91) |
-| Media vincite / perdite | +39.7% / -32.2% |
+| P&L realizzato | -2.0558 SOL (~$-144.28) |
+| Media vincite / perdite | +39.7% / -32.0% |
 | Profit factor | 0.56 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$GIF** P-0645 · 0.079 SOL · +6.0% · resta 100% · [grafico](https://dexscreener.com/solana/FNH2ezsLR4sQecWizaYTR7W1pjM3LRoJ85QXYE5gL9CE)
+_nessuna_
 
 ## Test ingresso rapido (solo paper, quotazioni Jupiter)
 Ipotesi: comprare 5 secondi dopo la creazione, tenere 30 secondi, vendere. Un token su 3, 0.05 SOL a operazione. Serie 2 dal 2026-11-22 11:02 UTC.
@@ -58,19 +58,20 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | Netto medio dei presi | +69.5% (intervallo -86.7% / +225.6%) |
 | Netto medio degli scartati | n/d% |
 | Differenza presi meno scartati (limite inferiore) | n/d |
-| Senza risposta / decisi dopo 5 minuti | 10 / 0 |
+| Senza risposta / decisi dopo 5 minuti | 11 / 0 |
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 57 | -1.6734 |
-| Time stop | 76 | -0.9383 |
+| Time stop | 77 | -0.9473 |
 | TP1 | 48 | +2.0919 |
 | RUG-EXIT liquidità | 27 | -1.5271 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $GIF | 64 | -11.2% | -0.0090 | +18% | -1% | Time stop | 6m |
 | $FRANK | 70 | +8.7% | +0.0069 | +10% | -12% | Time stop | 5m |
 | $MengLan | 65 | +80.7% | +0.0635 | +108% | +108% | TP1 | 3m |
 | $Plurality | 64 | -38.8% | -0.0308 | +0% | -33% | Stop loss | 5m |
@@ -95,10 +96,24 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | $CI | 72 | -36.2% | -0.0298 | +8% | -31% | Stop loss | 3m |
 | $SANTA | 74 | +92.2% | +0.0745 | +61% | +61% | TP1 | 5m |
 | $CORONA | 72 | +24.8% | +0.0199 | +72% | +72% | TP1 | 3m |
-| $Biao | 63 | -31.7% | -0.0257 | +3% | -24% | Time stop | 5m |
 
 ## Ultimi eventi
 ```
+16:00:12 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 267 veto
+15:59:48 ORACLE   360 raccolti, 281 analizzati, 2 BUY, 268 veto
+15:59:24 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 269 veto
+15:59:01 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 264 veto
+15:58:37 ORACLE   360 raccolti, 286 analizzati, 2 BUY, 274 veto
+15:58:14 ORACLE   360 raccolti, 283 analizzati, 2 BUY, 270 veto
+15:57:50 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 266 veto
+15:57:36 SCRIBE   chiuso P-0645 $GIF -0.0090 SOL (-11.2%)
+15:57:36 CHARON   Time stop $GIF vendo 100% a -1.4% -> 0.0711 SOL
+15:57:26 ORACLE   360 raccolti, 284 analizzati, 2 BUY, 273 veto
+15:57:02 ORACLE   360 raccolti, 281 analizzati, 2 BUY, 270 veto
+15:56:38 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 266 veto
+15:56:13 ORACLE   360 raccolti, 282 analizzati, 2 BUY, 276 veto
+15:55:50 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 270 veto
+15:55:27 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 265 veto
 15:55:03 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 258 veto
 15:54:39 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 256 veto
 15:54:15 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 241 veto
@@ -124,21 +139,6 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 15:47:53 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 253 veto
 15:47:29 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 248 veto
 15:47:05 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 251 veto
-15:46:41 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 259 veto
-15:46:18 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 253 veto
-15:45:54 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 248 veto
-15:45:30 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 263 veto
-15:45:06 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 257 veto
-15:44:41 SCOUT    regola C-068: corrente (nuova strategia: 12K rit. 10s +10/-15 60s: vecchi -8.14%, recenti -8.18%)
-15:44:41 SCOUT    regola C-067: ritirata (103 operazioni in avanti, esito medio -12.4% (±6.6): non regge)
-15:44:41 SCOUT    strategia C-068: corrente: nuova strategia: 12K rit. 10s +10/-15 60s: vecchi -8.14%, recenti -8.18%
-15:44:41 SCOUT    strategia C-067: ritirata: 103 operazioni in avanti, esito medio -12.4% (±6.6): non regge
-15:44:41 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 255 veto
-15:44:17 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 260 veto
-15:43:53 QUARTER  BUY $FRANK 0.079 SOL score 70 impatto 0.00% (Jupiter)
-15:43:53 QUARTER  SEGNALE $FRANK score 70 (semi-automatico)
-15:43:53 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 261 veto
-15:43:29 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 254 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
