@@ -141,3 +141,18 @@ test('vendita: l\'ultimo tentativo prova anche la rotta non limitata; i motivi d
   s2.onCreate({ mint: mint(12), at: c2.now() }); await c2.run(70000);
   assert.equal(s2.d.trades[0].pnl, -100); assert.equal(s2.d.why['sell:TOKEN_NOT_TRADABLE'], 1);
 });
+
+test('verdetto raggiunto: il test si ferma da solo, anche dopo un riavvio con parametri diversi; il file vecchio senza il segno si riconosce dal numero di operazioni', async () => {
+  const f = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'snipe-')), 'snipe.json'), c = clock();
+  const s1 = make(c, async () => { throw noRoute(); }, { passN: 3 }, f);
+  for (let i = 0; i < 2; i++) s1.close({ mint: mint(i), sym: 'X', at: c.now(), latency: 5000, impact: 1, filledAt: c.now() }, -10, false);
+  assert.ok(!s1.d.finished, 'sotto la soglia'); s1.close({ mint: mint(5), sym: 'X', at: c.now(), latency: 5000, impact: 1, filledAt: c.now() }, -10, false);
+  assert.equal(s1.d.finished, true); assert.equal(s1.onCreate({ mint: mint(6), at: c.now() }), false, 'niente nuovi campioni'); assert.equal(s1.summary().finished, true);
+  s1.flush();
+  const s2 = make(c, async () => { throw noRoute(); }, { passN: 3, holdMs: 60000 }, f);       // parametri cambiati: senza il segno aprirebbe la serie 2
+  assert.equal(s2.d.series, 1); assert.equal(s2.d.finished, true); assert.equal(s2.onCreate({ mint: mint(7), at: c.now() }), false);
+  // file scritto dal codice precedente: nessun segno, ma 3 operazioni nella serie con passN 3
+  const g = path.join(path.dirname(f), 'old.json'); fs.writeFileSync(g, JSON.stringify({ v: 1, since: 1, series: 1, cfg: { passN: 3 }, counts: {}, lat: [], why: {}, trades: [{ s: 1, pnl: -1 }, { s: 1, pnl: -2 }, { s: 1, pnl: -3 }] }));
+  const s3 = make(c, async () => { throw noRoute(); }, { passN: 3, sellFallback: 1 }, g); assert.equal(s3.d.series, 1); assert.equal(s3.d.finished, true);
+});
+

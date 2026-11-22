@@ -325,7 +325,7 @@ Regola decisa in anticipo: almeno ${s.cfg.passN} operazioni, netto medio >= +${s
 
 | | |
 |---|---|
-${row('Esito', `**${s.verdict}** (${s.n} di ${s.need} operazioni)`)}
+${row('Esito', `**${s.verdict}** (${s.n} di ${s.need} operazioni)${s.finished ? ' · test concluso, non raccoglie piu' : ''}`)}
 ${row('Netto medio per operazione', s.mean == null ? 'n/d' : `${f(s.mean)}% (intervallo ${f(s.ciLo)}% / ${f(s.ciHi)}%)`)}
 ${row('Mediana / operazioni in utile', s.mean == null ? 'n/d' : `${f(s.median)}% / ${s.win}%`)}
 ${row('Quota dei guadagni dall\'1% migliore', s.mean == null ? 'n/d' : `${s.topShare}%`)}
