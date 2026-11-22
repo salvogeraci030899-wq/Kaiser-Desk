@@ -19,6 +19,7 @@ const LabQ = require('./labquery.js');
 const Grokstat = require('./grokstat.js');
 
 const STATE_DIR = process.env.STATE_DIR || path.join(__dirname, '..', 'state');
+const Snipe = require('./snipe.js');
 const LOOP_MIN = Number(process.env.LOOP_MIN || 4.5);
 const TICK_SEC = Number(process.env.TICK_SEC || 10);
 const SCAN_SEC = Number(process.env.SCAN_SEC || 30);
@@ -66,6 +67,7 @@ function log(agent, msg) {
   st.events.length = Math.min(st.events.length, 300);
 }
 function save() {
+  if (rt.snipe) rt.snipe.flush();
   st.journal = st.journal.slice(-2000);
   st.signals = st.signals.slice(-1000); st.alerts = (st.alerts || []).slice(-60); st.grokLog = (st.grokLog || []).slice(-600);
   fs.writeFileSync(F.state, JSON.stringify(st, null, 1));
@@ -242,6 +244,45 @@ async function jupQuote(inMint, outMint, amount) {
   const q = await fetchJSON(`https://lite-api.jup.ag/swap/v1/quote?inputMint=${inMint}&outputMint=${outMint}&amount=${amount}&slippageBps=${S.slippageBps}&restrictIntermediateTokens=true`);
   if (!q || !q.outAmount) throw new Error((q && q.error) || 'nessuna rotta');
   return q;
+}
+// Quotazione di Jupiter per il test di ingresso rapido: 400 e 404 = nessuna rotta (token non ancora instradabile), il resto sono errori transitori
+async function snipeQuote(inMint, outMint, amount) {
+  const c = new AbortController(), tm = setTimeout(() => c.abort(), 4000);
+  try {
+    const r = await fetch(`https://lite-api.jup.ag/swap/v1/quote?inputMint=${inMint}&outputMint=${outMint}&amount=${amount}&slippageBps=${S.slippageBps}&restrictIntermediateTokens=true`,
+      { signal: c.signal, headers: { accept: 'application/json', 'user-agent': 'kaiser-desk-runner' } });
+    if (r.status === 400 || r.status === 404) throw Object.assign(new Error('nessuna rotta'), { noRoute: true });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    const q = await r.json();
+    if (!q || !q.outAmount) throw Object.assign(new Error((q && q.error) || 'nessuna rotta'), { noRoute: true });
+    return q;
+  } finally { clearTimeout(tm); }
+}
+function snipeCfg() {
+  const c = { enabled: S.snipeTest !== false }, m = { snipeEvery: 'every', snipeDelayMs: 'delayMs', snipeHoldMs: 'holdMs', snipeSizeSol: 'sizeSol' };
+  for (const [k, v] of Object.entries(m)) if (Number.isFinite(Number(S[k])) && S[k] !== '' && S[k] != null) c[v] = Number(S[k]);
+  return c;
+}
+function snipeSection() {
+  if (!rt.snipe) return '';
+  const s = rt.snipe.summary(), f = (n, d = 1) => (n == null ? 'n/d' : (n >= 0 ? '+' : '') + Number(n).toFixed(d));
+  const row = (a, b) => `| ${a} | ${b} |`;
+  return `## Test ingresso rapido (solo paper, quotazioni Jupiter)
+Ipotesi: comprare ${s.cfg.delayMs / 1000} secondi dopo la creazione, tenere ${s.cfg.holdMs / 1000} secondi, vendere. Un token su ${s.cfg.every}, ${s.cfg.sizeSol} SOL a operazione. Serie ${s.series} dal ${new Date(s.since).toISOString().slice(0, 16).replace('T', ' ')} UTC.
+Regola decisa in anticipo: almeno ${s.cfg.passN} operazioni, netto medio >= +${s.cfg.passMeanPct}% e limite inferiore dell'intervallo al 95% sopra zero.
+
+| | |
+|---|---|
+${row('Esito', `**${s.verdict}** (${s.n} di ${s.need} operazioni)`)}
+${row('Netto medio per operazione', s.mean == null ? 'n/d' : `${f(s.mean)}% (intervallo ${f(s.ciLo)}% / ${f(s.ciHi)}%)`)}
+${row('Mediana / operazioni in utile', s.mean == null ? 'n/d' : `${f(s.median)}% / ${s.win}%`)}
+${row('Quota dei guadagni dall\'1% migliore', s.mean == null ? 'n/d' : `${s.topShare}%`)}
+${row('Token campionati / con rotta di acquisto', `${s.counts.sampled} / ${s.counts.filled}${s.quotable != null ? ` (${s.quotable}%)` : ''}`)}
+${row('Tempo per ottenere la quotazione (mediana / 90%)', s.latMedianMs == null ? 'n/d' : `${(s.latMedianMs / 1000).toFixed(1)} s / ${(s.latP90Ms / 1000).toFixed(1)} s`)}
+${row('Senza rotta in acquisto / in vendita (perdita totale)', `${s.counts.noRouteBuy} / ${s.counts.noRouteSell}`)}
+${row('Errori di rete (acquisto / vendita) / interrotte a fine run', `${s.counts.errBuy} / ${s.counts.errSell} / ${s.counts.interrupted}`)}
+
+`;
 }
 async function semiAlerts(buys) {
   const now = Date.now();
@@ -587,7 +628,7 @@ Aggiornato: ${new Date().toISOString().replace('T', ' ').slice(0, 16)} UTC · in
 ## Posizioni aperte
 ${st.positions.length ? st.positions.map((p) => `- **$${p.sym}** ${p.id} · ${p.sizeSOL.toFixed(3)} SOL · ${p.last ? f((p.last.priceNative / p.entry - 1) * 100, 1) + '%' : 'n/d'} · resta ${(p.remaining * 100).toFixed(0)}% · [grafico](https://dexscreener.com/solana/${p.pairAddress})`).join('\n') : '_nessuna_'}
 
-## Uscite per motivo
+${snipeSection()}## Uscite per motivo
 ${Object.keys(by).length ? '| Motivo | Trade | P&L SOL |\n|---|---|---|\n' + Object.entries(by).map(([k, v]) => `| ${k} | ${v.n} | ${f(v.pnl)} |`).join('\n') : '_ancora nessuna_'}
 
 ## Ultimi 25 trade
@@ -698,6 +739,14 @@ function maybeProbe() {
     .then((rep) => { rt.probe = rep; rt.probeDone = true; try { fs.writeFileSync(path.join(STATE_DIR, 'probe.json'), JSON.stringify(rep)); } catch { /* niente */ } log('SCOUT', `sonda scambi: PumpPortal ${(rep.portal && rep.portal.tracked) || 0} scambi, programma RPC ${(rep.program && rep.program.events) || 0} eventi, curve RPC ${(rep.curves && rep.curves.events) || 0}`); })
     .catch((e) => log('SCOUT', 'sonda scambi non riuscita: ' + String(e.message).split('\n')[0])).finally(() => { rt.probeBusy = false; });
 }
+// Quando il test di ingresso rapido arriva a un verdetto lo si comunica una volta sola per serie
+async function snipeVerdict() {
+  if (!rt.snipe) return;
+  const s = rt.snipe.summary();
+  if (s.verdict === 'in corso' || st.snipeNotified === s.series) return;
+  st.snipeNotified = s.series;
+  await tg(`<b>KAISER</b> test ingresso rapido: <b>${s.verdict}</b>\n${s.n} operazioni, netto medio ${s.mean}% (intervallo ${s.ciLo}% / ${s.ciHi}%)\nIl dettaglio e' nel report. Il reale resta spento.`);
+}
 function checkpoint() {
   if (process.env.CHECKPOINT !== '1' || cpBusy) return;
   cpBusy = true;
@@ -713,17 +762,18 @@ function checkpoint() {
 
 // ---------------- loop ----------------
 function startYoung() {
-  const onToken = (t) => { if (S.srcYoung !== false) Y.addYoung(rt.young, t, Date.now(), 800); };
+  const onToken = (t) => { if (rt.snipe) rt.snipe.onCreate(t); if (S.srcYoung !== false) Y.addYoung(rt.young, t, Date.now(), 800); };
   if (S.srcLab !== false) {                                     // Laboratorio: una sola connessione a PumpPortal per nuovi token e scambi (osservazione, nessun ordine)
     rt.trades = new Lab.TradeFeed({ log: (m) => log('SCOUT', m), solUsd: () => rt.solUsd, rpcHttp: process.env.RPC_URL || '', onCross: (t) => { if (rt.holdQ.length < 200) rt.holdQ.push({ mint: t.mint, curve: t.curve, creator: t.dev, at: Date.now(), uri: t.uri, devBuy: t.devBuy, sym: t.sym, name: t.name }); if (S.socialTest && rt.socQ.length < 20) rt.socQ.push({ mint: t.mint, sym: t.sym, name: t.name, at: Date.now() }); }, onCreator: (x) => { if (rt.crBuf.length < 5000) rt.crBuf.push(x); }, onPath: (x) => { rt.pathBuf.push(Farm.pack(x)); if (Strat.record(rt.strat, x, Date.now(), stratCtx())) { rt.stratDirty = true; flushStratNotes(); } }, onCreate: onToken, onDone: (s) => { st.lab = st.lab || { done: [] }; st.lab.done.push(s); st.lab.done = st.lab.done.slice(-400); } });
     rt.trades.start();
   }
   if (S.srcYoung === false) return;
   const rpc = process.env.RPC_URL || '';
-  if (rpc || !rt.trades) { rt.feed = new Y.YoungFeed({ rpcUrl: rpc, portal: !rt.trades, log: (m) => log('SCOUT', m), onToken: (t) => { Y.addYoung(rt.young, t, Date.now(), 800); if (rt.trades) rt.trades.adopt(t); } }); rt.feed.start(); }   // RPC come fonte principale; PumpPortal (Laboratorio) come riserva
+  if (rpc || !rt.trades) { rt.feed = new Y.YoungFeed({ rpcUrl: rpc, portal: !rt.trades, log: (m) => log('SCOUT', m), onToken: (t) => { if (rt.snipe) rt.snipe.onCreate(t); Y.addYoung(rt.young, t, Date.now(), 800); if (rt.trades) rt.trades.adopt(t); } }); rt.feed.start(); }   // RPC come fonte principale; PumpPortal (Laboratorio) come riserva
 }
 async function main() {
   rt.strat = Strat.load(STRAT_FILE()); loadFarm(); loadProbe();
+  rt.snipe = new Snipe.Snipe({ quote: snipeQuote, file: path.join(STATE_DIR, 'snipe.json'), cfg: snipeCfg(), log: (m) => log('SNIPE', m) });
   startYoung();
   const end = Date.now() + LOOP_MIN * 60000;
   log('KAISER', `run #${st.runs} · ${st.positions.length} posizioni · equity ${equity().toFixed(4)} SOL · GMGN ${gmgnOn() ? 'attiva' : 'spenta (nessuna chiave)'} · Grok ${S.useGrok ? 'on' : 'off'}`);
@@ -734,6 +784,8 @@ async function main() {
       else await manage();
     } catch (e) { log('KAISER', 'errore: ' + (e.stack || e.message).split('\n')[0]); }
     if (rt.trades) rt.trades.tick();
+    if (end - Date.now() < 75000) rt.snipe.stop();                // niente nuove entrate negli ultimi 75 s: le posizioni del test si chiudono prima della fine del run
+    snipeVerdict().catch(() => {});
     shadowTick();
     maybeFarm();
     maybeProbe();
@@ -759,6 +811,7 @@ async function main() {
   }
   if (rt.feed) rt.feed.stop();
   if (rt.trades) rt.trades.stop();
+  rt.snipe.stop(); await rt.snipe.drain(60000);
   flushPaths(true);
   save();
   await pushLive(true);
