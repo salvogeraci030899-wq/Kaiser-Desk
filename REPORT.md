@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 15:44 UTC · in esecuzione da 3.1 giorni · 311 run
+Aggiornato: 2026-11-22 15:49 UTC · in esecuzione da 3.1 giorni · 311 run
 
 | | |
 |---|---|
-| Equity | **3.9332 SOL** (-34.4% dal capitale iniziale di 6 SOL) |
-| Cassa | 3.8663 SOL |
-| Trade chiusi | 207 |
+| Equity | **3.9532 SOL** (-34.1% dal capitale iniziale di 6 SOL) |
+| Cassa | 3.9532 SOL |
+| Trade chiusi | 208 |
 | Win rate | 31% |
-| P&L realizzato | -2.0538 SOL (~$-144.22) |
-| Media vincite / perdite | +40.2% / -32.2% |
+| P&L realizzato | -2.0468 SOL (~$-143.75) |
+| Media vincite / perdite | +39.7% / -32.2% |
 | Profit factor | 0.56 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$FRANK** P-0644 · 0.079 SOL · -15.3% · resta 100% · [grafico](https://dexscreener.com/solana/4ecpKXWMFRpq9wNe1iCDY9aAuPYJkjzNQtPPdaxMFBxg)
+_nessuna_
 
 ## Test ingresso rapido (solo paper, quotazioni Jupiter)
 Ipotesi: comprare 5 secondi dopo la creazione, tenere 30 secondi, vendere. Un token su 3, 0.05 SOL a operazione. Serie 2 dal 2026-11-22 11:02 UTC.
@@ -64,13 +64,14 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 57 | -1.6734 |
-| Time stop | 75 | -0.9452 |
+| Time stop | 76 | -0.9383 |
 | TP1 | 48 | +2.0919 |
 | RUG-EXIT liquidità | 27 | -1.5271 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $FRANK | 70 | +8.7% | +0.0069 | +10% | -12% | Time stop | 5m |
 | $MengLan | 65 | +80.7% | +0.0635 | +108% | +108% | TP1 | 3m |
 | $Plurality | 64 | -38.8% | -0.0308 | +0% | -33% | Stop loss | 5m |
 | $KYC | 65 | +60.3% | +0.0472 | +61% | +61% | TP1 | 3m |
@@ -95,10 +96,28 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | $SANTA | 74 | +92.2% | +0.0745 | +61% | +61% | TP1 | 5m |
 | $CORONA | 72 | +24.8% | +0.0199 | +72% | +72% | TP1 | 3m |
 | $Biao | 63 | -31.7% | -0.0257 | +3% | -24% | Time stop | 5m |
-| $snowball | 64 | -11.7% | -0.0095 | +64% | +64% | TP1 | 1m |
 
 ## Ultimi eventi
 ```
+15:49:52 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 252 veto
+15:49:28 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 244 veto
+15:49:04 SCRIBE   chiuso P-0644 $FRANK 0.0069 SOL (8.7%)
+15:49:04 CHARON   Time stop $FRANK vendo 100% a -12.1% -> 0.0868 SOL
+15:49:04 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 249 veto
+15:48:40 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 248 veto
+15:48:17 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 248 veto
+15:47:53 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 253 veto
+15:47:29 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 248 veto
+15:47:05 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 251 veto
+15:46:41 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 259 veto
+15:46:18 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 253 veto
+15:45:54 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 248 veto
+15:45:30 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 263 veto
+15:45:06 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 257 veto
+15:44:41 SCOUT    regola C-068: corrente (nuova strategia: 12K rit. 10s +10/-15 60s: vecchi -8.14%, recenti -8.18%)
+15:44:41 SCOUT    regola C-067: ritirata (103 operazioni in avanti, esito medio -12.4% (±6.6): non regge)
+15:44:41 SCOUT    strategia C-068: corrente: nuova strategia: 12K rit. 10s +10/-15 60s: vecchi -8.14%, recenti -8.18%
+15:44:41 SCOUT    strategia C-067: ritirata: 103 operazioni in avanti, esito medio -12.4% (±6.6): non regge
 15:44:41 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 255 veto
 15:44:17 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 260 veto
 15:43:53 QUARTER  BUY $FRANK 0.079 SOL score 70 impatto 0.00% (Jupiter)
@@ -120,25 +139,6 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 15:38:27 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 250 veto
 15:38:04 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 244 veto
 15:37:40 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 235 veto
-15:37:16 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 248 veto
-15:36:52 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 240 veto
-15:36:28 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 239 veto
-15:36:05 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 244 veto
-15:35:41 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 243 veto
-15:35:18 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 241 veto
-15:34:54 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 247 veto
-15:34:30 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 251 veto
-15:34:07 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 247 veto
-15:33:43 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 258 veto
-15:33:18 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 258 veto
-15:32:55 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 246 veto
-15:32:32 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 258 veto
-15:32:08 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 259 veto
-15:31:44 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 247 veto
-15:31:20 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 254 veto
-15:30:56 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 255 veto
-15:30:33 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 252 veto
-15:30:08 SCRIBE   chiuso P-0643 $MengLan 0.0635 SOL (80.7%)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
