@@ -286,7 +286,7 @@ Regola decisa in anticipo: almeno ${t.cfg.minN} trade tuoi chiusi, netto medio >
 }
 function creatorsSection() {
   if (!rt.creators) return '';
-  const c = rt.creators.summary(), al = (st.alerts || []).filter((a) => a.band), f = (n) => (n == null ? 'n/d' : (n >= 0 ? '+' : '') + Number(n).toFixed(1));
+  const c = rt.creators.summary(), k = Semi.controlStats(st.journal || [], st.alerts || []), al = (st.alerts || []).filter((a) => a.band), f = (n) => (n == null ? 'n/d' : (n >= 0 ? '+' : '') + Number(n).toFixed(1));
   const rows = ['500K-1M', '1M-2M', '2M+'].map((b) => {
     const A = al.filter((a) => a.band === b), T = (st.journal || []).filter((j) => j.src === 'umano' && j.band === b), m = T.length ? T.reduce((s, j) => s + j.pct, 0) / T.length : null;
     return `| ${b} | ${A.length} | ${A.filter((a) => a.vote === 'y').length} / ${A.filter((a) => a.vote === 'n').length} | ${T.length} | ${f(m)}${m == null ? '' : '%'} |`;
@@ -298,6 +298,9 @@ Memoria: ${c.launches} lanci noti, ${c.creators} creatori; ${c.bandCoins} Coin i
 | Fascia | Avvisi | Prendo / Scarto | Tuoi trade chiusi | Netto medio |
 |---|---|---|---|---|
 ${rows}
+
+Controllo equo: gli Scarto si simulano come se fossero stati presi, con le stesse uscite e costi stimati dalla liquidita'. Scartati simulati chiusi: ${k.n}${k.n >= 2 ? `, netto medio ${f(k.nMean)}% (intervallo ${f(k.nLo)}% / ${f(k.nHi)}%), in utile ${k.nWin}%` : ''}; ancora aperti: ${k.open}. Tuoi Prendo meno Scarto simulati: ${k.diff == null ? 'n/d' : `${f(k.diff)}% (limite inferiore ${f(k.diffLo)}%)`}. Solo descrittivo: non entra nella regola di superamento.
+Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, per giorno: ${Object.keys(st.bandDays || {}).sort().slice(-4).map((d) => `${d.slice(5)}: ${st.bandDays[d].c} / ${st.bandDays[d].nv}`).join('; ') || 'nessun dato'}.
 
 `;
 }
@@ -419,6 +422,17 @@ async function updateAlerts(pairs) {
   if (need.length) { try { for (const [k, v] of await dexPairs(need)) map.set(k, v); } catch { /* si riprova al prossimo giro */ } }
   for (const a of pend) { const p = map.get(a.mint); if (p) Semi.track(a, num(p.priceNative), now); }
 }
+// Scarti simulati: a ogni scansione si leggono i prezzi e si applicano le stesse uscite dei Prendo
+async function updateShadows(pairsIn) {
+  const open = (st.alerts || []).filter((a) => a.sh && !a.sh.done); if (!open.length) return;
+  const map = new Map(pairsIn || []), need = [...new Set(open.map((a) => a.mint))].filter((m) => !map.has(m)).slice(0, 20);
+  if (need.length) { try { for (const [k, v] of await dexPairs(need)) map.set(k, v); } catch { /* si riprova al prossimo giro */ } }
+  for (const a of open) {
+    const pr = map.get(a.mint); if (!pr) continue;
+    const t5 = (pr.txns && pr.txns.m5) || { buys: 0, sells: 0 };
+    Semi.shadowStep(a, { priceNative: num(pr.priceNative), liq: num(pr.liquidity && pr.liquidity.usd), br5: (num(t5.buys) + 1) / (num(t5.sells) + 1), tx5: num(t5.buys) + num(t5.sells) }, S, Date.now());
+  }
+}
 async function buy(c, o) {
   const human = !!(o && o.src === 'umano'), bandMode = human && !!o.band;
   let fresh = null; try { fresh = (await dexPairs([c.mint])).get(c.mint); } catch { /* si usa il prezzo del segnale */ }
@@ -448,7 +462,7 @@ async function buy(c, o) {
   return p;
 }
 // Prendo: il paper apre subito la posizione sulla Coin del segnale, con taglia e uscite impostate. Fa da filtro solo la decisione umana: restano i controlli del conto (circuit breaker, cassa, stessa Coin gia' aperta).
-const bandExits = () => ({ sl: num(S.humanBandSl, 20), tp1: num(S.humanBandTp, 100), tp1Sell: num(S.humanBandTpSell, 50), trail: num(S.humanBandTrail, 25), beAfterTp1: true, timeStopMin: num(S.humanBandHoldMin, 360), timeStopMinPnl: 5 });
+const bandExits = () => Semi.bandExits(S);
 async function humanTake(a, at) {
   const why = st.halted ? 'circuit breaker attivo' : st.positions.some((p) => p.mint === a.mint) ? 'Coin già in posizione' : st.cash < sizeSol() * 0.5 || sizeSol() < 0.001 ? 'cassa insufficiente' : Date.now() - at > 5 * 60000 ? 'decisione arrivata troppo tardi (oltre 5 minuti)' : '';
   const o = { src: 'umano', why, band: a.band || '', cr: a.cr || '' }; let p = null;
@@ -588,6 +602,7 @@ async function pullParams() {
       if (!x || !/^a[0-9a-z]{4,8}$/.test(String(x.id)) || (x.v !== 'y' && x.v !== 'n')) continue;
       const al = (st.alerts || []).find((q) => q.id === x.id), ok = Semi.vote(st.alerts || [], x.id, x.v, num(x.at) || Date.now());
       done.push(x.id);
+      if (ok && x.v === 'n' && al) { try { Semi.shadowOpen(al, S, num(x.at) || Date.now(), sizeSol(), rt.solUsd || 150); } catch { /* il controllo e' facoltativo */ } }
       if (ok && x.v === 'y' && al) { try { await humanTake(al, num(x.at) || Date.now()); } catch (e) { log('QUARTER', `Prendo ${al.sym}: errore ${e.message}`); } }
     }
     if (done.length) { save(); await ackVote(done); }
@@ -673,6 +688,16 @@ async function scan() {
       c.cstat = rt.creators.stats(c.cr); c.cline = rt.creators.line(c.cstat); c.ctier = rt.creators.tier(c.cstat); c.band = Creators.bandOf(mc);
     }
   }
+  { // quante Coin di fascia alta vediamo ogni giorno (Coin diverse) e quante hanno un punteggio sufficiente per l'avviso
+    const day = new Date().toISOString().slice(0, 10); st.bandDays = st.bandDays || {};
+    const d = st.bandDays[day] || (st.bandDays[day] = { c: 0, nv: 0 }); if (!rt.bandSeen || rt.bandSeen.d !== day) rt.bandSeen = { d: day, s: new Set(), n: new Set() };
+    for (const c of cands) {
+      if (!c.band) continue;
+      if (!rt.bandSeen.s.has(c.mint)) { rt.bandSeen.s.add(c.mint); d.c++; }
+      if (c.verdict !== 'VETO' && c.score >= num(S.alertMinScore, 55) && !rt.bandSeen.n.has(c.mint)) { rt.bandSeen.n.add(c.mint); d.nv++; }
+    }
+    for (const k of Object.keys(st.bandDays)) if (k < new Date(Date.now() - 10 * 86400000).toISOString().slice(0, 10)) delete st.bandDays[k];
+  }
   const buys = cands.filter((c) => c.verdict === 'BUY').sort((a, b) => b.score - a.score);
   log('ORACLE', `${mints.length} raccolti, ${cands.length} analizzati, ${buys.length} BUY, ${cands.filter((c) => c.verdict === 'VETO').length} veto`);
   // registro dei segnali: serve a capire dopo se i BUY scartati (es. per max posizioni) erano buoni
@@ -695,7 +720,7 @@ async function scan() {
   st.alerts = st.alerts || [];
   const alertCands = S.humanOnly ? cands.filter((c) => c.band && c.verdict !== 'VETO' && c.score >= num(S.alertMinScore, 55)).sort((a, b) => (b.ctier || 0) - (a.ctier || 0) || b.score - a.score) : buys;
   if (S.humanOnly || (S.semiAuto && S.semiAuto !== 'spento')) await semiAlerts(alertCands);      // solo uomo: gli avvisi partono sempre, dalle Coin di fascia alta
-  await updateAlerts(pairs); logGrok();
+  await updateAlerts(pairs); logGrok(); await updateShadows(pairs);
   if (S.humanOnly || S.semiAuto === 'solo avvisi') return;                                   // solo uomo: nessun ingresso automatico, ne' paper ne' reale
   if (!S.autopilot) return;
   await realEntries(buys);   // conto REALE (separato dal paper): solo se acceso in config.json e con l'esecutore collegato

@@ -69,3 +69,26 @@ test('runner: ogni candidato di fascia alta passa dalla ricerca sui creatori e g
   assert.match(src, /\(b\.ctier \|\| 0\) - \(a\.ctier \|\| 0\) \|\| b\.score - a\.score/); assert.match(src, /rt\.creators\.noteLaunch\(\{ mint: t\.mint, creator: t\.creator/);
   assert.equal(E.DEFAULTS.minMcap, 500000); assert.equal(E.DEFAULTS.bandMin, 500000); assert.equal(E.DEFAULTS.humanOnly, true);
 });
+
+test('controllo equo: lo Scarto si simula con le stesse uscite dei Prendo (stop, meta\' a +100%, trailing, tempo massimo) e costi stimati', () => {
+  const T = 1_700_000_000_000, S = { ...E.DEFAULTS }, mk = () => ({ priceNative: 0.001, liq: 100000, vp: 0 }), m = (px, liq = 100000) => ({ priceNative: px, liq, br5: 1, tx5: 5 });
+  const a = mk(); assert.equal(Semi.shadowOpen(a, S, T, 0.2, 100), true); assert.equal(Semi.shadowOpen(a, S, T, 0.2, 100), false, 'una sola simulazione per segnale');
+  assert.ok(a.sh.e > 0.001, 'costi all\'ingresso: commissione e impatto');
+  assert.equal(Semi.shadowStep(a, m(0.0011), S, T + 60000), null, '+10%: resta');
+  assert.equal(Semi.shadowStep(a, m(0.00079), S, T + 120000).reason, 'Stop loss'); assert.equal(a.sh.done, true); assert.ok(a.sh.pct < -20 && a.sh.pct > -25, 'stop -20% piu\' costi: ' + a.sh.pct);
+  const b = mk(); Semi.shadowOpen(b, S, T, 0.2, 100);
+  assert.equal(Semi.shadowStep(b, m(0.0021), S, T + 3600000).reason, 'TP1'); assert.equal(b.sh.done, false, 'vende la meta\', il resto resta'); assert.ok(Math.abs(b.sh.rem - 0.5) < 1e-9);
+  Semi.shadowStep(b, m(0.003), S, T + 4000000); assert.equal(Semi.shadowStep(b, m(0.002), S, T + 4100000).reason, 'Trailing stop'); assert.equal(b.sh.done, true); assert.ok(b.sh.pct > 30, 'meta\' a +100%, resto a +100% meno il trailing: ' + b.sh.pct);
+  const c = mk(); Semi.shadowOpen(c, S, T, 0.2, 100); assert.equal(Semi.shadowStep(c, m(1.03 * 0.001), S, T + 7 * 3600000).reason, 'Time stop', 'dopo 6 ore la prima meta\' esce comunque'); assert.equal(c.sh.done, true);
+  const d = mk(); Semi.shadowOpen(d, S, T, 0.2, 100); assert.equal(Semi.shadowStep(d, { priceNative: 0.001, liq: 40000, br5: 1, tx5: 5 }, S, T + 1000).reason, 'RUG-EXIT liquidità', 'il crollo della liquidita\' vale anche nel controllo');
+  const j = [{ src: 'umano', band: '500K-1M', pct: 30 }, { src: 'umano', band: '500K-1M', pct: -20 }, { src: 'bot', pct: -5 }];
+  const cs = Semi.controlStats(j, [a, b, c, d, { id: 'x' }]); assert.equal(cs.y, 2); assert.equal(cs.n, 4); assert.equal(cs.open, 0); assert.ok(cs.nMean != null && cs.diff != null);
+  assert.deepEqual(Semi.bandExits({}), { sl: 20, tp1: 100, tp1Sell: 50, trail: 25, beAfterTp1: true, timeStopMin: 360, timeStopMinPnl: 1e9 }, 'le uscite di base');
+});
+
+test('runner e app: il controllo si aggiorna a ogni scansione; la vista per l\'app porta fascia, creatore e decisione', () => {
+  const src = fs.readFileSync(require.resolve('../runner/runner.js'), 'utf8'), html = fs.readFileSync(require.resolve('../index.html'), 'utf8');
+  assert.match(src, /await updateShadows\(pairs\)/); assert.match(src, /Semi\.shadowOpen\(al, S,/); assert.match(src, /st\.bandDays/);
+  const v = Semi.view([{ t: 1, mint: 'M', sym: 'S', score: 70, band: '1M-2M', cline: 'creatore sconosciuto', vote: 'y' }], 5)[0]; assert.equal(v.band, '1M-2M'); assert.equal(v.cline, 'creatore sconosciuto'); assert.equal(v.vote, 'y');
+  assert.match(html, /a\.band \? 'fascia ' \+ esc\(a\.band\)/); assert.match(html, /esc\(a\.cline\)/);
+});

@@ -2,6 +2,7 @@
 // (Telegram e app) e segue il prezzo del segnale per 15 minuti, cosi' si vede se i segnali erano buoni. Non apre ordini.
 'use strict';
 const Kb = require('./kb.js');
+const E = require('../engine.js');
 
 const MAX_PER_HOUR = 8;          // avvisi al massimo in un'ora: sono scelte da fare a mano, non una raffica
 const REPEAT_H = 3;              // la stessa Coin non si segnala di nuovo prima di 3 ore
@@ -44,7 +45,7 @@ function track(a, px, now) {
   if (age >= 5 * 60000 && a.p5 == null) a.p5 = r; if (age >= 15 * 60000 && a.p15 == null) a.p15 = r; return true;
 }
 // Vista compatta per l'app
-const view = (alerts, n) => alerts.slice(-(n || 20)).map((a) => ({ t: a.t, mint: a.mint, sym: a.sym, score: a.score, pair: a.pair, mc: a.mc, ageMin: a.ageMin, last: a.last == null ? null : a.last, min: a.min == null ? null : a.min, p5: a.p5 == null ? null : a.p5, p15: a.p15 == null ? null : a.p15, gr: a.gr ? { s: a.gr.s, o: a.gr.o, f: a.gr.f } : null }));
+const view = (alerts, n) => alerts.slice(-(n || 20)).map((a) => ({ t: a.t, mint: a.mint, sym: a.sym, score: a.score, band: a.band || '', cline: a.cline || '', vote: a.vote || '', pair: a.pair, mc: a.mc, ageMin: a.ageMin, last: a.last == null ? null : a.last, min: a.min == null ? null : a.min, p5: a.p5 == null ? null : a.p5, p15: a.p15 == null ? null : a.p15, gr: a.gr ? { s: a.gr.s, o: a.gr.o, f: a.gr.f } : null }));
 
 // Decisione presa da te (y = prendo, n = scarto). Una sola per segnale. vp = variazione del prezzo del segnale al momento in cui il runner la registra.
 function vote(alerts, id, v, at) {
@@ -90,4 +91,41 @@ function humanTrades(journal, o) {
   return out;
 }
 
-module.exports = { vote, humanStats, humanTrades, HCFG, MAX_PER_HOUR, REPEAT_H, TRACK_MS, MODES, pick, alertOf, text, keyboard, pumpUrl, open, track, view };
+// Uscite proprie dei Prendo in fascia alta (le stesse per il controllo sugli Scarto). Il tempo massimo vale sempre: dopo timeStopMin la prima meta' esce comunque.
+function bandExits(S) {
+  const D = E.DEFAULTS, g = (k) => (Number.isFinite(Number(S[k])) ? Number(S[k]) : D[k]);
+  return { sl: g('humanBandSl'), tp1: g('humanBandTp'), tp1Sell: g('humanBandTpSell'), trail: g('humanBandTrail'), beAfterTp1: true, timeStopMin: g('humanBandHoldMin'), timeStopMinPnl: 1e9 };
+}
+// Controllo equo: uno Scarto si simula come se fosse stato preso, con le stesse uscite e gli stessi costi (stimati dalla liquidita', non dalla quotazione).
+// Prezzo di partenza: quello del segnale corretto con la variazione vista al momento della decisione.
+const SHADOW_MAX_H = 72;
+function shadowOpen(a, S, now, sizeSol, usd) {
+  if (a.sh || !(a.priceNative > 0)) return false;
+  const px = a.priceNative * (1 + (a.vp || 0) / 100), liq = Number(a.liq) || 0, imp = E.estImpact(sizeSol * usd, liq);
+  const e = E.entryPrice(px, imp, S.feePct);
+  a.sh = { e, peak: e, t0: now, tp1: false, rem: 1, got: 0, liq, size: sizeSol, usd, done: false };
+  return true;
+}
+// m = { priceNative, liq, br5, tx5 } letti ora; restituisce l'uscita decisa oppure null
+function shadowStep(a, m, S, now) {
+  const s = a.sh; if (!s || s.done || !m || !(m.priceNative > 0)) return null;
+  if (m.priceNative > s.peak) s.peak = m.priceNative;
+  let act = E.charon({ entry: s.e, peak: s.peak, openedAt: s.t0, tp1Done: s.tp1, entryLiq: s.liq, xs: bandExits(S) }, m, S, now);
+  if (!act && now - s.t0 > SHADOW_MAX_H * 3600000) act = { frac: 1, reason: 'Limite di tempo' };
+  if (!act) return null;
+  const frac = Math.min(1, act.frac), tokens = s.size / s.e * s.rem * frac, imp = E.estImpact(tokens * m.priceNative * s.usd, m.liq);
+  s.got += E.exitSol(tokens, m.priceNative, imp, S.feePct, S.prioritySOL); s.rem *= 1 - frac; if (act.tp1) s.tp1 = true;
+  if (frac >= 0.999 || s.rem < 0.001) { s.done = true; s.pct = (s.got / (s.size + S.prioritySOL) - 1) * 100; s.reason = act.reason; s.t1 = now; }
+  return act;
+}
+// Prendo reali in paper contro Scarto simulati con le stesse uscite
+function controlStats(journal, alerts) {
+  const h = journal.filter((j) => j.src === 'umano' && j.band).map((j) => j.pct), c = alerts.filter((a) => a.sh && a.sh.done).map((a) => a.sh.pct);
+  const A = ms(h), B = ms(c), out = { y: A.n, n: B.n, open: alerts.filter((a) => a.sh && !a.sh.done).length };
+  if (A.n >= 2) out.yMean = +A.m.toFixed(2);
+  if (B.n >= 2) { const se = Math.sqrt(B.v / B.n); Object.assign(out, { nMean: +B.m.toFixed(2), nLo: +(B.m - 1.96 * se).toFixed(2), nHi: +(B.m + 1.96 * se).toFixed(2), nWin: +(100 * c.filter((v) => v > 0).length / B.n).toFixed(1) }); }
+  if (A.n >= 2 && B.n >= 2) { const se = Math.sqrt(A.v / A.n + B.v / B.n), d = A.m - B.m; Object.assign(out, { diff: +d.toFixed(2), diffLo: +(d - 1.96 * se).toFixed(2) }); }
+  return out;
+}
+
+module.exports = { vote, humanStats, humanTrades, bandExits, shadowOpen, shadowStep, controlStats, HCFG, MAX_PER_HOUR, REPEAT_H, TRACK_MS, MODES, pick, alertOf, text, keyboard, pumpUrl, open, track, view };
