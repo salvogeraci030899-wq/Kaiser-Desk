@@ -1,15 +1,15 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 11:58 UTC · in esecuzione da 2.9 giorni · 307 run
+Aggiornato: 2026-11-22 12:03 UTC · in esecuzione da 2.9 giorni · 307 run
 
 | | |
 |---|---|
-| Equity | **3.9216 SOL** (-34.6% dal capitale iniziale di 6 SOL) |
-| Cassa | 3.9216 SOL |
-| Trade chiusi | 199 |
+| Equity | **3.8850 SOL** (-35.3% dal capitale iniziale di 6 SOL) |
+| Cassa | 3.8850 SOL |
+| Trade chiusi | 200 |
 | Win rate | 31% |
-| P&L realizzato | -2.0784 SOL (~$-146.63) |
-| Media vincite / perdite | +39.4% / -32.4% |
+| P&L realizzato | -2.1150 SOL (~$-149.25) |
+| Media vincite / perdite | +39.4% / -32.5% |
 | Profit factor | 0.54 |
 | Circuit breaker | no |
 
@@ -63,7 +63,7 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| Stop loss | 55 | -1.6060 |
+| Stop loss | 56 | -1.6426 |
 | Time stop | 72 | -0.9066 |
 | TP1 | 45 | +1.9612 |
 | RUG-EXIT liquidità | 27 | -1.5271 |
@@ -71,6 +71,7 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $airball | 64 | -46.1% | -0.0366 | +0% | -36% | Stop loss | 2m |
 | $testicles | 63 | +32.4% | +0.0255 | +68% | +68% | TP1 | 1m |
 | $HIPPO | 76 | -27.9% | -0.0221 | +11% | -31% | Stop loss | 4m |
 | $MooSom | 76 | -28.5% | -0.0228 | +24% | -19% | Time stop | 6m |
@@ -95,10 +96,27 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | $FRIEND | 69 | -8.4% | -0.0069 | +15% | +5% | Time stop | 5m |
 | $MASCOIN | 65 | +6.3% | +0.0052 | +0% | -41% | Stop loss | 3m |
 | $SANTA | 70 | -82.2% | -0.0689 | +17% | -74% | RUG-EXIT liquidità | 4m |
-| $MANDY | 88 | -3.8% | -0.0032 | +0% | -43% | Stop loss | 0m |
 
 ## Ultimi eventi
 ```
+12:03:05 SCRIBE   chiuso P-0636 $airball -0.0366 SOL (-46.1%)
+12:03:05 CHARON   Stop loss $airball vendo 100% a -36.3% -> 0.0428 SOL
+12:03:05 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 232 veto
+12:02:42 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 238 veto
+12:02:19 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 234 veto
+12:01:55 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 233 veto
+12:01:32 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 241 veto
+12:01:08 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 236 veto
+12:00:45 QUARTER  BUY $airball 0.078 SOL score 64 impatto 1.21% (Jupiter)
+12:00:44 QUARTER  SEGNALE $airball score 64 (semi-automatico)
+12:00:44 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 230 veto
+12:00:21 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 237 veto
+11:59:58 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 235 veto
+11:59:35 ORACLE   349 raccolti, 247 analizzati, 1 BUY, 231 veto
+11:59:12 ORACLE   340 raccolti, 244 analizzati, 1 BUY, 228 veto
+11:58:59 SCOUT    PumpPortal invia nuovi token (21) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
+11:58:49 ORACLE   324 raccolti, 238 analizzati, 1 BUY, 222 veto
+11:58:26 ORACLE   307 raccolti, 230 analizzati, 0 BUY, 214 veto
 11:58:02 ORACLE   301 raccolti, 218 analizzati, 0 BUY, 203 veto
 11:57:40 ORACLE   298 raccolti, 217 analizzati, 0 BUY, 202 veto
 11:57:16 ORACLE   286 raccolti, 211 analizzati, 0 BUY, 198 veto
@@ -123,24 +141,6 @@ fabbrica: 32634 percorsi, 768 configurazioni, 0 passano, 5779 ms
 11:53:01 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
 11:53:01 SCOUT    Laboratorio: collegato a PumpPortal
 11:53:01 KAISER   run #307 · 0 posizioni · equity 3.9216 SOL · GMGN spenta (nessuna chiave) · Grok off
-11:52:44 SCRIBE   fine run · trade 199 · win 31% · P&L -2.0784 SOL · equity 3.9216 SOL
-11:52:44 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 238 veto
-11:52:20 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 239 veto
-11:51:57 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 234 veto
-11:51:44 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 235 veto
-11:51:18 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 242 veto
-11:50:55 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 240 veto
-11:50:31 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 235 veto
-11:50:07 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 238 veto
-11:49:44 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 235 veto
-11:49:19 SCRIBE   chiuso P-0635 $testicles 0.0255 SOL (32.4%)
-11:49:19 CHARON   TP1 $testicles vendo 100% a 68.2% -> 0.1045 SOL
-11:49:19 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 232 veto
-11:48:55 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 240 veto
-11:48:32 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 238 veto
-11:48:09 QUARTER  BUY $testicles 0.078 SOL score 63 impatto 0.00% (Jupiter)
-11:48:08 QUARTER  SEGNALE $testicles score 63 (semi-automatico)
-11:48:08 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 233 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
