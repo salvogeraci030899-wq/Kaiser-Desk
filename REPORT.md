@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 21:26 UTC · in esecuzione da 0.0 giorni · 318 run
+Aggiornato: 2026-11-22 21:31 UTC · in esecuzione da 0.0 giorni · 318 run
 
 | | |
 |---|---|
-| Equity | **5.9736 SOL** (-0.4% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.8661 SOL |
-| Trade chiusi | 1 |
+| Equity | **5.9867 SOL** (-0.2% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.9867 SOL |
+| Trade chiusi | 2 |
 | Win rate | 0% |
-| P&L realizzato | -0.0132 SOL (~$-0.93) |
-| Media vincite / perdite | +0.0% / -10.9% |
+| P&L realizzato | -0.0133 SOL (~$-0.93) |
+| Media vincite / perdite | +0.0% / -5.5% |
 | Profit factor | 0.00 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$Incidents** P-0668 · 0.120 SOL · -10.2% · resta 100% · [grafico](https://dexscreener.com/solana/GRjv6EruC7TMZQMvHMd9YR4TGokXE5aj8tdma7qvgKat)
+_nessuna_
 
 ## Test ingresso rapido (solo paper, quotazioni Jupiter)
 Ipotesi: comprare 5 secondi dopo la creazione, tenere 30 secondi, vendere. Un token su 3, 0.05 SOL a operazione. Serie 2 dal 2026-11-22 11:02 UTC.
@@ -64,14 +64,35 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Chiusura manuale (app) | 1 | -0.0132 |
+| Time stop | 1 | -0.0001 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $Incidents | 65 | -0.1% | -0.0001 | +0% | -4% | Time stop | 5m |
 | $obema | 81 | -10.9% | -0.0132 | +0% | -2% | Chiusura manuale (app) | 0m |
 
 ## Ultimi eventi
 ```
+21:31:14 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 254 veto
+21:30:50 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 254 veto
+21:30:27 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 261 veto
+21:30:03 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 252 veto
+21:29:39 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 259 veto
+21:29:25 SCRIBE   chiuso P-0668 $Incidents -0.0001 SOL (-0.1%)
+21:29:25 CHARON   Time stop $Incidents vendo 100% a -3.7% -> 0.1206 SOL
+21:29:14 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 259 veto
+21:28:51 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 251 veto
+21:28:26 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 263 veto
+21:28:03 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 255 veto
+21:27:39 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 255 veto
+21:27:16 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 270 veto
+21:26:52 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 276 veto
+21:26:28 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 261 veto
+21:26:15 SCOUT    regola C-069: corrente (nuova strategia: 10K rit. 10s +20/-20 60s: vecchi -8%, recenti -7.86%)
+21:26:15 SCOUT    regola C-068: ritirata (225 operazioni in avanti, esito medio -7.2% (±4.4): non regge)
+21:26:15 SCOUT    strategia C-069: corrente: nuova strategia: 10K rit. 10s +20/-20 60s: vecchi -8%, recenti -7.86%
+21:26:15 SCOUT    strategia C-068: ritirata: 225 operazioni in avanti, esito medio -7.2% (±4.4): non regge
 21:26:04 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 274 veto
 21:25:41 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 272 veto
 21:25:17 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 265 veto
@@ -93,25 +114,6 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 21:20:04 ORACLE   360 raccolti, 281 analizzati, 2 BUY, 274 veto
 21:19:40 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 262 veto
 21:19:17 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 267 veto
-21:19:12 SCRIBE   chiuso P-0667 $obema -0.0132 SOL (-10.9%)
-21:19:12 CHARON   Chiusura manuale (app) $obema vendo 100% a -1.8% -> 0.1078 SOL
-21:19:12 KAISER   chiusura manuale dall'app: P-0667 obema
-21:18:52 QUARTER  BUY $obema 0.120 SOL score 81 impatto 0.80% (Jupiter)
-21:18:52 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 268 veto
-21:18:27 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 265 veto
-21:18:04 ORACLE   360 raccolti, 286 analizzati, 2 BUY, 280 veto
-21:17:40 ORACLE   360 raccolti, 288 analizzati, 2 BUY, 281 veto
-21:17:27 QUARTER  SEGNALE $Incidents score 74 (semi-automatico)
-21:17:26 QUARTER  SEGNALE $obema score 80 (semi-automatico)
-21:17:26 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 272 veto
-21:17:20 KAISER   reset del paper (C-0116): conto azzerato, capitale 6 SOL
-21:17:00 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 271 veto
-21:16:56 SCRIBE   chiuso P-0666 $obema -0.0024 SOL (-1.9%)
-21:16:56 CHARON   Chiusura manuale (app) $obema vendo 100% a 12.1% -> 0.1186 SOL
-21:16:56 KAISER   chiusura manuale dall'app: P-0666 obema
-21:16:36 QUARTER  BUY $obema 0.120 SOL score 81 impatto 0.00% (Jupiter)
-21:16:35 QUARTER  SEGNALE $Incidents score 74 (semi-automatico)
-21:16:35 ORACLE   360 raccolti, 289 analizzati, 2 BUY, 282 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
