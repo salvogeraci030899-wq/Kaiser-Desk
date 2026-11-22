@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 09:07 UTC · in esecuzione da 2.8 giorni · 303 run
+Aggiornato: 2026-11-22 09:12 UTC · in esecuzione da 2.8 giorni · 303 run
 
 | | |
 |---|---|
-| Equity | **3.9511 SOL** (-34.1% dal capitale iniziale di 6 SOL) |
-| Cassa | 3.8677 SOL |
-| Trade chiusi | 193 |
+| Equity | **3.9484 SOL** (-34.2% dal capitale iniziale di 6 SOL) |
+| Cassa | 3.8694 SOL |
+| Trade chiusi | 194 |
 | Win rate | 30% |
-| P&L realizzato | -2.0524 SOL (~$-142.98) |
-| Media vincite / perdite | +40.9% / -32.6% |
+| P&L realizzato | -2.0506 SOL (~$-142.75) |
+| Media vincite / perdite | +40.2% / -32.6% |
 | Profit factor | 0.54 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$SINGU** P-0630 · 0.079 SOL · +5.7% · resta 100% · [grafico](https://dexscreener.com/solana/5Ahtdw7eiKZte6Fuw1ZDeCz7hwLZ9sMJeynXG2Amg97Z)
+- **$cateball** P-0631 · 0.079 SOL · n/d · resta 100% · [grafico](https://dexscreener.com/solana/EkEXwkZqweA8rbv31KwjbYzSE3SoSgez1VrYkvu6uY2w)
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 54 | -1.5839 |
-| Time stop | 68 | -0.8771 |
+| Time stop | 69 | -0.8754 |
 | TP1 | 44 | +1.9357 |
 | RUG-EXIT liquidità | 27 | -1.5271 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $SINGU | 73 | +2.2% | +0.0017 | +10% | -6% | Time stop | 5m |
 | $GIFTER | 70 | -50.7% | -0.0410 | +0% | -61% | RUG-EXIT liquidità | 2m |
 | $eˣ | 74 | +14.2% | +0.0114 | +68% | +68% | TP1 | 6m |
 | $casual | 63 | +52.2% | +0.0416 | +61% | +61% | TP1 | 8m |
@@ -51,10 +52,25 @@ Aggiornato: 2026-11-22 09:07 UTC · in esecuzione da 2.8 giorni · 303 run
 | $SANTAHAT | 64 | +18.6% | +0.0156 | +65% | +65% | TP1 | 2m |
 | $Tots | 76 | -83.8% | -0.0714 | +8% | -76% | RUG-EXIT liquidità | 4m |
 | $Wow | 67 | -3.6% | -0.0030 | +20% | +4% | Time stop | 14m |
-| $CUNTS | 75 | -19.3% | -0.0165 | +2% | -20% | Time stop | 5m |
 
 ## Ultimi eventi
 ```
+09:12:30 QUARTER  BUY $cateball 0.079 SOL score 63 impatto 1.78% (Jupiter)
+09:12:30 ORACLE   360 raccolti, 290 analizzati, 2 BUY, 278 veto
+09:12:08 ORACLE   360 raccolti, 287 analizzati, 2 BUY, 275 veto
+09:11:45 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 271 veto
+09:11:22 ORACLE   360 raccolti, 288 analizzati, 2 BUY, 275 veto
+09:10:58 ORACLE   360 raccolti, 289 analizzati, 1 BUY, 275 veto
+09:10:35 ORACLE   360 raccolti, 286 analizzati, 1 BUY, 275 veto
+09:10:12 ORACLE   360 raccolti, 289 analizzati, 1 BUY, 276 veto
+09:09:48 ORACLE   360 raccolti, 287 analizzati, 1 BUY, 273 veto
+09:09:25 ORACLE   360 raccolti, 291 analizzati, 1 BUY, 278 veto
+09:09:02 SCRIBE   chiuso P-0630 $SINGU 0.0017 SOL (2.2%)
+09:09:02 CHARON   Time stop $SINGU vendo 100% a -6.4% -> 0.0817 SOL
+09:09:02 ORACLE   360 raccolti, 292 analizzati, 1 BUY, 279 veto
+09:08:39 ORACLE   360 raccolti, 289 analizzati, 1 BUY, 276 veto
+09:08:16 ORACLE   360 raccolti, 291 analizzati, 1 BUY, 279 veto
+09:07:52 ORACLE   360 raccolti, 291 analizzati, 2 BUY, 278 veto
 09:07:30 ORACLE   360 raccolti, 284 analizzati, 2 BUY, 273 veto
 09:07:07 ORACLE   360 raccolti, 288 analizzati, 1 BUY, 277 veto
 09:06:44 ORACLE   360 raccolti, 290 analizzati, 1 BUY, 278 veto
@@ -79,22 +95,6 @@ Aggiornato: 2026-11-22 09:07 UTC · in esecuzione da 2.8 giorni · 303 run
 08:59:46 ORACLE   360 raccolti, 290 analizzati, 0 BUY, 278 veto
 08:59:23 ORACLE   360 raccolti, 286 analizzati, 0 BUY, 273 veto
 08:59:00 ORACLE   360 raccolti, 291 analizzati, 0 BUY, 277 veto
-08:58:38 ORACLE   360 raccolti, 293 analizzati, 0 BUY, 277 veto
-08:58:15 ORACLE   360 raccolti, 287 analizzati, 0 BUY, 271 veto
-08:57:51 ORACLE   360 raccolti, 291 analizzati, 0 BUY, 279 veto
-08:57:28 ORACLE   360 raccolti, 293 analizzati, 0 BUY, 279 veto
-08:57:16 ORACLE   360 raccolti, 289 analizzati, 0 BUY, 275 veto
-08:56:51 ORACLE   360 raccolti, 291 analizzati, 0 BUY, 276 veto
-08:56:37 SCRIBE   chiuso P-0629 $GIFTER -0.0410 SOL (-50.7%)
-08:56:37 CHARON   RUG-EXIT liquidità $GIFTER vendo 100% a -61.1% -> 0.0398 SOL
-08:56:27 ORACLE   360 raccolti, 289 analizzati, 1 BUY, 273 veto
-08:56:04 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 268 veto
-08:55:40 ORACLE   360 raccolti, 294 analizzati, 1 BUY, 279 veto
-08:55:16 ORACLE   360 raccolti, 295 analizzati, 1 BUY, 279 veto
-08:54:51 QUARTER  BUY $GIFTER 0.080 SOL score 70 impatto 0.83% (Jupiter)
-08:54:51 ORACLE   360 raccolti, 288 analizzati, 1 BUY, 274 veto
-08:54:28 QUARTER  $GIFTER impatto 2.5% oltre slippage: annullato
-08:54:28 ORACLE   360 raccolti, 297 analizzati, 1 BUY, 285 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
