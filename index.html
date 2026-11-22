@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.67.0">
+<meta name="kz-build" content="2.67.1">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=4" media="(prefers-color-scheme: light)">
@@ -1042,11 +1042,11 @@ $('#ver').onclick = () => {
   const pr = document.createElement('div'); pr.style.cssText = 'position:absolute;visibility:hidden;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)'; document.body.appendChild(pr);
   const cs = getComputedStyle(pr), vv = window.visualViewport, r = (s) => { const e = document.querySelector(s); if (!e) return '—'; const b = e.getBoundingClientRect(); return `top ${Math.round(b.top)} · bottom ${Math.round(b.bottom)} · h ${Math.round(b.height)}`; };
   const un = (u) => { const d = document.createElement('div'); d.style.cssText = 'position:absolute;visibility:hidden;left:0;top:0;width:1px;height:' + u; document.body.appendChild(d); const v = Math.round(d.getBoundingClientRect().height); d.remove(); return v; };
-  const rows = [['100vh · dvh · lvh · svh', [un('100vh'), un('100dvh'), un('100lvh'), un('100svh')].join(' · ')], ['availHeight', screen.availHeight], ['ricalcoli forzati', window.__kzKicks || 0], ['storico altezza (s, inner, outer)', (window.__kzH || []).map((x) => x.join(':')).join('  ')], ['innerHeight', window.innerHeight], ['clientHeight', document.documentElement.clientHeight], ['visualViewport', vv ? `${Math.round(vv.height)} (offsetTop ${Math.round(vv.offsetTop)})` : '—'], ['screen.height', screen.height], ['outerHeight', window.outerHeight], ['--app-h', getComputedStyle(document.documentElement).getPropertyValue('--app-h')],
+  const rows = [['100vh · dvh · lvh · svh', [un('100vh'), un('100dvh'), un('100lvh'), un('100svh')].join(' · ')], ['availHeight', screen.availHeight], ['ricalcoli forzati', window.__kzKicks || 0], ['episodi altezza (ora, inner, outer, vv, schermo, azione)', ((window.KZTheme && window.KZTheme.hlog && window.KZTheme.hlog()) || []).map((x) => x.join(':')).join('  ') || 'nessuno'], ['storico altezza (s, inner, outer)', (window.__kzH || []).map((x) => x.join(':')).join('  ')], ['innerHeight', window.innerHeight], ['clientHeight', document.documentElement.clientHeight], ['visualViewport', vv ? `${Math.round(vv.height)} (offsetTop ${Math.round(vv.offsetTop)})` : '—'], ['screen.height', screen.height], ['outerHeight', window.outerHeight], ['--app-h', getComputedStyle(document.documentElement).getPropertyValue('--app-h')],
     ['safe top/bottom', cs.paddingTop + ' / ' + cs.paddingBottom], ['standalone', navigator.standalone + ' · pwa-mode ' + document.documentElement.classList.contains('pwa-mode')], ['tema', document.documentElement.dataset.theme + ' · barra ' + (document.getElementById('metaStatusBar') || {}).content],
     ['#app', r('#app')], ['header', r('header')], ['main', r('main')], ['nav', r('nav')], ['body', r('body')]];
   pr.remove();
-  openFull('Diagnostica schermo', '<div class="card small"><div class="kv">' + rows.map(([k, v]) => `<span>${k}</span><span class="mono" style="text-align:right">${esc(String(v))}</span>`).join('') + '</div></div>', 'diag');
+  openFull('Diagnostica schermo', '<div class="card small"><div class="kv">' + rows.map(([k, v]) => `<span>${k}</span><span class="mono" style="text-align:right">${esc(String(v))}</span>`).join('') + '</div></div><div class="card small"><button type="button" class="btn" id="diagRecalc" style="width:100%">Ricalcola il layout ora</button><div class="tiny muted" style="margin-top:6px">Se la barra in basso sta troppo in alto, tocca qui: l\'app rimisura la finestra.</div></div>', 'diag');
 };
 // ---------- PANNELLO DI EMERGENZA ----------
 // Ogni azione ha la sua conferma. Dall'app (senza segreti) l'azione parte subito solo se nelle impostazioni l'approvazione manuale è spenta
