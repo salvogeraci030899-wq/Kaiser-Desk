@@ -454,10 +454,13 @@ nav { height: 62px; margin-top: 4px; }
 
 .labcard { margin-bottom: 10px; } .labcard .kv { margin-bottom: 2px; }
 
-/* Segnali semi-automatici */
-.semi { margin: 0 0 8px; padding: 2px 12px; } .semihead { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
-.semirow { display: flex; gap: 8px; align-items: center; justify-content: space-between; padding: 6px 0; } .semitxt { min-width: 0; } .semirow .btn { flex: 0 0 auto; }
-#v-radar.active.semi-on { grid-template-rows: 40px auto 38px minmax(0, 1fr); } #semiBox:empty { display: none; } #semiBox .semi { margin: 0; }
+/* Segnali semi-automatici: riquadro ad altezza FISSA (una riga di griglia di 76 px, sempre presente, anche vuoto): il resto della pagina non si sposta e non si ridimensiona mai */
+#v-radar.active { grid-template-rows: 40px 76px 38px minmax(0, 1fr); }
+#semiBox { height: 76px; min-height: 76px; max-height: 76px; overflow: hidden; min-width: 0; }
+#semiBox .semi { margin: 0; padding: 0 12px; height: 100%; box-sizing: border-box; overflow: hidden; display: flex; align-items: center; }
+.semirow { display: flex; gap: 8px; align-items: center; justify-content: space-between; width: 100%; min-width: 0; }
+.semitxt { min-width: 0; flex: 1 1 auto; } .semitxt > div { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .semirow .btn { flex: 0 0 auto; }
+#semiBox .semi > .tiny { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 /* Studio del Laboratorio */
 #stuBox > summary { cursor: pointer; list-style: none; } #stuBox > summary::-webkit-details-marker { display: none; }

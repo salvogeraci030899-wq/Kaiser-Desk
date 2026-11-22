@@ -122,3 +122,11 @@ test('vista per l\'app: creatori migliori (prima quelli con Coin raddoppiate), C
   assert.match(src, /creators: rt\.creators \? rt\.creators\.view\(10\) : null/); assert.match(src, /st\.stratResetV !== 1\) \{ rt\.strat = Strat\.create\(\)/);
   assert.match(html, /function renderLab\(\) \{\n  if \(S\(\)\.humanOnly\) return renderCreators\(\);/); assert.match(html, /data-mode="strat"\]'\)\.forEach\(\(b\) => \{ b\.hidden = only; \}\)/); assert.match(html, /if \(only && st\.mode === 'strat'\)/);
 });
+
+test('riquadro Segnali ad altezza fissa: una riga di griglia di 76 px sempre presente, mai nascosto, testi che non vanno a capo', () => {
+  const css = fs.readFileSync(require.resolve('../style.css'), 'utf8'), html = fs.readFileSync(require.resolve('../index.html'), 'utf8'), fn = html.slice(html.indexOf('function renderSemi() {'), html.indexOf('function renderRadar() {'));
+  assert.match(css, /#v-radar\.active \{ grid-template-rows: 40px 76px 38px minmax\(0, 1fr\); \}/); assert.match(css, /#semiBox \{ height: 76px; min-height: 76px; max-height: 76px; overflow: hidden;/);
+  assert.match(css, /\.semitxt > div \{ white-space: nowrap; overflow: hidden; text-overflow: ellipsis; \}/); assert.ok(!/semi-on|:empty/.test(css), 'niente regole che cambiano la griglia o nascondono il riquadro');
+  assert.ok(!/box\.innerHTML = ''/.test(fn) && !/classList\.(add|remove)\('semi-on'\)/.test(fn) && !/return;/.test(fn.replace('if (!box) return;', '')), 'renderSemi disegna sempre il riquadro');
+  assert.match(fn, /Nessun avviso ancora/);
+});
