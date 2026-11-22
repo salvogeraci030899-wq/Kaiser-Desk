@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 06:21 UTC · in esecuzione da 2.7 giorni · 300 run
+Aggiornato: 2026-11-22 06:26 UTC · in esecuzione da 2.7 giorni · 300 run
 
 | | |
 |---|---|
-| Equity | **3.9728 SOL** (-33.8% dal capitale iniziale di 6 SOL) |
-| Cassa | 3.9087 SOL |
-| Trade chiusi | 185 |
+| Equity | **4.0640 SOL** (-32.3% dal capitale iniziale di 6 SOL) |
+| Cassa | 4.0640 SOL |
+| Trade chiusi | 186 |
 | Win rate | 30% |
-| P&L realizzato | -2.0105 SOL (~$-138.15) |
-| Media vincite / perdite | +40.2% / -32.2% |
-| Profit factor | 0.53 |
+| P&L realizzato | -1.9360 SOL (~$-133.19) |
+| Media vincite / perdite | +41.1% / -32.2% |
+| Profit factor | 0.55 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$SANTA** P-0622 · 0.080 SOL · -19.7% · resta 100% · [grafico](https://dexscreener.com/solana/31uzN4C1QCyTxLH1P1MRGysZhJRdS4APE5jwpXpxQxgm)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 51 | -1.4623 |
 | Time stop | 67 | -0.8703 |
-| TP1 | 41 | +1.8081 |
+| TP1 | 42 | +1.8827 |
 | RUG-EXIT liquidità | 26 | -1.4861 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $SANTA | 74 | +92.2% | +0.0745 | +61% | +61% | TP1 | 5m |
 | $CORONA | 72 | +24.8% | +0.0199 | +72% | +72% | TP1 | 3m |
 | $Biao | 63 | -31.7% | -0.0257 | +3% | -24% | Time stop | 5m |
 | $snowball | 64 | -11.7% | -0.0095 | +64% | +64% | TP1 | 1m |
@@ -51,10 +52,24 @@ Aggiornato: 2026-11-22 06:21 UTC · in esecuzione da 2.7 giorni · 300 run
 | $DPRK | 69 | -99.5% | -0.0875 | +0% | -98% | RUG-EXIT liquidità | 5m |
 | $WAVE | 74 | -96.9% | -0.0869 | +22% | -95% | RUG-EXIT liquidità | 4m |
 | $DPRK | 72 | +49.8% | +0.0442 | +69% | +69% | TP1 | 7m |
-| $Animals | 71 | -31.2% | -0.0279 | +40% | -28% | Time stop | 10m |
 
 ## Ultimi eventi
 ```
+06:26:58 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 273 veto
+06:26:34 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 271 veto
+06:26:10 ORACLE   360 raccolti, 281 analizzati, 2 BUY, 270 veto
+06:25:45 ORACLE   360 raccolti, 287 analizzati, 2 BUY, 274 veto
+06:25:30 SCRIBE   chiuso P-0622 $SANTA 0.0745 SOL (92.2%)
+06:25:30 CHARON   TP1 $SANTA vendo 100% a 61.1% -> 0.1553 SOL
+06:25:20 ORACLE   360 raccolti, 288 analizzati, 2 BUY, 276 veto
+06:24:57 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 267 veto
+06:24:32 ORACLE   360 raccolti, 290 analizzati, 2 BUY, 279 veto
+06:24:08 ORACLE   360 raccolti, 290 analizzati, 2 BUY, 279 veto
+06:23:44 ORACLE   360 raccolti, 285 analizzati, 2 BUY, 273 veto
+06:23:20 ORACLE   360 raccolti, 291 analizzati, 1 BUY, 281 veto
+06:22:55 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 275 veto
+06:22:31 ORACLE   360 raccolti, 290 analizzati, 1 BUY, 282 veto
+06:22:07 ORACLE   360 raccolti, 297 analizzati, 1 BUY, 289 veto
 06:21:43 ORACLE   360 raccolti, 292 analizzati, 1 BUY, 283 veto
 06:21:19 ORACLE   360 raccolti, 290 analizzati, 1 BUY, 279 veto
 06:20:53 QUARTER  BUY $SANTA 0.080 SOL score 74 impatto 1.54% (Jupiter)
@@ -80,21 +95,6 @@ Aggiornato: 2026-11-22 06:21 UTC · in esecuzione da 2.7 giorni · 300 run
 06:13:46 ORACLE   360 raccolti, 297 analizzati, 1 BUY, 285 veto
 06:13:21 ORACLE   360 raccolti, 293 analizzati, 1 BUY, 283 veto
 06:12:57 ORACLE   360 raccolti, 295 analizzati, 1 BUY, 285 veto
-06:12:32 ORACLE   360 raccolti, 294 analizzati, 1 BUY, 284 veto
-06:12:09 ORACLE   360 raccolti, 287 analizzati, 1 BUY, 277 veto
-06:11:44 ORACLE   360 raccolti, 296 analizzati, 0 BUY, 286 veto
-06:11:20 ORACLE   360 raccolti, 292 analizzati, 0 BUY, 281 veto
-06:10:57 ORACLE   360 raccolti, 290 analizzati, 1 BUY, 279 veto
-06:10:33 ORACLE   360 raccolti, 295 analizzati, 1 BUY, 285 veto
-06:10:08 ORACLE   360 raccolti, 294 analizzati, 0 BUY, 286 veto
-06:09:45 ORACLE   360 raccolti, 292 analizzati, 0 BUY, 283 veto
-06:09:21 ORACLE   360 raccolti, 291 analizzati, 1 BUY, 284 veto
-06:08:57 ORACLE   360 raccolti, 296 analizzati, 1 BUY, 289 veto
-06:08:33 ORACLE   360 raccolti, 287 analizzati, 1 BUY, 281 veto
-06:08:09 ORACLE   360 raccolti, 291 analizzati, 1 BUY, 281 veto
-06:07:44 ORACLE   360 raccolti, 291 analizzati, 1 BUY, 279 veto
-06:07:30 SCOUT    PumpPortal invia nuovi token (21) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-06:07:20 ORACLE   360 raccolti, 287 analizzati, 1 BUY, 276 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
