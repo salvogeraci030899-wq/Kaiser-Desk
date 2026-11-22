@@ -8,10 +8,11 @@ const b = (label, group, o = {}) => ({ t: 'bool', label, group, ...o });
 
 // Due pagine nelle impostazioni dell'app: Paper e Reale. I filtri di selezione dei token sono in comune (stessi candidati), ma stanno nella pagina Paper.
 export const GROUPS = [
-  { id: 'auto', page: 'paper', title: 'Autopilota del runner' },
+  { id: 'human', page: 'paper', title: 'Uomo e macchina (fascia alta)' },
+  { id: 'auto', page: 'paper', title: 'Autopilota del runner (spento in modalità solo uomo)' },
   { id: 'risk', page: 'paper', title: 'Capitale e rischio (paper)' },
-  { id: 'exit', page: 'paper', title: 'Uscite (Charon, paper)' },
-  { id: 'filt', page: 'paper', title: 'Filtri di selezione (valgono anche per il reale)' },
+  { id: 'exit', page: 'paper', title: 'Uscite del bot (Charon): non valgono per i Prendo' },
+  { id: 'filt', page: 'paper', title: 'Filtri di selezione (valgono anche per il reale; la fascia alta fissa i minimi di market cap e liquidità)' },
   { id: 'real', page: 'real', title: 'Ordini reali dal runner' },
   { id: 'rexit', page: 'real', title: 'Uscite (Charon, reale)' },
   { id: 'shield', page: 'real', title: 'Scudo: protezione del trading manuale da pump.fun' },
@@ -19,6 +20,16 @@ export const GROUPS = [
 ];
 
 export const SCHEMA = {
+  // Uomo e macchina: le Coin da bandMin in su generano gli avvisi; le uscite dei Prendo sono quelle della prova. Cambiarle a meta' prova falsa il confronto:
+  // le posizioni gia' aperte e gli Scarti simulati tengono le uscite con cui sono partiti.
+  bandMin: n('Fascia alta: market cap minima ($)', 'human', 100_000, 20_000_000, { scope: 'runner', step: 50_000, hint: 'il Radar e gli avvisi guardano solo le Coin da questo valore in su' }),
+  alertMinScore: n('Punteggio minimo per l\'avviso', 'human', 30, 100, { scope: 'runner', step: 1, hint: 'il punteggio del bot non compare nell\'avviso: serve solo a non mandarti Coin scadenti' }),
+  humanBandSl: n('Prendo: stop loss (%)', 'human', 5, 50, { scope: 'runner', step: 1, hint: 'valido per le nuove posizioni; non cambiare a meta\' prova' }),
+  humanBandTp: n('Prendo: target (%)', 'human', 20, 500, { scope: 'runner', step: 5, hint: 'a questo guadagno si vende la quota indicata sotto (100 = raddoppio)' }),
+  humanBandTpSell: n('Prendo: quota venduta al target (%)', 'human', 10, 100, { scope: 'runner', step: 5 }),
+  humanBandTrail: n('Prendo: trailing dal picco dopo il target (%)', 'human', 5, 50, { scope: 'runner', step: 1 }),
+  humanBandHoldMin: n('Prendo: tempo massimo (min)', 'human', 60, 2880, { scope: 'runner', step: 30, hint: 'dopo questo tempo la prima parte esce comunque' }),
+
   autopilot: b('Autopilota', 'auto', { scope: 'runner', hint: 'il runner entra in posizione da solo' }),
   paperEnabled: b('Paper acceso (nuovi ingressi)', 'auto', { scope: 'runner', hint: 'spento = il paper non apre nuove posizioni' }),
   grokTest: b('Test di Grok sui segnali', 'auto', { scope: 'runner', hint: 'solo misura: Grok giudica ogni segnale semi-automatico (serve la chiave XAI_API_KEY e la modalità semi-automatica) e dopo 15 minuti si confronta il giudizio con l\'esito; non cambia gli avvisi né le operazioni. Una chiamata per segnale, al massimo 120 al giorno' }),
