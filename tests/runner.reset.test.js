@@ -15,8 +15,9 @@ const R = require('../runner/runner.js');
 const { st, S } = R;
 
 test('i limiti della fascia alta valgono sopra una configurazione salvata con limiti bassi', () => {
-  assert.equal(S.minMcap, 500000, 'salvato 3000'); assert.ok(S.minLiq >= 40000, 'salvato 7500'); assert.ok(S.maxMcap >= 50000000, 'salvato 100000: avrebbe scartato tutta la fascia alta'); assert.ok(S.maxAgeH >= 720, 'salvato 1 ora'); assert.equal(S.minTxH1, 15, 'le transazioni minime scelte dall\'utente restano');
-  S.minMcap = 1000; S.minLiq = 100; S.maxMcap = 100000; S.maxAgeH = 1; R.enforceBand(); assert.equal(S.minMcap, 500000); assert.ok(S.minLiq >= 40000); assert.ok(S.maxMcap >= 50000000); assert.ok(S.maxAgeH >= 720);
+  assert.equal(S.minMcap, 500000, 'salvato 3000'); assert.ok(S.minLiq >= 40000, 'salvato 7500'); assert.equal(S.maxMcap, 1000000, 'salvato 100000: avrebbe scartato tutta la fascia alta, si porta al doppio della fascia'); assert.equal(S.maxAgeH, 24, 'salvato 1 ora: si porta a 24'); assert.equal(S.minTxH1, 15, 'le transazioni minime scelte dall\'utente restano');
+  S.minMcap = 1000; S.minLiq = 100; S.maxMcap = 100000; S.maxAgeH = 1; R.enforceBand(); assert.equal(S.minMcap, 500000); assert.ok(S.minLiq >= 40000); assert.equal(S.maxMcap, 1000000); assert.equal(S.maxAgeH, 24);
+  S.maxMcap = 2000000; S.maxAgeH = 72; R.enforceBand(); assert.equal(S.maxMcap, 2000000, 'un massimo scelto da te, piu\' alto del minimo, resta'); assert.equal(S.maxAgeH, 72);
   S.minMcap = 2000000; R.enforceBand(); assert.equal(S.minMcap, 2000000, 'un limite piu\' alto resta');
 });
 
@@ -30,6 +31,6 @@ test('reset una tantum: conto, journal, segnali e avvisi tornano come nuovi; la 
 
 test('app: il Radar mostra solo le Coin della fascia alta e i limiti non si abbassano con una configurazione salvata', () => {
   const html = fs.readFileSync(require.resolve('../index.html'), 'utf8');
-  assert.match(html, /if \(band\) list = list\.filter\(\(c\) => \(c\.a\.m\.mc \|\| 0\) >= band\)/); assert.match(html, /s\.minMcap = Math\.max\(Number\(s\.minMcap\) \|\| 0, Number\(s\.bandMin\) \|\| 500000\)/); assert.match(html, /s\.maxMcap = Math\.max\(Number\(s\.maxMcap\) \|\| 0, DEFAULTS\.maxMcap\)/); assert.match(html, /s\.maxAgeH = Math\.max\(Number\(s\.maxAgeH\) \|\| 0, DEFAULTS\.maxAgeH\)/);
+  assert.match(html, /if \(band\) list = list\.filter\(\(c\) => \(c\.a\.m\.mc \|\| 0\) >= band\)/); assert.match(html, /s\.minMcap = Math\.max\(Number\(s\.minMcap\) \|\| 0, Number\(s\.bandMin\) \|\| 500000\)/); assert.match(html, /s\.maxMcap = Math\.max\(Number\(s\.maxMcap\) \|\| 0, 2 \* \(Number\(s\.bandMin\) \|\| 500000\)\)/); assert.match(html, /s\.maxAgeH = Math\.max\(Number\(s\.maxAgeH\) \|\| 0, 24\)/);
   assert.match(html, /Nessuna Coin sopra ' \+ fmtUsd\(band\)/);
 });
