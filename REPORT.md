@@ -1,15 +1,15 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 12:58 UTC · in esecuzione da 2.9 giorni · 308 run
+Aggiornato: 2026-11-22 13:03 UTC · in esecuzione da 2.9 giorni · 308 run
 
 | | |
 |---|---|
-| Equity | **3.8850 SOL** (-35.3% dal capitale iniziale di 6 SOL) |
-| Cassa | 3.8850 SOL |
-| Trade chiusi | 200 |
+| Equity | **3.9049 SOL** (-34.9% dal capitale iniziale di 6 SOL) |
+| Cassa | 3.9049 SOL |
+| Trade chiusi | 201 |
 | Win rate | 31% |
-| P&L realizzato | -2.1150 SOL (~$-148.35) |
-| Media vincite / perdite | +39.4% / -32.5% |
+| P&L realizzato | -2.0951 SOL (~$-146.76) |
+| Media vincite / perdite | +39.2% / -32.5% |
 | Profit factor | 0.54 |
 | Circuit breaker | no |
 
@@ -65,12 +65,13 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 |---|---|---|
 | Stop loss | 56 | -1.6426 |
 | Time stop | 72 | -0.9066 |
-| TP1 | 45 | +1.9612 |
+| TP1 | 46 | +1.9812 |
 | RUG-EXIT liquidità | 27 | -1.5271 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $MCAT | 68 | +25.4% | +0.0200 | +96% | +96% | TP1 | 1m |
 | $airball | 64 | -46.1% | -0.0366 | +0% | -36% | Stop loss | 2m |
 | $testicles | 63 | +32.4% | +0.0255 | +68% | +68% | TP1 | 1m |
 | $HIPPO | 76 | -27.9% | -0.0221 | +11% | -31% | Stop loss | 4m |
@@ -95,10 +96,26 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | $Tiger | 74 | -20.0% | -0.0164 | +60% | +60% | TP1 | 1m |
 | $FRIEND | 69 | -8.4% | -0.0069 | +15% | +5% | Time stop | 5m |
 | $MASCOIN | 65 | +6.3% | +0.0052 | +0% | -41% | Stop loss | 3m |
-| $SANTA | 70 | -82.2% | -0.0689 | +17% | -74% | RUG-EXIT liquidità | 4m |
 
 ## Ultimi eventi
 ```
+13:03:33 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 268 veto
+13:03:10 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 264 veto
+13:02:45 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 256 veto
+13:02:22 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 259 veto
+13:01:58 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 256 veto
+13:01:34 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 260 veto
+13:01:10 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 262 veto
+13:00:46 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 258 veto
+13:00:22 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 264 veto
+13:00:08 SCRIBE   chiuso P-0637 $MCAT 0.0200 SOL (25.4%)
+13:00:08 CHARON   TP1 $MCAT vendo 100% a 96.3% -> 0.0987 SOL
+13:00:08 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 265 veto
+12:59:43 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 259 veto
+12:59:20 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 266 veto
+12:58:56 QUARTER  BUY $MCAT 0.078 SOL score 68 impatto 0.00% (Jupiter)
+12:58:55 QUARTER  SEGNALE $MCAT score 68 (semi-automatico)
+12:58:55 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 266 veto
 12:58:32 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 266 veto
 12:58:08 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 270 veto
 12:57:44 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 269 veto
@@ -122,25 +139,6 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 12:50:40 ORACLE   360 raccolti, 282 analizzati, 0 BUY, 272 veto
 12:50:16 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 267 veto
 12:49:53 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 269 veto
-12:49:30 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 269 veto
-12:49:06 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 266 veto
-12:48:52 SCOUT    PumpPortal invia nuovi token (21) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-12:48:41 ORACLE   356 raccolti, 271 analizzati, 0 BUY, 264 veto
-12:48:18 ORACLE   345 raccolti, 259 analizzati, 0 BUY, 253 veto
-12:47:54 ORACLE   339 raccolti, 256 analizzati, 0 BUY, 250 veto
-12:47:31 ORACLE   325 raccolti, 242 analizzati, 0 BUY, 236 veto
-12:47:08 ORACLE   319 raccolti, 229 analizzati, 0 BUY, 222 veto
-12:46:46 ORACLE   313 raccolti, 226 analizzati, 0 BUY, 219 veto
-12:46:22 ORACLE   290 raccolti, 215 analizzati, 0 BUY, 208 veto
-12:46:00 ORACLE   278 raccolti, 197 analizzati, 0 BUY, 189 veto
-12:45:37 ORACLE   277 raccolti, 197 analizzati, 0 BUY, 189 veto
-12:45:14 ORACLE   256 raccolti, 189 analizzati, 1 BUY, 180 veto
-12:44:50 ORACLE   248 raccolti, 168 analizzati, 1 BUY, 161 veto
-12:44:28 ORACLE   240 raccolti, 166 analizzati, 1 BUY, 159 veto
-12:44:05 ORACLE   216 raccolti, 149 analizzati, 1 BUY, 142 veto
-12:43:57 SCOUT    rug: 11749 token oltre 7.5K, 35.6% rug, 10348 con possessori
-combinazioni: 5664 prove, migliore -3.96%, p 0.771
-fabbrica: 32612 percorsi, 768 configurazioni, 0 passano, 5829 ms
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
