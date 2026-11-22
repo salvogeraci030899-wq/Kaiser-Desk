@@ -1,15 +1,15 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 21:16 UTC · in esecuzione da 0.0 giorni · 318 run
+Aggiornato: 2026-11-22 21:21 UTC · in esecuzione da 0.0 giorni · 318 run
 
 | | |
 |---|---|
-| Equity | **6.0000 SOL** (+0.0% dal capitale iniziale di 6 SOL) |
-| Cassa | 6.0000 SOL |
-| Trade chiusi | 0 |
+| Equity | **5.9868 SOL** (-0.2% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.9868 SOL |
+| Trade chiusi | 1 |
 | Win rate | 0% |
-| P&L realizzato | +0.0000 SOL (~$0.00) |
-| Media vincite / perdite | +0.0% / +0.0% |
+| P&L realizzato | -0.0132 SOL (~$-0.92) |
+| Media vincite / perdite | +0.0% / -10.9% |
 | Profit factor | 0.00 |
 | Circuit breaker | no |
 
@@ -61,13 +61,42 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | Senza risposta / decisi dopo 5 minuti | 0 / 0 |
 
 ## Uscite per motivo
-_ancora nessuna_
+| Motivo | Trade | P&L SOL |
+|---|---|---|
+| Chiusura manuale (app) | 1 | -0.0132 |
 
 ## Ultimi 25 trade
-_ancora nessuno_
+| Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
+|---|---|---|---|---|---|---|---|
+| $obema | 81 | -10.9% | -0.0132 | +0% | -2% | Chiusura manuale (app) | 0m |
 
 ## Ultimi eventi
 ```
+21:21:15 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 263 veto
+21:20:52 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 258 veto
+21:20:27 ORACLE   360 raccolti, 279 analizzati, 2 BUY, 272 veto
+21:20:04 ORACLE   360 raccolti, 281 analizzati, 2 BUY, 274 veto
+21:19:40 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 262 veto
+21:19:17 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 267 veto
+21:19:12 SCRIBE   chiuso P-0667 $obema -0.0132 SOL (-10.9%)
+21:19:12 CHARON   Chiusura manuale (app) $obema vendo 100% a -1.8% -> 0.1078 SOL
+21:19:12 KAISER   chiusura manuale dall'app: P-0667 obema
+21:18:52 QUARTER  BUY $obema 0.120 SOL score 81 impatto 0.80% (Jupiter)
+21:18:52 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 268 veto
+21:18:27 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 265 veto
+21:18:04 ORACLE   360 raccolti, 286 analizzati, 2 BUY, 280 veto
+21:17:40 ORACLE   360 raccolti, 288 analizzati, 2 BUY, 281 veto
+21:17:27 QUARTER  SEGNALE $Incidents score 74 (semi-automatico)
+21:17:26 QUARTER  SEGNALE $obema score 80 (semi-automatico)
+21:17:26 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 272 veto
+21:17:20 KAISER   reset del paper (C-0116): conto azzerato, capitale 6 SOL
+21:17:00 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 271 veto
+21:16:56 SCRIBE   chiuso P-0666 $obema -0.0024 SOL (-1.9%)
+21:16:56 CHARON   Chiusura manuale (app) $obema vendo 100% a 12.1% -> 0.1186 SOL
+21:16:56 KAISER   chiusura manuale dall'app: P-0666 obema
+21:16:36 QUARTER  BUY $obema 0.120 SOL score 81 impatto 0.00% (Jupiter)
+21:16:35 QUARTER  SEGNALE $Incidents score 74 (semi-automatico)
+21:16:35 ORACLE   360 raccolti, 289 analizzati, 2 BUY, 282 veto
 21:16:11 QUARTER  $obema impatto 3.1% oltre slippage: annullato
 21:16:11 QUARTER  SEGNALE $obema score 79 (semi-automatico)
 21:16:11 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 262 veto
@@ -83,33 +112,6 @@ _ancora nessuno_
 21:13:35 ORACLE   360 raccolti, 285 analizzati, 1 BUY, 282 veto
 21:13:13 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 278 veto
 21:12:50 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 273 veto
-21:12:28 ORACLE   360 raccolti, 285 analizzati, 1 BUY, 281 veto
-21:12:04 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 267 veto
-21:11:42 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 271 veto
-21:11:19 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 271 veto
-21:10:55 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 279 veto
-21:10:32 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 272 veto
-21:10:09 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 272 veto
-21:09:46 ORACLE   360 raccolti, 285 analizzati, 1 BUY, 277 veto
-21:09:33 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 255 veto
-21:09:08 ORACLE   337 raccolti, 251 analizzati, 1 BUY, 243 veto
-21:08:44 ORACLE   319 raccolti, 238 analizzati, 1 BUY, 229 veto
-21:08:20 ORACLE   311 raccolti, 228 analizzati, 1 BUY, 219 veto
-21:08:07 SCOUT    PumpPortal invia nuovi token (30) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-21:07:57 SCRIBE   chiuso P-0664 $Incidents -0.0077 SOL (-9.8%)
-21:07:57 CHARON   Time stop $Incidents vendo 100% a 4.5% -> 0.0707 SOL
-21:07:57 ORACLE   285 raccolti, 216 analizzati, 1 BUY, 207 veto
-21:07:32 ORACLE   273 raccolti, 184 analizzati, 1 BUY, 176 veto
-21:07:10 ORACLE   266 raccolti, 184 analizzati, 1 BUY, 176 veto
-21:06:46 ORACLE   222 raccolti, 160 analizzati, 1 BUY, 154 veto
-21:06:26 SCOUT    rug: 11635 token oltre 7.5K, 35.5% rug, 11337 con possessori
-combinazioni: 7200 prove, migliore -5.08%, p 1
-fabbrica: 32549 percorsi, 768 configurazioni, 0 passano, 4050 ms
-21:06:23 ORACLE   199 raccolti, 118 analizzati, 1 BUY, 113 veto
-21:06:00 ORACLE   196 raccolti, 118 analizzati, 1 BUY, 113 veto
-21:05:59 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-21:05:58 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-21:05:57 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
