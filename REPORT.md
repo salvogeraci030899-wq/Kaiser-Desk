@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 19:45 UTC · in esecuzione da 3.2 giorni · 316 run
+Aggiornato: 2026-11-22 19:50 UTC · in esecuzione da 3.2 giorni · 316 run
 
 | | |
 |---|---|
-| Equity | **3.9917 SOL** (-33.5% dal capitale iniziale di 6 SOL) |
-| Cassa | 3.9917 SOL |
+| Equity | **3.9977 SOL** (-33.4% dal capitale iniziale di 6 SOL) |
+| Cassa | 3.9108 SOL |
 | Trade chiusi | 223 |
 | Win rate | 31% |
-| P&L realizzato | -2.0083 SOL (~$-140.97) |
+| P&L realizzato | -2.0083 SOL (~$-140.75) |
 | Media vincite / perdite | +40.1% / -31.2% |
 | Profit factor | 0.58 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$Monkey** P-0660 · 0.080 SOL · +8.8% · resta 100% · [grafico](https://dexscreener.com/solana/HCrDJmLAJf8JkF3wyNWxcq2jNp8JRiAmU9sL9BaNysaT)
 
 ## Test ingresso rapido (solo paper, quotazioni Jupiter)
 Ipotesi: comprare 5 secondi dopo la creazione, tenere 30 secondi, vendere. Un token su 3, 0.05 SOL a operazione. Serie 2 dal 2026-11-22 11:02 UTC.
@@ -58,7 +58,7 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | Netto medio dei presi | +69.5% (intervallo -86.7% / +225.6%) |
 | Netto medio degli scartati | n/d% |
 | Differenza presi meno scartati (limite inferiore) | n/d |
-| Senza risposta / decisi dopo 5 minuti | 28 / 0 |
+| Senza risposta / decisi dopo 5 minuti | 29 / 0 |
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -99,6 +99,20 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 
 ## Ultimi eventi
 ```
+19:50:57 ORACLE   360 raccolti, 290 analizzati, 2 BUY, 279 veto
+19:50:33 ORACLE   360 raccolti, 282 analizzati, 2 BUY, 271 veto
+19:50:08 ORACLE   360 raccolti, 274 analizzati, 2 BUY, 269 veto
+19:49:44 QUARTER  BUY $Monkey 0.080 SOL score 67 impatto 0.22% (Jupiter)
+19:49:44 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 266 veto
+19:49:21 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 247 veto
+19:48:57 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 255 veto
+19:48:33 ORACLE   360 raccolti, 248 analizzati, 3 BUY, 240 veto
+19:48:09 ORACLE   360 raccolti, 240 analizzati, 3 BUY, 232 veto
+19:47:45 ORACLE   360 raccolti, 243 analizzati, 3 BUY, 235 veto
+19:47:21 ORACLE   360 raccolti, 234 analizzati, 3 BUY, 225 veto
+19:46:57 ORACLE   360 raccolti, 238 analizzati, 3 BUY, 226 veto
+19:46:33 ORACLE   360 raccolti, 238 analizzati, 3 BUY, 230 veto
+19:46:10 ORACLE   360 raccolti, 244 analizzati, 3 BUY, 235 veto
 19:45:45 ORACLE   360 raccolti, 237 analizzati, 3 BUY, 229 veto
 19:45:20 ORACLE   360 raccolti, 252 analizzati, 3 BUY, 242 veto
 19:44:56 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 243 veto
@@ -125,20 +139,6 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 19:38:12 ORACLE   360 raccolti, 291 analizzati, 4 BUY, 279 veto
 19:37:47 ORACLE   360 raccolti, 286 analizzati, 4 BUY, 273 veto
 19:37:23 ORACLE   360 raccolti, 272 analizzati, 4 BUY, 260 veto
-19:36:59 ORACLE   360 raccolti, 278 analizzati, 3 BUY, 264 veto
-19:36:34 QUARTER  SEGNALE $FSDV15 score 82 (semi-automatico)
-19:36:34 ORACLE   360 raccolti, 280 analizzati, 3 BUY, 267 veto
-19:36:10 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 264 veto
-19:35:46 ORACLE   360 raccolti, 275 analizzati, 3 BUY, 264 veto
-19:35:22 ORACLE   360 raccolti, 283 analizzati, 3 BUY, 272 veto
-19:35:09 SCOUT    Laboratorio: collegato a PumpPortal
-19:34:58 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 259 veto
-19:34:33 ORACLE   360 raccolti, 278 analizzati, 3 BUY, 266 veto
-19:34:09 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 266 veto
-19:33:44 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 265 veto
-19:33:20 ORACLE   360 raccolti, 281 analizzati, 2 BUY, 269 veto
-19:32:56 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 261 veto
-19:32:32 ORACLE   360 raccolti, 274 analizzati, 2 BUY, 263 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
