@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 22:26 UTC · in esecuzione da 0.0 giorni · 319 run
+Aggiornato: 2026-11-22 22:30 UTC · in esecuzione da 0.0 giorni · 319 run
 
 | | |
 |---|---|
@@ -63,7 +63,7 @@ Regola decisa in anticipo: almeno 50 trade tuoi chiusi, netto medio >= +3% con l
 
 ## Coin di fascia alta e ricerca sui creatori
 Il Radar guarda le Coin da 500000 dollari di market cap in su. Per ognuna si risale al creatore e si registra la market cap: una Coin e' «raddoppiata» se supera il doppio della prima lettura in fascia. Il profilo del creatore compare nell'avviso.
-Memoria: 97296 lanci noti, 19259 creatori; 4 Coin in fascia alta viste (4 creatori), 0 raddoppiate (0 creatori). Creatore trovato: tabella 275, richiesta esterna 0, sconosciuto 1176.
+Memoria: 97395 lanci noti, 19272 creatori; 4 Coin in fascia alta viste (4 creatori), 0 raddoppiate (0 creatori). Creatore trovato: tabella 305, richiesta esterna 0, sconosciuto 1266.
 
 | Fascia | Avvisi | Prendo / Scarto | Tuoi trade chiusi | Netto medio |
 |---|---|---|---|---|
@@ -82,6 +82,27 @@ _ancora nessuno_
 
 ## Ultimi eventi
 ```
+22:30:08 SCRIBE   fine run · trade 0 · win 0% · P&L 0.0000 SOL · equity 6.0000 SOL
+22:29:54 ORACLE   360 raccolti, 276 analizzati, 4 BUY, 260 veto
+22:29:51 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
+22:29:30 ORACLE   360 raccolti, 267 analizzati, 4 BUY, 251 veto
+22:29:26 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
+22:29:06 ORACLE   360 raccolti, 271 analizzati, 3 BUY, 255 veto
+22:29:03 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
+22:28:42 ORACLE   360 raccolti, 272 analizzati, 3 BUY, 256 veto
+22:28:39 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
+22:28:18 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 247 veto
+22:28:15 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
+22:28:05 ORACLE   360 raccolti, 260 analizzati, 4 BUY, 244 veto
+22:28:00 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
+22:27:50 ORACLE   360 raccolti, 248 analizzati, 4 BUY, 233 veto
+22:27:45 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
+22:27:24 ORACLE   360 raccolti, 256 analizzati, 4 BUY, 241 veto
+22:27:20 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
+22:26:59 ORACLE   360 raccolti, 257 analizzati, 4 BUY, 242 veto
+22:26:56 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
+22:26:36 ORACLE   360 raccolti, 255 analizzati, 4 BUY, 240 veto
+22:26:33 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
 22:26:12 ORACLE   360 raccolti, 263 analizzati, 4 BUY, 248 veto
 22:26:08 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
 22:25:48 ORACLE   360 raccolti, 265 analizzati, 4 BUY, 250 veto
@@ -101,27 +122,6 @@ _ancora nessuno_
 22:23:30 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
 22:23:10 ORACLE   360 raccolti, 267 analizzati, 3 BUY, 252 veto
 22:23:06 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
-22:22:46 ORACLE   360 raccolti, 290 analizzati, 3 BUY, 275 veto
-22:22:41 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
-22:22:21 ORACLE   360 raccolti, 290 analizzati, 3 BUY, 274 veto
-22:22:18 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
-22:22:08 ORACLE   360 raccolti, 286 analizzati, 3 BUY, 270 veto
-22:22:03 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
-22:21:43 ORACLE   360 raccolti, 287 analizzati, 3 BUY, 272 veto
-22:21:38 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
-22:21:18 ORACLE   360 raccolti, 300 analizzati, 3 BUY, 285 veto
-22:21:14 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
-22:20:54 ORACLE   360 raccolti, 282 analizzati, 3 BUY, 267 veto
-22:20:51 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
-22:20:31 ORACLE   360 raccolti, 295 analizzati, 3 BUY, 280 veto
-22:20:27 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
-22:20:07 ORACLE   360 raccolti, 296 analizzati, 3 BUY, 281 veto
-22:20:03 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
-22:19:43 ORACLE   360 raccolti, 289 analizzati, 3 BUY, 274 veto
-22:19:39 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
-22:19:19 ORACLE   360 raccolti, 303 analizzati, 3 BUY, 288 veto
-22:19:15 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
-22:18:54 ORACLE   360 raccolti, 299 analizzati, 3 BUY, 284 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
