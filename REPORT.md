@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 13:48 UTC · in esecuzione da 3.0 giorni · 309 run
+Aggiornato: 2026-11-22 13:54 UTC · in esecuzione da 3.0 giorni · 309 run
 
 | | |
 |---|---|
-| Equity | **3.9167 SOL** (-34.7% dal capitale iniziale di 6 SOL) |
-| Cassa | 3.8258 SOL |
-| Trade chiusi | 201 |
+| Equity | **3.8959 SOL** (-35.1% dal capitale iniziale di 6 SOL) |
+| Cassa | 3.8959 SOL |
+| Trade chiusi | 202 |
 | Win rate | 31% |
-| P&L realizzato | -2.0951 SOL (~$-146.05) |
-| Media vincite / perdite | +39.2% / -32.5% |
+| P&L realizzato | -2.1041 SOL (~$-147.11) |
+| Media vincite / perdite | +39.2% / -32.3% |
 | Profit factor | 0.54 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$SI** P-0638 · 0.078 SOL · +16.3% · resta 100% · [grafico](https://dexscreener.com/solana/EE9yowsB3S5PbsjHihpAer5zgzSGkEM2wHEQEMFADKk5)
+_nessuna_
 
 ## Test ingresso rapido (solo paper, quotazioni Jupiter)
 Ipotesi: comprare 5 secondi dopo la creazione, tenere 30 secondi, vendere. Un token su 3, 0.05 SOL a operazione. Serie 2 dal 2026-11-22 11:02 UTC.
@@ -64,13 +64,14 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 56 | -1.6426 |
-| Time stop | 72 | -0.9066 |
+| Time stop | 73 | -0.9156 |
 | TP1 | 46 | +1.9812 |
 | RUG-EXIT liquidità | 27 | -1.5271 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $SI | 70 | -11.4% | -0.0090 | +24% | +3% | Time stop | 5m |
 | $MCAT | 68 | +25.4% | +0.0200 | +96% | +96% | TP1 | 1m |
 | $airball | 64 | -46.1% | -0.0366 | +0% | -36% | Stop loss | 2m |
 | $testicles | 63 | +32.4% | +0.0255 | +68% | +68% | TP1 | 1m |
@@ -95,10 +96,24 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | $LEONIDA | 72 | -25.1% | -0.0206 | +5% | -31% | Stop loss | 3m |
 | $Tiger | 74 | -20.0% | -0.0164 | +60% | +60% | TP1 | 1m |
 | $FRIEND | 69 | -8.4% | -0.0069 | +15% | +5% | Time stop | 5m |
-| $MASCOIN | 65 | +6.3% | +0.0052 | +0% | -41% | Stop loss | 3m |
 
 ## Ultimi eventi
 ```
+13:53:51 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 268 veto
+13:53:28 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 271 veto
+13:53:04 ORACLE   360 raccolti, 292 analizzati, 1 BUY, 280 veto
+13:52:41 ORACLE   360 raccolti, 288 analizzati, 1 BUY, 277 veto
+13:52:17 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 266 veto
+13:51:53 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 269 veto
+13:51:39 SCRIBE   chiuso P-0638 $SI -0.0090 SOL (-11.4%)
+13:51:39 CHARON   Time stop $SI vendo 100% a 2.6% -> 0.0701 SOL
+13:51:28 ORACLE   360 raccolti, 283 analizzati, 0 BUY, 268 veto
+13:51:05 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 262 veto
+13:50:40 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 272 veto
+13:50:17 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 271 veto
+13:49:52 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 263 veto
+13:49:28 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 264 veto
+13:49:05 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 264 veto
 13:48:42 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 258 veto
 13:48:18 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 262 veto
 13:47:54 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 258 veto
@@ -124,21 +139,6 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 13:41:22 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 252 veto
 13:40:58 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 254 veto
 13:40:33 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 249 veto
-13:40:09 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 252 veto
-13:39:44 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 252 veto
-13:39:21 ORACLE   360 raccolti, 259 analizzati, 0 BUY, 244 veto
-13:38:57 ORACLE   358 raccolti, 263 analizzati, 0 BUY, 249 veto
-13:38:33 ORACLE   351 raccolti, 259 analizzati, 0 BUY, 244 veto
-13:38:09 ORACLE   347 raccolti, 247 analizzati, 0 BUY, 234 veto
-13:37:45 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-13:37:45 ORACLE   316 raccolti, 226 analizzati, 0 BUY, 212 veto
-13:37:22 ORACLE   307 raccolti, 222 analizzati, 0 BUY, 208 veto
-13:36:59 ORACLE   301 raccolti, 212 analizzati, 0 BUY, 200 veto
-13:36:36 ORACLE   281 raccolti, 206 analizzati, 0 BUY, 196 veto
-13:36:13 ORACLE   274 raccolti, 196 analizzati, 0 BUY, 186 veto
-13:35:50 ORACLE   271 raccolti, 188 analizzati, 0 BUY, 177 veto
-13:35:26 ORACLE   249 raccolti, 173 analizzati, 0 BUY, 165 veto
-13:35:03 ORACLE   236 raccolti, 161 analizzati, 0 BUY, 153 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
