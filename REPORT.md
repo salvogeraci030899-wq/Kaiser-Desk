@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 22:00 UTC · in esecuzione da 0.0 giorni · 319 run
+Aggiornato: 2026-11-22 22:05 UTC · in esecuzione da 0.0 giorni · 319 run
 
 | | |
 |---|---|
@@ -59,11 +59,11 @@ Regola decisa in anticipo: almeno 50 trade tuoi chiusi, netto medio >= +3% con l
 | Netto medio dei trade del bot | n/d% |
 | Differenza tuoi meno bot (limite inferiore) | n/d |
 | Scartati: variazione a 5 minuti dalla decisione, meno 5% di costo (solo descrittivo) | 0 segnali, n/d% |
-| Segnali senza risposta / decisi dopo 5 minuti | 0 / 0 |
+| Segnali senza risposta / decisi dopo 5 minuti | 5 / 0 |
 
 ## Coin di fascia alta e ricerca sui creatori
 Il Radar guarda le Coin da 500000 dollari di market cap in su. Per ognuna si risale al creatore e si registra la market cap: una Coin e' «raddoppiata» se supera il doppio della prima lettura in fascia. Il profilo del creatore compare nell'avviso.
-Memoria: 96496 lanci noti, 19136 creatori; 3 Coin in fascia alta viste (3 creatori), 0 raddoppiate (0 creatori). Creatore trovato: tabella 85, richiesta esterna 0, sconosciuto 574.
+Memoria: 96661 lanci noti, 19148 creatori; 4 Coin in fascia alta viste (4 creatori), 0 raddoppiate (0 creatori). Creatore trovato: tabella 116, richiesta esterna 0, sconosciuto 699.
 
 | Fascia | Avvisi | Prendo / Scarto | Tuoi trade chiusi | Netto medio |
 |---|---|---|---|---|
@@ -72,7 +72,7 @@ Memoria: 96496 lanci noti, 19136 creatori; 3 Coin in fascia alta viste (3 creato
 | 2M+ | 5 | 0 / 0 | 0 | n/d |
 
 Controllo equo: gli Scarto si simulano come se fossero stati presi, con le stesse uscite e costi stimati dalla liquidita'. Scartati simulati chiusi: 0; ancora aperti: 0. Tuoi Prendo meno Scarto simulati: n/d. Solo descrittivo: non entra nella regola di superamento.
-Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, per giorno: 11-22: 15 / 12.
+Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, per giorno: 11-22: 17 / 14.
 
 ## Uscite per motivo
 _ancora nessuna_
@@ -82,6 +82,32 @@ _ancora nessuno_
 
 ## Ultimi eventi
 ```
+22:05:53 ORACLE   360 raccolti, 277 analizzati, 3 BUY, 261 veto
+22:05:43 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
+22:05:23 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 247 veto
+22:05:20 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
+22:05:00 ORACLE   360 raccolti, 278 analizzati, 3 BUY, 262 veto
+22:04:56 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
+22:04:36 ORACLE   360 raccolti, 259 analizzati, 3 BUY, 243 veto
+22:04:33 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
+22:04:13 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 239 veto
+22:04:09 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
+22:03:48 ORACLE   360 raccolti, 268 analizzati, 3 BUY, 251 veto
+22:03:44 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
+22:03:24 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 247 veto
+22:03:20 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
+22:03:00 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 240 veto
+22:02:56 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
+22:02:36 ORACLE   360 raccolti, 265 analizzati, 3 BUY, 250 veto
+22:02:32 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
+22:02:12 ORACLE   360 raccolti, 254 analizzati, 3 BUY, 238 veto
+22:02:09 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
+22:01:49 ORACLE   360 raccolti, 257 analizzati, 3 BUY, 241 veto
+22:01:45 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
+22:01:25 ORACLE   360 raccolti, 259 analizzati, 3 BUY, 244 veto
+22:01:21 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
+22:01:11 ORACLE   360 raccolti, 266 analizzati, 3 BUY, 251 veto
+22:01:06 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
 22:00:46 ORACLE   360 raccolti, 252 analizzati, 3 BUY, 237 veto
 22:00:42 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
 22:00:22 ORACLE   360 raccolti, 259 analizzati, 3 BUY, 245 veto
@@ -96,32 +122,6 @@ _ancora nessuno_
 21:58:43 KAISER   parametri dall'app: minLiq 40000→7500, minMcap 500000→3000, maxMcap 50000000→100000, maxAgeH 720→1
 21:58:23 ORACLE   360 raccolti, 242 analizzati, 3 BUY, 228 veto
 21:58:19 KAISER   parametri dall'app: minLiq 40000→7500, minMcap 500000→3000, maxMcap 50000000→100000, maxAgeH 720→1
-21:58:09 ORACLE   360 raccolti, 251 analizzati, 3 BUY, 236 veto
-21:58:03 KAISER   parametri dall'app: minLiq 40000→7500, minMcap 500000→3000, maxMcap 50000000→100000, maxAgeH 720→1
-21:57:43 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 240 veto
-21:57:39 KAISER   parametri dall'app: minLiq 40000→7500, minMcap 500000→3000, maxMcap 50000000→100000, maxAgeH 720→1
-21:57:19 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 237 veto
-21:57:15 KAISER   parametri dall'app: minLiq 40000→7500, minMcap 500000→3000, maxMcap 50000000→100000, maxAgeH 720→1
-21:56:55 ORACLE   360 raccolti, 257 analizzati, 3 BUY, 244 veto
-21:56:51 KAISER   parametri dall'app: minLiq 40000→7500, minMcap 500000→3000, maxMcap 50000000→100000, maxAgeH 720→1
-21:56:31 ORACLE   360 raccolti, 257 analizzati, 3 BUY, 244 veto
-21:56:28 KAISER   parametri dall'app: minLiq 40000→7500, minMcap 500000→3000, maxMcap 50000000→100000, maxAgeH 720→1
-21:56:07 QUARTER  SEGNALE $Rings score 57 (semi-automatico)
-21:56:07 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 235 veto
-21:56:03 KAISER   parametri dall'app: minLiq 40000→7500, minMcap 500000→3000, maxMcap 50000000→100000, maxAgeH 720→1
-21:55:52 QUARTER  SEGNALE $WASTED score 56 (semi-automatico)
-21:55:52 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 233 veto
-21:55:44 KAISER   parametri dall'app: minLiq 40000→7500, minMcap 500000→3000, maxMcap 50000000→100000, maxAgeH 720→1
-21:55:24 ORACLE   360 raccolti, 240 analizzati, 3 BUY, 226 veto
-21:55:20 KAISER   parametri dall'app: minLiq 40000→7500, minMcap 500000→3000, maxMcap 50000000→100000, maxAgeH 720→1
-21:55:00 ORACLE   360 raccolti, 249 analizzati, 3 BUY, 235 veto
-21:54:57 KAISER   parametri dall'app: minLiq 40000→7500, minMcap 500000→3000, maxMcap 50000000→100000, maxAgeH 720→1
-21:54:36 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 233 veto
-21:54:33 KAISER   parametri dall'app: minLiq 40000→7500, minMcap 500000→3000, maxMcap 50000000→100000, maxAgeH 720→1
-21:54:13 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 234 veto
-21:54:09 KAISER   parametri dall'app: minLiq 40000→7500, minMcap 500000→3000, maxMcap 50000000→100000, maxAgeH 720→1
-21:53:48 QUARTER  SEGNALE $FLOAT score 55 (semi-automatico)
-21:53:48 ORACLE   360 raccolti, 233 analizzati, 2 BUY, 219 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
