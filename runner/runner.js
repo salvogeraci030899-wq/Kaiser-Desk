@@ -52,6 +52,9 @@ const S = { ...E.DEFAULTS, ...RUNNER_DEFAULTS, ...readJSON(F.config, {}) };
 S.useGrok = S.useGrok && !!process.env.XAI_API_KEY;
 S.grokTest = S.grokTest && !!process.env.XAI_API_KEY;
 S.socialTest = S.socialTest && !!process.env.XAI_API_KEY;
+// Solo uomo: i limiti della fascia alta valgono sopra qualunque valore salvato prima (config.json o parametri dell'app)
+function enforceBand() { if (!S.humanOnly) return; S.minMcap = Math.max(Number(S.minMcap) || 0, Number(S.bandMin) || 500000); S.minLiq = Math.max(Number(S.minLiq) || 0, E.DEFAULTS.minLiq); }
+enforceBand();
 // Il runner non ha chiavi né firma nulla. Il reale è un conto separato gestito dall'esecutore (vedi realEntries).
 
 const st = Object.assign({
@@ -578,7 +581,7 @@ async function pullParams() {
     if (k === 'socialTest') nv = !!nv && !!process.env.XAI_API_KEY;
     if (S[k] !== nv) { changed.push(`${k} ${S[k]}→${nv}`); S[k] = nv; }
   }
-  appliedKeys = new Set(Object.keys(next));
+  appliedKeys = new Set(Object.keys(next)); enforceBand();
   if (changed.length) log('KAISER', `parametri dall'app: ${changed.join(', ')}`);
   const rp = d.resetPaper;
   if (rp && /^C-\d+$/.test(String(rp.id)) && typeof rp.capitalSOL === 'number' && rp.capitalSOL >= 0.1 && rp.capitalSOL <= 1000 && Date.now() - num(rp.at) < 3600000) {
@@ -921,13 +924,24 @@ function startYoung() {
   const rpc = process.env.RPC_URL || '';
   if (rpc || !rt.trades) { rt.feed = new Y.YoungFeed({ rpcUrl: rpc, portal: !rt.trades, log: (m) => log('SCOUT', m), onToken: (t) => { if (rt.creators) rt.creators.noteLaunch({ mint: t.mint, creator: t.creator, at: Date.now() }); if (rt.snipe) rt.snipe.onCreate(t); Y.addYoung(rt.young, t, Date.now(), 800); if (rt.trades) rt.trades.adopt(t); } }); rt.feed.start(); }   // RPC come fonte principale; PumpPortal (Laboratorio) come riserva
 }
+// Reset chiesto dall'utente (il Radar mostrava ancora Coin piccole; si riparte da zero con la fascia alta): una sola volta conto paper, journal, segnali, avvisi e conteggi
+// tornano come nuovi. La memoria dei creatori resta. Lo storico precedente resta nella cronologia del ramo dati.
+function resetForBand() {
+  if (!S.humanOnly || st.bandResetV === 1) return false;
+  const cap = Number(st.capital) > 0 ? Number(st.capital) : S.capitalSOL, now = Date.now();
+  Object.assign(st, { cash: cap, capital: cap, topups: null, positions: [], journal: [], signals: [], alerts: [], grokLog: [], day: null, halted: null, cooldownUntil: 0, lastEntryAt: 0, startedAt: now, realTried: {}, bandDays: {}, humanSince: now, humanReviewed: 0, humanNotified: 0, bandResetV: 1 });
+  rt.bandSeen = null; log('KAISER', `reset: conto paper azzerato (${cap} SOL), journal, segnali e avvisi vuoti; la memoria dei creatori resta`);
+  return true;
+}
 async function main() {
+  const wasReset = resetForBand();
   rt.strat = Strat.load(STRAT_FILE()); if (!S.humanOnly) { loadFarm(); loadProbe(); }
   rt.snipe = new Snipe.Snipe({ quote: snipeQuote, file: path.join(STATE_DIR, 'snipe.json'), cfg: snipeCfg(), log: (m) => log('SNIPE', m) });
   rt.grad = new Grad.Grad({ quote: snipeQuote, file: path.join(STATE_DIR, 'grad.json'), cfg: gradCfg(), log: (m) => log('MIGRATI', m) });
   rt.creators = new Creators.Creators({ dir: path.join(STATE_DIR, 'lab', 'creators'), bandFile: path.join(STATE_DIR, 'creators-band.json'), fetch: (u, i) => fetch(u, i), log: (m) => log('CREATORI', m) }).load();
   log('CREATORI', `memoria: ${rt.creators.summary().launches} lanci, ${rt.creators.summary().creators} creatori, ${rt.creators.summary().bandCoins} Coin in fascia alta`);
   startYoung();
+  if (wasReset) { save(); pushLive(true).catch(() => {}); await tg(`<b>KAISER</b> reset eseguito: conto paper azzerato a ${st.capital} SOL, journal, segnali e avvisi vuoti. Il Radar guarda solo le Coin da ${S.bandMin} dollari di market cap in su. La memoria dei creatori resta.`, Kb.kb({ app: true })); }
   const end = Date.now() + LOOP_MIN * 60000;
   log('KAISER', `run #${st.runs} · ${st.positions.length} posizioni · equity ${equity().toFixed(4)} SOL · GMGN ${gmgnOn() ? 'attiva' : 'spenta (nessuna chiave)'} · Grok ${S.useGrok ? 'on' : 'off'}`);
   let lastScan = 0, lastCp = Date.now();
@@ -969,4 +983,4 @@ async function main() {
 }
 
 if (require.main === module) main().catch((e) => { console.error(e); save(); process.exit(1); });
-module.exports = { main, st, S, stats, report, realEntries, rt, publicSummary, pullParams, pushLive };
+module.exports = { main, st, S, stats, report, realEntries, rt, publicSummary, pullParams, pushLive, resetForBand, enforceBand };

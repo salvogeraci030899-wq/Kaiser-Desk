@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.61.0">
+<meta name="kz-build" content="2.61.1">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=4" media="(prefers-color-scheme: light)">
@@ -213,7 +213,11 @@ const prefSet = (k, v) => { try { localStorage.setItem(k, v); } catch { /* memor
 
 const st = { mode: ['real', 'strat'].includes(prefGet('kz_mode', 'paper')) ? prefGet('kz_mode', 'paper') : 'paper' };
 const rt = { gcache: {}, seen: new Map(), imgs: new Map(), cands: new Map(), sec: new Map(), run: null, runErr: '', exec: null, execErr: '', par: null, parErr: '', draft: {}, prices: new Map(), solUsd: 0, scanning: false, lastScan: 0, filter: 'all', logs: [] };
-const S = () => ({ ...DEFAULTS, ...((rt.run && rt.run.config) || {}) });   // stesse regole e filtri del runner
+const S = () => {   // stesse regole e filtri del runner; in solo uomo i limiti della fascia alta valgono sopra qualunque valore salvato prima
+  const s = { ...DEFAULTS, ...((rt.run && rt.run.config) || {}) };
+  if (s.humanOnly) { s.minMcap = Math.max(Number(s.minMcap) || 0, Number(s.bandMin) || 500000); s.minLiq = Math.max(Number(s.minLiq) || 0, DEFAULTS.minLiq); }
+  return s;
+};
 
 // ---------- LOG / AVVISI ----------
 function log(agent, msg) {
@@ -344,10 +348,12 @@ function renderSemi() {
   box.innerHTML = `<div class="card semi">${rows || '<div class="tiny muted">Nessun segnale ancora: arriva un avviso quando il radar trova un BUY.</div>'}</div>`; $('#v-radar').classList.add('semi-on');
 }
 function renderRadar() {
-  let list = [...rt.cands.values()]; if (rt.filter !== 'all') list = list.filter((c) => c.verdict === rt.filter);
+  let list = [...rt.cands.values()]; const sv = S(), band = sv.humanOnly ? Number(sv.bandMin) || 500000 : 0;
+  if (band) list = list.filter((c) => (c.a.m.mc || 0) >= band);      // solo uomo: il Radar mostra solo le Coin della fascia alta
+  if (rt.filter !== 'all') list = list.filter((c) => c.verdict === rt.filter);
   const order = { BUY: 0, WATCH: 1, SKIP: 2, VETO: 3 }; list.sort((a, b) => order[a.verdict] - order[b.verdict] || b.score - a.score);
   const el = $('#radarList'), top = el.scrollTop;
-  el.innerHTML = list.length ? list.slice(0, 240).map(candCard).join('') : `<div class="empty">${rt.lastScan ? 'Nessun token in questo filtro.' : 'Scansione del radar in corso...'}</div>`;
+  el.innerHTML = list.length ? list.slice(0, 240).map(candCard).join('') : `<div class="empty">${rt.lastScan ? (band ? 'Nessuna Coin sopra ' + fmtUsd(band) + ' in questo filtro per ora.' : 'Nessun token in questo filtro.') : 'Scansione del radar in corso...'}</div>`;
   el.scrollTop = top; fitRadar();
   $('#lastScan').textContent = rt.lastScan ? new Date(rt.lastScan).toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' }) : 'mai';
 }
