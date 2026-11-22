@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.65.0">
+<meta name="kz-build" content="2.66.0">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=4" media="(prefers-color-scheme: light)">
@@ -26,6 +26,7 @@
   root.setAttribute('data-theme', light ? 'light' : 'dark');
   if (g === 'on' || g === 'anim') root.classList.add('glass');
   if (g === 'anim') root.classList.add('glass-anim');
+  try { var w = JSON.parse(localStorage.getItem('kz_wall') || 'null'), any = false; if (w && w.css && w.css.length === 3) w.css.forEach(function (c, i) { if (c) { root.style.setProperty('--wall-c' + (i + 1), c); any = true; } }); if (any) root.classList.add('tint'); } catch (e) {}
   if (light) document.getElementById('metaThemeColor').setAttribute('content', '#f2f2f7');
   try { var l = JSON.parse(localStorage.getItem('kz_lock') || 'null'); if (l && l.hash) root.classList.add('app-locked'); } catch (e) {}
   document.getElementById('metaStatusBar').setAttribute('content', light ? 'default' : 'black-translucent');
@@ -152,6 +153,8 @@
           <div class="theme-toggle"><button data-pref="theme" data-val="auto">Auto</button><button data-pref="theme" data-val="light">Chiaro</button><button data-pref="theme" data-val="dark">Scuro</button></div></div>
         <div class="set wide"><label>Vetro</label>
           <div class="theme-toggle"><button data-pref="glass" data-val="off">No</button><button data-pref="glass" data-val="on">Fermo</button><button data-pref="glass" data-val="anim">Animato</button></div></div>
+        <div class="set wide"><label>Colori sfondo</label>
+          <div class="wall-dots" id="wallDots"><button type="button" class="wall-dot" data-i="0" aria-label="Luce 1"></button><button type="button" class="wall-dot" data-i="1" aria-label="Luce 2"></button><button type="button" class="wall-dot" data-i="2" aria-label="Luce 3"></button></div></div>
         <div class="set lockrow" id="lockSettingsBody"></div>
       </div>
       <div class="hub hub1" id="sysHub"></div>

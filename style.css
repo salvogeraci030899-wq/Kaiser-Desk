@@ -176,14 +176,14 @@ html.glass nav button.active, html.glass .seg button.on, html.glass .theme-toggl
 html.glass[data-theme="light"] nav button.active, html.glass[data-theme="light"] .seg button.on, html.glass[data-theme="light"] .theme-toggle button.active { background: rgba(0, 0, 0, 0.06); }
 html.glass { --surface: rgba(255, 255, 255, 0.06); --surface-2: rgba(255, 255, 255, 0.04); --surface-hover: rgba(255, 255, 255, 0.13); --border: rgba(255, 255, 255, 0.11);
   --field: rgba(255, 255, 255, 0.05); --chart-bg: transparent;
-  --wall: radial-gradient(60% 45% at 0% 0%, rgba(10, 132, 255, 0.28), transparent 70%),
-          radial-gradient(55% 40% at 100% 45%, rgba(48, 209, 88, 0.16), transparent 70%),
-          radial-gradient(65% 45% at 20% 100%, rgba(191, 90, 242, 0.20), transparent 70%), #000; }
+  --wall: radial-gradient(60% 45% at 0% 0%, color-mix(in srgb, var(--wall-c1, rgb(10 132 255)) 28%, transparent), transparent 70%),
+          radial-gradient(55% 40% at 100% 45%, color-mix(in srgb, var(--wall-c2, rgb(48 209 88)) 16%, transparent), transparent 70%),
+          radial-gradient(65% 45% at 20% 100%, color-mix(in srgb, var(--wall-c3, rgb(191 90 242)) 20%, transparent), transparent 70%), #000; }
 html.glass[data-theme="light"] { --surface: rgba(255, 255, 255, 0.66); --surface-2: rgba(255, 255, 255, 0.5); --surface-hover: rgba(255, 255, 255, 0.9); --border: rgba(255, 255, 255, 0.9);
   --field: rgba(255, 255, 255, 0.5);
-  --wall: radial-gradient(60% 45% at 0% 0%, rgba(10, 132, 255, 0.22), transparent 70%),
-          radial-gradient(55% 40% at 100% 45%, rgba(48, 209, 88, 0.16), transparent 70%),
-          radial-gradient(65% 45% at 20% 100%, rgba(191, 90, 242, 0.18), transparent 70%), #eef0f6; }
+  --wall: radial-gradient(60% 45% at 0% 0%, color-mix(in srgb, var(--wall-c1, rgb(10 132 255)) 22%, transparent), transparent 70%),
+          radial-gradient(55% 40% at 100% 45%, color-mix(in srgb, var(--wall-c2, rgb(48 209 88)) 16%, transparent), transparent 70%),
+          radial-gradient(65% 45% at 20% 100%, color-mix(in srgb, var(--wall-c3, rgb(191 90 242)) 18%, transparent), transparent 70%), #eef0f6; }
 html.glass body, html.glass #app, html.glass .sheet .inner { background: var(--wall); }
 html.glass .card { -webkit-backdrop-filter: blur(18px) saturate(170%); backdrop-filter: blur(18px) saturate(170%); box-shadow: var(--glass-light); }
 html.glass[data-theme="light"] .card { box-shadow: var(--glass-light), 0 2px 10px rgba(30, 40, 80, 0.07); }
@@ -199,12 +199,12 @@ html.glass-anim[data-theme="light"] .wall-anim { background: #eef0f6; }
 .wall-anim i { position: absolute; left: 50%; top: 50%; width: 130vw; height: 95vh; margin: -47.5vh 0 0 -65vw; border-radius: 50%;
   background: radial-gradient(closest-side, var(--c), transparent 70%); will-change: transform, opacity;
   animation: pt-wall-a 67s ease-in-out infinite alternate, pt-wall-fade 43s ease-in-out infinite alternate; }
-.wall-anim i:nth-child(1) { --c: rgba(10, 132, 255, 0.34); animation-delay: -10s, -5s; }
-.wall-anim i:nth-child(2) { --c: rgba(48, 209, 88, 0.2); animation-name: pt-wall-b, pt-wall-fade; animation-duration: 79s, 53s; animation-delay: -40s, -30s; }
-.wall-anim i:nth-child(3) { --c: rgba(191, 90, 242, 0.26); animation-name: pt-wall-c, pt-wall-fade; animation-duration: 89s, 61s; animation-delay: -25s, -12s; }
-html.glass-anim[data-theme="light"] .wall-anim i:nth-child(1) { --c: rgba(10, 132, 255, 0.26); }
-html.glass-anim[data-theme="light"] .wall-anim i:nth-child(2) { --c: rgba(48, 209, 88, 0.2); }
-html.glass-anim[data-theme="light"] .wall-anim i:nth-child(3) { --c: rgba(191, 90, 242, 0.22); }
+.wall-anim i:nth-child(1) { --c: color-mix(in srgb, var(--wall-c1, rgb(10 132 255)) 34%, transparent); animation-delay: -10s, -5s; }
+.wall-anim i:nth-child(2) { --c: color-mix(in srgb, var(--wall-c2, rgb(48 209 88)) 20%, transparent); animation-name: pt-wall-b, pt-wall-fade; animation-duration: 79s, 53s; animation-delay: -40s, -30s; }
+.wall-anim i:nth-child(3) { --c: color-mix(in srgb, var(--wall-c3, rgb(191 90 242)) 26%, transparent); animation-name: pt-wall-c, pt-wall-fade; animation-duration: 89s, 61s; animation-delay: -25s, -12s; }
+html.glass-anim[data-theme="light"] .wall-anim i:nth-child(1) { --c: color-mix(in srgb, var(--wall-c1, rgb(10 132 255)) 26%, transparent); }
+html.glass-anim[data-theme="light"] .wall-anim i:nth-child(2) { --c: color-mix(in srgb, var(--wall-c2, rgb(48 209 88)) 20%, transparent); }
+html.glass-anim[data-theme="light"] .wall-anim i:nth-child(3) { --c: color-mix(in srgb, var(--wall-c3, rgb(191 90 242)) 22%, transparent); }
 html.glass-anim .sheet .inner { background: transparent; }
 @keyframes pt-wall-a { 0% { transform: translate3d(-28vw, -30vh, 0); } 50% { transform: translate3d(-6vw, -18vh, 0) scale(1.1); } 100% { transform: translate3d(-20vw, -6vh, 0) scale(0.95); } }
 @keyframes pt-wall-b { 0% { transform: translate3d(28vw, -2vh, 0); } 50% { transform: translate3d(14vw, -20vh, 0) scale(1.1); } 100% { transform: translate3d(24vw, 14vh, 0) scale(0.95); } }
@@ -585,3 +585,15 @@ html.glass[data-theme="light"] nav { box-shadow: var(--glass-light), 0 4px 16px 
 #radarList .press-l { display: none; }
 #radarList .metrics .m { padding: 3px 8px; }
 #radarList .press { margin-top: 0; }
+
+/* Colori sfondo (Impostazioni, Generale): tre luci tenui, ognuna del colore scelto, su nero o bianco che restano predominanti. Con il Vetro spento compaiono solo se ne hai scelto uno */
+html.tint:not(.glass) body, html.tint:not(.glass) #app {
+  background: radial-gradient(60% 45% at 0% 0%, color-mix(in srgb, var(--wall-c1, transparent) 24%, transparent), transparent 70%),
+              radial-gradient(55% 40% at 100% 45%, color-mix(in srgb, var(--wall-c2, transparent) 18%, transparent), transparent 70%),
+              radial-gradient(65% 45% at 20% 100%, color-mix(in srgb, var(--wall-c3, transparent) 22%, transparent), transparent 70%), var(--bg); }
+.wall-dots { display: flex; gap: 8px; justify-content: flex-end; }
+.wall-dot { width: var(--touch-min); height: var(--touch-min); background: transparent; border: none; padding: 0; display: flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.wall-dot::before { content: ''; width: 26px; height: 26px; border-radius: 50%; border: 2px solid var(--text-secondary); background: var(--dot, transparent); }
+.wall-dot[data-i="0"] { --dot: var(--wall-c1, rgb(10 132 255)); }
+.wall-dot[data-i="1"] { --dot: var(--wall-c2, rgb(48 209 88)); }
+.wall-dot[data-i="2"] { --dot: var(--wall-c3, rgb(191 90 242)); }
