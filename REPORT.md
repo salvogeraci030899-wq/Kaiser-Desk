@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 10:17 UTC · in esecuzione da 2.8 giorni · 305 run
+Aggiornato: 2026-11-22 10:22 UTC · in esecuzione da 2.8 giorni · 305 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-22 10:17 UTC · in esecuzione da 2.8 giorni · 305 run
 | Cassa | 3.8960 SOL |
 | Trade chiusi | 198 |
 | Win rate | 30% |
-| P&L realizzato | -2.1040 SOL (~$-148.16) |
+| P&L realizzato | -2.1040 SOL (~$-148.03) |
 | Media vincite / perdite | +39.6% / -32.4% |
 | Profit factor | 0.53 |
 | Circuit breaker | no |
@@ -22,13 +22,13 @@ Regola decisa in anticipo: almeno 300 operazioni, netto medio >= +3% e limite in
 
 | | |
 |---|---|
-| Esito | **non passa** (328 di 300 operazioni) |
-| Netto medio per operazione | -44.1% (intervallo -52.3% / -36.0%) |
-| Mediana / operazioni in utile | -50.3% / 10.4% |
-| Quota dei guadagni dall'1% migliore | 55% |
-| Token campionati / con rotta di acquisto | 341 / 335 (98.2%) |
+| Esito | **non passa** (374 di 300 operazioni) |
+| Netto medio per operazione | -44.7% (intervallo -52.0% / -37.3%) |
+| Mediana / operazioni in utile | -50.7% / 11% |
+| Quota dei guadagni dall'1% migliore | 50% |
+| Token campionati / con rotta di acquisto | 381 / 376 (98.7%) |
 | Tempo per ottenere la quotazione (mediana / 90%) | 5.0 s / 5.1 s |
-| Senza rotta in acquisto / in vendita (perdita totale) | 5 / 103 |
+| Senza rotta in acquisto / in vendita (perdita totale) | 5 / 119 |
 | Errori di rete (acquisto / vendita) / interrotte a fine run | 0 / 0 / 0 |
 
 ## Uscite per motivo
@@ -70,6 +70,20 @@ Regola decisa in anticipo: almeno 300 operazioni, netto medio >= +3% e limite in
 
 ## Ultimi eventi
 ```
+10:22:28 ORACLE   360 raccolti, 289 analizzati, 1 BUY, 279 veto
+10:22:05 ORACLE   360 raccolti, 289 analizzati, 1 BUY, 280 veto
+10:21:41 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 265 veto
+10:21:17 ORACLE   360 raccolti, 289 analizzati, 1 BUY, 279 veto
+10:20:54 ORACLE   360 raccolti, 286 analizzati, 1 BUY, 276 veto
+10:20:31 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 273 veto
+10:20:08 ORACLE   360 raccolti, 289 analizzati, 1 BUY, 277 veto
+10:19:45 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 271 veto
+10:19:21 ORACLE   360 raccolti, 288 analizzati, 1 BUY, 276 veto
+10:18:58 ORACLE   360 raccolti, 294 analizzati, 1 BUY, 280 veto
+10:18:34 ORACLE   360 raccolti, 294 analizzati, 1 BUY, 281 veto
+10:18:11 ORACLE   360 raccolti, 285 analizzati, 1 BUY, 271 veto
+10:17:57 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
+10:17:47 ORACLE   342 raccolti, 273 analizzati, 1 BUY, 261 veto
 10:17:33 ORACLE   335 raccolti, 263 analizzati, 1 BUY, 251 veto
 10:17:07 ORACLE   329 raccolti, 259 analizzati, 1 BUY, 247 veto
 10:16:44 ORACLE   311 raccolti, 241 analizzati, 1 BUY, 231 veto
@@ -98,20 +112,6 @@ fabbrica: 32644 percorsi, 768 configurazioni, 0 passano, 6133 ms
 10:12:15 ORACLE   360 raccolti, 287 analizzati, 1 BUY, 279 veto
 10:11:51 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 276 veto
 10:11:27 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 280 veto
-10:11:05 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 276 veto
-10:10:41 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 273 veto
-10:10:17 ORACLE   360 raccolti, 287 analizzati, 1 BUY, 278 veto
-10:09:53 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 271 veto
-10:09:30 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 272 veto
-10:09:07 ORACLE   360 raccolti, 285 analizzati, 1 BUY, 274 veto
-10:08:43 ORACLE   360 raccolti, 285 analizzati, 1 BUY, 273 veto
-10:08:19 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 273 veto
-10:07:55 ORACLE   360 raccolti, 286 analizzati, 1 BUY, 276 veto
-10:07:32 ORACLE   360 raccolti, 286 analizzati, 1 BUY, 275 veto
-10:07:08 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 273 veto
-10:06:44 ORACLE   360 raccolti, 287 analizzati, 0 BUY, 277 veto
-10:06:21 ORACLE   360 raccolti, 285 analizzati, 0 BUY, 275 veto
-10:05:57 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 269 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
