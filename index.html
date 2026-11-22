@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.63.0">
+<meta name="kz-build" content="2.64.0">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=4" media="(prefers-color-scheme: light)">
@@ -340,12 +340,12 @@ function candCard(c) {
 }
 // Segnali della modalità semi-automatica: l'ultimo avviso con il tasto che porta direttamente alla Coin su pump.fun
 function renderSemi() {
+  // sempre disegnato e sempre alto uguale (vedi style.css): niente nasconde o allunga il riquadro, quindi il resto della pagina non si muove
   const run = rt.run, box = $('#semiBox'); if (!box) return;
-  const mode = (run && run.semi) || 'spento', list = ((run && run.alerts) || []).slice(-1);
-  if (!run || (mode === 'spento' && !list.length)) { box.innerHTML = ''; $('#v-radar').classList.remove('semi-on'); return; }
+  const list = ((run && run.alerts) || []).slice(-1);
   const k = (v) => (v >= 1e6 ? (v / 1e6).toFixed(1) + 'M' : v >= 1e3 ? (v / 1e3).toFixed(1) + 'K' : String(Math.round(v || 0))), pc = (v) => (v == null ? '—' : (v > 0 ? '+' : '') + v + '%');
-  const rows = list.map((a) => `<div class="semirow"><div class="semitxt"><b>$${esc(a.sym || a.mint.slice(0, 6))}</b> <span class="muted tiny">${a.band ? 'fascia ' + esc(a.band) : 'score ' + a.score} · ${ago(Date.now() - a.t)} fa${a.vote === 'y' ? ' · preso' : a.vote === 'n' ? ' · scartato' : ''}${a.gr ? ' · Grok ' + (a.gr.s > 0 ? '+' : '') + Number(a.gr.s).toFixed(1) + ' org ' + a.gr.o : ''}</span><div class="tiny muted">${a.cline ? esc(a.cline) : 'ora ' + pc(a.last) + ' · 5 min ' + pc(a.p5) + ' · 15 min ' + pc(a.p15)}</div></div><a class="btn sm" href="https://pump.fun/coin/${encodeURIComponent(a.mint)}" target="_blank" rel="noopener">pump.fun</a></div>`).join('');
-  box.innerHTML = `<div class="card semi">${rows || '<div class="tiny muted">Nessun segnale ancora: arriva un avviso quando il radar trova un BUY.</div>'}</div>`; $('#v-radar').classList.add('semi-on');
+  const rows = list.map((a) => `<div class="semirow"><div class="semitxt"><div><b>$${esc(a.sym || a.mint.slice(0, 6))}</b> <span class="muted tiny">${a.band ? 'fascia ' + esc(a.band) : 'score ' + a.score} · ${ago(Date.now() - a.t)} fa${a.vote === 'y' ? ' · preso' : a.vote === 'n' ? ' · scartato' : ''}${a.gr ? ' · Grok ' + (a.gr.s > 0 ? '+' : '') + Number(a.gr.s).toFixed(1) + ' org ' + a.gr.o : ''}</span></div><div class="tiny muted">${a.cline ? esc(a.cline) : 'ora ' + pc(a.last) + ' · 5 min ' + pc(a.p5) + ' · 15 min ' + pc(a.p15)}</div></div><a class="btn sm" href="https://pump.fun/coin/${encodeURIComponent(a.mint)}" target="_blank" rel="noopener">pump.fun</a></div>`).join('');
+  box.innerHTML = `<div class="card semi">${rows || '<div class="tiny muted">Nessun avviso ancora: arriva quando il Radar trova una Coin di fascia alta.</div>'}</div>`;
 }
 function renderRadar() {
   let list = [...rt.cands.values()]; const sv = S(), band = sv.humanOnly ? Number(sv.bandMin) || 500000 : 0;
