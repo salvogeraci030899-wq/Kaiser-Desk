@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 21:21 UTC · in esecuzione da 0.0 giorni · 318 run
+Aggiornato: 2026-11-22 21:26 UTC · in esecuzione da 0.0 giorni · 318 run
 
 | | |
 |---|---|
-| Equity | **5.9868 SOL** (-0.2% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.9868 SOL |
+| Equity | **5.9736 SOL** (-0.4% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.8661 SOL |
 | Trade chiusi | 1 |
 | Win rate | 0% |
-| P&L realizzato | -0.0132 SOL (~$-0.92) |
+| P&L realizzato | -0.0132 SOL (~$-0.93) |
 | Media vincite / perdite | +0.0% / -10.9% |
 | Profit factor | 0.00 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$Incidents** P-0668 · 0.120 SOL · -10.2% · resta 100% · [grafico](https://dexscreener.com/solana/GRjv6EruC7TMZQMvHMd9YR4TGokXE5aj8tdma7qvgKat)
 
 ## Test ingresso rapido (solo paper, quotazioni Jupiter)
 Ipotesi: comprare 5 secondi dopo la creazione, tenere 30 secondi, vendere. Un token su 3, 0.05 SOL a operazione. Serie 2 dal 2026-11-22 11:02 UTC.
@@ -45,7 +45,7 @@ Regola decisa in anticipo: orizzonte 300 s (gli altri sono solo descrittivi), al
 | Netto a 300 s (primario) | -33.6% (intervallo -101.1% / +33.9%), mediana -23.1%, in utile 33.3%, senza rotta 0 su 3 |
 | Netto a 900 s | n/d (0) |
 | Impatto di prezzo in acquisto (mediana) / ritardo del lettore (mediana) | 0.89% / 6.3 s |
-| Curve completate viste / acquistate / senza rotta / coda piena / interrotte | 3 / 3 / 0 / 0 / 0 |
+| Curve completate viste / acquistate / senza rotta / coda piena / interrotte | 4 / 4 / 0 / 0 / 0 |
 
 ## Uomo e macchina: i segnali che prendi contro quelli che scarti
 Il radar sceglie, tu decidi (Prendo o Scarto) senza vedere il punteggio del bot. Rendimento a 5 minuti dalla tua decisione, meno 5% di costo a giro (stima mediana, non una misura per ogni token).
@@ -72,6 +72,21 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 
 ## Ultimi eventi
 ```
+21:26:04 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 274 veto
+21:25:41 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 272 veto
+21:25:17 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 265 veto
+21:24:53 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 273 veto
+21:24:30 ORACLE   360 raccolti, 282 analizzati, 2 BUY, 274 veto
+21:24:16 QUARTER  BUY $Incidents 0.120 SOL score 65 impatto 0.00% (Jupiter)
+21:24:15 ORACLE   360 raccolti, 283 analizzati, 2 BUY, 275 veto
+21:24:11 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
+21:23:50 ORACLE   360 raccolti, 284 analizzati, 2 BUY, 276 veto
+21:23:27 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 263 veto
+21:23:13 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 267 veto
+21:22:47 ORACLE   360 raccolti, 274 analizzati, 2 BUY, 269 veto
+21:22:24 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 273 veto
+21:22:01 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 264 veto
+21:21:38 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 271 veto
 21:21:15 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 263 veto
 21:20:52 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 258 veto
 21:20:27 ORACLE   360 raccolti, 279 analizzati, 2 BUY, 272 veto
@@ -97,21 +112,6 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 21:16:36 QUARTER  BUY $obema 0.120 SOL score 81 impatto 0.00% (Jupiter)
 21:16:35 QUARTER  SEGNALE $Incidents score 74 (semi-automatico)
 21:16:35 ORACLE   360 raccolti, 289 analizzati, 2 BUY, 282 veto
-21:16:11 QUARTER  $obema impatto 3.1% oltre slippage: annullato
-21:16:11 QUARTER  SEGNALE $obema score 79 (semi-automatico)
-21:16:11 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 262 veto
-21:16:07 KAISER   reset del paper (C-0113): conto azzerato, capitale 6 SOL
-21:15:47 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 274 veto
-21:15:23 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 269 veto
-21:15:01 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 257 veto
-21:14:37 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 275 veto
-21:14:24 ORACLE   360 raccolti, 286 analizzati, 1 BUY, 282 veto
-21:13:59 QUARTER  BUY $obema 0.077 SOL score 73 impatto 0.77% (Jupiter)
-21:13:59 QUARTER  SEGNALE $obema score 73 (semi-automatico)
-21:13:59 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 264 veto
-21:13:35 ORACLE   360 raccolti, 285 analizzati, 1 BUY, 282 veto
-21:13:13 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 278 veto
-21:12:50 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 273 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
