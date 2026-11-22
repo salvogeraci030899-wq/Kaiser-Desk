@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 15:39 UTC · in esecuzione da 3.1 giorni · 311 run
+Aggiornato: 2026-11-22 15:44 UTC · in esecuzione da 3.1 giorni · 311 run
 
 | | |
 |---|---|
-| Equity | **3.9462 SOL** (-34.2% dal capitale iniziale di 6 SOL) |
-| Cassa | 3.9462 SOL |
+| Equity | **3.9332 SOL** (-34.4% dal capitale iniziale di 6 SOL) |
+| Cassa | 3.8663 SOL |
 | Trade chiusi | 207 |
 | Win rate | 31% |
-| P&L realizzato | -2.0538 SOL (~$-144.32) |
+| P&L realizzato | -2.0538 SOL (~$-144.22) |
 | Media vincite / perdite | +40.2% / -32.2% |
 | Profit factor | 0.56 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$FRANK** P-0644 · 0.079 SOL · -15.3% · resta 100% · [grafico](https://dexscreener.com/solana/4ecpKXWMFRpq9wNe1iCDY9aAuPYJkjzNQtPPdaxMFBxg)
 
 ## Test ingresso rapido (solo paper, quotazioni Jupiter)
 Ipotesi: comprare 5 secondi dopo la creazione, tenere 30 secondi, vendere. Un token su 3, 0.05 SOL a operazione. Serie 2 dal 2026-11-22 11:02 UTC.
@@ -58,7 +58,7 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | Netto medio dei presi | +69.5% (intervallo -86.7% / +225.6%) |
 | Netto medio degli scartati | n/d% |
 | Differenza presi meno scartati (limite inferiore) | n/d |
-| Senza risposta / decisi dopo 5 minuti | 9 / 0 |
+| Senza risposta / decisi dopo 5 minuti | 10 / 0 |
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -99,6 +99,21 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 
 ## Ultimi eventi
 ```
+15:44:41 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 255 veto
+15:44:17 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 260 veto
+15:43:53 QUARTER  BUY $FRANK 0.079 SOL score 70 impatto 0.00% (Jupiter)
+15:43:53 QUARTER  SEGNALE $FRANK score 70 (semi-automatico)
+15:43:53 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 261 veto
+15:43:29 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 254 veto
+15:43:05 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 256 veto
+15:42:41 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 255 veto
+15:42:18 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 246 veto
+15:41:54 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 248 veto
+15:41:31 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 249 veto
+15:41:08 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 246 veto
+15:40:44 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 250 veto
+15:40:20 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 239 veto
+15:40:05 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 244 veto
 15:39:39 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 247 veto
 15:39:15 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 244 veto
 15:38:51 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 235 veto
@@ -124,21 +139,6 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 15:30:56 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 255 veto
 15:30:33 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 252 veto
 15:30:08 SCRIBE   chiuso P-0643 $MengLan 0.0635 SOL (80.7%)
-15:30:08 CHARON   TP1 $MengLan vendo 100% a 108.5% -> 0.1421 SOL
-15:30:08 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 259 veto
-15:29:44 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 257 veto
-15:29:20 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 249 veto
-15:28:57 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 265 veto
-15:28:33 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 263 veto
-15:28:08 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 255 veto
-15:27:44 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 268 veto
-15:27:31 QUARTER  BUY $MengLan 0.078 SOL score 65 impatto 1.39% (Jupiter)
-15:27:31 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 268 veto
-15:27:06 QUARTER  $MengLan impatto 3.8% oltre slippage: annullato
-15:27:06 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 267 veto
-15:26:53 QUARTER  $MengLan impatto 2.3% oltre slippage: annullato
-15:26:52 QUARTER  SEGNALE $MengLan score 64 (semi-automatico)
-15:26:52 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 264 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
