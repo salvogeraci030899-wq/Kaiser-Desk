@@ -53,7 +53,11 @@ S.useGrok = S.useGrok && !!process.env.XAI_API_KEY;
 S.grokTest = S.grokTest && !!process.env.XAI_API_KEY;
 S.socialTest = S.socialTest && !!process.env.XAI_API_KEY;
 // Solo uomo: i limiti della fascia alta valgono sopra qualunque valore salvato prima (config.json o parametri dell'app)
-function enforceBand() { if (!S.humanOnly) return; S.minMcap = Math.max(Number(S.minMcap) || 0, Number(S.bandMin) || 500000); S.minLiq = Math.max(Number(S.minLiq) || 0, E.DEFAULTS.minLiq); }
+function enforceBand() {
+  if (!S.humanOnly) return;
+  S.minMcap = Math.max(Number(S.minMcap) || 0, Number(S.bandMin) || 500000); S.minLiq = Math.max(Number(S.minLiq) || 0, E.DEFAULTS.minLiq);
+  S.maxMcap = Math.max(Number(S.maxMcap) || 0, E.DEFAULTS.maxMcap); S.maxAgeH = Math.max(Number(S.maxAgeH) || 0, E.DEFAULTS.maxAgeH);      // un massimo basso salvato prima (es. 100.000 dollari, 1 ora) scarterebbe tutta la fascia alta
+}
 enforceBand();
 // Il runner non ha chiavi né firma nulla. Il reale è un conto separato gestito dall'esecutore (vedi realEntries).
 
