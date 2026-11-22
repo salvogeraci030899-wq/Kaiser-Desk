@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 17:04 UTC · in esecuzione da 3.1 giorni · 313 run
+Aggiornato: 2026-11-22 17:09 UTC · in esecuzione da 3.1 giorni · 313 run
 
 | | |
 |---|---|
-| Equity | **3.9557 SOL** (-34.1% dal capitale iniziale di 6 SOL) |
-| Cassa | 3.8779 SOL |
-| Trade chiusi | 212 |
-| Win rate | 32% |
-| P&L realizzato | -2.0419 SOL (~$-143.45) |
+| Equity | **3.9246 SOL** (-34.6% dal capitale iniziale di 6 SOL) |
+| Cassa | 3.9246 SOL |
+| Trade chiusi | 213 |
+| Win rate | 31% |
+| P&L realizzato | -2.0754 SOL (~$-145.96) |
 | Media vincite / perdite | +38.9% / -31.9% |
 | Profit factor | 0.56 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$BTC** P-0649 · 0.079 SOL · -1.8% · resta 100% · [grafico](https://dexscreener.com/solana/5SbQSTCsg2HAThajC6k9Kxy2K4VDTRDZWXSb2uuQ1soQ)
+_nessuna_
 
 ## Test ingresso rapido (solo paper, quotazioni Jupiter)
 Ipotesi: comprare 5 secondi dopo la creazione, tenere 30 secondi, vendere. Un token su 3, 0.05 SOL a operazione. Serie 2 dal 2026-11-22 11:02 UTC.
@@ -58,12 +58,12 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | Netto medio dei presi | +69.5% (intervallo -86.7% / +225.6%) |
 | Netto medio degli scartati | n/d% |
 | Differenza presi meno scartati (limite inferiore) | n/d |
-| Senza risposta / decisi dopo 5 minuti | 15 / 0 |
+| Senza risposta / decisi dopo 5 minuti | 16 / 0 |
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| Stop loss | 57 | -1.6734 |
+| Stop loss | 58 | -1.7068 |
 | Time stop | 79 | -0.9278 |
 | TP1 | 49 | +2.0863 |
 | RUG-EXIT liquidità | 27 | -1.5271 |
@@ -71,6 +71,7 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $BTC | 64 | -41.7% | -0.0334 | +0% | -34% | Stop loss | 3m |
 | $FOAM | 71 | -6.9% | -0.0056 | +62% | +62% | TP1 | 1m |
 | $OMGAI | 75 | +11.9% | +0.0095 | +4% | +4% | Time stop | 5m |
 | $poorcat | 63 | +12.4% | +0.0099 | +42% | -8% | Time stop | 8m |
@@ -95,10 +96,24 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | $casual | 63 | +52.2% | +0.0416 | +61% | +61% | TP1 | 8m |
 | $TC | 65 | -8.5% | -0.0068 | +15% | +5% | Time stop | 6m |
 | $FIREBALL | 68 | -54.2% | -0.0438 | +0% | -34% | Stop loss | 4m |
-| $AMAZON | 69 | -58.8% | -0.0481 | +53% | -34% | Stop loss | 10m |
 
 ## Ultimi eventi
 ```
+17:09:36 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 264 veto
+17:09:13 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 262 veto
+17:08:50 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 263 veto
+17:08:27 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 266 veto
+17:08:05 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 263 veto
+17:07:41 SCRIBE   chiuso P-0649 $BTC -0.0334 SOL (-41.7%)
+17:07:41 CHARON   Stop loss $BTC vendo 100% a -33.8% -> 0.0467 SOL
+17:07:41 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 263 veto
+17:07:17 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 266 veto
+17:06:55 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 259 veto
+17:06:32 ORACLE   360 raccolti, 280 analizzati, 3 BUY, 271 veto
+17:06:08 ORACLE   360 raccolti, 272 analizzati, 3 BUY, 264 veto
+17:05:45 ORACLE   360 raccolti, 271 analizzati, 4 BUY, 263 veto
+17:05:21 ORACLE   360 raccolti, 281 analizzati, 4 BUY, 272 veto
+17:04:58 ORACLE   360 raccolti, 284 analizzati, 3 BUY, 274 veto
 17:04:35 QUARTER  BUY $BTC 0.079 SOL score 64 impatto 0.80% (Jupiter)
 17:04:34 QUARTER  SEGNALE $BTC score 64 (semi-automatico)
 17:04:34 ORACLE   360 raccolti, 272 analizzati, 3 BUY, 262 veto
@@ -124,23 +139,6 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 16:57:28 ORACLE   309 raccolti, 225 analizzati, 2 BUY, 213 veto
 16:57:05 ORACLE   297 raccolti, 222 analizzati, 3 BUY, 211 veto
 16:56:43 ORACLE   286 raccolti, 221 analizzati, 3 BUY, 211 veto
-16:56:20 ORACLE   260 raccolti, 190 analizzati, 3 BUY, 183 veto
-16:55:58 ORACLE   250 raccolti, 181 analizzati, 3 BUY, 174 veto
-16:55:35 ORACLE   244 raccolti, 175 analizzati, 3 BUY, 169 veto
-16:55:29 SCOUT    rug: 11682 token oltre 7.5K, 35.7% rug, 10817 con possessori
-combinazioni: 6672 prove, migliore -4.12%, p 1
-fabbrica: 32603 percorsi, 768 configurazioni, 0 passano, 6287 ms
-16:55:22 SCRIBE   chiuso P-0648 $FOAM -0.0056 SOL (-6.9%)
-16:55:22 CHARON   TP1 $FOAM vendo 100% a 62.2% -> 0.0747 SOL
-16:55:12 ORACLE   216 raccolti, 155 analizzati, 3 BUY, 151 veto
-16:54:50 QUARTER  BUY $FOAM 0.079 SOL score 71 impatto 1.04% (Jupiter)
-16:54:50 ORACLE   206 raccolti, 143 analizzati, 3 BUY, 137 veto
-16:54:34 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-16:54:28 QUARTER  $FOAM impatto 2.6% oltre slippage: annullato
-16:54:28 ORACLE   205 raccolti, 134 analizzati, 3 BUY, 129 veto
-16:54:27 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
-16:54:25 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120, semiAuto spento→avvisi e paper
-16:54:25 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
