@@ -94,7 +94,7 @@ function humanTrades(journal, o) {
 // Uscite proprie dei Prendo in fascia alta (le stesse per il controllo sugli Scarto). Il tempo massimo vale sempre: dopo timeStopMin la prima meta' esce comunque.
 function bandExits(S) {
   const D = E.DEFAULTS, g = (k) => (Number.isFinite(Number(S[k])) ? Number(S[k]) : D[k]);
-  return { sl: g('humanBandSl'), tp1: g('humanBandTp'), tp1Sell: g('humanBandTpSell'), trail: g('humanBandTrail'), beAfterTp1: true, timeStopMin: g('humanBandHoldMin'), timeStopMinPnl: 1e9 };
+  return { sl: g('humanBandSl'), tp1: g('humanBandTp'), tp1Sell: g('humanBandTpSell'), trail: g('humanBandTrail'), beAfterTp1: true, timeStopMin: g('humanBandHoldMin'), timeStopMinPnl: 1e9, sellPressure: false };
 }
 // Controllo equo: uno Scarto si simula come se fosse stato preso, con le stesse uscite e gli stessi costi (stimati dalla liquidita', non dalla quotazione).
 // Prezzo di partenza: quello del segnale corretto con la variazione vista al momento della decisione.
@@ -103,14 +103,14 @@ function shadowOpen(a, S, now, sizeSol, usd) {
   if (a.sh || !(a.priceNative > 0)) return false;
   const px = a.priceNative * (1 + (a.vp || 0) / 100), liq = Number(a.liq) || 0, imp = E.estImpact(sizeSol * usd, liq);
   const e = E.entryPrice(px, imp, S.feePct);
-  a.sh = { e, peak: e, t0: now, tp1: false, rem: 1, got: 0, liq, size: sizeSol, usd, done: false };
+  a.sh = { e, peak: e, t0: now, tp1: false, rem: 1, got: 0, liq, size: sizeSol, usd, done: false, xs: bandExits(S) };      // le uscite restano quelle di partenza anche se i parametri cambiano
   return true;
 }
 // m = { priceNative, liq, br5, tx5 } letti ora; restituisce l'uscita decisa oppure null
 function shadowStep(a, m, S, now) {
   const s = a.sh; if (!s || s.done || !m || !(m.priceNative > 0)) return null;
   if (m.priceNative > s.peak) s.peak = m.priceNative;
-  let act = E.charon({ entry: s.e, peak: s.peak, openedAt: s.t0, tp1Done: s.tp1, entryLiq: s.liq, xs: bandExits(S) }, m, S, now);
+  let act = E.charon({ entry: s.e, peak: s.peak, openedAt: s.t0, tp1Done: s.tp1, entryLiq: s.liq, xs: s.xs || bandExits(S) }, m, S, now);
   if (!act && now - s.t0 > SHADOW_MAX_H * 3600000) act = { frac: 1, reason: 'Limite di tempo' };
   if (!act) return null;
   const frac = Math.min(1, act.frac), tokens = s.size / s.e * s.rem * frac, imp = E.estImpact(tokens * m.priceNative * s.usd, m.liq);

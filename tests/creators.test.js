@@ -83,7 +83,9 @@ test('controllo equo: lo Scarto si simula con le stesse uscite dei Prendo (stop,
   const d = mk(); Semi.shadowOpen(d, S, T, 0.2, 100); assert.equal(Semi.shadowStep(d, { priceNative: 0.001, liq: 40000, br5: 1, tx5: 5 }, S, T + 1000).reason, 'RUG-EXIT liquidità', 'il crollo della liquidita\' vale anche nel controllo');
   const j = [{ src: 'umano', band: '500K-1M', pct: 30 }, { src: 'umano', band: '500K-1M', pct: -20 }, { src: 'bot', pct: -5 }];
   const cs = Semi.controlStats(j, [a, b, c, d, { id: 'x' }]); assert.equal(cs.y, 2); assert.equal(cs.n, 4); assert.equal(cs.open, 0); assert.ok(cs.nMean != null && cs.diff != null);
-  assert.deepEqual(Semi.bandExits({}), { sl: 20, tp1: 100, tp1Sell: 50, trail: 25, beAfterTp1: true, timeStopMin: 360, timeStopMinPnl: 1e9 }, 'le uscite di base');
+  assert.deepEqual(Semi.bandExits({}), { sl: 20, tp1: 100, tp1Sell: 50, trail: 25, beAfterTp1: true, timeStopMin: 360, timeStopMinPnl: 1e9, sellPressure: false }, 'le uscite di base');
+  const f = mk(); Semi.shadowOpen(f, S, T, 0.2, 100); const S2 = { ...S, humanBandSl: 5 }; assert.equal(Semi.shadowStep(f, m(0.00092), S2, T + 1000), null, 'parametri cambiati dopo l\'apertura: lo Scarto simulato tiene le uscite di partenza (stop -20%)');
+  const g2 = mk(); Semi.shadowOpen(g2, S, T, 0.2, 100); assert.equal(Semi.shadowStep(g2, { priceNative: 0.0012, liq: 100000, br5: 0.1, tx5: 50 }, S, T + 1000), null, 'la pressione di vendita non fa uscire a meta\': le uscite sono quelle della prova');
 });
 
 test('runner e app: il controllo si aggiorna a ogni scansione; la vista per l\'app porta fascia, creatore e decisione', () => {
