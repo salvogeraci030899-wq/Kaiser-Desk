@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 07:57 UTC · in esecuzione da 2.7 giorni · 302 run
+Aggiornato: 2026-11-22 08:02 UTC · in esecuzione da 2.7 giorni · 302 run
 
 | | |
 |---|---|
-| Equity | **3.9484 SOL** (-34.2% dal capitale iniziale di 6 SOL) |
-| Cassa | 3.8625 SOL |
-| Trade chiusi | 189 |
-| Win rate | 30% |
-| P&L realizzato | -2.0576 SOL (~$-142.14) |
-| Media vincite / perdite | +41.1% / -32.6% |
+| Equity | **3.9356 SOL** (-34.4% dal capitale iniziale di 6 SOL) |
+| Cassa | 3.9356 SOL |
+| Trade chiusi | 190 |
+| Win rate | 29% |
+| P&L realizzato | -2.0644 SOL (~$-142.57) |
+| Media vincite / perdite | +41.1% / -32.5% |
 | Profit factor | 0.53 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$TC** P-0626 · 0.079 SOL · +9.0% · resta 100% · [grafico](https://dexscreener.com/solana/8Qr1Jzso2U2U9E67TXSK3mQXDDYnyPdXTVQKeMNSR64E)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 54 | -1.5839 |
-| Time stop | 67 | -0.8703 |
+| Time stop | 68 | -0.8771 |
 | TP1 | 42 | +1.8827 |
 | RUG-EXIT liquidità | 26 | -1.4861 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $TC | 65 | -8.5% | -0.0068 | +15% | +5% | Time stop | 6m |
 | $FIREBALL | 68 | -54.2% | -0.0438 | +0% | -34% | Stop loss | 4m |
 | $AMAZON | 69 | -58.8% | -0.0481 | +53% | -34% | Stop loss | 10m |
 | $CI | 72 | -36.2% | -0.0298 | +8% | -31% | Stop loss | 3m |
@@ -51,10 +52,24 @@ Aggiornato: 2026-11-22 07:57 UTC · in esecuzione da 2.7 giorni · 302 run
 | $BOOBILLIONS | 93 | -30.6% | -0.0263 | +0% | -42% | Stop loss | 1m |
 | $time | 75 | +28.9% | +0.0247 | +74% | +74% | TP1 | 17m |
 | $MANEKI | 90 | +7.8% | +0.0067 | +96% | +96% | TP1 | 10m |
-| $KAREN | 80 | -35.5% | -0.0306 | +0% | -40% | Stop loss | 4m |
 
 ## Ultimi eventi
 ```
+08:02:07 ORACLE   360 raccolti, 287 analizzati, 0 BUY, 273 veto
+08:01:44 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 269 veto
+08:01:20 ORACLE   360 raccolti, 286 analizzati, 1 BUY, 273 veto
+08:00:56 ORACLE   360 raccolti, 285 analizzati, 2 BUY, 269 veto
+08:00:33 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 270 veto
+08:00:09 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 270 veto
+07:59:45 ORACLE   360 raccolti, 286 analizzati, 1 BUY, 272 veto
+07:59:21 ORACLE   360 raccolti, 285 analizzati, 0 BUY, 270 veto
+07:58:57 ORACLE   360 raccolti, 288 analizzati, 0 BUY, 273 veto
+07:58:34 ORACLE   360 raccolti, 287 analizzati, 0 BUY, 273 veto
+07:58:10 SCRIBE   chiuso P-0626 $TC -0.0068 SOL (-8.5%)
+07:58:10 CHARON   Time stop $TC vendo 100% a 4.6% -> 0.0731 SOL
+07:58:10 ORACLE   360 raccolti, 283 analizzati, 0 BUY, 269 veto
+07:57:46 ORACLE   360 raccolti, 285 analizzati, 0 BUY, 270 veto
+07:57:22 ORACLE   360 raccolti, 286 analizzati, 0 BUY, 272 veto
 07:56:58 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 267 veto
 07:56:34 ORACLE   360 raccolti, 287 analizzati, 1 BUY, 274 veto
 07:56:11 ORACLE   360 raccolti, 284 analizzati, 0 BUY, 271 veto
@@ -80,21 +95,6 @@ Aggiornato: 2026-11-22 07:57 UTC · in esecuzione da 2.7 giorni · 302 run
 07:48:41 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 269 veto
 07:48:17 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 268 veto
 07:47:54 ORACLE   351 raccolti, 274 analizzati, 0 BUY, 263 veto
-07:47:31 ORACLE   345 raccolti, 265 analizzati, 0 BUY, 254 veto
-07:47:27 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)
-07:47:07 ORACLE   326 raccolti, 256 analizzati, 0 BUY, 247 veto
-07:46:43 ORACLE   316 raccolti, 250 analizzati, 0 BUY, 241 veto
-07:46:20 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-07:46:20 ORACLE   313 raccolti, 238 analizzati, 0 BUY, 229 veto
-07:45:57 ORACLE   293 raccolti, 226 analizzati, 0 BUY, 219 veto
-07:45:33 ORACLE   285 raccolti, 214 analizzati, 0 BUY, 209 veto
-07:45:11 ORACLE   283 raccolti, 213 analizzati, 0 BUY, 209 veto
-07:44:49 ORACLE   258 raccolti, 198 analizzati, 0 BUY, 194 veto
-07:44:27 ORACLE   256 raccolti, 195 analizzati, 0 BUY, 190 veto
-07:44:05 ORACLE   256 raccolti, 195 analizzati, 0 BUY, 190 veto
-07:43:43 ORACLE   238 raccolti, 178 analizzati, 1 BUY, 173 veto
-07:43:20 ORACLE   228 raccolti, 173 analizzati, 1 BUY, 169 veto
-07:43:08 SCRIBE   chiuso P-0625 $FIREBALL -0.0438 SOL (-54.2%)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
