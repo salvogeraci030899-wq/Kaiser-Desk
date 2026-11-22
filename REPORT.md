@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 22:30 UTC · in esecuzione da 0.0 giorni · 319 run
+Aggiornato: 2026-11-22 22:35 UTC · in esecuzione da 0.0 giorni · 320 run
 
 | | |
 |---|---|
@@ -47,23 +47,22 @@ Regola decisa in anticipo: orizzonte 300 s (gli altri sono solo descrittivi), al
 | Impatto di prezzo in acquisto (mediana) / ritardo del lettore (mediana) | 6.53% / 7.8 s |
 | Curve completate viste / acquistate / senza rotta / coda piena / interrotte | 4 / 4 / 0 / 0 / 0 |
 
-## Uomo e macchina: le Coin che prendi contro quelle del bot
-Il radar sceglie e tu decidi (Prendo o Scarto) senza vedere il punteggio del bot. Con Prendo il paper apre subito la posizione con i parametri impostati e la chiude da solo: il rendimento e' netto di impatto, commissioni e priority fee.
-Regola decisa in anticipo: almeno 50 trade tuoi chiusi, netto medio >= +3% con limite inferiore del 95% sopra zero.
+## Le tue decisioni: prese e scartate
+Il paper e' il registro di cio' che decidi sugli avvisi di Telegram. Con Prendo si apre subito una posizione paper con le uscite impostate (netto di impatto, commissioni e priority fee); con Scarto si simula la stessa uscita con costi stimati dalla liquidita', per vedere cosa avresti ottenuto. Non c'e' nessun bot a parte.
+Regola decisa in anticipo, sui tuoi Prendo chiusi: almeno 50, netto medio >= +3% con limite inferiore del 95% sopra zero. Il confronto con gli Scarto e' solo descrittivo.
 
 | | |
 |---|---|
 | Esito | **in corso** |
-| Trade tuoi chiusi / trade del bot chiusi | 0 / 0 |
-| Netto medio dei tuoi trade | n/d |
-| Netto medio dei trade del bot | n/d% |
-| Differenza tuoi meno bot (limite inferiore) | n/d |
-| Scartati: variazione a 5 minuti dalla decisione, meno 5% di costo (solo descrittivo) | 0 segnali, n/d% |
-| Segnali senza risposta / decisi dopo 5 minuti | 8 / 0 |
+| Prendo chiusi | 0 di 50 |
+| Scarto simulati chiusi | 0; ancora aperti 0 |
+| Prendo meno Scarto (limite inferiore) | n/d |
+| Avvisi senza risposta | 8 |
 
 ## Coin di fascia alta e ricerca sui creatori
 Il Radar guarda le Coin da 500000 dollari di market cap in su. Per ognuna si risale al creatore e si registra la market cap: una Coin e' «raddoppiata» se supera il doppio della prima lettura in fascia. Il profilo del creatore compare nell'avviso.
-Memoria: 97395 lanci noti, 19272 creatori; 4 Coin in fascia alta viste (4 creatori), 0 raddoppiate (0 creatori). Creatore trovato: tabella 305, richiesta esterna 0, sconosciuto 1266.
+Memoria: 97538 lanci noti, 19291 creatori; 5 Coin in fascia alta viste (5 creatori), 0 raddoppiate (0 creatori). Creatore trovato: tabella 45, richiesta esterna 0, sconosciuto 0.
+Richieste esterne per il creatore: nessuna ancora.
 
 | Fascia | Avvisi | Prendo / Scarto | Tuoi trade chiusi | Netto medio |
 |---|---|---|---|---|
@@ -71,8 +70,7 @@ Memoria: 97395 lanci noti, 19272 creatori; 4 Coin in fascia alta viste (4 creato
 | 1M-2M | 1 | 0 / 0 | 0 | n/d |
 | 2M+ | 5 | 0 / 0 | 0 | n/d |
 
-Controllo equo: gli Scarto si simulano come se fossero stati presi, con le stesse uscite e costi stimati dalla liquidita'. Scartati simulati chiusi: 0; ancora aperti: 0. Tuoi Prendo meno Scarto simulati: n/d. Solo descrittivo: non entra nella regola di superamento.
-Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, per giorno: 11-22: 17 / 15.
+Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, per giorno: 11-22: 20 / 17.
 
 ## Uscite per motivo
 _ancora nessuna_
@@ -82,6 +80,26 @@ _ancora nessuno_
 
 ## Ultimi eventi
 ```
+22:35:29 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 264 veto
+22:35:06 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 262 veto
+22:34:44 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 260 veto
+22:34:22 ORACLE   353 raccolti, 260 analizzati, 2 BUY, 257 veto
+22:34:00 ORACLE   344 raccolti, 245 analizzati, 2 BUY, 242 veto
+22:33:39 ORACLE   340 raccolti, 245 analizzati, 1 BUY, 242 veto
+22:33:17 ORACLE   311 raccolti, 231 analizzati, 1 BUY, 228 veto
+22:32:55 ORACLE   300 raccolti, 215 analizzati, 1 BUY, 212 veto
+22:32:33 ORACLE   293 raccolti, 211 analizzati, 1 BUY, 208 veto
+22:32:11 ORACLE   263 raccolti, 187 analizzati, 1 BUY, 184 veto
+22:31:49 ORACLE   251 raccolti, 170 analizzati, 1 BUY, 167 veto
+22:31:28 ORACLE   247 raccolti, 162 analizzati, 1 BUY, 159 veto
+22:31:06 ORACLE   211 raccolti, 148 analizzati, 1 BUY, 145 veto
+22:30:44 ORACLE   202 raccolti, 133 analizzati, 1 BUY, 130 veto
+22:30:23 ORACLE   197 raccolti, 130 analizzati, 2 BUY, 127 veto
+22:30:21 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 40000→50000, minAgeMin 5→1, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 50000000→2000000, gmgnInterval 1h→1m, maxAgeH 720→72, minTxH1 40→50, entryGapSec 60→120, semiAuto spento→avvisi e paper
+22:30:21 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
+22:30:21 KAISER   run #320 · 0 posizioni · equity 6.0000 SOL · GMGN spenta (nessuna chiave) · Grok off
+22:30:20 CREATORI memoria: 97395 lanci, 19272 creatori, 4 Coin in fascia alta
+22:30:20 KAISER   reset: vecchio conto Strategia azzerato (i dati grezzi del Laboratorio si eliminano da soli dopo 7 giorni)
 22:30:08 SCRIBE   fine run · trade 0 · win 0% · P&L 0.0000 SOL · equity 6.0000 SOL
 22:29:54 ORACLE   360 raccolti, 276 analizzati, 4 BUY, 260 veto
 22:29:51 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
@@ -102,26 +120,6 @@ _ancora nessuno_
 22:26:59 ORACLE   360 raccolti, 257 analizzati, 4 BUY, 242 veto
 22:26:56 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
 22:26:36 ORACLE   360 raccolti, 255 analizzati, 4 BUY, 240 veto
-22:26:33 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
-22:26:12 ORACLE   360 raccolti, 263 analizzati, 4 BUY, 248 veto
-22:26:08 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
-22:25:48 ORACLE   360 raccolti, 265 analizzati, 4 BUY, 250 veto
-22:25:45 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
-22:25:25 ORACLE   360 raccolti, 264 analizzati, 3 BUY, 249 veto
-22:25:21 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
-22:25:01 ORACLE   360 raccolti, 259 analizzati, 4 BUY, 244 veto
-22:24:57 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
-22:24:37 ORACLE   360 raccolti, 260 analizzati, 4 BUY, 245 veto
-22:24:33 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
-22:24:13 ORACLE   360 raccolti, 259 analizzati, 4 BUY, 244 veto
-22:24:09 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
-22:23:49 ORACLE   360 raccolti, 272 analizzati, 4 BUY, 256 veto
-22:23:45 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
-22:23:35 ORACLE   360 raccolti, 275 analizzati, 3 BUY, 259 veto
-22:23:30 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
-22:23:30 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
-22:23:10 ORACLE   360 raccolti, 267 analizzati, 3 BUY, 252 veto
-22:23:06 KAISER   parametri dall'app: maxMcap 50000000→2000000, maxAgeH 720→72
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
