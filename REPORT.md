@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 19:40 UTC · in esecuzione da 3.2 giorni · 316 run
+Aggiornato: 2026-11-22 19:45 UTC · in esecuzione da 3.2 giorni · 316 run
 
 | | |
 |---|---|
-| Equity | **4.0103 SOL** (-33.2% dal capitale iniziale di 6 SOL) |
-| Cassa | 3.9216 SOL |
-| Trade chiusi | 222 |
-| Win rate | 32% |
-| P&L realizzato | -1.9974 SOL (~$-139.98) |
-| Media vincite / perdite | +40.1% / -31.4% |
+| Equity | **3.9917 SOL** (-33.5% dal capitale iniziale di 6 SOL) |
+| Cassa | 3.9917 SOL |
+| Trade chiusi | 223 |
+| Win rate | 31% |
+| P&L realizzato | -2.0083 SOL (~$-140.97) |
+| Media vincite / perdite | +40.1% / -31.2% |
 | Profit factor | 0.58 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$CHRISTMASS** P-0659 · 0.080 SOL · +10.8% · resta 100% · [grafico](https://dexscreener.com/solana/42FkVbLF9WqEY2isoXb64jPEkQALx4hREZd7CEN1hGYK)
+_nessuna_
 
 ## Test ingresso rapido (solo paper, quotazioni Jupiter)
 Ipotesi: comprare 5 secondi dopo la creazione, tenere 30 secondi, vendere. Un token su 3, 0.05 SOL a operazione. Serie 2 dal 2026-11-22 11:02 UTC.
@@ -45,7 +45,7 @@ Regola decisa in anticipo: orizzonte 300 s (gli altri sono solo descrittivi), al
 | Netto a 300 s (primario) | -38.8% (intervallo -154.4% / +76.7%), mediana -38.8%, in utile 50%, senza rotta 0 su 2 |
 | Netto a 900 s | n/d (0) |
 | Impatto di prezzo in acquisto (mediana) / ritardo del lettore (mediana) | 14.88% / 6.3 s |
-| Curve completate viste / acquistate / senza rotta / coda piena / interrotte | 2 / 2 / 0 / 0 / 0 |
+| Curve completate viste / acquistate / senza rotta / coda piena / interrotte | 3 / 3 / 0 / 0 / 0 |
 
 ## Uomo e macchina: i segnali che prendi contro quelli che scarti
 Il radar sceglie, tu decidi (Prendo o Scarto) senza vedere il punteggio del bot. Rendimento a 5 minuti dalla tua decisione, meno 5% di costo a giro (stima mediana, non una misura per ogni token).
@@ -64,13 +64,14 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 59 | -1.7213 |
-| Time stop | 84 | -0.9970 |
+| Time stop | 85 | -1.0079 |
 | TP1 | 52 | +2.2479 |
 | RUG-EXIT liquidità | 27 | -1.5271 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $CHRISTMASS | 64 | -13.5% | -0.0110 | +17% | +3% | Time stop | 13m |
 | $Nаe | 70 | -17.8% | -0.0145 | +0% | -33% | Stop loss | 2m |
 | $XMAS | 69 | -8.8% | -0.0072 | +0% | -16% | Time stop | 5m |
 | $SINGULARTY | 84 | +91.2% | +0.0730 | +83% | +83% | TP1 | 7m |
@@ -95,10 +96,25 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | $MCAT | 68 | +25.4% | +0.0200 | +96% | +96% | TP1 | 1m |
 | $airball | 64 | -46.1% | -0.0366 | +0% | -36% | Stop loss | 2m |
 | $testicles | 63 | +32.4% | +0.0255 | +68% | +68% | TP1 | 1m |
-| $HIPPO | 76 | -27.9% | -0.0221 | +11% | -31% | Stop loss | 4m |
 
 ## Ultimi eventi
 ```
+19:45:45 ORACLE   360 raccolti, 237 analizzati, 3 BUY, 229 veto
+19:45:20 ORACLE   360 raccolti, 252 analizzati, 3 BUY, 242 veto
+19:44:56 ORACLE   360 raccolti, 255 analizzati, 3 BUY, 243 veto
+19:44:33 SCRIBE   chiuso P-0659 $CHRISTMASS -0.0110 SOL (-13.5%)
+19:44:33 CHARON   Time stop $CHRISTMASS vendo 100% a 2.9% -> 0.0701 SOL
+19:44:33 ORACLE   360 raccolti, 245 analizzati, 3 BUY, 234 veto
+19:44:08 ORACLE   360 raccolti, 276 analizzati, 3 BUY, 263 veto
+19:43:44 ORACLE   360 raccolti, 278 analizzati, 3 BUY, 264 veto
+19:43:19 ORACLE   360 raccolti, 265 analizzati, 3 BUY, 252 veto
+19:42:55 ORACLE   360 raccolti, 275 analizzati, 3 BUY, 262 veto
+19:42:31 ORACLE   360 raccolti, 280 analizzati, 3 BUY, 267 veto
+19:42:07 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 257 veto
+19:41:42 ORACLE   360 raccolti, 281 analizzati, 2 BUY, 268 veto
+19:41:18 QUARTER  SEGNALE $SIGIL score 63 (semi-automatico)
+19:41:18 ORACLE   360 raccolti, 275 analizzati, 3 BUY, 261 veto
+19:40:53 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 262 veto
 19:40:39 ORACLE   360 raccolti, 282 analizzati, 2 BUY, 269 veto
 19:40:14 ORACLE   360 raccolti, 283 analizzati, 2 BUY, 270 veto
 19:39:49 ORACLE   360 raccolti, 281 analizzati, 2 BUY, 269 veto
@@ -123,22 +139,6 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 19:33:20 ORACLE   360 raccolti, 281 analizzati, 2 BUY, 269 veto
 19:32:56 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 261 veto
 19:32:32 ORACLE   360 raccolti, 274 analizzati, 2 BUY, 263 veto
-19:32:07 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 265 veto
-19:31:42 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 259 veto
-19:31:18 QUARTER  BUY $CHRISTMASS 0.080 SOL score 64 impatto 0.96% (Jupiter)
-19:31:18 QUARTER  SEGNALE $CHRISTMASS score 64 (semi-automatico)
-19:31:18 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 246 veto
-19:30:53 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 254 veto
-19:30:30 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 251 veto
-19:30:05 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 249 veto
-19:29:40 ORACLE   335 raccolti, 249 analizzati, 0 BUY, 234 veto
-19:29:16 ORACLE   326 raccolti, 235 analizzati, 0 BUY, 220 veto
-19:28:53 ORACLE   323 raccolti, 232 analizzati, 0 BUY, 217 veto
-19:28:39 SCOUT    PumpPortal invia nuovi token (21) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
-19:28:29 ORACLE   302 raccolti, 219 analizzati, 2 BUY, 205 veto
-19:28:05 ORACLE   293 raccolti, 204 analizzati, 1 BUY, 192 veto
-19:27:42 ORACLE   288 raccolti, 197 analizzati, 0 BUY, 187 veto
-19:27:18 ORACLE   258 raccolti, 182 analizzati, 0 BUY, 173 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
