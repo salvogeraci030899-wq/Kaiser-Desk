@@ -1,32 +1,33 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 01:35 UTC · in esecuzione da 2.5 giorni · 294 run
+Aggiornato: 2026-11-22 01:40 UTC · in esecuzione da 2.5 giorni · 294 run
 
 | | |
 |---|---|
-| Equity | **4.1564 SOL** (-30.7% dal capitale iniziale di 6 SOL) |
-| Cassa | 4.0714 SOL |
-| Trade chiusi | 172 |
+| Equity | **4.1605 SOL** (-30.7% dal capitale iniziale di 6 SOL) |
+| Cassa | 4.1605 SOL |
+| Trade chiusi | 173 |
 | Win rate | 30% |
-| P&L realizzato | -1.8445 SOL (~$-129.23) |
-| Media vincite / perdite | +42.2% / -32.5% |
+| P&L realizzato | -1.8395 SOL (~$-128.93) |
+| Media vincite / perdite | +41.5% / -32.5% |
 | Profit factor | 0.55 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$GRAUDIA** P-0609 · 0.083 SOL · +2.3% · resta 100% · [grafico](https://dexscreener.com/solana/BVLQ2J9mWiEEfcV6e9m6PcaHdtFNHr3JEZbH4NYvaoow)
+_nessuna_
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 47 | -1.4222 |
-| Time stop | 64 | -0.8428 |
+| Time stop | 65 | -0.8378 |
 | TP1 | 37 | +1.7962 |
 | RUG-EXIT liquidità | 24 | -1.3757 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $GRAUDIA | 88 | +5.9% | +0.0050 | +4% | +2% | Time stop | 5m |
 | $SANTAHAT | 64 | +18.6% | +0.0156 | +65% | +65% | TP1 | 2m |
 | $Tots | 76 | -83.8% | -0.0714 | +8% | -76% | RUG-EXIT liquidità | 4m |
 | $Wow | 67 | -3.6% | -0.0030 | +20% | +4% | Time stop | 14m |
@@ -51,10 +52,24 @@ Aggiornato: 2026-11-22 01:35 UTC · in esecuzione da 2.5 giorni · 294 run
 | $MARS | 75 | +2.3% | +0.0021 | +9% | +2% | Time stop | 5m |
 | $AI | 78 | -19.1% | -0.0174 | +44% | -14% | Time stop | 5m |
 | $SI | 68 | +118.9% | +0.1056 | +122% | +122% | TP1 | 3m |
-| $DODO | 67 | -63.9% | -0.0575 | +6% | -60% | RUG-EXIT liquidità | 3m |
 
 ## Ultimi eventi
 ```
+01:40:32 ORACLE   360 raccolti, 290 analizzati, 0 BUY, 286 veto
+01:40:09 ORACLE   360 raccolti, 284 analizzati, 0 BUY, 279 veto
+01:39:46 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 271 veto
+01:39:23 SCRIBE   chiuso P-0609 $GRAUDIA 0.0050 SOL (5.9%)
+01:39:23 CHARON   Time stop $GRAUDIA vendo 100% a 2.2% -> 0.0891 SOL
+01:39:23 ORACLE   360 raccolti, 287 analizzati, 1 BUY, 282 veto
+01:39:00 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 264 veto
+01:38:37 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 253 veto
+01:38:14 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 271 veto
+01:37:52 ORACLE   360 raccolti, 288 analizzati, 1 BUY, 279 veto
+01:37:29 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 263 veto
+01:37:05 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 270 veto
+01:36:42 ORACLE   360 raccolti, 288 analizzati, 1 BUY, 278 veto
+01:36:18 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 270 veto
+01:35:55 ORACLE   360 raccolti, 287 analizzati, 1 BUY, 277 veto
 01:35:31 ORACLE   360 raccolti, 289 analizzati, 1 BUY, 276 veto
 01:35:06 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 267 veto
 01:34:42 ORACLE   360 raccolti, 289 analizzati, 1 BUY, 277 veto
@@ -80,21 +95,6 @@ Aggiornato: 2026-11-22 01:35 UTC · in esecuzione da 2.5 giorni · 294 run
 01:27:20 ORACLE   360 raccolti, 282 analizzati, 0 BUY, 274 veto
 01:26:57 ORACLE   360 raccolti, 281 analizzati, 0 BUY, 272 veto
 01:26:34 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 273 veto
-01:26:11 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 272 veto
-01:25:48 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 264 veto
-01:25:25 ORACLE   360 raccolti, 283 analizzati, 0 BUY, 277 veto
-01:25:03 ORACLE   360 raccolti, 281 analizzati, 0 BUY, 275 veto
-01:24:40 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 274 veto
-01:24:37 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
-01:24:17 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 273 veto
-01:24:03 SCRIBE   chiuso P-0608 $SANTAHAT 0.0156 SOL (18.6%)
-01:24:03 CHARON   TP1 $SANTAHAT vendo 100% a 64.9% -> 0.0994 SOL
-01:23:53 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 263 veto
-01:23:30 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 255 veto
-01:23:07 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 261 veto
-01:22:43 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 270 veto
-01:22:20 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 258 veto
-01:21:56 QUARTER  BUY $SANTAHAT 0.083 SOL score 64 impatto 1.88% (Jupiter)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
