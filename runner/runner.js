@@ -881,6 +881,14 @@ function maybeProbe() {
     .then((rep) => { rt.probe = rep; rt.probeDone = true; try { fs.writeFileSync(path.join(STATE_DIR, 'probe.json'), JSON.stringify(rep)); } catch { /* niente */ } log('SCOUT', `sonda scambi: PumpPortal ${(rep.portal && rep.portal.tracked) || 0} scambi, programma RPC ${(rep.program && rep.program.events) || 0} eventi, curve RPC ${(rep.curves && rep.curves.events) || 0}`); })
     .catch((e) => log('SCOUT', 'sonda scambi non riuscita: ' + String(e.message).split('\n')[0])).finally(() => { rt.probeBusy = false; });
 }
+// Solo uomo: revisione dopo 7 giorni (una volta) e verdetto quando i tuoi trade chiusi raggiungono la soglia (una volta)
+async function humanChecks() {
+  if (!S.humanOnly) return;
+  st.humanSince = st.humanSince || Date.now();
+  if (!st.humanReviewed && Date.now() - st.humanSince >= Semi.REVIEW.days * 86400000) { st.humanReviewed = Date.now(); await tg(Semi.reviewText(Semi.reviewOf({ alerts: st.alerts || [], journal: st.journal, cr: rt.creators ? rt.creators.summary() : null, since: st.humanSince })), Kb.kb({ app: true })); }
+  const t = Semi.humanTrades(st.journal || []);
+  if (t.verdict !== 'in corso' && !st.humanNotified) { st.humanNotified = Date.now(); await tg(`<b>KAISER</b> uomo e macchina: <b>${t.verdict}</b>\n${t.n} tuoi trade chiusi, netto medio ${t.mean}% (intervallo ${t.lo}% / ${t.hi}%)\nIl dettaglio e' nel report. Il reale resta spento.`, Kb.kb({ app: true })); }
+}
 // Quando il test di ingresso rapido arriva a un verdetto lo si comunica una volta sola per serie
 async function snipeVerdict() {
   if (!rt.snipe) return;
@@ -931,7 +939,7 @@ async function main() {
     if (rt.trades) rt.trades.tick();
     if (end - Date.now() < 75000) rt.snipe.stop();
     if (end - Date.now() < rt.grad.cfg.spanMs + 120000) rt.grad.stop();          // una raccolta dura 15 minuti: niente nuovi ingressi quando non ci sarebbe il tempo di finirla
-    gradVerdict().catch(() => {});                // niente nuove entrate negli ultimi 75 s: le posizioni del test si chiudono prima della fine del run
+    gradVerdict().catch(() => {}); humanChecks().catch(() => {});                // niente nuove entrate negli ultimi 75 s: le posizioni del test si chiudono prima della fine del run
     snipeVerdict().catch(() => {});
     if (!S.humanOnly) { shadowTick(); maybeFarm(); maybeProbe(); pumpHolders(); pumpLabQueries(); pumpGrok(); pumpSocial(); }      // solo uomo: niente Laboratorio, strategie, Grok e social
     save();
@@ -949,7 +957,8 @@ async function main() {
     st.lastDaily = dkey;
     const today = st.journal.filter((j) => new Date(j.closedAt + 3600000).toISOString().slice(0, 10) === dkey);
     const pd = today.reduce((a, j) => a + j.pnl, 0);
-    await tg(`<b>KAISER</b> riepilogo ${dkey}\nOggi: ${today.length} trade, ${pd >= 0 ? '+' : ''}${pd.toFixed(4)} SOL\nTotale: ${s.n} trade, win ${s.wr.toFixed(0)}%, P&L ${s.pnl.toFixed(4)} SOL\nEquity ${equity().toFixed(4)} SOL${strategyDaily()}`, Kb.kb({ app: true }));
+    if (S.humanOnly) await tg(Semi.digestText({ alerts: st.alerts || [], journal: st.journal, positions: st.positions, bandDays: st.bandDays, cr: rt.creators ? rt.creators.summary() : null }), Kb.kb({ app: true }));
+    else await tg(`<b>KAISER</b> riepilogo ${dkey}\nOggi: ${today.length} trade, ${pd >= 0 ? '+' : ''}${pd.toFixed(4)} SOL\nTotale: ${s.n} trade, win ${s.wr.toFixed(0)}%, P&L ${s.pnl.toFixed(4)} SOL\nEquity ${equity().toFixed(4)} SOL${strategyDaily()}`, Kb.kb({ app: true }));
   }
   if (rt.feed) rt.feed.stop();
   if (rt.trades) rt.trades.stop();
