@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 20:06 UTC · in esecuzione da 3.2 giorni · 316 run
+Aggiornato: 2026-11-22 20:20 UTC · in esecuzione da 3.3 giorni · 317 run
 
 | | |
 |---|---|
-| Equity | **3.9827 SOL** (-33.6% dal capitale iniziale di 6 SOL) |
-| Cassa | 3.9827 SOL |
-| Trade chiusi | 224 |
+| Equity | **3.9038 SOL** (-34.9% dal capitale iniziale di 6 SOL) |
+| Cassa | 3.9038 SOL |
+| Trade chiusi | 225 |
 | Win rate | 31% |
-| P&L realizzato | -2.0173 SOL (~$-141.29) |
-| Media vincite / perdite | +40.1% / -31.1% |
-| Profit factor | 0.58 |
+| P&L realizzato | -2.0962 SOL (~$-146.56) |
+| Media vincite / perdite | +40.1% / -31.5% |
+| Profit factor | 0.57 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -66,11 +66,12 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | Stop loss | 59 | -1.7213 |
 | Time stop | 86 | -1.0169 |
 | TP1 | 52 | +2.2479 |
-| RUG-EXIT liquidità | 27 | -1.5271 |
+| RUG-EXIT liquidità | 28 | -1.6059 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $FSDV15 | 88 | -97.8% | -0.0789 | +0% | -97% | RUG-EXIT liquidità | 1m |
 | $Monkey | 67 | -11.1% | -0.0090 | +9% | -29% | Time stop | 5m |
 | $CHRISTMASS | 64 | -13.5% | -0.0110 | +17% | +3% | Time stop | 13m |
 | $Nаe | 70 | -17.8% | -0.0145 | +0% | -33% | Stop loss | 2m |
@@ -95,10 +96,38 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | $MOG | 66 | -15.7% | -0.0124 | +15% | +2% | Time stop | 5m |
 | $SI | 70 | -11.4% | -0.0090 | +24% | +3% | Time stop | 5m |
 | $MCAT | 68 | +25.4% | +0.0200 | +96% | +96% | TP1 | 1m |
-| $airball | 64 | -46.1% | -0.0366 | +0% | -36% | Stop loss | 2m |
 
 ## Ultimi eventi
 ```
+20:20:35 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 263 veto
+20:20:11 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 254 veto
+20:19:47 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 271 veto
+20:19:23 SCRIBE   chiuso P-0661 $FSDV15 -0.0789 SOL (-97.8%)
+20:19:23 CHARON   RUG-EXIT liquidità $FSDV15 vendo 100% a -97.1% -> 0.0018 SOL
+20:19:23 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 266 veto
+20:18:59 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 251 veto
+20:18:46 QUARTER  BUY $FSDV15 0.080 SOL score 88 impatto 0.95% (Jupiter)
+20:18:45 QUARTER  SEGNALE $FSDV15 score 88 (semi-automatico)
+20:18:45 ORACLE   337 raccolti, 247 analizzati, 1 BUY, 238 veto
+20:18:21 ORACLE   315 raccolti, 233 analizzati, 0 BUY, 223 veto
+20:18:07 SCOUT    PumpPortal invia nuovi token (21) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
+20:17:57 ORACLE   304 raccolti, 230 analizzati, 0 BUY, 223 veto
+20:17:34 ORACLE   277 raccolti, 209 analizzati, 0 BUY, 202 veto
+20:17:10 ORACLE   261 raccolti, 191 analizzati, 0 BUY, 184 veto
+20:16:48 ORACLE   258 raccolti, 188 analizzati, 0 BUY, 181 veto
+20:16:24 ORACLE   226 raccolti, 167 analizzati, 0 BUY, 163 veto
+20:16:08 SCOUT    rug: 11622 token oltre 7.5K, 35.5% rug, 11235 con possessori
+combinazioni: 7248 prove, migliore -4.45%, p 1
+fabbrica: 32556 percorsi, 768 configurazioni, 0 passano, 5000 ms
+20:16:01 ORACLE   212 raccolti, 140 analizzati, 0 BUY, 136 veto
+20:15:41 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
+20:15:39 ORACLE   207 raccolti, 140 analizzati, 0 BUY, 136 veto
+20:15:38 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
+20:15:37 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
+20:15:37 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120, semiAuto spento→avvisi e paper
+20:15:37 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
+20:15:37 SCOUT    Laboratorio: collegato a PumpPortal
+20:15:36 KAISER   run #317 · 0 posizioni · equity 3.9827 SOL · GMGN spenta (nessuna chiave) · Grok off
 20:06:14 ORACLE   360 raccolti, 291 analizzati, 1 BUY, 286 veto
 20:05:51 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 275 veto
 20:05:28 ORACLE   360 raccolti, 293 analizzati, 2 BUY, 286 veto
@@ -112,33 +141,6 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 20:02:24 ORACLE   360 raccolti, 287 analizzati, 2 BUY, 277 veto
 20:02:00 ORACLE   360 raccolti, 287 analizzati, 1 BUY, 276 veto
 20:01:35 ORACLE   360 raccolti, 286 analizzati, 1 BUY, 276 veto
-20:01:11 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 265 veto
-20:00:46 ORACLE   360 raccolti, 292 analizzati, 1 BUY, 284 veto
-20:00:32 ORACLE   360 raccolti, 293 analizzati, 1 BUY, 285 veto
-20:00:06 ORACLE   360 raccolti, 288 analizzati, 1 BUY, 281 veto
-19:59:41 ORACLE   360 raccolti, 292 analizzati, 1 BUY, 286 veto
-19:59:17 ORACLE   360 raccolti, 296 analizzati, 2 BUY, 290 veto
-19:58:54 ORACLE   360 raccolti, 293 analizzati, 2 BUY, 285 veto
-19:58:30 ORACLE   360 raccolti, 297 analizzati, 3 BUY, 288 veto
-19:58:06 ORACLE   360 raccolti, 296 analizzati, 2 BUY, 288 veto
-19:57:42 ORACLE   360 raccolti, 282 analizzati, 2 BUY, 276 veto
-19:57:18 ORACLE   360 raccolti, 292 analizzati, 3 BUY, 288 veto
-19:56:55 ORACLE   360 raccolti, 292 analizzati, 3 BUY, 287 veto
-19:56:32 ORACLE   360 raccolti, 289 analizzati, 3 BUY, 282 veto
-19:56:07 ORACLE   360 raccolti, 291 analizzati, 2 BUY, 287 veto
-19:55:44 ORACLE   360 raccolti, 291 analizzati, 1 BUY, 288 veto
-19:55:21 ORACLE   360 raccolti, 286 analizzati, 1 BUY, 282 veto
-19:54:58 QUARTER  SEGNALE $FSDV15 score 77 (semi-automatico)
-19:54:57 SCRIBE   chiuso P-0660 $Monkey -0.0090 SOL (-11.1%)
-19:54:57 CHARON   Time stop $Monkey vendo 100% a -28.7% -> 0.0718 SOL
-19:54:57 ORACLE   360 raccolti, 291 analizzati, 2 BUY, 285 veto
-19:54:34 ORACLE   360 raccolti, 292 analizzati, 1 BUY, 287 veto
-19:54:11 ORACLE   360 raccolti, 287 analizzati, 1 BUY, 279 veto
-19:53:46 ORACLE   360 raccolti, 288 analizzati, 1 BUY, 280 veto
-19:53:23 ORACLE   360 raccolti, 291 analizzati, 1 BUY, 281 veto
-19:52:59 ORACLE   360 raccolti, 286 analizzati, 1 BUY, 276 veto
-19:52:34 ORACLE   360 raccolti, 290 analizzati, 1 BUY, 278 veto
-19:52:10 ORACLE   360 raccolti, 295 analizzati, 2 BUY, 283 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
