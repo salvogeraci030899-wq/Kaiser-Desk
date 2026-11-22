@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 11:43 UTC · in esecuzione da 2.9 giorni · 306 run
+Aggiornato: 2026-11-22 11:48 UTC · in esecuzione da 2.9 giorni · 306 run
 
 | | |
 |---|---|
-| Equity | **3.8960 SOL** (-35.1% dal capitale iniziale di 6 SOL) |
-| Cassa | 3.8960 SOL |
+| Equity | **3.9072 SOL** (-34.9% dal capitale iniziale di 6 SOL) |
+| Cassa | 3.8171 SOL |
 | Trade chiusi | 198 |
 | Win rate | 30% |
-| P&L realizzato | -2.1040 SOL (~$-148.49) |
+| P&L realizzato | -2.1040 SOL (~$-148.62) |
 | Media vincite / perdite | +39.6% / -32.4% |
 | Profit factor | 0.53 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$testicles** P-0635 · 0.078 SOL · +15.5% · resta 100% · [grafico](https://dexscreener.com/solana/9SDB5EX4vzH7mVHvWK8zRZswgL1PqCpUVvLxGbmVfdDs)
 
 ## Test ingresso rapido (solo paper, quotazioni Jupiter)
 Ipotesi: comprare 5 secondi dopo la creazione, tenere 30 secondi, vendere. Un token su 3, 0.05 SOL a operazione. Serie 2 dal 2026-11-22 11:02 UTC.
@@ -22,14 +22,14 @@ Regola decisa in anticipo: almeno 300 operazioni, netto medio >= +3% e limite in
 
 | | |
 |---|---|
-| Esito | **in corso** (240 di 300 operazioni) |
-| Netto medio per operazione | -24.1% (intervallo -33.8% / -14.5%) |
-| Mediana / operazioni in utile | -14.6% / 12.5% |
-| Quota dei guadagni dall'1% migliore | 49% |
-| Token campionati / con rotta di acquisto | 249 / 246 (98.8%) |
+| Esito | **in corso** (277 di 300 operazioni) |
+| Netto medio per operazione | -23.2% (intervallo -31.8% / -14.6%) |
+| Mediana / operazioni in utile | -11.7% / 12.6% |
+| Quota dei guadagni dall'1% migliore | 44% |
+| Token campionati / con rotta di acquisto | 285 / 283 (99.3%) |
 | Tempo per ottenere la quotazione (mediana / 90%) | 5.0 s / 5.1 s |
-| Senza rotta in acquisto / in vendita (perdita totale) | 1 / 35 |
-| Motivi dell'assenza di rotta (Jupiter) | sell:NO_ROUTES_FOUND: 35; buy:NO_ROUTES_FOUND: 1 |
+| Senza rotta in acquisto / in vendita (perdita totale) | 1 / 36 |
+| Motivi dell'assenza di rotta (Jupiter) | sell:NO_ROUTES_FOUND: 36; buy:NO_ROUTES_FOUND: 1 |
 | Vendite riuscite solo con la rotta non limitata | 0 |
 | Errori di rete (acquisto / vendita) / interrotte a fine run | 0 / 0 / 0 |
 
@@ -99,6 +99,22 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 
 ## Ultimi eventi
 ```
+11:48:32 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 238 veto
+11:48:09 QUARTER  BUY $testicles 0.078 SOL score 63 impatto 0.00% (Jupiter)
+11:48:08 QUARTER  SEGNALE $testicles score 63 (semi-automatico)
+11:48:08 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 233 veto
+11:47:44 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 237 veto
+11:47:21 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 238 veto
+11:46:57 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 229 veto
+11:46:33 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 232 veto
+11:46:09 ORACLE   360 raccolti, 234 analizzati, 0 BUY, 224 veto
+11:45:46 ORACLE   360 raccolti, 232 analizzati, 0 BUY, 222 veto
+11:45:22 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 233 veto
+11:45:10 SCOUT    Laboratorio: collegato a PumpPortal
+11:44:58 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 230 veto
+11:44:35 ORACLE   360 raccolti, 236 analizzati, 0 BUY, 228 veto
+11:44:10 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 237 veto
+11:43:48 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 236 veto
 11:43:24 ORACLE   360 raccolti, 236 analizzati, 0 BUY, 231 veto
 11:43:02 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 245 veto
 11:42:39 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 246 veto
@@ -123,22 +139,6 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 11:35:19 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 234 veto
 11:34:56 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 239 veto
 11:34:32 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 234 veto
-11:34:08 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 233 veto
-11:33:44 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 233 veto
-11:33:20 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 233 veto
-11:32:57 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 231 veto
-11:32:32 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 232 veto
-11:32:09 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 235 veto
-11:31:46 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 232 veto
-11:31:22 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 230 veto
-11:30:59 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 230 veto
-11:30:44 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 226 veto
-11:30:19 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 233 veto
-11:29:55 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 230 veto
-11:29:32 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 229 veto
-11:29:08 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 235 veto
-11:28:45 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 235 veto
-11:28:21 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 233 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
