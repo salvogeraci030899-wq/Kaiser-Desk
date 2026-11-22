@@ -130,3 +130,20 @@ test('riquadro Segnali ad altezza fissa: una riga di griglia di 76 px sempre pre
   assert.ok(!/box\.innerHTML = ''/.test(fn) && !/classList\.(add|remove)\('semi-on'\)/.test(fn) && !/return;/.test(fn.replace('if (!box) return;', '')), 'renderSemi disegna sempre il riquadro');
   assert.match(fn, /Nessun avviso ancora/);
 });
+
+test('registro delle decisioni: un\'unica lista di prese e scartate, con lo stato di ognuna; nessun bot a parte', () => {
+  const T = 1_700_000_000_000, j = [{ aid: 'a00001', pct: 25.04, pnl: 0.0512, reason: 'TP1', closedAt: T + 5000 }];
+  const pos = [{ aid: 'a00002', openedAt: T + 2000, entry: 1, last: { priceNative: 1.1 } }];
+  const al = [{ id: 'a00001', t: T, sym: 'AAA', band: '500K-1M', vote: 'y' }, { id: 'a00002', t: T + 1000, sym: 'BBB', vote: 'y' }, { id: 'a00003', t: T + 2000, sym: 'CCC', vote: 'y', vAt: T + 3000 },
+    { id: 'a00004', t: T + 3000, sym: 'DDD', vote: 'n', sh: { done: true, pct: -12.34, reason: 'Stop loss', t1: T + 9000 } }, { id: 'a00005', t: T + 4000, sym: 'EEE', vote: 'n', vAt: T + 4500, sh: { done: false } },
+    { id: 'a00006', t: T + 5000, sym: 'FFF', vote: 'n', vAt: T + 5500 }, { id: 'a00007', t: T + 6000, sym: 'GGG' }];
+  const d = Semi.decisions(al, j, pos, 10), by = Object.fromEntries(d.map((x) => [x.sym, x]));
+  assert.equal(d.length, 6, 'senza voto non e\' una decisione'); assert.deepEqual(d.map((x) => x.sym), ['DDD', 'FFF', 'AAA', 'EEE', 'CCC', 'BBB'], 'dalla piu\' recente');
+  assert.deepEqual([by.AAA.status, by.AAA.pct, by.AAA.pnl, by.AAA.reason], ['chiuso', 25, 0.0512, 'TP1']); assert.deepEqual([by.BBB.status, by.BBB.pct, by.BBB.reason], ['aperto', 10, 'in corso']);
+  assert.deepEqual([by.CCC.status, by.CCC.pct], ['non aperto', null]); assert.deepEqual([by.DDD.status, by.DDD.pct, by.DDD.pnl, by.DDD.reason, by.DDD.vote], ['chiuso', -12.3, null, 'Stop loss', 'n']);
+  assert.deepEqual([by.EEE.status, by.EEE.reason], ['aperto', 'in corso']); assert.deepEqual([by.FFF.status, by.FFF.reason], ['senza simulazione', 'senza simulazione']); assert.equal(Semi.decisions(al, j, pos, 2).length, 2);
+  const src = fs.readFileSync(require.resolve('../runner/runner.js'), 'utf8'), html = fs.readFileSync(require.resolve('../index.html'), 'utf8');
+  assert.match(src, /decisions: Semi\.decisions\(st\.alerts \|\| \[\], st\.journal, st\.positions, 60\), decisionStats: Semi\.controlStats/); assert.match(src, /aid: a\.id \|\| ''/); assert.match(src, /aid: p\.aid \|\| ''/);
+  assert.ok(!/## Le tue decisioni[\s\S]{0,2200}trade del bot/.test(src), 'il report non confronta con un bot');
+  assert.match(html, /g\.page === pg && !\(g\.off && S\(\)\.humanOnly\)/, 'impostazioni: i gruppi del bot non si mostrano'); assert.match(html, /data-jt="dec">Presi e scartati/); assert.match(html, /only \? \(dRows \|\|/); assert.match(html, /'Decisioni: prese e scartate'/);
+});

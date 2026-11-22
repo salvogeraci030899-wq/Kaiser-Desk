@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.66.0">
+<meta name="kz-build" content="2.67.0">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=4" media="(prefers-color-scheme: light)">
@@ -138,7 +138,7 @@
     <div class="vscroll jfix">
     <div class="card jcard" role="button" aria-label="Espandi i trade chiusi"><div class="jrow jhead"><span>Token</span><span>Esito</span><span>P&amp;L</span><span>Motivo</span></div><div class="jbody" id="jRows"></div></div>
     </div>
-    <div class="vfoot"><div class="seg jseg" id="jTabs"><button data-jt="mot" class="on">Motivi di uscita</button><button data-jt="age">Per età</button><button data-jt="dip">Discese</button></div><div class="card" id="jReasons"></div></div>
+    <div class="vfoot"><div class="seg jseg" id="jTabs"><button data-jt="dec">Presi e scartati</button><button data-jt="mot" class="on">Motivi di uscita</button><button data-jt="age">Per età</button><button data-jt="dip">Discese</button></div><div class="card" id="jReasons"></div></div>
   </section>
 
   <!-- LABORATORIO -->
@@ -793,12 +793,19 @@ function renderJournal() {
   const pfN = pf == null || pf === Infinity ? (J.length ? 99 : 0) : Number(pf);
   $('#jSmpL').textContent = nT < 30 ? 'Pochi trade' : nT < 100 ? 'Campione scarso' : pfN >= 1.3 && ex > 0 ? 'Esito positivo' : pfN >= 1 && ex > 0 ? 'Esito incerto' : 'Esito negativo';
   $('#jSmp').innerHTML = `<span class="${nT >= 100 ? (pfN >= 1.3 && ex > 0 ? 'up' : pfN >= 1 && ex > 0 ? 'warn' : 'down') : 'warn'}">${nT}/100</span>`;
-  $('#jRows').innerHTML = [...J].reverse().slice(0, 100).map((j) => `<div class="jrow"><span>$${esc(j.sym)}<br><span class="muted">${new Date(j.closedAt).toLocaleString('it-IT', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' })}</span></span><span class="${cls(j.pct)}">${fmtPct(j.pct, 1)}${j.trigPct != null && Math.abs(j.trigPct - j.pct) >= 1 ? `<br><span class="muted tiny" title="Il picco e' il massimo raggiunto dopo l'ingresso; il prezzo di uscita e' quello dell'ultima vendita. L'esito e' diverso perche' include le vendite parziali, le fee, l'impatto e la priority">${j.peakPct != null ? 'picco ' + fmtPct(j.peakPct, 0) + ' · ' : ''}uscita ${fmtPct(j.trigPct, 0)}</span>` : ''}</span><span class="${cls(j.pnl)}">${Number(j.pnl).toFixed(4)}</span><span class="jr">${esc(j.reason)}</span></div>`).join('') || `<div class="empty" style="padding:18px 6px">${!real && !run ? 'Dati del runner non disponibili.' : 'Nessun trade chiuso.'}</div>`;
+  const only = !real && !strat && !!S().humanOnly, D = (only && run && run.decisions) || [];       // solo uomo: l'elenco e' il registro delle decisioni (prese e scartate)
+  const dRows = D.map((d) => `<div class="jrow"><span>$${esc(d.sym)}<br><span class="muted">${new Date(d.at || d.t).toLocaleString('it-IT', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' })} · ${d.vote === 'y' ? 'preso' : 'scartato'}</span></span><span class="${cls(d.pct)}">${d.pct == null ? '—' : fmtPct(d.pct, 1)}</span><span class="${cls(d.pnl)}">${d.pnl == null ? '—' : Number(d.pnl).toFixed(4)}</span><span class="jr">${esc(d.reason)}</span></div>`).join('');
+  $('#jRows').innerHTML = only ? (dRows || '<div class="empty" style="padding:18px 6px">Nessuna decisione ancora: premi Prendo o Scarto sugli avvisi di Telegram.</div>') : [...J].reverse().slice(0, 100).map((j) => `<div class="jrow"><span>$${esc(j.sym)}<br><span class="muted">${new Date(j.closedAt).toLocaleString('it-IT', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' })}</span></span><span class="${cls(j.pct)}">${fmtPct(j.pct, 1)}${j.trigPct != null && Math.abs(j.trigPct - j.pct) >= 1 ? `<br><span class="muted tiny" title="Il picco e' il massimo raggiunto dopo l'ingresso; il prezzo di uscita e' quello dell'ultima vendita. L'esito e' diverso perche' include le vendite parziali, le fee, l'impatto e la priority">${j.peakPct != null ? 'picco ' + fmtPct(j.peakPct, 0) + ' · ' : ''}uscita ${fmtPct(j.trigPct, 0)}</span>` : ''}</span><span class="${cls(j.pnl)}">${Number(j.pnl).toFixed(4)}</span><span class="jr">${esc(j.reason)}</span></div>`).join('') || `<div class="empty" style="padding:18px 6px">${!real && !run ? 'Dati del runner non disponibili.' : 'Nessun trade chiuso.'}</div>`;
   // Riquadro in basso: motivi di uscita, risultati per età del token all'ingresso, discese prima dei profitti
-  const tab = rt.jtab && rt.jtab !== 'lab' ? rt.jtab : 'mot', kvRow = (k, v, c) => `<span>${k}</span><span class="mono ${c || ''}">${v}</span>`, none = '<span class="muted small">Dati non ancora disponibili: servono trade chiusi con la versione più recente del runner.</span>';
+  document.querySelectorAll('#jTabs button').forEach((x) => { x.hidden = x.dataset.jt === 'dec' ? !only : (only && (x.dataset.jt === 'age' || x.dataset.jt === 'dip')); });
+  const tab = only ? (rt.jtab === 'mot' ? 'mot' : 'dec') : (rt.jtab && rt.jtab !== 'lab' && rt.jtab !== 'dec' ? rt.jtab : 'mot'), kvRow = (k, v, c) => `<span>${k}</span><span class="mono ${c || ''}">${v}</span>`, none = '<span class="muted small">Dati non ancora disponibili: servono trade chiusi con la versione più recente del runner.</span>';
   document.querySelectorAll('#jTabs button').forEach((x) => x.classList.toggle('on', x.dataset.jt === tab));
   let body;
-  if (tab === 'age') {
+  if (tab === 'dec') {
+    const K = (run && run.decisionStats) || {}, pm = (v) => (v == null ? '—' : fmtPct(v, 1));
+    body = `<div class="kv">${kvRow(`Presi chiusi (${K.y || 0})`, pm(K.yMean), cls(K.yMean))}${kvRow(`Scartati simulati chiusi (${K.n || 0})`, pm(K.nMean), cls(K.nMean))}${kvRow('Presi meno scartati', pm(K.diff), cls(K.diff))}${kvRow('Scartati ancora aperti', String(K.open || 0))}</div>`
+      + '<div class="tiny muted" style="margin-top:6px">Il paper e\' il registro delle tue decisioni. Gli scartati si simulano con le stesse uscite dei presi.</div>';
+  } else if (tab === 'age') {
     const B = [['< 15 min', (x) => x < 15], ['15-60 min', (x) => x < 60], ['1-6 ore', (x) => x < 360], ['6-24 ore', (x) => x < 1440], ['oltre 24 ore', () => true]], G = B.map(() => ({ n: 0, w: 0, pnl: 0 })), A = J.filter((j) => j.age != null);
     for (const j of A) { const i = B.findIndex(([, f]) => f(j.age)); G[i].n++; G[i].w += j.pnl > 0 ? 1 : 0; G[i].pnl += j.pnl; }
     body = A.length ? `<div class="kv">${B.map(([l], i) => G[i].n ? kvRow(`${l} (${G[i].n}) · ${Math.round(G[i].w / G[i].n * 100)}% vinti`, G[i].pnl.toFixed(4) + '◎', cls(G[i].pnl)) : '').join('')}</div>` : none;
@@ -815,7 +822,7 @@ function renderJournal() {
 }
 // Journal: la vista in pagina ha misure fisse; toccando un riquadro si apre l'elenco completo a schermo intero
 function openJFull(which) {
-  const f = rt.jFull; if (!f) return; const t = 'Trade chiusi';
+  const f = rt.jFull; if (!f) return; const t = (!['real', 'strat'].includes(st.mode) && S().humanOnly) ? 'Decisioni: prese e scartate' : 'Trade chiusi';
   $('#sheet').classList.add('full');
   $('#sheetInner').innerHTML = `<div class="grab"></div><div class="row between" style="margin-bottom:8px"><h2 style="margin:0">${t}</h2><button class="btn sm" data-jclose>Chiudi</button></div><div class="card jfull${which === 'rows' ? ' jcard2' : ''}"><div class="jrow jhead"><span>Token</span><span>Esito</span><span>P&amp;L</span><span>Motivo</span></div>${f.rows}</div>`;
   openSheet(true);
@@ -930,7 +937,7 @@ function presetsHtml() {
 }
 function renderPage(pg) {
   const P = PAGES[pg], p = rt.par, hub = $(pg === 'paper' ? '#parHubPaper' : '#parHubReal');
-  const gs = p.groups.filter((g) => g.page === pg), run = rt.run, e = rt.exec;
+  const gs = p.groups.filter((g) => g.page === pg && !(g.off && S().humanOnly)), run = rt.run, e = rt.exec;      // solo uomo: il bot automatico non c'e', i suoi gruppi non si mostrano
   let html = '';
   if (pg === 'paper') {
     html += tile({ t: 'Conto paper', v: run ? fmtSol(run.equity, 2) : '—', s: run ? `capitale ${fmtSol(run.capital, 2)} · ${run.stats ? run.stats.n : 0} trade` : 'dati non disponibili', attr: 'data-open="reset"' });
