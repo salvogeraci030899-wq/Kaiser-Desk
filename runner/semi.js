@@ -24,15 +24,17 @@ function pick(alerts, buys, now, ok) {
 }
 function alertOf(c, now) {
   const m = (c.a && c.a.m) || {}, pair = (c.pair && c.pair.pairAddress) || '';
-  return { t: now, mint: c.mint, sym: String(c.sym || '').slice(0, 20), name: String(c.name || '').slice(0, 40), score: num(c.score), pair: MINT_RE.test(pair) ? pair : '', priceNative: num(m.priceNative), mc: num(m.mc), liq: num(m.liq), ageMin: m.ageMin == null ? null : +num(m.ageMin).toFixed(1),
+  return { id: 'a' + Math.floor(now / 1000).toString(36), t: now, mint: c.mint, sym: String(c.sym || '').slice(0, 20), name: String(c.name || '').slice(0, 40), score: num(c.score), pair: MINT_RE.test(pair) ? pair : '', priceNative: num(m.priceNative), mc: num(m.mc), liq: num(m.liq), ageMin: m.ageMin == null ? null : +num(m.ageMin).toFixed(1),
     why: ((c.a && c.a.plus) || []).slice(0, 3).map((x) => String(x).slice(0, 60)) };
 }
 const pumpUrl = (a) => `https://pump.fun/coin/${a.mint}`;
+// Il messaggio non mostra il punteggio del bot ne' i suoi motivi: la decisione e' tua, cosi' si misura il tuo giudizio e non quello del bot.
 function text(a) {
   const bits = [a.mc ? 'market cap $' + k(a.mc) : '', a.ageMin != null ? 'età ' + Math.round(a.ageMin) + ' min' : '', a.liq ? 'liquidità $' + k(a.liq) : ''].filter(Boolean).join(' · ');
-  return `<b>SEGNALE</b> $${esc(a.sym || a.mint.slice(0, 6))} · score ${a.score}\n${bits}${a.why.length ? '\nMotivi: ' + a.why.map(esc).join('; ') : ''}\nEntra a mano da pump.fun: decidi tu taglia e uscita. Se non ti convince, ignora.`;
+  return `<b>SEGNALE</b> $${esc(a.sym || a.mint.slice(0, 6))}\n${bits}\nDecidi tu: Prendo o Scarto. Se prendi, entra a mano da pump.fun, taglia e uscita sono tue.`;
 }
-function keyboard(a) { return Kb.kb({ mint: a.mint, pair: a.pair }); }
+const voteRow = (a) => (/^a[0-9a-z]{4,8}$/.test(a.id || '') ? [[{ text: 'Prendo', callback_data: 'hd:y:' + a.id }, { text: 'Scarto', callback_data: 'hd:n:' + a.id }]] : []);
+function keyboard(a) { return Kb.kb({ rows: voteRow(a), mint: a.mint, pair: a.pair }); }
 // Segnali ancora da seguire (meno di 17 minuti, senza ancora entrambe le misure)
 const open = (alerts, now) => alerts.filter((a) => now - a.t < TRACK_MS && (a.p5 == null || a.p15 == null));
 // Registra il prezzo corrente rispetto a quello del segnale: variazione ora, minimo, dopo 5 e dopo 15 minuti
@@ -44,4 +46,36 @@ function track(a, px, now) {
 // Vista compatta per l'app
 const view = (alerts, n) => alerts.slice(-(n || 20)).map((a) => ({ t: a.t, mint: a.mint, sym: a.sym, score: a.score, pair: a.pair, mc: a.mc, ageMin: a.ageMin, last: a.last == null ? null : a.last, min: a.min == null ? null : a.min, p5: a.p5 == null ? null : a.p5, p15: a.p15 == null ? null : a.p15, gr: a.gr ? { s: a.gr.s, o: a.gr.o, f: a.gr.f } : null }));
 
-module.exports = { MAX_PER_HOUR, REPEAT_H, TRACK_MS, MODES, pick, alertOf, text, keyboard, pumpUrl, open, track, view };
+// Decisione presa da te (y = prendo, n = scarto). Una sola per segnale. vp = variazione del prezzo del segnale al momento in cui il runner la registra.
+function vote(alerts, id, v, at) {
+  const a = alerts.find((x) => x.id === id);
+  if (!a || a.vote || (v !== 'y' && v !== 'n')) return false;
+  a.vote = v; a.vAt = at; a.vp = a.last == null ? 0 : a.last; return true;
+}
+// Confronto tra i segnali presi e scartati: rendimento a 5 minuti dalla decisione, meno il costo di un giro. Regola decisa in anticipo: almeno minY presi e minN scartati,
+// netto medio dei presi >= passMeanPct, limite inferiore del 95% sopra zero e sopra gli scartati (differenza con limite inferiore > 0).
+const HCFG = { costPct: 5, minY: 50, minN: 30, passMeanPct: 3 };
+function ms(xs) {
+  const n = xs.length;
+  if (!n) return { n: 0 };
+  const m = xs.reduce((p, q) => p + q, 0) / n, v = n > 1 ? xs.reduce((p, q) => p + (q - m) ** 2, 0) / (n - 1) : 0;
+  return { n, m, v };
+}
+function humanStats(alerts, o) {
+  const c = { ...HCFG, ...(o || {}) }, y = [], nn = [];
+  let noAns = 0, late = 0;
+  for (const a of alerts) {
+    if (!a.vote) { if (a.p15 != null) noAns++; continue; }
+    if (a.p5 == null || a.vAt - a.t >= 5 * 60000) { late++; continue; }
+    const r = ((1 + a.p5 / 100) / (1 + (a.vp || 0) / 100) - 1) * 100 - c.costPct;
+    (a.vote === 'y' ? y : nn).push(r);
+  }
+  const A = ms(y), B = ms(nn), out = { cfg: c, y: A.n, n: B.n, noAns, late, verdict: 'in corso' };
+  if (A.n >= 2) { const se = Math.sqrt(A.v / A.n); Object.assign(out, { yMean: +A.m.toFixed(2), yLo: +(A.m - 1.96 * se).toFixed(2), yHi: +(A.m + 1.96 * se).toFixed(2) }); }
+  if (B.n >= 2) out.nMean = +B.m.toFixed(2);
+  if (A.n >= 2 && B.n >= 2) { const se = Math.sqrt(A.v / A.n + B.v / B.n), d = A.m - B.m; Object.assign(out, { diff: +d.toFixed(2), diffLo: +(d - 1.96 * se).toFixed(2) }); }
+  if (A.n >= c.minY && B.n >= c.minN) out.verdict = (out.yMean >= c.passMeanPct && out.yLo > 0 && out.diffLo > 0) ? 'passa' : 'non passa';
+  return out;
+}
+
+module.exports = { vote, humanStats, HCFG, MAX_PER_HOUR, REPEAT_H, TRACK_MS, MODES, pick, alertOf, text, keyboard, pumpUrl, open, track, view };

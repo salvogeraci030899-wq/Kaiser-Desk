@@ -62,6 +62,10 @@ export async function handleUpdate(ex, update) {
       const r = await ex.propose({ close: { mode: id.startsWith('R-') ? 'real' : 'paper', id } });
       await answer(ex, cb.id, r.ok ? (r.direct ? 'Chiusura avviata' : 'Conferma nel messaggio qui sotto') : (r.error || 'Errore').slice(0, 150));
     }
+    else if (kind === 'hd') {                                           // Prendo / Scarto sotto gli avvisi: registra la tua decisione (nessun ordine)
+      const [, v, hid] = String(cb.data || '').split(':'), r = (v === 'y' || v === 'n') ? await ex.humanVote(hid, v) : { ok: false, error: 'non valido' };
+      await answer(ex, cb.id, r.ok ? (v === 'y' ? 'Registrato: prendo' : 'Registrato: scarto') : (r.error || 'Errore').slice(0, 150));
+    }
     else if (kind === 'mn') {                                           // menu a tasti: stesse schermate dei comandi
       await answer(ex, cb.id, '');
       const go = { menu: '/menu', stato: '/stato', paper: '/paper', segnali: '/segnali', lab: '/lab', regole: '/regole', pos: '/posizioni', scudo: '/scudo', par: '/parametri', aiuto: '/aiuto', semi: '/semi', grok: '/grok' }[id];

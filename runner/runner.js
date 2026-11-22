@@ -265,6 +265,23 @@ function snipeCfg() {
   for (const [k, v] of Object.entries(m)) if (Number.isFinite(Number(S[k])) && S[k] !== '' && S[k] != null) c[v] = Number(S[k]);
   return c;
 }
+function humanSection() {
+  const h = Semi.humanStats(st.alerts || []), f = (n) => (n == null ? 'n/d' : (n >= 0 ? '+' : '') + Number(n).toFixed(1));
+  return `## Uomo e macchina: i segnali che prendi contro quelli che scarti
+Il radar sceglie, tu decidi (Prendo o Scarto) senza vedere il punteggio del bot. Rendimento a 5 minuti dalla tua decisione, meno ${h.cfg.costPct}% di costo a giro (stima mediana, non una misura per ogni token).
+Regola decisa in anticipo: almeno ${h.cfg.minY} presi e ${h.cfg.minN} scartati, netto medio dei presi >= +${h.cfg.passMeanPct}% con limite inferiore sopra zero e sopra gli scartati.
+
+| | |
+|---|---|
+| Esito | **${h.verdict}** |
+| Presi / scartati (con misura a 5 minuti) | ${h.y} / ${h.n} |
+| Netto medio dei presi | ${h.yMean == null ? 'n/d' : `${f(h.yMean)}% (intervallo ${f(h.yLo)}% / ${f(h.yHi)}%)`} |
+| Netto medio degli scartati | ${f(h.nMean)}% |
+| Differenza presi meno scartati (limite inferiore) | ${h.diff == null ? 'n/d' : `${f(h.diff)}% (${f(h.diffLo)}%)`} |
+| Senza risposta / decisi dopo 5 minuti | ${h.noAns} / ${h.late} |
+
+`;
+}
 function gradCfg() {
   const c = { enabled: S.gradTest !== false };
   if (Number.isFinite(Number(S.gradSizeSol)) && S.gradSizeSol !== '' && S.gradSizeSol != null) c.sizeSol = Number(S.gradSizeSol);
@@ -485,6 +502,11 @@ async function ackClose(ids) {
   const url = execUrl(), tok = process.env.EXEC_TOKEN; if (!url || !tok) return;
   try { await fetchJSON(url + '/runner', { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-app-token': tok }, body: JSON.stringify({ closeAck: ids }), timeout: 6000 }); } catch { /* si riprova al prossimo giro */ }
 }
+async function ackVote(ids) {
+  const url = execUrl(), tok = process.env.EXEC_TOKEN;
+  if (!url || !tok) return;
+  try { await fetchJSON(url + '/runner', { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-app-token': tok }, body: JSON.stringify({ voteAck: ids }), timeout: 6000 }); } catch { /* si riprova al prossimo giro: la decisione gia' registrata non si ripete */ }
+}
 async function resetPaper(rp) {
   const cap = Number(Number(rp.capitalSOL).toFixed(2));
   Object.assign(st, { cash: cap, topups: null, positions: [], journal: [], signals: [], alerts: [], day: null, halted: null, cooldownUntil: 0, startedAt: Date.now(), capital: cap, resetId: rp.id, realTried: {} });
@@ -524,6 +546,16 @@ async function pullParams() {
       done.push(id);
     }
     if (done.length) { save(); await pushLive(true); await ackClose(done); }
+  }
+  // decisioni prendo/scarto date sugli avvisi da Telegram: si registrano sul segnale e si avvisa il Worker
+  if (Array.isArray(d.humanVotes) && d.humanVotes.length) {
+    const done = [];
+    for (const x of d.humanVotes.slice(0, 20)) {
+      if (!x || !/^a[0-9a-z]{4,8}$/.test(String(x.id)) || (x.v !== 'y' && x.v !== 'n')) continue;
+      Semi.vote(st.alerts || [], x.id, x.v, num(x.at) || Date.now());
+      done.push(x.id);
+    }
+    if (done.length) { save(); await ackVote(done); }
   }
   // riferisce al Worker i valori in uso (serve a mostrare «prima → dopo» corretti nei messaggi di Telegram)
   if (process.env.EXEC_TOKEN && (changed.length || !rt.cfgSent)) {
@@ -665,7 +697,7 @@ Aggiornato: ${new Date().toISOString().replace('T', ' ').slice(0, 16)} UTC · in
 ## Posizioni aperte
 ${st.positions.length ? st.positions.map((p) => `- **$${p.sym}** ${p.id} · ${p.sizeSOL.toFixed(3)} SOL · ${p.last ? f((p.last.priceNative / p.entry - 1) * 100, 1) + '%' : 'n/d'} · resta ${(p.remaining * 100).toFixed(0)}% · [grafico](https://dexscreener.com/solana/${p.pairAddress})`).join('\n') : '_nessuna_'}
 
-${snipeSection()}${gradSection()}## Uscite per motivo
+${snipeSection()}${gradSection()}${humanSection()}## Uscite per motivo
 ${Object.keys(by).length ? '| Motivo | Trade | P&L SOL |\n|---|---|---|\n' + Object.entries(by).map(([k, v]) => `| ${k} | ${v.n} | ${f(v.pnl)} |`).join('\n') : '_ancora nessuna_'}
 
 ## Ultimi 25 trade
