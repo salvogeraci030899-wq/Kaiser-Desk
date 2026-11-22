@@ -53,10 +53,16 @@ S.useGrok = S.useGrok && !!process.env.XAI_API_KEY;
 S.grokTest = S.grokTest && !!process.env.XAI_API_KEY;
 S.socialTest = S.socialTest && !!process.env.XAI_API_KEY;
 // Solo uomo: i limiti della fascia alta valgono sopra qualunque valore salvato prima (config.json o parametri dell'app)
+// stessi limiti di enforceBand, applicati al singolo valore: cosi' la lettura dei parametri non segnala come «cambiato» cio' che i limiti riportano subito com'era
+function bandFix(k, v) {
+  if (!S.humanOnly || typeof v !== 'number') return v;
+  const bm = Number(S.bandMin) || 500000;
+  return k === 'minMcap' ? Math.max(v, bm) : k === 'minLiq' ? Math.max(v, E.DEFAULTS.minLiq) : k === 'maxMcap' ? Math.max(v, 2 * bm) : k === 'maxAgeH' ? Math.max(v, 24) : v;
+}
 function enforceBand() {
   if (!S.humanOnly) return;
   S.minMcap = Math.max(Number(S.minMcap) || 0, Number(S.bandMin) || 500000); S.minLiq = Math.max(Number(S.minLiq) || 0, E.DEFAULTS.minLiq);
-  S.maxMcap = Math.max(Number(S.maxMcap) || 0, E.DEFAULTS.maxMcap); S.maxAgeH = Math.max(Number(S.maxAgeH) || 0, E.DEFAULTS.maxAgeH);      // un massimo basso salvato prima (es. 100.000 dollari, 1 ora) scarterebbe tutta la fascia alta
+  S.maxMcap = Math.max(Number(S.maxMcap) || 0, 2 * (Number(S.bandMin) || 500000)); S.maxAgeH = Math.max(Number(S.maxAgeH) || 0, 24);      // un massimo troppo basso (es. 100.000 dollari, 1 ora) scarterebbe la fascia alta; un massimo scelto da te e' piu' alto e resta
 }
 enforceBand();
 // Il runner non ha chiavi né firma nulla. Il reale è un conto separato gestito dall'esecutore (vedi realEntries).
@@ -299,6 +305,7 @@ function creatorsSection() {
   return `## Coin di fascia alta e ricerca sui creatori
 Il Radar guarda le Coin da ${S.bandMin} dollari di market cap in su. Per ognuna si risale al creatore e si registra la market cap: una Coin e' «raddoppiata» se supera il doppio della prima lettura in fascia. Il profilo del creatore compare nell'avviso.
 Memoria: ${c.launches} lanci noti, ${c.creators} creatori; ${c.bandCoins} Coin in fascia alta viste (${c.bandCreators} creatori), ${c.doubled} raddoppiate (${c.doubledCreators} creatori). Creatore trovato: tabella ${c.cov.tabella}, richiesta esterna ${c.cov.esterna}, sconosciuto ${c.cov.sconosciuto}.
+Richieste esterne per il creatore: ${Object.keys(c.api || {}).length ? Object.entries(c.api).map(([n, v]) => `${n}: ${v.ok} riuscite, ${v.fail} fallite${v.err ? ' (ultimo errore: ' + v.err + ')' : ''}`).join('; ') : 'nessuna ancora'}.
 
 | Fascia | Avvisi | Prendo / Scarto | Tuoi trade chiusi | Netto medio |
 |---|---|---|---|---|
@@ -579,6 +586,7 @@ async function pullParams() {
   const changed = [];
   for (const k of new Set([...appliedKeys, ...Object.keys(next)])) {
     let nv = k in next ? next[k] : BASE_S[k]; if (k === 'useGrok' || k === 'grokTest') nv = !!nv && !!process.env.XAI_API_KEY;
+    nv = bandFix(k, nv);
     if (k === 'socialTest') nv = !!nv && !!process.env.XAI_API_KEY;
     if (S[k] !== nv) { changed.push(`${k} ${S[k]}→${nv}`); S[k] = nv; }
   }

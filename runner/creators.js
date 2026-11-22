@@ -15,7 +15,14 @@ const BAND_KEEP = 3000;       // Coin di fascia alta ricordate al massimo
 class Creators {
   constructor(o) {
     this.dir = o.dir || ''; this.bandFile = o.bandFile || ''; this.now = o.now || Date.now; this.log = o.log || (() => {}); this.fetch = o.fetch || null;
-    this.apiUrl = o.apiUrl === undefined ? 'https://frontend-api-v3.pump.fun/coins/' : o.apiUrl;
+    // ricerche esterne, in ordine; apiUrl (compatibilita') ne sostituisce l'elenco con una sola; apiUrl = '' le spegne
+    const jup = (j, m) => { const x = Array.isArray(j) ? j.find((t) => t && (t.id === m || t.address === m)) : null; return x ? (x.dev || x.creator || '') : ''; };
+    this.resolvers = o.apiUrl === '' ? [] : o.apiUrl ? [{ name: 'pump', url: (m) => o.apiUrl + m, pick: (j) => (j && j.creator) || '' }] : [
+      { name: 'pump v3', url: (m) => 'https://frontend-api-v3.pump.fun/coins/' + m, pick: (j) => (j && j.creator) || '' },
+      { name: 'pump v1', url: (m) => 'https://frontend-api.pump.fun/coins/' + m, pick: (j) => (j && j.creator) || '' },
+      { name: 'jupiter', url: (m) => 'https://lite-api.jup.ag/tokens/v2/search?query=' + m, pick: jup },
+    ];
+    this.api = {};
     this.byMint = new Map();         // mint -> creatore
     this.launches = new Map();       // creatore -> { n, high }
     this.band = {};                  // mint -> { c: creatore, s: simbolo, f: prima market cap in fascia, m: massimo, t: prima lettura }
@@ -41,19 +48,27 @@ class Creators {
     this.buf.push({ m: t.mint, cr: t.creator, at: t.at || this.now(), mx: 0 }); if (this.buf.length > 5000) this.buf.splice(0, this.buf.length - 5000); return true;
   }
   drain() { return this.buf.splice(0); }
-  // creatore di una Coin: tabella dei lanci, poi (facoltativo) richiesta esterna con pausa dopo un fallimento
+  // creatore di una Coin: tabella dei lanci, poi una catena di richieste esterne (facoltative): ognuna ha la sua diagnostica e, dopo 5 fallimenti di fila, riposa 10 minuti.
+  // Il report mostra per ogni richiesta quante volte e' riuscita e l'ultimo errore, cosi' si vede quale funziona.
   async creatorOf(mint) {
     const c = this.byMint.get(mint); if (c) { this.cov.tabella++; return c; }
-    const f = this.fetch; if (!f || !this.apiUrl || !MINT_RE.test(mint || '')) { this.cov.sconosciuto++; return ''; }
+    const f = this.fetch; if (!f || !this.resolvers.length || !MINT_RE.test(mint || '')) { this.cov.sconosciuto++; return ''; }
     const now = this.now(), last = this.neg.get(mint);
-    if (last && now - last < 30 * 60000) { this.cov.sconosciuto++; return ''; }
-    if (this.apiBusy >= 2) { this.cov.sconosciuto++; return ''; }
+    if ((last && now - last < 30 * 60000) || this.apiBusy >= 2) { this.cov.sconosciuto++; return ''; }
     this.apiBusy++;
     try {
-      const r = await f(this.apiUrl + mint, { signal: AbortSignal.timeout(4000), headers: { accept: 'application/json' } });
-      const j = r && r.ok ? await r.json() : null, cr = j && typeof j.creator === 'string' ? j.creator : '';
-      if (MINT_RE.test(cr)) { this.byMint.set(mint, cr); this.cov.esterna++; return cr; }
-    } catch { /* la richiesta e' facoltativa */ } finally { this.apiBusy--; }
+      for (const r of this.resolvers) {
+        const d = this.api[r.name] || (this.api[r.name] = { ok: 0, fail: 0, run: 0, until: 0, err: '' });
+        if (this.now() < d.until) continue;
+        try {
+          const resp = await f(r.url(mint), { signal: AbortSignal.timeout(3000), headers: { accept: 'application/json' } });
+          if (!resp || !resp.ok) throw new Error('HTTP ' + (resp ? resp.status : '?'));
+          const cr = r.pick(await resp.json(), mint);
+          if (!MINT_RE.test(cr || '')) throw new Error('senza creatore');
+          d.ok++; d.run = 0; this.byMint.set(mint, cr); this.cov.esterna++; return cr;
+        } catch (e) { d.fail++; d.run++; d.err = String((e && e.message) || e).slice(0, 40); if (d.run >= 5) { d.until = this.now() + 10 * 60000; d.run = 0; } }
+      }
+    } finally { this.apiBusy--; }
     this.neg.set(mint, now); this.cov.sconosciuto++; return '';
   }
   // Coin di fascia alta vista dal Radar con la sua market cap in dollari
@@ -96,7 +111,7 @@ class Creators {
   summary() {
     const bandN = Object.keys(this.band).length; let doubled = 0; const crs = new Set(), good = new Set();
     for (const b of Object.values(this.band)) { crs.add(b.c); if (b.m >= 2 * b.f) { doubled++; good.add(b.c); } }
-    return { launches: this.byMint.size, creators: this.launches.size, bandCoins: bandN, bandCreators: crs.size, doubled, doubledCreators: good.size, cov: { ...this.cov } };
+    return { launches: this.byMint.size, creators: this.launches.size, bandCoins: bandN, bandCreators: crs.size, doubled, doubledCreators: good.size, cov: { ...this.cov }, api: Object.fromEntries(Object.entries(this.api).map(([k, v]) => [k, { ok: v.ok, fail: v.fail, err: v.err }])) };
   }
 }
 // fascia di market cap (dollari) per i report e gli avvisi

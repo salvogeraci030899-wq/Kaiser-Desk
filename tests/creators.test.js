@@ -45,7 +45,7 @@ test('Coin di fascia alta: prima lettura, massimo, raddoppio; profilo, livello e
 test('creatore di una Coin non in tabella: richiesta esterna facoltativa, con pausa dopo un fallimento; sconosciuto se non risponde', async () => {
   const cr = id(902), m = id(20); let calls = 0, ok = true, now = 1_000_000;
   const f = async () => { calls++; if (!ok) throw new Error('rete'); return { ok: true, json: async () => ({ creator: cr }) }; };
-  const c = new Creators({ dir: '', bandFile: '', fetch: f, now: () => now });
+  const c = new Creators({ dir: '', bandFile: '', fetch: f, now: () => now, apiUrl: 'https://x.test/coins/' });
   ok = false; assert.equal(await c.creatorOf(m), ''); assert.equal(await c.creatorOf(m), ''); assert.equal(calls, 1, 'dopo un fallimento si aspetta 30 minuti');
   now += 31 * 60000; ok = true; assert.equal(await c.creatorOf(m), cr); assert.equal(c.cov.esterna, 1); assert.equal(await c.creatorOf(m), cr, 'poi dalla memoria'); assert.equal(calls, 2);
   assert.equal(await new Creators({ dir: '', bandFile: '' }).creatorOf(id(21)), '', 'senza richiesta esterna: sconosciuto');
@@ -147,3 +147,22 @@ test('registro delle decisioni: un\'unica lista di prese e scartate, con lo stat
   assert.ok(!/## Le tue decisioni[\s\S]{0,2200}trade del bot/.test(src), 'il report non confronta con un bot');
   assert.match(html, /g\.page === pg && !\(g\.off && S\(\)\.humanOnly\)/, 'impostazioni: i gruppi del bot non si mostrano'); assert.match(html, /data-jt="dec">Presi e scartati/); assert.match(html, /only \? \(dRows \|\|/); assert.match(html, /'Decisioni: prese e scartate'/);
 });
+
+test('catena di ricerche del creatore: se la prima fallisce si prova la successiva; ognuna ha la sua diagnostica; dopo 5 fallimenti di fila riposa; Jupiter con il campo dev', async () => {
+  let now = 1_000_000; const urls = [], cr = id(960);
+  const f = async (url) => {
+    urls.push(url);
+    if (url.includes('frontend-api-v3')) return { ok: false, status: 403, json: async () => ({}) };
+    if (url.includes('frontend-api.pump')) throw new Error('rete');
+    return { ok: true, json: async () => [{ id: 'altro', dev: id(961) }, { id: url.split('query=')[1], dev: cr }] };
+  };
+  const c = new Creators({ dir: '', bandFile: '', fetch: f, now: () => now });
+  assert.equal(await c.creatorOf(id(70)), cr, 'dalla terza richiesta'); assert.equal(urls.length, 3);
+  assert.equal(c.cov.esterna, 1); const a = c.summary().api; assert.deepEqual([a['pump v3'].ok, a['pump v3'].fail, a['pump v3'].err], [0, 1, 'HTTP 403']); assert.equal(a['pump v1'].err, 'rete'); assert.deepEqual([a.jupiter.ok, a.jupiter.fail], [1, 0]);
+  for (let i = 1; i <= 4; i++) await c.creatorOf(id(70 + i));       // altri 4 fallimenti di fila delle prime due
+  const before = urls.length; await c.creatorOf(id(80)); assert.equal(urls.filter((u) => u.includes('frontend-api')).length, 10, 'le prime due riposano dopo 5 fallimenti: niente nuove richieste'); assert.equal(urls.length - before, 1, 'resta solo Jupiter');
+  now += 11 * 60000; urls.length = 0; await c.creatorOf(id(81)); assert.ok(urls.some((u) => u.includes('frontend-api-v3')), 'dopo 10 minuti si riprova');
+  const off = new Creators({ dir: '', bandFile: '', fetch: f, apiUrl: '' }); assert.equal(await off.creatorOf(id(90)), '', 'apiUrl vuoto: richieste spente');
+  const src = fs.readFileSync(require.resolve('../runner/runner.js'), 'utf8'); assert.match(src, /Richieste esterne per il creatore:/); assert.match(src, /function bandFix\(k, v\)/); assert.match(src, /nv = bandFix\(k, nv\);/);
+});
+
