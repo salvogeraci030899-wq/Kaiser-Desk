@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 03:35 UTC · in esecuzione da 2.6 giorni · 297 run
+Aggiornato: 2026-11-22 03:41 UTC · in esecuzione da 2.6 giorni · 297 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-22 03:35 UTC · in esecuzione da 2.6 giorni · 297 run
 | Cassa | 4.0653 SOL |
 | Trade chiusi | 178 |
 | Win rate | 30% |
-| P&L realizzato | -1.9347 SOL (~$-133.79) |
+| P&L realizzato | -1.9347 SOL (~$-133.76) |
 | Media vincite / perdite | +40.9% / -32.4% |
 | Profit factor | 0.54 |
 | Circuit breaker | no |
@@ -55,6 +55,20 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+03:41:06 ORACLE   360 raccolti, 286 analizzati, 0 BUY, 276 veto
+03:40:42 ORACLE   360 raccolti, 294 analizzati, 0 BUY, 285 veto
+03:40:19 ORACLE   360 raccolti, 293 analizzati, 1 BUY, 284 veto
+03:39:55 ORACLE   360 raccolti, 293 analizzati, 1 BUY, 285 veto
+03:39:31 ORACLE   360 raccolti, 296 analizzati, 1 BUY, 285 veto
+03:39:08 ORACLE   360 raccolti, 293 analizzati, 1 BUY, 282 veto
+03:38:45 ORACLE   360 raccolti, 288 analizzati, 1 BUY, 276 veto
+03:38:22 ORACLE   360 raccolti, 292 analizzati, 1 BUY, 280 veto
+03:38:08 ORACLE   360 raccolti, 291 analizzati, 1 BUY, 276 veto
+03:37:39 ORACLE   360 raccolti, 287 analizzati, 1 BUY, 269 veto
+03:37:15 ORACLE   360 raccolti, 292 analizzati, 2 BUY, 277 veto
+03:36:52 ORACLE   360 raccolti, 288 analizzati, 2 BUY, 273 veto
+03:36:29 ORACLE   360 raccolti, 285 analizzati, 2 BUY, 267 veto
+03:36:06 ORACLE   358 raccolti, 289 analizzati, 2 BUY, 273 veto
 03:35:43 ORACLE   350 raccolti, 283 analizzati, 2 BUY, 268 veto
 03:35:20 ORACLE   342 raccolti, 269 analizzati, 2 BUY, 255 veto
 03:34:57 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
@@ -83,20 +97,6 @@ fabbrica: 32444 percorsi, 768 configurazioni, 0 passano, 6916 ms
 03:30:27 SCRIBE   fine run · trade 178 · win 30% · P&L -1.9347 SOL · equity 4.0653 SOL
 03:30:23 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 242 veto
 03:29:58 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 254 veto
-03:29:35 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 261 veto
-03:29:11 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 266 veto
-03:28:47 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 271 veto
-03:28:23 ORACLE   360 raccolti, 287 analizzati, 1 BUY, 276 veto
-03:28:00 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 269 veto
-03:27:36 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 272 veto
-03:27:12 ORACLE   360 raccolti, 290 analizzati, 1 BUY, 278 veto
-03:26:48 ORACLE   360 raccolti, 288 analizzati, 1 BUY, 277 veto
-03:26:24 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 270 veto
-03:26:00 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 267 veto
-03:25:36 SCRIBE   chiuso P-0614 $FRIEND -0.0069 SOL (-8.4%)
-03:25:36 CHARON   Time stop $FRIEND vendo 100% a 4.6% -> 0.0756 SOL
-03:25:36 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 261 veto
-03:25:12 ORACLE   360 raccolti, 287 analizzati, 2 BUY, 272 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
