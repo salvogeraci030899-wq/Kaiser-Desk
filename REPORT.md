@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 10:48 UTC · in esecuzione da 2.9 giorni · 305 run
+Aggiornato: 2026-11-22 10:53 UTC · in esecuzione da 2.9 giorni · 305 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-22 10:48 UTC · in esecuzione da 2.9 giorni · 305 run
 | Cassa | 3.8960 SOL |
 | Trade chiusi | 198 |
 | Win rate | 30% |
-| P&L realizzato | -2.1040 SOL (~$-148.21) |
+| P&L realizzato | -2.1040 SOL (~$-148.14) |
 | Media vincite / perdite | +39.6% / -32.4% |
 | Profit factor | 0.53 |
 | Circuit breaker | no |
@@ -22,13 +22,13 @@ Regola decisa in anticipo: almeno 300 operazioni, netto medio >= +3% e limite in
 
 | | |
 |---|---|
-| Esito | **non passa** (543 di 300 operazioni) |
-| Netto medio per operazione | -41.4% (intervallo -47.7% / -35.1%) |
-| Mediana / operazioni in utile | -44.6% / 11.6% |
+| Esito | **non passa** (578 di 300 operazioni) |
+| Netto medio per operazione | -41.5% (intervallo -47.6% / -35.4%) |
+| Mediana / operazioni in utile | -44.6% / 11.2% |
 | Quota dei guadagni dall'1% migliore | 53% |
-| Token campionati / con rotta di acquisto | 554 / 545 (98.4%) |
+| Token campionati / con rotta di acquisto | 589 / 579 (98.3%) |
 | Tempo per ottenere la quotazione (mediana / 90%) | 5.0 s / 5.1 s |
-| Senza rotta in acquisto / in vendita (perdita totale) | 9 / 160 |
+| Senza rotta in acquisto / in vendita (perdita totale) | 10 / 172 |
 | Errori di rete (acquisto / vendita) / interrotte a fine run | 0 / 0 / 0 |
 
 ## Uscite per motivo
@@ -70,6 +70,19 @@ Regola decisa in anticipo: almeno 300 operazioni, netto medio >= +3% e limite in
 
 ## Ultimi eventi
 ```
+10:53:08 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 242 veto
+10:52:44 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 248 veto
+10:52:21 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 243 veto
+10:51:57 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 247 veto
+10:51:34 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 241 veto
+10:51:10 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 238 veto
+10:50:46 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 237 veto
+10:50:22 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 240 veto
+10:49:59 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 242 veto
+10:49:35 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 234 veto
+10:49:12 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 243 veto
+10:48:49 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 250 veto
+10:48:26 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 242 veto
 10:48:02 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 251 veto
 10:47:38 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 251 veto
 10:47:14 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 246 veto
@@ -97,19 +110,6 @@ Regola decisa in anticipo: almeno 300 operazioni, netto medio >= +3% e limite in
 10:38:46 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 232 veto
 10:38:23 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 237 veto
 10:37:59 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 237 veto
-10:37:36 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 239 veto
-10:37:13 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 231 veto
-10:36:49 ORACLE   360 raccolti, 240 analizzati, 0 BUY, 228 veto
-10:36:25 ORACLE   360 raccolti, 237 analizzati, 0 BUY, 227 veto
-10:36:02 ORACLE   360 raccolti, 236 analizzati, 0 BUY, 226 veto
-10:35:38 ORACLE   360 raccolti, 236 analizzati, 0 BUY, 227 veto
-10:35:15 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 235 veto
-10:34:52 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 236 veto
-10:34:29 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 236 veto
-10:34:05 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 238 veto
-10:33:41 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 236 veto
-10:33:17 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 237 veto
-10:32:53 SCOUT    regola C-066: corrente (nuova strategia: 10K rit. 10s +20/-15 60s: vecchi -8.21%, recenti -7.58%)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
