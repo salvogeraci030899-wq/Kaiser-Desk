@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 18:20 UTC · in esecuzione da 3.2 giorni · 314 run
+Aggiornato: 2026-11-22 18:25 UTC · in esecuzione da 3.2 giorni · 314 run
 
 | | |
 |---|---|
-| Equity | **3.9153 SOL** (-34.7% dal capitale iniziale di 6 SOL) |
-| Cassa | 3.9153 SOL |
+| Equity | **3.9190 SOL** (-34.7% dal capitale iniziale di 6 SOL) |
+| Cassa | 3.8360 SOL |
 | Trade chiusi | 217 |
 | Win rate | 31% |
-| P&L realizzato | -2.0847 SOL (~$-146.34) |
+| P&L realizzato | -2.0847 SOL (~$-146.16) |
 | Media vincite / perdite | +38.9% / -31.6% |
 | Profit factor | 0.56 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$UNISON** P-0654 · 0.078 SOL · +6.1% · resta 100% · [grafico](https://dexscreener.com/solana/3RmRyrasgazJkyLWufJX6yu7LQDTb35tGHxdZKpFuxXu)
 
 ## Test ingresso rapido (solo paper, quotazioni Jupiter)
 Ipotesi: comprare 5 secondi dopo la creazione, tenere 30 secondi, vendere. Un token su 3, 0.05 SOL a operazione. Serie 2 dal 2026-11-22 11:02 UTC.
@@ -99,6 +99,22 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 
 ## Ultimi eventi
 ```
+18:25:40 ORACLE   360 raccolti, 208 analizzati, 1 BUY, 198 veto
+18:25:16 ORACLE   360 raccolti, 224 analizzati, 1 BUY, 213 veto
+18:24:51 ORACLE   360 raccolti, 225 analizzati, 2 BUY, 214 veto
+18:24:27 ORACLE   360 raccolti, 221 analizzati, 2 BUY, 211 veto
+18:24:04 ORACLE   360 raccolti, 229 analizzati, 2 BUY, 219 veto
+18:23:39 QUARTER  BUY $UNISON 0.078 SOL score 65 impatto 0.00% (Jupiter)
+18:23:39 QUARTER  SEGNALE $UNISON score 65 (semi-automatico)
+18:23:39 ORACLE   360 raccolti, 233 analizzati, 2 BUY, 224 veto
+18:23:25 ORACLE   360 raccolti, 231 analizzati, 2 BUY, 222 veto
+18:23:00 ORACLE   360 raccolti, 235 analizzati, 2 BUY, 230 veto
+18:22:37 ORACLE   360 raccolti, 234 analizzati, 2 BUY, 228 veto
+18:22:14 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 235 veto
+18:21:50 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 257 veto
+18:21:27 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 263 veto
+18:21:04 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 255 veto
+18:20:40 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 272 veto
 18:20:17 ORACLE   360 raccolti, 274 analizzati, 2 BUY, 267 veto
 18:19:52 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 262 veto
 18:19:28 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 266 veto
@@ -123,22 +139,6 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 18:12:51 ORACLE   360 raccolti, 244 analizzati, 1 BUY, 236 veto
 18:12:27 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 254 veto
 18:12:04 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 264 veto
-18:11:41 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 261 veto
-18:11:27 QUARTER  BUY $IF 0.079 SOL score 64 impatto 0.15% (Jupiter)
-18:11:26 QUARTER  SEGNALE $IF score 64 (semi-automatico)
-18:11:26 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 265 veto
-18:11:11 SCRIBE   chiuso P-0652 $BTC 0.0321 SOL (40.5%)
-18:11:11 CHARON   TP1 $BTC vendo 100% a 62.2% -> 0.1114 SOL
-18:11:01 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 260 veto
-18:10:37 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 251 veto
-18:10:12 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 259 veto
-18:09:48 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 273 veto
-18:09:25 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 264 veto
-18:09:00 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 259 veto
-18:08:36 QUARTER  BUY $BTC 0.078 SOL score 77 impatto 0.77% (Jupiter)
-18:08:36 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 269 veto
-18:08:13 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 256 veto
-18:07:50 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 265 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
