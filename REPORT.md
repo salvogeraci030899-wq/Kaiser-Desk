@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 15:19 UTC · in esecuzione da 3.0 giorni · 311 run
+Aggiornato: 2026-11-22 15:24 UTC · in esecuzione da 3.0 giorni · 311 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-22 15:19 UTC · in esecuzione da 3.0 giorni · 311 run
 | Cassa | 3.8828 SOL |
 | Trade chiusi | 206 |
 | Win rate | 31% |
-| P&L realizzato | -2.1172 SOL (~$-148.36) |
+| P&L realizzato | -2.1172 SOL (~$-148.64) |
 | Media vincite / perdite | +39.5% / -32.2% |
 | Profit factor | 0.54 |
 | Circuit breaker | no |
@@ -58,7 +58,7 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | Netto medio dei presi | +69.5% (intervallo -86.7% / +225.6%) |
 | Netto medio degli scartati | n/d% |
 | Differenza presi meno scartati (limite inferiore) | n/d |
-| Senza risposta / decisi dopo 5 minuti | 8 / 0 |
+| Senza risposta / decisi dopo 5 minuti | 9 / 0 |
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -99,6 +99,20 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 
 ## Ultimi eventi
 ```
+15:24:05 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 269 veto
+15:23:41 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 270 veto
+15:23:18 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 261 veto
+15:23:14 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
+15:22:54 ORACLE   360 raccolti, 287 analizzati, 0 BUY, 270 veto
+15:22:30 ORACLE   360 raccolti, 285 analizzati, 0 BUY, 268 veto
+15:22:07 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 262 veto
+15:21:43 ORACLE   360 raccolti, 289 analizzati, 0 BUY, 270 veto
+15:21:19 ORACLE   360 raccolti, 282 analizzati, 0 BUY, 263 veto
+15:20:55 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 260 veto
+15:20:31 ORACLE   360 raccolti, 287 analizzati, 0 BUY, 268 veto
+15:20:07 ORACLE   360 raccolti, 289 analizzati, 0 BUY, 271 veto
+15:19:44 ORACLE   360 raccolti, 284 analizzati, 0 BUY, 264 veto
+15:19:19 ORACLE   350 raccolti, 277 analizzati, 0 BUY, 254 veto
 15:18:55 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
 15:18:55 ORACLE   339 raccolti, 264 analizzati, 0 BUY, 243 veto
 15:18:33 ORACLE   332 raccolti, 259 analizzati, 0 BUY, 238 veto
@@ -127,20 +141,6 @@ fabbrica: 32644 percorsi, 768 configurazioni, 0 passano, 4246 ms
 15:13:59 KAISER   run #311 · 0 posizioni · equity 3.8828 SOL · GMGN spenta (nessuna chiave) · Grok off
 15:13:43 SCRIBE   fine run · trade 206 · win 31% · P&L -2.1172 SOL · equity 3.8828 SOL
 15:13:43 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 257 veto
-15:13:22 ORACLE   360 raccolti, 282 analizzati, 0 BUY, 266 veto
-15:12:59 ORACLE   360 raccolti, 283 analizzati, 0 BUY, 267 veto
-15:12:37 ORACLE   360 raccolti, 281 analizzati, 0 BUY, 266 veto
-15:12:14 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 264 veto
-15:11:51 ORACLE   360 raccolti, 281 analizzati, 0 BUY, 264 veto
-15:11:28 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 256 veto
-15:11:05 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 263 veto
-15:10:42 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 264 veto
-15:10:19 SCRIBE   chiuso P-0642 $Plurality -0.0308 SOL (-38.8%)
-15:10:19 CHARON   Stop loss $Plurality vendo 100% a -32.8% -> 0.0485 SOL
-15:10:19 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 258 veto
-15:09:56 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 256 veto
-15:09:33 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 263 veto
-15:09:10 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 252 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.

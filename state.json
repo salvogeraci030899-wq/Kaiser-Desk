@@ -9514,27 +9514,6 @@
  ],
  "signals": [
   {
-   "t": 1795330697481,
-   "mint": "tZsjFu2CH1R23wEpbfXAYGc2KUaVrUbwofCNNNqpump",
-   "sym": "SANTA",
-   "score": 64,
-   "priceNative": 3.743e-7
-  },
-  {
-   "t": 1795330720117,
-   "mint": "tZsjFu2CH1R23wEpbfXAYGc2KUaVrUbwofCNNNqpump",
-   "sym": "SANTA",
-   "score": 64,
-   "priceNative": 3.282e-7
-  },
-  {
-   "t": 1795330742790,
-   "mint": "tZsjFu2CH1R23wEpbfXAYGc2KUaVrUbwofCNNNqpump",
-   "sym": "SANTA",
-   "score": 64,
-   "priceNative": 3.282e-7
-  },
-  {
    "t": 1795330766330,
    "mint": "tZsjFu2CH1R23wEpbfXAYGc2KUaVrUbwofCNNNqpump",
    "sym": "SANTA",
@@ -16512,6 +16491,27 @@
    "sym": "Jupiter",
    "score": 66,
    "priceNative": 2.66e-7
+  },
+  {
+   "t": 1795360998518,
+   "mint": "37dRkSVpirqLLh2m8jdx2JXBFcNqFi7pdBgqDodppump",
+   "sym": "MengLan",
+   "score": 73,
+   "priceNative": 3.849e-7
+  },
+  {
+   "t": 1795361021707,
+   "mint": "37dRkSVpirqLLh2m8jdx2JXBFcNqFi7pdBgqDodppump",
+   "sym": "MengLan",
+   "score": 72,
+   "priceNative": 3.457e-7
+  },
+  {
+   "t": 1795361045090,
+   "mint": "37dRkSVpirqLLh2m8jdx2JXBFcNqFi7pdBgqDodppump",
+   "sym": "MengLan",
+   "score": 72,
+   "priceNative": 3.205e-7
   }
  ],
  "alerts": [
@@ -16748,9 +16748,10 @@
    "why": [
     "turnover 3.2x/h"
    ],
-   "last": -61,
+   "last": -62.5,
    "min": -69.2,
-   "p5": -54.3
+   "p5": -54.3,
+   "p15": -62.5
   }
  ],
  "grokLog": [],
@@ -16762,6 +16763,20 @@
  "halted": null,
  "seq": 642,
  "events": [
+  "15:24:05 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 269 veto",
+  "15:23:41 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 270 veto",
+  "15:23:18 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 261 veto",
+  "15:23:14 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)",
+  "15:22:54 ORACLE   360 raccolti, 287 analizzati, 0 BUY, 270 veto",
+  "15:22:30 ORACLE   360 raccolti, 285 analizzati, 0 BUY, 268 veto",
+  "15:22:07 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 262 veto",
+  "15:21:43 ORACLE   360 raccolti, 289 analizzati, 0 BUY, 270 veto",
+  "15:21:19 ORACLE   360 raccolti, 282 analizzati, 0 BUY, 263 veto",
+  "15:20:55 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 260 veto",
+  "15:20:31 ORACLE   360 raccolti, 287 analizzati, 0 BUY, 268 veto",
+  "15:20:07 ORACLE   360 raccolti, 289 analizzati, 0 BUY, 271 veto",
+  "15:19:44 ORACLE   360 raccolti, 284 analizzati, 0 BUY, 264 veto",
+  "15:19:19 ORACLE   350 raccolti, 277 analizzati, 0 BUY, 254 veto",
   "15:18:55 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena",
   "15:18:55 ORACLE   339 raccolti, 264 analizzati, 0 BUY, 243 veto",
   "15:18:33 ORACLE   332 raccolti, 259 analizzati, 0 BUY, 238 veto",
@@ -17047,21 +17062,7 @@
   "13:47:31 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 256 veto",
   "13:47:07 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 260 veto",
   "13:46:43 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 254 veto",
-  "13:46:29 QUARTER  BUY $SI 0.078 SOL score 70 impatto 1.20% (Jupiter)",
-  "13:46:29 QUARTER  SEGNALE $SI score 70 (semi-automatico)",
-  "13:46:29 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 248 veto",
-  "13:46:04 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 261 veto",
-  "13:45:40 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 260 veto",
-  "13:45:17 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 245 veto",
-  "13:45:14 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)",
-  "13:44:54 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 257 veto",
-  "13:44:30 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 256 veto",
-  "13:44:06 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 260 veto",
-  "13:43:43 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 260 veto",
-  "13:43:20 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 254 veto",
-  "13:42:56 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 253 veto",
-  "13:42:33 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 264 veto",
-  "13:42:09 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 263 veto"
+  "13:46:29 QUARTER  BUY $SI 0.078 SOL score 70 impatto 1.20% (Jupiter)"
  ],
  "capital": 6,
  "resetId": "C-0110",
