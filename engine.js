@@ -12,6 +12,8 @@ const DEFAULTS = {
   dailyLossPct: 15, refillBelowPct: 30, cooldownMin: 10, retradeH: 2, entryGapSec: 60, taxPct: 26, maxEntriesPerScan: 1,
   // Charon
   sl: 25, tp1: 40, tp1Sell: 50, trail: 20, beAfterTp1: true, timeStopMin: 45, timeStopMinPnl: 5,
+  // Solo uomo: resta attivo il Radar con gli avvisi, i tuoi Prendo (posizione paper) e gli Scarto (prezzo seguito 15 minuti). Spenti: ingressi automatici del bot (paper e reale), test di ingresso rapido, raccolta sui migrati, Laboratorio, strategie, Grok e prove sui social.
+  humanOnly: true,
   // Uscite delle posizioni aperte con Prendo (le stesse della migliore configurazione del Laboratorio): target +10%, stop -10%, uscita dopo 60 secondi
   humanTp: 10, humanSl: 10, humanHoldSec: 60,
   rugLiqDrop: 45, sellPressure: true,

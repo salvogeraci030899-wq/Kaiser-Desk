@@ -261,7 +261,7 @@ async function snipeQuote(inMint, outMint, amount, opt) {
   } finally { clearTimeout(tm); }
 }
 function snipeCfg() {
-  const c = { enabled: S.snipeTest !== false }, m = { snipeEvery: 'every', snipeDelayMs: 'delayMs', snipeHoldMs: 'holdMs', snipeSizeSol: 'sizeSol' };
+  const c = { enabled: !S.humanOnly && S.snipeTest !== false }, m = { snipeEvery: 'every', snipeDelayMs: 'delayMs', snipeHoldMs: 'holdMs', snipeSizeSol: 'sizeSol' };
   for (const [k, v] of Object.entries(m)) if (Number.isFinite(Number(S[k])) && S[k] !== '' && S[k] != null) c[v] = Number(S[k]);
   return c;
 }
@@ -284,7 +284,7 @@ Regola decisa in anticipo: almeno ${t.cfg.minN} trade tuoi chiusi, netto medio >
 `;
 }
 function gradCfg() {
-  const c = { enabled: S.gradTest !== false };
+  const c = { enabled: !S.humanOnly && S.gradTest !== false };
   if (Number.isFinite(Number(S.gradSizeSol)) && S.gradSizeSol !== '' && S.gradSizeSol != null) c.sizeSol = Number(S.gradSizeSol);
   return c;
 }
@@ -662,9 +662,9 @@ async function scan() {
   }
   // modalita' semi-automatica: avviso con il collegamento a pump.fun, entri tu a mano (funziona anche con l'autopilota spento)
   st.alerts = st.alerts || [];
-  if (S.semiAuto && S.semiAuto !== 'spento') await semiAlerts(buys);
+  if (S.humanOnly || (S.semiAuto && S.semiAuto !== 'spento')) await semiAlerts(buys);      // solo uomo: gli avvisi partono sempre
   await updateAlerts(pairs); logGrok();
-  if (S.semiAuto === 'solo avvisi') return;
+  if (S.humanOnly || S.semiAuto === 'solo avvisi') return;                                   // solo uomo: nessun ingresso automatico, ne' paper ne' reale
   if (!S.autopilot) return;
   await realEntries(buys);   // conto REALE (separato dal paper): solo se acceso in config.json e con l'esecutore collegato
   if (S.paperStop || S.paperEnabled === false) return;   // pannello di emergenza: il paper non apre nuove posizioni (quelle aperte restano gestite)
@@ -847,7 +847,7 @@ function checkpoint() {
 // ---------------- loop ----------------
 function startYoung() {
   const onToken = (t) => { if (rt.snipe) rt.snipe.onCreate(t); if (S.srcYoung !== false) Y.addYoung(rt.young, t, Date.now(), 800); };
-  if (S.srcLab !== false) {                                     // Laboratorio: una sola connessione a PumpPortal per nuovi token e scambi (osservazione, nessun ordine)
+  if (S.srcLab !== false && !S.humanOnly) {                     // Laboratorio: una sola connessione a PumpPortal per nuovi token e scambi (osservazione, nessun ordine)
     rt.trades = new Lab.TradeFeed({ log: (m) => log('SCOUT', m), onComplete: (t, now) => { if (rt.grad) rt.grad.onComplete({ mint: t.mint, sym: t.sym, at: now }); }, solUsd: () => rt.solUsd, rpcHttp: process.env.RPC_URL || '', onCross: (t) => { if (rt.holdQ.length < 200) rt.holdQ.push({ mint: t.mint, curve: t.curve, creator: t.dev, at: Date.now(), uri: t.uri, devBuy: t.devBuy, sym: t.sym, name: t.name }); if (S.socialTest && rt.socQ.length < 20) rt.socQ.push({ mint: t.mint, sym: t.sym, name: t.name, at: Date.now() }); }, onCreator: (x) => { if (rt.crBuf.length < 5000) rt.crBuf.push(x); }, onPath: (x) => { rt.pathBuf.push(Farm.pack(x)); if (Strat.record(rt.strat, x, Date.now(), stratCtx())) { rt.stratDirty = true; flushStratNotes(); } }, onCreate: onToken, onDone: (s) => { st.lab = st.lab || { done: [] }; st.lab.done.push(s); st.lab.done = st.lab.done.slice(-400); } });
     rt.trades.start();
   }
@@ -856,7 +856,7 @@ function startYoung() {
   if (rpc || !rt.trades) { rt.feed = new Y.YoungFeed({ rpcUrl: rpc, portal: !rt.trades, log: (m) => log('SCOUT', m), onToken: (t) => { if (rt.snipe) rt.snipe.onCreate(t); Y.addYoung(rt.young, t, Date.now(), 800); if (rt.trades) rt.trades.adopt(t); } }); rt.feed.start(); }   // RPC come fonte principale; PumpPortal (Laboratorio) come riserva
 }
 async function main() {
-  rt.strat = Strat.load(STRAT_FILE()); loadFarm(); loadProbe();
+  rt.strat = Strat.load(STRAT_FILE()); if (!S.humanOnly) { loadFarm(); loadProbe(); }
   rt.snipe = new Snipe.Snipe({ quote: snipeQuote, file: path.join(STATE_DIR, 'snipe.json'), cfg: snipeCfg(), log: (m) => log('SNIPE', m) });
   rt.grad = new Grad.Grad({ quote: snipeQuote, file: path.join(STATE_DIR, 'grad.json'), cfg: gradCfg(), log: (m) => log('MIGRATI', m) });
   startYoung();
@@ -873,12 +873,7 @@ async function main() {
     if (end - Date.now() < rt.grad.cfg.spanMs + 120000) rt.grad.stop();          // una raccolta dura 15 minuti: niente nuovi ingressi quando non ci sarebbe il tempo di finirla
     gradVerdict().catch(() => {});                // niente nuove entrate negli ultimi 75 s: le posizioni del test si chiudono prima della fine del run
     snipeVerdict().catch(() => {});
-    shadowTick();
-    maybeFarm();
-    maybeProbe();
-    pumpHolders();
-    pumpLabQueries();
-    pumpGrok(); pumpSocial();
+    if (!S.humanOnly) { shadowTick(); maybeFarm(); maybeProbe(); pumpHolders(); pumpLabQueries(); pumpGrok(); pumpSocial(); }      // solo uomo: niente Laboratorio, strategie, Grok e social
     save();
     if (Date.now() - lastCp >= CHECKPOINT_MS) { lastCp = Date.now(); flushPaths(false); checkpoint(); }
     const left = end - Date.now();
