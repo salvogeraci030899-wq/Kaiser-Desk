@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 04:20 UTC · in esecuzione da 2.6 giorni · 297 run
+Aggiornato: 2026-11-22 04:26 UTC · in esecuzione da 2.6 giorni · 298 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-22 04:20 UTC · in esecuzione da 2.6 giorni · 297 run
 | Cassa | 4.0283 SOL |
 | Trade chiusi | 180 |
 | Win rate | 29% |
-| P&L realizzato | -1.9717 SOL (~$-136.70) |
+| P&L realizzato | -1.9717 SOL (~$-136.47) |
 | Media vincite / perdite | +40.9% / -32.3% |
 | Profit factor | 0.53 |
 | Circuit breaker | no |
@@ -55,6 +55,31 @@ _nessuna_
 
 ## Ultimi eventi
 ```
+04:25:52 ORACLE   333 raccolti, 261 analizzati, 0 BUY, 251 veto
+04:25:29 ORACLE   330 raccolti, 258 analizzati, 1 BUY, 247 veto
+04:25:06 ORACLE   317 raccolti, 249 analizzati, 1 BUY, 239 veto
+04:24:43 ORACLE   301 raccolti, 238 analizzati, 1 BUY, 228 veto
+04:24:20 ORACLE   297 raccolti, 228 analizzati, 1 BUY, 219 veto
+04:23:57 ORACLE   282 raccolti, 218 analizzati, 1 BUY, 209 veto
+04:23:34 ORACLE   271 raccolti, 205 analizzati, 1 BUY, 196 veto
+04:23:12 SCOUT    PumpPortal invia nuovi token (20) ma nessuno scambio: i punteggi bot non sono disponibili, restano i prezzi dalla catena
+04:23:12 ORACLE   263 raccolti, 194 analizzati, 1 BUY, 184 veto
+04:22:59 ORACLE   243 raccolti, 189 analizzati, 1 BUY, 182 veto
+04:22:33 ORACLE   233 raccolti, 168 analizzati, 0 BUY, 161 veto
+04:22:11 ORACLE   229 raccolti, 165 analizzati, 0 BUY, 157 veto
+04:21:48 ORACLE   204 raccolti, 146 analizzati, 0 BUY, 139 veto
+04:21:44 SCOUT    rug: 11744 token oltre 7.5K, 35.7% rug, 9606 con possessori
+combinazioni: 4656 prove, migliore -6.12%, p 1
+fabbrica: 32543 percorsi, 768 configurazioni, 0 passano, 5542 ms
+04:21:25 ORACLE   189 raccolti, 133 analizzati, 0 BUY, 125 veto
+04:21:09 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
+04:21:09 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: 'subscribeTokenTrade' and 'subscribeAccountTrade' methods are only available when connecting with an
+04:21:03 ORACLE   189 raccolti, 133 analizzati, 0 BUY, 125 veto
+04:20:59 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 15000→7500, minMcap 15000→3000, minAgeMin 5→0, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 20000000→100000, gmgnInterval 1h→1m, maxAgeH 72→1, minTxH1 40→15, minDipPct 0→20, entryGapSec 60→120
+04:20:59 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
+04:20:59 SCOUT    messaggio PumpPortal non riconosciuto, chiavi: message · testo: Successfully subscribed to token creation events.
+04:20:59 SCOUT    Laboratorio: collegato a PumpPortal
+04:20:59 KAISER   run #298 · 0 posizioni · equity 4.0283 SOL · GMGN spenta (nessuna chiave) · Grok off
 04:20:47 SCRIBE   fine run · trade 180 · win 29% · P&L -1.9717 SOL · equity 4.0283 SOL
 04:20:47 ORACLE   360 raccolti, 295 analizzati, 0 BUY, 282 veto
 04:20:23 ORACLE   360 raccolti, 284 analizzati, 0 BUY, 273 veto
@@ -72,29 +97,6 @@ _nessuna_
 04:15:45 ORACLE   360 raccolti, 283 analizzati, 2 BUY, 275 veto
 04:15:22 ORACLE   360 raccolti, 289 analizzati, 2 BUY, 280 veto
 04:14:59 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 274 veto
-04:14:36 ORACLE   360 raccolti, 288 analizzati, 1 BUY, 278 veto
-04:14:13 ORACLE   360 raccolti, 287 analizzati, 1 BUY, 277 veto
-04:13:49 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 274 veto
-04:13:26 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 269 veto
-04:13:02 ORACLE   360 raccolti, 293 analizzati, 2 BUY, 284 veto
-04:12:40 ORACLE   360 raccolti, 293 analizzati, 0 BUY, 284 veto
-04:12:16 ORACLE   360 raccolti, 285 analizzati, 0 BUY, 276 veto
-04:11:52 SCRIBE   chiuso P-0616 $LEONIDA -0.0206 SOL (-25.1%)
-04:11:52 CHARON   Stop loss $LEONIDA vendo 100% a -31.0% -> 0.0614 SOL
-04:11:52 ORACLE   360 raccolti, 296 analizzati, 0 BUY, 288 veto
-04:11:30 ORACLE   360 raccolti, 289 analizzati, 0 BUY, 280 veto
-04:11:06 ORACLE   360 raccolti, 285 analizzati, 1 BUY, 275 veto
-04:10:42 ORACLE   360 raccolti, 292 analizzati, 1 BUY, 283 veto
-04:10:19 ORACLE   360 raccolti, 291 analizzati, 1 BUY, 283 veto
-04:09:56 ORACLE   360 raccolti, 295 analizzati, 1 BUY, 286 veto
-04:09:33 ORACLE   360 raccolti, 294 analizzati, 1 BUY, 284 veto
-04:09:10 ORACLE   360 raccolti, 292 analizzati, 1 BUY, 280 veto
-04:08:46 QUARTER  BUY $LEONIDA 0.081 SOL score 72 impatto 1.03% (Jupiter)
-04:08:46 ORACLE   360 raccolti, 291 analizzati, 1 BUY, 279 veto
-04:08:23 QUARTER  $LEONIDA impatto 2.3% oltre slippage: annullato
-04:08:23 ORACLE   360 raccolti, 300 analizzati, 1 BUY, 288 veto
-04:08:00 ORACLE   360 raccolti, 297 analizzati, 0 BUY, 286 veto
-04:07:37 ORACLE   360 raccolti, 290 analizzati, 1 BUY, 280 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
