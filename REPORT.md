@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 20:31 UTC · in esecuzione da 3.3 giorni · 317 run
+Aggiornato: 2026-11-22 20:36 UTC · in esecuzione da 3.3 giorni · 317 run
 
 | | |
 |---|---|
-| Equity | **3.8755 SOL** (-35.4% dal capitale iniziale di 6 SOL) |
-| Cassa | 3.8755 SOL |
+| Equity | **3.8929 SOL** (-35.1% dal capitale iniziale di 6 SOL) |
+| Cassa | 3.7970 SOL |
 | Trade chiusi | 226 |
 | Win rate | 31% |
-| P&L realizzato | -2.1245 SOL (~$-148.39) |
+| P&L realizzato | -2.1245 SOL (~$-148.49) |
 | Media vincite / perdite | +40.1% / -31.6% |
 | Profit factor | 0.57 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$AMAZON** P-0663 · 0.078 SOL · +23.7% · resta 100% · [grafico](https://dexscreener.com/solana/9ne7cVeP6BvcyiTcav2CyQpJb8xEWwiDtcBJcVumg7CW)
 
 ## Test ingresso rapido (solo paper, quotazioni Jupiter)
 Ipotesi: comprare 5 secondi dopo la creazione, tenere 30 secondi, vendere. Un token su 3, 0.05 SOL a operazione. Serie 2 dal 2026-11-22 11:02 UTC.
@@ -58,7 +58,7 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | Netto medio dei presi | +69.5% (intervallo -86.7% / +225.6%) |
 | Netto medio degli scartati | n/d% |
 | Differenza presi meno scartati (limite inferiore) | n/d |
-| Senza risposta / decisi dopo 5 minuti | 32 / 0 |
+| Senza risposta / decisi dopo 5 minuti | 33 / 0 |
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -99,6 +99,21 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 
 ## Ultimi eventi
 ```
+20:35:54 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 264 veto
+20:35:32 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 259 veto
+20:35:09 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 269 veto
+20:34:47 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 258 veto
+20:34:24 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 247 veto
+20:34:00 QUARTER  BUY $AMAZON 0.078 SOL score 69 impatto 1.89% (Jupiter)
+20:34:00 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 229 veto
+20:33:36 QUARTER  SEGNALE $AMAZON score 69 (semi-automatico)
+20:33:36 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 232 veto
+20:33:13 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 233 veto
+20:32:48 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 250 veto
+20:32:26 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 243 veto
+20:32:02 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 243 veto
+20:31:38 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 254 veto
+20:31:14 ORACLE   360 raccolti, 262 analizzati, 0 BUY, 255 veto
 20:30:51 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 246 veto
 20:30:27 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 259 veto
 20:30:02 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 261 veto
@@ -124,21 +139,6 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 20:24:08 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 267 veto
 20:23:45 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 266 veto
 20:23:22 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 269 veto
-20:22:58 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 262 veto
-20:22:34 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 262 veto
-20:22:10 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 270 veto
-20:21:47 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 266 veto
-20:21:23 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 268 veto
-20:20:59 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 267 veto
-20:20:35 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 263 veto
-20:20:11 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 254 veto
-20:19:47 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 271 veto
-20:19:23 SCRIBE   chiuso P-0661 $FSDV15 -0.0789 SOL (-97.8%)
-20:19:23 CHARON   RUG-EXIT liquidità $FSDV15 vendo 100% a -97.1% -> 0.0018 SOL
-20:19:23 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 266 veto
-20:18:59 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 251 veto
-20:18:46 QUARTER  BUY $FSDV15 0.080 SOL score 88 impatto 0.95% (Jupiter)
-20:18:45 QUARTER  SEGNALE $FSDV15 score 88 (semi-automatico)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
