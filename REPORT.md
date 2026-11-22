@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 14:14 UTC · in esecuzione da 3.0 giorni · 309 run
+Aggiornato: 2026-11-22 14:19 UTC · in esecuzione da 3.0 giorni · 309 run
 
 | | |
 |---|---|
-| Equity | **3.8797 SOL** (-35.3% dal capitale iniziale di 6 SOL) |
-| Cassa | 3.8048 SOL |
-| Trade chiusi | 203 |
-| Win rate | 31% |
-| P&L realizzato | -2.1165 SOL (~$-148.61) |
-| Media vincite / perdite | +39.2% / -32.2% |
+| Equity | **3.8663 SOL** (-35.6% dal capitale iniziale di 6 SOL) |
+| Cassa | 3.8663 SOL |
+| Trade chiusi | 204 |
+| Win rate | 30% |
+| P&L realizzato | -2.1337 SOL (~$-149.60) |
+| Media vincite / perdite | +39.2% / -32.1% |
 | Profit factor | 0.54 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$XMASS** P-0640 · 0.078 SOL · -3.6% · resta 100% · [grafico](https://dexscreener.com/solana/GvJDfvtmqE3kAthiyNMJz7pJ2Pj6mM6DVhSZwa7gwqiB)
+_nessuna_
 
 ## Test ingresso rapido (solo paper, quotazioni Jupiter)
 Ipotesi: comprare 5 secondi dopo la creazione, tenere 30 secondi, vendere. Un token su 3, 0.05 SOL a operazione. Serie 2 dal 2026-11-22 11:02 UTC.
@@ -54,23 +54,24 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | | |
 |---|---|
 | Esito | **in corso** |
-| Presi / scartati (con misura a 5 minuti) | 1 / 0 |
-| Netto medio dei presi | n/d |
+| Presi / scartati (con misura a 5 minuti) | 2 / 0 |
+| Netto medio dei presi | +69.5% (intervallo -86.7% / +225.6%) |
 | Netto medio degli scartati | n/d% |
 | Differenza presi meno scartati (limite inferiore) | n/d |
-| Senza risposta / decisi dopo 5 minuti | 6 / 1 |
+| Senza risposta / decisi dopo 5 minuti | 7 / 0 |
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 56 | -1.6426 |
-| Time stop | 74 | -0.9280 |
+| Time stop | 75 | -0.9452 |
 | TP1 | 46 | +1.9812 |
 | RUG-EXIT liquidità | 27 | -1.5271 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $XMASS | 74 | -21.8% | -0.0172 | +0% | -8% | Time stop | 5m |
 | $MOG | 66 | -15.7% | -0.0124 | +15% | +2% | Time stop | 5m |
 | $SI | 70 | -11.4% | -0.0090 | +24% | +3% | Time stop | 5m |
 | $MCAT | 68 | +25.4% | +0.0200 | +96% | +96% | TP1 | 1m |
@@ -95,10 +96,24 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 | $RARE | 63 | -50.7% | -0.0415 | +0% | -56% | RUG-EXIT liquidità | 1m |
 | $Snowball | 64 | +22.1% | +0.0180 | +70% | +70% | TP1 | 5m |
 | $LEONIDA | 72 | -25.1% | -0.0206 | +5% | -31% | Stop loss | 3m |
-| $Tiger | 74 | -20.0% | -0.0164 | +60% | +60% | TP1 | 1m |
 
 ## Ultimi eventi
 ```
+14:19:16 ORACLE   360 raccolti, 282 analizzati, 2 BUY, 269 veto
+14:18:53 ORACLE   360 raccolti, 291 analizzati, 1 BUY, 276 veto
+14:18:29 ORACLE   360 raccolti, 296 analizzati, 1 BUY, 282 veto
+14:18:06 ORACLE   360 raccolti, 290 analizzati, 2 BUY, 276 veto
+14:17:42 ORACLE   360 raccolti, 291 analizzati, 2 BUY, 278 veto
+14:17:18 ORACLE   360 raccolti, 289 analizzati, 3 BUY, 276 veto
+14:16:54 SCRIBE   chiuso P-0640 $XMASS -0.0172 SOL (-21.8%)
+14:16:54 CHARON   Time stop $XMASS vendo 100% a -8.0% -> 0.0615 SOL
+14:16:54 ORACLE   360 raccolti, 283 analizzati, 3 BUY, 271 veto
+14:16:31 ORACLE   360 raccolti, 289 analizzati, 3 BUY, 277 veto
+14:16:07 ORACLE   360 raccolti, 286 analizzati, 3 BUY, 275 veto
+14:15:54 ORACLE   360 raccolti, 282 analizzati, 3 BUY, 271 veto
+14:15:28 ORACLE   360 raccolti, 296 analizzati, 3 BUY, 282 veto
+14:15:04 ORACLE   360 raccolti, 296 analizzati, 2 BUY, 281 veto
+14:14:40 ORACLE   360 raccolti, 290 analizzati, 3 BUY, 277 veto
 14:14:15 ORACLE   360 raccolti, 297 analizzati, 3 BUY, 284 veto
 14:13:51 ORACLE   360 raccolti, 292 analizzati, 3 BUY, 279 veto
 14:13:27 ORACLE   360 raccolti, 284 analizzati, 4 BUY, 272 veto
@@ -124,21 +139,6 @@ Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi 
 14:06:31 SCRIBE   chiuso P-0639 $MOG -0.0124 SOL (-15.7%)
 14:06:31 CHARON   Time stop $MOG vendo 100% a 2.0% -> 0.0665 SOL
 14:06:21 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 263 veto
-14:05:58 ORACLE   360 raccolti, 287 analizzati, 2 BUY, 272 veto
-14:05:34 ORACLE   360 raccolti, 292 analizzati, 2 BUY, 279 veto
-14:05:09 ORACLE   360 raccolti, 284 analizzati, 2 BUY, 270 veto
-14:04:46 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 266 veto
-14:04:22 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 266 veto
-14:04:08 QUARTER  SEGNALE $XMASS score 64 (semi-automatico)
-14:04:08 ORACLE   360 raccolti, 277 analizzati, 3 BUY, 265 veto
-14:03:43 ORACLE   360 raccolti, 286 analizzati, 1 BUY, 270 veto
-14:03:20 ORACLE   360 raccolti, 289 analizzati, 1 BUY, 272 veto
-14:02:56 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 265 veto
-14:02:33 ORACLE   360 raccolti, 288 analizzati, 1 BUY, 268 veto
-14:02:09 ORACLE   360 raccolti, 286 analizzati, 1 BUY, 267 veto
-14:01:46 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 259 veto
-14:01:22 QUARTER  BUY $MOG 0.078 SOL score 66 impatto 1.32% (Jupiter)
-14:01:21 QUARTER  SEGNALE $MOG score 66 (semi-automatico)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
