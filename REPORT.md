@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-22 21:39 UTC · in esecuzione da 0.0 giorni · 318 run
+Aggiornato: 2026-11-22 21:45 UTC · in esecuzione da 0.0 giorni · 319 run
 
 | | |
 |---|---|
-| Equity | **6.0112 SOL** (+0.2% dal capitale iniziale di 6 SOL) |
-| Cassa | 6.0112 SOL |
+| Equity | **5.9941 SOL** (-0.1% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.9941 SOL |
 | Trade chiusi | 1 |
-| Win rate | 100% |
-| P&L realizzato | +0.0112 SOL (~$0.79) |
-| Media vincite / perdite | +9.3% / +0.0% |
-| Profit factor | ∞ |
+| Win rate | 0% |
+| P&L realizzato | -0.0059 SOL (~$-0.41) |
+| Media vincite / perdite | +0.0% / -4.9% |
+| Profit factor | 0.00 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -47,71 +47,85 @@ Regola decisa in anticipo: orizzonte 300 s (gli altri sono solo descrittivi), al
 | Impatto di prezzo in acquisto (mediana) / ritardo del lettore (mediana) | 6.53% / 7.8 s |
 | Curve completate viste / acquistate / senza rotta / coda piena / interrotte | 4 / 4 / 0 / 0 / 0 |
 
-## Uomo e macchina: i segnali che prendi contro quelli che scarti
-Il radar sceglie, tu decidi (Prendo o Scarto) senza vedere il punteggio del bot. Rendimento a 5 minuti dalla tua decisione, meno 5% di costo a giro (stima mediana, non una misura per ogni token).
-Regola decisa in anticipo: almeno 50 presi e 30 scartati, netto medio dei presi >= +3% con limite inferiore sopra zero e sopra gli scartati.
+## Uomo e macchina: le Coin che prendi contro quelle del bot
+Il radar sceglie e tu decidi (Prendo o Scarto) senza vedere il punteggio del bot. Con Prendo il paper apre subito la posizione con i parametri impostati e la chiude da solo: il rendimento e' netto di impatto, commissioni e priority fee.
+Regola decisa in anticipo: almeno 50 trade tuoi chiusi, netto medio >= +3% con limite inferiore del 95% sopra zero.
 
 | | |
 |---|---|
 | Esito | **in corso** |
-| Presi / scartati (con misura a 5 minuti) | 0 / 0 |
-| Netto medio dei presi | n/d |
-| Netto medio degli scartati | n/d% |
-| Differenza presi meno scartati (limite inferiore) | n/d |
-| Senza risposta / decisi dopo 5 minuti | 0 / 0 |
+| Trade tuoi chiusi / trade del bot chiusi | 1 / 0 |
+| Netto medio dei tuoi trade | n/d |
+| Netto medio dei trade del bot | n/d% |
+| Differenza tuoi meno bot (limite inferiore) | n/d |
+| Scartati: variazione a 5 minuti dalla decisione, meno 5% di costo (solo descrittivo) | 0 segnali, n/d% |
+| Segnali senza risposta / decisi dopo 5 minuti | 0 / 1 |
+
+## Coin di fascia alta e ricerca sui creatori
+Il Radar guarda le Coin da 500000 dollari di market cap in su. Per ognuna si risale al creatore e si registra la market cap: una Coin e' «raddoppiata» se supera il doppio della prima lettura in fascia. Il profilo del creatore compare nell'avviso.
+Memoria: 95877 lanci noti, 19049 creatori; 2 Coin in fascia alta viste (2 creatori), 0 raddoppiate (0 creatori). Creatore trovato: tabella 17, richiesta esterna 0, sconosciuto 150.
+
+| Fascia | Avvisi | Prendo / Scarto | Tuoi trade chiusi | Netto medio |
+|---|---|---|---|---|
+| 500K-1M | 3 | 1 / 0 | 1 | -4.9% |
+| 1M-2M | 2 | 0 / 0 | 0 | n/d |
+| 2M+ | 3 | 0 / 0 | 0 | n/d |
+
+Controllo equo: gli Scarto si simulano come se fossero stati presi, con le stesse uscite e costi stimati dalla liquidita'. Scartati simulati chiusi: 0; ancora aperti: 0. Tuoi Prendo meno Scarto simulati: n/d. Solo descrittivo: non entra nella regola di superamento.
+Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, per giorno: 11-22: 13 / 8.
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| TP1 | 1 | +0.0112 |
+| Chiusura manuale (app) | 1 | -0.0059 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
-| $GOKU | 65 | +9.3% | +0.0112 | +67% | +67% | TP1 | 0m |
+| $WW | 55 | -4.9% | -0.0059 | +0% | -3% | Chiusura manuale (app) | 2m |
 
 ## Ultimi eventi
 ```
-21:39:32 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 276 veto
-21:39:09 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 269 veto
-21:38:44 ORACLE   360 raccolti, 291 analizzati, 2 BUY, 282 veto
-21:38:21 ORACLE   360 raccolti, 284 analizzati, 2 BUY, 275 veto
-21:37:57 ORACLE   360 raccolti, 286 analizzati, 2 BUY, 276 veto
-21:37:33 ORACLE   360 raccolti, 283 analizzati, 2 BUY, 273 veto
-21:37:09 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 264 veto
-21:36:46 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 261 veto
-21:36:32 SCRIBE   chiuso P-0669 $GOKU 0.0112 SOL (9.3%)
-21:36:32 CHARON   TP1 $GOKU vendo 100% a 67.3% -> 0.1322 SOL
-21:36:32 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 267 veto
-21:36:07 QUARTER  BUY $GOKU 0.120 SOL score 65 impatto 0.46% (Jupiter)
-21:36:06 QUARTER  SEGNALE $GOKU score 65 (semi-automatico)
-21:36:06 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 262 veto
-21:35:42 QUARTER  $Incidents impatto 2.6% oltre slippage: annullato
-21:35:42 QUARTER  SEGNALE $Incidents score 63 (semi-automatico)
-21:35:42 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 261 veto
-21:35:18 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 256 veto
-21:34:54 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 251 veto
-21:34:41 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 241 veto
-21:34:15 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 257 veto
-21:33:51 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 259 veto
-21:33:38 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 254 veto
-21:33:32 KAISER   reset del paper (C-0118): conto azzerato, capitale 6 SOL
-21:33:12 ORACLE   360 raccolti, 260 analizzati, 0 BUY, 250 veto
-21:32:49 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 254 veto
-21:32:25 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 241 veto
-21:32:01 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 253 veto
-21:31:37 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 251 veto
-21:31:14 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 254 veto
-21:30:50 ORACLE   360 raccolti, 264 analizzati, 1 BUY, 254 veto
-21:30:27 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 261 veto
-21:30:03 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 252 veto
-21:29:39 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 259 veto
-21:29:25 SCRIBE   chiuso P-0668 $Incidents -0.0001 SOL (-0.1%)
-21:29:25 CHARON   Time stop $Incidents vendo 100% a -3.7% -> 0.1206 SOL
-21:29:14 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 259 veto
-21:28:51 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 251 veto
-21:28:26 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 263 veto
-21:28:03 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 255 veto
+21:45:07 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 243 veto
+21:45:03 KAISER   parametri dall'app: minLiq 40000→7500, minMcap 500000→3000, maxMcap 50000000→100000, maxAgeH 720→1
+21:44:43 QUARTER  SEGNALE $FIONA score 55 (semi-automatico)
+21:44:43 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 250 veto
+21:44:39 SCRIBE   chiuso P-0670 $WW -0.0059 SOL (-4.9%)
+21:44:39 CHARON   Chiusura manuale (app) $WW vendo 100% a -3.0% -> 0.1151 SOL
+21:44:38 KAISER   chiusura manuale dall'app: P-0670 WW
+21:44:38 KAISER   parametri dall'app: minLiq 40000→7500, minMcap 500000→3000, maxMcap 50000000→100000, maxAgeH 720→1
+21:44:18 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 252 veto
+21:44:14 KAISER   parametri dall'app: minLiq 40000→7500, minMcap 500000→3000, maxMcap 50000000→100000, maxAgeH 720→1
+21:43:53 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 245 veto
+21:43:50 KAISER   parametri dall'app: minLiq 40000→7500, minMcap 500000→3000, maxMcap 50000000→100000, maxAgeH 720→1
+21:43:30 ORACLE   358 raccolti, 250 analizzati, 2 BUY, 236 veto
+21:43:26 KAISER   parametri dall'app: minLiq 40000→7500, minMcap 500000→3000, maxMcap 50000000→100000, maxAgeH 720→1
+21:43:06 ORACLE   323 raccolti, 241 analizzati, 2 BUY, 228 veto
+21:43:02 QUARTER  BUY $WW 0.120 SOL score 55 impatto 0.07% (Jupiter)
+21:43:02 KAISER   parametri dall'app: minLiq 40000→7500, minMcap 500000→3000, maxMcap 50000000→100000, maxAgeH 720→1
+21:42:42 ORACLE   296 raccolti, 224 analizzati, 2 BUY, 211 veto
+21:42:39 KAISER   parametri dall'app: minLiq 40000→7500, minMcap 500000→3000, maxMcap 50000000→100000, maxAgeH 720→1
+21:42:29 ORACLE   295 raccolti, 223 analizzati, 2 BUY, 210 veto
+21:42:24 KAISER   parametri dall'app: minLiq 40000→7500, minMcap 500000→3000, maxMcap 50000000→100000, maxAgeH 720→1
+21:42:03 QUARTER  SEGNALE $WW score 55 (semi-automatico)
+21:42:03 ORACLE   269 raccolti, 188 analizzati, 2 BUY, 176 veto
+21:42:00 KAISER   parametri dall'app: minLiq 40000→7500, minMcap 500000→3000, maxMcap 50000000→100000, maxAgeH 720→1
+21:41:40 ORACLE   253 raccolti, 185 analizzati, 2 BUY, 173 veto
+21:41:38 KAISER   parametri dall'app: minLiq 40000→7500, minMcap 500000→3000, maxMcap 50000000→100000, maxAgeH 720→1
+21:41:17 QUARTER  SEGNALE $Singularity score 55 (semi-automatico)
+21:41:17 ORACLE   247 raccolti, 178 analizzati, 2 BUY, 166 veto
+21:41:13 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
+21:41:13 KAISER   parametri dall'app: minLiq 40000→7500, minMcap 500000→3000, maxMcap 50000000→100000, maxAgeH 720→1
+21:40:53 ORACLE   217 raccolti, 155 analizzati, 2 BUY, 143 veto
+21:40:50 KAISER   parametri dall'app: minLiq 40000→7500, minMcap 500000→3000, maxMcap 50000000→100000, maxAgeH 720→1
+21:40:29 QUARTER  SEGNALE $1WIN score 56 (semi-automatico)
+21:40:29 QUARTER  SEGNALE $MINELIUS score 76 (semi-automatico)
+21:40:29 ORACLE   205 raccolti, 146 analizzati, 2 BUY, 134 veto
+21:40:26 KAISER   parametri dall'app: minLiq 40000→7500, minMcap 500000→3000, maxMcap 50000000→100000, maxAgeH 720→1
+21:40:15 QUARTER  SEGNALE $FLOAT score 55 (semi-automatico)
+21:40:15 QUARTER  SEGNALE $DESSA score 61 (semi-automatico)
+21:40:14 QUARTER  SEGNALE $cateball score 92 (semi-automatico)
+21:40:14 ORACLE   203 raccolti, 131 analizzati, 1 BUY, 120 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
