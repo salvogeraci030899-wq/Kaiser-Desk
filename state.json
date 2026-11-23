@@ -1,388 +1,68 @@
 {
  "startedAt": 1795384038486,
  "runs": 338,
- "cash": 6,
- "positions": [],
+ "cash": 5.879,
+ "positions": [
+  {
+   "id": "P-0671",
+   "mint": "zcRvzm7gAfYGde8gRwaSYxNryL47SjLVUQLAf1bdoor",
+   "sym": "SIDOOR",
+   "name": "SIDOOR",
+   "pairAddress": "3peugE6Fm4fpaVvrV2KBFN3nvLbCGEhGoUXDDxAHuscR",
+   "openedAt": 1795438121962,
+   "sizeSOL": 0.12,
+   "cost": 0.121,
+   "entry": 0.000007938617595019985,
+   "tokens": 15115.981915450597,
+   "remaining": 1,
+   "rawLeft": "15726793772",
+   "peak": 0.000007938617595019985,
+   "tp1Done": false,
+   "spDone": false,
+   "entryLiq": 57753.15,
+   "realized": 0,
+   "score": 64,
+   "why": "umano",
+   "src": "umano",
+   "xs": {
+    "sl": 20,
+    "tp1": 100,
+    "tp1Sell": 50,
+    "trail": 25,
+    "beAfterTp1": true,
+    "timeStopMin": 360,
+    "timeStopMinPnl": 1000000000,
+    "sellPressure": false
+   },
+   "band": "500K-1M",
+   "cr": "A7HB4xzKdHEmd6JxyNwQtX6H74afCaAB4XqqxwW83ddJ",
+   "aid": "atoygwl",
+   "entryInfo": {
+    "srcs": [
+     "umano"
+    ],
+    "notes": [
+     "scelta tua"
+    ],
+    "plus": [],
+    "m": {},
+    "grok": null
+   },
+   "last": {
+    "priceNative": 0.000006563,
+    "liq": 53310.77,
+    "br5": 0.9696969696969697,
+    "tx5": 63,
+    "t": 1795438156791
+   },
+   "fills": [
+    "BUY 0.120 impatto 2.04% (Jupiter)"
+   ],
+   "trough": 0.000006563
+  }
+ ],
  "journal": [],
  "signals": [
-  {
-   "t": 1795432481184,
-   "mint": "Jd3NCawdFiDNWpLiTtsMqoeoBMjC1ZQMrMScRVzpump",
-   "sym": "NOHR",
-   "score": 68,
-   "priceNative": 0.00002529
-  },
-  {
-   "t": 1795432504987,
-   "mint": "7cFiqdT46zs7ooHWLFiLSaSQKLMibtokh9dBinsspump",
-   "sym": "UCASH",
-   "score": 86,
-   "priceNative": 0.00001061
-  },
-  {
-   "t": 1795432504987,
-   "mint": "3BcJ4SSCfbxDMrWcUDucyCWxMjmy4M2ECCtvxu86pump",
-   "sym": "FSDV15",
-   "score": 76,
-   "priceNative": 0.0000204
-  },
-  {
-   "t": 1795432504987,
-   "mint": "93uamrbDerKbUh8MSjNF1wDtxYvEUD1CS9BcHn1apump",
-   "sym": "PumpMeme",
-   "score": 71,
-   "priceNative": 0.00002473
-  },
-  {
-   "t": 1795432504987,
-   "mint": "Jd3NCawdFiDNWpLiTtsMqoeoBMjC1ZQMrMScRVzpump",
-   "sym": "NOHR",
-   "score": 68,
-   "priceNative": 0.00002529
-  },
-  {
-   "t": 1795432527924,
-   "mint": "7cFiqdT46zs7ooHWLFiLSaSQKLMibtokh9dBinsspump",
-   "sym": "UCASH",
-   "score": 86,
-   "priceNative": 0.00001069
-  },
-  {
-   "t": 1795432527924,
-   "mint": "3BcJ4SSCfbxDMrWcUDucyCWxMjmy4M2ECCtvxu86pump",
-   "sym": "FSDV15",
-   "score": 76,
-   "priceNative": 0.00002082
-  },
-  {
-   "t": 1795432527924,
-   "mint": "93uamrbDerKbUh8MSjNF1wDtxYvEUD1CS9BcHn1apump",
-   "sym": "PumpMeme",
-   "score": 71,
-   "priceNative": 0.00002729
-  },
-  {
-   "t": 1795432527924,
-   "mint": "Jd3NCawdFiDNWpLiTtsMqoeoBMjC1ZQMrMScRVzpump",
-   "sym": "NOHR",
-   "score": 67,
-   "priceNative": 0.00002538
-  },
-  {
-   "t": 1795432550964,
-   "mint": "7cFiqdT46zs7ooHWLFiLSaSQKLMibtokh9dBinsspump",
-   "sym": "UCASH",
-   "score": 86,
-   "priceNative": 0.00001069
-  },
-  {
-   "t": 1795432550964,
-   "mint": "3BcJ4SSCfbxDMrWcUDucyCWxMjmy4M2ECCtvxu86pump",
-   "sym": "FSDV15",
-   "score": 76,
-   "priceNative": 0.00002082
-  },
-  {
-   "t": 1795432550964,
-   "mint": "93uamrbDerKbUh8MSjNF1wDtxYvEUD1CS9BcHn1apump",
-   "sym": "PumpMeme",
-   "score": 71,
-   "priceNative": 0.00002729
-  },
-  {
-   "t": 1795432550964,
-   "mint": "Jd3NCawdFiDNWpLiTtsMqoeoBMjC1ZQMrMScRVzpump",
-   "sym": "NOHR",
-   "score": 67,
-   "priceNative": 0.00002538
-  },
-  {
-   "t": 1795432573106,
-   "mint": "7cFiqdT46zs7ooHWLFiLSaSQKLMibtokh9dBinsspump",
-   "sym": "UCASH",
-   "score": 86,
-   "priceNative": 0.00001066
-  },
-  {
-   "t": 1795432573106,
-   "mint": "3BcJ4SSCfbxDMrWcUDucyCWxMjmy4M2ECCtvxu86pump",
-   "sym": "FSDV15",
-   "score": 76,
-   "priceNative": 0.0000217
-  },
-  {
-   "t": 1795432573106,
-   "mint": "Jd3NCawdFiDNWpLiTtsMqoeoBMjC1ZQMrMScRVzpump",
-   "sym": "NOHR",
-   "score": 66,
-   "priceNative": 0.00002498
-  },
-  {
-   "t": 1795432595445,
-   "mint": "7cFiqdT46zs7ooHWLFiLSaSQKLMibtokh9dBinsspump",
-   "sym": "UCASH",
-   "score": 86,
-   "priceNative": 0.00001066
-  },
-  {
-   "t": 1795432595445,
-   "mint": "3BcJ4SSCfbxDMrWcUDucyCWxMjmy4M2ECCtvxu86pump",
-   "sym": "FSDV15",
-   "score": 76,
-   "priceNative": 0.0000217
-  },
-  {
-   "t": 1795432595445,
-   "mint": "Jd3NCawdFiDNWpLiTtsMqoeoBMjC1ZQMrMScRVzpump",
-   "sym": "NOHR",
-   "score": 66,
-   "priceNative": 0.00002498
-  },
-  {
-   "t": 1795432617581,
-   "mint": "7cFiqdT46zs7ooHWLFiLSaSQKLMibtokh9dBinsspump",
-   "sym": "UCASH",
-   "score": 86,
-   "priceNative": 0.00001069
-  },
-  {
-   "t": 1795432617581,
-   "mint": "3BcJ4SSCfbxDMrWcUDucyCWxMjmy4M2ECCtvxu86pump",
-   "sym": "FSDV15",
-   "score": 76,
-   "priceNative": 0.00002156
-  },
-  {
-   "t": 1795432617581,
-   "mint": "Jd3NCawdFiDNWpLiTtsMqoeoBMjC1ZQMrMScRVzpump",
-   "sym": "NOHR",
-   "score": 66,
-   "priceNative": 0.0000248
-  },
-  {
-   "t": 1795432639760,
-   "mint": "7cFiqdT46zs7ooHWLFiLSaSQKLMibtokh9dBinsspump",
-   "sym": "UCASH",
-   "score": 86,
-   "priceNative": 0.00001069
-  },
-  {
-   "t": 1795432639760,
-   "mint": "3BcJ4SSCfbxDMrWcUDucyCWxMjmy4M2ECCtvxu86pump",
-   "sym": "FSDV15",
-   "score": 76,
-   "priceNative": 0.00002156
-  },
-  {
-   "t": 1795432639760,
-   "mint": "Jd3NCawdFiDNWpLiTtsMqoeoBMjC1ZQMrMScRVzpump",
-   "sym": "NOHR",
-   "score": 66,
-   "priceNative": 0.0000248
-  },
-  {
-   "t": 1795432661814,
-   "mint": "7cFiqdT46zs7ooHWLFiLSaSQKLMibtokh9dBinsspump",
-   "sym": "UCASH",
-   "score": 86,
-   "priceNative": 0.00001059
-  },
-  {
-   "t": 1795432661814,
-   "mint": "3BcJ4SSCfbxDMrWcUDucyCWxMjmy4M2ECCtvxu86pump",
-   "sym": "FSDV15",
-   "score": 76,
-   "priceNative": 0.00002116
-  },
-  {
-   "t": 1795432661814,
-   "mint": "Jd3NCawdFiDNWpLiTtsMqoeoBMjC1ZQMrMScRVzpump",
-   "sym": "NOHR",
-   "score": 66,
-   "priceNative": 0.00002509
-  },
-  {
-   "t": 1795432684285,
-   "mint": "7cFiqdT46zs7ooHWLFiLSaSQKLMibtokh9dBinsspump",
-   "sym": "UCASH",
-   "score": 86,
-   "priceNative": 0.00001059
-  },
-  {
-   "t": 1795432684285,
-   "mint": "3BcJ4SSCfbxDMrWcUDucyCWxMjmy4M2ECCtvxu86pump",
-   "sym": "FSDV15",
-   "score": 76,
-   "priceNative": 0.00002116
-  },
-  {
-   "t": 1795432684285,
-   "mint": "Jd3NCawdFiDNWpLiTtsMqoeoBMjC1ZQMrMScRVzpump",
-   "sym": "NOHR",
-   "score": 66,
-   "priceNative": 0.00002509
-  },
-  {
-   "t": 1795432706397,
-   "mint": "7cFiqdT46zs7ooHWLFiLSaSQKLMibtokh9dBinsspump",
-   "sym": "UCASH",
-   "score": 86,
-   "priceNative": 0.00001067
-  },
-  {
-   "t": 1795432706397,
-   "mint": "3BcJ4SSCfbxDMrWcUDucyCWxMjmy4M2ECCtvxu86pump",
-   "sym": "FSDV15",
-   "score": 76,
-   "priceNative": 0.00002157
-  },
-  {
-   "t": 1795432706397,
-   "mint": "93uamrbDerKbUh8MSjNF1wDtxYvEUD1CS9BcHn1apump",
-   "sym": "PumpMeme",
-   "score": 67,
-   "priceNative": 0.00002572
-  },
-  {
-   "t": 1795432706397,
-   "mint": "Jd3NCawdFiDNWpLiTtsMqoeoBMjC1ZQMrMScRVzpump",
-   "sym": "NOHR",
-   "score": 66,
-   "priceNative": 0.00002489
-  },
-  {
-   "t": 1795432728737,
-   "mint": "7cFiqdT46zs7ooHWLFiLSaSQKLMibtokh9dBinsspump",
-   "sym": "UCASH",
-   "score": 86,
-   "priceNative": 0.00001067
-  },
-  {
-   "t": 1795432728737,
-   "mint": "3BcJ4SSCfbxDMrWcUDucyCWxMjmy4M2ECCtvxu86pump",
-   "sym": "FSDV15",
-   "score": 76,
-   "priceNative": 0.00002157
-  },
-  {
-   "t": 1795432728737,
-   "mint": "93uamrbDerKbUh8MSjNF1wDtxYvEUD1CS9BcHn1apump",
-   "sym": "PumpMeme",
-   "score": 67,
-   "priceNative": 0.00002572
-  },
-  {
-   "t": 1795432728737,
-   "mint": "Jd3NCawdFiDNWpLiTtsMqoeoBMjC1ZQMrMScRVzpump",
-   "sym": "NOHR",
-   "score": 66,
-   "priceNative": 0.00002489
-  },
-  {
-   "t": 1795432751041,
-   "mint": "7cFiqdT46zs7ooHWLFiLSaSQKLMibtokh9dBinsspump",
-   "sym": "UCASH",
-   "score": 86,
-   "priceNative": 0.00001021
-  },
-  {
-   "t": 1795432751041,
-   "mint": "3BcJ4SSCfbxDMrWcUDucyCWxMjmy4M2ECCtvxu86pump",
-   "sym": "FSDV15",
-   "score": 76,
-   "priceNative": 0.00002316
-  },
-  {
-   "t": 1795432751041,
-   "mint": "Jd3NCawdFiDNWpLiTtsMqoeoBMjC1ZQMrMScRVzpump",
-   "sym": "NOHR",
-   "score": 67,
-   "priceNative": 0.00002436
-  },
-  {
-   "t": 1795432774148,
-   "mint": "7cFiqdT46zs7ooHWLFiLSaSQKLMibtokh9dBinsspump",
-   "sym": "UCASH",
-   "score": 86,
-   "priceNative": 0.00001021
-  },
-  {
-   "t": 1795432774148,
-   "mint": "3BcJ4SSCfbxDMrWcUDucyCWxMjmy4M2ECCtvxu86pump",
-   "sym": "FSDV15",
-   "score": 76,
-   "priceNative": 0.00002316
-  },
-  {
-   "t": 1795432774148,
-   "mint": "Jd3NCawdFiDNWpLiTtsMqoeoBMjC1ZQMrMScRVzpump",
-   "sym": "NOHR",
-   "score": 67,
-   "priceNative": 0.00002436
-  },
-  {
-   "t": 1795432796846,
-   "mint": "7cFiqdT46zs7ooHWLFiLSaSQKLMibtokh9dBinsspump",
-   "sym": "UCASH",
-   "score": 86,
-   "priceNative": 0.00001003
-  },
-  {
-   "t": 1795432796846,
-   "mint": "3BcJ4SSCfbxDMrWcUDucyCWxMjmy4M2ECCtvxu86pump",
-   "sym": "FSDV15",
-   "score": 76,
-   "priceNative": 0.00002295
-  },
-  {
-   "t": 1795432796846,
-   "mint": "Jd3NCawdFiDNWpLiTtsMqoeoBMjC1ZQMrMScRVzpump",
-   "sym": "NOHR",
-   "score": 67,
-   "priceNative": 0.00002434
-  },
-  {
-   "t": 1795432796846,
-   "mint": "BAKsQrynzwadyACDMsg3J5R8a4CTvj1u7kEYyjq7pump",
-   "sym": "COPIUM",
-   "score": 63,
-   "priceNative": 0.000007059
-  },
-  {
-   "t": 1795432819369,
-   "mint": "7cFiqdT46zs7ooHWLFiLSaSQKLMibtokh9dBinsspump",
-   "sym": "UCASH",
-   "score": 86,
-   "priceNative": 0.00001003
-  },
-  {
-   "t": 1795432819369,
-   "mint": "3BcJ4SSCfbxDMrWcUDucyCWxMjmy4M2ECCtvxu86pump",
-   "sym": "FSDV15",
-   "score": 76,
-   "priceNative": 0.00002295
-  },
-  {
-   "t": 1795432819369,
-   "mint": "Jd3NCawdFiDNWpLiTtsMqoeoBMjC1ZQMrMScRVzpump",
-   "sym": "NOHR",
-   "score": 67,
-   "priceNative": 0.00002434
-  },
-  {
-   "t": 1795432819369,
-   "mint": "BAKsQrynzwadyACDMsg3J5R8a4CTvj1u7kEYyjq7pump",
-   "sym": "COPIUM",
-   "score": 63,
-   "priceNative": 0.000007059
-  },
-  {
-   "t": 1795432842119,
-   "mint": "7cFiqdT46zs7ooHWLFiLSaSQKLMibtokh9dBinsspump",
-   "sym": "UCASH",
-   "score": 86,
-   "priceNative": 0.000009577
-  },
   {
    "t": 1795432842119,
    "mint": "3BcJ4SSCfbxDMrWcUDucyCWxMjmy4M2ECCtvxu86pump",
@@ -7004,6 +6684,384 @@
    "sym": "FSDV15",
    "score": 77,
    "priceNative": 0.00001881
+  },
+  {
+   "t": 1795437878915,
+   "mint": "7cFiqdT46zs7ooHWLFiLSaSQKLMibtokh9dBinsspump",
+   "sym": "UCASH",
+   "score": 91,
+   "priceNative": 0.0000112
+  },
+  {
+   "t": 1795437878915,
+   "mint": "93uamrbDerKbUh8MSjNF1wDtxYvEUD1CS9BcHn1apump",
+   "sym": "PumpMeme",
+   "score": 83,
+   "priceNative": 0.00002694
+  },
+  {
+   "t": 1795437878915,
+   "mint": "3BcJ4SSCfbxDMrWcUDucyCWxMjmy4M2ECCtvxu86pump",
+   "sym": "FSDV15",
+   "score": 77,
+   "priceNative": 0.00001903
+  },
+  {
+   "t": 1795437878915,
+   "mint": "BAKsQrynzwadyACDMsg3J5R8a4CTvj1u7kEYyjq7pump",
+   "sym": "COPIUM",
+   "score": 67,
+   "priceNative": 0.000007056
+  },
+  {
+   "t": 1795437901049,
+   "mint": "7cFiqdT46zs7ooHWLFiLSaSQKLMibtokh9dBinsspump",
+   "sym": "UCASH",
+   "score": 91,
+   "priceNative": 0.00001144
+  },
+  {
+   "t": 1795437901049,
+   "mint": "93uamrbDerKbUh8MSjNF1wDtxYvEUD1CS9BcHn1apump",
+   "sym": "PumpMeme",
+   "score": 82,
+   "priceNative": 0.0000273
+  },
+  {
+   "t": 1795437901049,
+   "mint": "3BcJ4SSCfbxDMrWcUDucyCWxMjmy4M2ECCtvxu86pump",
+   "sym": "FSDV15",
+   "score": 77,
+   "priceNative": 0.00001889
+  },
+  {
+   "t": 1795437901049,
+   "mint": "BAKsQrynzwadyACDMsg3J5R8a4CTvj1u7kEYyjq7pump",
+   "sym": "COPIUM",
+   "score": 67,
+   "priceNative": 0.00000727
+  },
+  {
+   "t": 1795437923011,
+   "mint": "7cFiqdT46zs7ooHWLFiLSaSQKLMibtokh9dBinsspump",
+   "sym": "UCASH",
+   "score": 91,
+   "priceNative": 0.00001144
+  },
+  {
+   "t": 1795437923011,
+   "mint": "93uamrbDerKbUh8MSjNF1wDtxYvEUD1CS9BcHn1apump",
+   "sym": "PumpMeme",
+   "score": 82,
+   "priceNative": 0.0000273
+  },
+  {
+   "t": 1795437923011,
+   "mint": "3BcJ4SSCfbxDMrWcUDucyCWxMjmy4M2ECCtvxu86pump",
+   "sym": "FSDV15",
+   "score": 77,
+   "priceNative": 0.00001889
+  },
+  {
+   "t": 1795437923011,
+   "mint": "BAKsQrynzwadyACDMsg3J5R8a4CTvj1u7kEYyjq7pump",
+   "sym": "COPIUM",
+   "score": 67,
+   "priceNative": 0.00000727
+  },
+  {
+   "t": 1795437945093,
+   "mint": "7cFiqdT46zs7ooHWLFiLSaSQKLMibtokh9dBinsspump",
+   "sym": "UCASH",
+   "score": 91,
+   "priceNative": 0.00001229
+  },
+  {
+   "t": 1795437945093,
+   "mint": "93uamrbDerKbUh8MSjNF1wDtxYvEUD1CS9BcHn1apump",
+   "sym": "PumpMeme",
+   "score": 81,
+   "priceNative": 0.00002775
+  },
+  {
+   "t": 1795437945093,
+   "mint": "3BcJ4SSCfbxDMrWcUDucyCWxMjmy4M2ECCtvxu86pump",
+   "sym": "FSDV15",
+   "score": 78,
+   "priceNative": 0.00001962
+  },
+  {
+   "t": 1795437945093,
+   "mint": "BAKsQrynzwadyACDMsg3J5R8a4CTvj1u7kEYyjq7pump",
+   "sym": "COPIUM",
+   "score": 67,
+   "priceNative": 0.000007412
+  },
+  {
+   "t": 1795437968137,
+   "mint": "7cFiqdT46zs7ooHWLFiLSaSQKLMibtokh9dBinsspump",
+   "sym": "UCASH",
+   "score": 91,
+   "priceNative": 0.00001224
+  },
+  {
+   "t": 1795437968137,
+   "mint": "93uamrbDerKbUh8MSjNF1wDtxYvEUD1CS9BcHn1apump",
+   "sym": "PumpMeme",
+   "score": 82,
+   "priceNative": 0.00002734
+  },
+  {
+   "t": 1795437968137,
+   "mint": "3BcJ4SSCfbxDMrWcUDucyCWxMjmy4M2ECCtvxu86pump",
+   "sym": "FSDV15",
+   "score": 79,
+   "priceNative": 0.00001974
+  },
+  {
+   "t": 1795437968137,
+   "mint": "BAKsQrynzwadyACDMsg3J5R8a4CTvj1u7kEYyjq7pump",
+   "sym": "COPIUM",
+   "score": 67,
+   "priceNative": 0.000007315
+  },
+  {
+   "t": 1795437990044,
+   "mint": "7cFiqdT46zs7ooHWLFiLSaSQKLMibtokh9dBinsspump",
+   "sym": "UCASH",
+   "score": 91,
+   "priceNative": 0.00001224
+  },
+  {
+   "t": 1795437990044,
+   "mint": "93uamrbDerKbUh8MSjNF1wDtxYvEUD1CS9BcHn1apump",
+   "sym": "PumpMeme",
+   "score": 82,
+   "priceNative": 0.00002734
+  },
+  {
+   "t": 1795437990044,
+   "mint": "3BcJ4SSCfbxDMrWcUDucyCWxMjmy4M2ECCtvxu86pump",
+   "sym": "FSDV15",
+   "score": 79,
+   "priceNative": 0.00001974
+  },
+  {
+   "t": 1795437990044,
+   "mint": "BAKsQrynzwadyACDMsg3J5R8a4CTvj1u7kEYyjq7pump",
+   "sym": "COPIUM",
+   "score": 67,
+   "priceNative": 0.000007315
+  },
+  {
+   "t": 1795438012514,
+   "mint": "7cFiqdT46zs7ooHWLFiLSaSQKLMibtokh9dBinsspump",
+   "sym": "UCASH",
+   "score": 91,
+   "priceNative": 0.00001265
+  },
+  {
+   "t": 1795438012514,
+   "mint": "93uamrbDerKbUh8MSjNF1wDtxYvEUD1CS9BcHn1apump",
+   "sym": "PumpMeme",
+   "score": 82,
+   "priceNative": 0.00002748
+  },
+  {
+   "t": 1795438012514,
+   "mint": "3BcJ4SSCfbxDMrWcUDucyCWxMjmy4M2ECCtvxu86pump",
+   "sym": "FSDV15",
+   "score": 78,
+   "priceNative": 0.00001958
+  },
+  {
+   "t": 1795438012514,
+   "mint": "BAKsQrynzwadyACDMsg3J5R8a4CTvj1u7kEYyjq7pump",
+   "sym": "COPIUM",
+   "score": 67,
+   "priceNative": 0.000007151
+  },
+  {
+   "t": 1795438034835,
+   "mint": "7cFiqdT46zs7ooHWLFiLSaSQKLMibtokh9dBinsspump",
+   "sym": "UCASH",
+   "score": 91,
+   "priceNative": 0.00001308
+  },
+  {
+   "t": 1795438034835,
+   "mint": "93uamrbDerKbUh8MSjNF1wDtxYvEUD1CS9BcHn1apump",
+   "sym": "PumpMeme",
+   "score": 82,
+   "priceNative": 0.00002712
+  },
+  {
+   "t": 1795438034835,
+   "mint": "3BcJ4SSCfbxDMrWcUDucyCWxMjmy4M2ECCtvxu86pump",
+   "sym": "FSDV15",
+   "score": 68,
+   "priceNative": 0.00001874
+  },
+  {
+   "t": 1795438034835,
+   "mint": "BAKsQrynzwadyACDMsg3J5R8a4CTvj1u7kEYyjq7pump",
+   "sym": "COPIUM",
+   "score": 67,
+   "priceNative": 0.000007025
+  },
+  {
+   "t": 1795438056687,
+   "mint": "7cFiqdT46zs7ooHWLFiLSaSQKLMibtokh9dBinsspump",
+   "sym": "UCASH",
+   "score": 91,
+   "priceNative": 0.00001308
+  },
+  {
+   "t": 1795438056687,
+   "mint": "93uamrbDerKbUh8MSjNF1wDtxYvEUD1CS9BcHn1apump",
+   "sym": "PumpMeme",
+   "score": 82,
+   "priceNative": 0.00002712
+  },
+  {
+   "t": 1795438056687,
+   "mint": "3BcJ4SSCfbxDMrWcUDucyCWxMjmy4M2ECCtvxu86pump",
+   "sym": "FSDV15",
+   "score": 68,
+   "priceNative": 0.00001874
+  },
+  {
+   "t": 1795438056687,
+   "mint": "BAKsQrynzwadyACDMsg3J5R8a4CTvj1u7kEYyjq7pump",
+   "sym": "COPIUM",
+   "score": 67,
+   "priceNative": 0.000007025
+  },
+  {
+   "t": 1795438078782,
+   "mint": "7cFiqdT46zs7ooHWLFiLSaSQKLMibtokh9dBinsspump",
+   "sym": "UCASH",
+   "score": 91,
+   "priceNative": 0.00001277
+  },
+  {
+   "t": 1795438078782,
+   "mint": "93uamrbDerKbUh8MSjNF1wDtxYvEUD1CS9BcHn1apump",
+   "sym": "PumpMeme",
+   "score": 77,
+   "priceNative": 0.00002635
+  },
+  {
+   "t": 1795438078782,
+   "mint": "3BcJ4SSCfbxDMrWcUDucyCWxMjmy4M2ECCtvxu86pump",
+   "sym": "FSDV15",
+   "score": 69,
+   "priceNative": 0.00001795
+  },
+  {
+   "t": 1795438078782,
+   "mint": "BAKsQrynzwadyACDMsg3J5R8a4CTvj1u7kEYyjq7pump",
+   "sym": "COPIUM",
+   "score": 64,
+   "priceNative": 0.000007316
+  },
+  {
+   "t": 1795438101244,
+   "mint": "7cFiqdT46zs7ooHWLFiLSaSQKLMibtokh9dBinsspump",
+   "sym": "UCASH",
+   "score": 91,
+   "priceNative": 0.00001277
+  },
+  {
+   "t": 1795438101244,
+   "mint": "93uamrbDerKbUh8MSjNF1wDtxYvEUD1CS9BcHn1apump",
+   "sym": "PumpMeme",
+   "score": 77,
+   "priceNative": 0.00002635
+  },
+  {
+   "t": 1795438101244,
+   "mint": "3BcJ4SSCfbxDMrWcUDucyCWxMjmy4M2ECCtvxu86pump",
+   "sym": "FSDV15",
+   "score": 69,
+   "priceNative": 0.00001795
+  },
+  {
+   "t": 1795438101244,
+   "mint": "BAKsQrynzwadyACDMsg3J5R8a4CTvj1u7kEYyjq7pump",
+   "sym": "COPIUM",
+   "score": 64,
+   "priceNative": 0.000007316
+  },
+  {
+   "t": 1795438101244,
+   "mint": "zcRvzm7gAfYGde8gRwaSYxNryL47SjLVUQLAf1bdoor",
+   "sym": "SIDOOR",
+   "score": 64,
+   "priceNative": 0.000007542
+  },
+  {
+   "t": 1795438124654,
+   "mint": "7cFiqdT46zs7ooHWLFiLSaSQKLMibtokh9dBinsspump",
+   "sym": "UCASH",
+   "score": 91,
+   "priceNative": 0.00001242
+  },
+  {
+   "t": 1795438124654,
+   "mint": "93uamrbDerKbUh8MSjNF1wDtxYvEUD1CS9BcHn1apump",
+   "sym": "PumpMeme",
+   "score": 83,
+   "priceNative": 0.00002776
+  },
+  {
+   "t": 1795438124654,
+   "mint": "3BcJ4SSCfbxDMrWcUDucyCWxMjmy4M2ECCtvxu86pump",
+   "sym": "FSDV15",
+   "score": 69,
+   "priceNative": 0.00001683
+  },
+  {
+   "t": 1795438124654,
+   "mint": "BAKsQrynzwadyACDMsg3J5R8a4CTvj1u7kEYyjq7pump",
+   "sym": "COPIUM",
+   "score": 65,
+   "priceNative": 0.00000779
+  },
+  {
+   "t": 1795438124654,
+   "mint": "zcRvzm7gAfYGde8gRwaSYxNryL47SjLVUQLAf1bdoor",
+   "sym": "SIDOOR",
+   "score": 64,
+   "priceNative": 0.000007542
+  },
+  {
+   "t": 1795438146766,
+   "mint": "7cFiqdT46zs7ooHWLFiLSaSQKLMibtokh9dBinsspump",
+   "sym": "UCASH",
+   "score": 91,
+   "priceNative": 0.00001242
+  },
+  {
+   "t": 1795438146766,
+   "mint": "93uamrbDerKbUh8MSjNF1wDtxYvEUD1CS9BcHn1apump",
+   "sym": "PumpMeme",
+   "score": 83,
+   "priceNative": 0.00002776
+  },
+  {
+   "t": 1795438146766,
+   "mint": "3BcJ4SSCfbxDMrWcUDucyCWxMjmy4M2ECCtvxu86pump",
+   "sym": "FSDV15",
+   "score": 69,
+   "priceNative": 0.00001683
+  },
+  {
+   "t": 1795438146766,
+   "mint": "BAKsQrynzwadyACDMsg3J5R8a4CTvj1u7kEYyjq7pump",
+   "sym": "COPIUM",
+   "score": 65,
+   "priceNative": 0.00000779
   }
  ],
  "alerts": [
@@ -7626,6 +7684,28 @@
    "vp": 1.6,
    "p5": -1.1,
    "p15": -8.6
+  },
+  {
+   "id": "atoygwl",
+   "band": "500K-1M",
+   "cr": "A7HB4xzKdHEmd6JxyNwQtX6H74afCaAB4XqqxwW83ddJ",
+   "cline": "creatore: 1 Coin in fascia alta, 0 raddoppiate",
+   "t": 1795438101244,
+   "mint": "zcRvzm7gAfYGde8gRwaSYxNryL47SjLVUQLAf1bdoor",
+   "sym": "SIDOOR",
+   "name": "SIDOOR",
+   "score": 64,
+   "pair": "3peugE6Fm4fpaVvrV2KBFN3nvLbCGEhGoUXDDxAHuscR",
+   "priceNative": 0.000007542,
+   "mc": 503756,
+   "liq": 57188.05,
+   "ageMin": 2401.8,
+   "why": [],
+   "last": -1.3,
+   "min": -1.3,
+   "vote": "y",
+   "vAt": 1795438117447,
+   "vp": 0
   }
  ],
  "grokLog": [],
@@ -7635,8 +7715,23 @@
  },
  "cooldownUntil": 0,
  "halted": null,
- "seq": 670,
+ "seq": 671,
  "events": [
+  "12:49:06 ORACLE   360 raccolti, 275 analizzati, 4 BUY, 270 veto",
+  "12:48:44 ORACLE   360 raccolti, 272 analizzati, 5 BUY, 266 veto",
+  "12:48:41 QUARTER  BUY $SIDOOR 0.120 SOL score 64 impatto 2.04% (Jupiter)",
+  "12:48:21 QUARTER  SEGNALE $SIDOOR score 64 (semi-automatico)",
+  "12:48:21 ORACLE   360 raccolti, 264 analizzati, 5 BUY, 258 veto",
+  "12:47:58 ORACLE   360 raccolti, 269 analizzati, 4 BUY, 264 veto",
+  "12:47:36 ORACLE   360 raccolti, 273 analizzati, 4 BUY, 268 veto",
+  "12:47:14 ORACLE   360 raccolti, 268 analizzati, 4 BUY, 263 veto",
+  "12:46:52 ORACLE   360 raccolti, 280 analizzati, 4 BUY, 275 veto",
+  "12:46:30 ORACLE   360 raccolti, 278 analizzati, 4 BUY, 273 veto",
+  "12:46:08 ORACLE   360 raccolti, 279 analizzati, 4 BUY, 274 veto",
+  "12:45:45 ORACLE   360 raccolti, 278 analizzati, 4 BUY, 273 veto",
+  "12:45:23 ORACLE   360 raccolti, 285 analizzati, 4 BUY, 280 veto",
+  "12:45:01 ORACLE   360 raccolti, 280 analizzati, 4 BUY, 275 veto",
+  "12:44:38 ORACLE   360 raccolti, 278 analizzati, 4 BUY, 273 veto",
   "12:44:16 ORACLE   360 raccolti, 285 analizzati, 3 BUY, 281 veto",
   "12:43:53 ORACLE   360 raccolti, 273 analizzati, 3 BUY, 269 veto",
   "12:43:31 ORACLE   360 raccolti, 284 analizzati, 3 BUY, 280 veto",
@@ -7921,27 +8016,12 @@
   "11:05:41 ORACLE   360 raccolti, 290 analizzati, 4 BUY, 286 veto",
   "11:05:18 ORACLE   360 raccolti, 290 analizzati, 4 BUY, 286 veto",
   "11:04:56 ORACLE   360 raccolti, 292 analizzati, 4 BUY, 288 veto",
-  "11:04:34 ORACLE   360 raccolti, 289 analizzati, 4 BUY, 285 veto",
-  "11:04:11 ORACLE   360 raccolti, 293 analizzati, 4 BUY, 289 veto",
-  "11:03:49 ORACLE   360 raccolti, 293 analizzati, 4 BUY, 289 veto",
-  "11:03:25 ORACLE   360 raccolti, 291 analizzati, 4 BUY, 287 veto",
-  "11:03:02 ORACLE   360 raccolti, 292 analizzati, 4 BUY, 288 veto",
-  "11:02:40 ORACLE   360 raccolti, 292 analizzati, 4 BUY, 288 veto",
-  "11:02:18 ORACLE   360 raccolti, 282 analizzati, 4 BUY, 278 veto",
-  "11:01:56 ORACLE   360 raccolti, 294 analizzati, 4 BUY, 290 veto",
-  "11:01:33 ORACLE   360 raccolti, 293 analizzati, 4 BUY, 288 veto",
-  "11:01:11 ORACLE   360 raccolti, 286 analizzati, 4 BUY, 281 veto",
-  "11:00:48 ORACLE   360 raccolti, 295 analizzati, 4 BUY, 290 veto",
-  "11:00:26 ORACLE   360 raccolti, 295 analizzati, 4 BUY, 290 veto",
-  "11:00:03 ORACLE   360 raccolti, 290 analizzati, 4 BUY, 285 veto",
-  "10:59:41 ORACLE   360 raccolti, 290 analizzati, 4 BUY, 285 veto",
-  "10:59:18 ORACLE   360 raccolti, 293 analizzati, 4 BUY, 288 veto",
-  "10:58:55 ORACLE   360 raccolti, 284 analizzati, 4 BUY, 279 veto"
+  "11:04:34 ORACLE   360 raccolti, 289 analizzati, 4 BUY, 285 veto"
  ],
  "capital": 6,
  "resetId": "C-0120",
  "realTried": {},
- "lastEntryAt": 1795383782642,
+ "lastEntryAt": 1795438121962,
  "lab": {
   "done": [
    {
@@ -20158,8 +20238,8 @@
    "nv": 25
   },
   "2026-11-23": {
-   "c": 52,
-   "nv": 50,
+   "c": 53,
+   "nv": 51,
    "m": [
     "7cFiqdT46zs7ooHWLFiLSaSQKLMibtokh9dBinsspump",
     "4npJ3avxnGhCzKbWQpLrQXAHsjWzKr4JqBsbu5Fspump",
@@ -20167,7 +20247,8 @@
     "BAKsQrynzwadyACDMsg3J5R8a4CTvj1u7kEYyjq7pump",
     "7R4MP6VX7n3RMNhL9zsk5Zu5ibZvwq8npUYnRq7epump",
     "Jd3NCawdFiDNWpLiTtsMqoeoBMjC1ZQMrMScRVzpump",
-    "3BcJ4SSCfbxDMrWcUDucyCWxMjmy4M2ECCtvxu86pump"
+    "3BcJ4SSCfbxDMrWcUDucyCWxMjmy4M2ECCtvxu86pump",
+    "zcRvzm7gAfYGde8gRwaSYxNryL47SjLVUQLAf1bdoor"
    ],
    "q": [
     "7cFiqdT46zs7ooHWLFiLSaSQKLMibtokh9dBinsspump",
@@ -20176,7 +20257,8 @@
     "BAKsQrynzwadyACDMsg3J5R8a4CTvj1u7kEYyjq7pump",
     "7R4MP6VX7n3RMNhL9zsk5Zu5ibZvwq8npUYnRq7epump",
     "Jd3NCawdFiDNWpLiTtsMqoeoBMjC1ZQMrMScRVzpump",
-    "3BcJ4SSCfbxDMrWcUDucyCWxMjmy4M2ECCtvxu86pump"
+    "3BcJ4SSCfbxDMrWcUDucyCWxMjmy4M2ECCtvxu86pump",
+    "zcRvzm7gAfYGde8gRwaSYxNryL47SjLVUQLAf1bdoor"
    ]
   }
  },
