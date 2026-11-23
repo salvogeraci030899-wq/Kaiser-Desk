@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-23 09:11 UTC · in esecuzione da 0.5 giorni · 333 run
+Aggiornato: 2026-11-23 09:12 UTC · in esecuzione da 0.5 giorni · 333 run
 
 | | |
 |---|---|
@@ -61,7 +61,7 @@ Regola decisa in anticipo, sui tuoi Prendo chiusi: almeno 50, netto medio >= +3%
 
 ## Coin di fascia alta e ricerca sui creatori
 Il Radar guarda le Coin da 500000 dollari di market cap in su. Per ognuna si risale al creatore e si registra la market cap: una Coin e' «raddoppiata» se supera il doppio della prima lettura in fascia. Il profilo del creatore compare nell'avviso.
-Memoria: 112546 lanci noti, 21277 creatori; 12 Coin in fascia alta viste (11 creatori), 2 raddoppiate (2 creatori). Creatore trovato: tabella 158, richiesta esterna 0, sconosciuto 0.
+Memoria: 112565 lanci noti, 21280 creatori; 12 Coin in fascia alta viste (11 creatori), 2 raddoppiate (2 creatori). Creatore trovato: tabella 170, richiesta esterna 0, sconosciuto 0.
 Richieste esterne per il creatore: nessuna ancora.
 
 | Fascia | Avvisi | Prendo / Scarto | Tuoi trade chiusi | Netto medio |
@@ -80,6 +80,8 @@ _ancora nessuno_
 
 ## Ultimi eventi
 ```
+09:12:21 ORACLE   360 raccolti, 273 analizzati, 4 BUY, 267 veto
+09:11:57 ORACLE   360 raccolti, 270 analizzati, 4 BUY, 264 veto
 09:11:34 ORACLE   360 raccolti, 264 analizzati, 4 BUY, 258 veto
 09:11:11 ORACLE   360 raccolti, 264 analizzati, 4 BUY, 258 veto
 09:10:48 ORACLE   360 raccolti, 266 analizzati, 4 BUY, 260 veto
@@ -118,8 +120,6 @@ _ancora nessuno_
 09:00:02 ORACLE   360 raccolti, 286 analizzati, 4 BUY, 280 veto
 08:59:40 ORACLE   360 raccolti, 292 analizzati, 4 BUY, 286 veto
 08:59:17 ORACLE   360 raccolti, 285 analizzati, 4 BUY, 279 veto
-08:58:55 ORACLE   360 raccolti, 292 analizzati, 4 BUY, 286 veto
-08:58:32 ORACLE   360 raccolti, 294 analizzati, 4 BUY, 288 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
