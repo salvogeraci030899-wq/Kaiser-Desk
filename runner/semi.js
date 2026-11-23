@@ -140,7 +140,9 @@ function digestText(o) {
   const mine = (o.journal || []).filter((j) => j.src === 'umano'), today = mine.filter((j) => dayIt(j.closedAt) === day), t = humanTrades(o.journal || []), k = controlStats(o.journal || [], o.alerts || []);
   const open = (o.positions || []).filter((p) => p.src === 'umano').length, bd = (o.bandDays || {})[new Date(now).toISOString().slice(0, 10)] || { c: 0, nv: 0 }, c = o.cr || {}, cov = c.cov || {}, calls = (cov.tabella || 0) + (cov.esterna || 0) + (cov.sconosciuto || 0);
   const mean = today.length ? today.reduce((s, j) => s + j.pct, 0) / today.length : null;
-  return `<b>KAISER</b> uomo e macchina ${day}\n` +
+  const rs = responseStats(al, decisions(o.alerts || [], o.journal || [], o.positions || [], 1e9), now), miss = al.filter((a) => !a.vote).length;
+  const resp = `Risposte: ${rs.answered} di ${rs.n} avvisi di oggi${rs.medS == null ? '' : ', tempo mediano ' + (rs.medS < 90 ? rs.medS + ' s' : Math.round(rs.medS / 60) + ' min')}${rs.notOpened ? ' · Prendo non aperti in tutto: ' + rs.notOpened : ''}${miss ? '\nSenza risposta: ' + miss + ' (scaduti, non recuperabili). Ogni Prendo o Scarto in più fa avanzare il test' : ''}`;
+  return `<b>KAISER</b> uomo e macchina ${day}\n` + resp + '\n' +
     `Avvisi oggi: ${al.length}${al.length ? ' (' + Object.entries(bands).map(([b, n]) => b + ' ' + n).join(', ') + ')' : ''} · Prendo ${al.filter((a) => a.vote === 'y').length} · Scarto ${al.filter((a) => a.vote === 'n').length} · senza risposta ${al.filter((a) => !a.vote).length}\n` +
     `Tue posizioni aperte: ${open} · chiuse oggi: ${today.length}${mean == null ? '' : ', netto medio ' + sgn(mean) + '%'}\n` +
     `Tuoi trade chiusi in tutto: ${t.n} di ${t.cfg.minN}${t.mean == null ? '' : ', netto medio ' + sgn(t.mean) + '% (intervallo ' + sgn(t.lo) + '% / ' + sgn(t.hi) + '%)'}\n` +
