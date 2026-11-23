@@ -166,7 +166,7 @@ function decisions(alerts, journal, positions, n) {
   const jr = new Map((journal || []).filter((j) => j.aid).map((j) => [j.aid, j])), pos = new Map((positions || []).filter((p) => p.aid).map((p) => [p.aid, p])), out = [];
   for (const a of alerts || []) {
     if (!a.vote) continue;
-    const base = { t: a.t, mint: a.mint, sym: a.sym, band: a.band || '', vote: a.vote };
+    const base = { id: a.id, t: a.t, mint: a.mint, sym: a.sym, band: a.band || '', vote: a.vote };
     if (a.vote === 'y') {
       const j = jr.get(a.id), p = pos.get(a.id);
       if (j) out.push({ ...base, status: 'chiuso', pct: +Number(j.pct).toFixed(1), pnl: +Number(j.pnl).toFixed(4), reason: j.reason, at: j.closedAt });

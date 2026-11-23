@@ -217,3 +217,9 @@ test('Prendo non aperto: il motivo si vede nel registro e la simulazione non ent
   assert.equal(d.pct, null); assert.equal(Semi.decisionTotals(al, [], []).n, 0, 'non e\' un trade');
   assert.equal(Semi.controlStats([], al).n, 1, 'negli Scarto conta solo BBB');
 });
+
+test('esito del voto nel box dei segnali: le righe delle decisioni portano l\'id dell\'avviso', () => {
+  const al = [{ id: 'a00001', t: 1, mint: 'M1', sym: 'AAA', vote: 'y', vAt: 2, nw: 'cassa insufficiente' }];
+  assert.equal(Semi.decisions(al, [], [], 5)[0].id, 'a00001');
+  const html = fs.readFileSync(require.resolve('../index.html'), 'utf8'); assert.match(html, /Rispondi su Telegram: Prendo o Scarto/); assert.match(html, /'Non aperto: '/);
+});

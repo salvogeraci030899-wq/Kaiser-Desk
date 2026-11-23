@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.68.8">
+<meta name="kz-build" content="2.69.0">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=4" media="(prefers-color-scheme: light)">
@@ -347,8 +347,10 @@ function renderSemi() {
   const run = rt.run, box = $('#semiBox'); if (!box) return;
   const last = ((run && run.alerts) || []).slice(-1)[0], TTL = 5 * 60000, left = last ? TTL - (Date.now() - last.t) : 0;      // un avviso vale 5 minuti: poi il Prendo non apre piu' nulla
   const list = last && left > 0 ? [last] : [];
+  // cosa e' successo alla tua risposta: il box lo dice, cosi' non serve tornare su Telegram per saperlo
+  const stat = (a) => { const d = ((run && run.decisions) || []).find((x) => x.id === a.id); if (!a.vote) return 'Rispondi su Telegram: Prendo o Scarto'; if (a.vote === 'n') return 'Scarto registrato (simulato per confronto)'; if (!d) return 'Prendo registrato: apertura in corso'; return d.status === 'aperto' ? 'Prendo: posizione paper aperta' : d.status === 'chiuso' ? 'Prendo: chiuso ' + fmtPct(d.pct, 1) : 'Non aperto: ' + String(d.reason || '').replace(/^non aperto:? ?/, ''); };
   const k = (v) => (v >= 1e6 ? (v / 1e6).toFixed(1) + 'M' : v >= 1e3 ? (v / 1e3).toFixed(1) + 'K' : String(Math.round(v || 0))), pc = (v) => (v == null ? '—' : (v > 0 ? '+' : '') + v + '%');
-  const rows = list.map((a) => `<div class="semirow"><div class="semitxt"><div><b>$${esc(a.sym || a.mint.slice(0, 6))}</b> <span class="muted tiny">${a.band ? 'fascia ' + esc(a.band) : 'score ' + a.score} · valido ancora ${Math.floor(left / 60000)}:${String(Math.floor(left % 60000 / 1000)).padStart(2, '0')}${a.vote === 'y' ? ' · preso' : a.vote === 'n' ? ' · scartato' : ''}${a.gr ? ' · Grok ' + (a.gr.s > 0 ? '+' : '') + Number(a.gr.s).toFixed(1) + ' org ' + a.gr.o : ''}</span></div><div class="tiny muted">${a.cline ? esc(a.cline) : 'ora ' + pc(a.last) + ' · 5 min ' + pc(a.p5) + ' · 15 min ' + pc(a.p15)}</div></div><a class="btn sm" href="https://pump.fun/coin/${encodeURIComponent(a.mint)}" target="_blank" rel="noopener">pump.fun</a></div>`).join('');
+  const rows = list.map((a) => `<div class="semirow"><div class="semitxt"><div><b>$${esc(a.sym || a.mint.slice(0, 6))}</b> <span class="muted tiny">${a.band ? 'fascia ' + esc(a.band) : 'score ' + a.score} · valido ancora ${Math.floor(left / 60000)}:${String(Math.floor(left % 60000 / 1000)).padStart(2, '0')}${a.vote === 'y' ? ' · preso' : a.vote === 'n' ? ' · scartato' : ''}${a.gr ? ' · Grok ' + (a.gr.s > 0 ? '+' : '') + Number(a.gr.s).toFixed(1) + ' org ' + a.gr.o : ''}</span></div><div class="tiny muted">${a.cline ? esc(a.cline) : 'ora ' + pc(a.last) + ' · 5 min ' + pc(a.p5) + ' · 15 min ' + pc(a.p15)}</div><div class="tiny ${!a.vote || /non aperto/i.test(stat(a)) ? 'warn' : a.vote === 'y' ? 'up' : ''}">${esc(stat(a))}</div></div><a class="btn sm" href="https://pump.fun/coin/${encodeURIComponent(a.mint)}" target="_blank" rel="noopener">pump.fun</a></div>`).join('');
   box.innerHTML = `<div class="card semi">${rows || `<div class="tiny muted">${last ? 'Nessun avviso attivo: l\'ultimo ($' + esc(last.sym || '') + ', ' + ago(Date.now() - last.t) + ' fa) e\' scaduto.' : 'Nessun avviso ancora.'} Arriva quando il Radar trova una Coin di fascia alta.</div>`}</div>`;
 }
 function renderRadar() {
