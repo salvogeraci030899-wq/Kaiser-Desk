@@ -72,6 +72,8 @@ const st = Object.assign({
   day: null, cooldownUntil: 0, halted: null, seq: 0, events: [],
 }, readJSON(F.state, {}));
 st.runs++;
+if (!st.cleanSince) st.cleanSince = Date.UTC(2026, 10, 23, 9, 12, 0);      // inizio pulito del test: run con gli id unici e senza il blocco per slippage; prima di allora le decisioni restano nel registro ma non contano
+Semi.HCFG.since = st.cleanSince;
 if (st.capital > 0) S.capitalSOL = st.capital;   // capitale scelto con un reset dall'app: resta valido ai run successivi
 const rt = { socQ: [], socDay: { d: '', n: 0 }, socBusy: false, socErr: 0, crBuf: [], solUsd: 0, sec: new Map(), grok: new Map(), gmgn: new Map(), cands: new Map(), gmgnCache: {}, gcache: {}, seen: new Map(), young: new Map(), youngQ: new Set(), feed: null, trades: null, pathBuf: [], farm: null, farmAt: 0, farmBusy: false, probe: null, probeBusy: false, probeDone: false, strat: Strat.create(), stratDirty: false, grokQ: [], grokBusy: false, grokDay: { d: '', n: 0 }, grokErr: 0, grokErrMsg: '', rug: null, holdQ: [], holdBuf: [], holdBusy: 0, holdOk: 0, holdFail: 0, holdErr: '' };
 
@@ -284,6 +286,7 @@ function humanSection() {
   return `## Le tue decisioni: prese e scartate
 Il paper e' il registro di cio' che decidi sugli avvisi di Telegram. Con Prendo si apre subito una posizione paper con le uscite impostate (netto di impatto, commissioni e priority fee); con Scarto si simula la stessa uscita con costi stimati dalla liquidita', per vedere cosa avresti ottenuto. Non c'e' nessun bot a parte.
 Regola decisa in anticipo, sui tuoi Prendo chiusi: almeno ${t.cfg.minN}, netto medio >= +${t.cfg.passMeanPct}% con limite inferiore del 95% sopra zero. Il confronto con gli Scarto e' solo descrittivo.
+Il conteggio parte dal ${new Date(st.cleanSince).toISOString().slice(0, 16).replace('T', ' ')} UTC (primo run con id unici e senza blocco per slippage): le decisioni precedenti restano nel registro ma non contano.
 
 | | |
 |---|---|

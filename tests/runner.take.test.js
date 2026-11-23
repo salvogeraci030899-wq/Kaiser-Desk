@@ -52,7 +52,7 @@ test('Prendo arrivato dopo oltre 5 minuti non apre; con il circuit breaker attiv
 });
 
 test('confronto tuoi contro bot: regola decisa in anticipo sui trade chiusi', () => {
-  const mk = (n, src, f) => Array.from({ length: n }, (_, i) => ({ src, pct: f(i) }));
+  const mk = (n, src, f) => Array.from({ length: n }, (_, i) => ({ src, pct: f(i), openedAt: Date.now() }));
   assert.equal(Semi.humanTrades([...mk(20, 'umano', () => 30), ...mk(100, 'bot', () => -10)]).verdict, 'in corso', 'troppo pochi');
   const bonus = Semi.humanTrades([...mk(60, 'umano', (i) => 20 + (i % 5)), ...mk(100, 'bot', (i) => -10 + (i % 3))]);
   assert.equal(bonus.verdict, 'passa'); assert.ok(bonus.diffLo > 0);
@@ -64,4 +64,11 @@ test('un Prendo non si rifiuta per un impatto oltre lo slippage (fino al 10%); g
   const src = fs.readFileSync(require.resolve('../runner/runner.js'), 'utf8');
   assert.match(src, /const slipMax = o && o\.src === 'umano' \? num\(S\.slipInBps, 1000\) \/ 10000 : S\.slippageBps \/ 10000;/); assert.match(src, /num\(S\.slipOutBps, 1500\)/);
   assert.match(src, /if \(impact > slipMax\)/);
+});
+
+test('inizio pulito del test: i Prendo aperti prima di st.cleanSince restano nel registro ma non contano nel verdetto', () => {
+  assert.equal(st.cleanSince, Date.UTC(2026, 10, 23, 9, 12, 0)); assert.equal(Semi.HCFG.since, st.cleanSince);
+  const old = Array.from({ length: 60 }, () => ({ src: 'umano', pct: 30, openedAt: st.cleanSince - 3600000 }));
+  assert.equal(Semi.humanTrades(old).n, 0, 'prima dell\'inizio pulito: non contano');
+  assert.equal(Semi.humanTrades(old.map((j) => ({ ...j, openedAt: st.cleanSince + 1 }))).n, 60);
 });
