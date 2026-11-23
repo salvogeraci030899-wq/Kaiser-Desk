@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-23 15:15 UTC · in esecuzione da 0.7 giorni · 341 run
+Aggiornato: 2026-11-23 15:20 UTC · in esecuzione da 0.7 giorni · 341 run
 
 | | |
 |---|---|
-| Equity | **5.9718 SOL** (-0.5% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.9718 SOL |
-| Trade chiusi | 1 |
-| Win rate | 0% |
-| P&L realizzato | -0.0282 SOL (~$-2.14) |
-| Media vincite / perdite | +0.0% / -23.3% |
-| Profit factor | 0.00 |
+| Equity | **6.0068 SOL** (+0.1% dal capitale iniziale di 6 SOL) |
+| Cassa | 6.0068 SOL |
+| Trade chiusi | 2 |
+| Win rate | 50% |
+| P&L realizzato | +0.0068 SOL (~$0.52) |
+| Media vincite / perdite | +29.1% / -23.3% |
+| Profit factor | 1.24 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -55,19 +55,19 @@ Il conteggio parte dal 2026-11-23 09:12 UTC (primo run con id unici e senza bloc
 | | |
 |---|---|
 | Esito | **in corso** |
-| Prendo chiusi | 1 di 50 |
+| Prendo chiusi | 2 di 50, netto medio +2.9% (intervallo -48.4% / +54.2%), in utile 50% |
 | Scarto simulati chiusi | 0; ancora aperti 0 |
 | Prendo meno Scarto (limite inferiore) | n/d |
 | Avvisi senza risposta | 24 |
 
 ## Coin di fascia alta e ricerca sui creatori
 Il Radar guarda le Coin da 500000 dollari di market cap in su. Per ognuna si risale al creatore e si registra la market cap: una Coin e' «raddoppiata» se supera il doppio della prima lettura in fascia. Il profilo del creatore compare nell'avviso.
-Memoria: 121974 lanci noti, 22720 creatori; 14 Coin in fascia alta viste (13 creatori), 2 raddoppiate (2 creatori). Creatore trovato: tabella 113, richiesta esterna 0, sconosciuto 0.
+Memoria: 122204 lanci noti, 22758 creatori; 14 Coin in fascia alta viste (13 creatori), 2 raddoppiate (2 creatori). Creatore trovato: tabella 177, richiesta esterna 0, sconosciuto 0.
 Richieste esterne per il creatore: nessuna ancora.
 
 | Fascia | Avvisi | Prendo / Scarto | Tuoi trade chiusi | Netto medio |
 |---|---|---|---|---|
-| 500K-1M | 14 | 1 / 1 | 1 | -23.3% |
+| 500K-1M | 14 | 2 / 1 | 2 | +2.9% |
 | 1M-2M | 9 | 1 / 0 | 0 | n/d |
 | 2M+ | 5 | 0 / 0 | 0 | n/d |
 
@@ -77,14 +77,34 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 1 | -0.0282 |
+| Chiusura manuale (app) | 1 | +0.0350 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $JENSEN | 83 | +29.1% | +0.0350 | +17% | -4% | Chiusura manuale (app) | 4m |
 | $SIDOOR | 64 | -23.3% | -0.0282 | +4% | -20% | Stop loss | 11m |
 
 ## Ultimi eventi
 ```
+15:19:55 ORACLE   360 raccolti, 220 analizzati, 5 BUY, 215 veto
+15:19:33 ORACLE   360 raccolti, 218 analizzati, 5 BUY, 213 veto
+15:19:11 ORACLE   360 raccolti, 220 analizzati, 5 BUY, 215 veto
+15:19:08 SCRIBE   chiuso P-0672 $JENSEN 0.0350 SOL (29.1%)
+15:19:08 CHARON   Chiusura manuale (app) $JENSEN vendo 100% a -3.7% -> 0.1555 SOL
+15:19:08 KAISER   chiusura manuale dall'app: P-0672 JENSEN
+15:18:47 ORACLE   360 raccolti, 228 analizzati, 5 BUY, 223 veto
+15:18:25 ORACLE   360 raccolti, 223 analizzati, 5 BUY, 218 veto
+15:18:24 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
+15:18:03 ORACLE   360 raccolti, 236 analizzati, 5 BUY, 231 veto
+15:17:41 ORACLE   360 raccolti, 223 analizzati, 5 BUY, 218 veto
+15:17:19 ORACLE   360 raccolti, 208 analizzati, 5 BUY, 203 veto
+15:16:56 ORACLE   360 raccolti, 237 analizzati, 5 BUY, 232 veto
+15:16:34 ORACLE   360 raccolti, 232 analizzati, 5 BUY, 227 veto
+15:16:12 ORACLE   360 raccolti, 228 analizzati, 5 BUY, 223 veto
+15:15:49 ORACLE   360 raccolti, 235 analizzati, 4 BUY, 231 veto
+15:15:27 ORACLE   360 raccolti, 234 analizzati, 5 BUY, 229 veto
+15:15:23 QUARTER  BUY $JENSEN 0.119 SOL score 83 impatto 0.59% (Jupiter)
 15:15:03 QUARTER  SEGNALE $JENSEN score 83 (semi-automatico)
 15:15:03 ORACLE   360 raccolti, 228 analizzati, 5 BUY, 223 veto
 15:14:40 ORACLE   360 raccolti, 223 analizzati, 4 BUY, 219 veto
@@ -107,24 +127,6 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 15:09:51 ORACLE   360 raccolti, 234 analizzati, 4 BUY, 230 veto
 15:09:29 ORACLE   360 raccolti, 220 analizzati, 4 BUY, 216 veto
 15:09:07 ORACLE   360 raccolti, 230 analizzati, 4 BUY, 226 veto
-15:08:42 ORACLE   360 raccolti, 230 analizzati, 4 BUY, 226 veto
-15:08:21 ORACLE   360 raccolti, 231 analizzati, 4 BUY, 227 veto
-15:07:59 ORACLE   360 raccolti, 235 analizzati, 4 BUY, 231 veto
-15:07:37 ORACLE   352 raccolti, 218 analizzati, 4 BUY, 214 veto
-15:07:15 ORACLE   344 raccolti, 201 analizzati, 4 BUY, 197 veto
-15:06:53 ORACLE   311 raccolti, 190 analizzati, 4 BUY, 186 veto
-15:06:30 ORACLE   289 raccolti, 168 analizzati, 4 BUY, 164 veto
-15:06:09 ORACLE   281 raccolti, 163 analizzati, 4 BUY, 159 veto
-15:06:07 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
-15:06:07 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
-15:06:07 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
-15:06:07 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)
-15:05:47 ORACLE   247 raccolti, 149 analizzati, 4 BUY, 145 veto
-15:05:24 ORACLE   222 raccolti, 114 analizzati, 4 BUY, 110 veto
-15:05:03 ORACLE   214 raccolti, 113 analizzati, 4 BUY, 109 veto
-15:05:01 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 40000→50000, minAgeMin 5→1, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 50000000→2000000, gmgnInterval 1h→1m, maxAgeH 720→72, minTxH1 40→50, entryGapSec 60→120, semiAuto spento→avvisi e paper
-15:05:01 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
-15:05:00 KAISER   run #341 · 0 posizioni · equity 5.9718 SOL · GMGN spenta (nessuna chiave) · Grok off
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
