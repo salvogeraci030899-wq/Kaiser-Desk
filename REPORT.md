@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-23 04:58 UTC · in esecuzione da 0.3 giorni · 327 run
+Aggiornato: 2026-11-23 05:03 UTC · in esecuzione da 0.3 giorni · 327 run
 
 | | |
 |---|---|
@@ -57,11 +57,11 @@ Regola decisa in anticipo, sui tuoi Prendo chiusi: almeno 50, netto medio >= +3%
 | Prendo chiusi | 0 di 50 |
 | Scarto simulati chiusi | 0; ancora aperti 0 |
 | Prendo meno Scarto (limite inferiore) | n/d |
-| Avvisi senza risposta | 23 |
+| Avvisi senza risposta | 24 |
 
 ## Coin di fascia alta e ricerca sui creatori
 Il Radar guarda le Coin da 500000 dollari di market cap in su. Per ognuna si risale al creatore e si registra la market cap: una Coin e' «raddoppiata» se supera il doppio della prima lettura in fascia. Il profilo del creatore compare nell'avviso.
-Memoria: 107525 lanci noti, 20675 creatori; 10 Coin in fascia alta viste (10 creatori), 1 raddoppiate (1 creatori). Creatore trovato: tabella 205, richiesta esterna 0, sconosciuto 0.
+Memoria: 107639 lanci noti, 20687 creatori; 10 Coin in fascia alta viste (10 creatori), 1 raddoppiate (1 creatori). Creatore trovato: tabella 241, richiesta esterna 0, sconosciuto 0.
 Richieste esterne per il creatore: nessuna ancora.
 
 | Fascia | Avvisi | Prendo / Scarto | Tuoi trade chiusi | Netto medio |
@@ -70,7 +70,7 @@ Richieste esterne per il creatore: nessuna ancora.
 | 1M-2M | 8 | 0 / 0 | 0 | n/d |
 | 2M+ | 5 | 0 / 0 | 0 | n/d |
 
-Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, per giorno: 11-22: 28 / 25; 11-23: 40 / 38.
+Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, per giorno: 11-22: 28 / 25; 11-23: 41 / 39.
 
 ## Uscite per motivo
 _ancora nessuna_
@@ -80,6 +80,20 @@ _ancora nessuno_
 
 ## Ultimi eventi
 ```
+05:03:18 ORACLE   360 raccolti, 293 analizzati, 2 BUY, 290 veto
+05:02:56 ORACLE   360 raccolti, 282 analizzati, 2 BUY, 279 veto
+05:02:33 ORACLE   360 raccolti, 290 analizzati, 2 BUY, 287 veto
+05:02:11 ORACLE   360 raccolti, 284 analizzati, 2 BUY, 281 veto
+05:01:49 ORACLE   360 raccolti, 289 analizzati, 2 BUY, 286 veto
+05:01:27 ORACLE   360 raccolti, 296 analizzati, 2 BUY, 293 veto
+05:01:04 ORACLE   360 raccolti, 294 analizzati, 2 BUY, 291 veto
+05:00:42 ORACLE   360 raccolti, 291 analizzati, 2 BUY, 288 veto
+05:00:19 ORACLE   360 raccolti, 297 analizzati, 1 BUY, 295 veto
+04:59:57 ORACLE   360 raccolti, 294 analizzati, 2 BUY, 292 veto
+04:59:35 ORACLE   360 raccolti, 294 analizzati, 2 BUY, 292 veto
+04:59:13 ORACLE   360 raccolti, 294 analizzati, 2 BUY, 292 veto
+04:58:51 ORACLE   360 raccolti, 297 analizzati, 2 BUY, 295 veto
+04:58:29 ORACLE   360 raccolti, 291 analizzati, 2 BUY, 289 veto
 04:58:07 ORACLE   360 raccolti, 295 analizzati, 2 BUY, 293 veto
 04:57:44 ORACLE   360 raccolti, 293 analizzati, 2 BUY, 291 veto
 04:57:22 ORACLE   360 raccolti, 288 analizzati, 2 BUY, 286 veto
@@ -106,20 +120,6 @@ _ancora nessuno_
 04:49:39 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 278 veto
 04:49:18 ORACLE   360 raccolti, 281 analizzati, 2 BUY, 279 veto
 04:48:56 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 278 veto
-04:48:34 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 274 veto
-04:48:11 QUARTER  SEGNALE $UCASH score 91 (semi-automatico)
-04:48:11 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 278 veto
-04:47:49 ORACLE   360 raccolti, 281 analizzati, 2 BUY, 279 veto
-04:47:27 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 273 veto
-04:47:05 ORACLE   360 raccolti, 283 analizzati, 2 BUY, 281 veto
-04:46:43 ORACLE   360 raccolti, 281 analizzati, 2 BUY, 279 veto
-04:46:21 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 273 veto
-04:45:59 ORACLE   360 raccolti, 282 analizzati, 2 BUY, 280 veto
-04:45:37 ORACLE   360 raccolti, 282 analizzati, 2 BUY, 280 veto
-04:45:15 ORACLE   360 raccolti, 281 analizzati, 2 BUY, 279 veto
-04:45:13 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
-04:44:53 ORACLE   360 raccolti, 285 analizzati, 2 BUY, 283 veto
-04:44:31 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 276 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
