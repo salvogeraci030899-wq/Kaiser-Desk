@@ -4,8 +4,8 @@
 const Kb = require('./kb.js');
 const E = require('../engine.js');
 
-const MAX_PER_HOUR = 8;          // avvisi al massimo in un'ora: sono scelte da fare a mano, non una raffica
-const REPEAT_H = 3;              // la stessa Coin non si segnala di nuovo prima di 3 ore
+const MAX_PER_HOUR = 30;         // tetto di sicurezza (non di selezione): con 8 all'ora il primo gruppo di avvisi teneva fuori le Coin successive per un'ora, e alcune arrivavano dopo il movimento
+const REPEAT_H = 24;             // la stessa Coin non si segnala di nuovo prima di 24 ore: con 3 ore la stessa Coin tornava ogni 3 ore (8 avvisi su 23 erano ripetizioni) e i campioni non erano indipendenti
 const TRACK_MS = 17 * 60000;     // si segue il prezzo del segnale fino a 15 minuti (piu' un margine)
 const MODES = ['spento', 'avvisi e paper', 'solo avvisi'];
 const MINT_RE = /^[1-9A-HJ-NP-Za-km-z]{32,44}$/;
