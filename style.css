@@ -69,6 +69,15 @@ a { color: var(--ui); }
 main { flex: 1 1 auto; min-height: 0; overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; padding: 4px 16px 14px; }
 .view { display: none; }
 .view.active { display: block; animation: fadeIn 0.2s ease-out; }
+/* Segnale in arrivo (qualsiasi pagina): il fantasmino salta con un anello, il tasto Radar pulsa, la scritta sotto il titolo si colora */
+@keyframes sig-hop { 0%, 100% { transform: translateY(0) rotate(0); } 15% { transform: translateY(-5px) rotate(-8deg); } 30% { transform: translateY(0) rotate(7deg); } 45% { transform: translateY(-3px) rotate(-4deg); } 60% { transform: translateY(0) rotate(0); } }
+@keyframes sig-ring { 0% { box-shadow: 0 0 0 0 var(--brand); } 80%, 100% { box-shadow: 0 0 0 14px transparent; } }
+@keyframes sig-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.22); } }
+html.sig .logo { animation: sig-ring 1.2s ease-out infinite; }
+html.sig .logo .ghost { animation: sig-hop 1.2s ease-in-out infinite; }
+html.sig nav button[data-v="radar"] svg { color: var(--brand); animation: sig-pulse 0.9s ease-in-out infinite; }
+html.sig #brandSub { color: var(--brand); font-weight: 800; }
+@media (prefers-reduced-motion: reduce) { html.sig .logo, html.sig .logo .ghost, html.sig nav button[data-v="radar"] svg { animation: none; } }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
 
 /* ---- intestazione ---- */
@@ -376,6 +385,7 @@ nav { height: 62px; margin-top: 4px; }
 .vscroll.jfix { overflow: hidden; display: flex; flex-direction: column; padding-bottom: 0; }
 .jcard { flex: 1 1 0; min-height: 0; margin-bottom: 0; padding: 0 14px; display: flex; flex-direction: column; overflow: hidden; }
 .jrow { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.8fr) minmax(0, 0.85fr) minmax(0, 1.3fr); gap: 6px; align-items: center; padding: 7px 0; border-bottom: 1px solid var(--border); font: 12px var(--mono); }
+.jfull .jrow[data-mint]:not([data-mint=""]) { cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .jrow > span { min-width: 0; overflow-wrap: anywhere; }
 .jhead { flex: 0 0 auto; padding: 12px 0 8px; color: var(--text-secondary); font-weight: 600; }
 .jbody { flex: 1 1 0; min-height: 0; overflow: hidden; pointer-events: none; overflow-y: hidden; overflow-x: hidden; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }

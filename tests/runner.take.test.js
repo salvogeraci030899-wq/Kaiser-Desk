@@ -59,3 +59,9 @@ test('confronto tuoi contro bot: regola decisa in anticipo sui trade chiusi', ()
   assert.equal(Semi.humanTrades([...mk(60, 'umano', (i) => (i % 2 ? 6 : -8)), ...mk(10, 'bot', () => -5)]).verdict, 'non passa', 'media sotto il +3%');
   assert.equal(Semi.humanTrades([{ src: 'bot', pct: -5 }, { src: 'bot', pct: -7 }]).n, 0, 'i trade del bot non contano come tuoi');
 });
+
+test('un Prendo non si rifiuta per un impatto oltre lo slippage (fino al 10%); gli altri acquisti restano con il limite normale', () => {
+  const src = fs.readFileSync(require.resolve('../runner/runner.js'), 'utf8');
+  assert.match(src, /const slipMax = o && o\.src === 'umano' \? Math\.max\(S\.slippageBps \/ 10000, 0\.1\) : S\.slippageBps \/ 10000;/);
+  assert.match(src, /if \(impact > slipMax\)/);
+});

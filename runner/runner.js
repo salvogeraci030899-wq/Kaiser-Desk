@@ -454,7 +454,8 @@ async function buy(c, o) {
   let impact, rawOut = null, src = 'stima';
   try { const q = await jupQuote(SOL_MINT, c.mint, Math.floor(sizeS * 1e9)); impact = Math.max(0, num(q.priceImpactPct)); rawOut = q.outAmount; src = 'Jupiter'; }
   catch { impact = E.estImpact(sizeS * (rt.solUsd || 150), liq); }
-  if (impact > S.slippageBps / 10000) { log('QUARTER', `$${c.sym} impatto ${(impact * 100).toFixed(1)}% oltre slippage: annullato`); if (o) o.why = `impatto ${(impact * 100).toFixed(1)}% oltre lo slippage`; return null; }
+  const slipMax = o && o.src === 'umano' ? Math.max(S.slippageBps / 10000, 0.1) : S.slippageBps / 10000;      // una scelta tua (Prendo) non si rifiuta per 2% di impatto: il costo e' gia' nel prezzo di carico; oltre il 10% non e' piu' realistico
+  if (impact > slipMax) { log('QUARTER', `$${c.sym} impatto ${(impact * 100).toFixed(1)}% oltre slippage: annullato`); if (o) o.why = `impatto ${(impact * 100).toFixed(1)}% oltre lo slippage`; return null; }
   const entry = E.entryPrice(priceN, impact, S.feePct);
   const p = {
     id: 'P-' + String(++st.seq).padStart(4, '0'), mint: c.mint, sym: c.sym, name: c.name, pairAddress: fresh.pairAddress,

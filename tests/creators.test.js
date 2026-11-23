@@ -202,3 +202,10 @@ test('id degli avvisi unici: piu\' avvisi dello stesso secondo non condividono l
   Semi.vote(alerts, alerts[2].id, 'n', T + 1000); assert.deepEqual(alerts.map((a) => a.vote || '-'), ['-', '-', 'n', '-', '-', '-'], 'la risposta va sull\'avviso giusto');
   const src = fs.readFileSync(require.resolve('../runner/runner.js'), 'utf8'); assert.match(src, /a\.id = Semi\.uniqueId\(st\.alerts, a\.id\)/);
 });
+
+test('registro a schermo intero: il tocco su una riga apre la Coin su pump.fun', () => {
+  const al = [{ id: 'a00001', t: 1, mint: 'MintAAA', sym: 'AAA', vote: 'n' }];
+  assert.equal(Semi.decisions(al, [], [], 5)[0].mint, 'MintAAA');
+  const html = fs.readFileSync(require.resolve('../index.html'), 'utf8');
+  assert.match(html, /#sheetInner \.jfull \.jrow\[data-mint\]/); assert.match(html, /data-mint="\$\{esc\(d\.mint/);
+});

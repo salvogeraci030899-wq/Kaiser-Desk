@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.68.2">
+<meta name="kz-build" content="2.68.6">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=4" media="(prefers-color-scheme: light)">
@@ -345,10 +345,11 @@ function candCard(c) {
 function renderSemi() {
   // sempre disegnato e sempre alto uguale (vedi style.css): niente nasconde o allunga il riquadro, quindi il resto della pagina non si muove
   const run = rt.run, box = $('#semiBox'); if (!box) return;
-  const list = ((run && run.alerts) || []).slice(-1);
+  const last = ((run && run.alerts) || []).slice(-1)[0], TTL = 5 * 60000, left = last ? TTL - (Date.now() - last.t) : 0;      // un avviso vale 5 minuti: poi il Prendo non apre piu' nulla
+  const list = last && left > 0 ? [last] : [];
   const k = (v) => (v >= 1e6 ? (v / 1e6).toFixed(1) + 'M' : v >= 1e3 ? (v / 1e3).toFixed(1) + 'K' : String(Math.round(v || 0))), pc = (v) => (v == null ? '—' : (v > 0 ? '+' : '') + v + '%');
-  const rows = list.map((a) => `<div class="semirow"><div class="semitxt"><div><b>$${esc(a.sym || a.mint.slice(0, 6))}</b> <span class="muted tiny">${a.band ? 'fascia ' + esc(a.band) : 'score ' + a.score} · ${ago(Date.now() - a.t)} fa${a.vote === 'y' ? ' · preso' : a.vote === 'n' ? ' · scartato' : ''}${a.gr ? ' · Grok ' + (a.gr.s > 0 ? '+' : '') + Number(a.gr.s).toFixed(1) + ' org ' + a.gr.o : ''}</span></div><div class="tiny muted">${a.cline ? esc(a.cline) : 'ora ' + pc(a.last) + ' · 5 min ' + pc(a.p5) + ' · 15 min ' + pc(a.p15)}</div></div><a class="btn sm" href="https://pump.fun/coin/${encodeURIComponent(a.mint)}" target="_blank" rel="noopener">pump.fun</a></div>`).join('');
-  box.innerHTML = `<div class="card semi">${rows || '<div class="tiny muted">Nessun avviso ancora: arriva quando il Radar trova una Coin di fascia alta.</div>'}</div>`;
+  const rows = list.map((a) => `<div class="semirow"><div class="semitxt"><div><b>$${esc(a.sym || a.mint.slice(0, 6))}</b> <span class="muted tiny">${a.band ? 'fascia ' + esc(a.band) : 'score ' + a.score} · valido ancora ${Math.floor(left / 60000)}:${String(Math.floor(left % 60000 / 1000)).padStart(2, '0')}${a.vote === 'y' ? ' · preso' : a.vote === 'n' ? ' · scartato' : ''}${a.gr ? ' · Grok ' + (a.gr.s > 0 ? '+' : '') + Number(a.gr.s).toFixed(1) + ' org ' + a.gr.o : ''}</span></div><div class="tiny muted">${a.cline ? esc(a.cline) : 'ora ' + pc(a.last) + ' · 5 min ' + pc(a.p5) + ' · 15 min ' + pc(a.p15)}</div></div><a class="btn sm" href="https://pump.fun/coin/${encodeURIComponent(a.mint)}" target="_blank" rel="noopener">pump.fun</a></div>`).join('');
+  box.innerHTML = `<div class="card semi">${rows || `<div class="tiny muted">${last ? 'Nessun avviso attivo: l\'ultimo ($' + esc(last.sym || '') + ', ' + ago(Date.now() - last.t) + ' fa) e\' scaduto.' : 'Nessun avviso ancora.'} Arriva quando il Radar trova una Coin di fascia alta.</div>`}</div>`;
 }
 function renderRadar() {
   let list = [...rt.cands.values()]; const sv = S(), band = sv.humanOnly ? Number(sv.bandMin) || 500000 : 0;
@@ -798,8 +799,8 @@ function renderJournal() {
   if (T) { $('#jSmpL').textContent = 'Presi chiusi'; }
   $('#jSmp').innerHTML = T ? `<span class="${T.y >= 50 ? 'up' : 'warn'}">${T.y}/50</span>` : `<span class="${nT >= 100 ? (pfN >= 1.3 && ex > 0 ? 'up' : pfN >= 1 && ex > 0 ? 'warn' : 'down') : 'warn'}">${nT}/100</span>`;
   const only = !real && !strat && !!S().humanOnly, D = (only && run && run.decisions) || [];       // solo uomo: l'elenco e' il registro delle decisioni (prese e scartate)
-  const dRows = D.map((d) => `<div class="jrow"><span>$${esc(d.sym)}<br><span class="muted">${new Date(d.at || d.t).toLocaleString('it-IT', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' })} · ${d.vote === 'y' ? 'preso' : 'scartato'}</span></span><span class="${cls(d.pct)}">${d.pct == null ? '—' : fmtPct(d.pct, 1)}</span><span class="${cls(d.pnl)}">${d.pnl == null ? '—' : Number(d.pnl).toFixed(4)}</span><span class="jr">${esc(d.reason)}</span></div>`).join('');
-  $('#jRows').innerHTML = only ? (dRows || '<div class="empty" style="padding:18px 6px">Nessuna decisione ancora: premi Prendo o Scarto sugli avvisi di Telegram.</div>') : [...J].reverse().slice(0, 100).map((j) => `<div class="jrow"><span>$${esc(j.sym)}<br><span class="muted">${new Date(j.closedAt).toLocaleString('it-IT', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' })}</span></span><span class="${cls(j.pct)}">${fmtPct(j.pct, 1)}${j.trigPct != null && Math.abs(j.trigPct - j.pct) >= 1 ? `<br><span class="muted tiny" title="Il picco e' il massimo raggiunto dopo l'ingresso; il prezzo di uscita e' quello dell'ultima vendita. L'esito e' diverso perche' include le vendite parziali, le fee, l'impatto e la priority">${j.peakPct != null ? 'picco ' + fmtPct(j.peakPct, 0) + ' · ' : ''}uscita ${fmtPct(j.trigPct, 0)}</span>` : ''}</span><span class="${cls(j.pnl)}">${Number(j.pnl).toFixed(4)}</span><span class="jr">${esc(j.reason)}</span></div>`).join('') || `<div class="empty" style="padding:18px 6px">${!real && !run ? 'Dati del runner non disponibili.' : 'Nessun trade chiuso.'}</div>`;
+  const dRows = D.map((d) => `<div class="jrow" data-mint="${esc(d.mint || '')}"><span>$${esc(d.sym)}<br><span class="muted">${new Date(d.at || d.t).toLocaleString('it-IT', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' })} · ${d.vote === 'y' ? 'preso' : 'scartato'}</span></span><span class="${cls(d.pct)}">${d.pct == null ? '—' : fmtPct(d.pct, 1)}</span><span class="${cls(d.pnl)}">${d.pnl == null ? '—' : Number(d.pnl).toFixed(4)}</span><span class="jr">${esc(d.reason)}</span></div>`).join('');
+  $('#jRows').innerHTML = only ? (dRows || '<div class="empty" style="padding:18px 6px">Nessuna decisione ancora: premi Prendo o Scarto sugli avvisi di Telegram.</div>') : [...J].reverse().slice(0, 100).map((j) => `<div class="jrow" data-mint="${esc(j.mint || '')}"><span>$${esc(j.sym)}<br><span class="muted">${new Date(j.closedAt).toLocaleString('it-IT', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' })}</span></span><span class="${cls(j.pct)}">${fmtPct(j.pct, 1)}${j.trigPct != null && Math.abs(j.trigPct - j.pct) >= 1 ? `<br><span class="muted tiny" title="Il picco e' il massimo raggiunto dopo l'ingresso; il prezzo di uscita e' quello dell'ultima vendita. L'esito e' diverso perche' include le vendite parziali, le fee, l'impatto e la priority">${j.peakPct != null ? 'picco ' + fmtPct(j.peakPct, 0) + ' · ' : ''}uscita ${fmtPct(j.trigPct, 0)}</span>` : ''}</span><span class="${cls(j.pnl)}">${Number(j.pnl).toFixed(4)}</span><span class="jr">${esc(j.reason)}</span></div>`).join('') || `<div class="empty" style="padding:18px 6px">${!real && !run ? 'Dati del runner non disponibili.' : 'Nessun trade chiuso.'}</div>`;
   // Riquadro in basso: motivi di uscita, risultati per età del token all'ingresso, discese prima dei profitti
   document.querySelectorAll('#jTabs button').forEach((x) => { x.hidden = x.dataset.jt === 'dec' ? !only : (only && (x.dataset.jt === 'age' || x.dataset.jt === 'dip')); });
   const tab = only ? (rt.jtab === 'mot' ? 'mot' : 'dec') : (rt.jtab && rt.jtab !== 'lab' && rt.jtab !== 'dec' ? rt.jtab : 'mot'), kvRow = (k, v, c) => `<span>${k}</span><span class="mono ${c || ''}">${v}</span>`, none = '<span class="muted small">Dati non ancora disponibili: servono trade chiusi con la versione più recente del runner.</span>';
@@ -1156,6 +1157,7 @@ document.body.addEventListener('click', async (e) => {
   }
   const d = e.target.closest('[data-detail]'); if (d) return openDetail(d.dataset.detail);                 // immagine della Coin: pagina di dettaglio
   if (e.target.closest('a, button, input, select, label, summary')) return;                             // i tasti e i collegamenti dentro la scheda fanno il loro lavoro
+  const jr = e.target.closest('#sheetInner .jfull .jrow[data-mint]'); if (jr && jr.dataset.mint) return openPump(jr.dataset.mint);   // riga del registro: la Coin su pump.fun
   const card = e.target.closest('#radarList .card[data-mint], #posList .card[data-mint]'); if (card) return openPump(card.dataset.mint);   // resto della scheda: pump.fun
 });
 // Niente zoom (pizzico, doppio tocco), niente selezione del testo, niente lente di ingrandimento né menu a pressione lunga
@@ -1172,6 +1174,18 @@ render();
 log('KAISER', 'pannello pronto: paper dal runner 24/7, reale dall’esecutore, comandi da Telegram');
 loadAll();
 scan();                                                                             // il radar parte da solo all'avvio
+// Segnale in arrivo, da qualsiasi pagina: un avviso senza risposta e ancora valido (5 minuti) anima il fantasmino, scrive il conto alla rovescia sotto il titolo,
+// fa pulsare il tasto Radar e segna il titolo della scheda e il badge dell'icona.
+let sigWas = false;
+function signalWatch() {
+  const a = ((rt.run && rt.run.alerts) || []).slice(-1)[0], left = a ? 300000 - (Date.now() - a.t) : 0, on = !!a && left > 0 && !a.vote, h = document.documentElement, sub = $('#brandSub');
+  h.classList.toggle('sig', on);
+  if (on) { sub.textContent = `SEGNALE $${a.sym || ''} · ${Math.floor(left / 60000)}:${String(Math.floor(left % 60000 / 1000)).padStart(2, '0')}`; document.title = '(1) KAISER · segnale'; }
+  else if (sigWas) { sub.textContent = h.classList.contains('mode-real') ? 'Solana Meme Desk · REALE' : 'Solana Meme Desk'; document.title = 'KAISER · Solana Meme Desk'; }
+  if (on !== sigWas) { try { if (on) navigator.setAppBadge && navigator.setAppBadge(1); else navigator.clearAppBadge && navigator.clearAppBadge(); } catch { /* il badge e' facoltativo */ } }
+  sigWas = on;
+}
+setInterval(() => { if (!document.hidden) signalWatch(); if (!document.hidden && $('#v-radar').classList.contains('active')) renderSemi(); }, 1000);
 setInterval(() => { if (!document.hidden && !rt.fastBusy) { rt.fastBusy = true; loadFast().catch(() => {}).finally(() => { rt.fastBusy = false; }); } }, 5000);
 setInterval(() => { if (!document.hidden) loadParams().then(() => render()).catch(() => {}); }, 30000);
 setInterval(() => { if (!document.hidden && Date.now() - rt.lastScan > ($('#v-radar').classList.contains('active') ? 30000 : 120000)) scan(); }, 5000);
