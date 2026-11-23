@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.68.5">
+<meta name="kz-build" content="2.68.6">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=4" media="(prefers-color-scheme: light)">
@@ -1174,7 +1174,18 @@ render();
 log('KAISER', 'pannello pronto: paper dal runner 24/7, reale dall’esecutore, comandi da Telegram');
 loadAll();
 scan();                                                                             // il radar parte da solo all'avvio
-setInterval(() => { if (!document.hidden && $('#v-radar').classList.contains('active')) renderSemi(); }, 1000);
+// Segnale in arrivo, da qualsiasi pagina: un avviso senza risposta e ancora valido (5 minuti) anima il fantasmino, scrive il conto alla rovescia sotto il titolo,
+// fa pulsare il tasto Radar e segna il titolo della scheda e il badge dell'icona.
+let sigWas = false;
+function signalWatch() {
+  const a = ((rt.run && rt.run.alerts) || []).slice(-1)[0], left = a ? 300000 - (Date.now() - a.t) : 0, on = !!a && left > 0 && !a.vote, h = document.documentElement, sub = $('#brandSub');
+  h.classList.toggle('sig', on);
+  if (on) { sub.textContent = `SEGNALE $${a.sym || ''} · ${Math.floor(left / 60000)}:${String(Math.floor(left % 60000 / 1000)).padStart(2, '0')}`; document.title = '(1) KAISER · segnale'; }
+  else if (sigWas) { sub.textContent = h.classList.contains('mode-real') ? 'Solana Meme Desk · REALE' : 'Solana Meme Desk'; document.title = 'KAISER · Solana Meme Desk'; }
+  if (on !== sigWas) { try { if (on) navigator.setAppBadge && navigator.setAppBadge(1); else navigator.clearAppBadge && navigator.clearAppBadge(); } catch { /* il badge e' facoltativo */ } }
+  sigWas = on;
+}
+setInterval(() => { if (!document.hidden) signalWatch(); if (!document.hidden && $('#v-radar').classList.contains('active')) renderSemi(); }, 1000);
 setInterval(() => { if (!document.hidden && !rt.fastBusy) { rt.fastBusy = true; loadFast().catch(() => {}).finally(() => { rt.fastBusy = false; }); } }, 5000);
 setInterval(() => { if (!document.hidden) loadParams().then(() => render()).catch(() => {}); }, 30000);
 setInterval(() => { if (!document.hidden && Date.now() - rt.lastScan > ($('#v-radar').classList.contains('active') ? 30000 : 120000)) scan(); }, 5000);
