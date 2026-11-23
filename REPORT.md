@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-23 12:59 UTC · in esecuzione da 0.6 giorni · 338 run
+Aggiornato: 2026-11-23 13:04 UTC · in esecuzione da 0.6 giorni · 338 run
 
 | | |
 |---|---|
-| Equity | **5.9778 SOL** (-0.4% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.8790 SOL |
-| Trade chiusi | 0 |
+| Equity | **5.9718 SOL** (-0.5% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.9718 SOL |
+| Trade chiusi | 1 |
 | Win rate | 0% |
-| P&L realizzato | +0.0000 SOL (~$0.00) |
-| Media vincite / perdite | +0.0% / +0.0% |
+| P&L realizzato | -0.0282 SOL (~$-2.03) |
+| Media vincite / perdite | +0.0% / -23.3% |
 | Profit factor | 0.00 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$SIDOOR** P-0671 · 0.120 SOL · -17.7% · resta 100% · [grafico](https://dexscreener.com/solana/3peugE6Fm4fpaVvrV2KBFN3nvLbCGEhGoUXDDxAHuscR)
+_nessuna_
 
 ## Test ingresso rapido (solo paper, quotazioni Jupiter)
 Ipotesi: comprare 5 secondi dopo la creazione, tenere 30 secondi, vendere. Un token su 3, 0.05 SOL a operazione. Serie 2 dal 2026-11-22 11:02 UTC.
@@ -55,32 +55,52 @@ Il conteggio parte dal 2026-11-23 09:12 UTC (primo run con id unici e senza bloc
 | | |
 |---|---|
 | Esito | **in corso** |
-| Prendo chiusi | 0 di 50 |
+| Prendo chiusi | 1 di 50 |
 | Scarto simulati chiusi | 0; ancora aperti 0 |
 | Prendo meno Scarto (limite inferiore) | n/d |
 | Avvisi senza risposta | 24 |
 
 ## Coin di fascia alta e ricerca sui creatori
 Il Radar guarda le Coin da 500000 dollari di market cap in su. Per ognuna si risale al creatore e si registra la market cap: una Coin e' «raddoppiata» se supera il doppio della prima lettura in fascia. Il profilo del creatore compare nell'avviso.
-Memoria: 117077 lanci noti, 22001 creatori; 13 Coin in fascia alta viste (12 creatori), 2 raddoppiate (2 creatori). Creatore trovato: tabella 312, richiesta esterna 1, sconosciuto 0.
+Memoria: 117201 lanci noti, 22014 creatori; 13 Coin in fascia alta viste (12 creatori), 2 raddoppiate (2 creatori). Creatore trovato: tabella 382, richiesta esterna 1, sconosciuto 0.
 Richieste esterne per il creatore: pump v3: 0 riuscite, 1 fallite (ultimo errore: HTTP 404); pump v1: 0 riuscite, 1 fallite (ultimo errore: HTTP 530); jupiter: 1 riuscite, 0 fallite.
 
 | Fascia | Avvisi | Prendo / Scarto | Tuoi trade chiusi | Netto medio |
 |---|---|---|---|---|
-| 500K-1M | 13 | 1 / 1 | 0 | n/d |
+| 500K-1M | 13 | 1 / 1 | 1 | -23.3% |
 | 1M-2M | 9 | 1 / 0 | 0 | n/d |
 | 2M+ | 5 | 0 / 0 | 0 | n/d |
 
 Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, per giorno: 11-22: 28 / 25; 11-23: 53 / 51.
 
 ## Uscite per motivo
-_ancora nessuna_
+| Motivo | Trade | P&L SOL |
+|---|---|---|
+| Stop loss | 1 | -0.0282 |
 
 ## Ultimi 25 trade
-_ancora nessuno_
+| Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
+|---|---|---|---|---|---|---|---|
+| $SIDOOR | 64 | -23.3% | -0.0282 | +4% | -20% | Stop loss | 11m |
 
 ## Ultimi eventi
 ```
+13:04:39 ORACLE   360 raccolti, 278 analizzati, 5 BUY, 273 veto
+13:04:17 ORACLE   360 raccolti, 271 analizzati, 5 BUY, 266 veto
+13:03:55 ORACLE   360 raccolti, 262 analizzati, 4 BUY, 257 veto
+13:03:33 ORACLE   360 raccolti, 269 analizzati, 4 BUY, 264 veto
+13:03:11 ORACLE   360 raccolti, 266 analizzati, 5 BUY, 261 veto
+13:02:49 ORACLE   360 raccolti, 262 analizzati, 5 BUY, 257 veto
+13:02:26 ORACLE   360 raccolti, 269 analizzati, 5 BUY, 264 veto
+13:02:04 ORACLE   360 raccolti, 271 analizzati, 4 BUY, 266 veto
+13:01:42 ORACLE   360 raccolti, 269 analizzati, 4 BUY, 264 veto
+13:01:20 ORACLE   360 raccolti, 268 analizzati, 4 BUY, 263 veto
+13:00:57 ORACLE   360 raccolti, 264 analizzati, 4 BUY, 259 veto
+13:00:35 ORACLE   360 raccolti, 261 analizzati, 4 BUY, 256 veto
+13:00:13 ORACLE   360 raccolti, 272 analizzati, 4 BUY, 267 veto
+12:59:50 ORACLE   360 raccolti, 269 analizzati, 4 BUY, 264 veto
+12:59:37 SCRIBE   chiuso P-0671 $SIDOOR -0.0282 SOL (-23.3%)
+12:59:37 CHARON   Stop loss $SIDOOR vendo 100% a -20.5% -> 0.0928 SOL
 12:59:27 ORACLE   360 raccolti, 267 analizzati, 4 BUY, 262 veto
 12:59:05 ORACLE   360 raccolti, 268 analizzati, 4 BUY, 263 veto
 12:58:43 ORACLE   360 raccolti, 270 analizzati, 5 BUY, 265 veto
@@ -105,22 +125,6 @@ _ancora nessuno_
 12:51:42 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 259 veto
 12:51:20 ORACLE   360 raccolti, 270 analizzati, 4 BUY, 265 veto
 12:50:58 ORACLE   360 raccolti, 268 analizzati, 4 BUY, 263 veto
-12:50:36 ORACLE   360 raccolti, 264 analizzati, 4 BUY, 259 veto
-12:50:14 ORACLE   360 raccolti, 264 analizzati, 4 BUY, 258 veto
-12:49:51 ORACLE   360 raccolti, 272 analizzati, 3 BUY, 267 veto
-12:49:29 ORACLE   360 raccolti, 267 analizzati, 3 BUY, 262 veto
-12:49:06 ORACLE   360 raccolti, 275 analizzati, 4 BUY, 270 veto
-12:48:44 ORACLE   360 raccolti, 272 analizzati, 5 BUY, 266 veto
-12:48:41 QUARTER  BUY $SIDOOR 0.120 SOL score 64 impatto 2.04% (Jupiter)
-12:48:21 QUARTER  SEGNALE $SIDOOR score 64 (semi-automatico)
-12:48:21 ORACLE   360 raccolti, 264 analizzati, 5 BUY, 258 veto
-12:47:58 ORACLE   360 raccolti, 269 analizzati, 4 BUY, 264 veto
-12:47:36 ORACLE   360 raccolti, 273 analizzati, 4 BUY, 268 veto
-12:47:14 ORACLE   360 raccolti, 268 analizzati, 4 BUY, 263 veto
-12:46:52 ORACLE   360 raccolti, 280 analizzati, 4 BUY, 275 veto
-12:46:30 ORACLE   360 raccolti, 278 analizzati, 4 BUY, 273 veto
-12:46:08 ORACLE   360 raccolti, 279 analizzati, 4 BUY, 274 veto
-12:45:45 ORACLE   360 raccolti, 278 analizzati, 4 BUY, 273 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
