@@ -103,7 +103,7 @@ function shadowOpen(a, S, now, sizeSol, usd) {
   if (a.sh || !(a.priceNative > 0)) return false;
   const px = a.priceNative * (1 + (a.vp || 0) / 100), liq = Number(a.liq) || 0, imp = E.estImpact(sizeSol * usd, liq);
   const e = E.entryPrice(px, imp, S.feePct);
-  a.sh = { e, peak: e, t0: now, tp1: false, rem: 1, got: 0, liq, size: sizeSol, usd, done: false, xs: bandExits(S) };      // le uscite restano quelle di partenza anche se i parametri cambiano
+  a.sh = { e, peak: e, t0: now, tp1: false, rem: 1, got: 0, liq, size: sizeSol, usd, done: false, xs: bandExits(S), cost: sizeSol + (Number(S.prioritySOL) || 0) };      // le uscite restano quelle di partenza anche se i parametri cambiano
   return true;
 }
 // m = { priceNative, liq, br5, tx5 } letti ora; restituisce l'uscita decisa oppure null
@@ -174,11 +174,20 @@ function decisions(alerts, journal, positions, n) {
       else out.push({ ...base, status: 'non aperto', pct: null, pnl: null, reason: 'non aperto', at: a.vAt || a.t });
     } else {
       const s = a.sh;
-      if (s && s.done) out.push({ ...base, status: 'chiuso', pct: +Number(s.pct).toFixed(1), pnl: null, reason: s.reason, at: s.t1 });
+      if (s && s.done) { const got = Number(s.got), cost = s.cost != null ? s.cost : (1 + s.pct / 100) > 0.001 ? got / (1 + s.pct / 100) : s.size; out.push({ ...base, status: 'chiuso', pct: +Number(s.pct).toFixed(1), pnl: Number.isFinite(got) && Number.isFinite(cost) ? +(got - cost).toFixed(4) : null, reason: s.reason, at: s.t1 }); }
       else out.push({ ...base, status: s ? 'aperto' : 'senza simulazione', pct: null, pnl: null, reason: s ? 'in corso' : 'senza simulazione', at: a.vAt || a.t });
     }
   }
   return out.sort((x, y) => (y.at || y.t) - (x.at || x.t)).slice(0, n || 60);
 }
 
-module.exports = { decisions, digestText, reviewOf, reviewText, REVIEW, vote, humanStats, humanTrades, bandExits, shadowOpen, shadowStep, controlStats, HCFG, MAX_PER_HOUR, REPEAT_H, TRACK_MS, MODES, pick, alertOf, text, keyboard, pumpUrl, open, track, view };
+// Totali di tutte le decisioni chiuse (prese e scartate), per i riquadri del Journal: il paper e' il registro delle decisioni, quindi contano tutte.
+// Il P&L degli scartati e' simulato (stesse uscite, costi stimati) e non tocca il saldo del conto.
+function decisionTotals(alerts, journal, positions) {
+  const d = decisions(alerts, journal, positions, 1e9).filter((x) => x.status === 'chiuso' && x.pct != null && x.pnl != null).sort((a, b) => (a.at || a.t) - (b.at || b.t));
+  const wins = d.filter((x) => x.pnl > 0), losses = d.filter((x) => x.pnl <= 0), gw = wins.reduce((s, x) => s + x.pnl, 0), gl = -losses.reduce((s, x) => s + x.pnl, 0), avg = (a) => (a.length ? a.reduce((s, x) => s + x.pct, 0) / a.length : 0);
+  let cum = 0, peak = 0, dd = 0; for (const x of d) { cum += x.pnl; peak = Math.max(peak, cum); dd = Math.max(dd, peak - cum); }
+  return { n: d.length, y: d.filter((x) => x.vote === 'y').length, nn: d.filter((x) => x.vote === 'n').length, wr: d.length ? +(100 * wins.length / d.length).toFixed(1) : 0, pnl: +(gw - gl).toFixed(4), aw: +avg(wins).toFixed(1), al: +avg(losses).toFixed(1), pf: gl ? +(gw / gl).toFixed(2) : (gw ? 999 : 0), dd: +dd.toFixed(4) };
+}
+
+module.exports = { decisions, decisionTotals, digestText, reviewOf, reviewText, REVIEW, vote, humanStats, humanTrades, bandExits, shadowOpen, shadowStep, controlStats, HCFG, MAX_PER_HOUR, REPEAT_H, TRACK_MS, MODES, pick, alertOf, text, keyboard, pumpUrl, open, track, view };

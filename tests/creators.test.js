@@ -143,7 +143,7 @@ test('registro delle decisioni: un\'unica lista di prese e scartate, con lo stat
   assert.deepEqual([by.CCC.status, by.CCC.pct], ['non aperto', null]); assert.deepEqual([by.DDD.status, by.DDD.pct, by.DDD.pnl, by.DDD.reason, by.DDD.vote], ['chiuso', -12.3, null, 'Stop loss', 'n']);
   assert.deepEqual([by.EEE.status, by.EEE.reason], ['aperto', 'in corso']); assert.deepEqual([by.FFF.status, by.FFF.reason], ['senza simulazione', 'senza simulazione']); assert.equal(Semi.decisions(al, j, pos, 2).length, 2);
   const src = fs.readFileSync(require.resolve('../runner/runner.js'), 'utf8'), html = fs.readFileSync(require.resolve('../index.html'), 'utf8');
-  assert.match(src, /decisions: Semi\.decisions\(st\.alerts \|\| \[\], st\.journal, st\.positions, 60\), decisionStats: Semi\.controlStats/); assert.match(src, /aid: a\.id \|\| ''/); assert.match(src, /aid: p\.aid \|\| ''/);
+  assert.match(src, /decisions: Semi\.decisions\(st\.alerts \|\| \[\], st\.journal, st\.positions, 60\), decisionTotals: Semi\.decisionTotals\(st\.alerts \|\| \[\], st\.journal, st\.positions\), decisionStats: Semi\.controlStats/); assert.match(src, /aid: a\.id \|\| ''/); assert.match(src, /aid: p\.aid \|\| ''/);
   assert.ok(!/## Le tue decisioni[\s\S]{0,2200}trade del bot/.test(src), 'il report non confronta con un bot');
   assert.match(html, /g\.page === pg && !\(g\.off && S\(\)\.humanOnly\)/, 'impostazioni: i gruppi del bot non si mostrano'); assert.match(html, /data-jt="dec">Presi e scartati/); assert.match(html, /only \? \(dRows \|\|/); assert.match(html, /'Decisioni: prese e scartate'/);
 });
@@ -180,3 +180,15 @@ test('controllo con un solo caso: la media si mostra subito, l\'intervallo servo
   const two = Semi.controlStats([{ src: 'umano', band: 'x', pct: 10 }, { src: 'umano', band: 'x', pct: 20 }], [...al, { id: 'a2', sh: { done: true, pct: -10 } }]); assert.ok(two.nLo != null && two.diffLo != null);
   const html = fs.readFileSync(require.resolve('../index.html'), 'utf8'); assert.match(html, /\$\('#jPF'\)\.textContent = !\(st0 \? st0\.n : J\.length\) \? '—'/);
 });
+
+test('riquadri del Journal: contano tutte le decisioni chiuse (prese e scartate), con il P&L simulato degli scartati; il trade scartato non e\' piu\' "0 trade"', () => {
+  const T = 1_700_000_000_000;
+  const al = [{ id: 'a00001', t: T, sym: 'AAA', vote: 'y' }, { id: 'a00002', t: T + 1, sym: 'BBB', vote: 'n', sh: { done: true, pct: 95.47, got: 0.2365, size: 0.12, cost: 0.1205, reason: 'Trailing stop', t1: T + 5000 } }, { id: 'a00003', t: T + 2, sym: 'CCC', vote: 'n', sh: { done: true, pct: -20, got: 0.096, size: 0.12, reason: 'Stop loss', t1: T + 9000 } }, { id: 'a00004', t: T + 3, sym: 'DDD', vote: 'n', sh: { done: false } }];
+  const j = [{ aid: 'a00001', pct: -10, pnl: -0.012, reason: 'Stop (tuo)', closedAt: T + 7000 }];
+  const only = Semi.decisionTotals(al, [], []); assert.equal(only.n, 2, 'solo gli scartati chiusi: 2 decisioni, non 0 trade'); assert.equal(only.y, 0); assert.equal(only.nn, 2); assert.equal(only.pnl, 0.092, 'P&L simulato: +0,116 e -0,024'); assert.equal(only.wr, 50);
+  const all = Semi.decisionTotals(al, j, []); assert.equal(all.n, 3); assert.equal(all.y, 1); assert.equal(all.nn, 2); assert.equal(all.aw, 95.5); assert.equal(all.al, -15, 'media delle perdite: -10 e -20'); assert.ok(all.dd > 0.02, 'perdita massima dal picco: ' + all.dd);
+  assert.equal(Semi.decisionTotals([], [], []).n, 0); assert.equal(Semi.decisionTotals([{ id: 'a00009', t: T, vote: 'n', sh: { done: true, pct: 10, got: 0.13, size: 0.12, cost: 0.1205, reason: 'Target', t1: T } }], [], []).pf, 999, 'nessuna perdita: profit factor senza limite (999 = infinito)');
+  const d = Semi.decisions(al, [], [], 10).find((x) => x.sym === 'BBB'); assert.equal(d.pnl, 0.116, 'P&L simulato dello scartato: ' + d.pnl);
+  const html = fs.readFileSync(require.resolve('../index.html'), 'utf8'); assert.match(html, /T = onlyD && run \? run\.decisionTotals : null/); assert.match(html, /jl\.textContent = onlyD \? 'Decisioni' : 'Trade'/); assert.match(html, /\$\{T\.y\}\/50/);
+});
+
