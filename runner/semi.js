@@ -55,7 +55,9 @@ function vote(alerts, id, v, at) {
 }
 // Confronto tra i segnali presi e scartati: rendimento a 5 minuti dalla decisione, meno il costo di un giro. Regola decisa in anticipo: almeno minY presi e minN scartati,
 // netto medio dei presi >= passMeanPct, limite inferiore del 95% sopra zero e sopra gli scartati (differenza con limite inferiore > 0).
-const HCFG = { costPct: 5, minY: 50, minN: 30, passMeanPct: 3 };
+// since: inizio pulito del test (impostato dal runner, vedi st.cleanSince): i Prendo e gli Scarto precedenti restano nel registro ma non contano nel verdetto, perche' i primi avvisi avevano difetti poi corretti (id duplicati, blocco per slippage)
+const HCFG = { costPct: 5, minY: 50, minN: 30, passMeanPct: 3, since: 0 };
+const fresh = (t) => (Number(t) || 0) >= HCFG.since;
 function ms(xs) {
   const n = xs.length;
   if (!n) return { n: 0 };
@@ -82,7 +84,7 @@ function humanStats(alerts, o) {
 // Trade paper aperti da te (Prendo) contro quelli del bot: rendimento netto vero (impatto, commissioni, priority fee, uscite con le regole impostate).
 // Regola decisa in anticipo: almeno minN trade tuoi chiusi, netto medio >= passMeanPct e limite inferiore del 95% sopra zero.
 function humanTrades(journal, o) {
-  const c = { minN: 50, passMeanPct: 3, ...(o || {}) }, h = journal.filter((j) => j.src === 'umano').map((j) => j.pct), b = journal.filter((j) => j.src !== 'umano').map((j) => j.pct);
+  const c = { minN: 50, passMeanPct: 3, ...(o || {}) }, h = journal.filter((j) => j.src === 'umano' && fresh(j.openedAt || j.closedAt)).map((j) => j.pct), b = journal.filter((j) => j.src !== 'umano').map((j) => j.pct);
   const A = ms(h), B = ms(b), out = { cfg: c, n: A.n, botN: B.n, verdict: 'in corso' };
   if (A.n >= 2) { const se = Math.sqrt(A.v / A.n); Object.assign(out, { mean: +A.m.toFixed(2), lo: +(A.m - 1.96 * se).toFixed(2), hi: +(A.m + 1.96 * se).toFixed(2), win: +(100 * h.filter((v) => v > 0).length / A.n).toFixed(1) }); }
   if (B.n >= 2) out.botMean = +B.m.toFixed(2);
@@ -120,8 +122,8 @@ function shadowStep(a, m, S, now) {
 }
 // Prendo reali in paper contro Scarto simulati con le stesse uscite
 function controlStats(journal, alerts) {
-  const h = journal.filter((j) => j.src === 'umano' && j.band).map((j) => j.pct), c = alerts.filter((a) => a.vote === 'n' && a.sh && a.sh.done).map((a) => a.sh.pct);      // solo gli Scarto: la simulazione di un Prendo non aperto e' un'altra cosa
-  const A = ms(h), B = ms(c), out = { y: A.n, n: B.n, open: alerts.filter((a) => a.vote === 'n' && a.sh && !a.sh.done).length };
+  const h = journal.filter((j) => j.src === 'umano' && j.band && fresh(j.openedAt || j.closedAt)).map((j) => j.pct), c = alerts.filter((a) => a.vote === 'n' && a.sh && a.sh.done && fresh(a.t)).map((a) => a.sh.pct);      // solo gli Scarto: la simulazione di un Prendo non aperto e' un'altra cosa
+  const A = ms(h), B = ms(c), out = { y: A.n, n: B.n, open: alerts.filter((a) => a.vote === 'n' && a.sh && !a.sh.done && fresh(a.t)).length };
   // la media si mostra gia' con un solo caso; l'intervallo di confidenza servono almeno due
   if (A.n >= 1) out.yMean = +A.m.toFixed(2);
   if (B.n >= 1) { out.nMean = +B.m.toFixed(2); out.nWin = +(100 * c.filter((v) => v > 0).length / B.n).toFixed(1); }
@@ -183,7 +185,7 @@ function decisions(alerts, journal, positions, n) {
 
 // Totali per i riquadri del Journal: contano SOLO i trade presi (Prendo) e chiusi, perche' sono l'andamento della strategia. Gli scartati (simulati) non entrano nei calcoli: `nn` li conta soltanto.
 function decisionTotals(alerts, journal, positions) {
-  const all = decisions(alerts, journal, positions, 1e9).filter((x) => x.status === 'chiuso' && x.pct != null && x.pnl != null), d = all.filter((x) => x.vote === 'y').sort((a, b) => (a.at || a.t) - (b.at || b.t));
+  const all = decisions(alerts, journal, positions, 1e9).filter((x) => x.status === 'chiuso' && x.pct != null && x.pnl != null), d = all.filter((x) => x.vote === 'y' && fresh(x.t)).sort((a, b) => (a.at || a.t) - (b.at || b.t));
   const wins = d.filter((x) => x.pnl > 0), losses = d.filter((x) => x.pnl <= 0), gw = wins.reduce((s, x) => s + x.pnl, 0), gl = -losses.reduce((s, x) => s + x.pnl, 0), avg = (a) => (a.length ? a.reduce((s, x) => s + x.pct, 0) / a.length : 0);
   let cum = 0, peak = 0, dd = 0; for (const x of d) { cum += x.pnl; peak = Math.max(peak, cum); dd = Math.max(dd, peak - cum); }
   return { n: d.length, y: d.length, nn: all.filter((x) => x.vote === 'n').length, wr: d.length ? +(100 * wins.length / d.length).toFixed(1) : 0, pnl: +(gw - gl).toFixed(4), aw: +avg(wins).toFixed(1), al: +avg(losses).toFixed(1), pf: gl ? +(gw / gl).toFixed(2) : (gw ? 999 : 0), dd: +dd.toFixed(4) };
