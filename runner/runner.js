@@ -289,8 +289,8 @@ Regola decisa in anticipo, sui tuoi Prendo chiusi: almeno ${t.cfg.minN}, netto m
 |---|---|
 | Esito | **${t.verdict}** |
 | Prendo chiusi | ${t.n} di ${t.cfg.minN}${t.mean == null ? '' : `, netto medio ${f(t.mean)}% (intervallo ${f(t.lo)}% / ${f(t.hi)}%), in utile ${t.win}%`} |
-| Scarto simulati chiusi | ${k.n}${k.nMean == null ? '' : `, netto medio ${f(k.nMean)}% (intervallo ${f(k.nLo)}% / ${f(k.nHi)}%), in utile ${k.nWin}%`}; ancora aperti ${k.open} |
-| Prendo meno Scarto (limite inferiore) | ${k.diff == null ? 'n/d' : `${f(k.diff)}% (${f(k.diffLo)}%)`} |
+| Scarto simulati chiusi | ${k.n}${k.nMean == null ? '' : `, netto medio ${f(k.nMean)}%${k.nLo == null ? '' : ` (intervallo ${f(k.nLo)}% / ${f(k.nHi)}%)`}, in utile ${k.nWin}%`}; ancora aperti ${k.open} |
+| Prendo meno Scarto (limite inferiore) | ${k.diff == null ? 'n/d' : `${f(k.diff)}%${k.diffLo == null ? '' : ` (${f(k.diffLo)}%)`}`} |
 | Avvisi senza risposta | ${h.noAns} |
 
 `;

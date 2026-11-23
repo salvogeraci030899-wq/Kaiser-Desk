@@ -122,9 +122,12 @@ function shadowStep(a, m, S, now) {
 function controlStats(journal, alerts) {
   const h = journal.filter((j) => j.src === 'umano' && j.band).map((j) => j.pct), c = alerts.filter((a) => a.sh && a.sh.done).map((a) => a.sh.pct);
   const A = ms(h), B = ms(c), out = { y: A.n, n: B.n, open: alerts.filter((a) => a.sh && !a.sh.done).length };
-  if (A.n >= 2) out.yMean = +A.m.toFixed(2);
-  if (B.n >= 2) { const se = Math.sqrt(B.v / B.n); Object.assign(out, { nMean: +B.m.toFixed(2), nLo: +(B.m - 1.96 * se).toFixed(2), nHi: +(B.m + 1.96 * se).toFixed(2), nWin: +(100 * c.filter((v) => v > 0).length / B.n).toFixed(1) }); }
-  if (A.n >= 2 && B.n >= 2) { const se = Math.sqrt(A.v / A.n + B.v / B.n), d = A.m - B.m; Object.assign(out, { diff: +d.toFixed(2), diffLo: +(d - 1.96 * se).toFixed(2) }); }
+  // la media si mostra gia' con un solo caso; l'intervallo di confidenza servono almeno due
+  if (A.n >= 1) out.yMean = +A.m.toFixed(2);
+  if (B.n >= 1) { out.nMean = +B.m.toFixed(2); out.nWin = +(100 * c.filter((v) => v > 0).length / B.n).toFixed(1); }
+  if (B.n >= 2) { const se = Math.sqrt(B.v / B.n); Object.assign(out, { nLo: +(B.m - 1.96 * se).toFixed(2), nHi: +(B.m + 1.96 * se).toFixed(2) }); }
+  if (A.n >= 1 && B.n >= 1) out.diff = +(A.m - B.m).toFixed(2);
+  if (A.n >= 2 && B.n >= 2) { const se = Math.sqrt(A.v / A.n + B.v / B.n); out.diffLo = +(A.m - B.m - 1.96 * se).toFixed(2); }
   return out;
 }
 
