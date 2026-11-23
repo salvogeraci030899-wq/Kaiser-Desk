@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.68.1">
+<meta name="kz-build" content="2.68.2">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=4" media="(prefers-color-scheme: light)">
@@ -655,7 +655,7 @@ setInterval(() => { if (!document.hidden && ((rt.fullKey === 'studio' && (rt.stu
 
 // Laboratorio in solo uomo: la ricerca sui creatori (memoria dei lanci, Coin di fascia alta, creatori migliori)
 function renderCreators() {
-  const C = rt.run && rt.run.creators, el = $('#labBody'); if (!el) return;
+  const C = rt.run && rt.run.creators, el = $('#labBody'); if (!el) return; el.classList.add('scrolly');
   const k = (v) => (v >= 1e6 ? (v / 1e6).toFixed(1) + 'M' : v >= 1e3 ? (v / 1e3).toFixed(0) + 'K' : String(Math.round(v || 0))), row = (a, b) => `<span>${a}</span><span class="mono">${b}</span>`;
   if (!C) { el.innerHTML = '<div class="card"><span class="muted small">La ricerca sui creatori parte con il prossimo run del runner: i primi dati arrivano dopo qualche minuto.</span></div>'; return; }
   const cv = C.cov || {}, calls = (cv.tabella || 0) + (cv.esterna || 0) + (cv.sconosciuto || 0), unk = calls ? Math.round(100 * (cv.sconosciuto || 0) / calls) + '%' : 'n/d';
@@ -667,6 +667,7 @@ function renderCreators() {
 }
 function renderLab() {
   if (S().humanOnly) return renderCreators();
+  $('#labBody').classList.remove('scrolly');
   const run = rt.run, kvRow = (k, v, c) => `<span>${k}</span><span class="mono ${c || ''}">${v}</span>`; let body = '';
     const L = run && run.lab, none2 = '<span class="muted small">Il Laboratorio osserva le Coin nuove di pump.fun: i primi risultati arrivano dopo circa 20 minuti dall\'avvio del runner con il codice nuovo.</span>';
     if (!L) body = none2; else {
@@ -777,23 +778,23 @@ function renderJournal() {
   const onlyD = !real && !strat && !!S().humanOnly, T = onlyD && run ? run.decisionTotals : null;      // solo uomo: i riquadri contano tutte le decisioni chiuse (prese e scartate)
   const wins = J.filter((j) => j.pnl > 0), losses = J.filter((j) => j.pnl <= 0), tot = J.reduce((a, j) => a + j.pnl, 0);
   const gw = wins.reduce((a, j) => a + j.pnl, 0), gl = -losses.reduce((a, j) => a + j.pnl, 0);
-  const st0 = T ? { n: T.n, wr: T.wr, pnl: T.pnl, aw: T.aw, al: T.al, pf: T.pf >= 999 ? Infinity : T.pf } : !real && !strat && run && run.stats ? run.stats : (strat && SA ? { n: SA.n, wr: SA.win, pnl: SA.pnl, aw: SA.aw, al: SA.al, pf: SA.pf } : null);   // i conti contano tutti i trade, non solo gli ultimi 100 in elenco                        // il runner conta anche i trade oltre gli ultimi 100
+  const st0 = !real && !strat && run && run.stats ? run.stats : (strat && SA ? { n: SA.n, wr: SA.win, pnl: SA.pnl, aw: SA.aw, al: SA.al, pf: SA.pf } : null);   // i conti contano tutti i trade, non solo gli ultimi 100 in elenco                        // il runner conta anche i trade oltre gli ultimi 100
   $('#jN').textContent = st0 ? st0.n : J.length;
   $('#jWR').textContent = (st0 ? st0.n : J.length) ? (st0 ? st0.wr : wins.length / J.length * 100).toFixed(0) + '%' : '—';
   const P = st0 ? st0.pnl : tot; $('#jPnl').innerHTML = `<span class="${cls(P)}">${fmtSol(P)}</span>`;
   const aw = st0 ? st0.aw : (wins.length ? wins.reduce((a, j) => a + j.pct, 0) / wins.length : 0), al = st0 ? st0.al : (losses.length ? losses.reduce((a, j) => a + j.pct, 0) / losses.length : 0);
   $('#jAW').textContent = aw ? fmtPct(aw, 1) : '—'; $('#jAL').textContent = al ? fmtPct(al, 1) : '—';
-  const pf = st0 ? st0.pf : (gl ? gw / gl : gw ? Infinity : 0); $('#jPF').textContent = !(st0 ? st0.n : J.length) ? '—' : pf == null || pf === Infinity ? ((T ? T.n : J.length) ? '∞' : '—') : Number(pf).toFixed(2);
+  const pf = st0 ? st0.pf : (gl ? gw / gl : gw ? Infinity : 0); $('#jPF').textContent = !(st0 ? st0.n : J.length) ? '—' : pf == null || pf === Infinity ? (J.length ? '∞' : '—') : Number(pf).toFixed(2);
   // Attesa per trade (guadagno medio atteso, in %), perdita massima (dal picco, sui trade in elenco) e affidabilità del campione
   const nT = st0 ? st0.n : J.length, wr = nT ? (st0 ? st0.wr : wins.length / J.length * 100) : 0;
   const ex = nT ? wr / 100 * aw + (1 - wr / 100) * al : null;
   let cum = 0, peak = 0, dd = 0; for (const j of J) { cum += j.pnl; peak = Math.max(peak, cum); dd = Math.max(dd, peak - cum); }
   $('#jEx').innerHTML = ex == null ? '—' : `<span class="${cls(ex)}">${fmtPct(ex, 1)}</span>`;
-  if (strat && SA) dd = SA.dd; if (T) dd = T.dd;
-  $('#jDD').innerHTML = (T ? T.n : J.length) ? `<span class="${dd > 0 ? 'down' : ''}">${dd > 0 ? '−' : ''}${fmtSol(dd, 3)}</span>` : '—';
+  if (strat && SA) dd = SA.dd;
+  $('#jDD').innerHTML = J.length ? `<span class="${dd > 0 ? 'down' : ''}">${dd > 0 ? '−' : ''}${fmtSol(dd, 3)}</span>` : '—';
   const pfN = pf == null || pf === Infinity ? (J.length ? 99 : 0) : Number(pf);
   $('#jSmpL').textContent = nT < 30 ? 'Pochi trade' : nT < 100 ? 'Campione scarso' : pfN >= 1.3 && ex > 0 ? 'Esito positivo' : pfN >= 1 && ex > 0 ? 'Esito incerto' : 'Esito negativo';
-  const jl = $('#jN').previousElementSibling; if (jl) jl.textContent = onlyD ? 'Decisioni' : 'Trade';
+  const jl = $('#jN').previousElementSibling; if (jl) jl.textContent = 'Trade';
   if (T) { $('#jSmpL').textContent = 'Presi chiusi'; }
   $('#jSmp').innerHTML = T ? `<span class="${T.y >= 50 ? 'up' : 'warn'}">${T.y}/50</span>` : `<span class="${nT >= 100 ? (pfN >= 1.3 && ex > 0 ? 'up' : pfN >= 1 && ex > 0 ? 'warn' : 'down') : 'warn'}">${nT}/100</span>`;
   const only = !real && !strat && !!S().humanOnly, D = (only && run && run.decisions) || [];       // solo uomo: l'elenco e' il registro delle decisioni (prese e scartate)
@@ -943,7 +944,7 @@ function renderPage(pg) {
   const gs = p.groups.filter((g) => g.page === pg && !(g.off && S().humanOnly)), run = rt.run, e = rt.exec;      // solo uomo: il bot automatico non c'e', i suoi gruppi non si mostrano
   let html = '';
   if (pg === 'paper') {
-    html += tile({ t: 'Conto paper', v: run ? fmtSol(run.equity, 2) : '—', s: run ? `capitale ${fmtSol(run.capital, 2)} · ${S().humanOnly && run.decisionTotals ? run.decisionTotals.n + (run.decisionTotals.n === 1 ? ' decisione' : ' decisioni') : (run.stats ? run.stats.n : 0) + ' trade'}` : 'dati non disponibili', attr: 'data-open="reset"' });
+    html += tile({ t: 'Conto paper', v: run ? fmtSol(run.equity, 2) : '—', s: run ? `capitale ${fmtSol(run.capital, 2)} · ${run.stats ? run.stats.n : 0} trade` : 'dati non disponibili', attr: 'data-open="reset"' });
     if (!S().humanOnly) html += tile({ t: 'Uscite pronte', v: 'Preset', s: 'stop e target in un tocco', attr: 'data-open="presets"' });      // le uscite pronte sono del bot automatico: in solo uomo non servono
   } else {
     html += tile({ t: 'Esecutore', v: e ? (e.mode === 'live' ? 'LIVE' : e.mode === 'dryrun' ? 'DRY-RUN' : 'SPENTO') : 'n/d', cls: e && e.mode === 'live' ? 'warn' : e ? '' : 'down', s: e ? `saldo ${e.balanceSOL != null ? Number(e.balanceSOL).toFixed(3) + ' ◎' : '—'}${e.killed ? ' · KILL' : ''}` : 'non raggiungibile', attr: 'data-open="exec"', span: true });
