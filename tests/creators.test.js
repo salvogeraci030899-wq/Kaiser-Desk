@@ -143,7 +143,7 @@ test('registro delle decisioni: un\'unica lista di prese e scartate, con lo stat
   assert.deepEqual([by.CCC.status, by.CCC.pct], ['non aperto', null]); assert.deepEqual([by.DDD.status, by.DDD.pct, by.DDD.pnl, by.DDD.reason, by.DDD.vote], ['chiuso', -12.3, null, 'Stop loss', 'n']);
   assert.deepEqual([by.EEE.status, by.EEE.reason], ['aperto', 'in corso']); assert.deepEqual([by.FFF.status, by.FFF.reason], ['senza simulazione', 'senza simulazione']); assert.equal(Semi.decisions(al, j, pos, 2).length, 2);
   const src = fs.readFileSync(require.resolve('../runner/runner.js'), 'utf8'), html = fs.readFileSync(require.resolve('../index.html'), 'utf8');
-  assert.match(src, /decisions: Semi\.decisions\(st\.alerts \|\| \[\], st\.journal, st\.positions, 60\), decisionTotals: Semi\.decisionTotals\(st\.alerts \|\| \[\], st\.journal, st\.positions\), decisionStats: Semi\.controlStats/); assert.match(src, /aid: a\.id \|\| ''/); assert.match(src, /aid: p\.aid \|\| ''/);
+  assert.match(src, /decisions: Semi\.decisions\(st\.alerts \|\| \[\], st\.journal, st\.positions, 60\), decisionTotals: Semi\.decisionTotals\(st\.alerts \|\| \[\], st\.journal, st\.positions\), responses: Semi\.responseStats\(st\.alerts \|\| \[\], Semi\.decisions\(st\.alerts \|\| \[\], st\.journal, st\.positions, 1e9\)\), decisionStats: Semi\.controlStats/); assert.match(src, /aid: a\.id \|\| ''/); assert.match(src, /aid: p\.aid \|\| ''/);
   assert.ok(!/## Le tue decisioni[\s\S]{0,2200}trade del bot/.test(src), 'il report non confronta con un bot');
   assert.match(html, /g\.page === pg && !\(g\.off && S\(\)\.humanOnly\)/, 'impostazioni: i gruppi del bot non si mostrano'); assert.match(html, /data-jt="dec">Presi e scartati/); assert.match(html, /only \? \(dRows \|\|/); assert.match(html, /'Decisioni: prese e scartate'/);
 });
@@ -222,4 +222,14 @@ test('esito del voto nel box dei segnali: le righe delle decisioni portano l\'id
   const al = [{ id: 'a00001', t: 1, mint: 'M1', sym: 'AAA', vote: 'y', vAt: 2, nw: 'cassa insufficiente' }];
   assert.equal(Semi.decisions(al, [], [], 5)[0].id, 'a00001');
   const html = fs.readFileSync(require.resolve('../index.html'), 'utf8'); assert.match(html, /Rispondi su Telegram: Prendo o Scarto/); assert.match(html, /'Non aperto: '/);
+});
+
+test('riepilogo delle risposte: risposti, scaduti, tempo mediano, Prendo non aperti', () => {
+  const T = 1_700_000_000_000, now = T + 3600000;
+  const al = [{ id: 'a1', t: T, vote: 'y', vAt: T + 20000 }, { id: 'a2', t: T + 1, vote: 'n', vAt: T + 100001 }, { id: 'a3', t: T + 2 }, { id: 'a4', t: now - 1000 }];
+  const r = Semi.responseStats(al, [{ vote: 'y', status: 'non aperto' }, { vote: 'n', status: 'chiuso' }], now);
+  assert.deepEqual(r, { n: 4, answered: 2, expired: 1, medS: 60, notOpened: 1 }, 'a3 e\' scaduto, a4 e\' ancora valido');
+  assert.deepEqual(Semi.responseStats([], [], now), { n: 0, answered: 0, expired: 0, medS: null, notOpened: 0 });
+  const html = fs.readFileSync(require.resolve('../index.html'), 'utf8'); assert.match(html, /data-jt="ris"/); assert.match(html, /Tempo mediano di risposta/);
+  assert.match(fs.readFileSync(require.resolve('../runner/runner.js'), 'utf8'), /responses: Semi\.responseStats/);
 });

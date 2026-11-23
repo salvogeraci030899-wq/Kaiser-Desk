@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.69.0">
+<meta name="kz-build" content="2.70.0">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=4" media="(prefers-color-scheme: light)">
@@ -138,7 +138,7 @@
     <div class="vscroll jfix">
     <div class="card jcard" role="button" aria-label="Espandi i trade chiusi"><div class="jrow jhead"><span>Token</span><span>Esito</span><span>P&amp;L</span><span>Motivo</span></div><div class="jbody" id="jRows"></div></div>
     </div>
-    <div class="vfoot"><div class="seg jseg" id="jTabs"><button data-jt="dec">Presi e scartati</button><button data-jt="mot" class="on">Motivi di uscita</button><button data-jt="age">Per età</button><button data-jt="dip">Discese</button></div><div class="card" id="jReasons"></div></div>
+    <div class="vfoot"><div class="seg jseg" id="jTabs"><button data-jt="dec">Presi e scartati</button><button data-jt="mot" class="on">Motivi di uscita</button><button data-jt="ris">Risposte</button><button data-jt="age">Per età</button><button data-jt="dip">Discese</button></div><div class="card" id="jReasons"></div></div>
   </section>
 
   <!-- LABORATORIO -->
@@ -804,11 +804,14 @@ function renderJournal() {
   const dRows = D.map((d) => `<div class="jrow" data-mint="${esc(d.mint || ((run.alerts || []).find((a) => a.t === d.t && a.sym === d.sym) || {}).mint || '')}"><span><i class="dv ${d.vote === 'y' ? 'g' : 'r'}" title="${d.vote === 'y' ? 'preso' : 'scartato'}"></i>$${esc(d.sym)}<br><span class="muted jd">${new Date(d.at || d.t).toLocaleString('it-IT', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }).replace(', ', ' ')}</span></span><span class="${cls(d.pct)}">${d.pct == null ? '—' : fmtPct(d.pct, 1)}</span><span class="${cls(d.pnl)}">${d.pnl == null ? '—' : Number(d.pnl).toFixed(4)}</span><span class="jr">${esc(String(d.reason).split(': ')[0])}${String(d.reason).includes(': ') ? `<br><span class="muted tiny">${esc(String(d.reason).split(': ').slice(1).join(': '))}</span>` : ''}</span></div>`).join('');
   $('#jRows').innerHTML = only ? (dRows || '<div class="empty" style="padding:18px 6px">Nessuna decisione ancora: premi Prendo o Scarto sugli avvisi di Telegram.</div>') : [...J].reverse().slice(0, 100).map((j) => `<div class="jrow" data-mint="${esc(j.mint || '')}"><span>$${esc(j.sym)}<br><span class="muted">${new Date(j.closedAt).toLocaleString('it-IT', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' })}</span></span><span class="${cls(j.pct)}">${fmtPct(j.pct, 1)}${j.trigPct != null && Math.abs(j.trigPct - j.pct) >= 1 ? `<br><span class="muted tiny" title="Il picco e' il massimo raggiunto dopo l'ingresso; il prezzo di uscita e' quello dell'ultima vendita. L'esito e' diverso perche' include le vendite parziali, le fee, l'impatto e la priority">${j.peakPct != null ? 'picco ' + fmtPct(j.peakPct, 0) + ' · ' : ''}uscita ${fmtPct(j.trigPct, 0)}</span>` : ''}</span><span class="${cls(j.pnl)}">${Number(j.pnl).toFixed(4)}</span><span class="jr">${esc(j.reason)}</span></div>`).join('') || `<div class="empty" style="padding:18px 6px">${!real && !run ? 'Dati del runner non disponibili.' : 'Nessun trade chiuso.'}</div>`;
   // Riquadro in basso: motivi di uscita, risultati per età del token all'ingresso, discese prima dei profitti
-  document.querySelectorAll('#jTabs button').forEach((x) => { x.hidden = x.dataset.jt === 'dec' ? !only : (only && (x.dataset.jt === 'age' || x.dataset.jt === 'dip')); });
-  const tab = only ? (rt.jtab === 'mot' ? 'mot' : 'dec') : (rt.jtab && rt.jtab !== 'lab' && rt.jtab !== 'dec' ? rt.jtab : 'mot'), kvRow = (k, v, c) => `<span>${k}</span><span class="mono ${c || ''}">${v}</span>`, none = '<span class="muted small">Dati non ancora disponibili: servono trade chiusi con la versione più recente del runner.</span>';
+  document.querySelectorAll('#jTabs button').forEach((x) => { x.hidden = (x.dataset.jt === 'dec' || x.dataset.jt === 'ris') ? !only : (only && (x.dataset.jt === 'age' || x.dataset.jt === 'dip')); });
+  const tab = only ? (rt.jtab === 'mot' || rt.jtab === 'ris' ? rt.jtab : 'dec') : (rt.jtab && rt.jtab !== 'lab' && rt.jtab !== 'dec' ? rt.jtab : 'mot'), kvRow = (k, v, c) => `<span>${k}</span><span class="mono ${c || ''}">${v}</span>`, none = '<span class="muted small">Dati non ancora disponibili: servono trade chiusi con la versione più recente del runner.</span>';
   document.querySelectorAll('#jTabs button').forEach((x) => x.classList.toggle('on', x.dataset.jt === tab));
   let body;
-  if (tab === 'dec') {
+  if (tab === 'ris') {
+    const R = (run && run.responses) || null;
+    body = R ? `<div class="kv">${kvRow('Avvisi con risposta', `${R.answered} di ${R.n}`)}${kvRow('Scaduti senza risposta', String(R.expired), R.expired ? 'warn' : '')}${kvRow('Tempo mediano di risposta', R.medS == null ? '—' : R.medS < 90 ? R.medS + ' s' : Math.round(R.medS / 60) + ' min')}${kvRow('Prendo non aperti', String(R.notOpened), R.notOpened ? 'warn' : '')}</div>` : none;
+  } else if (tab === 'dec') {
     const K = (run && run.decisionStats) || {}, pm = (v) => (v == null ? '—' : fmtPct(v, 1));
     body = `<div class="kv">${kvRow(`Presi chiusi (${K.y || 0})`, pm(K.yMean), cls(K.yMean))}${kvRow(`Scartati simulati chiusi (${K.n || 0})`, pm(K.nMean), cls(K.nMean))}${kvRow('Presi meno scartati', pm(K.diff), cls(K.diff))}${kvRow('Scartati ancora aperti', String(K.open || 0))}</div>`;
   } else if (tab === 'age') {

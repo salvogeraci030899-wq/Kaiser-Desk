@@ -197,4 +197,14 @@ function uniqueId(alerts, id) {
   return out;
 }
 
-module.exports = { uniqueId, decisions, decisionTotals, digestText, reviewOf, reviewText, REVIEW, vote, humanStats, humanTrades, bandExits, shadowOpen, shadowStep, controlStats, HCFG, MAX_PER_HOUR, REPEAT_H, TRACK_MS, MODES, pick, alertOf, text, keyboard, pumpUrl, open, track, view };
+// Come rispondi agli avvisi: quanti hanno una risposta, quanti sono scaduti senza (dopo 5 minuti un Prendo non apre piu' nulla), il tempo mediano di risposta e i Prendo che il paper non ha aperto.
+// Serve a capire se il test misura il tuo giudizio o i tuoi ritardi; e' descrittivo e non entra in nessun conteggio del test.
+function responseStats(alerts, decs, now) {
+  const t = now || Date.now(), al = alerts || [], secs = al.filter((a) => a.vote && a.vAt && a.vAt >= a.t).map((a) => (a.vAt - a.t) / 1000).sort((x, y) => x - y), m = secs.length >> 1;
+  return {
+    n: al.length, answered: al.filter((a) => a.vote).length, expired: al.filter((a) => !a.vote && t - a.t >= 5 * 60000).length,
+    medS: secs.length ? Math.round(secs.length % 2 ? secs[m] : (secs[m - 1] + secs[m]) / 2) : null, notOpened: (decs || []).filter((d) => d.vote === 'y' && d.status === 'non aperto').length,
+  };
+}
+
+module.exports = { uniqueId, responseStats, decisions, decisionTotals, digestText, reviewOf, reviewText, REVIEW, vote, humanStats, humanTrades, bandExits, shadowOpen, shadowStep, controlStats, HCFG, MAX_PER_HOUR, REPEAT_H, TRACK_MS, MODES, pick, alertOf, text, keyboard, pumpUrl, open, track, view };
