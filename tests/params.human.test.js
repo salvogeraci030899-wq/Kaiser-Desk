@@ -19,7 +19,7 @@ test('Radar e avvisi: fascia, punteggio, intervallo di scansione, filtri che con
   assert.deepEqual(keysOf('radar').slice(0, 2), ['bandMin', 'alertMinScore'], 'fascia e punteggio in cima');
   for (const k of ['scanSec', 'minTxH1', 'minAgeMin', 'srcDexProfiles', 'srcDexBoosts', 'srcJupiter', 'srcGecko', 'srcYoung']) assert.ok(keysOf('radar').includes(k), k);
   assert.deepEqual(keysOf('human'), ['humanBandSl', 'humanBandTp', 'humanBandTpSell', 'humanBandTrail', 'humanBandHoldMin']);
-  assert.deepEqual(keysOf('acct').sort(), ['dailyLossPct', 'feePct', 'prioritySOL', 'refillBelowPct', 'sizePct', 'slippageBps']);
+  assert.deepEqual(keysOf('acct').sort(), ['dailyLossPct', 'feePct', 'prioritySOL', 'refillBelowPct', 'sizePct', 'slipInBps', 'slipOutBps']);
   for (const k of ['bandMin', 'alertMinScore', 'humanBandSl', 'humanBandTp', 'humanBandTpSell', 'humanBandTrail', 'humanBandHoldMin']) { const s = P.SCHEMA[k]; assert.equal(s.t, 'num'); assert.equal(s.scope, 'runner'); assert.ok(k in E.DEFAULTS, k); assert.ok(E.DEFAULTS[k] >= s.min && E.DEFAULTS[k] <= s.max, k + ' di partenza dentro i limiti'); }
 });
 

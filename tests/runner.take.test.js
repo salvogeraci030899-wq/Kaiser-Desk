@@ -62,6 +62,6 @@ test('confronto tuoi contro bot: regola decisa in anticipo sui trade chiusi', ()
 
 test('un Prendo non si rifiuta per un impatto oltre lo slippage (fino al 10%); gli altri acquisti restano con il limite normale', () => {
   const src = fs.readFileSync(require.resolve('../runner/runner.js'), 'utf8');
-  assert.match(src, /const slipMax = o && o\.src === 'umano' \? Math\.max\(S\.slippageBps \/ 10000, 0\.1\) : S\.slippageBps \/ 10000;/);
+  assert.match(src, /const slipMax = o && o\.src === 'umano' \? num\(S\.slipInBps, 1000\) \/ 10000 : S\.slippageBps \/ 10000;/); assert.match(src, /num\(S\.slipOutBps, 1500\)/);
   assert.match(src, /if \(impact > slipMax\)/);
 });
