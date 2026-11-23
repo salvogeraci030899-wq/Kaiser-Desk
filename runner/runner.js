@@ -374,7 +374,7 @@ ${row('Errori di rete (acquisto / vendita) / interrotte a fine run', `${s.counts
 async function semiAlerts(buys) {
   const now = Date.now();
   for (const c of Semi.pick(st.alerts, buys, now, dipOk)) {
-    const a = Semi.alertOf(c, now); st.alerts.push(a); log('QUARTER', `SEGNALE $${a.sym} score ${a.score} (semi-automatico)`);
+    const a = Semi.alertOf(c, now); a.id = Semi.uniqueId(st.alerts, a.id); st.alerts.push(a); log('QUARTER', `SEGNALE $${a.sym} score ${a.score} (semi-automatico)`);
     await tg(Semi.text(a), Semi.keyboard(a));
     if (S.grokTest && rt.grokQ.length < 20) rt.grokQ.push(a);      // il giudizio di Grok arriva dopo l'avviso e non lo cambia: e' solo una misura
   }

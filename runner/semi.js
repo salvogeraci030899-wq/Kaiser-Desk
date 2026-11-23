@@ -190,4 +190,12 @@ function decisionTotals(alerts, journal, positions) {
   return { n: d.length, y: d.filter((x) => x.vote === 'y').length, nn: d.filter((x) => x.vote === 'n').length, wr: d.length ? +(100 * wins.length / d.length).toFixed(1) : 0, pnl: +(gw - gl).toFixed(4), aw: +avg(wins).toFixed(1), al: +avg(losses).toFixed(1), pf: gl ? +(gw / gl).toFixed(2) : (gw ? 999 : 0), dd: +dd.toFixed(4) };
 }
 
-module.exports = { decisions, decisionTotals, digestText, reviewOf, reviewText, REVIEW, vote, humanStats, humanTrades, bandExits, shadowOpen, shadowStep, controlStats, HCFG, MAX_PER_HOUR, REPEAT_H, TRACK_MS, MODES, pick, alertOf, text, keyboard, pumpUrl, open, track, view };
+// Identificativo unico per ogni avviso. L'id si basa sul secondo di creazione: piu' avvisi dello stesso giro avevano lo stesso id (3-4 insieme), quindi la risposta a uno
+// finiva sul primo con quell'id e il Worker accettava una sola risposta per id. Si aggiunge un suffisso finche' l'id non e' libero (resta di 5-9 caratteri dopo la «a»).
+function uniqueId(alerts, id) {
+  let out = id, n = 0; const used = new Set((alerts || []).map((x) => x.id));
+  while (used.has(out)) out = id + (n++).toString(36);
+  return out;
+}
+
+module.exports = { uniqueId, decisions, decisionTotals, digestText, reviewOf, reviewText, REVIEW, vote, humanStats, humanTrades, bandExits, shadowOpen, shadowStep, controlStats, HCFG, MAX_PER_HOUR, REPEAT_H, TRACK_MS, MODES, pick, alertOf, text, keyboard, pumpUrl, open, track, view };
