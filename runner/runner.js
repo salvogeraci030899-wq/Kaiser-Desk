@@ -479,7 +479,8 @@ async function humanTake(a, at) {
   const why = st.halted ? 'circuit breaker attivo' : st.positions.some((p) => p.mint === a.mint) ? 'Coin già in posizione' : st.cash < sizeSol() * 0.5 || sizeSol() < 0.001 ? 'cassa insufficiente' : Date.now() - at > 5 * 60000 ? 'decisione arrivata troppo tardi (oltre 5 minuti)' : '';
   const o = { src: 'umano', why, band: a.band || '', cr: a.cr || '', aid: a.id || '' }; let p = null;
   if (!why) p = await buy({ mint: a.mint, sym: a.sym, name: a.name, score: a.score, srcs: ['umano'], a: { notes: ['scelta tua'], plus: [], m: {} }, pair: { priceNative: a.priceNative, pairAddress: a.pair, liquidity: { usd: a.liq } } }, o);
-  if (!p) { log('QUARTER', `Prendo $${a.sym} non aperto: ${o.why}`); await tg(`<b>PRESO</b> $${esc(a.sym)} non aperto in paper: ${esc(o.why)}`); }
+  if (!p) { a.nw = String(o.why || '').slice(0, 80); try { Semi.shadowOpen(a, S, at, sizeSol(), rt.solUsd || 150); } catch { /* facoltativo */ }      // si ricorda il motivo e si simula comunque cosa sarebbe successo, fuori da ogni conteggio
+    log('QUARTER', `Prendo $${a.sym} non aperto: ${o.why}`); await tg(`<b>PRESO</b> $${esc(a.sym)} non aperto in paper: ${esc(o.why)}`); }
   return p;
 }
 function calSummary(c) {
