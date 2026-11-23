@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-23 18:06 UTC · in esecuzione da 0.8 giorni · 344 run
+Aggiornato: 2026-11-23 18:11 UTC · in esecuzione da 0.9 giorni · 344 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-23 18:06 UTC · in esecuzione da 0.8 giorni · 344 run
 | Cassa | 6.0322 SOL |
 | Trade chiusi | 4 |
 | Win rate | 50% |
-| P&L realizzato | +0.0322 SOL (~$2.37) |
+| P&L realizzato | +0.0322 SOL (~$2.36) |
 | Media vincite / perdite | +25.4% / -12.0% |
 | Profit factor | 2.11 |
 | Circuit breaker | no |
@@ -62,7 +62,7 @@ Il conteggio parte dal 2026-11-23 09:12 UTC (primo run con id unici e senza bloc
 
 ## Coin di fascia alta e ricerca sui creatori
 Il Radar guarda le Coin da 500000 dollari di market cap in su. Per ognuna si risale al creatore e si registra la market cap: una Coin e' «raddoppiata» se supera il doppio della prima lettura in fascia. Il profilo del creatore compare nell'avviso.
-Memoria: 129415 lanci noti, 23970 creatori; 17 Coin in fascia alta viste (15 creatori), 3 raddoppiate (3 creatori). Creatore trovato: tabella 377, richiesta esterna 0, sconosciuto 0.
+Memoria: 129579 lanci noti, 24010 creatori; 17 Coin in fascia alta viste (15 creatori), 3 raddoppiate (3 creatori). Creatore trovato: tabella 447, richiesta esterna 0, sconosciuto 0.
 Richieste esterne per il creatore: nessuna ancora.
 
 | Fascia | Avvisi | Prendo / Scarto | Tuoi trade chiusi | Netto medio |
@@ -89,6 +89,20 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 
 ## Ultimi eventi
 ```
+18:11:52 ORACLE   360 raccolti, 251 analizzati, 4 BUY, 246 veto
+18:11:29 ORACLE   360 raccolti, 254 analizzati, 4 BUY, 249 veto
+18:11:06 ORACLE   360 raccolti, 272 analizzati, 5 BUY, 267 veto
+18:10:43 ORACLE   360 raccolti, 273 analizzati, 5 BUY, 268 veto
+18:10:20 ORACLE   360 raccolti, 271 analizzati, 4 BUY, 266 veto
+18:09:56 ORACLE   360 raccolti, 273 analizzati, 4 BUY, 268 veto
+18:09:33 ORACLE   360 raccolti, 264 analizzati, 4 BUY, 259 veto
+18:09:11 ORACLE   360 raccolti, 263 analizzati, 4 BUY, 258 veto
+18:08:48 ORACLE   360 raccolti, 273 analizzati, 4 BUY, 268 veto
+18:08:26 ORACLE   360 raccolti, 269 analizzati, 4 BUY, 264 veto
+18:08:02 ORACLE   360 raccolti, 262 analizzati, 4 BUY, 257 veto
+18:07:39 ORACLE   360 raccolti, 271 analizzati, 4 BUY, 266 veto
+18:07:16 ORACLE   360 raccolti, 267 analizzati, 5 BUY, 262 veto
+18:06:52 ORACLE   360 raccolti, 264 analizzati, 5 BUY, 259 veto
 18:06:29 ORACLE   360 raccolti, 275 analizzati, 4 BUY, 270 veto
 18:06:07 ORACLE   360 raccolti, 277 analizzati, 4 BUY, 272 veto
 18:05:44 ORACLE   360 raccolti, 272 analizzati, 4 BUY, 267 veto
@@ -115,20 +129,6 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 17:57:40 ORACLE   360 raccolti, 239 analizzati, 6 BUY, 233 veto
 17:57:17 ORACLE   360 raccolti, 247 analizzati, 6 BUY, 241 veto
 17:56:55 ORACLE   360 raccolti, 242 analizzati, 6 BUY, 236 veto
-17:56:31 ORACLE   360 raccolti, 226 analizzati, 6 BUY, 220 veto
-17:56:08 ORACLE   360 raccolti, 230 analizzati, 6 BUY, 224 veto
-17:56:04 SCRIBE   chiuso P-0674 $JENSEN 0.0263 SOL (21.7%)
-17:56:04 CHARON   Chiusura manuale (app) $JENSEN vendo 100% a -0.3% -> 0.1474 SOL
-17:56:04 KAISER   chiusura manuale dall'app: P-0674 JENSEN
-17:55:44 ORACLE   360 raccolti, 233 analizzati, 6 BUY, 227 veto
-17:55:21 ORACLE   360 raccolti, 228 analizzati, 6 BUY, 222 veto
-17:55:17 QUARTER  BUY $JENSEN 0.120 SOL score 86 impatto 8.46% (Jupiter)
-17:54:56 QUARTER  SEGNALE $JENSEN score 86 (semi-automatico)
-17:54:56 ORACLE   360 raccolti, 228 analizzati, 6 BUY, 222 veto
-17:54:32 ORACLE   360 raccolti, 234 analizzati, 5 BUY, 229 veto
-17:54:09 ORACLE   360 raccolti, 221 analizzati, 5 BUY, 216 veto
-17:53:45 ORACLE   360 raccolti, 248 analizzati, 4 BUY, 244 veto
-17:53:23 ORACLE   360 raccolti, 247 analizzati, 4 BUY, 243 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
