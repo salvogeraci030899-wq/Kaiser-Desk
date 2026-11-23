@@ -1,10 +1,10 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-23 12:49 UTC · in esecuzione da 0.6 giorni · 338 run
+Aggiornato: 2026-11-23 12:54 UTC · in esecuzione da 0.6 giorni · 338 run
 
 | | |
 |---|---|
-| Equity | **5.9782 SOL** (-0.4% dal capitale iniziale di 6 SOL) |
+| Equity | **5.9774 SOL** (-0.4% dal capitale iniziale di 6 SOL) |
 | Cassa | 5.8790 SOL |
 | Trade chiusi | 0 |
 | Win rate | 0% |
@@ -14,7 +14,7 @@ Aggiornato: 2026-11-23 12:49 UTC · in esecuzione da 0.6 giorni · 338 run
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$SIDOOR** P-0671 · 0.120 SOL · -17.3% · resta 100% · [grafico](https://dexscreener.com/solana/3peugE6Fm4fpaVvrV2KBFN3nvLbCGEhGoUXDDxAHuscR)
+- **$SIDOOR** P-0671 · 0.120 SOL · -18.0% · resta 100% · [grafico](https://dexscreener.com/solana/3peugE6Fm4fpaVvrV2KBFN3nvLbCGEhGoUXDDxAHuscR)
 
 ## Test ingresso rapido (solo paper, quotazioni Jupiter)
 Ipotesi: comprare 5 secondi dopo la creazione, tenere 30 secondi, vendere. Un token su 3, 0.05 SOL a operazione. Serie 2 dal 2026-11-22 11:02 UTC.
@@ -62,7 +62,7 @@ Il conteggio parte dal 2026-11-23 09:12 UTC (primo run con id unici e senza bloc
 
 ## Coin di fascia alta e ricerca sui creatori
 Il Radar guarda le Coin da 500000 dollari di market cap in su. Per ognuna si risale al creatore e si registra la market cap: una Coin e' «raddoppiata» se supera il doppio della prima lettura in fascia. Il profilo del creatore compare nell'avviso.
-Memoria: 116846 lanci noti, 21972 creatori; 13 Coin in fascia alta viste (12 creatori), 2 raddoppiate (2 creatori). Creatore trovato: tabella 183, richiesta esterna 1, sconosciuto 0.
+Memoria: 116947 lanci noti, 21986 creatori; 13 Coin in fascia alta viste (12 creatori), 2 raddoppiate (2 creatori). Creatore trovato: tabella 250, richiesta esterna 1, sconosciuto 0.
 Richieste esterne per il creatore: pump v3: 0 riuscite, 1 fallite (ultimo errore: HTTP 404); pump v1: 0 riuscite, 1 fallite (ultimo errore: HTTP 530); jupiter: 1 riuscite, 0 fallite.
 
 | Fascia | Avvisi | Prendo / Scarto | Tuoi trade chiusi | Netto medio |
@@ -81,6 +81,20 @@ _ancora nessuno_
 
 ## Ultimi eventi
 ```
+12:54:17 ORACLE   360 raccolti, 266 analizzati, 4 BUY, 261 veto
+12:53:55 ORACLE   360 raccolti, 261 analizzati, 4 BUY, 256 veto
+12:53:32 ORACLE   360 raccolti, 268 analizzati, 5 BUY, 263 veto
+12:53:11 ORACLE   360 raccolti, 268 analizzati, 5 BUY, 263 veto
+12:52:48 ORACLE   360 raccolti, 264 analizzati, 3 BUY, 260 veto
+12:52:26 ORACLE   360 raccolti, 271 analizzati, 3 BUY, 267 veto
+12:52:04 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 259 veto
+12:51:42 ORACLE   360 raccolti, 263 analizzati, 3 BUY, 259 veto
+12:51:20 ORACLE   360 raccolti, 270 analizzati, 4 BUY, 265 veto
+12:50:58 ORACLE   360 raccolti, 268 analizzati, 4 BUY, 263 veto
+12:50:36 ORACLE   360 raccolti, 264 analizzati, 4 BUY, 259 veto
+12:50:14 ORACLE   360 raccolti, 264 analizzati, 4 BUY, 258 veto
+12:49:51 ORACLE   360 raccolti, 272 analizzati, 3 BUY, 267 veto
+12:49:29 ORACLE   360 raccolti, 267 analizzati, 3 BUY, 262 veto
 12:49:06 ORACLE   360 raccolti, 275 analizzati, 4 BUY, 270 veto
 12:48:44 ORACLE   360 raccolti, 272 analizzati, 5 BUY, 266 veto
 12:48:41 QUARTER  BUY $SIDOOR 0.120 SOL score 64 impatto 2.04% (Jupiter)
@@ -107,20 +121,6 @@ _ancora nessuno_
 12:41:19 ORACLE   360 raccolti, 281 analizzati, 4 BUY, 277 veto
 12:40:57 ORACLE   360 raccolti, 283 analizzati, 4 BUY, 279 veto
 12:40:35 ORACLE   360 raccolti, 279 analizzati, 4 BUY, 275 veto
-12:40:13 ORACLE   346 raccolti, 273 analizzati, 4 BUY, 269 veto
-12:39:50 ORACLE   337 raccolti, 264 analizzati, 2 BUY, 261 veto
-12:39:29 ORACLE   334 raccolti, 255 analizzati, 2 BUY, 252 veto
-12:39:07 ORACLE   314 raccolti, 244 analizzati, 2 BUY, 240 veto
-12:38:44 ORACLE   302 raccolti, 227 analizzati, 2 BUY, 223 veto
-12:38:23 ORACLE   300 raccolti, 227 analizzati, 2 BUY, 223 veto
-12:38:01 ORACLE   282 raccolti, 215 analizzati, 2 BUY, 211 veto
-12:37:39 ORACLE   277 raccolti, 211 analizzati, 2 BUY, 207 veto
-12:37:18 ORACLE   273 raccolti, 207 analizzati, 2 BUY, 203 veto
-12:36:56 ORACLE   255 raccolti, 192 analizzati, 2 BUY, 188 veto
-12:36:34 ORACLE   249 raccolti, 186 analizzati, 3 BUY, 181 veto
-12:36:13 ORACLE   247 raccolti, 175 analizzati, 3 BUY, 170 veto
-12:35:50 ORACLE   228 raccolti, 169 analizzati, 3 BUY, 164 veto
-12:35:28 ORACLE   222 raccolti, 161 analizzati, 2 BUY, 157 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
