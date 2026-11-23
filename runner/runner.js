@@ -256,8 +256,8 @@ function gates(c) {
   if (st.cash < sizeSol() * 0.5 || sizeSol() < 0.001) return 'cassa insufficiente';
   return '';
 }
-async function jupQuote(inMint, outMint, amount) {
-  const q = await fetchJSON(`https://lite-api.jup.ag/swap/v1/quote?inputMint=${inMint}&outputMint=${outMint}&amount=${amount}&slippageBps=${S.slippageBps}&restrictIntermediateTokens=true`);
+async function jupQuote(inMint, outMint, amount, bps) {
+  const q = await fetchJSON(`https://lite-api.jup.ag/swap/v1/quote?inputMint=${inMint}&outputMint=${outMint}&amount=${amount}&slippageBps=${bps == null ? S.slippageBps : bps}&restrictIntermediateTokens=true`);
   if (!q || !q.outAmount) throw new Error((q && q.error) || 'nessuna rotta');
   return q;
 }
@@ -452,9 +452,9 @@ async function buy(c, o) {
   const priceN = num(fresh && fresh.priceNative), liq = num(fresh && fresh.liquidity && fresh.liquidity.usd);
   if (!(priceN > 0)) { if (o) o.why = 'prezzo non disponibile'; return null; }
   let impact, rawOut = null, src = 'stima';
-  try { const q = await jupQuote(SOL_MINT, c.mint, Math.floor(sizeS * 1e9)); impact = Math.max(0, num(q.priceImpactPct)); rawOut = q.outAmount; src = 'Jupiter'; }
+  try { const q = await jupQuote(SOL_MINT, c.mint, Math.floor(sizeS * 1e9), o && o.src === 'umano' ? num(S.slipInBps, 1000) : S.slippageBps); impact = Math.max(0, num(q.priceImpactPct)); rawOut = q.outAmount; src = 'Jupiter'; }
   catch { impact = E.estImpact(sizeS * (rt.solUsd || 150), liq); }
-  const slipMax = o && o.src === 'umano' ? Math.max(S.slippageBps / 10000, 0.1) : S.slippageBps / 10000;      // una scelta tua (Prendo) non si rifiuta per 2% di impatto: il costo e' gia' nel prezzo di carico; oltre il 10% non e' piu' realistico
+  const slipMax = o && o.src === 'umano' ? num(S.slipInBps, 1000) / 10000 : S.slippageBps / 10000;      // Prendo: vale la tua «slippage di entrata» (di base 10%); il costo dell'impatto e' gia' nel prezzo di carico
   if (impact > slipMax) { log('QUARTER', `$${c.sym} impatto ${(impact * 100).toFixed(1)}% oltre slippage: annullato`); if (o) o.why = `impatto ${(impact * 100).toFixed(1)}% oltre lo slippage`; return null; }
   const entry = E.entryPrice(priceN, impact, S.feePct);
   const p = {
@@ -497,7 +497,7 @@ async function sell(p, frac, reason) {
       const raw = BigInt(p.rawLeft);
       const amt = frac >= 0.999 ? raw : (raw * BigInt(Math.round(frac * 10000))) / 10000n;
       if (amt > 0n) {
-        const q = await jupQuote(p.mint, SOL_MINT, amt.toString());
+        const q = await jupQuote(p.mint, SOL_MINT, amt.toString(), num(S.slipOutBps, 1500));
         sol = Math.max(0, num(q.outAmount) / 1e9 * (1 - S.feePct / 100) - S.prioritySOL);
         p.rawLeft = (raw - amt).toString(); src = 'Jupiter';
         // taratura del paper: quanto vale la quotazione reale di Jupiter rispetto alla stima che il paper farebbe al prezzo di DexScreener
