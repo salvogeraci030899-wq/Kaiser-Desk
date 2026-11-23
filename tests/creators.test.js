@@ -172,3 +172,11 @@ test('conteggio giornaliero della fascia alta: le Coin gia\' contate si ricordan
   assert.match(src, /d\.m = d\.m \|\| \[\]; d\.q = d\.q \|\| \[\]; const seen = new Set\(d\.m\), qual = new Set\(d\.q\);/); assert.ok(!/rt\.bandSeen/.test(src), 'nessun insieme in memoria che si perde a ogni run');
   assert.match(src, /if \(d\.m\.length > 800\) d\.m\.splice\(0, d\.m\.length - 800\);/);
 });
+
+test('controllo con un solo caso: la media si mostra subito, l\'intervallo servono due casi; Profit factor senza trade mostra un trattino', () => {
+  const al = [{ id: 'a1', sh: { done: true, pct: 95.47 } }], one = Semi.controlStats([], al);
+  assert.equal(one.n, 1); assert.equal(one.nMean, 95.47); assert.equal(one.nWin, 100); assert.equal(one.nLo, undefined, 'intervallo: servono due casi'); assert.equal(one.diff, undefined, 'nessun Prendo: niente differenza');
+  const both = Semi.controlStats([{ src: 'umano', band: 'x', pct: 10 }], al); assert.equal(both.yMean, 10); assert.equal(both.diff, -85.47); assert.equal(both.diffLo, undefined);
+  const two = Semi.controlStats([{ src: 'umano', band: 'x', pct: 10 }, { src: 'umano', band: 'x', pct: 20 }], [...al, { id: 'a2', sh: { done: true, pct: -10 } }]); assert.ok(two.nLo != null && two.diffLo != null);
+  const html = fs.readFileSync(require.resolve('../index.html'), 'utf8'); assert.match(html, /\$\('#jPF'\)\.textContent = !\(st0 \? st0\.n : J\.length\) \? '—'/);
+});
