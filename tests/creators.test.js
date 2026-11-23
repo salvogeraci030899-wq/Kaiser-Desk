@@ -192,3 +192,13 @@ test('riquadri del Journal: contano tutte le decisioni chiuse (prese e scartate)
   const html = fs.readFileSync(require.resolve('../index.html'), 'utf8'); assert.match(html, /T = onlyD && run \? run\.decisionTotals : null/); assert.match(html, /jl\.textContent = onlyD \? 'Decisioni' : 'Trade'/); assert.match(html, /\$\{T\.y\}\/50/);
 });
 
+
+test('id degli avvisi unici: piu\' avvisi dello stesso secondo non condividono l\'id, quindi la risposta a uno non finisce su un altro', () => {
+  const T = 1_700_000_000_000, mk = (i) => ({ mint: id(500 + i), sym: 'S' + i, score: 60, a: { m: { priceNative: 0.001, mc: 600000, liq: 90000, ageMin: 5 } }, pair: {} });
+  const alerts = []; for (let i = 0; i < 6; i++) { const a = Semi.alertOf(mk(i), T); a.id = Semi.uniqueId(alerts, a.id); alerts.push(a); }
+  assert.equal(new Set(alerts.map((a) => a.id)).size, 6, 'tutti diversi'); assert.ok(alerts.every((a) => /^a[0-9a-z]{4,8}$/.test(a.id)), 'formato accettato dal Worker (5-9 caratteri)');
+  assert.ok(alerts.every((a) => ('hd:y:' + a.id).length <= 64), 'entra nel limite di Telegram');
+  assert.equal(alerts[0].id, Semi.alertOf(mk(0), T).id, 'il primo ha l\'id di base'); assert.equal(Semi.uniqueId([], 'atoxb6y'), 'atoxb6y');
+  Semi.vote(alerts, alerts[2].id, 'n', T + 1000); assert.deepEqual(alerts.map((a) => a.vote || '-'), ['-', '-', 'n', '-', '-', '-'], 'la risposta va sull\'avviso giusto');
+  const src = fs.readFileSync(require.resolve('../runner/runner.js'), 'utf8'); assert.match(src, /a\.id = Semi\.uniqueId\(st\.alerts, a\.id\)/);
+});
