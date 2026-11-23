@@ -181,13 +181,12 @@ function decisions(alerts, journal, positions, n) {
   return out.sort((x, y) => (y.at || y.t) - (x.at || x.t)).slice(0, n || 60);
 }
 
-// Totali di tutte le decisioni chiuse (prese e scartate), per i riquadri del Journal: il paper e' il registro delle decisioni, quindi contano tutte.
-// Il P&L degli scartati e' simulato (stesse uscite, costi stimati) e non tocca il saldo del conto.
+// Totali per i riquadri del Journal: contano SOLO i trade presi (Prendo) e chiusi, perche' sono l'andamento della strategia. Gli scartati (simulati) non entrano nei calcoli: `nn` li conta soltanto.
 function decisionTotals(alerts, journal, positions) {
-  const d = decisions(alerts, journal, positions, 1e9).filter((x) => x.status === 'chiuso' && x.pct != null && x.pnl != null).sort((a, b) => (a.at || a.t) - (b.at || b.t));
+  const all = decisions(alerts, journal, positions, 1e9).filter((x) => x.status === 'chiuso' && x.pct != null && x.pnl != null), d = all.filter((x) => x.vote === 'y').sort((a, b) => (a.at || a.t) - (b.at || b.t));
   const wins = d.filter((x) => x.pnl > 0), losses = d.filter((x) => x.pnl <= 0), gw = wins.reduce((s, x) => s + x.pnl, 0), gl = -losses.reduce((s, x) => s + x.pnl, 0), avg = (a) => (a.length ? a.reduce((s, x) => s + x.pct, 0) / a.length : 0);
   let cum = 0, peak = 0, dd = 0; for (const x of d) { cum += x.pnl; peak = Math.max(peak, cum); dd = Math.max(dd, peak - cum); }
-  return { n: d.length, y: d.filter((x) => x.vote === 'y').length, nn: d.filter((x) => x.vote === 'n').length, wr: d.length ? +(100 * wins.length / d.length).toFixed(1) : 0, pnl: +(gw - gl).toFixed(4), aw: +avg(wins).toFixed(1), al: +avg(losses).toFixed(1), pf: gl ? +(gw / gl).toFixed(2) : (gw ? 999 : 0), dd: +dd.toFixed(4) };
+  return { n: d.length, y: d.length, nn: all.filter((x) => x.vote === 'n').length, wr: d.length ? +(100 * wins.length / d.length).toFixed(1) : 0, pnl: +(gw - gl).toFixed(4), aw: +avg(wins).toFixed(1), al: +avg(losses).toFixed(1), pf: gl ? +(gw / gl).toFixed(2) : (gw ? 999 : 0), dd: +dd.toFixed(4) };
 }
 
 // Identificativo unico per ogni avviso. L'id si basa sul secondo di creazione: piu' avvisi dello stesso giro avevano lo stesso id (3-4 insieme), quindi la risposta a uno

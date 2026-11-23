@@ -181,15 +181,15 @@ test('controllo con un solo caso: la media si mostra subito, l\'intervallo servo
   const html = fs.readFileSync(require.resolve('../index.html'), 'utf8'); assert.match(html, /\$\('#jPF'\)\.textContent = !\(st0 \? st0\.n : J\.length\) \? '—'/);
 });
 
-test('riquadri del Journal: contano tutte le decisioni chiuse (prese e scartate), con il P&L simulato degli scartati; il trade scartato non e\' piu\' "0 trade"', () => {
+test('riquadri del Journal: contano solo i Prendo chiusi; gli scartati simulati non entrano nell\'andamento', () => {
   const T = 1_700_000_000_000;
   const al = [{ id: 'a00001', t: T, sym: 'AAA', vote: 'y' }, { id: 'a00002', t: T + 1, sym: 'BBB', vote: 'n', sh: { done: true, pct: 95.47, got: 0.2365, size: 0.12, cost: 0.1205, reason: 'Trailing stop', t1: T + 5000 } }, { id: 'a00003', t: T + 2, sym: 'CCC', vote: 'n', sh: { done: true, pct: -20, got: 0.096, size: 0.12, reason: 'Stop loss', t1: T + 9000 } }, { id: 'a00004', t: T + 3, sym: 'DDD', vote: 'n', sh: { done: false } }];
   const j = [{ aid: 'a00001', pct: -10, pnl: -0.012, reason: 'Stop (tuo)', closedAt: T + 7000 }];
-  const only = Semi.decisionTotals(al, [], []); assert.equal(only.n, 2, 'solo gli scartati chiusi: 2 decisioni, non 0 trade'); assert.equal(only.y, 0); assert.equal(only.nn, 2); assert.equal(only.pnl, 0.092, 'P&L simulato: +0,116 e -0,024'); assert.equal(only.wr, 50);
-  const all = Semi.decisionTotals(al, j, []); assert.equal(all.n, 3); assert.equal(all.y, 1); assert.equal(all.nn, 2); assert.equal(all.aw, 95.5); assert.equal(all.al, -15, 'media delle perdite: -10 e -20'); assert.ok(all.dd > 0.02, 'perdita massima dal picco: ' + all.dd);
-  assert.equal(Semi.decisionTotals([], [], []).n, 0); assert.equal(Semi.decisionTotals([{ id: 'a00009', t: T, vote: 'n', sh: { done: true, pct: 10, got: 0.13, size: 0.12, cost: 0.1205, reason: 'Target', t1: T } }], [], []).pf, 999, 'nessuna perdita: profit factor senza limite (999 = infinito)');
+  const only = Semi.decisionTotals(al, [], []); assert.equal(only.n, 0, 'solo scartati: nessun trade nei riquadri'); assert.equal(only.y, 0); assert.equal(only.nn, 2); assert.equal(only.pnl, 0);
+  const all = Semi.decisionTotals(al, j, []); assert.equal(all.n, 1); assert.equal(all.y, 1); assert.equal(all.nn, 2); assert.equal(all.pnl, -0.012); assert.equal(all.al, -10);
+  assert.equal(Semi.decisionTotals([], [], []).n, 0); assert.equal(Semi.decisionTotals([{ id: 'a00009', t: T, vote: 'y' }], [{ aid: 'a00009', pct: 10, pnl: 0.01, reason: 'Target', closedAt: T }], []).pf, 999, 'nessuna perdita: profit factor senza limite (999 = infinito)');
   const d = Semi.decisions(al, [], [], 10).find((x) => x.sym === 'BBB'); assert.equal(d.pnl, 0.116, 'P&L simulato dello scartato: ' + d.pnl);
-  const html = fs.readFileSync(require.resolve('../index.html'), 'utf8'); assert.match(html, /T = onlyD && run \? run\.decisionTotals : null/); assert.match(html, /jl\.textContent = onlyD \? 'Decisioni' : 'Trade'/); assert.match(html, /\$\{T\.y\}\/50/);
+  const html = fs.readFileSync(require.resolve('../index.html'), 'utf8'); assert.match(html, /T = onlyD && run \? run\.decisionTotals : null/); assert.match(html, /scrolly/); assert.match(html, /\$\{T\.y\}\/50/);
 });
 
 
