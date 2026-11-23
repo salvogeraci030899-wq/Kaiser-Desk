@@ -376,6 +376,7 @@ nav { height: 62px; margin-top: 4px; }
 .vscroll.jfix { overflow: hidden; display: flex; flex-direction: column; padding-bottom: 0; }
 .jcard { flex: 1 1 0; min-height: 0; margin-bottom: 0; padding: 0 14px; display: flex; flex-direction: column; overflow: hidden; }
 .jrow { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.8fr) minmax(0, 0.85fr) minmax(0, 1.3fr); gap: 6px; align-items: center; padding: 7px 0; border-bottom: 1px solid var(--border); font: 12px var(--mono); }
+.jfull .jrow[data-mint]:not([data-mint=""]) { cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .jrow > span { min-width: 0; overflow-wrap: anywhere; }
 .jhead { flex: 0 0 auto; padding: 12px 0 8px; color: var(--text-secondary); font-weight: 600; }
 .jbody { flex: 1 1 0; min-height: 0; overflow: hidden; pointer-events: none; overflow-y: hidden; overflow-x: hidden; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
