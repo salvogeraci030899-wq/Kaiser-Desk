@@ -120,8 +120,8 @@ function shadowStep(a, m, S, now) {
 }
 // Prendo reali in paper contro Scarto simulati con le stesse uscite
 function controlStats(journal, alerts) {
-  const h = journal.filter((j) => j.src === 'umano' && j.band).map((j) => j.pct), c = alerts.filter((a) => a.sh && a.sh.done).map((a) => a.sh.pct);
-  const A = ms(h), B = ms(c), out = { y: A.n, n: B.n, open: alerts.filter((a) => a.sh && !a.sh.done).length };
+  const h = journal.filter((j) => j.src === 'umano' && j.band).map((j) => j.pct), c = alerts.filter((a) => a.vote === 'n' && a.sh && a.sh.done).map((a) => a.sh.pct);      // solo gli Scarto: la simulazione di un Prendo non aperto e' un'altra cosa
+  const A = ms(h), B = ms(c), out = { y: A.n, n: B.n, open: alerts.filter((a) => a.vote === 'n' && a.sh && !a.sh.done).length };
   // la media si mostra gia' con un solo caso; l'intervallo di confidenza servono almeno due
   if (A.n >= 1) out.yMean = +A.m.toFixed(2);
   if (B.n >= 1) { out.nMean = +B.m.toFixed(2); out.nWin = +(100 * c.filter((v) => v > 0).length / B.n).toFixed(1); }
@@ -171,7 +171,7 @@ function decisions(alerts, journal, positions, n) {
       const j = jr.get(a.id), p = pos.get(a.id);
       if (j) out.push({ ...base, status: 'chiuso', pct: +Number(j.pct).toFixed(1), pnl: +Number(j.pnl).toFixed(4), reason: j.reason, at: j.closedAt });
       else if (p) out.push({ ...base, status: 'aperto', pct: p.last && p.entry > 0 ? +((p.last.priceNative / p.entry - 1) * 100).toFixed(1) : null, pnl: null, reason: 'in corso', at: p.openedAt });
-      else out.push({ ...base, status: 'non aperto', pct: null, pnl: null, reason: 'non aperto', at: a.vAt || a.t });
+      else out.push({ ...base, status: 'non aperto', pct: null, pnl: null, reason: 'non aperto' + (a.nw ? ': ' + a.nw : '') + (a.sh && a.sh.done ? ` (simulato ${Number(a.sh.pct) > 0 ? '+' : ''}${Number(a.sh.pct).toFixed(1)}%)` : ''), at: a.vAt || a.t });
     } else {
       const s = a.sh;
       if (s && s.done) { const got = Number(s.got), cost = s.cost != null ? s.cost : (1 + s.pct / 100) > 0.001 ? got / (1 + s.pct / 100) : s.size; out.push({ ...base, status: 'chiuso', pct: +Number(s.pct).toFixed(1), pnl: Number.isFinite(got) && Number.isFinite(cost) ? +(got - cost).toFixed(4) : null, reason: s.reason, at: s.t1 }); }
