@@ -702,12 +702,14 @@ async function scan() {
   }
   { // quante Coin di fascia alta vediamo ogni giorno (Coin diverse) e quante hanno un punteggio sufficiente per l'avviso
     const day = new Date().toISOString().slice(0, 10); st.bandDays = st.bandDays || {};
-    const d = st.bandDays[day] || (st.bandDays[day] = { c: 0, nv: 0 }); if (!rt.bandSeen || rt.bandSeen.d !== day) rt.bandSeen = { d: day, s: new Set(), n: new Set() };
+    const d = st.bandDays[day] || (st.bandDays[day] = { c: 0, nv: 0, m: [], q: [] });      // le Coin gia' contate si ricordano nello stato: prima si perdevano a ogni nuovo run e si contavano di nuovo
+    d.m = d.m || []; d.q = d.q || []; const seen = new Set(d.m), qual = new Set(d.q);
     for (const c of cands) {
       if (!c.band) continue;
-      if (!rt.bandSeen.s.has(c.mint)) { rt.bandSeen.s.add(c.mint); d.c++; }
-      if (c.verdict !== 'VETO' && c.score >= num(S.alertMinScore, 55) && !rt.bandSeen.n.has(c.mint)) { rt.bandSeen.n.add(c.mint); d.nv++; }
+      if (!seen.has(c.mint)) { seen.add(c.mint); d.m.push(c.mint); d.c++; }
+      if (c.verdict !== 'VETO' && c.score >= num(S.alertMinScore, 55) && !qual.has(c.mint)) { qual.add(c.mint); d.q.push(c.mint); d.nv++; }
     }
+    if (d.m.length > 800) d.m.splice(0, d.m.length - 800); if (d.q.length > 800) d.q.splice(0, d.q.length - 800);
     for (const k of Object.keys(st.bandDays)) if (k < new Date(Date.now() - 10 * 86400000).toISOString().slice(0, 10)) delete st.bandDays[k];
   }
   const buys = cands.filter((c) => c.verdict === 'BUY').sort((a, b) => b.score - a.score);
@@ -939,7 +941,7 @@ function resetForBand() {
   if (!S.humanOnly || st.bandResetV === 1) return false;
   const cap = Number(st.capital) > 0 ? Number(st.capital) : S.capitalSOL, now = Date.now();
   Object.assign(st, { cash: cap, capital: cap, topups: null, positions: [], journal: [], signals: [], alerts: [], grokLog: [], day: null, halted: null, cooldownUntil: 0, lastEntryAt: 0, startedAt: now, realTried: {}, bandDays: {}, humanSince: now, humanReviewed: 0, humanNotified: 0, bandResetV: 1 });
-  rt.bandSeen = null; log('KAISER', `reset: conto paper azzerato (${cap} SOL), journal, segnali e avvisi vuoti; la memoria dei creatori resta`);
+  log('KAISER', `reset: conto paper azzerato (${cap} SOL), journal, segnali e avvisi vuoti; la memoria dei creatori resta`);
   return true;
 }
 async function main() {

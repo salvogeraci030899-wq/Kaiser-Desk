@@ -18,11 +18,14 @@ test('segnale: un BUY del radar diventa un avviso con il collegamento diretto a 
   const t = Semi.text(a); assert.match(t, /SEGNALE/); assert.match(t, /\$T1\n/); assert.ok(!/score|Motivi|volume in crescita/.test(t), 'il punteggio e i motivi del bot non si vedono'); assert.match(t, /market cap \$12\.3K · età 4 min · liquidità \$8\.1K/); assert.match(t, /Con Prendo il paper apre subito la posizione/); assert.ok(!/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u.test(t + JSON.stringify(kb)), 'niente emoji');
   assert.equal(Semi.alertOf({ mint: mint(2), sym: '<b>x', score: 1, a: { m: {} } }, T).pair, '', 'senza coppia si usa il mint'); assert.match(Semi.text(Semi.alertOf({ mint: mint(2), sym: '<b>x', score: 1, a: { m: {} } }, T)), /\$&lt;b&gt;x/, 'il testo e\' protetto');
 });
-test('scelta dei segnali: non si ripete la stessa Coin per 3 ore, al massimo 8 in un\'ora, rispetta il filtro del calo', () => {
-  const alerts = []; const buys = []; for (let i = 1; i <= 12; i++) buys.push(cand(i));
-  const first = Semi.pick(alerts, buys, T, null); assert.equal(first.length, Semi.MAX_PER_HOUR, 'limite orario'); first.forEach((c) => alerts.push(Semi.alertOf(c, T)));
+test('scelta dei segnali: non si ripete la stessa Coin per 24 ore, tetto di sicurezza di 30 all\'ora che non tiene fuori le Coin successive, rispetta il filtro del calo', () => {
+  assert.equal(Semi.MAX_PER_HOUR, 30); assert.equal(Semi.REPEAT_H, 24);
+  const alerts = []; const buys = []; for (let i = 1; i <= 40; i++) buys.push(cand(i));
+  const first = Semi.pick(alerts, buys, T, null); assert.equal(first.length, Semi.MAX_PER_HOUR, 'tetto orario'); first.forEach((c) => alerts.push(Semi.alertOf(c, T)));
   assert.equal(Semi.pick(alerts, buys, T + 60000, null).length, 0, 'tetto raggiunto');
-  const later = Semi.pick(alerts, buys, T + 3700000, null); assert.equal(later.map((c) => c.mint).includes(mint(1)), false, 'segnalata meno di 3 ore fa'); assert.ok(later.some((c) => c.mint === mint(9)), 'una nuova puo\' arrivare');
+  const few = []; const sm = []; for (let i = 1; i <= 12; i++) sm.push(cand(i)); const a8 = Semi.pick(few, sm, T, null); assert.equal(a8.length, 12, 'con 12 Coin nuove arrivano tutte nello stesso giro: nessuna aspetta un\'ora'); a8.forEach((c) => few.push(Semi.alertOf(c, T)));
+  const more = Semi.pick(few, [cand(13), cand(14)], T + 60000, null); assert.equal(more.length, 2, 'e quelle che arrivano dopo non sono bloccate');
+  assert.equal(Semi.pick(few, sm, T + 3 * 3600000 + 60000, null).length, 0, 'la stessa Coin non torna dopo 3 ore'); assert.equal(Semi.pick(few, sm, T + 25 * 3600000, null).length, 12, 'torna dopo 24 ore');
   assert.equal(Semi.pick([], [cand(1), cand(1)], T, null).length, 1, 'doppioni nello stesso giro'); assert.equal(Semi.pick([], buys, T, (c) => c.mint === mint(3)).length, 1, 'filtro');
   assert.equal(Semi.pick([], [{ mint: 'no', score: 1 }], T, null).length, 0, 'mint non valido');
 });

@@ -166,3 +166,9 @@ test('catena di ricerche del creatore: se la prima fallisce si prova la successi
   const src = fs.readFileSync(require.resolve('../runner/runner.js'), 'utf8'); assert.match(src, /Richieste esterne per il creatore:/); assert.match(src, /function bandFix\(k, v\)/); assert.match(src, /nv = bandFix\(k, nv\);/);
 });
 
+
+test('conteggio giornaliero della fascia alta: le Coin gia\' contate si ricordano nello stato (non per run); niente memoria in processo', () => {
+  const src = fs.readFileSync(require.resolve('../runner/runner.js'), 'utf8');
+  assert.match(src, /d\.m = d\.m \|\| \[\]; d\.q = d\.q \|\| \[\]; const seen = new Set\(d\.m\), qual = new Set\(d\.q\);/); assert.ok(!/rt\.bandSeen/.test(src), 'nessun insieme in memoria che si perde a ogni run');
+  assert.match(src, /if \(d\.m\.length > 800\) d\.m\.splice\(0, d\.m\.length - 800\);/);
+});
