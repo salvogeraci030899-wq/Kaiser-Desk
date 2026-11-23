@@ -82,7 +82,7 @@ test('controllo equo: lo Scarto si simula con le stesse uscite dei Prendo (stop,
   const c = mk(); Semi.shadowOpen(c, S, T, 0.2, 100); assert.equal(Semi.shadowStep(c, m(1.03 * 0.001), S, T + 7 * 3600000).reason, 'Time stop', 'dopo 6 ore la prima meta\' esce comunque'); assert.equal(c.sh.done, true);
   const d = mk(); Semi.shadowOpen(d, S, T, 0.2, 100); assert.equal(Semi.shadowStep(d, { priceNative: 0.001, liq: 40000, br5: 1, tx5: 5 }, S, T + 1000).reason, 'RUG-EXIT liquidità', 'il crollo della liquidita\' vale anche nel controllo');
   const j = [{ src: 'umano', band: '500K-1M', pct: 30 }, { src: 'umano', band: '500K-1M', pct: -20 }, { src: 'bot', pct: -5 }];
-  const cs = Semi.controlStats(j, [a, b, c, d, { id: 'x' }]); assert.equal(cs.y, 2); assert.equal(cs.n, 4); assert.equal(cs.open, 0); assert.ok(cs.nMean != null && cs.diff != null);
+  const cs = Semi.controlStats(j, [a, b, c, d, { id: 'x' }].map((x) => ({ ...x, vote: 'n' }))); assert.equal(cs.y, 2); assert.equal(cs.n, 4); assert.equal(cs.open, 0); assert.ok(cs.nMean != null && cs.diff != null);
   assert.deepEqual(Semi.bandExits({}), { sl: 20, tp1: 100, tp1Sell: 50, trail: 25, beAfterTp1: true, timeStopMin: 360, timeStopMinPnl: 1e9, sellPressure: false }, 'le uscite di base');
   const f = mk(); Semi.shadowOpen(f, S, T, 0.2, 100); const S2 = { ...S, humanBandSl: 5 }; assert.equal(Semi.shadowStep(f, m(0.00092), S2, T + 1000), null, 'parametri cambiati dopo l\'apertura: lo Scarto simulato tiene le uscite di partenza (stop -20%)');
   const g2 = mk(); Semi.shadowOpen(g2, S, T, 0.2, 100); assert.equal(Semi.shadowStep(g2, { priceNative: 0.0012, liq: 100000, br5: 0.1, tx5: 50 }, S, T + 1000), null, 'la pressione di vendita non fa uscire a meta\': le uscite sono quelle della prova');
@@ -143,7 +143,7 @@ test('registro delle decisioni: un\'unica lista di prese e scartate, con lo stat
   assert.deepEqual([by.CCC.status, by.CCC.pct], ['non aperto', null]); assert.deepEqual([by.DDD.status, by.DDD.pct, by.DDD.pnl, by.DDD.reason, by.DDD.vote], ['chiuso', -12.3, null, 'Stop loss', 'n']);
   assert.deepEqual([by.EEE.status, by.EEE.reason], ['aperto', 'in corso']); assert.deepEqual([by.FFF.status, by.FFF.reason], ['senza simulazione', 'senza simulazione']); assert.equal(Semi.decisions(al, j, pos, 2).length, 2);
   const src = fs.readFileSync(require.resolve('../runner/runner.js'), 'utf8'), html = fs.readFileSync(require.resolve('../index.html'), 'utf8');
-  assert.match(src, /decisions: Semi\.decisions\(st\.alerts \|\| \[\], st\.journal, st\.positions, 60\), decisionTotals: Semi\.decisionTotals\(st\.alerts \|\| \[\], st\.journal, st\.positions\), decisionStats: Semi\.controlStats/); assert.match(src, /aid: a\.id \|\| ''/); assert.match(src, /aid: p\.aid \|\| ''/);
+  assert.match(src, /decisions: Semi\.decisions\(st\.alerts \|\| \[\], st\.journal, st\.positions, 60\), decisionTotals: Semi\.decisionTotals\(st\.alerts \|\| \[\], st\.journal, st\.positions\), responses: Semi\.responseStats\(st\.alerts \|\| \[\], Semi\.decisions\(st\.alerts \|\| \[\], st\.journal, st\.positions, 1e9\)\), decisionStats: Semi\.controlStats/); assert.match(src, /aid: a\.id \|\| ''/); assert.match(src, /aid: p\.aid \|\| ''/);
   assert.ok(!/## Le tue decisioni[\s\S]{0,2200}trade del bot/.test(src), 'il report non confronta con un bot');
   assert.match(html, /g\.page === pg && !\(g\.off && S\(\)\.humanOnly\)/, 'impostazioni: i gruppi del bot non si mostrano'); assert.match(html, /data-jt="dec">Presi e scartati/); assert.match(html, /only \? \(dRows \|\|/); assert.match(html, /'Decisioni: prese e scartate'/);
 });
@@ -174,10 +174,10 @@ test('conteggio giornaliero della fascia alta: le Coin gia\' contate si ricordan
 });
 
 test('controllo con un solo caso: la media si mostra subito, l\'intervallo servono due casi; Profit factor senza trade mostra un trattino', () => {
-  const al = [{ id: 'a1', sh: { done: true, pct: 95.47 } }], one = Semi.controlStats([], al);
+  const al = [{ id: 'a1', vote: 'n', sh: { done: true, pct: 95.47 } }], one = Semi.controlStats([], al);
   assert.equal(one.n, 1); assert.equal(one.nMean, 95.47); assert.equal(one.nWin, 100); assert.equal(one.nLo, undefined, 'intervallo: servono due casi'); assert.equal(one.diff, undefined, 'nessun Prendo: niente differenza');
   const both = Semi.controlStats([{ src: 'umano', band: 'x', pct: 10 }], al); assert.equal(both.yMean, 10); assert.equal(both.diff, -85.47); assert.equal(both.diffLo, undefined);
-  const two = Semi.controlStats([{ src: 'umano', band: 'x', pct: 10 }, { src: 'umano', band: 'x', pct: 20 }], [...al, { id: 'a2', sh: { done: true, pct: -10 } }]); assert.ok(two.nLo != null && two.diffLo != null);
+  const two = Semi.controlStats([{ src: 'umano', band: 'x', pct: 10 }, { src: 'umano', band: 'x', pct: 20 }], [...al, { id: 'a2', vote: 'n', sh: { done: true, pct: -10 } }]); assert.ok(two.nLo != null && two.diffLo != null);
   const html = fs.readFileSync(require.resolve('../index.html'), 'utf8'); assert.match(html, /\$\('#jPF'\)\.textContent = !\(st0 \? st0\.n : J\.length\) \? '—'/);
 });
 
@@ -208,4 +208,28 @@ test('registro a schermo intero: il tocco su una riga apre la Coin su pump.fun',
   assert.equal(Semi.decisions(al, [], [], 5)[0].mint, 'MintAAA');
   const html = fs.readFileSync(require.resolve('../index.html'), 'utf8');
   assert.match(html, /#sheetInner \.jfull \.jrow\[data-mint\]/); assert.match(html, /data-mint="\$\{esc\(d\.mint/);
+});
+
+test('Prendo non aperto: il motivo si vede nel registro e la simulazione non entra nelle statistiche degli Scarto', () => {
+  const T = 1_700_000_000_000;
+  const al = [{ id: 'a00001', t: T, mint: 'M1', sym: 'AAA', vote: 'y', vAt: T + 1000, nw: 'impatto 2.0% oltre lo slippage', sh: { done: true, pct: 40, got: 0.17, size: 0.12, cost: 0.1205, reason: 'Trailing stop', t1: T + 9000 } }, { id: 'a00002', t: T + 1, mint: 'M2', sym: 'BBB', vote: 'n', sh: { done: true, pct: -20, got: 0.096, size: 0.12, cost: 0.1205, reason: 'Stop loss', t1: T + 9000 } }];
+  const d = Semi.decisions(al, [], [], 10).find((x) => x.sym === 'AAA'); assert.equal(d.status, 'non aperto'); assert.match(d.reason, /non aperto: impatto 2\.0% oltre lo slippage \(simulato \+40\.0%\)/);
+  assert.equal(d.pct, null); assert.equal(Semi.decisionTotals(al, [], []).n, 0, 'non e\' un trade');
+  assert.equal(Semi.controlStats([], al).n, 1, 'negli Scarto conta solo BBB');
+});
+
+test('esito del voto nel box dei segnali: le righe delle decisioni portano l\'id dell\'avviso', () => {
+  const al = [{ id: 'a00001', t: 1, mint: 'M1', sym: 'AAA', vote: 'y', vAt: 2, nw: 'cassa insufficiente' }];
+  assert.equal(Semi.decisions(al, [], [], 5)[0].id, 'a00001');
+  const html = fs.readFileSync(require.resolve('../index.html'), 'utf8'); assert.match(html, /Rispondi su Telegram: Prendo o Scarto/); assert.match(html, /'Non aperto: '/);
+});
+
+test('riepilogo delle risposte: risposti, scaduti, tempo mediano, Prendo non aperti', () => {
+  const T = 1_700_000_000_000, now = T + 3600000;
+  const al = [{ id: 'a1', t: T, vote: 'y', vAt: T + 20000 }, { id: 'a2', t: T + 1, vote: 'n', vAt: T + 100001 }, { id: 'a3', t: T + 2 }, { id: 'a4', t: now - 1000 }];
+  const r = Semi.responseStats(al, [{ vote: 'y', status: 'non aperto' }, { vote: 'n', status: 'chiuso' }], now);
+  assert.deepEqual(r, { n: 4, answered: 2, expired: 1, medS: 60, notOpened: 1 }, 'a3 e\' scaduto, a4 e\' ancora valido');
+  assert.deepEqual(Semi.responseStats([], [], now), { n: 0, answered: 0, expired: 0, medS: null, notOpened: 0 });
+  const html = fs.readFileSync(require.resolve('../index.html'), 'utf8'); assert.match(html, /data-jt="ris"/); assert.match(html, /Tempo mediano di risposta/);
+  assert.match(fs.readFileSync(require.resolve('../runner/runner.js'), 'utf8'), /responses: Semi\.responseStats/);
 });

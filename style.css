@@ -322,7 +322,7 @@ main { overflow: hidden; display: flex; flex-direction: column; padding-bottom: 
 .vfix, .vfoot { flex: 0 0 auto; }
 .vscroll { flex: 1 1 0; min-height: 0; overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; touch-action: pan-y; padding-bottom: 14px; }
 .vfoot { padding: 6px 0 8px; }
-#jReasons { height: 104px; overflow: hidden; } .jcard::after { content: '↗'; position: absolute; right: 10px; bottom: 6px; font-size: 12px; color: var(--muted); } .jcard { position: relative; cursor: pointer; } .jbody { padding-bottom: 4px; } .jcard::after { display: none; } .vfoot .card { margin-bottom: 0; }
+#jReasons { height: 112px; overflow: hidden; padding-top: 10px; padding-bottom: 10px; display: flex; flex-direction: column; justify-content: flex-start; } #jReasons .kv { align-items: center; row-gap: 5px; line-height: 1.3; } .jcard::after { content: '↗'; position: absolute; right: 10px; bottom: 6px; font-size: 12px; color: var(--muted); } .jcard { position: relative; cursor: pointer; } .jbody { padding-bottom: 4px; } .jcard::after { display: none; } .vfoot .card { margin-bottom: 0; }
 .vfoot .card[hidden] { display: none; }
 
 header { height: calc(env(safe-area-inset-top, 0px) + 12px + 44px + 8px + 28px + 8px); padding-bottom: 0; overflow: hidden; }
@@ -384,7 +384,11 @@ nav { height: 62px; margin-top: 4px; }
 /* Journal: la scheda dei trade chiusi resta ferma, scorre solo la lista al suo interno (intestazione fissa) */
 .vscroll.jfix { overflow: hidden; display: flex; flex-direction: column; padding-bottom: 0; }
 .jcard { flex: 1 1 0; min-height: 0; margin-bottom: 0; padding: 0 14px; display: flex; flex-direction: column; overflow: hidden; }
-.jrow { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.8fr) minmax(0, 0.85fr) minmax(0, 1.3fr); gap: 6px; align-items: center; padding: 7px 0; border-bottom: 1px solid var(--border); font: 12px var(--mono); }
+.jrow { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.85fr) minmax(0, 0.85fr) minmax(0, 1.5fr); gap: 6px; align-items: start; padding: 8px 0; border-bottom: 1px solid var(--border); font: 12px/1.35 var(--mono); }
+.jrow .dv { display: inline-block; width: 8px; height: 8px; margin-right: 6px; border-radius: 50%; vertical-align: 0; }
+.jrow .dv.g { background: var(--accent); } .jrow .dv.r { background: var(--danger); }
+.jrow .jd { white-space: nowrap; }
+.jhead { align-items: center; }
 .jfull .jrow[data-mint]:not([data-mint=""]) { cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .jrow > span { min-width: 0; overflow-wrap: anywhere; }
 .jhead { flex: 0 0 auto; padding: 12px 0 8px; color: var(--text-secondary); font-weight: 600; }
