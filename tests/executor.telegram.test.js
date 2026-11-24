@@ -475,3 +475,12 @@ test('menu: se il bot e\' collegato a un altro servizio lo dice, perche\' i tast
   const w = world(), ex = w.ex(); ex.env.STATE = { get: async (k) => (k === 'tgwh_note' ? 'il bot ha già un webhook altrove: usa un bot dedicato a Kaiser' : null) };
   await T.handleUpdate(ex, msgq('/menu')); assert.match(w.tg.at(-1).text, /ATTENZIONE: il bot ha già un webhook altrove/); assert.match(w.tg.at(-1).text, /pump\.fun funzionano comunque/);
 });
+
+test('tasto Apri Kaiser nei messaggi di avviso e di esito Prendo/Scarto: uguale tra Worker e runner, un solo tasto in fondo', async () => {
+  const K = await import('../worker/src/kb.js'), R = require('../runner/kb.js'), MINT = 'So11111111111111111111111111111111111111112';
+  const a = K.kb({ rows: [[{ text: 'Prendo', callback_data: 'hd:y:a0001' }]], mint: MINT, open: true }), b = R.kb({ rows: [[{ text: 'Prendo', callback_data: 'hd:y:a0001' }]], mint: MINT, open: true });
+  assert.deepEqual(a, b); const last = a.inline_keyboard.at(-1); assert.deepEqual(last.map((x) => x.text), ['Apri Kaiser']); assert.ok(last[0].url.startsWith('https://'));
+  assert.equal(a.inline_keyboard.flat().filter((x) => x.text === 'Apri Kaiser').length, 1);
+  assert.deepEqual(R.kb({ open: true }).inline_keyboard, [[{ text: 'Apri Kaiser', url: R.APP_URL }]]);
+  const Semi = require('../runner/semi.js'); assert.equal(Semi.keyboard({ id: 'a0001', mint: MINT, pair: '' }).inline_keyboard.at(-1)[0].text, 'Apri Kaiser');
+});

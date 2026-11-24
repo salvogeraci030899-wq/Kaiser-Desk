@@ -17,6 +17,7 @@ function kb(o) {
   if (o && o.mint) rows.push(...coinRows(o.mint, o.pair));
   const c = o && o.close ? closeRow(o.close) : null; if (c) rows.push(c);
   if (o && o.app && !(o.mint && MINT_RE.test(o.mint))) rows.push(appRow(typeof o.app === 'string' ? o.app : ''));
+  if (o && o.open) rows.push([{ text: 'Apri Kaiser', url: APP_URL }]);      // anche nei messaggi con una Coin (avvisi Prendo/Scarto e loro esito): un solo tasto in fondo
   return rows.length ? { inline_keyboard: rows } : null;
 }
 
