@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-24 21:30 UTC · in esecuzione da 2.0 giorni · 377 run
+Aggiornato: 2026-11-24 21:35 UTC · in esecuzione da 2.0 giorni · 377 run
 
 | | |
 |---|---|
@@ -62,7 +62,7 @@ Il conteggio parte dal 2026-11-23 09:12 UTC (primo run con id unici e senza bloc
 
 ## Coin di fascia alta e ricerca sui creatori
 Il Radar guarda le Coin da 500000 dollari di market cap in su. Per ognuna si risale al creatore e si registra la market cap: una Coin e' «raddoppiata» se supera il doppio della prima lettura in fascia. Il profilo del creatore compare nell'avviso.
-Memoria: 174602 lanci noti, 32632 creatori; 31 Coin in fascia alta viste (26 creatori), 9 raddoppiate (7 creatori). Creatore trovato: tabella 162, richiesta esterna 0, sconosciuto 0.
+Memoria: 174776 lanci noti, 32657 creatori; 31 Coin in fascia alta viste (26 creatori), 9 raddoppiate (7 creatori). Creatore trovato: tabella 209, richiesta esterna 0, sconosciuto 0.
 Richieste esterne per il creatore: nessuna ancora.
 
 | Fascia | Avvisi | Prendo / Scarto | Tuoi trade chiusi | Netto medio |
@@ -93,6 +93,24 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 
 ## Ultimi eventi
 ```
+21:35:34 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 265 veto
+21:35:09 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 251 veto
+21:34:45 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 266 veto
+21:34:22 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 270 veto
+21:34:00 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 266 veto
+21:33:36 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 263 veto
+21:33:13 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 269 veto
+21:32:50 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 272 veto
+21:32:25 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 260 veto
+21:32:02 ORACLE   360 raccolti, 261 analizzati, 3 BUY, 257 veto
+21:32:00 SCOUT    jup nuovi: HTTP 429 (riuso l'ultimo elenco)
+21:32:00 SCOUT    jup organic: HTTP 429 (riuso l'ultimo elenco)
+21:32:00 SCOUT    jup trend: HTTP 429 (riuso l'ultimo elenco)
+21:32:00 SCOUT    prezzo SOL non disponibile: HTTP 429
+21:31:50 ORACLE   360 raccolti, 270 analizzati, 3 BUY, 266 veto
+21:31:24 ORACLE   360 raccolti, 277 analizzati, 3 BUY, 273 veto
+21:31:01 ORACLE   360 raccolti, 268 analizzati, 3 BUY, 264 veto
+21:30:36 ORACLE   360 raccolti, 272 analizzati, 3 BUY, 268 veto
 21:30:23 ORACLE   360 raccolti, 275 analizzati, 3 BUY, 271 veto
 21:29:58 ORACLE   360 raccolti, 272 analizzati, 3 BUY, 268 veto
 21:29:34 ORACLE   360 raccolti, 267 analizzati, 3 BUY, 263 veto
@@ -115,24 +133,6 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 21:24:41 ORACLE   360 raccolti, 265 analizzati, 4 BUY, 261 veto
 21:24:19 ORACLE   360 raccolti, 261 analizzati, 3 BUY, 257 veto
 21:23:55 ORACLE   360 raccolti, 271 analizzati, 3 BUY, 267 veto
-21:23:32 ORACLE   360 raccolti, 282 analizzati, 4 BUY, 278 veto
-21:23:09 ORACLE   360 raccolti, 278 analizzati, 4 BUY, 274 veto
-21:23:06 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
-21:23:06 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)
-21:23:06 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
-21:22:46 ORACLE   360 raccolti, 271 analizzati, 4 BUY, 267 veto
-21:22:22 ORACLE   360 raccolti, 271 analizzati, 4 BUY, 267 veto
-21:21:59 ORACLE   360 raccolti, 260 analizzati, 4 BUY, 256 veto
-21:21:46 ORACLE   360 raccolti, 277 analizzati, 4 BUY, 273 veto
-21:21:21 ORACLE   360 raccolti, 272 analizzati, 4 BUY, 268 veto
-21:20:57 ORACLE   360 raccolti, 255 analizzati, 4 BUY, 251 veto
-21:20:42 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 256 veto
-21:20:41 SCOUT    DexScreener errore: This operation was aborted
-21:20:05 ORACLE   360 raccolti, 272 analizzati, 3 BUY, 268 veto
-21:19:41 ORACLE   360 raccolti, 259 analizzati, 3 BUY, 255 veto
-21:19:18 ORACLE   360 raccolti, 271 analizzati, 3 BUY, 267 veto
-21:18:54 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 267 veto
-21:18:32 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 274 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
