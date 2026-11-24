@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-24 16:38 UTC · in esecuzione da 1.8 giorni · 371 run
+Aggiornato: 2026-11-24 16:43 UTC · in esecuzione da 1.8 giorni · 371 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-24 16:38 UTC · in esecuzione da 1.8 giorni · 371 run
 | Cassa | 6.0970 SOL |
 | Trade chiusi | 7 |
 | Win rate | 57% |
-| P&L realizzato | +0.0970 SOL (~$6.66) |
+| P&L realizzato | +0.0970 SOL (~$6.68) |
 | Media vincite / perdite | +29.9% / -13.2% |
 | Profit factor | 3.02 |
 | Circuit breaker | no |
@@ -62,7 +62,7 @@ Il conteggio parte dal 2026-11-23 09:12 UTC (primo run con id unici e senza bloc
 
 ## Coin di fascia alta e ricerca sui creatori
 Il Radar guarda le Coin da 500000 dollari di market cap in su. Per ognuna si risale al creatore e si registra la market cap: una Coin e' «raddoppiata» se supera il doppio della prima lettura in fascia. Il profilo del creatore compare nell'avviso.
-Memoria: 165468 lanci noti, 30806 creatori; 28 Coin in fascia alta viste (23 creatori), 7 raddoppiate (5 creatori). Creatore trovato: tabella 206, richiesta esterna 0, sconosciuto 0.
+Memoria: 165653 lanci noti, 30820 creatori; 28 Coin in fascia alta viste (23 creatori), 7 raddoppiate (5 creatori). Creatore trovato: tabella 245, richiesta esterna 0, sconosciuto 0.
 Richieste esterne per il creatore: nessuna ancora.
 
 | Fascia | Avvisi | Prendo / Scarto | Tuoi trade chiusi | Netto medio |
@@ -93,6 +93,19 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 
 ## Ultimi eventi
 ```
+16:43:40 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 263 veto
+16:43:18 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 261 veto
+16:42:54 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 263 veto
+16:42:30 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 258 veto
+16:42:08 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 253 veto
+16:41:45 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 256 veto
+16:41:22 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 254 veto
+16:41:00 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 249 veto
+16:40:35 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 251 veto
+16:40:12 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 253 veto
+16:39:47 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 247 veto
+16:39:23 ORACLE   360 raccolti, 236 analizzati, 2 BUY, 233 veto
+16:39:00 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 246 veto
 16:38:37 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 236 veto
 16:38:15 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 244 veto
 16:37:53 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 243 veto
@@ -120,19 +133,6 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 16:29:25 ORACLE   360 raccolti, 259 analizzati, 2 BUY, 256 veto
 16:29:23 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)
 16:29:02 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 261 veto
-16:28:39 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 265 veto
-16:28:17 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 254 veto
-16:27:54 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 254 veto
-16:27:32 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 254 veto
-16:27:10 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 247 veto
-16:26:46 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 251 veto
-16:26:22 ORACLE   360 raccolti, 252 analizzati, 2 BUY, 249 veto
-16:25:58 ORACLE   360 raccolti, 240 analizzati, 2 BUY, 237 veto
-16:25:35 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 234 veto
-16:25:11 ORACLE   360 raccolti, 235 analizzati, 2 BUY, 232 veto
-16:24:48 ORACLE   360 raccolti, 228 analizzati, 2 BUY, 225 veto
-16:24:26 ORACLE   360 raccolti, 224 analizzati, 2 BUY, 221 veto
-16:24:03 ORACLE   360 raccolti, 228 analizzati, 2 BUY, 225 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
