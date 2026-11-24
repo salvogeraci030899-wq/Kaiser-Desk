@@ -473,7 +473,7 @@ async function buy(c, o) {
   pushLive(true).catch(() => {});
   log('QUARTER', `BUY $${c.sym} ${sizeS.toFixed(3)} SOL score ${c.score} impatto ${(impact * 100).toFixed(2)}% (${src})`);
   await tg(human ? `<b>PRESO paper</b> $${esc(c.sym)} ${sizeS.toFixed(3)} SOL · impatto ${(impact * 100).toFixed(2)}%\n${p.id} · posizione aperta: ${bandMode ? `stop -${num(S.humanBandSl, 20)}%, a +${num(S.humanBandTp, 100)}% vende ${num(S.humanBandTpSell, 50)}% e il resto esce con trailing -${num(S.humanBandTrail, 25)}% (massimo ${(num(S.humanBandHoldMin, 360) / 60).toFixed(0)} ore)` : `esce da sola a +${num(S.humanTp, 10)}%, -${num(S.humanSl, 10)}% o dopo ${num(S.humanHoldSec, 60)} secondi`}. Per entrare davvero apri la Coin su pump.fun`
-    : `<b>BUY paper</b> $${esc(c.sym)} ${sizeS.toFixed(3)} SOL · score ${c.score}\n${p.id} · il paper ha comprato al posto tuo; per entrare a mano apri la Coin su pump.fun`, Kb.kb({ mint: c.mint, pair: fresh.pairAddress, close: p.id }));
+    : `<b>BUY paper</b> $${esc(c.sym)} ${sizeS.toFixed(3)} SOL · score ${c.score}\n${p.id} · il paper ha comprato al posto tuo; per entrare a mano apri la Coin su pump.fun`, Kb.kb({ mint: c.mint, pair: fresh.pairAddress, close: p.id, open: true }));
   return p;
 }
 // Prendo: il paper apre subito la posizione sulla Coin del segnale, con taglia e uscite impostate. Fa da filtro solo la decisione umana: restano i controlli del conto (circuit breaker, cassa, stessa Coin gia' aperta).
@@ -483,7 +483,7 @@ async function humanTake(a, at) {
   const o = { src: 'umano', why, band: a.band || '', cr: a.cr || '', aid: a.id || '' }; let p = null;
   if (!why) p = await buy({ mint: a.mint, sym: a.sym, name: a.name, score: a.score, srcs: ['umano'], a: { notes: ['scelta tua'], plus: [], m: {} }, pair: { priceNative: a.priceNative, pairAddress: a.pair, liquidity: { usd: a.liq } } }, o);
   if (!p) { a.nw = String(o.why || '').slice(0, 80); try { Semi.shadowOpen(a, S, at, sizeSol(), rt.solUsd || 150); } catch { /* facoltativo */ }      // si ricorda il motivo e si simula comunque cosa sarebbe successo, fuori da ogni conteggio
-    log('QUARTER', `Prendo $${a.sym} non aperto: ${o.why}`); await tg(`<b>PRESO</b> $${esc(a.sym)} non aperto in paper: ${esc(o.why)}`); }
+    log('QUARTER', `Prendo $${a.sym} non aperto: ${o.why}`); await tg(`<b>PRESO</b> $${esc(a.sym)} non aperto in paper: ${esc(o.why)}`, Kb.kb({ open: true })); }
   return p;
 }
 function calSummary(c) {

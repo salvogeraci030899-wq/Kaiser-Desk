@@ -35,7 +35,7 @@ function text(a) {
   return `<b>SEGNALE</b> $${esc(a.sym || a.mint.slice(0, 6))}${a.band ? ' · fascia ' + esc(a.band) : ''}\n${bits}${a.cline ? '\n' + esc(a.cline) : ''}\nDecidi tu: Prendo o Scarto. Con Prendo il paper apre subito la posizione e la gestisce da solo con le uscite impostate. Per entrare davvero apri la Coin su pump.fun.`;
 }
 const voteRow = (a) => (/^a[0-9a-z]{4,8}$/.test(a.id || '') ? [[{ text: 'Prendo', callback_data: 'hd:y:' + a.id }, { text: 'Scarto', callback_data: 'hd:n:' + a.id }]] : []);
-function keyboard(a) { return Kb.kb({ rows: voteRow(a), mint: a.mint, pair: a.pair }); }
+function keyboard(a) { return Kb.kb({ rows: voteRow(a), mint: a.mint, pair: a.pair, open: true }); }
 // Segnali ancora da seguire (meno di 17 minuti, senza ancora entrambe le misure)
 const open = (alerts, now) => alerts.filter((a) => now - a.t < TRACK_MS && (a.p5 == null || a.p15 == null));
 // Registra il prezzo corrente rispetto a quello del segnale: variazione ora, minimo, dopo 5 e dopo 15 minuti
