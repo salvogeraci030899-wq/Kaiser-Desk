@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-25 18:10 UTC · in esecuzione da 2.8 giorni · 401 run
+Aggiornato: 2026-11-25 18:16 UTC · in esecuzione da 2.9 giorni · 402 run
 
 | | |
 |---|---|
-| Equity | **6.1077 SOL** (+1.8% dal capitale iniziale di 6 SOL) |
+| Equity | **6.1065 SOL** (+1.8% dal capitale iniziale di 6 SOL) |
 | Cassa | 5.9799 SOL |
 | Trade chiusi | 12 |
 | Win rate | 50% |
-| P&L realizzato | +0.1030 SOL (~$7.17) |
+| P&L realizzato | +0.1030 SOL (~$7.18) |
 | Media vincite / perdite | +24.6% / -10.4% |
 | Profit factor | 2.36 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$Pompom** P-0683 · 0.122 SOL · +4.7% · resta 100% · [grafico](https://dexscreener.com/solana/7kNYdYbHbGMdQczmKSxqNzg4p4pGc6VpERzMfPBptGso)
+- **$Pompom** P-0683 · 0.122 SOL · +3.6% · resta 100% · [grafico](https://dexscreener.com/solana/7kNYdYbHbGMdQczmKSxqNzg4p4pGc6VpERzMfPBptGso)
 
 ## Test ingresso rapido (solo paper, quotazioni Jupiter)
 Ipotesi: comprare 5 secondi dopo la creazione, tenere 30 secondi, vendere. Un token su 3, 0.05 SOL a operazione. Serie 2 dal 2026-11-22 11:02 UTC.
@@ -62,8 +62,8 @@ Il conteggio parte dal 2026-11-23 09:12 UTC (primo run con id unici e senza bloc
 
 ## Coin di fascia alta e ricerca sui creatori
 Il Radar guarda le Coin da 500000 dollari di market cap in su. Per ognuna si risale al creatore e si registra la market cap: una Coin e' «raddoppiata» se supera il doppio della prima lettura in fascia. Il profilo del creatore compare nell'avviso.
-Memoria: 206935 lanci noti, 37930 creatori; 48 Coin in fascia alta viste (39 creatori), 13 raddoppiate (10 creatori). Creatore trovato: tabella 539, richiesta esterna 1, sconosciuto 0.
-Richieste esterne per il creatore: pump v3: 0 riuscite, 1 fallite (ultimo errore: HTTP 404); pump v1: 0 riuscite, 1 fallite (ultimo errore: HTTP 530); jupiter: 1 riuscite, 0 fallite.
+Memoria: 207180 lanci noti, 37962 creatori; 48 Coin in fascia alta viste (39 creatori), 13 raddoppiate (10 creatori). Creatore trovato: tabella 74, richiesta esterna 0, sconosciuto 0.
+Richieste esterne per il creatore: nessuna ancora.
 
 | Fascia | Avvisi | Prendo / Scarto | Tuoi trade chiusi | Netto medio |
 |---|---|---|---|---|
@@ -98,6 +98,24 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 
 ## Ultimi eventi
 ```
+18:16:11 ORACLE   360 raccolti, 222 analizzati, 2 BUY, 216 veto
+18:15:49 ORACLE   360 raccolti, 236 analizzati, 2 BUY, 230 veto
+18:15:25 ORACLE   360 raccolti, 229 analizzati, 3 BUY, 223 veto
+18:15:12 ORACLE   360 raccolti, 233 analizzati, 3 BUY, 227 veto
+18:14:46 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 237 veto
+18:14:23 ORACLE   349 raccolti, 223 analizzati, 1 BUY, 218 veto
+18:14:00 ORACLE   335 raccolti, 223 analizzati, 1 BUY, 218 veto
+18:13:37 ORACLE   323 raccolti, 170 analizzati, 1 BUY, 165 veto
+18:13:14 ORACLE   284 raccolti, 165 analizzati, 2 BUY, 160 veto
+18:12:51 ORACLE   271 raccolti, 160 analizzati, 2 BUY, 155 veto
+18:12:30 ORACLE   253 raccolti, 160 analizzati, 1 BUY, 155 veto
+18:12:07 ORACLE   224 raccolti, 121 analizzati, 1 BUY, 116 veto
+18:11:44 ORACLE   212 raccolti, 111 analizzati, 2 BUY, 106 veto
+18:11:23 ORACLE   205 raccolti, 111 analizzati, 1 BUY, 106 veto
+18:11:18 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
+18:11:18 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 40000→50000, minAgeMin 5→1, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 50000000→2000000, gmgnInterval 1h→1m, maxAgeH 720→72, minTxH1 40→50, entryGapSec 60→120, semiAuto spento→avvisi e paper
+18:11:18 KAISER   run #402 · 1 posizioni · equity 6.1077 SOL · GMGN spenta (nessuna chiave) · Grok off
+18:11:18 CREATORI memoria: 206935 lanci, 37930 creatori, 48 Coin in fascia alta
 18:10:56 SCRIBE   fine run · trade 12 · win 50% · P&L 0.1030 SOL · equity 6.1077 SOL
 18:10:56 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 241 veto
 18:10:32 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 260 veto
@@ -120,24 +138,6 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 18:03:55 ORACLE   360 raccolti, 229 analizzati, 2 BUY, 223 veto
 18:03:31 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 240 veto
 18:03:07 ORACLE   360 raccolti, 243 analizzati, 2 BUY, 237 veto
-18:02:43 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 242 veto
-18:02:19 ORACLE   360 raccolti, 249 analizzati, 2 BUY, 243 veto
-18:01:54 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 235 veto
-18:01:40 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 238 veto
-18:01:15 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 233 veto
-18:00:51 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 239 veto
-18:00:26 ORACLE   360 raccolti, 253 analizzati, 3 BUY, 247 veto
-18:00:03 ORACLE   360 raccolti, 249 analizzati, 3 BUY, 243 veto
-17:59:39 ORACLE   360 raccolti, 223 analizzati, 2 BUY, 217 veto
-17:59:15 ORACLE   360 raccolti, 232 analizzati, 2 BUY, 226 veto
-17:58:50 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 231 veto
-17:58:27 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 251 veto
-17:58:03 ORACLE   360 raccolti, 236 analizzati, 2 BUY, 230 veto
-17:57:39 ORACLE   360 raccolti, 236 analizzati, 2 BUY, 230 veto
-17:57:16 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 244 veto
-17:57:03 ORACLE   360 raccolti, 232 analizzati, 2 BUY, 226 veto
-17:56:57 QUARTER  BUY $Pompom 0.122 SOL score 58 impatto 0.00% (Jupiter)
-17:56:37 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 248 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
