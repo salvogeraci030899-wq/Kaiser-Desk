@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-25 20:42 UTC · in esecuzione da 3.0 giorni · 404 run
+Aggiornato: 2026-11-25 20:47 UTC · in esecuzione da 3.0 giorni · 405 run
 
 | | |
 |---|---|
-| Equity | **6.0730 SOL** (+1.2% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.9373 SOL |
-| Trade chiusi | 14 |
-| Win rate | 43% |
-| P&L realizzato | +0.0595 SOL (~$4.16) |
-| Media vincite / perdite | +24.6% / -12.2% |
-| Profit factor | 1.50 |
+| Equity | **6.0043 SOL** (+0.1% dal capitale iniziale di 6 SOL) |
+| Cassa | 6.0043 SOL |
+| Trade chiusi | 15 |
+| Win rate | 40% |
+| P&L realizzato | +0.0043 SOL (~$0.30) |
+| Media vincite / perdite | +24.6% / -15.9% |
+| Profit factor | 1.02 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$Pompompurin** P-0685 · 0.121 SOL · +12.0% · resta 100% · [grafico](https://dexscreener.com/solana/F1oTWvNF5HVy3BrLo2q9djpAATid8KXSpoKSr9MuLWkM)
+_nessuna_
 
 ## Test ingresso rapido (solo paper, quotazioni Jupiter)
 Ipotesi: comprare 5 secondi dopo la creazione, tenere 30 secondi, vendere. Un token su 3, 0.05 SOL a operazione. Serie 2 dal 2026-11-22 11:02 UTC.
@@ -55,19 +55,19 @@ Il conteggio parte dal 2026-11-23 09:12 UTC (primo run con id unici e senza bloc
 | | |
 |---|---|
 | Esito | **in corso** |
-| Prendo chiusi | 14 di 50, netto medio +3.5% (intervallo -8.8% / +15.9%), in utile 42.9% |
+| Prendo chiusi | 15 di 50, netto medio +0.3% (intervallo -12.8% / +13.4%), in utile 40% |
 | Scarto simulati chiusi | 8, netto medio -2.5% (intervallo -44.2% / +39.1%), in utile 25%; ancora aperti 0 |
-| Prendo meno Scarto (limite inferiore) | +6.1% (-37.4%) |
+| Prendo meno Scarto (limite inferiore) | +2.8% (-40.9%) |
 | Avvisi senza risposta | 33 |
 
 ## Coin di fascia alta e ricerca sui creatori
 Il Radar guarda le Coin da 500000 dollari di market cap in su. Per ognuna si risale al creatore e si registra la market cap: una Coin e' «raddoppiata» se supera il doppio della prima lettura in fascia. Il profilo del creatore compare nell'avviso.
-Memoria: 212780 lanci noti, 38872 creatori; 54 Coin in fascia alta viste (45 creatori), 16 raddoppiate (13 creatori). Creatore trovato: tabella 764, richiesta esterna 0, sconosciuto 0.
+Memoria: 212928 lanci noti, 38890 creatori; 54 Coin in fascia alta viste (45 creatori), 17 raddoppiate (14 creatori). Creatore trovato: tabella 61, richiesta esterna 0, sconosciuto 0.
 Richieste esterne per il creatore: nessuna ancora.
 
 | Fascia | Avvisi | Prendo / Scarto | Tuoi trade chiusi | Netto medio |
 |---|---|---|---|---|
-| 500K-1M | 39 | 14 / 6 | 13 | +5.3% |
+| 500K-1M | 39 | 14 / 6 | 14 | +1.7% |
 | 1M-2M | 14 | 2 / 3 | 1 | -19.6% |
 | 2M+ | 5 | 0 / 0 | 0 | n/d |
 
@@ -76,13 +76,14 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| Stop loss | 6 | -0.0944 |
+| Stop loss | 7 | -0.1496 |
 | Chiusura manuale (app) | 7 | +0.0793 |
 | Trailing stop | 1 | +0.0746 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $Pompompurin | 86 | -45.1% | -0.0551 | +85% | -32% | Stop loss | 15m |
 | $PPK | 86 | -14.2% | -0.0173 | +0% | -31% | Stop loss | 1m |
 | $Pompom | 58 | -21.3% | -0.0262 | +8% | -20% | Stop loss | 36m |
 | $LENDR | 58 | +13.3% | +0.0163 | +26% | +14% | Chiusura manuale (app) | 6m |
@@ -100,6 +101,26 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 
 ## Ultimi eventi
 ```
+20:47:22 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 236 veto
+20:46:59 ORACLE   360 raccolti, 220 analizzati, 1 BUY, 216 veto
+20:46:36 ORACLE   360 raccolti, 233 analizzati, 1 BUY, 229 veto
+20:46:12 ORACLE   353 raccolti, 227 analizzati, 1 BUY, 223 veto
+20:45:49 ORACLE   343 raccolti, 227 analizzati, 1 BUY, 223 veto
+20:45:26 ORACLE   320 raccolti, 190 analizzati, 1 BUY, 186 veto
+20:45:03 ORACLE   307 raccolti, 185 analizzati, 1 BUY, 181 veto
+20:44:41 ORACLE   300 raccolti, 185 analizzati, 1 BUY, 181 veto
+20:44:18 SCRIBE   chiuso P-0685 $Pompompurin -0.0551 SOL (-45.1%)
+20:44:18 CHARON   Stop loss $Pompompurin vendo 100% a -31.7% -> 0.0670 SOL
+20:44:18 ORACLE   281 raccolti, 162 analizzati, 1 BUY, 158 veto
+20:43:55 ORACLE   266 raccolti, 150 analizzati, 2 BUY, 145 veto
+20:43:32 ORACLE   264 raccolti, 150 analizzati, 2 BUY, 145 veto
+20:43:09 ORACLE   238 raccolti, 147 analizzati, 2 BUY, 142 veto
+20:42:47 ORACLE   228 raccolti, 128 analizzati, 3 BUY, 123 veto
+20:42:25 ORACLE   221 raccolti, 128 analizzati, 3 BUY, 123 veto
+20:42:21 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
+20:42:20 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 40000→50000, minAgeMin 5→1, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 50000000→2000000, gmgnInterval 1h→1m, maxAgeH 720→72, minTxH1 40→50, entryGapSec 60→120, semiAuto spento→avvisi e paper
+20:42:20 KAISER   run #405 · 1 posizioni · equity 6.0730 SOL · GMGN spenta (nessuna chiave) · Grok off
+20:42:20 CREATORI memoria: 212780 lanci, 38872 creatori, 54 Coin in fascia alta
 20:42:04 SCRIBE   fine run · trade 14 · win 43% · P&L 0.0595 SOL · equity 6.0730 SOL
 20:42:04 ORACLE   360 raccolti, 226 analizzati, 3 BUY, 221 veto
 20:41:49 ORACLE   360 raccolti, 246 analizzati, 3 BUY, 241 veto
@@ -120,26 +141,6 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 20:35:59 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 235 veto
 20:35:36 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 250 veto
 20:35:11 ORACLE   360 raccolti, 243 analizzati, 2 BUY, 236 veto
-20:34:48 ORACLE   360 raccolti, 253 analizzati, 3 BUY, 246 veto
-20:34:34 ORACLE   360 raccolti, 259 analizzati, 3 BUY, 252 veto
-20:34:09 ORACLE   360 raccolti, 239 analizzati, 3 BUY, 232 veto
-20:33:45 ORACLE   360 raccolti, 256 analizzati, 3 BUY, 249 veto
-20:33:22 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 245 veto
-20:32:59 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 254 veto
-20:32:35 ORACLE   360 raccolti, 235 analizzati, 2 BUY, 229 veto
-20:32:12 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 240 veto
-20:31:49 ORACLE   360 raccolti, 218 analizzati, 3 BUY, 211 veto
-20:31:35 ORACLE   360 raccolti, 241 analizzati, 3 BUY, 234 veto
-20:31:10 ORACLE   360 raccolti, 238 analizzati, 2 BUY, 232 veto
-20:30:46 ORACLE   360 raccolti, 218 analizzati, 2 BUY, 212 veto
-20:30:33 ORACLE   360 raccolti, 231 analizzati, 2 BUY, 225 veto
-20:30:09 ORACLE   360 raccolti, 233 analizzati, 2 BUY, 226 veto
-20:29:42 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 238 veto
-20:29:18 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 240 veto
-20:28:54 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 249 veto
-20:28:50 QUARTER  BUY $Pompompurin 0.121 SOL score 86 impatto 0.61% (Jupiter)
-20:28:29 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 236 veto
-20:28:16 QUARTER  SEGNALE $Pompompurin score 86 (semi-automatico)
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.

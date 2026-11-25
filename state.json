@@ -1,66 +1,8 @@
 {
  "startedAt": 1795384038486,
- "runs": 404,
- "cash": 5.937279878806766,
- "positions": [
-  {
-   "id": "P-0685",
-   "mint": "H2iscCQ4RiZ5ufu3UTBS2VDrVqbNY8gN7eVSSASBpump",
-   "sym": "Pompompurin",
-   "name": "ポムポムプリン",
-   "pairAddress": "F1oTWvNF5HVy3BrLo2q9djpAATid8KXSpoKSr9MuLWkM",
-   "openedAt": 1795638530254,
-   "sizeSOL": 0.12118938528177074,
-   "cost": 0.12218938528177074,
-   "entry": 0.00000799647365343088,
-   "tokens": 15155.353538840778,
-   "remaining": 1,
-   "rawLeft": "13829938312",
-   "peak": 0.0000148,
-   "tp1Done": false,
-   "spDone": false,
-   "entryLiq": 51795.01,
-   "realized": 0,
-   "score": 86,
-   "why": "umano",
-   "src": "umano",
-   "xs": {
-    "sl": 20,
-    "tp1": 100,
-    "tp1Sell": 50,
-    "trail": 25,
-    "beAfterTp1": true,
-    "timeStopMin": 360,
-    "timeStopMinPnl": 1000000000,
-    "sellPressure": false
-   },
-   "band": "500K-1M",
-   "cr": "6yFSumNWJAoaEPwvYCM4aXHemjsiBP3yL9J2xKDuVxgt",
-   "aid": "atp2rj3",
-   "entryInfo": {
-    "srcs": [
-     "umano"
-    ],
-    "notes": [
-     "scelta tua"
-    ],
-    "plus": [],
-    "m": {},
-    "grok": null
-   },
-   "last": {
-    "priceNative": 0.000008953,
-    "liq": 55656.88,
-    "br5": 2.8704453441295548,
-    "tx5": 1910,
-    "t": 1795639324521
-   },
-   "fills": [
-    "BUY 0.121 impatto 0.61% (Jupiter)"
-   ],
-   "trough": 0.000006785
-  }
- ],
+ "runs": 405,
+ "cash": 6.004321936296766,
+ "positions": [],
  "journal": [
   {
    "id": "P-0671",
@@ -537,156 +479,43 @@
    },
    "maePct": -30.78449110194602,
    "age": null
+  },
+  {
+   "id": "P-0685",
+   "mint": "H2iscCQ4RiZ5ufu3UTBS2VDrVqbNY8gN7eVSSASBpump",
+   "sym": "Pompompurin",
+   "openedAt": 1795638530254,
+   "closedAt": 1795639458076,
+   "cost": 0.12218938528177074,
+   "back": 0.06704205748999999,
+   "pnl": -0.055147327791770756,
+   "pct": -45.13266652794767,
+   "mode": "paper",
+   "src": "umano",
+   "band": "500K-1M",
+   "cr": "6yFSumNWJAoaEPwvYCM4aXHemjsiBP3yL9J2xKDuVxgt",
+   "aid": "atp2rj3",
+   "reason": "Stop loss",
+   "score": 86,
+   "solUsd": 70.16277752696752,
+   "peakPct": 85.08158272553143,
+   "trigPct": -31.682386052055524,
+   "entryInfo": {
+    "srcs": [
+     "umano"
+    ],
+    "notes": [
+     "scelta tua"
+    ],
+    "plus": [],
+    "m": {},
+    "grok": null
+   },
+   "maePct": -31.682386052055524,
+   "age": null
   }
  ],
  "signals": [
-  {
-   "t": 1795623483492,
-   "mint": "GisWWjhwrSud4aFGSHvTMt85Ky14sY7LeBFCpfoFpump",
-   "sym": "Jimmies",
-   "score": 73,
-   "priceNative": 0.00001629
-  },
-  {
-   "t": 1795623483492,
-   "mint": "3Tg6YnNrfPdFfsY14MaNsDMWLseAyrUDS3myJtbaJN6f",
-   "sym": "BASKET",
-   "score": 63,
-   "priceNative": 0.00001811
-  },
-  {
-   "t": 1795623506037,
-   "mint": "GisWWjhwrSud4aFGSHvTMt85Ky14sY7LeBFCpfoFpump",
-   "sym": "Jimmies",
-   "score": 73,
-   "priceNative": 0.00001635
-  },
-  {
-   "t": 1795623506037,
-   "mint": "3Tg6YnNrfPdFfsY14MaNsDMWLseAyrUDS3myJtbaJN6f",
-   "sym": "BASKET",
-   "score": 65,
-   "priceNative": 0.00001804
-  },
-  {
-   "t": 1795623527781,
-   "mint": "GisWWjhwrSud4aFGSHvTMt85Ky14sY7LeBFCpfoFpump",
-   "sym": "Jimmies",
-   "score": 73,
-   "priceNative": 0.00001635
-  },
-  {
-   "t": 1795623527781,
-   "mint": "3Tg6YnNrfPdFfsY14MaNsDMWLseAyrUDS3myJtbaJN6f",
-   "sym": "BASKET",
-   "score": 65,
-   "priceNative": 0.00001804
-  },
-  {
-   "t": 1795623550394,
-   "mint": "GisWWjhwrSud4aFGSHvTMt85Ky14sY7LeBFCpfoFpump",
-   "sym": "Jimmies",
-   "score": 73,
-   "priceNative": 0.00001624
-  },
-  {
-   "t": 1795623572589,
-   "mint": "GisWWjhwrSud4aFGSHvTMt85Ky14sY7LeBFCpfoFpump",
-   "sym": "Jimmies",
-   "score": 73,
-   "priceNative": 0.00001624
-  },
-  {
-   "t": 1795623594854,
-   "mint": "GisWWjhwrSud4aFGSHvTMt85Ky14sY7LeBFCpfoFpump",
-   "sym": "Jimmies",
-   "score": 73,
-   "priceNative": 0.00001624
-  },
-  {
-   "t": 1795623617310,
-   "mint": "GisWWjhwrSud4aFGSHvTMt85Ky14sY7LeBFCpfoFpump",
-   "sym": "Jimmies",
-   "score": 73,
-   "priceNative": 0.00001624
-  },
-  {
-   "t": 1795623639524,
-   "mint": "GisWWjhwrSud4aFGSHvTMt85Ky14sY7LeBFCpfoFpump",
-   "sym": "Jimmies",
-   "score": 78,
-   "priceNative": 0.00001635
-  },
-  {
-   "t": 1795623662193,
-   "mint": "GisWWjhwrSud4aFGSHvTMt85Ky14sY7LeBFCpfoFpump",
-   "sym": "Jimmies",
-   "score": 78,
-   "priceNative": 0.00001635
-  },
-  {
-   "t": 1795623685698,
-   "mint": "GisWWjhwrSud4aFGSHvTMt85Ky14sY7LeBFCpfoFpump",
-   "sym": "Jimmies",
-   "score": 73,
-   "priceNative": 0.00001623
-  },
-  {
-   "t": 1795623707832,
-   "mint": "GisWWjhwrSud4aFGSHvTMt85Ky14sY7LeBFCpfoFpump",
-   "sym": "Jimmies",
-   "score": 73,
-   "priceNative": 0.00001623
-  },
-  {
-   "t": 1795623731300,
-   "mint": "GisWWjhwrSud4aFGSHvTMt85Ky14sY7LeBFCpfoFpump",
-   "sym": "Jimmies",
-   "score": 73,
-   "priceNative": 0.00001581
-  },
-  {
-   "t": 1795623753912,
-   "mint": "GisWWjhwrSud4aFGSHvTMt85Ky14sY7LeBFCpfoFpump",
-   "sym": "Jimmies",
-   "score": 73,
-   "priceNative": 0.00001581
-  },
-  {
-   "t": 1795623776790,
-   "mint": "GisWWjhwrSud4aFGSHvTMt85Ky14sY7LeBFCpfoFpump",
-   "sym": "Jimmies",
-   "score": 73,
-   "priceNative": 0.00001585
-  },
-  {
-   "t": 1795623798635,
-   "mint": "GisWWjhwrSud4aFGSHvTMt85Ky14sY7LeBFCpfoFpump",
-   "sym": "Jimmies",
-   "score": 73,
-   "priceNative": 0.00001585
-  },
-  {
-   "t": 1795623820967,
-   "mint": "GisWWjhwrSud4aFGSHvTMt85Ky14sY7LeBFCpfoFpump",
-   "sym": "Jimmies",
-   "score": 73,
-   "priceNative": 0.00001585
-  },
-  {
-   "t": 1795623843126,
-   "mint": "GisWWjhwrSud4aFGSHvTMt85Ky14sY7LeBFCpfoFpump",
-   "sym": "Jimmies",
-   "score": 73,
-   "priceNative": 0.00001585
-  },
-  {
-   "t": 1795623865969,
-   "mint": "GisWWjhwrSud4aFGSHvTMt85Ky14sY7LeBFCpfoFpump",
-   "sym": "Jimmies",
-   "score": 73,
-   "priceNative": 0.00001565
-  },
   {
    "t": 1795623888177,
    "mint": "GisWWjhwrSud4aFGSHvTMt85Ky14sY7LeBFCpfoFpump",
@@ -7539,6 +7368,153 @@
    "sym": "BASKET",
    "score": 64,
    "priceNative": 0.00001095
+  },
+  {
+   "t": 1795639345504,
+   "mint": "H2iscCQ4RiZ5ufu3UTBS2VDrVqbNY8gN7eVSSASBpump",
+   "sym": "Pompompurin",
+   "score": 86,
+   "priceNative": 0.000009419
+  },
+  {
+   "t": 1795639345504,
+   "mint": "H4eqZumNhGk7LKLB5QpJb84EYZ1yHbEg9HiwwLqkpump",
+   "sym": "OnlyUp",
+   "score": 86,
+   "priceNative": 0.000009123
+  },
+  {
+   "t": 1795639345504,
+   "mint": "3Tg6YnNrfPdFfsY14MaNsDMWLseAyrUDS3myJtbaJN6f",
+   "sym": "BASKET",
+   "score": 65,
+   "priceNative": 0.00001101
+  },
+  {
+   "t": 1795639367329,
+   "mint": "H2iscCQ4RiZ5ufu3UTBS2VDrVqbNY8gN7eVSSASBpump",
+   "sym": "Pompompurin",
+   "score": 86,
+   "priceNative": 0.000009419
+  },
+  {
+   "t": 1795639367329,
+   "mint": "H4eqZumNhGk7LKLB5QpJb84EYZ1yHbEg9HiwwLqkpump",
+   "sym": "OnlyUp",
+   "score": 86,
+   "priceNative": 0.000009123
+  },
+  {
+   "t": 1795639367329,
+   "mint": "3Tg6YnNrfPdFfsY14MaNsDMWLseAyrUDS3myJtbaJN6f",
+   "sym": "BASKET",
+   "score": 65,
+   "priceNative": 0.00001101
+  },
+  {
+   "t": 1795639389853,
+   "mint": "H4eqZumNhGk7LKLB5QpJb84EYZ1yHbEg9HiwwLqkpump",
+   "sym": "OnlyUp",
+   "score": 85,
+   "priceNative": 0.000008625
+  },
+  {
+   "t": 1795639389853,
+   "mint": "H2iscCQ4RiZ5ufu3UTBS2VDrVqbNY8gN7eVSSASBpump",
+   "sym": "Pompompurin",
+   "score": 81,
+   "priceNative": 0.000009141
+  },
+  {
+   "t": 1795639412862,
+   "mint": "H4eqZumNhGk7LKLB5QpJb84EYZ1yHbEg9HiwwLqkpump",
+   "sym": "OnlyUp",
+   "score": 85,
+   "priceNative": 0.000008625
+  },
+  {
+   "t": 1795639412862,
+   "mint": "H2iscCQ4RiZ5ufu3UTBS2VDrVqbNY8gN7eVSSASBpump",
+   "sym": "Pompompurin",
+   "score": 81,
+   "priceNative": 0.000009141
+  },
+  {
+   "t": 1795639435109,
+   "mint": "H4eqZumNhGk7LKLB5QpJb84EYZ1yHbEg9HiwwLqkpump",
+   "sym": "OnlyUp",
+   "score": 84,
+   "priceNative": 0.000008411
+  },
+  {
+   "t": 1795639435109,
+   "mint": "H2iscCQ4RiZ5ufu3UTBS2VDrVqbNY8gN7eVSSASBpump",
+   "sym": "Pompompurin",
+   "score": 81,
+   "priceNative": 0.000007416
+  },
+  {
+   "t": 1795639458030,
+   "mint": "H4eqZumNhGk7LKLB5QpJb84EYZ1yHbEg9HiwwLqkpump",
+   "sym": "OnlyUp",
+   "score": 84,
+   "priceNative": 0.00001136
+  },
+  {
+   "t": 1795639481066,
+   "mint": "H4eqZumNhGk7LKLB5QpJb84EYZ1yHbEg9HiwwLqkpump",
+   "sym": "OnlyUp",
+   "score": 84,
+   "priceNative": 0.00001136
+  },
+  {
+   "t": 1795639503282,
+   "mint": "H4eqZumNhGk7LKLB5QpJb84EYZ1yHbEg9HiwwLqkpump",
+   "sym": "OnlyUp",
+   "score": 84,
+   "priceNative": 0.00001397
+  },
+  {
+   "t": 1795639526805,
+   "mint": "H4eqZumNhGk7LKLB5QpJb84EYZ1yHbEg9HiwwLqkpump",
+   "sym": "OnlyUp",
+   "score": 84,
+   "priceNative": 0.00001422
+  },
+  {
+   "t": 1795639549874,
+   "mint": "H4eqZumNhGk7LKLB5QpJb84EYZ1yHbEg9HiwwLqkpump",
+   "sym": "OnlyUp",
+   "score": 84,
+   "priceNative": 0.00001422
+  },
+  {
+   "t": 1795639572792,
+   "mint": "H4eqZumNhGk7LKLB5QpJb84EYZ1yHbEg9HiwwLqkpump",
+   "sym": "OnlyUp",
+   "score": 83,
+   "priceNative": 0.00001612
+  },
+  {
+   "t": 1795639596139,
+   "mint": "H4eqZumNhGk7LKLB5QpJb84EYZ1yHbEg9HiwwLqkpump",
+   "sym": "OnlyUp",
+   "score": 83,
+   "priceNative": 0.00001612
+  },
+  {
+   "t": 1795639619935,
+   "mint": "H4eqZumNhGk7LKLB5QpJb84EYZ1yHbEg9HiwwLqkpump",
+   "sym": "OnlyUp",
+   "score": 77,
+   "priceNative": 0.000008585
+  },
+  {
+   "t": 1795639642228,
+   "mint": "H4eqZumNhGk7LKLB5QpJb84EYZ1yHbEg9HiwwLqkpump",
+   "sym": "OnlyUp",
+   "score": 77,
+   "priceNative": 0.000008585
   }
  ],
  "alerts": [
@@ -9179,12 +9155,13 @@
     "turnover 3.8x/h",
     "pressione in acquisto"
    ],
-   "last": 18.9,
+   "last": 21.4,
    "min": -9.9,
    "vote": "y",
    "vAt": 1795638510584,
    "vp": 4.5,
-   "p5": 53.2
+   "p5": 53.2,
+   "p15": 21.4
   }
  ],
  "grokLog": [],
@@ -9192,10 +9169,30 @@
   "date": "2026-11-25",
   "startEq": 6.097040656050026
  },
- "cooldownUntil": 1795634819234,
+ "cooldownUntil": 1795639758080,
  "halted": null,
  "seq": 685,
  "events": [
+  "20:47:22 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 236 veto",
+  "20:46:59 ORACLE   360 raccolti, 220 analizzati, 1 BUY, 216 veto",
+  "20:46:36 ORACLE   360 raccolti, 233 analizzati, 1 BUY, 229 veto",
+  "20:46:12 ORACLE   353 raccolti, 227 analizzati, 1 BUY, 223 veto",
+  "20:45:49 ORACLE   343 raccolti, 227 analizzati, 1 BUY, 223 veto",
+  "20:45:26 ORACLE   320 raccolti, 190 analizzati, 1 BUY, 186 veto",
+  "20:45:03 ORACLE   307 raccolti, 185 analizzati, 1 BUY, 181 veto",
+  "20:44:41 ORACLE   300 raccolti, 185 analizzati, 1 BUY, 181 veto",
+  "20:44:18 SCRIBE   chiuso P-0685 $Pompompurin -0.0551 SOL (-45.1%)",
+  "20:44:18 CHARON   Stop loss $Pompompurin vendo 100% a -31.7% -> 0.0670 SOL",
+  "20:44:18 ORACLE   281 raccolti, 162 analizzati, 1 BUY, 158 veto",
+  "20:43:55 ORACLE   266 raccolti, 150 analizzati, 2 BUY, 145 veto",
+  "20:43:32 ORACLE   264 raccolti, 150 analizzati, 2 BUY, 145 veto",
+  "20:43:09 ORACLE   238 raccolti, 147 analizzati, 2 BUY, 142 veto",
+  "20:42:47 ORACLE   228 raccolti, 128 analizzati, 3 BUY, 123 veto",
+  "20:42:25 ORACLE   221 raccolti, 128 analizzati, 3 BUY, 123 veto",
+  "20:42:21 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com",
+  "20:42:20 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 40000→50000, minAgeMin 5→1, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 50000000→2000000, gmgnInterval 1h→1m, maxAgeH 720→72, minTxH1 40→50, entryGapSec 60→120, semiAuto spento→avvisi e paper",
+  "20:42:20 KAISER   run #405 · 1 posizioni · equity 6.0730 SOL · GMGN spenta (nessuna chiave) · Grok off",
+  "20:42:20 CREATORI memoria: 212780 lanci, 38872 creatori, 54 Coin in fascia alta",
   "20:42:04 SCRIBE   fine run · trade 14 · win 43% · P&L 0.0595 SOL · equity 6.0730 SOL",
   "20:42:04 ORACLE   360 raccolti, 226 analizzati, 3 BUY, 221 veto",
   "20:41:49 ORACLE   360 raccolti, 246 analizzati, 3 BUY, 241 veto",
@@ -9475,27 +9472,7 @@
   "19:02:58 ORACLE   287 raccolti, 165 analizzati, 1 BUY, 161 veto",
   "19:02:33 ORACLE   239 raccolti, 146 analizzati, 1 BUY, 142 veto",
   "19:02:11 ORACLE   222 raccolti, 129 analizzati, 1 BUY, 125 veto",
-  "19:01:49 ORACLE   214 raccolti, 128 analizzati, 1 BUY, 125 veto",
-  "19:01:46 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 40000→50000, minAgeMin 5→1, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 50000000→2000000, gmgnInterval 1h→1m, maxAgeH 720→72, minTxH1 40→50, entryGapSec 60→120, semiAuto spento→avvisi e paper",
-  "19:01:46 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com",
-  "19:01:45 KAISER   run #403 · 0 posizioni · equity 6.0768 SOL · GMGN spenta (nessuna chiave) · Grok off",
-  "19:01:45 CREATORI memoria: 208933 lanci, 38270 creatori, 48 Coin in fascia alta",
-  "19:01:18 SCRIBE   fine run · trade 13 · win 46% · P&L 0.0768 SOL · equity 6.0768 SOL",
-  "19:01:14 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 230 veto",
-  "19:00:51 ORACLE   360 raccolti, 209 analizzati, 1 BUY, 205 veto",
-  "19:00:28 ORACLE   360 raccolti, 227 analizzati, 1 BUY, 223 veto",
-  "19:00:04 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 233 veto",
-  "18:59:40 ORACLE   360 raccolti, 217 analizzati, 1 BUY, 213 veto",
-  "18:59:18 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 238 veto",
-  "18:58:55 ORACLE   360 raccolti, 240 analizzati, 2 BUY, 236 veto",
-  "18:58:31 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 232 veto",
-  "18:58:09 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 235 veto",
-  "18:57:46 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 252 veto",
-  "18:57:22 ORACLE   360 raccolti, 231 analizzati, 1 BUY, 228 veto",
-  "18:56:59 ORACLE   360 raccolti, 242 analizzati, 1 BUY, 238 veto",
-  "18:56:35 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 250 veto",
-  "18:56:12 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 237 veto",
-  "18:55:49 ORACLE   360 raccolti, 235 analizzati, 1 BUY, 232 veto"
+  "19:01:49 ORACLE   214 raccolti, 128 analizzati, 1 BUY, 125 veto"
  ],
  "capital": 6,
  "resetId": "C-0120",
@@ -21309,10 +21286,6 @@
  "lastDaily": "2026-11-25",
  "cal": [
   {
-   "t": 1795239624318,
-   "g": 1.2
-  },
-  {
    "t": 1795240474023,
    "g": -2
   },
@@ -21707,6 +21680,10 @@
   {
    "t": 1795634519232,
    "g": 27.9
+  },
+  {
+   "t": 1795639458075,
+   "g": -17.2
   }
  ],
  "snipeNotified": 2,
