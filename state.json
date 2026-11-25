@@ -1,66 +1,8 @@
 {
  "startedAt": 1795384038486,
  "runs": 386,
- "cash": 5.974099842929025,
- "positions": [
-  {
-   "id": "P-0678",
-   "mint": "DVdWuNK8ncn79B6z8nCiwcNAiwyFcmBPfChgxJGTpump",
-   "sym": "4CHAN",
-   "name": "4CHAN",
-   "pairAddress": "Ak4wr2ueEAJMqZSEcGPMX9EhCrwWRngP8CskvdEh1e6H",
-   "openedAt": 1795583357118,
-   "sizeSOL": 0.12194081312100051,
-   "cost": 0.12294081312100051,
-   "entry": 0.00001579736534147223,
-   "tokens": 7719.06013978634,
-   "remaining": 1,
-   "rawLeft": "7799297255",
-   "peak": 0.00001579736534147223,
-   "tp1Done": false,
-   "spDone": false,
-   "entryLiq": 81291.61,
-   "realized": 0,
-   "score": 56,
-   "why": "umano",
-   "src": "umano",
-   "xs": {
-    "sl": 20,
-    "tp1": 100,
-    "tp1Sell": 50,
-    "trail": 25,
-    "beAfterTp1": true,
-    "timeStopMin": 360,
-    "timeStopMinPnl": 1000000000,
-    "sellPressure": false
-   },
-   "band": "1M-2M",
-   "cr": "F34Pd6DgZKE6iRDe5CRLauHSaonkqxZHv9dSjsR7syJd",
-   "aid": "atp1kyw",
-   "entryInfo": {
-    "srcs": [
-     "umano"
-    ],
-    "notes": [
-     "scelta tua"
-    ],
-    "plus": [],
-    "m": {},
-    "grok": null
-   },
-   "last": {
-    "priceNative": 0.00001406,
-    "liq": 77115.92,
-    "br5": 1.816425120772947,
-    "tx5": 581,
-    "t": 1795583558626
-   },
-   "fills": [
-    "BUY 0.122 impatto 1.70% (Jupiter)"
-   ],
-   "trough": 0.00001406
-  }
- ],
+ "cash": 6.072943650619025,
+ "positions": [],
  "journal": [
   {
    "id": "P-0671",
@@ -299,226 +241,43 @@
    },
    "maePct": -4.285494150912017,
    "age": null
+  },
+  {
+   "id": "P-0678",
+   "mint": "DVdWuNK8ncn79B6z8nCiwcNAiwyFcmBPfChgxJGTpump",
+   "sym": "4CHAN",
+   "openedAt": 1795583357118,
+   "closedAt": 1795583754741,
+   "cost": 0.12294081312100051,
+   "back": 0.09884380769000001,
+   "pnl": -0.024097005431000504,
+   "pct": -19.600492968339005,
+   "mode": "paper",
+   "src": "umano",
+   "band": "1M-2M",
+   "cr": "F34Pd6DgZKE6iRDe5CRLauHSaonkqxZHv9dSjsR7syJd",
+   "aid": "atp1kyw",
+   "reason": "Chiusura manuale (app)",
+   "score": 56,
+   "solUsd": 68.57058209127483,
+   "peakPct": 0,
+   "trigPct": -13.21337638493647,
+   "entryInfo": {
+    "srcs": [
+     "umano"
+    ],
+    "notes": [
+     "scelta tua"
+    ],
+    "plus": [],
+    "m": {},
+    "grok": null
+   },
+   "maePct": -15.745444178227885,
+   "age": null
   }
  ],
  "signals": [
-  {
-   "t": 1795563774471,
-   "mint": "4npJ3avxnGhCzKbWQpLrQXAHsjWzKr4JqBsbu5Fspump",
-   "sym": "cateball",
-   "score": 71,
-   "priceNative": 0.00001181
-  },
-  {
-   "t": 1795563797145,
-   "mint": "816BuXnCFQqt6KXbBTcFgHWD29Ckpaqt8HMKSN4Vpump",
-   "sym": "MARS",
-   "score": 81,
-   "priceNative": 0.00001427
-  },
-  {
-   "t": 1795563797145,
-   "mint": "4npJ3avxnGhCzKbWQpLrQXAHsjWzKr4JqBsbu5Fspump",
-   "sym": "cateball",
-   "score": 71,
-   "priceNative": 0.00001181
-  },
-  {
-   "t": 1795563820471,
-   "mint": "816BuXnCFQqt6KXbBTcFgHWD29Ckpaqt8HMKSN4Vpump",
-   "sym": "MARS",
-   "score": 81,
-   "priceNative": 0.00001265
-  },
-  {
-   "t": 1795563820471,
-   "mint": "4npJ3avxnGhCzKbWQpLrQXAHsjWzKr4JqBsbu5Fspump",
-   "sym": "cateball",
-   "score": 67,
-   "priceNative": 0.00001148
-  },
-  {
-   "t": 1795563844235,
-   "mint": "816BuXnCFQqt6KXbBTcFgHWD29Ckpaqt8HMKSN4Vpump",
-   "sym": "MARS",
-   "score": 81,
-   "priceNative": 0.00001261
-  },
-  {
-   "t": 1795563844235,
-   "mint": "4npJ3avxnGhCzKbWQpLrQXAHsjWzKr4JqBsbu5Fspump",
-   "sym": "cateball",
-   "score": 75,
-   "priceNative": 0.00001176
-  },
-  {
-   "t": 1795563866948,
-   "mint": "816BuXnCFQqt6KXbBTcFgHWD29Ckpaqt8HMKSN4Vpump",
-   "sym": "MARS",
-   "score": 81,
-   "priceNative": 0.00001261
-  },
-  {
-   "t": 1795563866948,
-   "mint": "4npJ3avxnGhCzKbWQpLrQXAHsjWzKr4JqBsbu5Fspump",
-   "sym": "cateball",
-   "score": 75,
-   "priceNative": 0.00001176
-  },
-  {
-   "t": 1795563890704,
-   "mint": "816BuXnCFQqt6KXbBTcFgHWD29Ckpaqt8HMKSN4Vpump",
-   "sym": "MARS",
-   "score": 81,
-   "priceNative": 0.00001299
-  },
-  {
-   "t": 1795563890704,
-   "mint": "4npJ3avxnGhCzKbWQpLrQXAHsjWzKr4JqBsbu5Fspump",
-   "sym": "cateball",
-   "score": 76,
-   "priceNative": 0.00001182
-  },
-  {
-   "t": 1795563914059,
-   "mint": "816BuXnCFQqt6KXbBTcFgHWD29Ckpaqt8HMKSN4Vpump",
-   "sym": "MARS",
-   "score": 81,
-   "priceNative": 0.00001299
-  },
-  {
-   "t": 1795563914059,
-   "mint": "4npJ3avxnGhCzKbWQpLrQXAHsjWzKr4JqBsbu5Fspump",
-   "sym": "cateball",
-   "score": 76,
-   "priceNative": 0.00001182
-  },
-  {
-   "t": 1795563943794,
-   "mint": "4npJ3avxnGhCzKbWQpLrQXAHsjWzKr4JqBsbu5Fspump",
-   "sym": "cateball",
-   "score": 70,
-   "priceNative": 0.00001182
-  },
-  {
-   "t": 1795563965620,
-   "mint": "5LDowscYVD3a6ZS4m8gCqG5nU16eLTwRXhciFi1bpump",
-   "sym": "DONJENSEN",
-   "score": 75,
-   "priceNative": 0.0000282
-  },
-  {
-   "t": 1795563965620,
-   "mint": "4npJ3avxnGhCzKbWQpLrQXAHsjWzKr4JqBsbu5Fspump",
-   "sym": "cateball",
-   "score": 69,
-   "priceNative": 0.00001169
-  },
-  {
-   "t": 1795563986904,
-   "mint": "4npJ3avxnGhCzKbWQpLrQXAHsjWzKr4JqBsbu5Fspump",
-   "sym": "cateball",
-   "score": 71,
-   "priceNative": 0.00001171
-  },
-  {
-   "t": 1795564008616,
-   "mint": "4npJ3avxnGhCzKbWQpLrQXAHsjWzKr4JqBsbu5Fspump",
-   "sym": "cateball",
-   "score": 71,
-   "priceNative": 0.00001171
-  },
-  {
-   "t": 1795564031853,
-   "mint": "5LDowscYVD3a6ZS4m8gCqG5nU16eLTwRXhciFi1bpump",
-   "sym": "DONJENSEN",
-   "score": 76,
-   "priceNative": 0.0000276
-  },
-  {
-   "t": 1795564031853,
-   "mint": "4npJ3avxnGhCzKbWQpLrQXAHsjWzKr4JqBsbu5Fspump",
-   "sym": "cateball",
-   "score": 74,
-   "priceNative": 0.00001196
-  },
-  {
-   "t": 1795564053813,
-   "mint": "5LDowscYVD3a6ZS4m8gCqG5nU16eLTwRXhciFi1bpump",
-   "sym": "DONJENSEN",
-   "score": 76,
-   "priceNative": 0.0000276
-  },
-  {
-   "t": 1795564053813,
-   "mint": "4npJ3avxnGhCzKbWQpLrQXAHsjWzKr4JqBsbu5Fspump",
-   "sym": "cateball",
-   "score": 74,
-   "priceNative": 0.00001196
-  },
-  {
-   "t": 1795564077608,
-   "mint": "4npJ3avxnGhCzKbWQpLrQXAHsjWzKr4JqBsbu5Fspump",
-   "sym": "cateball",
-   "score": 81,
-   "priceNative": 0.00001207
-  },
-  {
-   "t": 1795564077608,
-   "mint": "5LDowscYVD3a6ZS4m8gCqG5nU16eLTwRXhciFi1bpump",
-   "sym": "DONJENSEN",
-   "score": 72,
-   "priceNative": 0.00002819
-  },
-  {
-   "t": 1795564098947,
-   "mint": "4npJ3avxnGhCzKbWQpLrQXAHsjWzKr4JqBsbu5Fspump",
-   "sym": "cateball",
-   "score": 81,
-   "priceNative": 0.00001207
-  },
-  {
-   "t": 1795564098947,
-   "mint": "5LDowscYVD3a6ZS4m8gCqG5nU16eLTwRXhciFi1bpump",
-   "sym": "DONJENSEN",
-   "score": 72,
-   "priceNative": 0.00002819
-  },
-  {
-   "t": 1795564122157,
-   "mint": "4npJ3avxnGhCzKbWQpLrQXAHsjWzKr4JqBsbu5Fspump",
-   "sym": "cateball",
-   "score": 81,
-   "priceNative": 0.00001194
-  },
-  {
-   "t": 1795564122157,
-   "mint": "5LDowscYVD3a6ZS4m8gCqG5nU16eLTwRXhciFi1bpump",
-   "sym": "DONJENSEN",
-   "score": 74,
-   "priceNative": 0.00002668
-  },
-  {
-   "t": 1795564144813,
-   "mint": "4npJ3avxnGhCzKbWQpLrQXAHsjWzKr4JqBsbu5Fspump",
-   "sym": "cateball",
-   "score": 81,
-   "priceNative": 0.00001194
-  },
-  {
-   "t": 1795564144813,
-   "mint": "5LDowscYVD3a6ZS4m8gCqG5nU16eLTwRXhciFi1bpump",
-   "sym": "DONJENSEN",
-   "score": 74,
-   "priceNative": 0.00002668
-  },
-  {
-   "t": 1795564167381,
-   "mint": "4npJ3avxnGhCzKbWQpLrQXAHsjWzKr4JqBsbu5Fspump",
-   "sym": "cateball",
-   "score": 81,
-   "priceNative": 0.00001203
-  },
   {
    "t": 1795564167381,
    "mint": "5LDowscYVD3a6ZS4m8gCqG5nU16eLTwRXhciFi1bpump",
@@ -7301,6 +7060,223 @@
    "sym": "BOOBS",
    "score": 74,
    "priceNative": 0.00001919
+  },
+  {
+   "t": 1795583580982,
+   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
+   "sym": "GROKIA",
+   "score": 76,
+   "priceNative": 0.00001313
+  },
+  {
+   "t": 1795583580982,
+   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
+   "sym": "BOOBS",
+   "score": 74,
+   "priceNative": 0.00001919
+  },
+  {
+   "t": 1795583602638,
+   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
+   "sym": "GROKIA",
+   "score": 76,
+   "priceNative": 0.00001303
+  },
+  {
+   "t": 1795583602638,
+   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
+   "sym": "BOOBS",
+   "score": 74,
+   "priceNative": 0.00001921
+  },
+  {
+   "t": 1795583624501,
+   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
+   "sym": "GROKIA",
+   "score": 76,
+   "priceNative": 0.00001305
+  },
+  {
+   "t": 1795583624501,
+   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
+   "sym": "BOOBS",
+   "score": 74,
+   "priceNative": 0.00001958
+  },
+  {
+   "t": 1795583646174,
+   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
+   "sym": "GROKIA",
+   "score": 76,
+   "priceNative": 0.00001305
+  },
+  {
+   "t": 1795583646174,
+   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
+   "sym": "BOOBS",
+   "score": 74,
+   "priceNative": 0.00001958
+  },
+  {
+   "t": 1795583668495,
+   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
+   "sym": "BOOBS",
+   "score": 79,
+   "priceNative": 0.00002125
+  },
+  {
+   "t": 1795583668495,
+   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
+   "sym": "GROKIA",
+   "score": 76,
+   "priceNative": 0.00001344
+  },
+  {
+   "t": 1795583690616,
+   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
+   "sym": "BOOBS",
+   "score": 79,
+   "priceNative": 0.00002011
+  },
+  {
+   "t": 1795583690616,
+   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
+   "sym": "GROKIA",
+   "score": 76,
+   "priceNative": 0.0000135
+  },
+  {
+   "t": 1795583712494,
+   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
+   "sym": "BOOBS",
+   "score": 79,
+   "priceNative": 0.00002011
+  },
+  {
+   "t": 1795583712494,
+   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
+   "sym": "GROKIA",
+   "score": 76,
+   "priceNative": 0.0000135
+  },
+  {
+   "t": 1795583734436,
+   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
+   "sym": "BOOBS",
+   "score": 79,
+   "priceNative": 0.00001974
+  },
+  {
+   "t": 1795583734436,
+   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
+   "sym": "GROKIA",
+   "score": 76,
+   "priceNative": 0.00001338
+  },
+  {
+   "t": 1795583757311,
+   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
+   "sym": "BOOBS",
+   "score": 79,
+   "priceNative": 0.00002041
+  },
+  {
+   "t": 1795583757311,
+   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
+   "sym": "GROKIA",
+   "score": 76,
+   "priceNative": 0.00001357
+  },
+  {
+   "t": 1795583779111,
+   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
+   "sym": "BOOBS",
+   "score": 79,
+   "priceNative": 0.00002041
+  },
+  {
+   "t": 1795583779111,
+   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
+   "sym": "GROKIA",
+   "score": 76,
+   "priceNative": 0.00001357
+  },
+  {
+   "t": 1795583801233,
+   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
+   "sym": "BOOBS",
+   "score": 79,
+   "priceNative": 0.00001931
+  },
+  {
+   "t": 1795583801233,
+   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
+   "sym": "GROKIA",
+   "score": 76,
+   "priceNative": 0.00001331
+  },
+  {
+   "t": 1795583823650,
+   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
+   "sym": "GROKIA",
+   "score": 76,
+   "priceNative": 0.0000134
+  },
+  {
+   "t": 1795583823650,
+   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
+   "sym": "BOOBS",
+   "score": 74,
+   "priceNative": 0.00001817
+  },
+  {
+   "t": 1795583823650,
+   "mint": "38M2z4UCfZEkUHFzD48vhKQhFhNyRGto8pZbLjNipump",
+   "sym": "JIMMY",
+   "score": 63,
+   "priceNative": 0.00002312
+  },
+  {
+   "t": 1795583845716,
+   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
+   "sym": "GROKIA",
+   "score": 76,
+   "priceNative": 0.0000134
+  },
+  {
+   "t": 1795583845716,
+   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
+   "sym": "BOOBS",
+   "score": 74,
+   "priceNative": 0.00001817
+  },
+  {
+   "t": 1795583845716,
+   "mint": "38M2z4UCfZEkUHFzD48vhKQhFhNyRGto8pZbLjNipump",
+   "sym": "JIMMY",
+   "score": 63,
+   "priceNative": 0.00002312
+  },
+  {
+   "t": 1795583867582,
+   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
+   "sym": "GROKIA",
+   "score": 76,
+   "priceNative": 0.00001334
+  },
+  {
+   "t": 1795583867582,
+   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
+   "sym": "BOOBS",
+   "score": 74,
+   "priceNative": 0.00001749
+  },
+  {
+   "t": 1795583867582,
+   "mint": "38M2z4UCfZEkUHFzD48vhKQhFhNyRGto8pZbLjNipump",
+   "sym": "JIMMY",
+   "score": 63,
+   "priceNative": 0.00002444
   }
  ],
  "alerts": [
@@ -8554,11 +8530,12 @@
     "turnover 10.8x/h",
     "pressione in acquisto"
    ],
-   "last": -9.2,
-   "min": -9.2,
+   "last": -18.6,
+   "min": -18.6,
    "vote": "y",
    "vAt": 1795583353040,
-   "vp": 0
+   "vp": 0,
+   "p5": -12.7
   }
  ],
  "grokLog": [],
@@ -8566,10 +8543,27 @@
   "date": "2026-11-25",
   "startEq": 6.097040656050026
  },
- "cooldownUntil": 1795479885768,
+ "cooldownUntil": 1795584054743,
  "halted": null,
  "seq": 678,
  "events": [
+  "05:17:47 ORACLE   360 raccolti, 269 analizzati, 3 BUY, 265 veto",
+  "05:17:25 ORACLE   360 raccolti, 270 analizzati, 3 BUY, 266 veto",
+  "05:17:03 ORACLE   360 raccolti, 267 analizzati, 3 BUY, 263 veto",
+  "05:16:41 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 271 veto",
+  "05:16:19 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 266 veto",
+  "05:15:57 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 260 veto",
+  "05:15:54 SCRIBE   chiuso P-0678 $4CHAN -0.0241 SOL (-19.6%)",
+  "05:15:54 CHARON   Chiusura manuale (app) $4CHAN vendo 100% a -13.2% -> 0.0988 SOL",
+  "05:15:54 KAISER   chiusura manuale dall'app: P-0678 4CHAN",
+  "05:15:34 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 271 veto",
+  "05:15:12 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 263 veto",
+  "05:14:50 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 259 veto",
+  "05:14:28 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 269 veto",
+  "05:14:06 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 273 veto",
+  "05:13:44 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 269 veto",
+  "05:13:22 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 271 veto",
+  "05:13:00 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 274 veto",
   "05:12:38 ORACLE   360 raccolti, 284 analizzati, 2 BUY, 280 veto",
   "05:12:16 ORACLE   360 raccolti, 287 analizzati, 2 BUY, 283 veto",
   "05:11:54 ORACLE   360 raccolti, 284 analizzati, 2 BUY, 280 veto",
@@ -8852,24 +8846,7 @@
   "03:36:48 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 256 veto",
   "03:36:26 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 249 veto",
   "03:36:04 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 247 veto",
-  "03:35:43 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 253 veto",
-  "03:35:21 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 255 veto",
-  "03:34:59 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 249 veto",
-  "03:34:37 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 250 veto",
-  "03:34:16 ORACLE   360 raccolti, 251 analizzati, 1 BUY, 249 veto",
-  "03:33:54 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 240 veto",
-  "03:33:33 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 252 veto",
-  "03:33:11 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 251 veto",
-  "03:32:49 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 251 veto",
-  "03:32:27 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 248 veto",
-  "03:32:05 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 251 veto",
-  "03:31:43 ORACLE   360 raccolti, 243 analizzati, 0 BUY, 241 veto",
-  "03:31:21 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 250 veto",
-  "03:31:00 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 242 veto",
-  "03:30:38 ORACLE   360 raccolti, 250 analizzati, 0 BUY, 248 veto",
-  "03:30:16 ORACLE   360 raccolti, 253 analizzati, 0 BUY, 251 veto",
-  "03:29:55 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 250 veto",
-  "03:29:33 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 246 veto"
+  "03:35:43 ORACLE   360 raccolti, 255 analizzati, 0 BUY, 253 veto"
  ],
  "capital": 6,
  "resetId": "C-0120",
@@ -20683,10 +20660,6 @@
  "lastDaily": "2026-11-24",
  "cal": [
   {
-   "t": 1795231648020,
-   "g": -39.1
-  },
-  {
    "t": 1795233379167,
    "g": -40.9
   },
@@ -21081,6 +21054,10 @@
   {
    "t": 1795525962149,
    "g": 0.6
+  },
+  {
+   "t": 1795583754741,
+   "g": -4.7
   }
  ],
  "snipeNotified": 2,
