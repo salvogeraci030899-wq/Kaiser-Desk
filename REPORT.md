@@ -1,16 +1,16 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-25 19:16 UTC · in esecuzione da 2.9 giorni · 403 run
+Aggiornato: 2026-11-25 19:21 UTC · in esecuzione da 2.9 giorni · 403 run
 
 | | |
 |---|---|
-| Equity | **6.0768 SOL** (+1.3% dal capitale iniziale di 6 SOL) |
-| Cassa | 6.0768 SOL |
-| Trade chiusi | 13 |
-| Win rate | 46% |
-| P&L realizzato | +0.0768 SOL (~$5.40) |
-| Media vincite / perdite | +24.6% / -11.9% |
-| Profit factor | 1.75 |
+| Equity | **6.0595 SOL** (+1.0% dal capitale iniziale di 6 SOL) |
+| Cassa | 6.0595 SOL |
+| Trade chiusi | 14 |
+| Win rate | 43% |
+| P&L realizzato | +0.0595 SOL (~$4.20) |
+| Media vincite / perdite | +24.6% / -12.2% |
+| Profit factor | 1.50 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
@@ -55,34 +55,35 @@ Il conteggio parte dal 2026-11-23 09:12 UTC (primo run con id unici e senza bloc
 | | |
 |---|---|
 | Esito | **in corso** |
-| Prendo chiusi | 13 di 50, netto medio +4.9% (intervallo -8.1% / +17.9%), in utile 46.2% |
+| Prendo chiusi | 14 di 50, netto medio +3.5% (intervallo -8.8% / +15.9%), in utile 42.9% |
 | Scarto simulati chiusi | 8, netto medio -2.5% (intervallo -44.2% / +39.1%), in utile 25%; ancora aperti 0 |
-| Prendo meno Scarto (limite inferiore) | +7.4% (-36.2%) |
+| Prendo meno Scarto (limite inferiore) | +6.1% (-37.4%) |
 | Avvisi senza risposta | 31 |
 
 ## Coin di fascia alta e ricerca sui creatori
 Il Radar guarda le Coin da 500000 dollari di market cap in su. Per ognuna si risale al creatore e si registra la market cap: una Coin e' «raddoppiata» se supera il doppio della prima lettura in fascia. Il profilo del creatore compare nell'avviso.
-Memoria: 209599 lanci noti, 38380 creatori; 49 Coin in fascia alta viste (40 creatori), 14 raddoppiate (11 creatori). Creatore trovato: tabella 181, richiesta esterna 0, sconosciuto 0.
+Memoria: 209791 lanci noti, 38411 creatori; 50 Coin in fascia alta viste (41 creatori), 14 raddoppiate (11 creatori). Creatore trovato: tabella 238, richiesta esterna 0, sconosciuto 0.
 Richieste esterne per il creatore: nessuna ancora.
 
 | Fascia | Avvisi | Prendo / Scarto | Tuoi trade chiusi | Netto medio |
 |---|---|---|---|---|
-| 500K-1M | 35 | 12 / 6 | 12 | +6.9% |
+| 500K-1M | 36 | 13 / 6 | 13 | +5.3% |
 | 1M-2M | 14 | 2 / 3 | 1 | -19.6% |
 | 2M+ | 5 | 0 / 0 | 0 | n/d |
 
-Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, per giorno: 11-22: 28 / 25; 11-23: 61 / 58; 11-24: 18 / 13; 11-25: 21 / 15.
+Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, per giorno: 11-22: 28 / 25; 11-23: 61 / 58; 11-24: 18 / 13; 11-25: 22 / 16.
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
 |---|---|---|
-| Stop loss | 5 | -0.0771 |
+| Stop loss | 6 | -0.0944 |
 | Chiusura manuale (app) | 7 | +0.0793 |
 | Trailing stop | 1 | +0.0746 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $PPK | 86 | -14.2% | -0.0173 | +0% | -31% | Stop loss | 1m |
 | $Pompom | 58 | -21.3% | -0.0262 | +8% | -20% | Stop loss | 36m |
 | $LENDR | 58 | +13.3% | +0.0163 | +26% | +14% | Chiusura manuale (app) | 6m |
 | $MIM | 86 | -2.0% | -0.0024 | +0% | -36% | Stop loss | 1m |
@@ -99,6 +100,23 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 
 ## Ultimi eventi
 ```
+19:21:59 SCRIBE   chiuso P-0684 $PPK -0.0173 SOL (-14.2%)
+19:21:59 CHARON   Stop loss $PPK vendo 100% a -30.8% -> 0.1052 SOL
+19:21:49 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 240 veto
+19:21:26 ORACLE   360 raccolti, 226 analizzati, 2 BUY, 221 veto
+19:21:03 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 245 veto
+19:20:59 QUARTER  BUY $PPK 0.122 SOL score 86 impatto 3.08% (Jupiter)
+19:20:38 ORACLE   360 raccolti, 225 analizzati, 3 BUY, 220 veto
+19:20:15 QUARTER  SEGNALE $PPK score 86 (semi-automatico)
+19:20:15 ORACLE   360 raccolti, 213 analizzati, 3 BUY, 208 veto
+19:19:51 ORACLE   360 raccolti, 229 analizzati, 1 BUY, 225 veto
+19:19:28 ORACLE   360 raccolti, 214 analizzati, 1 BUY, 210 veto
+19:19:05 ORACLE   360 raccolti, 199 analizzati, 1 BUY, 195 veto
+19:18:42 ORACLE   360 raccolti, 222 analizzati, 2 BUY, 218 veto
+19:18:20 ORACLE   360 raccolti, 220 analizzati, 2 BUY, 216 veto
+19:17:57 ORACLE   360 raccolti, 223 analizzati, 1 BUY, 219 veto
+19:17:34 ORACLE   360 raccolti, 220 analizzati, 1 BUY, 216 veto
+19:17:10 ORACLE   360 raccolti, 212 analizzati, 1 BUY, 208 veto
 19:16:47 ORACLE   360 raccolti, 214 analizzati, 1 BUY, 210 veto
 19:16:24 ORACLE   360 raccolti, 220 analizzati, 1 BUY, 215 veto
 19:16:11 ORACLE   360 raccolti, 215 analizzati, 1 BUY, 210 veto
@@ -122,23 +140,6 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 19:09:29 ORACLE   360 raccolti, 219 analizzati, 2 BUY, 215 veto
 19:09:06 ORACLE   360 raccolti, 229 analizzati, 2 BUY, 225 veto
 19:08:43 ORACLE   360 raccolti, 217 analizzati, 2 BUY, 213 veto
-19:08:20 ORACLE   360 raccolti, 228 analizzati, 2 BUY, 224 veto
-19:07:56 ORACLE   360 raccolti, 220 analizzati, 1 BUY, 216 veto
-19:07:34 ORACLE   360 raccolti, 192 analizzati, 1 BUY, 188 veto
-19:07:11 ORACLE   360 raccolti, 222 analizzati, 1 BUY, 218 veto
-19:06:47 ORACLE   360 raccolti, 215 analizzati, 1 BUY, 211 veto
-19:06:24 ORACLE   360 raccolti, 226 analizzati, 1 BUY, 222 veto
-19:06:00 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 236 veto
-19:05:37 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 232 veto
-19:05:14 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 241 veto
-19:05:12 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
-19:04:51 ORACLE   360 raccolti, 220 analizzati, 1 BUY, 216 veto
-19:04:28 ORACLE   360 raccolti, 227 analizzati, 1 BUY, 223 veto
-19:04:06 ORACLE   360 raccolti, 203 analizzati, 1 BUY, 199 veto
-19:03:43 ORACLE   325 raccolti, 205 analizzati, 1 BUY, 201 veto
-19:03:20 ORACLE   300 raccolti, 165 analizzati, 1 BUY, 161 veto
-19:02:58 ORACLE   287 raccolti, 165 analizzati, 1 BUY, 161 veto
-19:02:33 ORACLE   239 raccolti, 146 analizzati, 1 BUY, 142 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
