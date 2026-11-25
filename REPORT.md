@@ -1,11 +1,11 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-25 17:56 UTC · in esecuzione da 2.8 giorni · 401 run
+Aggiornato: 2026-11-25 18:01 UTC · in esecuzione da 2.8 giorni · 401 run
 
 | | |
 |---|---|
-| Equity | **6.1030 SOL** (+1.7% dal capitale iniziale di 6 SOL) |
-| Cassa | 6.1030 SOL |
+| Equity | **6.0898 SOL** (+1.5% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.9799 SOL |
 | Trade chiusi | 12 |
 | Win rate | 50% |
 | P&L realizzato | +0.1030 SOL (~$7.15) |
@@ -14,7 +14,7 @@ Aggiornato: 2026-11-25 17:56 UTC · in esecuzione da 2.8 giorni · 401 run
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$Pompom** P-0683 · 0.122 SOL · -10.0% · resta 100% · [grafico](https://dexscreener.com/solana/7kNYdYbHbGMdQczmKSxqNzg4p4pGc6VpERzMfPBptGso)
 
 ## Test ingresso rapido (solo paper, quotazioni Jupiter)
 Ipotesi: comprare 5 secondi dopo la creazione, tenere 30 secondi, vendere. Un token su 3, 0.05 SOL a operazione. Serie 2 dal 2026-11-22 11:02 UTC.
@@ -62,12 +62,12 @@ Il conteggio parte dal 2026-11-23 09:12 UTC (primo run con id unici e senza bloc
 
 ## Coin di fascia alta e ricerca sui creatori
 Il Radar guarda le Coin da 500000 dollari di market cap in su. Per ognuna si risale al creatore e si registra la market cap: una Coin e' «raddoppiata» se supera il doppio della prima lettura in fascia. Il profilo del creatore compare nell'avviso.
-Memoria: 206412 lanci noti, 37845 creatori; 48 Coin in fascia alta viste (39 creatori), 13 raddoppiate (10 creatori). Creatore trovato: tabella 323, richiesta esterna 1, sconosciuto 0.
+Memoria: 206606 lanci noti, 37878 creatori; 48 Coin in fascia alta viste (39 creatori), 13 raddoppiate (10 creatori). Creatore trovato: tabella 401, richiesta esterna 1, sconosciuto 0.
 Richieste esterne per il creatore: pump v3: 0 riuscite, 1 fallite (ultimo errore: HTTP 404); pump v1: 0 riuscite, 1 fallite (ultimo errore: HTTP 530); jupiter: 1 riuscite, 0 fallite.
 
 | Fascia | Avvisi | Prendo / Scarto | Tuoi trade chiusi | Netto medio |
 |---|---|---|---|---|
-| 500K-1M | 35 | 11 / 6 | 11 | +9.5% |
+| 500K-1M | 35 | 12 / 6 | 11 | +9.5% |
 | 1M-2M | 14 | 2 / 3 | 1 | -19.6% |
 | 2M+ | 5 | 0 / 0 | 0 | n/d |
 
@@ -98,6 +98,20 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 
 ## Ultimi eventi
 ```
+18:01:40 ORACLE   360 raccolti, 244 analizzati, 2 BUY, 238 veto
+18:01:15 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 233 veto
+18:00:51 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 239 veto
+18:00:26 ORACLE   360 raccolti, 253 analizzati, 3 BUY, 247 veto
+18:00:03 ORACLE   360 raccolti, 249 analizzati, 3 BUY, 243 veto
+17:59:39 ORACLE   360 raccolti, 223 analizzati, 2 BUY, 217 veto
+17:59:15 ORACLE   360 raccolti, 232 analizzati, 2 BUY, 226 veto
+17:58:50 ORACLE   360 raccolti, 237 analizzati, 2 BUY, 231 veto
+17:58:27 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 251 veto
+17:58:03 ORACLE   360 raccolti, 236 analizzati, 2 BUY, 230 veto
+17:57:39 ORACLE   360 raccolti, 236 analizzati, 2 BUY, 230 veto
+17:57:16 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 244 veto
+17:57:03 ORACLE   360 raccolti, 232 analizzati, 2 BUY, 226 veto
+17:56:57 QUARTER  BUY $Pompom 0.122 SOL score 58 impatto 0.00% (Jupiter)
 17:56:37 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 248 veto
 17:56:13 QUARTER  SEGNALE $Pompom score 58 (semi-automatico)
 17:56:13 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 248 veto
@@ -124,20 +138,6 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 17:49:28 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 263 veto
 17:49:05 ORACLE   360 raccolti, 253 analizzati, 2 BUY, 248 veto
 17:48:41 SCRIBE   chiuso P-0682 $MIM -0.0024 SOL (-2.0%)
-17:48:41 CHARON   Stop loss $MIM vendo 100% a -36.2% -> 0.1202 SOL
-17:48:41 ORACLE   360 raccolti, 226 analizzati, 1 BUY, 222 veto
-17:48:18 ORACLE   360 raccolti, 246 analizzati, 1 BUY, 242 veto
-17:47:54 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 258 veto
-17:47:50 QUARTER  BUY $MIM 0.122 SOL score 86 impatto 0.00% (Jupiter)
-17:47:29 QUARTER  SEGNALE $MIM score 86 (semi-automatico)
-17:47:29 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 246 veto
-17:47:05 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 250 veto
-17:47:02 QUARTER  BUY $LENDR 0.122 SOL score 58 impatto 3.23% (Jupiter)
-17:46:41 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 230 veto
-17:46:17 QUARTER  SEGNALE $LENDR score 58 (semi-automatico)
-17:46:17 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 235 veto
-17:45:52 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 247 veto
-17:45:28 ORACLE   360 raccolti, 240 analizzati, 1 BUY, 237 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
