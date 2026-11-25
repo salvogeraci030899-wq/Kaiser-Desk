@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-25 06:23 UTC · in esecuzione da 2.4 giorni · 387 run
+Aggiornato: 2026-11-25 06:27 UTC · in esecuzione da 2.4 giorni · 387 run
 
 | | |
 |---|---|
-| Equity | **6.0706 SOL** (+1.2% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.9505 SOL |
-| Trade chiusi | 8 |
-| Win rate | 50% |
-| P&L realizzato | +0.0729 SOL (~$5.00) |
-| Media vincite / perdite | +29.9% / -14.8% |
-| Profit factor | 2.01 |
+| Equity | **6.0905 SOL** (+1.5% dal capitale iniziale di 6 SOL) |
+| Cassa | 6.0905 SOL |
+| Trade chiusi | 9 |
+| Win rate | 56% |
+| P&L realizzato | +0.0905 SOL (~$6.19) |
+| Media vincite / perdite | +26.8% / -14.8% |
+| Profit factor | 2.25 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$BASKET** P-0679 · 0.121 SOL · -1.1% · resta 100% · [grafico](https://dexscreener.com/solana/CixcofsPwHnYWjsoDxXxvLd6uM5fH7w8MFPL9mpQpqtX)
+_nessuna_
 
 ## Test ingresso rapido (solo paper, quotazioni Jupiter)
 Ipotesi: comprare 5 secondi dopo la creazione, tenere 30 secondi, vendere. Un token su 3, 0.05 SOL a operazione. Serie 2 dal 2026-11-22 11:02 UTC.
@@ -55,19 +55,19 @@ Il conteggio parte dal 2026-11-23 09:12 UTC (primo run con id unici e senza bloc
 | | |
 |---|---|
 | Esito | **in corso** |
-| Prendo chiusi | 8 di 50, netto medio +7.6% (intervallo -12.5% / +27.6%), in utile 50% |
+| Prendo chiusi | 9 di 50, netto medio +8.3% (intervallo -9.4% / +26.1%), in utile 55.6% |
 | Scarto simulati chiusi | 5, netto medio +20.3% (intervallo -37.8% / +78.4%), in utile 40%; ancora aperti 0 |
-| Prendo meno Scarto (limite inferiore) | -12.7% (-74.2%) |
+| Prendo meno Scarto (limite inferiore) | -12.0% (-72.7%) |
 | Avvisi senza risposta | 31 |
 
 ## Coin di fascia alta e ricerca sui creatori
 Il Radar guarda le Coin da 500000 dollari di market cap in su. Per ognuna si risale al creatore e si registra la market cap: una Coin e' «raddoppiata» se supera il doppio della prima lettura in fascia. Il profilo del creatore compare nell'avviso.
-Memoria: 188172 lanci noti, 34891 creatori; 37 Coin in fascia alta viste (31 creatori), 12 raddoppiate (9 creatori). Creatore trovato: tabella 444, richiesta esterna 1, sconosciuto 0.
+Memoria: 188239 lanci noti, 34901 creatori; 37 Coin in fascia alta viste (31 creatori), 12 raddoppiate (9 creatori). Creatore trovato: tabella 493, richiesta esterna 1, sconosciuto 0.
 Richieste esterne per il creatore: pump v3: 0 riuscite, 1 fallite (ultimo errore: HTTP 404); pump v1: 0 riuscite, 1 fallite (ultimo errore: HTTP 530); jupiter: 1 riuscite, 0 fallite.
 
 | Fascia | Avvisi | Prendo / Scarto | Tuoi trade chiusi | Netto medio |
 |---|---|---|---|---|
-| 500K-1M | 30 | 8 / 5 | 7 | +11.5% |
+| 500K-1M | 30 | 8 / 5 | 8 | +11.8% |
 | 1M-2M | 12 | 2 / 1 | 1 | -19.6% |
 | 2M+ | 5 | 0 / 0 | 0 | n/d |
 
@@ -77,12 +77,13 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 | Motivo | Trade | P&L SOL |
 |---|---|---|
 | Stop loss | 2 | -0.0471 |
-| Chiusura manuale (app) | 5 | +0.0454 |
+| Chiusura manuale (app) | 6 | +0.0630 |
 | Trailing stop | 1 | +0.0746 |
 
 ## Ultimi 25 trade
 | Token | Score | Esito | P&L SOL | Picco | Prezzo allo scatto | Motivo | Durata |
 |---|---|---|---|---|---|---|---|
+| $BASKET | 72 | +14.3% | +0.0176 | +18% | +18% | Chiusura manuale (app) | 4m |
 | $4CHAN | 56 | -19.6% | -0.0241 | +0% | -13% | Chiusura manuale (app) | 7m |
 | $cateball | 81 | +61.4% | +0.0746 | +111% | +54% | Trailing stop | 13m |
 | $JENSEN | 84 | -15.5% | -0.0189 | +14% | -27% | Stop loss | 2m |
@@ -94,6 +95,20 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 
 ## Ultimi eventi
 ```
+06:27:33 SCRIBE   fine run · trade 9 · win 56% · P&L 0.0905 SOL · equity 6.0905 SOL
+06:27:22 ORACLE   360 raccolti, 297 analizzati, 3 BUY, 292 veto
+06:26:58 ORACLE   360 raccolti, 289 analizzati, 3 BUY, 284 veto
+06:26:36 ORACLE   360 raccolti, 297 analizzati, 3 BUY, 292 veto
+06:26:13 ORACLE   360 raccolti, 293 analizzati, 3 BUY, 288 veto
+06:26:09 SCRIBE   chiuso P-0679 $BASKET 0.0176 SOL (14.3%)
+06:26:09 CHARON   Chiusura manuale (app) $BASKET vendo 100% a 18.5% -> 0.1400 SOL
+06:26:09 KAISER   chiusura manuale dall'app: P-0679 BASKET
+06:25:49 ORACLE   360 raccolti, 294 analizzati, 3 BUY, 289 veto
+06:25:26 ORACLE   360 raccolti, 300 analizzati, 3 BUY, 295 veto
+06:25:03 ORACLE   360 raccolti, 300 analizzati, 3 BUY, 295 veto
+06:24:40 ORACLE   360 raccolti, 289 analizzati, 3 BUY, 284 veto
+06:24:17 ORACLE   360 raccolti, 300 analizzati, 2 BUY, 296 veto
+06:23:55 ORACLE   360 raccolti, 302 analizzati, 3 BUY, 297 veto
 06:23:32 ORACLE   360 raccolti, 293 analizzati, 3 BUY, 288 veto
 06:23:10 ORACLE   360 raccolti, 293 analizzati, 2 BUY, 289 veto
 06:22:47 ORACLE   360 raccolti, 298 analizzati, 2 BUY, 294 veto
@@ -120,20 +135,6 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 06:15:35 ORACLE   360 raccolti, 282 analizzati, 3 BUY, 278 veto
 06:15:11 ORACLE   360 raccolti, 285 analizzati, 4 BUY, 281 veto
 06:14:48 ORACLE   360 raccolti, 283 analizzati, 4 BUY, 279 veto
-06:14:26 ORACLE   360 raccolti, 277 analizzati, 3 BUY, 273 veto
-06:14:03 ORACLE   360 raccolti, 277 analizzati, 3 BUY, 273 veto
-06:13:40 ORACLE   360 raccolti, 280 analizzati, 3 BUY, 276 veto
-06:13:18 ORACLE   360 raccolti, 273 analizzati, 3 BUY, 269 veto
-06:13:15 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
-06:12:55 ORACLE   360 raccolti, 274 analizzati, 2 BUY, 270 veto
-06:12:32 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 276 veto
-06:12:10 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 274 veto
-06:11:47 ORACLE   360 raccolti, 279 analizzati, 2 BUY, 275 veto
-06:11:25 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 264 veto
-06:11:03 ORACLE   360 raccolti, 265 analizzati, 2 BUY, 261 veto
-06:10:40 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 264 veto
-06:10:18 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 263 veto
-06:09:54 ORACLE   360 raccolti, 266 analizzati, 2 BUY, 262 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.

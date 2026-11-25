@@ -1,66 +1,8 @@
 {
  "startedAt": 1795384038486,
  "runs": 387,
- "cash": 5.950484777606644,
- "positions": [
-  {
-   "id": "P-0679",
-   "mint": "3Tg6YnNrfPdFfsY14MaNsDMWLseAyrUDS3myJtbaJN6f",
-   "sym": "BASKET",
-   "name": "Basket",
-   "pairAddress": "CixcofsPwHnYWjsoDxXxvLd6uM5fH7w8MFPL9mpQpqtX",
-   "openedAt": 1795587741734,
-   "sizeSOL": 0.1214588730123805,
-   "cost": 0.1224588730123805,
-   "entry": 0.000007546029734405716,
-   "tokens": 16095.732098509407,
-   "remaining": 1,
-   "rawLeft": "17372818043",
-   "peak": 0.000008029,
-   "tp1Done": false,
-   "spDone": false,
-   "entryLiq": 100621.26,
-   "realized": 0,
-   "score": 72,
-   "why": "umano",
-   "src": "umano",
-   "xs": {
-    "sl": 20,
-    "tp1": 100,
-    "tp1Sell": 50,
-    "trail": 25,
-    "beAfterTp1": true,
-    "timeStopMin": 360,
-    "timeStopMinPnl": 1000000000,
-    "sellPressure": false
-   },
-   "band": "500K-1M",
-   "cr": "5pZph7WVu66medeMT4Rq6eCPZmNBFkLEYACXjnZTpdwc",
-   "aid": "atp1oco",
-   "entryInfo": {
-    "srcs": [
-     "umano"
-    ],
-    "notes": [
-     "scelta tua"
-    ],
-    "plus": [],
-    "m": {},
-    "grok": null
-   },
-   "last": {
-    "priceNative": 0.000007461,
-    "liq": 101333.5,
-    "br5": 1.3828715365239295,
-    "tx5": 944,
-    "t": 1795587812949
-   },
-   "fills": [
-    "BUY 0.121 impatto 2.33% (Jupiter)"
-   ],
-   "trough": 0.000006773
-  }
- ],
+ "cash": 6.0904948316266445,
+ "positions": [],
  "journal": [
   {
    "id": "P-0671",
@@ -333,212 +275,43 @@
    },
    "maePct": -15.745444178227885,
    "age": null
+  },
+  {
+   "id": "P-0679",
+   "mint": "3Tg6YnNrfPdFfsY14MaNsDMWLseAyrUDS3myJtbaJN6f",
+   "sym": "BASKET",
+   "openedAt": 1795587741734,
+   "closedAt": 1795587969415,
+   "cost": 0.1224588730123805,
+   "back": 0.14001005402,
+   "pnl": 0.0175511810076195,
+   "pct": 14.332306492682722,
+   "mode": "paper",
+   "src": "umano",
+   "band": "500K-1M",
+   "cr": "5pZph7WVu66medeMT4Rq6eCPZmNBFkLEYACXjnZTpdwc",
+   "aid": "atp1oco",
+   "reason": "Chiusura manuale (app)",
+   "score": 72,
+   "solUsd": 68.47494661106998,
+   "peakPct": 18.47289653840818,
+   "trigPct": 18.47289653840818,
+   "entryInfo": {
+    "srcs": [
+     "umano"
+    ],
+    "notes": [
+     "scelta tua"
+    ],
+    "plus": [],
+    "m": {},
+    "grok": null
+   },
+   "maePct": -10.244191470398379,
+   "age": null
   }
  ],
  "signals": [
-  {
-   "t": 1795570665923,
-   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
-   "sym": "BOOBS",
-   "score": 81,
-   "priceNative": 0.00001938
-  },
-  {
-   "t": 1795570665923,
-   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
-   "sym": "GROKIA",
-   "score": 81,
-   "priceNative": 0.0000268
-  },
-  {
-   "t": 1795570688751,
-   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
-   "sym": "BOOBS",
-   "score": 81,
-   "priceNative": 0.00001938
-  },
-  {
-   "t": 1795570688751,
-   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
-   "sym": "GROKIA",
-   "score": 81,
-   "priceNative": 0.0000268
-  },
-  {
-   "t": 1795570711977,
-   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
-   "sym": "BOOBS",
-   "score": 81,
-   "priceNative": 0.0000214
-  },
-  {
-   "t": 1795570711977,
-   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
-   "sym": "GROKIA",
-   "score": 81,
-   "priceNative": 0.00002739
-  },
-  {
-   "t": 1795570734783,
-   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
-   "sym": "BOOBS",
-   "score": 81,
-   "priceNative": 0.0000214
-  },
-  {
-   "t": 1795570734783,
-   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
-   "sym": "GROKIA",
-   "score": 81,
-   "priceNative": 0.00002739
-  },
-  {
-   "t": 1795570757471,
-   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
-   "sym": "BOOBS",
-   "score": 81,
-   "priceNative": 0.00002196
-  },
-  {
-   "t": 1795570757471,
-   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
-   "sym": "GROKIA",
-   "score": 71,
-   "priceNative": 0.00002662
-  },
-  {
-   "t": 1795570780967,
-   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
-   "sym": "BOOBS",
-   "score": 86,
-   "priceNative": 0.0000218
-  },
-  {
-   "t": 1795570780967,
-   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
-   "sym": "GROKIA",
-   "score": 71,
-   "priceNative": 0.00002592
-  },
-  {
-   "t": 1795570804317,
-   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
-   "sym": "BOOBS",
-   "score": 86,
-   "priceNative": 0.0000218
-  },
-  {
-   "t": 1795570804317,
-   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
-   "sym": "GROKIA",
-   "score": 71,
-   "priceNative": 0.00002592
-  },
-  {
-   "t": 1795570828377,
-   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
-   "sym": "BOOBS",
-   "score": 86,
-   "priceNative": 0.00002218
-  },
-  {
-   "t": 1795570828377,
-   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
-   "sym": "GROKIA",
-   "score": 71,
-   "priceNative": 0.00002593
-  },
-  {
-   "t": 1795570850691,
-   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
-   "sym": "BOOBS",
-   "score": 86,
-   "priceNative": 0.00002218
-  },
-  {
-   "t": 1795570850691,
-   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
-   "sym": "GROKIA",
-   "score": 71,
-   "priceNative": 0.00002593
-  },
-  {
-   "t": 1795570874790,
-   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
-   "sym": "BOOBS",
-   "score": 86,
-   "priceNative": 0.00002069
-  },
-  {
-   "t": 1795570874790,
-   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
-   "sym": "GROKIA",
-   "score": 71,
-   "priceNative": 0.00002627
-  },
-  {
-   "t": 1795570899211,
-   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
-   "sym": "BOOBS",
-   "score": 86,
-   "priceNative": 0.00002069
-  },
-  {
-   "t": 1795570899211,
-   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
-   "sym": "GROKIA",
-   "score": 71,
-   "priceNative": 0.00002627
-  },
-  {
-   "t": 1795570922437,
-   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
-   "sym": "BOOBS",
-   "score": 81,
-   "priceNative": 0.00001741
-  },
-  {
-   "t": 1795570922437,
-   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
-   "sym": "GROKIA",
-   "score": 81,
-   "priceNative": 0.00002692
-  },
-  {
-   "t": 1795570945447,
-   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
-   "sym": "BOOBS",
-   "score": 81,
-   "priceNative": 0.00001741
-  },
-  {
-   "t": 1795570945447,
-   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
-   "sym": "GROKIA",
-   "score": 81,
-   "priceNative": 0.00002692
-  },
-  {
-   "t": 1795570968474,
-   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
-   "sym": "BOOBS",
-   "score": 81,
-   "priceNative": 0.00001466
-  },
-  {
-   "t": 1795570968474,
-   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
-   "sym": "GROKIA",
-   "score": 81,
-   "priceNative": 0.0000265
-  },
-  {
-   "t": 1795570991935,
-   "mint": "DMFzUvtfEmE697ZfEDqAXErd9MrBDEs66V5WiRvApump",
-   "sym": "DongCoin",
-   "score": 82,
-   "priceNative": 0.000008364
-  },
   {
    "t": 1795570991935,
    "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
@@ -7335,6 +7108,209 @@
    "sym": "BASKET",
    "score": 72,
    "priceNative": 0.000007461
+  },
+  {
+   "t": 1795587835150,
+   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
+   "sym": "BOOBS",
+   "score": 74,
+   "priceNative": 0.00002199
+  },
+  {
+   "t": 1795587835150,
+   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
+   "sym": "GROKIA",
+   "score": 73,
+   "priceNative": 0.000009114
+  },
+  {
+   "t": 1795587835150,
+   "mint": "3Tg6YnNrfPdFfsY14MaNsDMWLseAyrUDS3myJtbaJN6f",
+   "sym": "BASKET",
+   "score": 72,
+   "priceNative": 0.000007461
+  },
+  {
+   "t": 1795587857746,
+   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
+   "sym": "BOOBS",
+   "score": 74,
+   "priceNative": 0.0000224
+  },
+  {
+   "t": 1795587857746,
+   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
+   "sym": "GROKIA",
+   "score": 73,
+   "priceNative": 0.00000935
+  },
+  {
+   "t": 1795587880678,
+   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
+   "sym": "BOOBS",
+   "score": 74,
+   "priceNative": 0.00002244
+  },
+  {
+   "t": 1795587880678,
+   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
+   "sym": "GROKIA",
+   "score": 73,
+   "priceNative": 0.000009332
+  },
+  {
+   "t": 1795587880678,
+   "mint": "3Tg6YnNrfPdFfsY14MaNsDMWLseAyrUDS3myJtbaJN6f",
+   "sym": "BASKET",
+   "score": 72,
+   "priceNative": 0.000008122
+  },
+  {
+   "t": 1795587903651,
+   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
+   "sym": "BOOBS",
+   "score": 74,
+   "priceNative": 0.00002244
+  },
+  {
+   "t": 1795587903651,
+   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
+   "sym": "GROKIA",
+   "score": 73,
+   "priceNative": 0.000009332
+  },
+  {
+   "t": 1795587903651,
+   "mint": "3Tg6YnNrfPdFfsY14MaNsDMWLseAyrUDS3myJtbaJN6f",
+   "sym": "BASKET",
+   "score": 72,
+   "priceNative": 0.000008122
+  },
+  {
+   "t": 1795587926410,
+   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
+   "sym": "BOOBS",
+   "score": 74,
+   "priceNative": 0.00002314
+  },
+  {
+   "t": 1795587926410,
+   "mint": "3Tg6YnNrfPdFfsY14MaNsDMWLseAyrUDS3myJtbaJN6f",
+   "sym": "BASKET",
+   "score": 71,
+   "priceNative": 0.000008741
+  },
+  {
+   "t": 1795587926410,
+   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
+   "sym": "GROKIA",
+   "score": 63,
+   "priceNative": 0.000008071
+  },
+  {
+   "t": 1795587949176,
+   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
+   "sym": "BOOBS",
+   "score": 74,
+   "priceNative": 0.00002314
+  },
+  {
+   "t": 1795587949176,
+   "mint": "3Tg6YnNrfPdFfsY14MaNsDMWLseAyrUDS3myJtbaJN6f",
+   "sym": "BASKET",
+   "score": 71,
+   "priceNative": 0.000008741
+  },
+  {
+   "t": 1795587949176,
+   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
+   "sym": "GROKIA",
+   "score": 63,
+   "priceNative": 0.000008071
+  },
+  {
+   "t": 1795587973710,
+   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
+   "sym": "BOOBS",
+   "score": 74,
+   "priceNative": 0.00002314
+  },
+  {
+   "t": 1795587973710,
+   "mint": "3Tg6YnNrfPdFfsY14MaNsDMWLseAyrUDS3myJtbaJN6f",
+   "sym": "BASKET",
+   "score": 71,
+   "priceNative": 0.000008726
+  },
+  {
+   "t": 1795587973710,
+   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
+   "sym": "GROKIA",
+   "score": 63,
+   "priceNative": 0.000008071
+  },
+  {
+   "t": 1795587996215,
+   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
+   "sym": "BOOBS",
+   "score": 86,
+   "priceNative": 0.000025
+  },
+  {
+   "t": 1795587996215,
+   "mint": "3Tg6YnNrfPdFfsY14MaNsDMWLseAyrUDS3myJtbaJN6f",
+   "sym": "BASKET",
+   "score": 71,
+   "priceNative": 0.000008726
+  },
+  {
+   "t": 1795587996215,
+   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
+   "sym": "GROKIA",
+   "score": 63,
+   "priceNative": 0.000007564
+  },
+  {
+   "t": 1795588018801,
+   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
+   "sym": "BOOBS",
+   "score": 86,
+   "priceNative": 0.000025
+  },
+  {
+   "t": 1795588018801,
+   "mint": "3Tg6YnNrfPdFfsY14MaNsDMWLseAyrUDS3myJtbaJN6f",
+   "sym": "BASKET",
+   "score": 72,
+   "priceNative": 0.000008453
+  },
+  {
+   "t": 1795588018801,
+   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
+   "sym": "GROKIA",
+   "score": 63,
+   "priceNative": 0.000007564
+  },
+  {
+   "t": 1795588042298,
+   "mint": "E35iEA2yLLHc1tjm6et1Z3YuH8DhxJYWtWezPHgSpump",
+   "sym": "BOOBS",
+   "score": 85,
+   "priceNative": 0.00002476
+  },
+  {
+   "t": 1795588042298,
+   "mint": "3Tg6YnNrfPdFfsY14MaNsDMWLseAyrUDS3myJtbaJN6f",
+   "sym": "BASKET",
+   "score": 72,
+   "priceNative": 0.000008453
+  },
+  {
+   "t": 1795588042298,
+   "mint": "3cL47ohWa2HApLYKtqPsqkjaxJ6HLvT5Ri1KvWdXpump",
+   "sym": "GROKIA",
+   "score": 63,
+   "priceNative": 0.000007438
   }
  ],
  "alerts": [
@@ -8614,11 +8590,12 @@
    "why": [
     "turnover 4.2x/h"
    ],
-   "last": -7.1,
+   "last": 5.3,
    "min": -12.9,
    "vote": "y",
    "vAt": 1795587740019,
-   "vp": 0
+   "vp": 0,
+   "p5": 5.3
   }
  ],
  "grokLog": [],
@@ -8630,6 +8607,20 @@
  "halted": null,
  "seq": 679,
  "events": [
+  "06:27:33 SCRIBE   fine run · trade 9 · win 56% · P&L 0.0905 SOL · equity 6.0905 SOL",
+  "06:27:22 ORACLE   360 raccolti, 297 analizzati, 3 BUY, 292 veto",
+  "06:26:58 ORACLE   360 raccolti, 289 analizzati, 3 BUY, 284 veto",
+  "06:26:36 ORACLE   360 raccolti, 297 analizzati, 3 BUY, 292 veto",
+  "06:26:13 ORACLE   360 raccolti, 293 analizzati, 3 BUY, 288 veto",
+  "06:26:09 SCRIBE   chiuso P-0679 $BASKET 0.0176 SOL (14.3%)",
+  "06:26:09 CHARON   Chiusura manuale (app) $BASKET vendo 100% a 18.5% -> 0.1400 SOL",
+  "06:26:09 KAISER   chiusura manuale dall'app: P-0679 BASKET",
+  "06:25:49 ORACLE   360 raccolti, 294 analizzati, 3 BUY, 289 veto",
+  "06:25:26 ORACLE   360 raccolti, 300 analizzati, 3 BUY, 295 veto",
+  "06:25:03 ORACLE   360 raccolti, 300 analizzati, 3 BUY, 295 veto",
+  "06:24:40 ORACLE   360 raccolti, 289 analizzati, 3 BUY, 284 veto",
+  "06:24:17 ORACLE   360 raccolti, 300 analizzati, 2 BUY, 296 veto",
+  "06:23:55 ORACLE   360 raccolti, 302 analizzati, 3 BUY, 297 veto",
   "06:23:32 ORACLE   360 raccolti, 293 analizzati, 3 BUY, 288 veto",
   "06:23:10 ORACLE   360 raccolti, 293 analizzati, 2 BUY, 289 veto",
   "06:22:47 ORACLE   360 raccolti, 298 analizzati, 2 BUY, 294 veto",
@@ -8915,21 +8906,7 @@
   "04:47:55 ORACLE   216 raccolti, 146 analizzati, 1 BUY, 143 veto",
   "04:47:33 ORACLE   205 raccolti, 136 analizzati, 1 BUY, 133 veto",
   "04:47:12 ORACLE   204 raccolti, 136 analizzati, 1 BUY, 133 veto",
-  "04:47:10 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 40000→50000, minAgeMin 5→1, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 50000000→2000000, gmgnInterval 1h→1m, maxAgeH 720→72, minTxH1 40→50, entryGapSec 60→120, semiAuto spento→avvisi e paper",
-  "04:47:10 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com",
-  "04:47:10 KAISER   run #386 · 0 posizioni · equity 6.0970 SOL · GMGN spenta (nessuna chiave) · Grok off",
-  "04:47:10 CREATORI memoria: 186080 lanci, 34632 creatori, 36 Coin in fascia alta",
-  "04:46:50 SCRIBE   fine run · trade 7 · win 57% · P&L 0.0970 SOL · equity 6.0970 SOL",
-  "04:46:45 ORACLE   360 raccolti, 252 analizzati, 1 BUY, 249 veto",
-  "04:46:23 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 258 veto",
-  "04:46:01 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 258 veto",
-  "04:45:39 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 255 veto",
-  "04:45:18 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 262 veto",
-  "04:44:56 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 256 veto",
-  "04:44:35 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 257 veto",
-  "04:44:13 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 266 veto",
-  "04:43:51 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 268 veto",
-  "04:43:30 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 266 veto"
+  "04:47:10 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 40000→50000, minAgeMin 5→1, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 50000000→2000000, gmgnInterval 1h→1m, maxAgeH 720→72, minTxH1 40→50, entryGapSec 60→120, semiAuto spento→avvisi e paper"
  ],
  "capital": 6,
  "resetId": "C-0120",
@@ -20743,10 +20720,6 @@
  "lastDaily": "2026-11-24",
  "cal": [
   {
-   "t": 1795233379167,
-   "g": -40.9
-  },
-  {
    "t": 1795234184877,
    "g": -10.6
   },
@@ -21141,6 +21114,10 @@
   {
    "t": 1795583754741,
    "g": -4.7
+  },
+  {
+   "t": 1795587969415,
+   "g": -1
   }
  ],
  "snipeNotified": 2,
