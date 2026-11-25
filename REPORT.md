@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-25 05:28 UTC · in esecuzione da 2.3 giorni · 386 run
+Aggiornato: 2026-11-25 05:33 UTC · in esecuzione da 2.3 giorni · 386 run
 
 | | |
 |---|---|
@@ -62,7 +62,7 @@ Il conteggio parte dal 2026-11-23 09:12 UTC (primo run con id unici e senza bloc
 
 ## Coin di fascia alta e ricerca sui creatori
 Il Radar guarda le Coin da 500000 dollari di market cap in su. Per ognuna si risale al creatore e si registra la market cap: una Coin e' «raddoppiata» se supera il doppio della prima lettura in fascia. Il profilo del creatore compare nell'avviso.
-Memoria: 187037 lanci noti, 34763 creatori; 36 Coin in fascia alta viste (30 creatori), 12 raddoppiate (9 creatori). Creatore trovato: tabella 439, richiesta esterna 0, sconosciuto 0.
+Memoria: 187173 lanci noti, 34781 creatori; 36 Coin in fascia alta viste (30 creatori), 12 raddoppiate (9 creatori). Creatore trovato: tabella 495, richiesta esterna 0, sconosciuto 0.
 Richieste esterne per il creatore: nessuna ancora.
 
 | Fascia | Avvisi | Prendo / Scarto | Tuoi trade chiusi | Netto medio |
@@ -94,6 +94,24 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 
 ## Ultimi eventi
 ```
+05:33:17 ORACLE   360 raccolti, 281 analizzati, 2 BUY, 277 veto
+05:32:55 ORACLE   360 raccolti, 290 analizzati, 2 BUY, 286 veto
+05:32:33 ORACLE   360 raccolti, 281 analizzati, 2 BUY, 277 veto
+05:32:11 ORACLE   360 raccolti, 274 analizzati, 2 BUY, 270 veto
+05:31:48 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 274 veto
+05:31:26 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 276 veto
+05:31:24 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
+05:31:24 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)
+05:31:24 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
+05:31:04 ORACLE   360 raccolti, 286 analizzati, 2 BUY, 282 veto
+05:30:42 ORACLE   360 raccolti, 286 analizzati, 2 BUY, 282 veto
+05:30:19 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 273 veto
+05:30:18 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
+05:29:57 ORACLE   360 raccolti, 284 analizzati, 2 BUY, 280 veto
+05:29:36 ORACLE   360 raccolti, 288 analizzati, 2 BUY, 284 veto
+05:29:14 ORACLE   360 raccolti, 285 analizzati, 2 BUY, 281 veto
+05:28:52 ORACLE   360 raccolti, 287 analizzati, 2 BUY, 283 veto
+05:28:30 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 272 veto
 05:28:08 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 268 veto
 05:27:45 ORACLE   360 raccolti, 280 analizzati, 3 BUY, 276 veto
 05:27:23 ORACLE   360 raccolti, 278 analizzati, 3 BUY, 274 veto
@@ -116,24 +134,6 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 05:21:07 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 264 veto
 05:20:45 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 260 veto
 05:20:23 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 259 veto
-05:20:01 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 268 veto
-05:19:39 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 260 veto
-05:19:16 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 257 veto
-05:18:54 ORACLE   360 raccolti, 257 analizzati, 2 BUY, 253 veto
-05:18:32 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 264 veto
-05:18:09 ORACLE   360 raccolti, 262 analizzati, 3 BUY, 258 veto
-05:17:47 ORACLE   360 raccolti, 269 analizzati, 3 BUY, 265 veto
-05:17:25 ORACLE   360 raccolti, 270 analizzati, 3 BUY, 266 veto
-05:17:03 ORACLE   360 raccolti, 267 analizzati, 3 BUY, 263 veto
-05:16:41 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 271 veto
-05:16:19 ORACLE   360 raccolti, 270 analizzati, 2 BUY, 266 veto
-05:15:57 ORACLE   360 raccolti, 264 analizzati, 2 BUY, 260 veto
-05:15:54 SCRIBE   chiuso P-0678 $4CHAN -0.0241 SOL (-19.6%)
-05:15:54 CHARON   Chiusura manuale (app) $4CHAN vendo 100% a -13.2% -> 0.0988 SOL
-05:15:54 KAISER   chiusura manuale dall'app: P-0678 4CHAN
-05:15:34 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 271 veto
-05:15:12 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 263 veto
-05:14:50 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 259 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
