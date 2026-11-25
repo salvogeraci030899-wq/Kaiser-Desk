@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-25 20:27 UTC · in esecuzione da 2.9 giorni · 404 run
+Aggiornato: 2026-11-25 20:32 UTC · in esecuzione da 2.9 giorni · 404 run
 
 | | |
 |---|---|
-| Equity | **6.0595 SOL** (+1.0% dal capitale iniziale di 6 SOL) |
-| Cassa | 6.0595 SOL |
+| Equity | **6.1404 SOL** (+2.3% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.9373 SOL |
 | Trade chiusi | 14 |
 | Win rate | 43% |
-| P&L realizzato | +0.0595 SOL (~$4.18) |
+| P&L realizzato | +0.0595 SOL (~$4.17) |
 | Media vincite / perdite | +24.6% / -12.2% |
 | Profit factor | 1.50 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-_nessuna_
+- **$Pompompurin** P-0685 · 0.121 SOL · +67.6% · resta 100% · [grafico](https://dexscreener.com/solana/F1oTWvNF5HVy3BrLo2q9djpAATid8KXSpoKSr9MuLWkM)
 
 ## Test ingresso rapido (solo paper, quotazioni Jupiter)
 Ipotesi: comprare 5 secondi dopo la creazione, tenere 30 secondi, vendere. Un token su 3, 0.05 SOL a operazione. Serie 2 dal 2026-11-22 11:02 UTC.
@@ -58,20 +58,20 @@ Il conteggio parte dal 2026-11-23 09:12 UTC (primo run con id unici e senza bloc
 | Prendo chiusi | 14 di 50, netto medio +3.5% (intervallo -8.8% / +15.9%), in utile 42.9% |
 | Scarto simulati chiusi | 8, netto medio -2.5% (intervallo -44.2% / +39.1%), in utile 25%; ancora aperti 0 |
 | Prendo meno Scarto (limite inferiore) | +6.1% (-37.4%) |
-| Avvisi senza risposta | 32 |
+| Avvisi senza risposta | 33 |
 
 ## Coin di fascia alta e ricerca sui creatori
 Il Radar guarda le Coin da 500000 dollari di market cap in su. Per ognuna si risale al creatore e si registra la market cap: una Coin e' «raddoppiata» se supera il doppio della prima lettura in fascia. Il profilo del creatore compare nell'avviso.
-Memoria: 212296 lanci noti, 38800 creatori; 53 Coin in fascia alta viste (44 creatori), 16 raddoppiate (13 creatori). Creatore trovato: tabella 529, richiesta esterna 0, sconosciuto 0.
+Memoria: 212491 lanci noti, 38823 creatori; 54 Coin in fascia alta viste (45 creatori), 16 raddoppiate (13 creatori). Creatore trovato: tabella 619, richiesta esterna 0, sconosciuto 0.
 Richieste esterne per il creatore: nessuna ancora.
 
 | Fascia | Avvisi | Prendo / Scarto | Tuoi trade chiusi | Netto medio |
 |---|---|---|---|---|
-| 500K-1M | 38 | 13 / 6 | 13 | +5.3% |
+| 500K-1M | 39 | 14 / 6 | 13 | +5.3% |
 | 1M-2M | 14 | 2 / 3 | 1 | -19.6% |
 | 2M+ | 5 | 0 / 0 | 0 | n/d |
 
-Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, per giorno: 11-22: 28 / 25; 11-23: 61 / 58; 11-24: 18 / 13; 11-25: 25 / 18.
+Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, per giorno: 11-22: 28 / 25; 11-23: 61 / 58; 11-24: 18 / 13; 11-25: 26 / 19.
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -100,6 +100,22 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 
 ## Ultimi eventi
 ```
+20:32:59 ORACLE   360 raccolti, 260 analizzati, 2 BUY, 254 veto
+20:32:35 ORACLE   360 raccolti, 235 analizzati, 2 BUY, 229 veto
+20:32:12 ORACLE   360 raccolti, 246 analizzati, 2 BUY, 240 veto
+20:31:49 ORACLE   360 raccolti, 218 analizzati, 3 BUY, 211 veto
+20:31:35 ORACLE   360 raccolti, 241 analizzati, 3 BUY, 234 veto
+20:31:10 ORACLE   360 raccolti, 238 analizzati, 2 BUY, 232 veto
+20:30:46 ORACLE   360 raccolti, 218 analizzati, 2 BUY, 212 veto
+20:30:33 ORACLE   360 raccolti, 231 analizzati, 2 BUY, 225 veto
+20:30:09 ORACLE   360 raccolti, 233 analizzati, 2 BUY, 226 veto
+20:29:42 ORACLE   360 raccolti, 245 analizzati, 2 BUY, 238 veto
+20:29:18 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 240 veto
+20:28:54 ORACLE   360 raccolti, 256 analizzati, 2 BUY, 249 veto
+20:28:50 QUARTER  BUY $Pompompurin 0.121 SOL score 86 impatto 0.61% (Jupiter)
+20:28:29 ORACLE   360 raccolti, 242 analizzati, 2 BUY, 236 veto
+20:28:16 QUARTER  SEGNALE $Pompompurin score 86 (semi-automatico)
+20:28:15 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 255 veto
 20:27:50 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 244 veto
 20:27:27 ORACLE   360 raccolti, 253 analizzati, 1 BUY, 248 veto
 20:27:04 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 231 veto
@@ -124,22 +140,6 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 20:19:45 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 240 veto
 20:19:22 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 243 veto
 20:19:09 ORACLE   360 raccolti, 224 analizzati, 1 BUY, 219 veto
-20:18:54 ORACLE   360 raccolti, 233 analizzati, 0 BUY, 228 veto
-20:18:15 ORACLE   360 raccolti, 237 analizzati, 1 BUY, 232 veto
-20:17:52 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 229 veto
-20:17:29 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 244 veto
-20:17:06 ORACLE   360 raccolti, 232 analizzati, 1 BUY, 226 veto
-20:16:43 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 244 veto
-20:16:20 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 247 veto
-20:15:57 ORACLE   360 raccolti, 234 analizzati, 2 BUY, 227 veto
-20:15:34 ORACLE   360 raccolti, 258 analizzati, 2 BUY, 251 veto
-20:15:10 ORACLE   360 raccolti, 255 analizzati, 2 BUY, 248 veto
-20:14:46 ORACLE   360 raccolti, 217 analizzati, 2 BUY, 210 veto
-20:14:23 ORACLE   360 raccolti, 239 analizzati, 2 BUY, 232 veto
-20:14:08 QUARTER  SEGNALE $OnlyUp score 69 (semi-automatico)
-20:14:08 ORACLE   360 raccolti, 241 analizzati, 2 BUY, 234 veto
-20:13:41 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 242 veto
-20:13:28 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 239 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
