@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-26 01:49 UTC · in esecuzione da 3.2 giorni · 411 run
+Aggiornato: 2026-11-26 01:54 UTC · in esecuzione da 3.2 giorni · 411 run
 
 | | |
 |---|---|
@@ -62,7 +62,7 @@ Il conteggio parte dal 2026-11-23 09:12 UTC (primo run con id unici e senza bloc
 
 ## Coin di fascia alta e ricerca sui creatori
 Il Radar guarda le Coin da 500000 dollari di market cap in su. Per ognuna si risale al creatore e si registra la market cap: una Coin e' «raddoppiata» se supera il doppio della prima lettura in fascia. Il profilo del creatore compare nell'avviso.
-Memoria: 222728 lanci noti, 40580 creatori; 65 Coin in fascia alta viste (53 creatori), 21 raddoppiate (17 creatori). Creatore trovato: tabella 108, richiesta esterna 0, sconosciuto 0.
+Memoria: 222870 lanci noti, 40597 creatori; 65 Coin in fascia alta viste (53 creatori), 21 raddoppiate (17 creatori). Creatore trovato: tabella 199, richiesta esterna 0, sconosciuto 0.
 Richieste esterne per il creatore: nessuna ancora.
 
 | Fascia | Avvisi | Prendo / Scarto | Tuoi trade chiusi | Netto medio |
@@ -102,6 +102,19 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 
 ## Ultimi eventi
 ```
+01:54:10 ORACLE   360 raccolti, 255 analizzati, 4 BUY, 248 veto
+01:53:46 ORACLE   360 raccolti, 265 analizzati, 4 BUY, 258 veto
+01:53:23 ORACLE   360 raccolti, 248 analizzati, 4 BUY, 241 veto
+01:53:00 ORACLE   360 raccolti, 265 analizzati, 4 BUY, 258 veto
+01:52:37 ORACLE   360 raccolti, 265 analizzati, 4 BUY, 258 veto
+01:52:14 ORACLE   360 raccolti, 267 analizzati, 4 BUY, 260 veto
+01:51:50 ORACLE   360 raccolti, 272 analizzati, 4 BUY, 265 veto
+01:51:27 ORACLE   360 raccolti, 268 analizzati, 4 BUY, 261 veto
+01:51:05 ORACLE   360 raccolti, 258 analizzati, 4 BUY, 251 veto
+01:50:40 ORACLE   360 raccolti, 251 analizzati, 4 BUY, 244 veto
+01:50:17 ORACLE   360 raccolti, 274 analizzati, 4 BUY, 267 veto
+01:49:53 ORACLE   360 raccolti, 267 analizzati, 4 BUY, 260 veto
+01:49:29 ORACLE   360 raccolti, 260 analizzati, 4 BUY, 253 veto
 01:49:16 ORACLE   360 raccolti, 263 analizzati, 4 BUY, 256 veto
 01:49:00 SCRIBE   chiuso P-0686 $MemeStonks -0.0482 SOL (-39.8%)
 01:49:00 CHARON   Stop loss $MemeStonks vendo 100% a -31.1% -> 0.0729 SOL
@@ -129,19 +142,6 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 01:43:35 ORACLE   360 raccolti, 271 analizzati, 4 BUY, 264 veto
 01:43:13 ORACLE   360 raccolti, 274 analizzati, 4 BUY, 267 veto
 01:42:49 ORACLE   360 raccolti, 271 analizzati, 4 BUY, 264 veto
-01:42:27 ORACLE   360 raccolti, 254 analizzati, 4 BUY, 247 veto
-01:42:04 ORACLE   360 raccolti, 253 analizzati, 4 BUY, 246 veto
-01:41:40 ORACLE   360 raccolti, 255 analizzati, 4 BUY, 248 veto
-01:41:16 ORACLE   360 raccolti, 251 analizzati, 4 BUY, 244 veto
-01:40:53 ORACLE   360 raccolti, 242 analizzati, 4 BUY, 235 veto
-01:40:29 ORACLE   360 raccolti, 245 analizzati, 4 BUY, 238 veto
-01:40:06 ORACLE   360 raccolti, 251 analizzati, 4 BUY, 244 veto
-01:39:44 ORACLE   360 raccolti, 241 analizzati, 4 BUY, 234 veto
-01:39:20 ORACLE   360 raccolti, 243 analizzati, 4 BUY, 236 veto
-01:38:56 ORACLE   360 raccolti, 256 analizzati, 4 BUY, 249 veto
-01:38:44 ORACLE   360 raccolti, 243 analizzati, 4 BUY, 236 veto
-01:38:42 SCOUT    gecko top: This operation was aborted (riuso l'ultimo elenco)
-01:38:16 ORACLE   360 raccolti, 242 analizzati, 4 BUY, 235 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
