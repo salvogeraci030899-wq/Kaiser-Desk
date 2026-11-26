@@ -1,7 +1,7 @@
 {
  "startedAt": 1795384038486,
  "runs": 433,
- "cash": 5.9561299153108305,
+ "cash": 5.946454026664614,
  "positions": [],
  "journal": [
   {
@@ -547,23 +547,61 @@
    },
    "maePct": -31.093386774265717,
    "age": null
+  },
+  {
+   "id": "P-0687",
+   "mint": "CFX1gH7CKYwqYXrfDkS2MUxJcEhs8PT63DyRA1chpump",
+   "sym": "Hoppy",
+   "openedAt": 1795726182428,
+   "closedAt": 1795726205985,
+   "cost": 0.1201225983062166,
+   "back": 0.11044670966,
+   "pnl": -0.009675888646216602,
+   "pct": -8.055011115852507,
+   "mode": "paper",
+   "src": "umano",
+   "band": "500K-1M",
+   "cr": "6SRsYENu2ZnXsxxQWTFXLNGwhPDTMU69w94jS6uRAJQk",
+   "aid": "atp4n69",
+   "reason": "Chiusura manuale (app)",
+   "score": 86,
+   "solUsd": 71.24625389760108,
+   "peakPct": 4.326990619064852,
+   "trigPct": 4.326990619064852,
+   "entryInfo": {
+    "srcs": [
+     "umano"
+    ],
+    "notes": [
+     "scelta tua"
+    ],
+    "plus": [],
+    "m": {},
+    "grok": null
+   },
+   "maePct": null,
+   "age": null,
+   "rd": [
+    {
+     "t": 1795726185752,
+     "a": "2yyjypQs",
+     "px": 0.00000729,
+     "n": 1,
+     "sp": 0
+    },
+    {
+     "t": 1795726195776,
+     "a": "2yyjypQs",
+     "px": 0.00000729,
+     "n": 1,
+     "sp": 0
+    }
+   ],
+   "sw": 0,
+   "ep": "2yyjypQs"
   }
  ],
  "signals": [
-  {
-   "t": 1795705593735,
-   "mint": "Bnw5JRPek5JvJhzUiB9yrs2cmzt4bLeFqSRzDzSppump",
-   "sym": "UHI",
-   "score": 77,
-   "priceNative": 0.0000185
-  },
-  {
-   "t": 1795705615697,
-   "mint": "Bnw5JRPek5JvJhzUiB9yrs2cmzt4bLeFqSRzDzSppump",
-   "sym": "UHI",
-   "score": 81,
-   "priceNative": 0.00001833
-  },
   {
    "t": 1795705638060,
    "mint": "Bnw5JRPek5JvJhzUiB9yrs2cmzt4bLeFqSRzDzSppump",
@@ -7549,32 +7587,23 @@
    "sym": "Dogeball",
    "score": 81,
    "priceNative": 0.000007575
+  },
+  {
+   "t": 1795726161652,
+   "mint": "CFX1gH7CKYwqYXrfDkS2MUxJcEhs8PT63DyRA1chpump",
+   "sym": "Hoppy",
+   "score": 86,
+   "priceNative": 0.00000729
+  },
+  {
+   "t": 1795726185752,
+   "mint": "CFX1gH7CKYwqYXrfDkS2MUxJcEhs8PT63DyRA1chpump",
+   "sym": "Hoppy",
+   "score": 86,
+   "priceNative": 0.00000729
   }
  ],
  "alerts": [
-  {
-   "id": "atoxolg",
-   "band": "1M-2M",
-   "cr": "BKQLZBbJoXAxBvHVRcxXnM6sPEUCfuBpgoeVE5KkV1W",
-   "cline": "creatore: 1 Coin in fascia alta, 1 raddoppiate; 1 token lanciati, 0 arrivati in alto",
-   "t": 1795401412535,
-   "mint": "3BcJ4SSCfbxDMrWcUDucyCWxMjmy4M2ECCtvxu86pump",
-   "sym": "FSDV15",
-   "name": "Tesla FSD v15",
-   "score": 74,
-   "pair": "DXVpx5PnefCiLVMucmUxrX2x7MgSDMTggmQgiRA2zV6W",
-   "priceNative": 0.00002825,
-   "mc": 1975435,
-   "liq": 102440.59,
-   "ageMin": 291.7,
-   "why": [
-    "pressione in acquisto"
-   ],
-   "last": 17.1,
-   "min": 0,
-   "p5": 11.1,
-   "p15": 17.1
-  },
   {
    "id": "atoxphw",
    "band": "500K-1M",
@@ -9260,6 +9289,31 @@
    "min": -25.4,
    "p5": 17.9,
    "p15": -7.6
+  },
+  {
+   "id": "atp4n69",
+   "band": "500K-1M",
+   "cr": "6SRsYENu2ZnXsxxQWTFXLNGwhPDTMU69w94jS6uRAJQk",
+   "cline": "creatore: 1 Coin in fascia alta, 0 raddoppiate; 1 token lanciati, 0 arrivati in alto",
+   "t": 1795726161652,
+   "mint": "CFX1gH7CKYwqYXrfDkS2MUxJcEhs8PT63DyRA1chpump",
+   "sym": "Hoppy",
+   "name": "Hoppy",
+   "score": 86,
+   "pair": "2yyjypQsN3HrPSmYow81E2sT478zpbNP2ErGYaWjqyT3",
+   "priceNative": 0.00000729,
+   "mc": 520089,
+   "liq": 50797.71,
+   "ageMin": 16.2,
+   "why": [
+    "turnover 7.2x/h",
+    "pressione in acquisto"
+   ],
+   "last": -44.8,
+   "min": -44.8,
+   "vote": "y",
+   "vAt": 1795726181085,
+   "vp": 0
   }
  ],
  "grokLog": [],
@@ -9267,10 +9321,29 @@
   "date": "2026-11-26",
   "startEq": 6.004321936296766
  },
- "cooldownUntil": 1795658040954,
+ "cooldownUntil": 1795726505987,
  "halted": null,
- "seq": 686,
+ "seq": 687,
  "events": [
+  "20:50:30 ORACLE   360 raccolti, 258 analizzati, 0 BUY, 257 veto",
+  "20:50:08 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 255 veto",
+  "20:50:05 SCRIBE   chiuso P-0687 $Hoppy -0.0097 SOL (-8.1%)",
+  "20:50:05 CHARON   Chiusura manuale (app) $Hoppy vendo 100% a 4.3% -> 0.1104 SOL",
+  "20:50:05 KAISER   chiusura manuale dall'app: P-0687 Hoppy",
+  "20:49:45 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 262 veto",
+  "20:49:42 QUARTER  BUY $Hoppy 0.119 SOL score 86 impatto 1.85% (Jupiter)",
+  "20:49:21 QUARTER  SEGNALE $Hoppy score 86 (semi-automatico)",
+  "20:49:21 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 253 veto",
+  "20:48:58 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 266 veto",
+  "20:48:36 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 259 veto",
+  "20:48:14 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 261 veto",
+  "20:48:11 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)",
+  "20:47:51 ORACLE   360 raccolti, 263 analizzati, 0 BUY, 261 veto",
+  "20:47:29 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 262 veto",
+  "20:47:07 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 259 veto",
+  "20:46:45 ORACLE   360 raccolti, 266 analizzati, 0 BUY, 264 veto",
+  "20:46:22 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 268 veto",
+  "20:45:58 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 267 veto",
   "20:45:36 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 269 veto",
   "20:45:14 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 267 veto",
   "20:44:51 ORACLE   360 raccolti, 264 analizzati, 0 BUY, 262 veto",
@@ -9551,31 +9624,12 @@
   "19:07:55 ORACLE   360 raccolti, 281 analizzati, 0 BUY, 278 veto",
   "19:07:33 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 264 veto",
   "19:07:10 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 267 veto",
-  "19:06:48 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 270 veto",
-  "19:06:25 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 267 veto",
-  "19:06:03 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 269 veto",
-  "19:05:40 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 273 veto",
-  "19:05:18 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 262 veto",
-  "19:05:16 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)",
-  "19:04:55 ORACLE   360 raccolti, 278 analizzati, 1 BUY, 275 veto",
-  "19:04:32 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 270 veto",
-  "19:04:09 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 261 veto",
-  "19:03:47 ORACLE   360 raccolti, 268 analizzati, 0 BUY, 264 veto",
-  "19:03:23 ORACLE   360 raccolti, 269 analizzati, 0 BUY, 265 veto",
-  "19:03:01 ORACLE   360 raccolti, 265 analizzati, 0 BUY, 261 veto",
-  "19:02:37 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 257 veto",
-  "19:02:15 ORACLE   360 raccolti, 241 analizzati, 0 BUY, 237 veto",
-  "19:01:51 ORACLE   360 raccolti, 244 analizzati, 0 BUY, 240 veto",
-  "19:01:28 ORACLE   360 raccolti, 256 analizzati, 0 BUY, 252 veto",
-  "19:01:06 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 250 veto",
-  "19:00:43 ORACLE   360 raccolti, 246 analizzati, 0 BUY, 242 veto",
-  "19:00:20 ORACLE   360 raccolti, 257 analizzati, 0 BUY, 253 veto",
-  "18:59:57 ORACLE   360 raccolti, 248 analizzati, 0 BUY, 244 veto"
+  "19:06:48 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 270 veto"
  ],
  "capital": 6,
  "resetId": "C-0120",
  "realTried": {},
- "lastEntryAt": 1795657540434,
+ "lastEntryAt": 1795726182428,
  "lab": {
   "done": [
    {
@@ -21384,10 +21438,6 @@
  "lastDaily": "2026-11-26",
  "cal": [
   {
-   "t": 1795241538411,
-   "g": 3.7
-  },
-  {
    "t": 1795242770227,
    "g": 0.5
   },
@@ -21782,6 +21832,10 @@
   {
    "t": 1795657740953,
    "g": -9.9
+  },
+  {
+   "t": 1795726205985,
+   "g": -9.5
   }
  ],
  "snipeNotified": 2,
@@ -21934,8 +21988,8 @@
    ]
   },
   "2026-11-26": {
-   "c": 17,
-   "nv": 17,
+   "c": 18,
+   "nv": 18,
    "m": [
     "3gmFG4sFDJErDV8pacFrL2uUPXeGJTYLjfRy4hFypump",
     "6HS1aeSk7osT5B1CzLp1HTRTAweFr5wurfMHS4vppump",
@@ -21953,7 +22007,8 @@
     "7sxuap7Q4uoAJFBW3ensq6QTa2KwgGosfFwoeXtJpump",
     "8TG9KGHbLYdArfk4mBRnbJNGKNXYkLFXDpNLbSeHpump",
     "FvitVJ528ZCyuy695DoqEGy816rFVafbZ2MSgMw3pump",
-    "EMhHvdxs3L1T38pV1yNe9JXF6KfkxFTShNLaxL7rpump"
+    "EMhHvdxs3L1T38pV1yNe9JXF6KfkxFTShNLaxL7rpump",
+    "CFX1gH7CKYwqYXrfDkS2MUxJcEhs8PT63DyRA1chpump"
    ],
    "q": [
     "3gmFG4sFDJErDV8pacFrL2uUPXeGJTYLjfRy4hFypump",
@@ -21972,7 +22027,8 @@
     "7sxuap7Q4uoAJFBW3ensq6QTa2KwgGosfFwoeXtJpump",
     "8TG9KGHbLYdArfk4mBRnbJNGKNXYkLFXDpNLbSeHpump",
     "FvitVJ528ZCyuy695DoqEGy816rFVafbZ2MSgMw3pump",
-    "EMhHvdxs3L1T38pV1yNe9JXF6KfkxFTShNLaxL7rpump"
+    "EMhHvdxs3L1T38pV1yNe9JXF6KfkxFTShNLaxL7rpump",
+    "CFX1gH7CKYwqYXrfDkS2MUxJcEhs8PT63DyRA1chpump"
    ]
   }
  },
