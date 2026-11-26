@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Kaiser">
 <meta name="theme-color" content="#000000" id="metaThemeColor">
 <meta name="format-detection" content="telephone=no">
-<meta name="kz-build" content="2.70.0">
+<meta name="kz-build" content="2.70.1">
 <link rel="manifest" href="manifest.json?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=4" media="(prefers-color-scheme: light)">
@@ -821,6 +821,11 @@ function renderJournal() {
   } else if (tab === 'dip') {
     const W = J.filter((j) => j.pnl > 0 && j.maePct != null), L = J.filter((j) => j.pnl <= 0 && j.maePct != null), avg = (xs) => (xs.length ? xs.reduce((s, j) => s + j.maePct, 0) / xs.length : 0), cnt = (xs, t) => xs.filter((j) => j.maePct <= t).length;
     body = W.length + L.length ? `<div class="kv">${kvRow(`In profitto (${W.length}): calo medio prima`, W.length ? fmtPct(avg(W), 1) : '—')}${kvRow('   scesi oltre −10%', W.length ? cnt(W, -10) + '/' + W.length : '—')}${kvRow('   scesi oltre −25%', W.length ? cnt(W, -25) + '/' + W.length : '—')}${kvRow(`In perdita (${L.length}): calo medio`, L.length ? fmtPct(avg(L), 1) : '—', 'down')}</div>` : none;
+  } else if (only) {
+    // Solo uomo: le uscite a mano contro quelle decise dalle regole (stop, trailing, tempo), con media in percentuale e quota in utile. Solo descrittivo: i sottogruppi sono piccoli e scelti dopo aver visto i dati.
+    const isMan = (j) => /manuale/i.test(j.reason || ''), man = J.filter(isMan), aut = J.filter((j) => !isMan(j)), stp = aut.filter((j) => /stop loss/i.test(j.reason || '')), oth = aut.filter((j) => !/stop loss/i.test(j.reason || ''));
+    const row = (lab, a) => { const m = a.length ? a.reduce((p, j) => p + j.pct, 0) / a.length : null, w = a.length ? Math.round(100 * a.filter((j) => j.pnl > 0).length / a.length) : 0; return kvRow(`${lab} (${a.length})${a.length ? ' · in utile ' + w + '%' : ''}`, m == null ? '—' : fmtPct(m, 1), cls(m)); };
+    body = J.length ? `<div class="kv">${row('Chiusi a mano', man)}${row('Chiusi dalle regole', aut)}${row('di cui stop loss', stp)}${row('di cui trailing e altre', oth)}</div>` : '<span class="muted small">Ancora nessuna uscita.</span>';
   } else {
     const by = {}; for (const j of J) { by[j.reason] = by[j.reason] || { n: 0, pnl: 0 }; by[j.reason].n++; by[j.reason].pnl += j.pnl; }
     body = Object.keys(by).length ? `<div class="kv">${Object.entries(by).map(([k, v]) => kvRow(`${esc(k)} (${v.n})`, v.pnl.toFixed(4) + '◎', cls(v.pnl))).join('')}</div>` : '<span class="muted small">Ancora nessuna uscita.</span>';
