@@ -239,3 +239,8 @@ test('riepilogo giornaliero: dice a quante decisioni hai risposto e quante manca
   const txt = Semi.digestText({ now, alerts: [{ id: 'a1', t: T, mint: 'M1', sym: 'AAA', vote: 'n', vAt: T + 30000 }, { id: 'a2', t: T + 1, mint: 'M2', sym: 'BBB' }, { id: 'a3', t: T + 2, mint: 'M3', sym: 'CCC' }], journal: [], positions: [], bandDays: {}, cr: null });
   assert.match(txt, /Risposte: 1 di 3 avvisi di oggi, tempo mediano 30 s/); assert.match(txt, /Senza risposta: 2 \(scaduti/);
 });
+
+test('Journal solo uomo: la scheda Motivi di uscita confronta uscite a mano e uscite delle regole', () => {
+  const html = fs.readFileSync(require.resolve('../index.html'), 'utf8');
+  assert.match(html, /row\('Chiusi a mano', man\)/); assert.match(html, /row\('Chiusi dalle regole', aut\)/); assert.match(html, /row\('di cui stop loss', stp\)/); assert.match(html, /\} else if \(only\) \{\n    \/\/ Solo uomo: le uscite a mano/);
+});
