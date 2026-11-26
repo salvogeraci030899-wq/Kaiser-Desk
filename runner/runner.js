@@ -151,7 +151,7 @@ async function solPrice() {
   } catch (e) { log('SCOUT', 'prezzo SOL non disponibile: ' + e.message); }
 }
 async function dexPairs(mints) {
-  const out = new Map();
+  const out = new Map(), all = new Map();      // all: tutti i pool in SOL visti per ogni Coin, solo per la diagnosi dei prezzi (nessun comportamento cambia)
   for (let i = 0; i < mints.length; i += 30) {
     const chunk = mints.slice(i, i + 30);
     try {
@@ -159,11 +159,13 @@ async function dexPairs(mints) {
       for (const p of arr || []) {
         const a = p.baseToken && p.baseToken.address;
         if (!chunk.includes(a) || !/^(SOL|WSOL)$/.test((p.quoteToken && p.quoteToken.symbol) || '')) continue;
+        if (!all.has(a)) all.set(a, []); all.get(a).push({ a: String(p.pairAddress || ''), px: num(p.priceNative), liq: num(p.liquidity && p.liquidity.usd) });
         const cur = out.get(a);
         if (!cur || num(p.liquidity && p.liquidity.usd) > num(cur.liquidity && cur.liquidity.usd)) out.set(a, p);
       }
     } catch (e) { log('SCOUT', 'DexScreener errore: ' + e.message); }
   }
+  if (all.size) { rt.allPairs = rt.allPairs || new Map(); for (const [m, l] of all) rt.allPairs.set(m, l); if (rt.allPairs.size > 300) for (const k of [...rt.allPairs.keys()].slice(0, rt.allPairs.size - 300)) rt.allPairs.delete(k); }
   return out;
 }
 async function discover() {
@@ -287,6 +289,7 @@ function humanSection() {
 Il paper e' il registro di cio' che decidi sugli avvisi di Telegram. Con Prendo si apre subito una posizione paper con le uscite impostate (netto di impatto, commissioni e priority fee); con Scarto si simula la stessa uscita con costi stimati dalla liquidita', per vedere cosa avresti ottenuto. Non c'e' nessun bot a parte.
 Regola decisa in anticipo, sui tuoi Prendo chiusi: almeno ${t.cfg.minN}, netto medio >= +${t.cfg.passMeanPct}% con limite inferiore del 95% sopra zero. Il confronto con gli Scarto e' solo descrittivo.
 Il conteggio parte dal ${new Date(st.cleanSince).toISOString().slice(0, 16).replace('T', ' ')} UTC (primo run con id unici e senza blocco per slippage): le decisioni precedenti restano nel registro ma non contano.
+Diagnosi dei prezzi: ${(() => { const dj = (st.journal || []).filter((j) => j.rd); return dj.length ? `${dj.length} trade chiusi con le letture registrate, ${dj.filter((j) => j.sw > 0).length} con almeno un cambio di pool, scarto massimo tra pool ${Math.max(0, ...dj.flatMap((j) => j.rd.map((r) => r.sp || 0))).toFixed(0)}%` : 'ancora nessun trade chiuso con le letture registrate'; })()}.
 
 | | |
 |---|---|
@@ -521,7 +524,7 @@ async function sell(p, frac, reason) {
     const pnl = p.realized - p.cost;
     const j = { id: p.id, mint: p.mint, sym: p.sym, openedAt: p.openedAt, closedAt: Date.now(), cost: p.cost, back: p.realized, pnl, pct: pnl / p.cost * 100,
       mode: 'paper', src: p.src || 'bot', band: p.band || '', cr: p.cr || '', aid: p.aid || '', reason, score: p.score, solUsd: rt.solUsd, peakPct: (p.peak / p.entry - 1) * 100, trigPct: (m.priceNative / p.entry - 1) * 100, entryInfo: p.entryInfo,
-      maePct: p.trough && p.entry > 0 ? (p.trough / p.entry - 1) * 100 : null, age: p.entryInfo && p.entryInfo.m && Number.isFinite(Number(p.entryInfo.m.ageMin)) ? Math.round(Number(p.entryInfo.m.ageMin)) : null };
+      maePct: p.trough && p.entry > 0 ? (p.trough / p.entry - 1) * 100 : null, age: p.entryInfo && p.entryInfo.m && Number.isFinite(Number(p.entryInfo.m.ageMin)) ? Math.round(Number(p.entryInfo.m.ageMin)) : null , rd: p.rd ? p.rd.slice(-14) : undefined, sw: p.sw || 0, trig: p.trig, ep: String(p.pairAddress || '').slice(0, 8) };
     st.journal.push(j);
     pushLive(true).catch(() => {});
     if (pnl < 0) st.cooldownUntil = Date.now() + S.cooldownMin * 60000;
@@ -539,10 +542,14 @@ async function manage(pairsIn) {
     if (!pr) continue;
     const t5 = (pr.txns && pr.txns.m5) || { buys: 0, sells: 0 };
     p.last = { priceNative: num(pr.priceNative), liq: num(pr.liquidity && pr.liquidity.usd), br5: (num(t5.buys) + 1) / (num(t5.sells) + 1), tx5: num(t5.buys) + num(t5.sells), t: Date.now() };
+    { const al = (rt.allPairs && rt.allPairs.get(p.mint)) || [], px = al.map((x) => x.px).filter((v) => v > 0), prev = (p.rd || []).at(-1);
+      p.rd = p.rd || []; p.rd.push({ t: p.last.t, a: String(pr.pairAddress || '').slice(0, 8), px: p.last.priceNative, n: al.length, sp: px.length > 1 ? +((Math.max(...px) / Math.min(...px) - 1) * 100).toFixed(1) : 0 });
+      if (prev && prev.a !== p.rd.at(-1).a) p.sw = (p.sw || 0) + 1; if (p.rd.length > 40) p.rd.splice(1, p.rd.length - 40); }      // diagnosi dei prezzi: pool usato, quanti pool, scarto tra pool, cambi di pool
     if (p.last.priceNative > p.peak) p.peak = p.last.priceNative;
     if (p.last.priceNative > 0 && p.last.priceNative < (p.trough || p.entry)) p.trough = p.last.priceNative;   // discesa massima dall'ingresso (serve all'analisi del Journal)
     const act = E.charon(p, p.last, S);
-    if (act) { if (act.tp1) p.tp1Done = true; if (act.sp) p.spDone = true; await sell(p, act.frac, act.reason); }
+    if (act) { p.trig = { t: Date.now(), reason: act.reason, a: String(pr.pairAddress || '').slice(0, 8), pct: +((p.last.priceNative / p.entry - 1) * 100).toFixed(1), pools: ((rt.allPairs && rt.allPairs.get(p.mint)) || []).slice(0, 4).map((x) => ({ a: x.a.slice(0, 8), pct: x.px > 0 ? +((x.px / p.entry - 1) * 100).toFixed(1) : null, liq: Math.round(x.liq) })) };      // pool visti nell'istante della decisione di vendita
+      if (act.tp1) p.tp1Done = true; if (act.sp) p.spDone = true; await sell(p, act.frac, act.reason); }
   }
 }
 function botPenalty(c) {
@@ -1001,4 +1008,4 @@ async function main() {
 }
 
 if (require.main === module) main().catch((e) => { console.error(e); save(); process.exit(1); });
-module.exports = { main, st, S, stats, report, realEntries, rt, publicSummary, pullParams, pushLive, resetForBand, enforceBand };
+module.exports = { main, st, S, stats, report, realEntries, rt, publicSummary, pullParams, pushLive, resetForBand, enforceBand, manage, dexPairs };

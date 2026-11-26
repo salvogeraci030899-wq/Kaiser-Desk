@@ -13,7 +13,7 @@ const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'kaiser-take-'));
 fs.writeFileSync(path.join(dir, 'state.json'), JSON.stringify({ capital: 6, runs: 1, cash: 6, seq: 0, positions: [], journal: [], signals: [], events: [], alerts: [alert('a0001', M1, 'AAA'), alert('a0002', M2, 'BBB'), alert('a0003', M3, 'CCC')] }));
 process.env.STATE_DIR = dir; delete process.env.TELEGRAM_BOT_TOKEN; process.env.EXEC_TOKEN = 'tok'; process.env.EXEC_URL = 'https://exec.test';
 const R = require('../runner/runner.js');
-const { st } = R;
+const { st, S } = R;
 
 function world(votes, mints) {
   const calls = [], real = globalThis.fetch;
@@ -71,4 +71,21 @@ test('inizio pulito del test: i Prendo aperti prima di st.cleanSince restano nel
   const old = Array.from({ length: 60 }, () => ({ src: 'umano', pct: 30, openedAt: st.cleanSince - 3600000 }));
   assert.equal(Semi.humanTrades(old).n, 0, 'prima dell\'inizio pulito: non contano');
   assert.equal(Semi.humanTrades(old.map((j) => ({ ...j, openedAt: st.cleanSince + 1 }))).n, 60);
+});
+
+test('diagnosi dei prezzi: ogni lettura registra il pool usato, i pool visti e i cambi di pool; il Journal li conserva', async () => {
+  const MX = 'Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB', real = globalThis.fetch;
+  globalThis.fetch = async (url) => new Response(JSON.stringify(String(url).includes('api.dexscreener.com') ? [
+    { pairAddress: 'POOLAAAA1111', baseToken: { address: MX }, quoteToken: { symbol: 'SOL' }, priceNative: '0.00002', liquidity: { usd: 90000 } },
+    { pairAddress: 'POOLBBBB2222', baseToken: { address: MX }, quoteToken: { symbol: 'SOL' }, priceNative: '0.00001', liquidity: { usd: 50000 } }] : {}), { status: 200 });
+  try {
+    const m = await R.dexPairs([MX]); assert.equal(m.get(MX).pairAddress, 'POOLAAAA1111', 'il comportamento non cambia: sceglie il pool con piu\' liquidita\'');
+    assert.equal(R.rt.allPairs.get(MX).length, 2, 'ma ora si ricordano tutti i pool');
+    const p = { id: 'P-9001', mint: MX, sym: 'DIAG', openedAt: Date.now(), sizeSOL: 0.1, cost: 0.1, entry: 0.000001, tokens: 100000, remaining: 1, peak: 0.000001, tp1Done: false, entryLiq: 90000, src: 'umano', band: '500K-1M', ex: undefined, xs: Semi.bandExits(S), fills: [], last: null };
+    st.positions.push(p);
+    await R.manage(new Map([[MX, { pairAddress: 'POOLAAAA1111', priceNative: '0.00002', liquidity: { usd: 90000 } }]]));
+    await R.manage(new Map([[MX, { pairAddress: 'POOLBBBB2222', priceNative: '0.00001', liquidity: { usd: 50000 } }]]));
+    assert.equal(p.rd.length, 2); assert.equal(p.rd[0].n, 2); assert.equal(p.rd[0].sp, 100, 'scarto tra i due pool: +100%'); assert.equal(p.sw, 1, 'un cambio di pool'); assert.equal(p.rd[1].a, 'POOLBBBB');
+  } finally { globalThis.fetch = real; st.positions = st.positions.filter((x) => x.id !== 'P-9001'); }
+  const src = fs.readFileSync(require.resolve('../runner/runner.js'), 'utf8'); assert.match(src, /rd: p\.rd \? p\.rd\.slice\(-14\) : undefined, sw: p\.sw \|\| 0, trig: p\.trig/); assert.match(src, /p\.trig = \{ t: Date\.now\(\), reason: act\.reason/);
 });
