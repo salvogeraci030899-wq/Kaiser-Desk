@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-26 07:56 UTC · in esecuzione da 3.4 giorni · 418 run
+Aggiornato: 2026-11-26 08:01 UTC · in esecuzione da 3.4 giorni · 418 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-26 07:56 UTC · in esecuzione da 3.4 giorni · 418 run
 | Cassa | 5.9561 SOL |
 | Trade chiusi | 16 |
 | Win rate | 38% |
-| P&L realizzato | -0.0439 SOL (~$-3.10) |
+| P&L realizzato | -0.0439 SOL (~$-3.11) |
 | Media vincite / perdite | +24.6% / -18.3% |
 | Profit factor | 0.80 |
 | Circuit breaker | no |
@@ -62,7 +62,7 @@ Il conteggio parte dal 2026-11-23 09:12 UTC (primo run con id unici e senza bloc
 
 ## Coin di fascia alta e ricerca sui creatori
 Il Radar guarda le Coin da 500000 dollari di market cap in su. Per ognuna si risale al creatore e si registra la market cap: una Coin e' «raddoppiata» se supera il doppio della prima lettura in fascia. Il profilo del creatore compare nell'avviso.
-Memoria: 231624 lanci noti, 41703 creatori; 66 Coin in fascia alta viste (54 creatori), 22 raddoppiate (18 creatori). Creatore trovato: tabella 250, richiesta esterna 0, sconosciuto 0.
+Memoria: 231733 lanci noti, 41724 creatori; 66 Coin in fascia alta viste (54 creatori), 22 raddoppiate (18 creatori). Creatore trovato: tabella 306, richiesta esterna 0, sconosciuto 0.
 Richieste esterne per il creatore: nessuna ancora.
 
 | Fascia | Avvisi | Prendo / Scarto | Tuoi trade chiusi | Netto medio |
@@ -102,6 +102,21 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 
 ## Ultimi eventi
 ```
+08:01:32 ORACLE   360 raccolti, 279 analizzati, 2 BUY, 275 veto
+08:01:10 ORACLE   360 raccolti, 273 analizzati, 2 BUY, 269 veto
+08:00:48 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 268 veto
+08:00:25 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 271 veto
+08:00:01 ORACLE   360 raccolti, 282 analizzati, 2 BUY, 278 veto
+07:59:39 ORACLE   360 raccolti, 263 analizzati, 2 BUY, 259 veto
+07:59:16 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 274 veto
+07:58:54 ORACLE   360 raccolti, 281 analizzati, 2 BUY, 277 veto
+07:58:32 ORACLE   360 raccolti, 278 analizzati, 2 BUY, 274 veto
+07:58:09 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 267 veto
+07:57:47 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 272 veto
+07:57:25 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 271 veto
+07:57:22 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)
+07:57:02 ORACLE   360 raccolti, 282 analizzati, 2 BUY, 278 veto
+07:56:38 ORACLE   360 raccolti, 251 analizzati, 2 BUY, 247 veto
 07:56:16 ORACLE   360 raccolti, 250 analizzati, 2 BUY, 246 veto
 07:55:53 ORACLE   360 raccolti, 267 analizzati, 2 BUY, 263 veto
 07:55:30 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 264 veto
@@ -127,21 +142,6 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 07:48:42 ORACLE   360 raccolti, 259 analizzati, 3 BUY, 254 veto
 07:48:18 ORACLE   360 raccolti, 225 analizzati, 3 BUY, 220 veto
 07:47:56 ORACLE   360 raccolti, 264 analizzati, 3 BUY, 259 veto
-07:47:33 ORACLE   360 raccolti, 231 analizzati, 3 BUY, 226 veto
-07:47:10 ORACLE   360 raccolti, 254 analizzati, 2 BUY, 250 veto
-07:46:47 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 243 veto
-07:46:25 ORACLE   360 raccolti, 247 analizzati, 2 BUY, 243 veto
-07:46:02 ORACLE   360 raccolti, 261 analizzati, 2 BUY, 257 veto
-07:45:38 ORACLE   360 raccolti, 248 analizzati, 2 BUY, 244 veto
-07:45:36 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)
-07:45:36 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
-07:45:16 ORACLE   360 raccolti, 275 analizzati, 3 BUY, 270 veto
-07:44:53 ORACLE   360 raccolti, 281 analizzati, 3 BUY, 276 veto
-07:44:31 ORACLE   360 raccolti, 279 analizzati, 3 BUY, 274 veto
-07:44:08 ORACLE   360 raccolti, 274 analizzati, 3 BUY, 269 veto
-07:43:45 ORACLE   360 raccolti, 277 analizzati, 3 BUY, 272 veto
-07:43:22 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 265 veto
-07:43:00 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 258 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
