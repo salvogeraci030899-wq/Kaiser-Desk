@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-26 14:48 UTC · in esecuzione da 3.7 giorni · 426 run
+Aggiornato: 2026-11-26 14:53 UTC · in esecuzione da 3.7 giorni · 426 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-26 14:48 UTC · in esecuzione da 3.7 giorni · 426 run
 | Cassa | 5.9561 SOL |
 | Trade chiusi | 16 |
 | Win rate | 38% |
-| P&L realizzato | -0.0439 SOL (~$-3.12) |
+| P&L realizzato | -0.0439 SOL (~$-3.11) |
 | Media vincite / perdite | +24.6% / -18.3% |
 | Profit factor | 0.80 |
 | Circuit breaker | no |
@@ -63,7 +63,7 @@ Diagnosi dei prezzi: ancora nessun trade chiuso con le letture registrate.
 
 ## Coin di fascia alta e ricerca sui creatori
 Il Radar guarda le Coin da 500000 dollari di market cap in su. Per ognuna si risale al creatore e si registra la market cap: una Coin e' «raddoppiata» se supera il doppio della prima lettura in fascia. Il profilo del creatore compare nell'avviso.
-Memoria: 241179 lanci noti, 43146 creatori; 66 Coin in fascia alta viste (54 creatori), 22 raddoppiate (18 creatori). Creatore trovato: tabella 249, richiesta esterna 0, sconosciuto 0.
+Memoria: 241310 lanci noti, 43175 creatori; 66 Coin in fascia alta viste (54 creatori), 22 raddoppiate (18 creatori). Creatore trovato: tabella 291, richiesta esterna 0, sconosciuto 0.
 Richieste esterne per il creatore: nessuna ancora.
 
 | Fascia | Avvisi | Prendo / Scarto | Tuoi trade chiusi | Netto medio |
@@ -103,6 +103,21 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 
 ## Ultimi eventi
 ```
+14:53:51 ORACLE   360 raccolti, 256 analizzati, 1 BUY, 253 veto
+14:53:29 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 267 veto
+14:53:07 ORACLE   360 raccolti, 259 analizzati, 1 BUY, 256 veto
+14:52:46 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 259 veto
+14:52:23 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 262 veto
+14:52:11 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
+14:52:01 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 262 veto
+14:51:39 ORACLE   360 raccolti, 261 analizzati, 1 BUY, 258 veto
+14:51:16 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 259 veto
+14:50:54 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 263 veto
+14:50:32 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 262 veto
+14:50:10 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 270 veto
+14:49:48 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 271 veto
+14:49:26 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 270 veto
+14:49:02 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 252 veto
 14:48:40 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 265 veto
 14:48:18 ORACLE   360 raccolti, 268 analizzati, 2 BUY, 265 veto
 14:47:55 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 272 veto
@@ -128,21 +143,6 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 14:40:51 ORACLE   360 raccolti, 275 analizzati, 1 BUY, 272 veto
 14:40:28 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 273 veto
 14:40:05 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 278 veto
-14:39:42 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 281 veto
-14:39:20 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 265 veto
-14:38:58 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 260 veto
-14:38:34 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 267 veto
-14:38:12 ORACLE   360 raccolti, 262 analizzati, 1 BUY, 259 veto
-14:37:48 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 269 veto
-14:37:26 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 268 veto
-14:37:04 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 271 veto
-14:36:41 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 267 veto
-14:36:19 ORACLE   360 raccolti, 257 analizzati, 1 BUY, 254 veto
-14:36:07 ORACLE   360 raccolti, 248 analizzati, 1 BUY, 245 veto
-14:35:40 ORACLE   360 raccolti, 258 analizzati, 1 BUY, 255 veto
-14:35:18 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 262 veto
-14:34:56 ORACLE   360 raccolti, 255 analizzati, 1 BUY, 252 veto
-14:34:33 ORACLE   360 raccolti, 266 analizzati, 1 BUY, 263 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
