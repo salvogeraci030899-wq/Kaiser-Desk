@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-27 22:33 UTC · in esecuzione da 5.0 giorni · 464 run
+Aggiornato: 2026-11-27 22:39 UTC · in esecuzione da 5.0 giorni · 464 run
 
 | | |
 |---|---|
@@ -63,7 +63,7 @@ Diagnosi dei prezzi: 2 trade chiusi con le letture registrate, 0 con almeno un c
 
 ## Coin di fascia alta e ricerca sui creatori
 Il Radar guarda le Coin da 500000 dollari di market cap in su. Per ognuna si risale al creatore e si registra la market cap: una Coin e' «raddoppiata» se supera il doppio della prima lettura in fascia. Il profilo del creatore compare nell'avviso.
-Memoria: 297038 lanci noti, 52358 creatori; 93 Coin in fascia alta viste (78 creatori), 33 raddoppiate (26 creatori). Creatore trovato: tabella 259, richiesta esterna 0, sconosciuto 0.
+Memoria: 297218 lanci noti, 52376 creatori; 93 Coin in fascia alta viste (78 creatori), 33 raddoppiate (26 creatori). Creatore trovato: tabella 319, richiesta esterna 0, sconosciuto 0.
 Richieste esterne per il creatore: nessuna ancora.
 
 | Fascia | Avvisi | Prendo / Scarto | Tuoi trade chiusi | Netto medio |
@@ -105,6 +105,24 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 
 ## Ultimi eventi
 ```
+22:38:53 ORACLE   360 raccolti, 270 analizzati, 3 BUY, 266 veto
+22:38:31 ORACLE   360 raccolti, 257 analizzati, 3 BUY, 253 veto
+22:38:09 ORACLE   360 raccolti, 271 analizzati, 3 BUY, 267 veto
+22:37:47 ORACLE   360 raccolti, 258 analizzati, 3 BUY, 254 veto
+22:37:25 ORACLE   360 raccolti, 265 analizzati, 3 BUY, 261 veto
+22:37:23 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
+22:37:23 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)
+22:37:23 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
+22:37:03 ORACLE   360 raccolti, 266 analizzati, 3 BUY, 262 veto
+22:36:40 ORACLE   360 raccolti, 262 analizzati, 3 BUY, 258 veto
+22:36:19 ORACLE   360 raccolti, 257 analizzati, 3 BUY, 253 veto
+22:36:17 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)
+22:36:07 ORACLE   360 raccolti, 277 analizzati, 3 BUY, 272 veto
+22:35:42 ORACLE   360 raccolti, 266 analizzati, 3 BUY, 261 veto
+22:35:19 ORACLE   360 raccolti, 264 analizzati, 3 BUY, 259 veto
+22:34:57 ORACLE   360 raccolti, 267 analizzati, 3 BUY, 262 veto
+22:34:34 ORACLE   360 raccolti, 269 analizzati, 3 BUY, 265 veto
+22:34:11 ORACLE   360 raccolti, 256 analizzati, 3 BUY, 252 veto
 22:33:49 ORACLE   360 raccolti, 267 analizzati, 3 BUY, 263 veto
 22:33:27 ORACLE   360 raccolti, 261 analizzati, 3 BUY, 257 veto
 22:33:05 ORACLE   360 raccolti, 249 analizzati, 3 BUY, 245 veto
@@ -127,24 +145,6 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 22:27:05 ORACLE   360 raccolti, 237 analizzati, 3 BUY, 234 veto
 22:26:43 ORACLE   360 raccolti, 232 analizzati, 3 BUY, 229 veto
 22:26:21 ORACLE   360 raccolti, 226 analizzati, 3 BUY, 223 veto
-22:25:59 ORACLE   360 raccolti, 246 analizzati, 3 BUY, 243 veto
-22:25:37 ORACLE   360 raccolti, 247 analizzati, 3 BUY, 244 veto
-22:25:14 ORACLE   360 raccolti, 241 analizzati, 3 BUY, 238 veto
-22:25:12 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)
-22:25:12 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
-22:25:12 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
-22:24:52 ORACLE   360 raccolti, 251 analizzati, 3 BUY, 248 veto
-22:24:29 ORACLE   360 raccolti, 241 analizzati, 3 BUY, 238 veto
-22:24:08 ORACLE   360 raccolti, 235 analizzati, 3 BUY, 232 veto
-22:23:46 ORACLE   360 raccolti, 246 analizzati, 3 BUY, 243 veto
-22:23:23 ORACLE   360 raccolti, 260 analizzati, 3 BUY, 257 veto
-22:23:01 ORACLE   360 raccolti, 253 analizzati, 3 BUY, 250 veto
-22:22:39 ORACLE   360 raccolti, 264 analizzati, 3 BUY, 261 veto
-22:22:17 ORACLE   360 raccolti, 253 analizzati, 3 BUY, 249 veto
-22:21:55 ORACLE   360 raccolti, 254 analizzati, 3 BUY, 250 veto
-22:21:32 ORACLE   360 raccolti, 274 analizzati, 3 BUY, 271 veto
-22:21:10 ORACLE   360 raccolti, 275 analizzati, 3 BUY, 272 veto
-22:20:48 ORACLE   360 raccolti, 254 analizzati, 3 BUY, 251 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
