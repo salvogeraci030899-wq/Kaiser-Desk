@@ -1,7 +1,7 @@
 {
  "startedAt": 1795384038486,
  "runs": 456,
- "cash": 5.946454026664614,
+ "cash": 5.936946985981322,
  "positions": [],
  "journal": [
   {
@@ -599,44 +599,88 @@
    ],
    "sw": 0,
    "ep": "2yyjypQs"
+  },
+  {
+   "id": "P-0688",
+   "mint": "92tFJ6CvgCuoS1c34Qy5g3RPVRDmLyHtknMnuoYqpump",
+   "sym": "Elfball",
+   "openedAt": 1795796061759,
+   "closedAt": 1795796096461,
+   "cost": 0.11992908053329228,
+   "back": 0.11042203985,
+   "pnl": -0.009507040683292278,
+   "pct": -7.9272188538568225,
+   "mode": "paper",
+   "src": "umano",
+   "band": "500K-1M",
+   "cr": "DcXqg94mHzdMpxYemgu5scQjqcxCM2dKiMGneDVRRc5x",
+   "aid": "atp653c",
+   "reason": "Stop loss",
+   "score": 86,
+   "solUsd": 72.17430835324441,
+   "peakPct": 0,
+   "trigPct": -32.26861412475155,
+   "entryInfo": {
+    "srcs": [
+     "umano"
+    ],
+    "notes": [
+     "scelta tua"
+    ],
+    "plus": [],
+    "m": {},
+    "grok": null
+   },
+   "maePct": -32.26861412475155,
+   "age": null,
+   "rd": [
+    {
+     "t": 1795796064677,
+     "a": "B3rxfP4L",
+     "px": 0.000005461,
+     "n": 1,
+     "sp": 0
+    },
+    {
+     "t": 1795796074755,
+     "a": "B3rxfP4L",
+     "px": 0.000005461,
+     "n": 1,
+     "sp": 0
+    },
+    {
+     "t": 1795796086275,
+     "a": "B3rxfP4L",
+     "px": 0.000005461,
+     "n": 1,
+     "sp": 0
+    },
+    {
+     "t": 1795796096383,
+     "a": "B3rxfP4L",
+     "px": 0.000004372,
+     "n": 1,
+     "sp": 0
+    }
+   ],
+   "sw": 0,
+   "trig": {
+    "t": 1795796096383,
+    "reason": "Stop loss",
+    "a": "B3rxfP4L",
+    "pct": -32.3,
+    "pools": [
+     {
+      "a": "B3rxfP4L",
+      "pct": -32.3,
+      "liq": 39209
+     }
+    ]
+   },
+   "ep": "B3rxfP4L"
   }
  ],
  "signals": [
-  {
-   "t": 1795731659424,
-   "mint": "CFX1gH7CKYwqYXrfDkS2MUxJcEhs8PT63DyRA1chpump",
-   "sym": "Hoppy",
-   "score": 84,
-   "priceNative": 0.00002715
-  },
-  {
-   "t": 1795731659424,
-   "mint": "Bb38n8AVLMh9amo8qtjLvqE8nPtfs8GEsyzg1pC6pump",
-   "sym": "Cateball",
-   "score": 81,
-   "priceNative": 0.00000916
-  },
-  {
-   "t": 1795731681745,
-   "mint": "CFX1gH7CKYwqYXrfDkS2MUxJcEhs8PT63DyRA1chpump",
-   "sym": "Hoppy",
-   "score": 84,
-   "priceNative": 0.00002715
-  },
-  {
-   "t": 1795731681745,
-   "mint": "Bb38n8AVLMh9amo8qtjLvqE8nPtfs8GEsyzg1pC6pump",
-   "sym": "Cateball",
-   "score": 81,
-   "priceNative": 0.00000916
-  },
-  {
-   "t": 1795731704003,
-   "mint": "CFX1gH7CKYwqYXrfDkS2MUxJcEhs8PT63DyRA1chpump",
-   "sym": "Hoppy",
-   "score": 82,
-   "priceNative": 0.00002746
-  },
   {
    "t": 1795731704003,
    "mint": "Bb38n8AVLMh9amo8qtjLvqE8nPtfs8GEsyzg1pC6pump",
@@ -7601,36 +7645,44 @@
    "sym": "Fireball",
    "score": 64,
    "priceNative": 0.000008313
+  },
+  {
+   "t": 1795796040932,
+   "mint": "92tFJ6CvgCuoS1c34Qy5g3RPVRDmLyHtknMnuoYqpump",
+   "sym": "Elfball",
+   "score": 86,
+   "priceNative": 0.000007176
+  },
+  {
+   "t": 1795796109227,
+   "mint": "B9wbjDJ4FbHMsZmoXAkJSTAwuePaJUKbySvnK5zApump",
+   "sym": "Fireball",
+   "score": 66,
+   "priceNative": 0.000008098
+  },
+  {
+   "t": 1795796131193,
+   "mint": "B9wbjDJ4FbHMsZmoXAkJSTAwuePaJUKbySvnK5zApump",
+   "sym": "Fireball",
+   "score": 75,
+   "priceNative": 0.000008162
+  },
+  {
+   "t": 1795796153143,
+   "mint": "B9wbjDJ4FbHMsZmoXAkJSTAwuePaJUKbySvnK5zApump",
+   "sym": "Fireball",
+   "score": 76,
+   "priceNative": 0.000008985
+  },
+  {
+   "t": 1795796174933,
+   "mint": "B9wbjDJ4FbHMsZmoXAkJSTAwuePaJUKbySvnK5zApump",
+   "sym": "Fireball",
+   "score": 76,
+   "priceNative": 0.00000874
   }
  ],
  "alerts": [
-  {
-   "id": "atoyuyd",
-   "band": "500K-1M",
-   "cr": "9haWETFkhVrXeZkDk63zQmo4Lws2SxMPwQGazx9UeeFt",
-   "cline": "creatore: 1 Coin in fascia alta, 0 raddoppiate; 1 token lanciati, 0 arrivati in alto",
-   "t": 1795456309323,
-   "mint": "2pCeTXJe9WUWHCZ6DaDBbXuiDg6KEgYHD54RRzfUpump",
-   "sym": "HUANG",
-   "name": "Official Jensen Huang",
-   "score": 86,
-   "pair": "Bz7ary9PV4Ki888pUj1N7qpiVjLMmzfbUkWAb1hCM8YU",
-   "priceNative": 0.000007727,
-   "mc": 565906,
-   "liq": 53340.47,
-   "ageMin": 9.9,
-   "why": [
-    "turnover 4.6x/h",
-    "pressione in acquisto"
-   ],
-   "last": 18.2,
-   "min": -30.3,
-   "vote": "y",
-   "vAt": 1795456324039,
-   "vp": 0,
-   "p5": -6.7,
-   "p15": 18.2
-  },
   {
    "id": "atoyv3k",
    "band": "500K-1M",
@@ -9284,6 +9336,31 @@
    "min": -21.7,
    "p5": -9.8,
    "p15": -20.2
+  },
+  {
+   "id": "atp653c",
+   "band": "500K-1M",
+   "cr": "DcXqg94mHzdMpxYemgu5scQjqcxCM2dKiMGneDVRRc5x",
+   "cline": "creatore: 1 Coin in fascia alta, 0 raddoppiate; 1 token lanciati, 0 arrivati in alto",
+   "t": 1795796040932,
+   "mint": "92tFJ6CvgCuoS1c34Qy5g3RPVRDmLyHtknMnuoYqpump",
+   "sym": "Elfball",
+   "name": "Elfball",
+   "score": 86,
+   "pair": "B3rxfP4LHu3SVaEN4as3aN6xbLUXtVZF3Apz8ucLMude",
+   "priceNative": 0.000007176,
+   "mc": 517754,
+   "liq": 50841.2,
+   "ageMin": 12.2,
+   "why": [
+    "turnover 3.6x/h",
+    "pressione in acquisto"
+   ],
+   "last": -37,
+   "min": -39.6,
+   "vote": "y",
+   "vAt": 1795796056299,
+   "vp": 0
   }
  ],
  "grokLog": [],
@@ -9291,10 +9368,26 @@
   "date": "2026-11-27",
   "startEq": 5.946454026664614
  },
- "cooldownUntil": 1795726505987,
+ "cooldownUntil": 1795796396464,
  "halted": null,
- "seq": 687,
+ "seq": 688,
  "events": [
+  "16:16:14 SCRIBE   fine run · trade 18 · win 33% · P&L -0.0631 SOL · equity 5.9369 SOL",
+  "16:16:14 ORACLE   360 raccolti, 236 analizzati, 1 BUY, 234 veto",
+  "16:15:53 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 247 veto",
+  "16:15:31 ORACLE   360 raccolti, 239 analizzati, 1 BUY, 237 veto",
+  "16:15:09 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 247 veto",
+  "16:14:56 SCRIBE   chiuso P-0688 $Elfball -0.0095 SOL (-7.9%)",
+  "16:14:56 CHARON   Stop loss $Elfball vendo 100% a -32.3% -> 0.1104 SOL",
+  "16:14:46 ORACLE   360 raccolti, 238 analizzati, 0 BUY, 236 veto",
+  "16:14:24 ORACLE   360 raccolti, 239 analizzati, 0 BUY, 237 veto",
+  "16:14:21 QUARTER  BUY $Elfball 0.119 SOL score 86 impatto 0.00% (Jupiter)",
+  "16:14:00 QUARTER  SEGNALE $Elfball score 86 (semi-automatico)",
+  "16:14:00 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 251 veto",
+  "16:13:38 ORACLE   360 raccolti, 251 analizzati, 0 BUY, 249 veto",
+  "16:13:16 ORACLE   360 raccolti, 245 analizzati, 0 BUY, 243 veto",
+  "16:12:54 ORACLE   360 raccolti, 254 analizzati, 0 BUY, 252 veto",
+  "16:12:32 ORACLE   360 raccolti, 249 analizzati, 0 BUY, 247 veto",
   "16:12:11 ORACLE   360 raccolti, 242 analizzati, 0 BUY, 240 veto",
   "16:12:08 SCOUT    gecko top: HTTP 429 (riuso l'ultimo elenco)",
   "16:12:08 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)",
@@ -9578,28 +9671,12 @@
   "14:34:35 ORACLE   360 raccolti, 234 analizzati, 1 BUY, 232 veto",
   "14:34:13 ORACLE   360 raccolti, 243 analizzati, 1 BUY, 241 veto",
   "14:33:51 ORACLE   360 raccolti, 245 analizzati, 1 BUY, 243 veto",
-  "14:33:30 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 245 veto",
-  "14:33:07 ORACLE   360 raccolti, 247 analizzati, 0 BUY, 246 veto",
-  "14:32:45 ORACLE   360 raccolti, 252 analizzati, 0 BUY, 251 veto",
-  "14:32:24 ORACLE   360 raccolti, 241 analizzati, 1 BUY, 239 veto",
-  "14:32:02 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 247 veto",
-  "14:31:40 ORACLE   360 raccolti, 250 analizzati, 1 BUY, 248 veto",
-  "14:31:17 ORACLE   360 raccolti, 249 analizzati, 1 BUY, 247 veto",
-  "14:30:56 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 258 veto",
-  "14:30:34 ORACLE   360 raccolti, 267 analizzati, 1 BUY, 265 veto",
-  "14:30:12 ORACLE   360 raccolti, 254 analizzati, 1 BUY, 252 veto",
-  "14:29:49 ORACLE   360 raccolti, 268 analizzati, 1 BUY, 266 veto",
-  "14:29:28 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 263 veto",
-  "14:29:06 ORACLE   360 raccolti, 263 analizzati, 1 BUY, 261 veto",
-  "14:28:44 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 269 veto",
-  "14:28:22 QUARTER  SEGNALE $TWORBIT score 86 (semi-automatico)",
-  "14:28:22 ORACLE   360 raccolti, 269 analizzati, 1 BUY, 267 veto",
-  "14:28:00 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 266 veto"
+  "14:33:30 ORACLE   360 raccolti, 247 analizzati, 1 BUY, 245 veto"
  ],
  "capital": 6,
  "resetId": "C-0120",
  "realTried": {},
- "lastEntryAt": 1795726182428,
+ "lastEntryAt": 1795796061759,
  "lab": {
   "done": [
    {
@@ -21408,10 +21485,6 @@
  "lastDaily": "2026-11-26",
  "cal": [
   {
-   "t": 1795242770227,
-   "g": 0.5
-  },
-  {
    "t": 1795251842471,
    "g": 26.7
   },
@@ -21806,6 +21879,10 @@
   {
    "t": 1795726205985,
    "g": -9.5
+  },
+  {
+   "t": 1795796096461,
+   "g": 40.3
   }
  ],
  "snipeNotified": 2,
@@ -22006,8 +22083,8 @@
    ]
   },
   "2026-11-27": {
-   "c": 13,
-   "nv": 9,
+   "c": 14,
+   "nv": 10,
    "m": [
     "AGazYig7A8Co6ZapAPterBRLitdiP6AAaWiPH8jWLend",
     "3Tg6YnNrfPdFfsY14MaNsDMWLseAyrUDS3myJtbaJN6f",
@@ -22021,7 +22098,8 @@
     "5cK4FgqeLJhsc5jYQ9KCL8kJajWXcrzcqkfowSgb1YZ6",
     "dbwTBVwggm5uxEfsCkQrTwn3gmBu4RoEomPCDfTpump",
     "GXpQZkap4ExgQTTX4SXfETV7nt1YZKEZSakqos3hpump",
-    "B9wbjDJ4FbHMsZmoXAkJSTAwuePaJUKbySvnK5zApump"
+    "B9wbjDJ4FbHMsZmoXAkJSTAwuePaJUKbySvnK5zApump",
+    "92tFJ6CvgCuoS1c34Qy5g3RPVRDmLyHtknMnuoYqpump"
    ],
    "q": [
     "9TKbd3VFaMSXsEAicD9JVQWpWwAoLi4fSgWmZL2cpump",
@@ -22032,7 +22110,8 @@
     "14t9tMVV7Y9j2LH5HYf7F3H3WsAkmLooQvqcyWUupump",
     "dbwTBVwggm5uxEfsCkQrTwn3gmBu4RoEomPCDfTpump",
     "GXpQZkap4ExgQTTX4SXfETV7nt1YZKEZSakqos3hpump",
-    "B9wbjDJ4FbHMsZmoXAkJSTAwuePaJUKbySvnK5zApump"
+    "B9wbjDJ4FbHMsZmoXAkJSTAwuePaJUKbySvnK5zApump",
+    "92tFJ6CvgCuoS1c34Qy5g3RPVRDmLyHtknMnuoYqpump"
    ]
   }
  },
