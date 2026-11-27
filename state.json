@@ -1,6 +1,6 @@
 {
  "startedAt": 1795384038486,
- "runs": 454,
+ "runs": 455,
  "cash": 5.946454026664614,
  "positions": [],
  "journal": [
@@ -602,27 +602,6 @@
   }
  ],
  "signals": [
-  {
-   "t": 1795731438846,
-   "mint": "CFX1gH7CKYwqYXrfDkS2MUxJcEhs8PT63DyRA1chpump",
-   "sym": "Hoppy",
-   "score": 85,
-   "priceNative": 0.00002476
-  },
-  {
-   "t": 1795731438846,
-   "mint": "Bb38n8AVLMh9amo8qtjLvqE8nPtfs8GEsyzg1pC6pump",
-   "sym": "Cateball",
-   "score": 81,
-   "priceNative": 0.000007849
-  },
-  {
-   "t": 1795731461096,
-   "mint": "Bb38n8AVLMh9amo8qtjLvqE8nPtfs8GEsyzg1pC6pump",
-   "sym": "Cateball",
-   "score": 81,
-   "priceNative": 0.00001087
-  },
   {
    "t": 1795731461096,
    "mint": "CFX1gH7CKYwqYXrfDkS2MUxJcEhs8PT63DyRA1chpump",
@@ -7601,6 +7580,27 @@
    "sym": "TWORBIT",
    "score": 81,
    "priceNative": 0.000007158
+  },
+  {
+   "t": 1795790336429,
+   "mint": "GXpQZkap4ExgQTTX4SXfETV7nt1YZKEZSakqos3hpump",
+   "sym": "TWORBIT",
+   "score": 86,
+   "priceNative": 0.000006926
+  },
+  {
+   "t": 1795790358569,
+   "mint": "GXpQZkap4ExgQTTX4SXfETV7nt1YZKEZSakqos3hpump",
+   "sym": "TWORBIT",
+   "score": 86,
+   "priceNative": 0.000006926
+  },
+  {
+   "t": 1795790379925,
+   "mint": "GXpQZkap4ExgQTTX4SXfETV7nt1YZKEZSakqos3hpump",
+   "sym": "TWORBIT",
+   "score": 86,
+   "priceNative": 0.000006926
   }
  ],
  "alerts": [
@@ -9310,8 +9310,8 @@
     "turnover 9.3x/h",
     "pressione in acquisto"
    ],
-   "last": -4.8,
-   "min": -4.8,
+   "last": -4.4,
+   "min": -11.5,
    "p5": -1.1
   }
  ],
@@ -9324,6 +9324,26 @@
  "halted": null,
  "seq": 687,
  "events": [
+  "14:41:08 ORACLE   360 raccolti, 261 analizzati, 0 BUY, 260 veto",
+  "14:40:46 ORACLE   356 raccolti, 250 analizzati, 0 BUY, 249 veto",
+  "14:40:24 ORACLE   352 raccolti, 247 analizzati, 0 BUY, 246 veto",
+  "14:40:01 ORACLE   327 raccolti, 226 analizzati, 0 BUY, 225 veto",
+  "14:39:39 ORACLE   318 raccolti, 214 analizzati, 1 BUY, 212 veto",
+  "14:39:18 ORACLE   313 raccolti, 213 analizzati, 1 BUY, 211 veto",
+  "14:38:56 ORACLE   288 raccolti, 196 analizzati, 1 BUY, 194 veto",
+  "14:38:33 ORACLE   279 raccolti, 176 analizzati, 0 BUY, 175 veto",
+  "14:38:12 ORACLE   273 raccolti, 176 analizzati, 0 BUY, 175 veto",
+  "14:38:11 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)",
+  "14:37:50 ORACLE   235 raccolti, 153 analizzati, 0 BUY, 152 veto",
+  "14:37:29 ORACLE   229 raccolti, 145 analizzati, 0 BUY, 144 veto",
+  "14:37:08 ORACLE   226 raccolti, 143 analizzati, 0 BUY, 142 veto",
+  "14:36:46 ORACLE   196 raccolti, 124 analizzati, 0 BUY, 123 veto",
+  "14:36:24 ORACLE   188 raccolti, 113 analizzati, 0 BUY, 112 veto",
+  "14:36:03 ORACLE   184 raccolti, 113 analizzati, 0 BUY, 112 veto",
+  "14:36:00 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com",
+  "14:36:00 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 40000→50000, minAgeMin 5→1, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 50000000→2000000, gmgnInterval 1h→1m, maxAgeH 720→72, minTxH1 40→50, entryGapSec 60→120, semiAuto spento→avvisi e paper",
+  "14:36:00 KAISER   run #455 · 0 posizioni · equity 5.9465 SOL · GMGN spenta (nessuna chiave) · Grok off",
+  "14:36:00 CREATORI memoria: 280806 lanci, 49633 creatori, 84 Coin in fascia alta",
   "14:35:36 SCRIBE   fine run · trade 17 · win 35% · P&L -0.0535 SOL · equity 5.9465 SOL",
   "14:35:18 ORACLE   360 raccolti, 229 analizzati, 0 BUY, 228 veto",
   "14:34:56 ORACLE   360 raccolti, 236 analizzati, 0 BUY, 235 veto",
@@ -9603,27 +9623,7 @@
   "12:57:09 ORACLE   230 raccolti, 175 analizzati, 0 BUY, 174 veto",
   "12:56:47 ORACLE   229 raccolti, 172 analizzati, 0 BUY, 171 veto",
   "12:56:27 ORACLE   224 raccolti, 163 analizzati, 0 BUY, 162 veto",
-  "12:56:05 ORACLE   208 raccolti, 158 analizzati, 0 BUY, 157 veto",
-  "12:55:43 ORACLE   202 raccolti, 149 analizzati, 0 BUY, 148 veto",
-  "12:55:22 ORACLE   200 raccolti, 149 analizzati, 0 BUY, 148 veto",
-  "12:55:21 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com",
-  "12:55:20 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 40000→50000, minAgeMin 5→1, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 50000000→2000000, gmgnInterval 1h→1m, maxAgeH 720→72, minTxH1 40→50, entryGapSec 60→120, semiAuto spento→avvisi e paper",
-  "12:55:20 KAISER   run #453 · 0 posizioni · equity 5.9465 SOL · GMGN spenta (nessuna chiave) · Grok off",
-  "12:55:20 CREATORI memoria: 278481 lanci, 49175 creatori, 83 Coin in fascia alta",
-  "12:55:00 SCRIBE   fine run · trade 17 · win 35% · P&L -0.0535 SOL · equity 5.9465 SOL",
-  "12:54:55 ORACLE   360 raccolti, 289 analizzati, 0 BUY, 288 veto",
-  "12:54:34 ORACLE   360 raccolti, 295 analizzati, 0 BUY, 294 veto",
-  "12:54:12 ORACLE   360 raccolti, 300 analizzati, 0 BUY, 299 veto",
-  "12:53:51 ORACLE   360 raccolti, 291 analizzati, 0 BUY, 290 veto",
-  "12:53:29 ORACLE   360 raccolti, 299 analizzati, 0 BUY, 298 veto",
-  "12:53:08 ORACLE   360 raccolti, 298 analizzati, 0 BUY, 297 veto",
-  "12:52:46 ORACLE   360 raccolti, 296 analizzati, 0 BUY, 295 veto",
-  "12:52:25 ORACLE   360 raccolti, 304 analizzati, 0 BUY, 303 veto",
-  "12:52:04 ORACLE   360 raccolti, 298 analizzati, 0 BUY, 297 veto",
-  "12:51:42 ORACLE   360 raccolti, 290 analizzati, 0 BUY, 289 veto",
-  "12:51:21 ORACLE   360 raccolti, 289 analizzati, 0 BUY, 288 veto",
-  "12:50:59 ORACLE   360 raccolti, 291 analizzati, 0 BUY, 290 veto",
-  "12:50:38 ORACLE   360 raccolti, 283 analizzati, 0 BUY, 282 veto"
+  "12:56:05 ORACLE   208 raccolti, 158 analizzati, 0 BUY, 157 veto"
  ],
  "capital": 6,
  "resetId": "C-0120",
