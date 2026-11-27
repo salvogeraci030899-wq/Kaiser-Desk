@@ -603,20 +603,6 @@
  ],
  "signals": [
   {
-   "t": 1795731240289,
-   "mint": "Bb38n8AVLMh9amo8qtjLvqE8nPtfs8GEsyzg1pC6pump",
-   "sym": "Cateball",
-   "score": 86,
-   "priceNative": 0.00001277
-  },
-  {
-   "t": 1795731240289,
-   "mint": "CFX1gH7CKYwqYXrfDkS2MUxJcEhs8PT63DyRA1chpump",
-   "sym": "Hoppy",
-   "score": 85,
-   "priceNative": 0.00002498
-  },
-  {
    "t": 1795731262099,
    "mint": "Bb38n8AVLMh9amo8qtjLvqE8nPtfs8GEsyzg1pC6pump",
    "sym": "Cateball",
@@ -7601,33 +7587,23 @@
    "sym": "SpaceXCoin",
    "score": 74,
    "priceNative": 0.00001484
+  },
+  {
+   "t": 1795765481078,
+   "mint": "G2XqmSc8vJpLLwaLVXUeNkxsrhVT8vQ3Pje8MqeDpump",
+   "sym": "SpaceXCoin",
+   "score": 79,
+   "priceNative": 0.00001515
+  },
+  {
+   "t": 1795765503479,
+   "mint": "G2XqmSc8vJpLLwaLVXUeNkxsrhVT8vQ3Pje8MqeDpump",
+   "sym": "SpaceXCoin",
+   "score": 79,
+   "priceNative": 0.00001515
   }
  ],
  "alerts": [
-  {
-   "id": "atoy499",
-   "band": "1M-2M",
-   "cr": "6QG57nVx5it2cuGpT55tHg7fJAkCLs8nNLqW44ATXYpM",
-   "cline": "creatore: 1 Coin in fascia alta, 0 raddoppiate; 1 token lanciati, 0 arrivati in alto",
-   "t": 1795421709244,
-   "mint": "Jd3NCawdFiDNWpLiTtsMqoeoBMjC1ZQMrMScRVzpump",
-   "sym": "NOHR",
-   "name": "NO HUMAN",
-   "score": 68,
-   "pair": "FBqXu5ezPbBv4vKTFD83QPerYGcotcvqzrtAbSXHQs2m",
-   "priceNative": 0.00002792,
-   "mc": 1999362,
-   "liq": 105206.78,
-   "ageMin": 2454.9,
-   "why": [],
-   "last": -8.6,
-   "min": -8.6,
-   "vote": "y",
-   "vAt": 1795421769599,
-   "vp": 1.6,
-   "p5": -1.1,
-   "p15": -8.6
-  },
   {
    "id": "atoygwl",
    "band": "500K-1M",
@@ -9319,6 +9295,27 @@
    "min": -4.1,
    "p5": 6.3,
    "p15": -0.5
+  },
+  {
+   "id": "atp5hkx",
+   "band": "500K-1M",
+   "cr": "Fw1tqZ6nhwQ5bjjc3EJ7jfBzHSH8nyoD5Qes78j7gS5p",
+   "cline": "creatore: 1 Coin in fascia alta, 0 raddoppiate; 2 token lanciati, 0 arrivati in alto",
+   "t": 1795765569546,
+   "mint": "14t9tMVV7Y9j2LH5HYf7F3H3WsAkmLooQvqcyWUupump",
+   "sym": "ATX",
+   "name": "ATX",
+   "score": 57,
+   "pair": "D3mW97fgAJhKTRBpEYMdebsBZwB2W9XCrmKDkMqsqRqd",
+   "priceNative": 0.00000988,
+   "mc": 719396,
+   "liq": 59501.81,
+   "ageMin": 9.1,
+   "why": [
+    "pressione in acquisto"
+   ],
+   "last": 8.3,
+   "min": 0
   }
  ],
  "grokLog": [],
@@ -9330,6 +9327,21 @@
  "halted": null,
  "seq": 687,
  "events": [
+  "07:49:31 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 273 veto",
+  "07:49:08 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 273 veto",
+  "07:48:46 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 271 veto",
+  "07:48:24 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 275 veto",
+  "07:48:02 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 273 veto",
+  "07:47:39 ORACLE   360 raccolti, 278 analizzati, 0 BUY, 276 veto",
+  "07:47:17 ORACLE   360 raccolti, 272 analizzati, 0 BUY, 270 veto",
+  "07:46:55 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 272 veto",
+  "07:46:32 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 274 veto",
+  "07:46:09 QUARTER  SEGNALE $ATX score 57 (semi-automatico)",
+  "07:46:09 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 271 veto",
+  "07:45:47 ORACLE   360 raccolti, 271 analizzati, 0 BUY, 269 veto",
+  "07:45:25 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 277 veto",
+  "07:45:03 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 276 veto",
+  "07:44:41 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 274 veto",
   "07:44:18 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 277 veto",
   "07:43:55 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 280 veto",
   "07:43:33 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 278 veto",
@@ -9614,22 +9626,7 @@
   "06:04:04 ORACLE   360 raccolti, 292 analizzati, 0 BUY, 291 veto",
   "06:03:41 ORACLE   360 raccolti, 288 analizzati, 0 BUY, 287 veto",
   "06:03:19 ORACLE   360 raccolti, 292 analizzati, 0 BUY, 291 veto",
-  "06:02:57 ORACLE   360 raccolti, 292 analizzati, 0 BUY, 291 veto",
-  "06:02:35 ORACLE   360 raccolti, 291 analizzati, 0 BUY, 290 veto",
-  "06:02:12 ORACLE   360 raccolti, 294 analizzati, 0 BUY, 293 veto",
-  "06:01:50 ORACLE   360 raccolti, 291 analizzati, 0 BUY, 290 veto",
-  "06:01:28 ORACLE   360 raccolti, 285 analizzati, 0 BUY, 284 veto",
-  "06:01:06 ORACLE   360 raccolti, 292 analizzati, 0 BUY, 291 veto",
-  "06:00:44 ORACLE   360 raccolti, 288 analizzati, 0 BUY, 287 veto",
-  "06:00:22 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 279 veto",
-  "05:59:59 ORACLE   360 raccolti, 295 analizzati, 0 BUY, 294 veto",
-  "05:59:38 ORACLE   360 raccolti, 294 analizzati, 0 BUY, 293 veto",
-  "05:59:16 ORACLE   360 raccolti, 291 analizzati, 0 BUY, 290 veto",
-  "05:59:14 SCOUT    gecko trend: HTTP 429 (riuso l'ultimo elenco)",
-  "05:58:54 ORACLE   360 raccolti, 293 analizzati, 0 BUY, 292 veto",
-  "05:58:31 ORACLE   360 raccolti, 291 analizzati, 0 BUY, 290 veto",
-  "05:58:10 ORACLE   360 raccolti, 290 analizzati, 0 BUY, 289 veto",
-  "05:57:47 ORACLE   360 raccolti, 290 analizzati, 0 BUY, 289 veto"
+  "06:02:57 ORACLE   360 raccolti, 292 analizzati, 0 BUY, 291 veto"
  ],
  "capital": 6,
  "resetId": "C-0120",
@@ -22042,7 +22039,7 @@
   },
   "2026-11-27": {
    "c": 9,
-   "nv": 5,
+   "nv": 6,
    "m": [
     "AGazYig7A8Co6ZapAPterBRLitdiP6AAaWiPH8jWLend",
     "3Tg6YnNrfPdFfsY14MaNsDMWLseAyrUDS3myJtbaJN6f",
@@ -22059,7 +22056,8 @@
     "G2ZDG8q3QMYk3KR58JFFYsvaTk4Gy94UzMo7Re7spump",
     "2QChKk7EvS3K9ezWu7Qs7981Qd2aJz4FEPce1HBZpump",
     "4obGGXRMVyqpWZr12UzyaBdNkgdYwz2GiY8enmd2pump",
-    "G2XqmSc8vJpLLwaLVXUeNkxsrhVT8vQ3Pje8MqeDpump"
+    "G2XqmSc8vJpLLwaLVXUeNkxsrhVT8vQ3Pje8MqeDpump",
+    "14t9tMVV7Y9j2LH5HYf7F3H3WsAkmLooQvqcyWUupump"
    ]
   }
  },
