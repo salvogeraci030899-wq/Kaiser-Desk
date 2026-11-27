@@ -1,6 +1,6 @@
 {
  "startedAt": 1795384038486,
- "runs": 448,
+ "runs": 449,
  "cash": 5.946454026664614,
  "positions": [],
  "journal": [
@@ -7605,30 +7605,6 @@
  ],
  "alerts": [
   {
-   "id": "atoygwl",
-   "band": "500K-1M",
-   "cr": "A7HB4xzKdHEmd6JxyNwQtX6H74afCaAB4XqqxwW83ddJ",
-   "cline": "creatore: 1 Coin in fascia alta, 0 raddoppiate",
-   "t": 1795438101244,
-   "mint": "zcRvzm7gAfYGde8gRwaSYxNryL47SjLVUQLAf1bdoor",
-   "sym": "SIDOOR",
-   "name": "SIDOOR",
-   "score": 64,
-   "pair": "3peugE6Fm4fpaVvrV2KBFN3nvLbCGEhGoUXDDxAHuscR",
-   "priceNative": 0.000007542,
-   "mc": 503756,
-   "liq": 57188.05,
-   "ageMin": 2401.8,
-   "why": [],
-   "last": -10,
-   "min": -18.2,
-   "vote": "y",
-   "vAt": 1795438117447,
-   "vp": 0,
-   "p5": -15.1,
-   "p15": -10
-  },
-  {
    "id": "atoynp3",
    "band": "500K-1M",
    "cr": "ZXezTa6K1KEtbZwodqu6ScPWraVVdu1Y1AjotR5se5p",
@@ -9318,6 +9294,27 @@
    "min": 0,
    "p5": 11.8,
    "p15": 31.8
+  },
+  {
+   "id": "atp5mtg",
+   "band": "500K-1M",
+   "cr": "42jDLrff5XHbMhvCioLfQRLoCt3ooLqvgNSS9GwYV7X2",
+   "cline": "creatore: 1 Coin in fascia alta, 0 raddoppiate; 1 token lanciati, 0 arrivati in alto",
+   "t": 1795772356118,
+   "mint": "dbwTBVwggm5uxEfsCkQrTwn3gmBu4RoEomPCDfTpump",
+   "sym": "NVIDIA",
+   "name": "NVIDIA Newsroom",
+   "score": 57,
+   "pair": "EwBYS39LVoXqcDeUf7CiMshp6evXRUoEFBVwu2NVGjj3",
+   "priceNative": 0.00001163,
+   "mc": 856830,
+   "liq": 65413.41,
+   "ageMin": 7.9,
+   "why": [
+    "pressione in acquisto"
+   ],
+   "last": 0,
+   "min": 0
   }
  ],
  "grokLog": [],
@@ -9329,6 +9326,26 @@
  "halted": null,
  "seq": 687,
  "events": [
+  "09:39:16 QUARTER  SEGNALE $NVIDIA score 57 (semi-automatico)",
+  "09:39:16 ORACLE   336 raccolti, 274 analizzati, 0 BUY, 272 veto",
+  "09:38:54 ORACLE   328 raccolti, 261 analizzati, 0 BUY, 259 veto",
+  "09:38:32 ORACLE   325 raccolti, 255 analizzati, 0 BUY, 253 veto",
+  "09:38:10 ORACLE   296 raccolti, 234 analizzati, 0 BUY, 232 veto",
+  "09:37:48 ORACLE   290 raccolti, 220 analizzati, 0 BUY, 218 veto",
+  "09:37:27 ORACLE   288 raccolti, 220 analizzati, 0 BUY, 218 veto",
+  "09:37:05 ORACLE   268 raccolti, 212 analizzati, 0 BUY, 210 veto",
+  "09:36:44 ORACLE   259 raccolti, 191 analizzati, 0 BUY, 189 veto",
+  "09:36:23 ORACLE   258 raccolti, 191 analizzati, 0 BUY, 189 veto",
+  "09:36:01 ORACLE   242 raccolti, 182 analizzati, 0 BUY, 180 veto",
+  "09:35:40 ORACLE   235 raccolti, 172 analizzati, 0 BUY, 170 veto",
+  "09:35:19 ORACLE   232 raccolti, 167 analizzati, 0 BUY, 165 veto",
+  "09:34:57 ORACLE   198 raccolti, 146 analizzati, 0 BUY, 144 veto",
+  "09:34:35 ORACLE   192 raccolti, 136 analizzati, 0 BUY, 134 veto",
+  "09:34:14 ORACLE   191 raccolti, 136 analizzati, 0 BUY, 134 veto",
+  "09:34:13 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 40000→50000, minAgeMin 5→1, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 50000000→2000000, gmgnInterval 1h→1m, maxAgeH 720→72, minTxH1 40→50, entryGapSec 60→120, semiAuto spento→avvisi e paper",
+  "09:34:12 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com",
+  "09:34:12 KAISER   run #449 · 0 posizioni · equity 5.9465 SOL · GMGN spenta (nessuna chiave) · Grok off",
+  "09:34:12 CREATORI memoria: 273974 lanci, 48499 creatori, 83 Coin in fascia alta",
   "09:33:58 SCRIBE   fine run · trade 17 · win 35% · P&L -0.0535 SOL · equity 5.9465 SOL",
   "09:33:47 ORACLE   360 raccolti, 288 analizzati, 0 BUY, 286 veto",
   "09:33:25 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 278 veto",
@@ -9608,27 +9625,7 @@
   "07:55:52 ORACLE   273 raccolti, 202 analizzati, 0 BUY, 201 veto",
   "07:55:30 ORACLE   256 raccolti, 196 analizzati, 0 BUY, 195 veto",
   "07:55:08 ORACLE   251 raccolti, 190 analizzati, 0 BUY, 189 veto",
-  "07:54:46 ORACLE   247 raccolti, 187 analizzati, 0 BUY, 186 veto",
-  "07:54:25 ORACLE   225 raccolti, 174 analizzati, 0 BUY, 173 veto",
-  "07:54:03 ORACLE   220 raccolti, 163 analizzati, 0 BUY, 162 veto",
-  "07:53:42 ORACLE   218 raccolti, 163 analizzati, 0 BUY, 162 veto",
-  "07:53:40 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com",
-  "07:53:40 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 40000→50000, minAgeMin 5→1, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 50000000→2000000, gmgnInterval 1h→1m, maxAgeH 720→72, minTxH1 40→50, entryGapSec 60→120, semiAuto spento→avvisi e paper",
-  "07:53:40 KAISER   run #447 · 0 posizioni · equity 5.9465 SOL · GMGN spenta (nessuna chiave) · Grok off",
-  "07:53:40 CREATORI memoria: 272140 lanci, 48243 creatori, 81 Coin in fascia alta",
-  "07:53:25 SCRIBE   fine run · trade 17 · win 35% · P&L -0.0535 SOL · equity 5.9465 SOL",
-  "07:53:13 ORACLE   360 raccolti, 284 analizzati, 0 BUY, 282 veto",
-  "07:52:51 ORACLE   360 raccolti, 282 analizzati, 0 BUY, 280 veto",
-  "07:52:29 ORACLE   360 raccolti, 281 analizzati, 0 BUY, 279 veto",
-  "07:52:07 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 278 veto",
-  "07:51:44 ORACLE   360 raccolti, 285 analizzati, 0 BUY, 283 veto",
-  "07:51:22 ORACLE   360 raccolti, 273 analizzati, 0 BUY, 271 veto",
-  "07:50:59 ORACLE   360 raccolti, 281 analizzati, 0 BUY, 279 veto",
-  "07:50:37 ORACLE   360 raccolti, 283 analizzati, 0 BUY, 281 veto",
-  "07:50:15 ORACLE   360 raccolti, 270 analizzati, 0 BUY, 268 veto",
-  "07:49:53 ORACLE   360 raccolti, 274 analizzati, 0 BUY, 272 veto",
-  "07:49:31 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 273 veto",
-  "07:49:08 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 273 veto"
+  "07:54:46 ORACLE   247 raccolti, 187 analizzati, 0 BUY, 186 veto"
  ],
  "capital": 6,
  "resetId": "C-0120",
@@ -22041,7 +22038,7 @@
   },
   "2026-11-27": {
    "c": 11,
-   "nv": 6,
+   "nv": 7,
    "m": [
     "AGazYig7A8Co6ZapAPterBRLitdiP6AAaWiPH8jWLend",
     "3Tg6YnNrfPdFfsY14MaNsDMWLseAyrUDS3myJtbaJN6f",
@@ -22061,7 +22058,8 @@
     "2QChKk7EvS3K9ezWu7Qs7981Qd2aJz4FEPce1HBZpump",
     "4obGGXRMVyqpWZr12UzyaBdNkgdYwz2GiY8enmd2pump",
     "G2XqmSc8vJpLLwaLVXUeNkxsrhVT8vQ3Pje8MqeDpump",
-    "14t9tMVV7Y9j2LH5HYf7F3H3WsAkmLooQvqcyWUupump"
+    "14t9tMVV7Y9j2LH5HYf7F3H3WsAkmLooQvqcyWUupump",
+    "dbwTBVwggm5uxEfsCkQrTwn3gmBu4RoEomPCDfTpump"
    ]
   }
  },
