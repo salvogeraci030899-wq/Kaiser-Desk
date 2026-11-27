@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-27 03:57 UTC · in esecuzione da 4.3 giorni · 442 run
+Aggiornato: 2026-11-27 04:02 UTC · in esecuzione da 4.3 giorni · 442 run
 
 | | |
 |---|---|
@@ -63,16 +63,16 @@ Diagnosi dei prezzi: 1 trade chiusi con le letture registrate, 0 con almeno un c
 
 ## Coin di fascia alta e ricerca sui creatori
 Il Radar guarda le Coin da 500000 dollari di market cap in su. Per ognuna si risale al creatore e si registra la market cap: una Coin e' «raddoppiata» se supera il doppio della prima lettura in fascia. Il profilo del creatore compare nell'avviso.
-Memoria: 267666 lanci noti, 47672 creatori; 79 Coin in fascia alta viste (65 creatori), 27 raddoppiate (21 creatori). Creatore trovato: tabella 84, richiesta esterna 0, sconosciuto 0.
+Memoria: 267771 lanci noti, 47689 creatori; 80 Coin in fascia alta viste (66 creatori), 27 raddoppiate (21 creatori). Creatore trovato: tabella 112, richiesta esterna 0, sconosciuto 0.
 Richieste esterne per il creatore: nessuna ancora.
 
 | Fascia | Avvisi | Prendo / Scarto | Tuoi trade chiusi | Netto medio |
 |---|---|---|---|---|
-| 500K-1M | 54 | 16 / 7 | 16 | -1.5% |
+| 500K-1M | 54 | 16 / 6 | 16 | -1.5% |
 | 1M-2M | 6 | 2 / 3 | 1 | -19.6% |
 | 2M+ | 0 | 0 / 0 | 0 | n/d |
 
-Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, per giorno: 11-24: 18 / 13; 11-25: 32 / 24; 11-26: 20 / 20; 11-27: 7 / 4.
+Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, per giorno: 11-24: 18 / 13; 11-25: 32 / 24; 11-26: 20 / 20; 11-27: 8 / 5.
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -104,6 +104,20 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 
 ## Ultimi eventi
 ```
+04:02:29 ORACLE   360 raccolti, 281 analizzati, 2 BUY, 278 veto
+04:02:06 QUARTER  SEGNALE $SpaceXCoin score 83 (semi-automatico)
+04:02:06 ORACLE   360 raccolti, 290 analizzati, 2 BUY, 287 veto
+04:01:42 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 279 veto
+04:01:20 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 279 veto
+04:00:58 ORACLE   360 raccolti, 288 analizzati, 1 BUY, 286 veto
+04:00:35 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 282 veto
+04:00:13 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 282 veto
+03:59:51 ORACLE   360 raccolti, 286 analizzati, 1 BUY, 284 veto
+03:59:28 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 282 veto
+03:59:06 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 275 veto
+03:58:43 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 280 veto
+03:58:21 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 280 veto
+03:58:00 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 280 veto
 03:57:37 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 277 veto
 03:57:15 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 280 veto
 03:56:53 ORACLE   360 raccolti, 276 analizzati, 1 BUY, 274 veto
@@ -130,20 +144,6 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 03:49:04 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 272 veto
 03:48:41 ORACLE   360 raccolti, 289 analizzati, 1 BUY, 287 veto
 03:48:18 ORACLE   360 raccolti, 290 analizzati, 1 BUY, 288 veto
-03:47:56 ORACLE   360 raccolti, 286 analizzati, 1 BUY, 284 veto
-03:47:34 ORACLE   354 raccolti, 279 analizzati, 1 BUY, 277 veto
-03:47:11 ORACLE   348 raccolti, 267 analizzati, 1 BUY, 265 veto
-03:46:48 ORACLE   342 raccolti, 262 analizzati, 1 BUY, 260 veto
-03:46:25 ORACLE   324 raccolti, 258 analizzati, 1 BUY, 256 veto
-03:46:03 ORACLE   314 raccolti, 238 analizzati, 1 BUY, 236 veto
-03:45:41 ORACLE   310 raccolti, 232 analizzati, 1 BUY, 230 veto
-03:45:19 ORACLE   284 raccolti, 222 analizzati, 1 BUY, 220 veto
-03:44:57 ORACLE   276 raccolti, 212 analizzati, 1 BUY, 210 veto
-03:44:36 ORACLE   271 raccolti, 203 analizzati, 1 BUY, 201 veto
-03:44:14 ORACLE   255 raccolti, 196 analizzati, 1 BUY, 194 veto
-03:43:52 ORACLE   249 raccolti, 182 analizzati, 1 BUY, 180 veto
-03:43:31 ORACLE   244 raccolti, 176 analizzati, 1 BUY, 174 veto
-03:43:09 ORACLE   217 raccolti, 160 analizzati, 1 BUY, 158 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
