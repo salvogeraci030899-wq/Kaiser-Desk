@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-26 23:56 UTC · in esecuzione da 4.1 giorni · 437 run
+Aggiornato: 2026-11-27 00:02 UTC · in esecuzione da 4.1 giorni · 437 run
 
 | | |
 |---|---|
@@ -63,7 +63,7 @@ Diagnosi dei prezzi: 1 trade chiusi con le letture registrate, 0 con almeno un c
 
 ## Coin di fascia alta e ricerca sui creatori
 Il Radar guarda le Coin da 500000 dollari di market cap in su. Per ognuna si risale al creatore e si registra la market cap: una Coin e' «raddoppiata» se supera il doppio della prima lettura in fascia. Il profilo del creatore compare nell'avviso.
-Memoria: 261048 lanci noti, 46639 creatori; 75 Coin in fascia alta viste (62 creatori), 25 raddoppiate (20 creatori). Creatore trovato: tabella 161, richiesta esterna 0, sconosciuto 0.
+Memoria: 261236 lanci noti, 46658 creatori; 75 Coin in fascia alta viste (62 creatori), 25 raddoppiate (20 creatori). Creatore trovato: tabella 177, richiesta esterna 0, sconosciuto 0.
 Richieste esterne per il creatore: nessuna ancora.
 
 | Fascia | Avvisi | Prendo / Scarto | Tuoi trade chiusi | Netto medio |
@@ -72,7 +72,7 @@ Richieste esterne per il creatore: nessuna ancora.
 | 1M-2M | 8 | 2 / 3 | 1 | -19.6% |
 | 2M+ | 0 | 0 / 0 | 0 | n/d |
 
-Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, per giorno: 11-23: 61 / 58; 11-24: 18 / 13; 11-25: 32 / 24; 11-26: 20 / 20.
+Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, per giorno: 11-24: 18 / 13; 11-25: 32 / 24; 11-26: 20 / 20; 11-27: 2 / 0.
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -104,6 +104,20 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 
 ## Ultimi eventi
 ```
+00:02:01 ORACLE   360 raccolti, 277 analizzati, 0 BUY, 275 veto
+00:01:38 ORACLE   360 raccolti, 288 analizzati, 0 BUY, 286 veto
+00:01:16 ORACLE   360 raccolti, 293 analizzati, 0 BUY, 292 veto
+00:00:54 ORACLE   360 raccolti, 295 analizzati, 0 BUY, 294 veto
+00:00:31 ORACLE   360 raccolti, 297 analizzati, 0 BUY, 296 veto
+00:00:08 ORACLE   360 raccolti, 299 analizzati, 0 BUY, 298 veto
+23:59:45 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 279 veto
+23:59:23 ORACLE   360 raccolti, 290 analizzati, 0 BUY, 289 veto
+23:59:02 ORACLE   360 raccolti, 292 analizzati, 0 BUY, 291 veto
+23:58:40 ORACLE   360 raccolti, 276 analizzati, 0 BUY, 275 veto
+23:58:19 ORACLE   360 raccolti, 284 analizzati, 0 BUY, 283 veto
+23:57:57 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 278 veto
+23:57:35 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 266 veto
+23:57:13 ORACLE   360 raccolti, 281 analizzati, 0 BUY, 280 veto
 23:56:52 ORACLE   360 raccolti, 279 analizzati, 0 BUY, 278 veto
 23:56:29 ORACLE   360 raccolti, 267 analizzati, 0 BUY, 265 veto
 23:56:07 ORACLE   360 raccolti, 280 analizzati, 0 BUY, 278 veto
@@ -130,20 +144,6 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 23:48:24 ORACLE   360 raccolti, 300 analizzati, 0 BUY, 298 veto
 23:48:02 ORACLE   360 raccolti, 297 analizzati, 0 BUY, 295 veto
 23:47:40 ORACLE   360 raccolti, 290 analizzati, 0 BUY, 288 veto
-23:47:18 ORACLE   360 raccolti, 296 analizzati, 0 BUY, 294 veto
-23:46:56 ORACLE   360 raccolti, 291 analizzati, 0 BUY, 289 veto
-23:46:34 ORACLE   360 raccolti, 298 analizzati, 0 BUY, 296 veto
-23:46:12 ORACLE   360 raccolti, 300 analizzati, 0 BUY, 298 veto
-23:45:50 ORACLE   360 raccolti, 296 analizzati, 0 BUY, 294 veto
-23:45:28 ORACLE   360 raccolti, 290 analizzati, 0 BUY, 288 veto
-23:45:27 SCOUT    gecko nuovi: HTTP 429 (riuso l'ultimo elenco)
-23:45:06 ORACLE   360 raccolti, 303 analizzati, 0 BUY, 301 veto
-23:44:42 ORACLE   360 raccolti, 309 analizzati, 0 BUY, 307 veto
-23:44:21 ORACLE   360 raccolti, 299 analizzati, 0 BUY, 297 veto
-23:43:58 ORACLE   360 raccolti, 302 analizzati, 0 BUY, 300 veto
-23:43:36 ORACLE   360 raccolti, 308 analizzati, 0 BUY, 306 veto
-23:43:14 ORACLE   360 raccolti, 303 analizzati, 0 BUY, 301 veto
-23:42:52 ORACLE   360 raccolti, 311 analizzati, 0 BUY, 309 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
