@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-28 05:45 UTC · in esecuzione da 5.3 giorni · 473 run
+Aggiornato: 2026-11-28 05:50 UTC · in esecuzione da 5.3 giorni · 473 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-28 05:45 UTC · in esecuzione da 5.3 giorni · 473 run
 | Cassa | 5.9369 SOL |
 | Trade chiusi | 18 |
 | Win rate | 33% |
-| P&L realizzato | -0.0631 SOL (~$-4.48) |
+| P&L realizzato | -0.0631 SOL (~$-4.49) |
 | Media vincite / perdite | +24.6% / -16.6% |
 | Profit factor | 0.74 |
 | Circuit breaker | no |
@@ -63,7 +63,7 @@ Diagnosi dei prezzi: 2 trade chiusi con le letture registrate, 0 con almeno un c
 
 ## Coin di fascia alta e ricerca sui creatori
 Il Radar guarda le Coin da 500000 dollari di market cap in su. Per ognuna si risale al creatore e si registra la market cap: una Coin e' «raddoppiata» se supera il doppio della prima lettura in fascia. Il profilo del creatore compare nell'avviso.
-Memoria: 308800 lanci noti, 54338 creatori; 97 Coin in fascia alta viste (82 creatori), 34 raddoppiate (27 creatori). Creatore trovato: tabella 15, richiesta esterna 0, sconosciuto 0.
+Memoria: 308897 lanci noti, 54345 creatori; 97 Coin in fascia alta viste (82 creatori), 34 raddoppiate (27 creatori). Creatore trovato: tabella 30, richiesta esterna 0, sconosciuto 0.
 Richieste esterne per il creatore: nessuna ancora.
 
 | Fascia | Avvisi | Prendo / Scarto | Tuoi trade chiusi | Netto medio |
@@ -105,6 +105,21 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 
 ## Ultimi eventi
 ```
+05:50:50 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 282 veto
+05:50:29 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 280 veto
+05:50:08 ORACLE   360 raccolti, 265 analizzati, 1 BUY, 264 veto
+05:49:46 ORACLE   360 raccolti, 270 analizzati, 1 BUY, 269 veto
+05:49:24 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 272 veto
+05:49:03 ORACLE   360 raccolti, 260 analizzati, 1 BUY, 259 veto
+05:48:42 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 276 veto
+05:48:21 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 276 veto
+05:48:00 ORACLE   360 raccolti, 274 analizzati, 1 BUY, 273 veto
+05:47:38 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 272 veto
+05:47:17 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 271 veto
+05:46:56 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 270 veto
+05:46:35 ORACLE   360 raccolti, 272 analizzati, 1 BUY, 271 veto
+05:46:14 ORACLE   353 raccolti, 264 analizzati, 1 BUY, 263 veto
+05:45:52 ORACLE   352 raccolti, 263 analizzati, 1 BUY, 262 veto
 05:45:31 ORACLE   331 raccolti, 256 analizzati, 1 BUY, 255 veto
 05:45:09 ORACLE   326 raccolti, 249 analizzati, 1 BUY, 248 veto
 05:44:48 ORACLE   324 raccolti, 246 analizzati, 1 BUY, 245 veto
@@ -130,21 +145,6 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 05:39:22 ORACLE   360 raccolti, 294 analizzati, 1 BUY, 293 veto
 05:39:01 ORACLE   360 raccolti, 290 analizzati, 1 BUY, 289 veto
 05:38:39 ORACLE   360 raccolti, 293 analizzati, 1 BUY, 292 veto
-05:38:17 ORACLE   360 raccolti, 292 analizzati, 1 BUY, 291 veto
-05:37:55 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 283 veto
-05:37:32 ORACLE   360 raccolti, 296 analizzati, 1 BUY, 295 veto
-05:37:11 ORACLE   360 raccolti, 294 analizzati, 1 BUY, 293 veto
-05:36:49 ORACLE   360 raccolti, 293 analizzati, 1 BUY, 292 veto
-05:36:26 ORACLE   360 raccolti, 292 analizzati, 1 BUY, 291 veto
-05:36:04 ORACLE   360 raccolti, 285 analizzati, 1 BUY, 284 veto
-05:35:42 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 283 veto
-05:35:20 ORACLE   360 raccolti, 289 analizzati, 1 BUY, 288 veto
-05:34:57 ORACLE   360 raccolti, 293 analizzati, 1 BUY, 292 veto
-05:34:36 ORACLE   360 raccolti, 289 analizzati, 1 BUY, 288 veto
-05:34:13 ORACLE   360 raccolti, 293 analizzati, 1 BUY, 292 veto
-05:33:52 ORACLE   360 raccolti, 288 analizzati, 1 BUY, 287 veto
-05:33:30 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 281 veto
-05:33:08 ORACLE   360 raccolti, 290 analizzati, 1 BUY, 289 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
