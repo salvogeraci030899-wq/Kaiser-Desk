@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-28 13:03 UTC · in esecuzione da 5.6 giorni · 481 run
+Aggiornato: 2026-11-28 13:08 UTC · in esecuzione da 5.6 giorni · 481 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-28 13:03 UTC · in esecuzione da 5.6 giorni · 481 run
 | Cassa | 5.9317 SOL |
 | Trade chiusi | 19 |
 | Win rate | 32% |
-| P&L realizzato | -0.0683 SOL (~$-4.84) |
+| P&L realizzato | -0.0683 SOL (~$-4.83) |
 | Media vincite / perdite | +24.6% / -15.6% |
 | Profit factor | 0.72 |
 | Circuit breaker | no |
@@ -63,7 +63,7 @@ Diagnosi dei prezzi: 3 trade chiusi con le letture registrate, 0 con almeno un c
 
 ## Coin di fascia alta e ricerca sui creatori
 Il Radar guarda le Coin da 500000 dollari di market cap in su. Per ognuna si risale al creatore e si registra la market cap: una Coin e' «raddoppiata» se supera il doppio della prima lettura in fascia. Il profilo del creatore compare nell'avviso.
-Memoria: 316429 lanci noti, 55506 creatori; 102 Coin in fascia alta viste (87 creatori), 37 raddoppiate (30 creatori). Creatore trovato: tabella 118, richiesta esterna 1, sconosciuto 0.
+Memoria: 316539 lanci noti, 55523 creatori; 102 Coin in fascia alta viste (87 creatori), 37 raddoppiate (30 creatori). Creatore trovato: tabella 136, richiesta esterna 1, sconosciuto 0.
 Richieste esterne per il creatore: pump v3: 0 riuscite, 1 fallite (ultimo errore: HTTP 404); pump v1: 0 riuscite, 1 fallite (ultimo errore: HTTP 530); jupiter: 1 riuscite, 0 fallite.
 
 | Fascia | Avvisi | Prendo / Scarto | Tuoi trade chiusi | Netto medio |
@@ -106,6 +106,20 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 
 ## Ultimi eventi
 ```
+13:07:55 ORACLE   360 raccolti, 294 analizzati, 1 BUY, 293 veto
+13:07:33 ORACLE   360 raccolti, 293 analizzati, 1 BUY, 292 veto
+13:07:12 ORACLE   360 raccolti, 292 analizzati, 1 BUY, 291 veto
+13:06:50 ORACLE   360 raccolti, 291 analizzati, 1 BUY, 290 veto
+13:06:28 ORACLE   360 raccolti, 295 analizzati, 1 BUY, 294 veto
+13:06:07 ORACLE   360 raccolti, 294 analizzati, 2 BUY, 292 veto
+13:05:45 ORACLE   360 raccolti, 286 analizzati, 2 BUY, 284 veto
+13:05:22 ORACLE   360 raccolti, 294 analizzati, 1 BUY, 293 veto
+13:05:01 ORACLE   360 raccolti, 293 analizzati, 1 BUY, 292 veto
+13:04:40 ORACLE   360 raccolti, 289 analizzati, 2 BUY, 287 veto
+13:04:18 ORACLE   360 raccolti, 290 analizzati, 2 BUY, 288 veto
+13:03:55 ORACLE   360 raccolti, 294 analizzati, 1 BUY, 293 veto
+13:03:34 ORACLE   360 raccolti, 289 analizzati, 1 BUY, 288 veto
+13:03:12 ORACLE   360 raccolti, 297 analizzati, 1 BUY, 296 veto
 13:02:50 ORACLE   360 raccolti, 297 analizzati, 1 BUY, 296 veto
 13:02:29 ORACLE   360 raccolti, 294 analizzati, 1 BUY, 293 veto
 13:02:07 ORACLE   360 raccolti, 299 analizzati, 1 BUY, 298 veto
@@ -132,20 +146,6 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 12:54:54 ORACLE   360 raccolti, 302 analizzati, 1 BUY, 301 veto
 12:54:32 ORACLE   360 raccolti, 306 analizzati, 1 BUY, 305 veto
 12:54:10 ORACLE   360 raccolti, 306 analizzati, 1 BUY, 305 veto
-12:53:48 ORACLE   360 raccolti, 304 analizzati, 1 BUY, 303 veto
-12:53:26 ORACLE   360 raccolti, 309 analizzati, 1 BUY, 308 veto
-12:53:05 ORACLE   360 raccolti, 307 analizzati, 1 BUY, 306 veto
-12:52:43 ORACLE   360 raccolti, 302 analizzati, 1 BUY, 301 veto
-12:52:22 ORACLE   360 raccolti, 306 analizzati, 1 BUY, 305 veto
-12:52:00 ORACLE   360 raccolti, 303 analizzati, 1 BUY, 302 veto
-12:51:39 ORACLE   360 raccolti, 299 analizzati, 1 BUY, 298 veto
-12:51:17 ORACLE   360 raccolti, 302 analizzati, 1 BUY, 301 veto
-12:50:56 ORACLE   360 raccolti, 298 analizzati, 1 BUY, 297 veto
-12:50:34 ORACLE   360 raccolti, 299 analizzati, 1 BUY, 298 veto
-12:50:13 ORACLE   360 raccolti, 301 analizzati, 1 BUY, 300 veto
-12:49:51 ORACLE   360 raccolti, 301 analizzati, 1 BUY, 300 veto
-12:49:30 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 280 veto
-12:49:08 ORACLE   360 raccolti, 290 analizzati, 1 BUY, 289 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
