@@ -1,20 +1,20 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-28 07:31 UTC · in esecuzione da 5.4 giorni · 475 run
+Aggiornato: 2026-11-28 07:36 UTC · in esecuzione da 5.4 giorni · 475 run
 
 | | |
 |---|---|
-| Equity | **6.0503 SOL** (+0.8% dal capitale iniziale di 6 SOL) |
-| Cassa | 5.8172 SOL |
+| Equity | **6.0703 SOL** (+1.2% dal capitale iniziale di 6 SOL) |
+| Cassa | 5.9317 SOL |
 | Trade chiusi | 18 |
 | Win rate | 33% |
-| P&L realizzato | -0.0631 SOL (~$-4.48) |
+| P&L realizzato | -0.0631 SOL (~$-4.49) |
 | Media vincite / perdite | +24.6% / -16.6% |
 | Profit factor | 0.74 |
 | Circuit breaker | no |
 
 ## Posizioni aperte
-- **$Claude** P-0689 · 0.119 SOL · +96.3% · resta 100% · [grafico](https://dexscreener.com/solana/2q8LH13JmRLysiq8W8BmvQbVthZDYWqDPnShABXkrhvx)
+- **$Claude** P-0689 · 0.119 SOL · +133.4% · resta 50% · [grafico](https://dexscreener.com/solana/2q8LH13JmRLysiq8W8BmvQbVthZDYWqDPnShABXkrhvx)
 
 ## Test ingresso rapido (solo paper, quotazioni Jupiter)
 Ipotesi: comprare 5 secondi dopo la creazione, tenere 30 secondi, vendere. Un token su 3, 0.05 SOL a operazione. Serie 2 dal 2026-11-22 11:02 UTC.
@@ -63,7 +63,7 @@ Diagnosi dei prezzi: 2 trade chiusi con le letture registrate, 0 con almeno un c
 
 ## Coin di fascia alta e ricerca sui creatori
 Il Radar guarda le Coin da 500000 dollari di market cap in su. Per ognuna si risale al creatore e si registra la market cap: una Coin e' «raddoppiata» se supera il doppio della prima lettura in fascia. Il profilo del creatore compare nell'avviso.
-Memoria: 310678 lanci noti, 54578 creatori; 100 Coin in fascia alta viste (85 creatori), 35 raddoppiate (28 creatori). Creatore trovato: tabella 52, richiesta esterna 0, sconosciuto 0.
+Memoria: 310781 lanci noti, 54588 creatori; 100 Coin in fascia alta viste (85 creatori), 36 raddoppiate (29 creatori). Creatore trovato: tabella 80, richiesta esterna 0, sconosciuto 0.
 Richieste esterne per il creatore: nessuna ancora.
 
 | Fascia | Avvisi | Prendo / Scarto | Tuoi trade chiusi | Netto medio |
@@ -105,6 +105,21 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 
 ## Ultimi eventi
 ```
+07:36:18 ORACLE   360 raccolti, 300 analizzati, 1 BUY, 298 veto
+07:35:55 ORACLE   360 raccolti, 300 analizzati, 1 BUY, 298 veto
+07:35:33 ORACLE   360 raccolti, 300 analizzati, 1 BUY, 298 veto
+07:35:12 ORACLE   360 raccolti, 301 analizzati, 1 BUY, 299 veto
+07:34:50 ORACLE   360 raccolti, 299 analizzati, 1 BUY, 297 veto
+07:34:29 ORACLE   360 raccolti, 299 analizzati, 1 BUY, 297 veto
+07:34:07 ORACLE   360 raccolti, 293 analizzati, 1 BUY, 291 veto
+07:33:44 ORACLE   360 raccolti, 297 analizzati, 1 BUY, 295 veto
+07:33:23 ORACLE   360 raccolti, 295 analizzati, 1 BUY, 293 veto
+07:33:00 ORACLE   360 raccolti, 295 analizzati, 1 BUY, 293 veto
+07:32:39 CHARON   TP1 $Claude vendo 50% a 122.2% -> 0.1145 SOL
+07:32:39 ORACLE   360 raccolti, 293 analizzati, 1 BUY, 291 veto
+07:32:17 ORACLE   360 raccolti, 292 analizzati, 1 BUY, 290 veto
+07:31:56 ORACLE   360 raccolti, 286 analizzati, 1 BUY, 284 veto
+07:31:33 ORACLE   360 raccolti, 303 analizzati, 1 BUY, 301 veto
 07:31:10 ORACLE   360 raccolti, 299 analizzati, 1 BUY, 297 veto
 07:30:49 ORACLE   360 raccolti, 298 analizzati, 1 BUY, 296 veto
 07:30:27 ORACLE   360 raccolti, 304 analizzati, 1 BUY, 302 veto
@@ -130,21 +145,6 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 07:23:34 QUARTER  BUY $Claude 0.119 SOL score 57 impatto 0.80% (Jupiter)
 07:23:13 QUARTER  SEGNALE $Claude score 57 (semi-automatico)
 07:23:13 ORACLE   247 raccolti, 202 analizzati, 1 BUY, 200 veto
-07:22:52 ORACLE   232 raccolti, 189 analizzati, 1 BUY, 188 veto
-07:22:31 ORACLE   227 raccolti, 186 analizzati, 1 BUY, 185 veto
-07:22:09 ORACLE   224 raccolti, 183 analizzati, 1 BUY, 182 veto
-07:21:48 ORACLE   210 raccolti, 171 analizzati, 1 BUY, 170 veto
-07:21:27 ORACLE   206 raccolti, 163 analizzati, 1 BUY, 162 veto
-07:21:06 ORACLE   205 raccolti, 157 analizzati, 1 BUY, 156 veto
-07:21:03 SCOUT    token giovani: collegato a RPC mainnet.helius-rpc.com
-07:21:03 KAISER   parametri dall'app: scanSec 30→15, minScore 68→63, sizePct 5→2, maxPos 3→1, slippageBps 300→200, prioritySOL 0.0005→0.001, cooldownMin 10→5, sl 25→30, tp1 40→60, tp1Sell 50→100, timeStopMin 45→5, minLiq 40000→50000, minAgeMin 5→1, srcGmgnTrenches false→true, rugLiqDrop 45→30, realApprove true→false, maxMcap 50000000→2000000, gmgnInterval 1h→1m, maxAgeH 720→72, minTxH1 40→50, entryGapSec 60→120, semiAuto spento→avvisi e paper
-07:21:02 KAISER   run #475 · 0 posizioni · equity 5.9369 SOL · GMGN spenta (nessuna chiave) · Grok off
-07:21:02 CREATORI memoria: 310490 lanci, 54549 creatori, 99 Coin in fascia alta
-07:20:48 SCRIBE   fine run · trade 18 · win 33% · P&L -0.0631 SOL · equity 5.9369 SOL
-07:20:34 ORACLE   360 raccolti, 305 analizzati, 1 BUY, 304 veto
-07:20:11 ORACLE   360 raccolti, 304 analizzati, 1 BUY, 303 veto
-07:19:49 ORACLE   360 raccolti, 302 analizzati, 1 BUY, 301 veto
-07:19:27 ORACLE   360 raccolti, 308 analizzati, 1 BUY, 307 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
