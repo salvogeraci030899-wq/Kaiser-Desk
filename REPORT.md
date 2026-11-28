@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-28 00:04 UTC · in esecuzione da 5.1 giorni · 466 run
+Aggiornato: 2026-11-28 00:09 UTC · in esecuzione da 5.1 giorni · 466 run
 
 | | |
 |---|---|
@@ -63,7 +63,7 @@ Diagnosi dei prezzi: 2 trade chiusi con le letture registrate, 0 con almeno un c
 
 ## Coin di fascia alta e ricerca sui creatori
 Il Radar guarda le Coin da 500000 dollari di market cap in su. Per ognuna si risale al creatore e si registra la market cap: una Coin e' «raddoppiata» se supera il doppio della prima lettura in fascia. Il profilo del creatore compare nell'avviso.
-Memoria: 300440 lanci noti, 53090 creatori; 93 Coin in fascia alta viste (78 creatori), 33 raddoppiate (26 creatori). Creatore trovato: tabella 96, richiesta esterna 0, sconosciuto 0.
+Memoria: 300619 lanci noti, 53131 creatori; 93 Coin in fascia alta viste (78 creatori), 33 raddoppiate (26 creatori). Creatore trovato: tabella 137, richiesta esterna 0, sconosciuto 0.
 Richieste esterne per il creatore: nessuna ancora.
 
 | Fascia | Avvisi | Prendo / Scarto | Tuoi trade chiusi | Netto medio |
@@ -72,7 +72,7 @@ Richieste esterne per il creatore: nessuna ancora.
 | 1M-2M | 5 | 1 / 3 | 1 | -19.6% |
 | 2M+ | 0 | 0 / 0 | 0 | n/d |
 
-Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, per giorno: 11-25: 32 / 24; 11-26: 20 / 20; 11-27: 21 / 18; 11-28: 2 / 2.
+Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, per giorno: 11-25: 32 / 24; 11-26: 20 / 20; 11-27: 21 / 18; 11-28: 3 / 3.
 
 ## Uscite per motivo
 | Motivo | Trade | P&L SOL |
@@ -105,6 +105,20 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 
 ## Ultimi eventi
 ```
+00:09:14 ORACLE   360 raccolti, 285 analizzati, 2 BUY, 282 veto
+00:08:51 ORACLE   360 raccolti, 289 analizzati, 2 BUY, 286 veto
+00:08:29 ORACLE   360 raccolti, 262 analizzati, 2 BUY, 259 veto
+00:08:07 ORACLE   360 raccolti, 271 analizzati, 2 BUY, 268 veto
+00:07:45 ORACLE   360 raccolti, 285 analizzati, 2 BUY, 282 veto
+00:07:22 ORACLE   360 raccolti, 287 analizzati, 2 BUY, 284 veto
+00:07:00 ORACLE   360 raccolti, 292 analizzati, 2 BUY, 289 veto
+00:06:37 ORACLE   360 raccolti, 298 analizzati, 2 BUY, 295 veto
+00:06:14 ORACLE   360 raccolti, 284 analizzati, 2 BUY, 281 veto
+00:05:52 ORACLE   360 raccolti, 283 analizzati, 2 BUY, 280 veto
+00:05:29 ORACLE   360 raccolti, 300 analizzati, 2 BUY, 297 veto
+00:05:16 ORACLE   360 raccolti, 277 analizzati, 2 BUY, 274 veto
+00:04:51 ORACLE   360 raccolti, 292 analizzati, 2 BUY, 289 veto
+00:04:28 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 270 veto
 00:04:07 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 274 veto
 00:03:43 ORACLE   360 raccolti, 282 analizzati, 2 BUY, 280 veto
 00:03:21 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 274 veto
@@ -131,20 +145,6 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 23:55:45 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 278 veto
 23:55:23 ORACLE   360 raccolti, 269 analizzati, 2 BUY, 267 veto
 23:55:01 ORACLE   360 raccolti, 284 analizzati, 2 BUY, 282 veto
-23:54:39 ORACLE   360 raccolti, 288 analizzati, 2 BUY, 286 veto
-23:54:18 ORACLE   360 raccolti, 280 analizzati, 2 BUY, 278 veto
-23:53:56 ORACLE   360 raccolti, 282 analizzati, 2 BUY, 280 veto
-23:53:34 ORACLE   360 raccolti, 275 analizzati, 2 BUY, 273 veto
-23:53:12 ORACLE   360 raccolti, 276 analizzati, 2 BUY, 274 veto
-23:52:50 ORACLE   360 raccolti, 272 analizzati, 2 BUY, 270 veto
-23:52:28 ORACLE   354 raccolti, 276 analizzati, 2 BUY, 274 veto
-23:52:06 ORACLE   341 raccolti, 271 analizzati, 2 BUY, 268 veto
-23:51:44 ORACLE   320 raccolti, 255 analizzati, 2 BUY, 252 veto
-23:51:22 ORACLE   312 raccolti, 236 analizzati, 2 BUY, 233 veto
-23:51:01 ORACLE   306 raccolti, 235 analizzati, 2 BUY, 232 veto
-23:50:38 ORACLE   281 raccolti, 221 analizzati, 2 BUY, 218 veto
-23:50:16 ORACLE   273 raccolti, 203 analizzati, 2 BUY, 200 veto
-23:49:55 ORACLE   264 raccolti, 199 analizzati, 2 BUY, 196 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
