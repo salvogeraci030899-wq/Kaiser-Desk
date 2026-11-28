@@ -244,3 +244,10 @@ test('Journal solo uomo: la scheda Motivi di uscita confronta uscite a mano e us
   const html = fs.readFileSync(require.resolve('../index.html'), 'utf8');
   assert.match(html, /row\('Chiusi a mano', man\)/); assert.match(html, /row\('Chiusi dalle regole', aut\)/); assert.match(html, /row\('di cui stop loss', stp\)/); assert.match(html, /\} else if \(only\) \{\n    \/\/ Solo uomo: le uscite a mano/);
 });
+
+test('registro e riquadri: i Prendo la cui scheda avviso e\' uscita dalle ultime 60 restano contati (si leggono dal Journal)', () => {
+  const T = 1_700_000_000_000, j = [{ src: 'umano', aid: 'a_old01', mint: 'M1', sym: 'OLD', band: '1M-2M', pct: -8, pnl: -0.01, reason: 'Stop loss', openedAt: T, closedAt: T + 9000 }];
+  const d = Semi.decisions([], j, [], 10); assert.equal(d.length, 1); assert.equal(d[0].sym, 'OLD'); assert.equal(d[0].vote, 'y');
+  assert.equal(Semi.decisionTotals([], j, []).y, 1, 'conta nei Presi chiusi x/50 anche senza l\'avviso');
+  const al = [{ id: 'a_old01', t: T, mint: 'M1', sym: 'OLD', vote: 'y' }]; assert.equal(Semi.decisions(al, j, [], 10).length, 1, 'se l\'avviso c\'e\' ancora non si conta due volte');
+});

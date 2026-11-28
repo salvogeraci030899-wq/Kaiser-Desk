@@ -182,6 +182,9 @@ function decisions(alerts, journal, positions, n) {
       else out.push({ ...base, status: s ? 'aperto' : 'senza simulazione', pct: null, pnl: null, reason: s ? 'in corso' : 'senza simulazione', at: a.vAt || a.t });
     }
   }
+  // i trade tuoi la cui scheda dell'avviso e' uscita dall'elenco (se ne tengono solo gli ultimi 60) restano nel registro: si leggono dal Journal
+  const have = new Set((alerts || []).map((a) => a.id));
+  for (const j of journal || []) if (j.src === 'umano' && !(j.aid && have.has(j.aid))) out.push({ id: j.aid || '', t: j.openedAt, mint: j.mint, sym: j.sym, band: j.band || '', vote: 'y', status: 'chiuso', pct: +Number(j.pct).toFixed(1), pnl: +Number(j.pnl).toFixed(4), reason: j.reason, at: j.closedAt });
   return out.sort((x, y) => (y.at || y.t) - (x.at || x.t)).slice(0, n || 60);
 }
 
