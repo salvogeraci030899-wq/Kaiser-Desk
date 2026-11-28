@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-28 09:21 UTC · in esecuzione da 5.5 giorni · 477 run
+Aggiornato: 2026-11-28 09:26 UTC · in esecuzione da 5.5 giorni · 477 run
 
 | | |
 |---|---|
@@ -57,13 +57,13 @@ Diagnosi dei prezzi: 3 trade chiusi con le letture registrate, 0 con almeno un c
 |---|---|
 | Esito | **in corso** |
 | Prendo chiusi | 19 di 50, netto medio -2.9% (intervallo -14.0% / +8.2%), in utile 31.6% |
-| Scarto simulati chiusi | 5, netto medio -27.1% (intervallo -50.4% / -3.9%), in utile 20%; ancora aperti 1 |
-| Prendo meno Scarto (limite inferiore) | +24.2% (-1.5%) |
+| Scarto simulati chiusi | 6, netto medio -39.3% (intervallo -69.7% / -8.8%), in utile 16.7%; ancora aperti 0 |
+| Prendo meno Scarto (limite inferiore) | +36.4% (+4.0%) |
 | Avvisi senza risposta | 43 |
 
 ## Coin di fascia alta e ricerca sui creatori
 Il Radar guarda le Coin da 500000 dollari di market cap in su. Per ognuna si risale al creatore e si registra la market cap: una Coin e' «raddoppiata» se supera il doppio della prima lettura in fascia. Il profilo del creatore compare nell'avviso.
-Memoria: 312537 lanci noti, 54865 creatori; 101 Coin in fascia alta viste (86 creatori), 37 raddoppiate (30 creatori). Creatore trovato: tabella 57, richiesta esterna 0, sconosciuto 0.
+Memoria: 312613 lanci noti, 54876 creatori; 101 Coin in fascia alta viste (86 creatori), 37 raddoppiate (30 creatori). Creatore trovato: tabella 71, richiesta esterna 0, sconosciuto 0.
 Richieste esterne per il creatore: nessuna ancora.
 
 | Fascia | Avvisi | Prendo / Scarto | Tuoi trade chiusi | Netto medio |
@@ -106,6 +106,20 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 
 ## Ultimi eventi
 ```
+09:26:55 ORACLE   360 raccolti, 308 analizzati, 0 BUY, 307 veto
+09:26:33 ORACLE   360 raccolti, 307 analizzati, 0 BUY, 306 veto
+09:26:12 ORACLE   360 raccolti, 308 analizzati, 1 BUY, 307 veto
+09:25:51 ORACLE   360 raccolti, 309 analizzati, 1 BUY, 308 veto
+09:25:29 ORACLE   360 raccolti, 306 analizzati, 1 BUY, 305 veto
+09:25:08 ORACLE   360 raccolti, 305 analizzati, 1 BUY, 304 veto
+09:24:46 ORACLE   360 raccolti, 309 analizzati, 0 BUY, 308 veto
+09:24:24 ORACLE   360 raccolti, 309 analizzati, 0 BUY, 308 veto
+09:24:02 ORACLE   360 raccolti, 308 analizzati, 1 BUY, 307 veto
+09:23:40 ORACLE   360 raccolti, 307 analizzati, 1 BUY, 306 veto
+09:23:19 ORACLE   360 raccolti, 304 analizzati, 1 BUY, 303 veto
+09:22:57 ORACLE   360 raccolti, 306 analizzati, 1 BUY, 305 veto
+09:22:36 ORACLE   360 raccolti, 308 analizzati, 1 BUY, 307 veto
+09:22:14 ORACLE   360 raccolti, 304 analizzati, 1 BUY, 303 veto
 09:21:52 ORACLE   360 raccolti, 307 analizzati, 0 BUY, 306 veto
 09:21:30 ORACLE   360 raccolti, 301 analizzati, 0 BUY, 300 veto
 09:21:09 ORACLE   360 raccolti, 298 analizzati, 0 BUY, 297 veto
@@ -132,20 +146,6 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 09:13:32 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 283 veto
 09:13:10 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 283 veto
 09:12:48 ORACLE   360 raccolti, 285 analizzati, 1 BUY, 284 veto
-09:12:27 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 282 veto
-09:12:06 ORACLE   360 raccolti, 286 analizzati, 1 BUY, 285 veto
-09:11:43 ORACLE   360 raccolti, 287 analizzati, 1 BUY, 286 veto
-09:11:21 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 279 veto
-09:10:59 ORACLE   360 raccolti, 288 analizzati, 1 BUY, 287 veto
-09:10:38 ORACLE   360 raccolti, 290 analizzati, 1 BUY, 289 veto
-09:10:16 ORACLE   360 raccolti, 289 analizzati, 1 BUY, 288 veto
-09:09:54 ORACLE   359 raccolti, 288 analizzati, 1 BUY, 287 veto
-09:09:32 ORACLE   355 raccolti, 288 analizzati, 1 BUY, 287 veto
-09:09:11 ORACLE   354 raccolti, 278 analizzati, 1 BUY, 277 veto
-09:08:49 ORACLE   338 raccolti, 274 analizzati, 1 BUY, 273 veto
-09:08:27 ORACLE   337 raccolti, 272 analizzati, 1 BUY, 271 veto
-09:08:06 ORACLE   335 raccolti, 267 analizzati, 1 BUY, 266 veto
-09:07:44 ORACLE   329 raccolti, 262 analizzati, 1 BUY, 261 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
