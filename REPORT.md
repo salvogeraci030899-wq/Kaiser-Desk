@@ -1,6 +1,6 @@
 # KAISER · report paper trading
 
-Aggiornato: 2026-11-28 15:24 UTC · in esecuzione da 5.7 giorni · 484 run
+Aggiornato: 2026-11-28 15:29 UTC · in esecuzione da 5.7 giorni · 484 run
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@ Aggiornato: 2026-11-28 15:24 UTC · in esecuzione da 5.7 giorni · 484 run
 | Cassa | 5.9317 SOL |
 | Trade chiusi | 19 |
 | Win rate | 32% |
-| P&L realizzato | -0.0683 SOL (~$-4.83) |
+| P&L realizzato | -0.0683 SOL (~$-4.82) |
 | Media vincite / perdite | +24.6% / -15.6% |
 | Profit factor | 0.72 |
 | Circuit breaker | no |
@@ -59,11 +59,11 @@ Diagnosi dei prezzi: 3 trade chiusi con le letture registrate, 0 con almeno un c
 | Prendo chiusi | 19 di 50, netto medio -2.9% (intervallo -14.0% / +8.2%), in utile 31.6% |
 | Scarto simulati chiusi | 6, netto medio -39.3% (intervallo -69.7% / -8.8%), in utile 16.7%; ancora aperti 0 |
 | Prendo meno Scarto (limite inferiore) | +36.4% (+4.0%) |
-| Avvisi senza risposta | 43 |
+| Avvisi senza risposta | 44 |
 
 ## Coin di fascia alta e ricerca sui creatori
 Il Radar guarda le Coin da 500000 dollari di market cap in su. Per ognuna si risale al creatore e si registra la market cap: una Coin e' «raddoppiata» se supera il doppio della prima lettura in fascia. Il profilo del creatore compare nell'avviso.
-Memoria: 320000 lanci noti, 56158 creatori; 103 Coin in fascia alta viste (87 creatori), 37 raddoppiate (30 creatori). Creatore trovato: tabella 85, richiesta esterna 0, sconosciuto 0.
+Memoria: 320139 lanci noti, 56190 creatori; 103 Coin in fascia alta viste (87 creatori), 37 raddoppiate (30 creatori). Creatore trovato: tabella 98, richiesta esterna 0, sconosciuto 0.
 Richieste esterne per il creatore: nessuna ancora.
 
 | Fascia | Avvisi | Prendo / Scarto | Tuoi trade chiusi | Netto medio |
@@ -106,6 +106,19 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 
 ## Ultimi eventi
 ```
+15:29:28 ORACLE   360 raccolti, 285 analizzati, 0 BUY, 284 veto
+15:29:00 ORACLE   360 raccolti, 286 analizzati, 0 BUY, 285 veto
+15:28:23 ORACLE   360 raccolti, 285 analizzati, 1 BUY, 284 veto
+15:28:00 ORACLE   360 raccolti, 285 analizzati, 1 BUY, 284 veto
+15:27:38 ORACLE   360 raccolti, 284 analizzati, 1 BUY, 283 veto
+15:27:16 ORACLE   360 raccolti, 286 analizzati, 1 BUY, 285 veto
+15:26:54 ORACLE   360 raccolti, 291 analizzati, 1 BUY, 290 veto
+15:26:32 ORACLE   360 raccolti, 290 analizzati, 1 BUY, 289 veto
+15:26:10 ORACLE   360 raccolti, 289 analizzati, 1 BUY, 288 veto
+15:25:48 ORACLE   360 raccolti, 296 analizzati, 1 BUY, 295 veto
+15:25:25 ORACLE   360 raccolti, 287 analizzati, 1 BUY, 286 veto
+15:25:03 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 278 veto
+15:24:42 ORACLE   360 raccolti, 300 analizzati, 1 BUY, 299 veto
 15:24:19 ORACLE   360 raccolti, 299 analizzati, 1 BUY, 298 veto
 15:23:57 ORACLE   360 raccolti, 293 analizzati, 1 BUY, 292 veto
 15:23:35 ORACLE   360 raccolti, 299 analizzati, 1 BUY, 298 veto
@@ -133,19 +146,6 @@ Coin di fascia alta viste (diverse) e con punteggio sufficiente per l'avviso, pe
 15:15:49 ORACLE   360 raccolti, 273 analizzati, 1 BUY, 272 veto
 15:15:27 ORACLE   360 raccolti, 277 analizzati, 1 BUY, 276 veto
 15:15:04 ORACLE   360 raccolti, 271 analizzati, 1 BUY, 270 veto
-15:14:42 ORACLE   360 raccolti, 280 analizzati, 1 BUY, 279 veto
-15:14:20 ORACLE   360 raccolti, 283 analizzati, 1 BUY, 282 veto
-15:13:58 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 280 veto
-15:13:35 ORACLE   360 raccolti, 281 analizzati, 1 BUY, 280 veto
-15:13:13 ORACLE   360 raccolti, 279 analizzati, 1 BUY, 278 veto
-15:13:01 ORACLE   360 raccolti, 275 analizzati, 0 BUY, 274 veto
-15:12:34 ORACLE   360 raccolti, 289 analizzati, 0 BUY, 288 veto
-15:12:05 ORACLE   360 raccolti, 288 analizzati, 0 BUY, 286 veto
-15:11:34 QUARTER  SEGNALE $Bedlington score 79 (semi-automatico)
-15:11:34 ORACLE   360 raccolti, 285 analizzati, 1 BUY, 283 veto
-15:11:10 ORACLE   360 raccolti, 286 analizzati, 1 BUY, 285 veto
-15:10:47 ORACLE   360 raccolti, 287 analizzati, 1 BUY, 286 veto
-15:10:25 ORACLE   360 raccolti, 282 analizzati, 1 BUY, 281 veto
 ```
 
 Regole attive: config.json su questo branch. Solo paper trading.
